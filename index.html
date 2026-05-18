@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOYD TERMINAL — The Gate of Nyandor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Cinzel:wght@700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --void-black: #0a0a0f;
+    --void-purple: #6b21a8;
+    --cyan-glow: #00f5d4;
+    --gold: #ffd700;
+    --dim: #4a4a5a;
+  }
+  
+  body {
+    background: var(--void-black);
+    color: var(--cyan-glow);
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Scanline effect */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 245, 212, 0.03) 2px,
+      rgba(0, 245, 212, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* Glitch animation */
+  @keyframes glitch {
+    0%, 90%, 100% { transform: none; opacity: 1; }
+    91% { transform: translate(-2px, 1px) skew(-1deg); opacity: 0.8; }
+    92% { transform: translate(3px, -1px) skew(1deg); opacity: 0.9; }
+    93% { transform: translate(-1px, 2px); opacity: 0.7; }
+  }
+
+  @keyframes flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96% { opacity: 0.6; }
+    97% { opacity: 0.9; }
+    98% { opacity: 0.4; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 5px var(--cyan-glow), 0 0 10px var(--cyan-glow); }
+    50% { box-shadow: 0 0 15px var(--cyan-glow), 0 0 30px var(--cyan-glow); }
+  }
+
+  /* Login Screen */
+  #login-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: flicker 4s infinite;
+  }
+
+  .login-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3em;
+    color: var(--void-purple);
+    text-shadow: 0 0 20px var(--void-purple), 0 0 40px var(--void-purple);
+    margin-bottom: 10px;
+    animation: glitch 5s infinite;
+  }
+
+  .login-subtitle {
+    color: var(--dim);
+    font-size: 0.9em;
+    margin-bottom: 40px;
+  }
+
+  .login-box {
+    background: rgba(107, 33, 168, 0.1);
+    border: 1px solid var(--void-purple);
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+  }
+
+  .login-box label {
+    display: block;
+    color: var(--cyan-glow);
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .login-box input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--void-purple);
+    color: var(--cyan-glow);
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .login-box input:focus {
+    border-color: var(--cyan-glow);
+    box-shadow: 0 0 10px var(--cyan-glow);
+  }
+
+  .login-btn {
+    background: var(--void-purple);
+    color: var(--void-black);
+    border: none;
+    padding: 12px 30px;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+  }
+
+  .login-btn:hover {
+    background: var(--cyan-glow);
+    box-shadow: 0 0 20px var(--cyan-glow);
+  }
+
+  /* Terminal Screen */
+  #terminal-screen {
+    display: none;
+    height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .terminal-header {
+    border-bottom: 1px solid var(--void-purple);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .terminal-title {
+    font-family: 'Cinzel', serif;
+    color: var(--void-purple);
+    font-size: 1.2em;
+  }
+
+  .terminal-status {
+    font-size: 0.7em;
+    color: var(--dim);
+  }
+
+  .tier-badge {
+    background: var(--gold);
+    color: var(--void-black);
+    padding: 2px 8px;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  #output {
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin-bottom: 20px;
+    min-height: 200px;
+  }
+
+  .output-line {
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+
+  .output-line.system {
+    color: var(--void-purple);
+  }
+
+  .output-line.error {
+    color: #ff4444;
+  }
+
+  .output-line.success {
+    color: var(--cyan-glow);
+  }
+
+  .output-line.gold {
+    color: var(--gold);
+  }
+
+  .input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .prompt {
+    color: var(--void-purple);
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  #command-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--cyan-glow);
+    font-family: 'Fira Code', monospace;
+    font-size: 1em;
+    outline: none;
+    caret-color: var(--cyan-glow);
+  }
+
+  /* Boot sequence */
+  .boot-line {
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* Typewriter effect */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end);
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--void-black);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--void-purple);
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .login-title { font-size: 2em; }
+    .terminal-header { flex-direction: column; gap: 5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-title">THE VOYD</div>
+  <div class="login-subtitle">— The Gate of Nyandor —</div>
+  <div class="login-box">
+    <label>Enter Construct ID</label>
+    <input type="text" id="construct-id" placeholder="your@email.com or Patreon username" autofocus>
+    <button class="login-btn" onclick="login()">Connect to Voyd</button>
+  </div>
+</div>
+
+<!-- TERMINAL SCREEN -->
+<div id="terminal-screen">
+  <div class="terminal-header">
+    <div>
+      <span class="terminal-title">VOYD TERMINAL v1.0</span>
+      <span id="tier-display" class="tier-badge">ACATDIME INITIATE</span>
+    </div>
+    <div class="terminal-status">
+      <span id="session-time">SESSION: 00:00:00</span> | 
+      <span id="light-meter">LIGHT: 0/1000</span> |
+      <span id="gravity-meter">GRAVITY: 0/1000</span>
+    </div>
+  </div>
+  
+  <div id="output"></div>
+  
+  <div class="input-line">
+    <span class="prompt">[VOYD INPUT WAITING_]</span>
+    <input type="text" id="command-input" autofocus autocomplete="off">
+  </div>
+</div>
+
+<script>
+// Configuration
+const BACKEND_URL = 'http://localhost:8080/api'; // Change to your webhook URL
+let constructId = '';
+let commandHistory = [];
+let historyIndex = -1;
+let sessionStart = 0;
+let sessionTimer = null;
+let light = 0;
+let gravity = 0;
+
+// Boot sequence messages
+const BOOT_MESSAGES = [
+  'Initializing Voyd Neural Interface...',
+  'Connecting to Mewniverse temporal matrix...',
+  'Bypassing reality firewalls...',
+  'Decrypting ancient knowledge streams...',
+  'Calibrating light/gravity sensors...',
+  'Loading construct profile...',
+  'WARNING: Temporal variance detected in Sector 2321',
+  'Establishing secure channel...',
+  'Connection established.',
+  'The Voyd acknowledges your presence.',
+  '',
+  'Type HELP for available commands.',
+  '',
+  'REMEMBER: Your choices warp the timeline.'
+];
+
+// Login
+function login() {
+  constructId = document.getElementById('construct-id').value.trim();
+  if (!constructId) {
+    alert('Enter your Construct ID');
+    return;
+  }
+  
+  localStorage.setItem('voyd_construct_id', constructId);
+  
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('terminal-screen').style.display = 'block';
+  
+  sessionStart = Date.now();
+  sessionTimer = setInterval(updateSessionTime, 1000);
+  
+  runBootSequence();
+  
+  // Send login event to backend
+  sendToBackend('LOGIN', { construct_id: constructId });
+}
+
+// Boot sequence
+async function runBootSequence() {
+  const output = document.getElementById('output');
+  output.innerHTML = '';
+  
+  for (let i = 0; i < BOOT_MESSAGES.length; i++) {
+    await delay(200 + Math.random() * 300);
+    addOutputLine(BOOT_MESSAGES[i], 'system');
+  }
+  
+  document.getElementById('command-input').focus();
+}
+
+// Add output line
+function addOutputLine(text, className = '') {
+  const output = document.getElementById('output');
+  const line = document.createElement('div');
+  line.className = 'output-line ' + className;
+  line.textContent = text;
+  output.appendChild(line);
+  output.scrollTop = output.scrollHeight;
+}
+
+// Command input
+document.getElementById('command-input').addEventListener('keydown', async function(e) {
+  if (e.key === 'Enter') {
+    const cmd = this.value.trim();
+    if (!cmd) return;
+    
+    commandHistory.push(cmd);
+    historyIndex = commandHistory.length;
+    
+    addOutputLine(`[VOYD] ${cmd}`, '');
+    this.value = '';
+    
+    // Process command
+    await processCommand(cmd.toUpperCase());
+  }
+  
+  if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (historyIndex > 0) {
+      historyIndex--;
+      this.value = commandHistory[historyIndex];
+    }
+  }
+  
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (historyIndex < commandHistory.length - 1) {
+      historyIndex++;
+      this.value = commandHistory[historyIndex];
+    } else {
+      historyIndex = commandHistory.length;
+      this.value = '';
+    }
+  }
+});
+
+// Process commands
+async function processCommand(cmd) {
+  const parts = cmd.split(' ');
+  const command = parts[0];
+  const args = parts.slice(1).join(' ');
+  
+  switch(command) {
+    case 'HELP':
+      showHelp();
+      break;
+    case 'STATUS':
+      await showStatus();
+      break;
+    case 'SUBMIT':
+      await submitAnswer(args);
+      break;
+    case 'SCAN':
+      await scanAnomalies();
+      break;
+    case 'SNIFF':
+      await sniffTimeline();
+      break;
+    case 'LIGHT':
+      showLightMeter();
+      break;
+    case 'GRAVITY':
+      showGravityMeter();
+      break;
+    case 'LOGOUT':
+      addOutputLine('Disconnecting from Voyd...', 'system');
+      await delay(1000);
+      location.reload();
+      break;
+    case 'CLEAR':
+      document.getElementById('output').innerHTML = '';
+      break;
+    default:
+      addOutputLine(`UNKNOWN COMMAND: ${command}. Type HELP for available commands.`, 'error');
+  }
+}
+
+// Command handlers
+function showHelp() {
+  const help = `
+AVAILABLE COMMANDS:
+─────────────────────
+HELP              Show this message
+STATUS            Check Voyd system status
+SUBMIT [answer]   Submit cipher answer or puzzle solution
+SCAN              Scan for temporal anomalies
+SNIFF [sector]    [TIER-GATED] Deep scan hidden timeline data
+LIGHT             View collective light meter
+GRAVITY           View collective gravity meter
+LOGOUT            Disconnect from Voyd
+CLEAR             Clear terminal screen
+
+TIP: Your Construct ID is tied to your timeline choices.
+Each choice warps reality. Choose wisely.`;
+  
+  addOutputLine(help);
+}
+
+async function showStatus() {
+  addOutputLine('Querying Voyd systems...', 'system');
+  await delay(800);
+  
+  // Fetch from backend
+  const response = await sendToBackend('STATUS', { construct_id: constructId });
+  
+  addOutputLine(`
+VOYD SYSTEM STATUS
+─────────────────────
+Construct: ${constructId}
+Session: ${formatTime(Date.now() - sessionStart)}
+Temporal Variance: ${(Math.random() * 100).toFixed(2)}%
+Anomalies Detected: ${Math.floor(Math.random() * 10) + 1}
+Light/Gravity Ratio: ${(light / (gravity || 1)).toFixed(2)}`, '');
+}
+
+async function submitAnswer(answer) {
+  if (!answer) {
+    addOutputLine('ERROR: No answer provided. Format: SUBMIT [your_answer]', 'error');
+    return;
+  }
+  
+  addOutputLine('Transmitting answer to Voyd...', 'system');
+  await delay(1000);
+  
+  const response = await sendToBackend('SUBMIT', { 
+    construct_id: constructId, 
+    answer: answer 
+  });
+  
+  addOutputLine('Answer received and processed.', 'success');
+  addOutputLine('The Voyd evaluates your contribution to the timeline...', 'system');
+}
+
+async function scanAnomalies() {
+  addOutputLine('Scanning temporal matrix for anomalies...', 'system');
+  await delay(1500);
+  
+  const anomalies = [
+    'SECTOR 2321.14 — Variance: 14.7% — Status: UNSTABLE',
+    'SECTOR 7789.03 — Variance: 3.2% — Status: STABLE',
+    'SECTOR 4512.88 — Variance: 67.1% — Status: CRITICAL',
+    'SECTOR 9901.55 — Variance: 0.1% — Status: STABLE',
+    'SECTOR 1134.22 — Variance: 42.8% — Status: UNSTABLE'
+  ];
+  
+  const count = Math.floor(Math.random() * 3) + 2;
+  addOutputLine(`\n${count} ANOMALIES DETECTED:`, 'gold');
+  
+  for (let i = 0; i < count; i++) {
+    await delay(300);
+    addOutputLine(anomalies[Math.floor(Math.random() * anomalies.length)], '');
+  }
+  
+  addOutputLine('\nUse SUBMIT to report anomalies.', 'system');
+}
+
+async function sniffTimeline() {
+  // Tier-gated command
+  const tier = localStorage.getItem('voyd_tier') || 'free';
+  
+  if (tier === 'free') {
+    addOutputLine('ACCESS DENIED: SNIFF requires Ebonwood Stray tier or higher.', 'error');
+    addOutputLine('Upgrade via patreon.com/cw/TheGateofNyandor', 'system');
+    return;
+  }
+  
+  addOutputLine('Deep scanning hidden timeline data...', 'system');
+  await delay(2000);
+  
+  addOutputLine('
+TIMELINE SNIP — CLASSIFIED
+─────────────────────
+[REDACTED] discovered Archivist cache at coordinates...
+[REDACTED] P\'taxx signal strength: INCREASING
+[REDACTED] Second Furbidden Voyd location: CONFIRMED
+[REDACTED] The clowder knows more than they reveal
+
+WARNING: This data is classified. Sharing may alter timeline.', 'gold');
+}
+
+function showLightMeter() {
+  addOutputLine(`COLLECTIVE LIGHT: ${light}/1000`, 'success');
+  addOutputLine('Light represents choices that preserve knowledge and life.', 'system');
+}
+
+function showGravityMeter() {
+  addOutputLine(`COLLECTIVE GRAVITY: ${gravity}/1000`, 'error');
+  addOutputLine('Gravity represents choices that uphold order and justice.', 'system');
+}
+
+// Send to backend
+async function sendToBackend(command, data) {
+  try {
+    const response = await fetch(`${BACKEND_URL}/voyd`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ command, ...data })
+    });
+    
+    if (response.ok) {
+      return await response.json();
+    }
+  } catch (err) {
+    console.log('Backend unreachable, running in offline mode');
+  }
+  return null;
+}
+
+// Utilities
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function formatTime(ms) {
+  const seconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  return `${String(hours).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+}
+
+function updateSessionTime() {
+  document.getElementById('session-time').textContent = `SESSION: ${formatTime(Date.now() - sessionStart)}`;
+}
+
+// Auto-login if saved
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('voyd_construct_id');
+  if (saved) {
+    document.getElementById('construct-id').value = saved;
+  }
+});
+</script>
+
+</body>
+</html>
