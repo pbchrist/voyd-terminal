@@ -3,615 +3,729 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOYD TERMINAL — The Gate of Nyandor</title>
+<title>The Voyd — The Gate of Nyandor</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Cinzel:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
   :root {
-    --void-black: #0a0a0f;
-    --void-purple: #6b21a8;
-    --cyan-glow: #00f5d4;
-    --gold: #ffd700;
-    --dim: #4a4a5a;
+    --deep-indigo: #1a1832;
+    --midnight-blue: #0d1b2a;
+    --gold: #c4a35a;
+    --gold-light: #e0c675;
+    --gold-dark: #a07b25;
+    --cream: #f0e6d2;
+    --parchment: #f5f0e1;
+    --text-primary: #e8e0d0;
+    --text-secondary: #b8a990;
+    --violet: #5a4a8c;
+    --violet-light: #7d6cb5;
+    --shadow: rgba(0, 0, 0, 0.3);
   }
   
   body {
-    background: var(--void-black);
-    color: var(--cyan-glow);
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
+    background: var(--midnight-blue);
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.6;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
   }
-
-  /* Scanline effect */
-  body::after {
-    content: '';
+  
+  /* Ambient particle effect */
+  .particles {
     position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 245, 212, 0.03) 2px,
-      rgba(0, 245, 212, 0.03) 4px
-    );
-    pointer-events: none;
-    z-index: 1000;
-  }
-
-  /* Glitch animation */
-  @keyframes glitch {
-    0%, 90%, 100% { transform: none; opacity: 1; }
-    91% { transform: translate(-2px, 1px) skew(-1deg); opacity: 0.8; }
-    92% { transform: translate(3px, -1px) skew(1deg); opacity: 0.9; }
-    93% { transform: translate(-1px, 2px); opacity: 0.7; }
-  }
-
-  @keyframes flicker {
-    0%, 95%, 100% { opacity: 1; }
-    96% { opacity: 0.6; }
-    97% { opacity: 0.9; }
-    98% { opacity: 0.4; }
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 5px var(--cyan-glow), 0 0 10px var(--cyan-glow); }
-    50% { box-shadow: 0 0 15px var(--cyan-glow), 0 0 30px var(--cyan-glow); }
-  }
-
-  /* Login Screen */
-  #login-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    animation: flicker 4s infinite;
-  }
-
-  .login-title {
-    font-family: 'Cinzel', serif;
-    font-size: 3em;
-    color: var(--void-purple);
-    text-shadow: 0 0 20px var(--void-purple), 0 0 40px var(--void-purple);
-    margin-bottom: 10px;
-    animation: glitch 5s infinite;
-  }
-
-  .login-subtitle {
-    color: var(--dim);
-    font-size: 0.9em;
-    margin-bottom: 40px;
-  }
-
-  .login-box {
-    background: rgba(107, 33, 168, 0.1);
-    border: 1px solid var(--void-purple);
-    padding: 40px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-  }
-
-  .login-box label {
-    display: block;
-    color: var(--cyan-glow);
-    margin-bottom: 10px;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .login-box input {
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--void-purple);
-    color: var(--cyan-glow);
-    font-family: 'Fira Code', monospace;
-    font-size: 1em;
-    margin-bottom: 20px;
-    outline: none;
-    transition: all 0.3s;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
   }
-
-  .login-box input:focus {
-    border-color: var(--cyan-glow);
-    box-shadow: 0 0 10px var(--cyan-glow);
+  
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: float-particle 8s infinite linear;
   }
-
-  .login-btn {
-    background: var(--void-purple);
-    color: var(--void-black);
-    border: none;
-    padding: 12px 30px;
-    font-family: 'Fira Code', monospace;
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
+  
+  @keyframes float-particle {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(26, 24, 50, 0.8), transparent);
+  }
+  
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(196, 163, 90, 0.3);
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    animation: title-glow 4s ease-in-out infinite alternate;
+  }
+  
+  @keyframes title-glow {
+    from { text-shadow: 0 0 30px rgba(196, 163, 90, 0.3); }
+    to { text-shadow: 0 0 40px rgba(196, 163, 90, 0.5), 0 0 60px rgba(196, 163, 90, 0.2); }
+  }
+  
+  .subtitle {
+    font-size: 1.4em;
+    color: var(--text-secondary);
+    font-style: italic;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s;
   }
-
-  .login-btn:hover {
-    background: var(--cyan-glow);
-    box-shadow: 0 0 20px var(--cyan-glow);
+  
+  .divider {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 20px auto;
   }
-
-  /* Terminal Screen */
-  #terminal-screen {
+  
+  /* Login Section */
+  .login-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(26, 24, 50, 0.6);
+    border: 1px solid rgba(196, 163, 90, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+  }
+  
+  .login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: var(--gold-light);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+  }
+  
+  .input-label {
+    display: block;
+    color: var(--gold);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--gold-dark);
+    border-radius: 4px;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: var(--gold-light);
+    box-shadow: 0 0 15px rgba(196, 163, 90, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .input-field::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+  
+  .btn-login {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-dark));
+    color: var(--deep-indigo);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(196, 163, 90, 0.3);
+  }
+  
+  .btn-login:hover {
+    background: linear-gradient(to right, var(--gold), var(--gold-light), var(--gold));
+    box-shadow: 0 6px 20px rgba(196, 163, 90, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .btn-login:active {
+    transform: translateY(0);
+  }
+  
+  /* Terminal Interface */
+  .terminal-section {
     display: none;
-    height: 100vh;
-    padding: 20px;
-    overflow-y: auto;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(13, 27, 42, 0.85);
+    border: 1px solid rgba(196, 163, 90, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
   }
-
+  
   .terminal-header {
-    border-bottom: 1px solid var(--void-purple);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .terminal-title {
-    font-family: 'Cinzel', serif;
-    color: var(--void-purple);
-    font-size: 1.2em;
-  }
-
-  .terminal-status {
-    font-size: 0.7em;
-    color: var(--dim);
-  }
-
-  .tier-badge {
-    background: var(--gold);
-    color: var(--void-black);
-    padding: 2px 8px;
-    font-size: 0.6em;
-    font-weight: bold;
-    margin-left: 10px;
-  }
-
-  #output {
-    white-space: pre-wrap;
-    word-break: break-all;
+    padding-bottom: 20px;
     margin-bottom: 20px;
-    min-height: 200px;
+    border-bottom: 1px solid rgba(196, 163, 90, 0.1);
   }
-
-  .output-line {
-    margin-bottom: 4px;
-    line-height: 1.5;
-  }
-
-  .output-line.system {
-    color: var(--void-purple);
-  }
-
-  .output-line.error {
-    color: #ff4444;
-  }
-
-  .output-line.success {
-    color: var(--cyan-glow);
-  }
-
-  .output-line.gold {
+  
+  .terminal-title {
+    font-family: 'Playfair Display', serif;
     color: var(--gold);
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
   }
-
-  .input-line {
+  
+  .status-info {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+  }
+  
+  .status-item {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    gap: 6px;
   }
-
+  
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  .dot-light { background: var(--gold-light); }
+  .dot-gravity { background: var(--violet-light); }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+  
+  .output-area {
+    min-height: 300px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold-dark);
+  }
+  
+  .output-line {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+  }
+  
+  @keyframes fade-in {
+    to { opacity: 1; }
+  }
+  
+  .line-system {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  
+  .line-message {
+    color: var(--cream);
+  }
+  
+  .line-error {
+    color: #c45a5a;
+  }
+  
+  .line-success {
+    color: #7ec45a;
+  }
+  
+  .line-cipher {
+    color: var(--violet-light);
+    font-family: monospace;
+    font-size: 0.95em;
+    background: rgba(125, 108, 181, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+  
+  .input-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(196, 163, 90, 0.1);
+  }
+  
   .prompt {
-    color: var(--void-purple);
-    margin-right: 10px;
-    font-weight: bold;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    flex-shrink: 0;
   }
-
-  #command-input {
+  
+  .input-box {
     flex: 1;
     background: transparent;
     border: none;
-    color: var(--cyan-glow);
-    font-family: 'Fira Code', monospace;
-    font-size: 1em;
+    border-bottom: 2px solid var(--gold-dark);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    padding: 8px 0;
     outline: none;
-    caret-color: var(--cyan-glow);
+    transition: all 0.3s ease;
   }
-
-  /* Boot sequence */
-  .boot-line {
+  
+  .input-box:focus {
+    border-bottom-color: var(--gold-light);
+  }
+  
+  .input-box::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.5;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    color: var(--text-secondary);
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .footer-quote {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  
+  .footer-attribution {
+    font-size: 0.9em;
+    opacity: 0.7;
+  }
+  
+  /* Decorative Elements */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.5em;
+    margin: 20px 0;
+    opacity: 0.6;
+  }
+  
+  .scroll-reveal {
     opacity: 0;
-    animation: fadeIn 0.3s forwards;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
   }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
+  
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
-
-  /* Typewriter effect */
-  .typewriter {
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 2s steps(40, end);
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2.5em;
+    }
+    
+    .login-section, .terminal-section {
+      margin: 20px;
+      padding: 25px;
+    }
+    
+    .terminal-header {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .status-info {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-
-  /* Scrollbar */
+  
+  /* Scrollbar Styling */
   ::-webkit-scrollbar {
     width: 8px;
   }
-
+  
   ::-webkit-scrollbar-track {
-    background: var(--void-black);
+    background: var(--midnight-blue);
   }
-
+  
   ::-webkit-scrollbar-thumb {
-    background: var(--void-purple);
+    background: var(--gold-dark);
+    border-radius: 4px;
   }
-
-  /* Mobile */
-  @media (max-width: 600px) {
-    .login-title { font-size: 2em; }
-    .terminal-header { flex-direction: column; gap: 5px; }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
   }
 </style>
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
-<div id="login-screen">
-  <div class="login-title">THE VOYD</div>
-  <div class="login-subtitle">— The Gate of Nyandor —</div>
-  <div class="login-box">
-    <label>Enter Construct ID</label>
-    <input type="text" id="construct-id" placeholder="your@email.com or Patreon username" autofocus>
-    <button class="login-btn" onclick="login()">Connect to Voyd</button>
-  </div>
-</div>
+<!-- Ambient Particles -->
+<div class="particles" id="particles"></div>
 
-<!-- TERMINAL SCREEN -->
-<div id="terminal-screen">
+<!-- Header -->
+<header class="header">
+  <h1 class="title">The Voyd</h1>
+  <div class="subtitle">The Gate of Nyandor</div>
+  <div class="divider"></div>
+</header>
+
+<!-- Login Section -->
+<section class="login-section" id="loginSection">
+  <div class="login-title">Enter the Mewniverse</div>
+  <div class="login-subtitle">Provide your Construct ID to access the Voyd</div>
+  
+  <div class="ornament">❦</div>
+  
+  <div class="input-group">
+    <label class="input-label">Construct ID</label>
+    <input type="text" id="constructId" class="input-field" placeholder="Your name or email">
+  </div>
+  
+  <button id="loginBtn" class="btn-login">Connect to the Voyd</button>
+  
+  <div class="ornament">❦</div>
+</section>
+
+<!-- Terminal Section -->
+<section class="terminal-section" id="terminalSection">
   <div class="terminal-header">
-    <div>
-      <span class="terminal-title">VOYD TERMINAL v1.0</span>
-      <span id="tier-display" class="tier-badge">ACATDIME INITIATE</span>
-    </div>
-    <div class="terminal-status">
-      <span id="session-time">SESSION: 00:00:00</span> | 
-      <span id="light-meter">LIGHT: 0/1000</span> |
-      <span id="gravity-meter">GRAVITY: 0/1000</span>
+    <div class="terminal-title">Voyd Interface</div>
+    <div class="status-info">
+      <div class="status-item">
+        <div class="status-dot dot-light"></div>
+        <span id="lightValue">Light: 0</span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot dot-gravity"></div>
+        <span id="gravityValue">Gravity: 0</span>
+      </div>
+      <div class="status-item">
+        <span id="sessionTime">Session: 00:00:00</span>
+      </div>
     </div>
   </div>
   
-  <div id="output"></div>
+  <div class="output-area" id="outputArea"></div>
   
-  <div class="input-line">
-    <span class="prompt">[VOYD INPUT WAITING_]</span>
-    <input type="text" id="command-input" autofocus autocomplete="off">
+  <div class="input-area">
+    <span class="prompt">❯</span>
+    <input type="text" id="commandInput" class="input-box" placeholder="Enter command (HELP for options)...">
   </div>
-</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-quote">
+    "Tales aren't just stories well-told, they're how we communicate, how we transact, how we transmit wisdom."
+  </div>
+  <div class="footer-attribution">— The Creator of All Tales</div>
+</footer>
 
 <script>
-// Configuration
-const BACKEND_URL = 'http://localhost:8080/api'; // Change to your webhook URL
-let constructId = '';
-let commandHistory = [];
-let historyIndex = -1;
-let sessionStart = 0;
-let sessionTimer = null;
-let light = 0;
-let gravity = 0;
+// Create ambient particles
+function createParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 8 + 's';
+    particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+    container.appendChild(particle);
+  }
+}
 
 // Boot sequence messages
 const BOOT_MESSAGES = [
-  'Initializing Voyd Neural Interface...',
-  'Connecting to Mewniverse temporal matrix...',
-  'Bypassing reality firewalls...',
-  'Decrypting ancient knowledge streams...',
-  'Calibrating light/gravity sensors...',
-  'Loading construct profile...',
-  'WARNING: Temporal variance detected in Sector 2321',
-  'Establishing secure channel...',
-  'Connection established.',
-  'The Voyd acknowledges your presence.',
-  '',
-  'Type HELP for available commands.',
-  '',
-  'REMEMBER: Your choices warp the timeline.'
+  { text: "Initializing the Voyd Neural Interface...", type: "system" },
+  { text: "Connecting to the Mewniverse temporal matrix...", type: "system" },
+  { text: "Bypassing reality firewalls...", type: "system" },
+  { text: "Decrypting ancient knowledge streams...", type: "system" },
+  { text: "Calibrating light and gravity sensors...", type: "system" },
+  { text: "Loading construct profile...", type: "system" },
+  { text: "WARNING: Temporal variance detected in Sector 2321", type: "error" },
+  { text: "Establishing secure channel...", type: "system" },
+  { text: "Connection established.", type: "success" },
+  { text: "The Voyd acknowledges your presence.", type: "message" },
+  { text: "", type: "message" },
+  { text: "Type HELP for available commands.", type: "system" },
+  { text: "", type: "message" },
+  { text: "Remember: Your choices warp the timeline.", type: "message" }
 ];
 
-// Login
-function login() {
-  constructId = document.getElementById('construct-id').value.trim();
-  if (!constructId) {
-    alert('Enter your Construct ID');
-    return;
+// Command handlers
+const COMMANDS = {
+  help: () => [
+    { text: "AVAILABLE COMMANDS:", type: "message" },
+    { text: "─────────────────────", type: "message" },
+    { text: "HELP              Show this message", type: "message" },
+    { text: "STATUS            Check Voyd system status", type: "message" },
+    { text: "SUBMIT [answer]   Submit cipher answer or puzzle solution", type: "message" },
+    { text: "SCAN              Scan for temporal anomalies", type: "message" },
+    { text: "SNIFF [sector]    [TIER-GATED] Deep scan hidden timeline data", type: "message" },
+    { text: "LIGHT             View collective light meter", type: "message" },
+    { text: "GRAVITY           View collective gravity meter", type: "message" },
+    { text: "LOGOUT            Disconnect from Voyd", type: "message" },
+    { text: "CLEAR             Clear terminal screen", type: "message" },
+    { text: "", type: "message" },
+    { text: "TIP: Your Construct ID is tied to your timeline choices.", type: "system" },
+    { text: "Each choice warps reality. Choose wisely.", type: "system" }
+  ],
+  
+  status: () => [
+    { text: "Querying Voyd systems...", type: "system" },
+    { text: "", type: "message" },
+    { text: "VOYD SYSTEM STATUS", type: "message" },
+    { text: "─────────────────────", type: "message" },
+    { text: `Construct: ${localStorage.getItem('voyd_construct_id') || 'Unknown'}`, type: "message" },
+    { text: `Session: ${document.getElementById('sessionTime').textContent.replace('Session: ', '')}`, type: "message" },
+    { text: `Temporal Variance: ${(Math.random() * 100).toFixed(2)}%`, type: "message" },
+    { text: `Anomalies Detected: ${Math.floor(Math.random() * 10) + 1}`, type: "message" },
+    { text: `Light/Gravity Ratio: ${(parseInt(document.getElementById('lightValue').textContent) / (parseInt(document.getElementById('gravityValue').textContent) || 1)).toFixed(2)}`, type: "message" }
+  ],
+  
+  scan: () => {
+    const anomalies = [
+      "SECTOR 2321.14 — Variance: 14.7% — Status: UNSTABLE",
+      "SECTOR 7789.03 — Variance: 3.2% — Status: STABLE",
+      "SECTOR 4512.88 — Variance: 67.1% — Status: CRITICAL",
+      "SECTOR 9901.55 — Variance: 0.1% — Status: STABLE",
+      "SECTOR 1134.22 — Variance: 42.8% — Status: UNSTABLE"
+    ];
+    
+    const count = Math.floor(Math.random() * 3) + 2;
+    const result = [
+      { text: "Scanning temporal matrix for anomalies...", type: "system" },
+      { text: "", type: "message" },
+      { text: `${count} ANOMALIES DETECTED:`, type: "message" }
+    ];
+    
+    for (let i = 0; i < count; i++) {
+      result.push({ text: anomalies[Math.floor(Math.random() * anomalies.length)], type: "message" });
+    }
+    
+    result.push({ text: "", type: "message" });
+    result.push({ text: "Use SUBMIT to report anomalies.", type: "system" });
+    
+    return result;
+  },
+  
+  sniff: () => {
+    const tier = localStorage.getItem('voyd_tier') || 'free';
+    
+    if (tier === 'free') {
+      return [
+        { text: "ACCESS DENIED: SNIFF requires Ebonwood Stray tier or higher.", type: "error" },
+        { text: "Upgrade via patreon.com/cw/TheGateofNyandor", type: "system" }
+      ];
+    }
+    
+    return [
+      { text: "Deep scanning hidden timeline data...", type: "system" },
+      { text: "", type: "message" },
+      { text: "TIMELINE SNIP — CLASSIFIED", type: "message" },
+      { text: "─────────────────────", type: "message" },
+      { text: "[REDACTED] discovered Archivist cache at coordinates...", type: "message" },
+      { text: "[REDACTED] P'taxx signal strength: INCREASING", type: "message" },
+      { text: "[REDACTED] Second Furbidden Voyd location: CONFIRMED", type: "message" },
+      { text: "[REDACTED] The clowder knows more than they reveal", type: "message" },
+      { text: "", type: "message" },
+      { text: "WARNING: This data is classified. Sharing may alter timeline.", type: "system" }
+    ];
+  },
+  
+  light: () => [
+    { text: `COLLECTIVE LIGHT: ${document.getElementById('lightValue').textContent.replace('Light: ', '')}/1000`, type: "success" },
+    { text: "Light represents choices that preserve knowledge and life.", type: "system" }
+  ],
+  
+  gravity: () => [
+    { text: `COLLECTIVE GRAVITY: ${document.getElementById('gravityValue').textContent.replace('Gravity: ', '')}/1000`, type: "error" },
+    { text: "Gravity represents choices that uphold order and justice.", type: "system" }
+  ],
+  
+  submit: (args) => {
+    if (!args) {
+      return [
+        { text: "ERROR: No answer provided. Format: SUBMIT [your_answer]", type: "error" }
+      ];
+    }
+    
+    return [
+      { text: "Transmitting answer to Voyd...", type: "system" },
+      { text: "", type: "message" },
+      { text: "Answer received and processed.", type: "success" },
+      { text: "The Voyd evaluates your contribution to the timeline...", type: "system" }
+    ];
+  },
+  
+  logout: () => {
+    localStorage.removeItem('voyd_construct_id');
+    setTimeout(() => location.reload(), 1500);
+    return [
+      { text: "Disconnecting from Voyd...", type: "system" }
+    ];
+  },
+  
+  clear: () => {
+    document.getElementById('outputArea').innerHTML = '';
+    return [];
   }
-  
-  localStorage.setItem('voyd_construct_id', constructId);
-  
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('terminal-screen').style.display = 'block';
-  
-  sessionStart = Date.now();
-  sessionTimer = setInterval(updateSessionTime, 1000);
-  
-  runBootSequence();
-  
-  // Send login event to backend
-  sendToBackend('LOGIN', { construct_id: constructId });
+};
+
+// Utility functions
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Boot sequence
-async function runBootSequence() {
-  const output = document.getElementById('output');
-  output.innerHTML = '';
-  
-  for (let i = 0; i < BOOT_MESSAGES.length; i++) {
-    await delay(200 + Math.random() * 300);
-    addOutputLine(BOOT_MESSAGES[i], 'system');
-  }
-  
-  document.getElementById('command-input').focus();
-}
-
-// Add output line
-function addOutputLine(text, className = '') {
-  const output = document.getElementById('output');
+function addOutputLine(text, type = 'message') {
+  const output = document.getElementById('outputArea');
   const line = document.createElement('div');
-  line.className = 'output-line ' + className;
+  line.className = `output-line line-${type}`;
   line.textContent = text;
   output.appendChild(line);
   output.scrollTop = output.scrollHeight;
 }
 
-// Command input
-document.getElementById('command-input').addEventListener('keydown', async function(e) {
-  if (e.key === 'Enter') {
-    const cmd = this.value.trim();
-    if (!cmd) return;
-    
-    commandHistory.push(cmd);
-    historyIndex = commandHistory.length;
-    
-    addOutputLine(`[VOYD] ${cmd}`, '');
-    this.value = '';
-    
-    // Process command
-    await processCommand(cmd.toUpperCase());
+async function runBootSequence() {
+  for (let i = 0; i < BOOT_MESSAGES.length; i++) {
+    await delay(200 + Math.random() * 300);
+    addOutputLine(BOOT_MESSAGES[i].text, BOOT_MESSAGES[i].type);
   }
   
-  if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    if (historyIndex > 0) {
-      historyIndex--;
-      this.value = commandHistory[historyIndex];
-    }
-  }
-  
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    if (historyIndex < commandHistory.length - 1) {
-      historyIndex++;
-      this.value = commandHistory[historyIndex];
-    } else {
-      historyIndex = commandHistory.length;
-      this.value = '';
-    }
-  }
-});
+  document.getElementById('commandInput').focus();
+}
 
-// Process commands
-async function processCommand(cmd) {
-  const parts = cmd.split(' ');
-  const command = parts[0];
+async function processCommand(input) {
+  const parts = input.trim().split(/\s+/);
+  const command = parts[0].toLowerCase();
   const args = parts.slice(1).join(' ');
   
-  switch(command) {
-    case 'HELP':
-      showHelp();
-      break;
-    case 'STATUS':
-      await showStatus();
-      break;
-    case 'SUBMIT':
-      await submitAnswer(args);
-      break;
-    case 'SCAN':
-      await scanAnomalies();
-      break;
-    case 'SNIFF':
-      await sniffTimeline();
-      break;
-    case 'LIGHT':
-      showLightMeter();
-      break;
-    case 'GRAVITY':
-      showGravityMeter();
-      break;
-    case 'LOGOUT':
-      addOutputLine('Disconnecting from Voyd...', 'system');
-      await delay(1000);
-      location.reload();
-      break;
-    case 'CLEAR':
-      document.getElementById('output').innerHTML = '';
-      break;
-    default:
-      addOutputLine(`UNKNOWN COMMAND: ${command}. Type HELP for available commands.`, 'error');
-  }
-}
-
-// Command handlers
-function showHelp() {
-  const help = `
-AVAILABLE COMMANDS:
-─────────────────────
-HELP              Show this message
-STATUS            Check Voyd system status
-SUBMIT [answer]   Submit cipher answer or puzzle solution
-SCAN              Scan for temporal anomalies
-SNIFF [sector]    [TIER-GATED] Deep scan hidden timeline data
-LIGHT             View collective light meter
-GRAVITY           View collective gravity meter
-LOGOUT            Disconnect from Voyd
-CLEAR             Clear terminal screen
-
-TIP: Your Construct ID is tied to your timeline choices.
-Each choice warps reality. Choose wisely.`;
+  // Add user command to output
+  addOutputLine(`❯ ${input}`, 'system');
+  await delay(200);
   
-  addOutputLine(help);
-}
-
-async function showStatus() {
-  addOutputLine('Querying Voyd systems...', 'system');
-  await delay(800);
-  
-  // Fetch from backend
-  const response = await sendToBackend('STATUS', { construct_id: constructId });
-  
-  addOutputLine(`
-VOYD SYSTEM STATUS
-─────────────────────
-Construct: ${constructId}
-Session: ${formatTime(Date.now() - sessionStart)}
-Temporal Variance: ${(Math.random() * 100).toFixed(2)}%
-Anomalies Detected: ${Math.floor(Math.random() * 10) + 1}
-Light/Gravity Ratio: ${(light / (gravity || 1)).toFixed(2)}`, '');
-}
-
-async function submitAnswer(answer) {
-  if (!answer) {
-    addOutputLine('ERROR: No answer provided. Format: SUBMIT [your_answer]', 'error');
-    return;
-  }
-  
-  addOutputLine('Transmitting answer to Voyd...', 'system');
-  await delay(1000);
-  
-  const response = await sendToBackend('SUBMIT', { 
-    construct_id: constructId, 
-    answer: answer 
-  });
-  
-  addOutputLine('Answer received and processed.', 'success');
-  addOutputLine('The Voyd evaluates your contribution to the timeline...', 'system');
-}
-
-async function scanAnomalies() {
-  addOutputLine('Scanning temporal matrix for anomalies...', 'system');
-  await delay(1500);
-  
-  const anomalies = [
-    'SECTOR 2321.14 — Variance: 14.7% — Status: UNSTABLE',
-    'SECTOR 7789.03 — Variance: 3.2% — Status: STABLE',
-    'SECTOR 4512.88 — Variance: 67.1% — Status: CRITICAL',
-    'SECTOR 9901.55 — Variance: 0.1% — Status: STABLE',
-    'SECTOR 1134.22 — Variance: 42.8% — Status: UNSTABLE'
-  ];
-  
-  const count = Math.floor(Math.random() * 3) + 2;
-  addOutputLine(`\n${count} ANOMALIES DETECTED:`, 'gold');
-  
-  for (let i = 0; i < count; i++) {
-    await delay(300);
-    addOutputLine(anomalies[Math.floor(Math.random() * anomalies.length)], '');
-  }
-  
-  addOutputLine('\nUse SUBMIT to report anomalies.', 'system');
-}
-
-async function sniffTimeline() {
-  // Tier-gated command
-  const tier = localStorage.getItem('voyd_tier') || 'free';
-  
-  if (tier === 'free') {
-    addOutputLine('ACCESS DENIED: SNIFF requires Ebonwood Stray tier or higher.', 'error');
-    addOutputLine('Upgrade via patreon.com/cw/TheGateofNyandor', 'system');
-    return;
-  }
-  
-  addOutputLine('Deep scanning hidden timeline data...', 'system');
-  await delay(2000);
-  
-  addOutputLine('
-TIMELINE SNIP — CLASSIFIED
-─────────────────────
-[REDACTED] discovered Archivist cache at coordinates...
-[REDACTED] P\'taxx signal strength: INCREASING
-[REDACTED] Second Furbidden Voyd location: CONFIRMED
-[REDACTED] The clowder knows more than they reveal
-
-WARNING: This data is classified. Sharing may alter timeline.', 'gold');
-}
-
-function showLightMeter() {
-  addOutputLine(`COLLECTIVE LIGHT: ${light}/1000`, 'success');
-  addOutputLine('Light represents choices that preserve knowledge and life.', 'system');
-}
-
-function showGravityMeter() {
-  addOutputLine(`COLLECTIVE GRAVITY: ${gravity}/1000`, 'error');
-  addOutputLine('Gravity represents choices that uphold order and justice.', 'system');
-}
-
-// Send to backend
-async function sendToBackend(command, data) {
-  try {
-    const response = await fetch(`${BACKEND_URL}/voyd`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ command, ...data })
-    });
-    
-    if (response.ok) {
-      return await response.json();
+  if (COMMANDS[command]) {
+    const result = COMMANDS[command](args);
+    for (const line of result) {
+      await delay(100);
+      addOutputLine(line.text, line.type);
     }
-  } catch (err) {
-    console.log('Backend unreachable, running in offline mode');
+  } else {
+    addOutputLine(`UNKNOWN COMMAND: ${command}. Type HELP for available commands.`, 'error');
   }
-  return null;
 }
 
-// Utilities
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// Login handling
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const constructId = document.getElementById('constructId').value.trim();
+  if (!constructId) {
+    alert('Please enter your Construct ID');
+    return;
+  }
+  
+  localStorage.setItem('voyd_construct_id', constructId);
+  
+  // Hide login, show terminal
+  document.getElementById('loginSection').style.display = 'none';
+  document.getElementById('terminalSection').style.display = 'block';
+  
+  // Start session timer
+  let seconds = 0;
+  setInterval(() => {
+    seconds++;
+    const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    document.getElementById('sessionTime').textContent = `Session: ${h}:${m}:${s}`;
+  }, 1000);
+  
+  // Run boot sequence
+  runBootSequence();
+});
 
-function formatTime(ms) {
-  const seconds = Math.floor(ms / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  return `${String(hours).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
-}
-
-function updateSessionTime() {
-  document.getElementById('session-time').textContent = `SESSION: ${formatTime(Date.now() - sessionStart)}`;
-}
-
-// Auto-login if saved
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('voyd_construct_id');
-  if (saved) {
-    document.getElementById('construct-id').value = saved;
+// Command input handling
+document.getElementById('commandInput').addEventListener('keydown', async (e) => {
+  if (e.key === 'Enter') {
+    const input = e.target.value;
+    if (!input.trim()) return;
+    
+    e.target.value = '';
+    await processCommand(input);
   }
 });
+
+// Initialize
+createParticles();
+
+// Auto-login if saved
+if (localStorage.getItem('voyd_construct_id')) {
+  document.getElementById('constructId').value = localStorage.getItem('voyd_construct_id');
+}
 </script>
 
 </body>
