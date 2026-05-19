@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Denidrata Sol's Diary — The Gate of Nyandor</title>
+<title>The Diary of Denidrata Sol — The Gate of Nyandor</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Reenie+Beanie&display=swap');
 
@@ -19,7 +19,6 @@
     --voyd-black: #000000;
     --crimson: #6b2d2d;
     --gold-aging: #8b7340;
-    --purple-royal: #4a2d5c;
   }
 
   body {
@@ -30,7 +29,6 @@
     overflow-x: hidden;
   }
 
-  /* Dark stone / vault background */
   .vault {
     min-height: 100vh;
     background:
@@ -42,18 +40,16 @@
     padding: 40px 20px;
   }
 
-  /* Vault inscription */
   .vault-inscription {
     text-align: center;
     color: var(--ink-light);
-    font-size: 0.85em;
+    font-size: 0.8em;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     margin-bottom: 30px;
     opacity: 0.5;
   }
 
-  /* The Diary Page */
   .diary-page {
     max-width: 750px;
     width: 100%;
@@ -67,7 +63,6 @@
       inset 0 0 80px rgba(42, 31, 20, 0.15);
   }
 
-  /* Cracks on the parchment */
   .diary-page::before {
     content: '';
     position: absolute;
@@ -80,7 +75,6 @@
     pointer-events: none;
   }
 
-  /* Stain marks on edges */
   .diary-page::after {
     content: '';
     position: absolute;
@@ -92,7 +86,6 @@
     pointer-events: none;
   }
 
-  /* Burn mark */
   .burn-mark {
     position: absolute;
     bottom: 20px;
@@ -104,7 +97,6 @@
     pointer-events: none;
   }
 
-  /* Header - Archmage title */
   .diary-header {
     text-align: center;
     margin-bottom: 40px;
@@ -114,7 +106,7 @@
 
   .archmage-title {
     font-family: 'Playfair Display', serif;
-    font-size: 0.75em;
+    font-size: 0.7em;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--ink-light);
@@ -142,7 +134,6 @@
     margin-top: 10px;
   }
 
-  /* The charcoal drawing */
   .drawing-frame {
     margin: 35px -15px;
     padding: 15px;
@@ -166,7 +157,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* Diary entry text */
   .entry {
     margin: 30px 0;
   }
@@ -206,55 +196,11 @@
     color: var(--crimson);
   }
 
-  /* Emphasized / Voyd-related text */
-  .voyd-text {
-    color: var(--voyd-black);
-    font-weight: 600;
-  }
-
   .faded-text {
     color: var(--ink-light);
     font-style: italic;
   }
 
-  /* Cipher section */
-  .cipher-block {
-    margin: 30px 0;
-    padding: 25px;
-    background: rgba(26, 20, 16, 0.05);
-    border-left: 3px solid var(--crimson);
-    border-right: 3px solid var(--crimson);
-  }
-
-  .cipher-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.75em;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--crimson);
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .cipher-script {
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 1.6em;
-    color: var(--ink-faded);
-    text-align: center;
-    line-height: 1.6;
-    letter-spacing: 0.1em;
-    transform: rotate(-1deg);
-  }
-
-  .cipher-note {
-    font-size: 0.8em;
-    color: var(--ink-light);
-    text-align: center;
-    margin-top: 12px;
-    font-style: italic;
-  }
-
-  /* Divider ornament */
   .ornament {
     text-align: center;
     color: var(--ink-light);
@@ -263,7 +209,6 @@
     opacity: 0.5;
   }
 
-  /* The Voyd quote */
   .voyd-quote {
     margin: 35px 0;
     padding: 25px 30px;
@@ -290,22 +235,56 @@
     margin-top: 15px;
   }
 
-  /* Hidden / revealed sections */
-  .hidden-entry {
+  .vulgate-block {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(26, 20, 16, 0.05);
+    border-left: 3px solid var(--crimson);
+    border-right: 3px solid var(--crimson);
+  }
+
+  .vulgate-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .vulgate-script {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.6em;
+    color: var(--ink-faded);
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    transform: rotate(-1deg);
+  }
+
+  .vulgate-note {
+    font-size: 0.8em;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .sealed-entry {
     margin: 30px 0;
     padding: 25px;
     border: 1px dashed rgba(107, 45, 45, 0.3);
     cursor: pointer;
     transition: all 0.5s ease;
-    position: relative;
   }
 
-  .hidden-entry:hover {
+  .sealed-entry:hover {
     border-color: rgba(107, 45, 45, 0.6);
     background: rgba(26, 20, 16, 0.03);
   }
 
-  .hidden-entry .prompt {
+  .sealed-entry .prompt {
     font-family: 'Playfair Display', serif;
     font-size: 0.8em;
     letter-spacing: 0.2em;
@@ -315,14 +294,14 @@
     margin-bottom: 10px;
   }
 
-  .hidden-entry .sealed-text {
+  .sealed-entry .sealed-text {
     text-align: center;
     font-style: italic;
     color: var(--ink-light);
     font-size: 0.9em;
   }
 
-  .hidden-entry.unsealed .entry-revealed {
+  .sealed-entry.unsealed .entry-revealed {
     display: block;
   }
 
@@ -331,7 +310,6 @@
     margin-top: 15px;
   }
 
-  /* Final entry - the disaster */
   .final-entry {
     margin: 40px 0;
     padding: 30px;
@@ -341,11 +319,6 @@
 
   .final-entry .entry-date {
     color: var(--crimson);
-  }
-
-  /* Timestream shattered effect */
-  .shattered {
-    position: relative;
   }
 
   .shattered::after {
@@ -365,7 +338,10 @@
     );
   }
 
-  /* Page number */
+  .shattered {
+    position: relative;
+  }
+
   .page-number {
     text-align: center;
     font-style: italic;
@@ -374,7 +350,6 @@
     margin-top: 40px;
   }
 
-  /* Footer / outside the diary */
   .vault-footer {
     margin-top: 40px;
     text-align: center;
@@ -384,7 +359,6 @@
     letter-spacing: 0.15em;
   }
 
-  /* Mobile */
   @media (max-width: 768px) {
     .diary-page {
       padding: 40px 25px;
@@ -402,114 +376,106 @@
 
 <div class="vault">
 
-  <div class="vault-inscription">Recovered from the vault beneath the Templu Archives</div>
+  <div class="vault-inscription">Pages recovered from beneath the Templu Archives</div>
 
   <div class="diary-page">
 
     <div class="burn-mark"></div>
 
-    <!-- Header -->
     <div class="diary-header">
-      <div class="archmage-title">Archmage of Nyandor</div>
-      <h1 class="diary-title">The Diary of Denidrata Sol</h1>
-      <div class="diary-subtitle">Three thousand years of obsessions, recorded in charcoal and ink</div>
-      <div class="era-mark">First Era · Second Era 2321</div>
+      <div class="archmage-title">Last Archmage of the First Era</div>
+      <h1 class="diary-title">Denidrata Sol</h1>
+      <div class="diary-subtitle">Three thousand years of obsession, recorded in charcoal and ink</div>
+      <div class="era-mark">Before the Great Severing</div>
     </div>
 
-    <!-- The Charcoal Drawing -->
     <div class="drawing-frame">
-      <img src="images/denidrata_voyd_v3_00001_.png" alt="Charcoal drawing: a black portal in the sky above a rocky cliff. Nine robed cats stand before the bluff, gesturing in terror. A twisted tree grows from the cliff face.">
-      <div class="drawing-caption">The Voyd portal, as Denidrata Sol saw it on the day the world ended</div>
+      <img src="images/denidrata_voyd_v3_00001_.png" alt="Charcoal sketch on cracked parchment: a pitch-black portal hanging in the sky above a rocky bluff. Nine cats in robes stand before it, arguing and gesturing in terror. A twisted Ashai tree grows from the cliff face, warped by the wellspring.">
+      <div class="drawing-caption">The place where I opened the Voyd. I drew it so no one would forget.</div>
     </div>
 
-    <!-- Entry 1 -->
     <div class="entry">
-      <div class="entry-date">The First Conjunction</div>
+      <div class="entry-date">The night before</div>
       <div class="entry-text">
         <p>There is a fine line between correcting a flaw in Leoran's design and claiming the role of designer for oneself. I have crossed that line, and in the breach, I have discovered a glorious, terrible beauty.</p>
-        <p>The Voyd is not a portal. It is not a tear in the world. It is the space between threads — the gap in Leoran's own tapestry where his design did not account for the will of those caught in it. Reach into that gap, and you can pull a single thread and reweave everything downstream.</p>
-        <p>I wished to prevent the war with the Tol Dominion. Only that. A single change. But the Voyd does not grant wishes — it grants consequences.</p>
+        <p>The Guild calls it heresy. They say the Voyd is a myth — a story to frighten apprentices who wander too close to the wellspring. But I have seen it. In the space between threads, where Leoran's own loom left gaps, there is a darkness that breathes. It is not empty. It is waiting.</p>
+        <p>Tomorrow, we go to the bluff. The Ashai tree bends there from centuries of raw Nyand. Nine of us, all we could gather who were willing to risk Declamation. We argue even now — some want to turn back. They should.</p>
       </div>
     </div>
 
     <div class="ornament">❦</div>
 
-    <!-- The Voyd Quote -->
     <div class="voyd-quote">
-      <p>"Imagine reaching into the mind of Leoran himself and reweaving the threads of time."</p>
-      <div class="attribution">— Denidrata Sol, final journal entry</div>
+      <p>"We believe our choices weave the threads of our destiny, forgetting that the loom was built by a will far greater than our own."</p>
+      <div class="attribution">— P'thai En'ta Ertree, In Stillness</div>
     </div>
 
-    <!-- Entry 2 - The Ritual -->
     <div class="entry">
-      <div class="entry-date">At the Ashai Wellspring</div>
+      <div class="entry-date">At the wellspring</div>
       <div class="entry-text">
         <p>The ritual cannot be performed in a laboratory. I knew this from the beginning, yet I tried anyway — six hundred and ninety-four thousand times and more — tracing pawsitions in the air, watching the black marble flicker into existence and collapse with a snap.</p>
-        <p>But a wellspring is a place where the Nyand breathes. Here, pawsitions are useless. The magic flows through you directly, without gesture or form. I stood beneath the twisted Ashai tree, the one warped by centuries of raw power, and let the current take me.</p>
+        <p>But a wellspring is different. Here, the Nyand breathes. Pawsitions are useless. The magic flows through you without gesture or form. I stood beneath the twisted Ashai, the one warped by centuries of current, and let it take me.</p>
         <p>The nine of us gathered there. We argued. We feared. We should have turned back.</p>
       </div>
     </div>
 
-    <!-- Cipher Artifact -->
-    <div class="cipher-block">
-      <div class="cipher-label">Vulgate 2.33.8.1 — First Era Script</div>
-      <div class="cipher-script">
+    <div class="vulgate-block">
+      <div class="vulgate-label">First Era Script — found beside the drawing</div>
+      <div class="vulgate-script">
         ◈ ⌇ ⊹ ⍟ ⌇ ◈<br>
         ☽ — ⏐ — ☾<br>
         ⊹ ⌇ ⊹ ⌇ ⊹
       </div>
-      <div class="cipher-note">
-        The script Denidrata Sol left beside his final sketch.<br>
-        It was supposed to mark the location of the wellspring.<br>
+      <div class="vulgate-note">
+        I wrote it before I understood what it meant.<br>
+        It was supposed to mark the wellspring.<br>
         It marks something else.
       </div>
     </div>
 
     <div class="ornament">❦</div>
 
-    <!-- Entry 3 - The Unraveling -->
     <div class="entry">
-      <div class="entry-date">After the First Wish</div>
+      <div class="entry-date">After the first wish</div>
       <div class="entry-text">
-        <p>It worked. The war ended. The Tol Dominion withdrew. And my wife looked at me with the eyes of a stranger.</p>
+        <p>It worked. The war with the Tol Dominion ended. And my wife looked at me with the eyes of a stranger.</p>
         <p>I wished for the war to end, but the Voyd did not remove the war — it rewove the thread that caused it, and in rewinding that thread, it unwound everything downstream. She had never met me. I had never existed for her.</p>
         <p>I tried to fix it. I poured more power into the portal, made more specific wishes, tried to pin the threads back in place. But each change spawned new fraying, and the portal grew — wider, darker, hungrier.</p>
       </div>
     </div>
 
-    <!-- Sealed Entry -->
-    <div class="hidden-entry" onclick="this.classList.toggle('unsealed')">
-      <div class="prompt">⸻ Sealed Entry ⸻</div>
-      <div class="sealed-text">Touch the wax to read what Denidrata Sol wrote last</div>
+    <div class="sealed-entry" onclick="this.classList.toggle('unsealed')">
+      <div class="prompt">⸻ The last entry ⸻</div>
+      <div class="sealed-text">The wax has cracked. Touch to read.</div>
       <div class="entry-revealed">
         <div class="entry-text">
           <p>The Voyd is aware of me now. It does not hate me — hatred is a thread too simple for what it has become. It is curious. It shows me other timelines, other Mewniverses, other cats who stood where I stood and reached into the gap.</p>
-          <p>Some of them succeeded. Most of them did not.</p>
+          <p>Some of them succeeded. Most did not.</p>
           <p>The portal is wider than the sky. There is nothing left to reweave. I can hear the timestream cracking — the sound of a world being pulled apart thread by thread.</p>
-          <p class="faded-text">If you are reading this, I have failed. But the Voyd remains, and it is waiting for someone worthy — someone who understands that the tale itself is the thread. The world does not end with a wish. It ends with a story untold.</p>
+          <p class="faded-text">If you are reading this, I have failed. But the Voyd remains, and it is waiting for someone worthy. Not a mage. Not an Archmage. A witness. The world does not end with a wish. It ends with a story untold.</p>
         </div>
       </div>
     </div>
 
-    <!-- Final Entry -->
     <div class="final-entry shattered">
-      <div class="entry-date">Second Era 2321 — The Last Day</div>
+      <div class="entry-date">The Final Day</div>
       <div class="entry-text">
+        <p>"The ink is bleeding. The page is breathing. It is not dark. It is not light. It is a beginning. So many beginnings. But my God, it also is full of endings."</p>
         <p>The portal consumed the bluff. It consumed the Ashai tree. It consumed the sky, then the ground, then the memory of the ground. The nine of us ran, but running is a thread the Voyd has already cut.</p>
-        <p>For the Mewniverse to live again, its tale must find a worthy listener. Not a mage. Not an Archmage. A <span class="voyd-text">listener</span>.</p>
+        <p>For the Mewniverse to live again, its tale must find a worthy listener.</p>
         <p class="faded-text">I am Deni—</p>
       </div>
     </div>
 
     <div class="page-number">— The remaining pages were replaced with blanks —</div>
 
-  </div><!-- / diary-page -->
-
-  <div class="vault-footer">
-    The Gate of Nyandor · Timestream Variance
   </div>
 
-</div><!-- / vault -->
+  <div class="vault-footer">
+    The Gate of Nyandor
+  </div>
+
+</div>
 
 </body>
 </html>
