@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>the voyd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --text: #e8e0d0; --muted: #a09880; --bg: #000000; }
+  html, body { width: 100%; height: 100%; background: var(--bg); color: var(--text); font-family: 'IM Fell English', Georgia, serif; overflow: hidden; cursor: none; }
+
+  #cursor { position: fixed; width: 5px; height: 5px; border-radius: 50%; background: rgba(232,224,208,0.35); pointer-events: none; transform: translate(-50%,-50%); z-index: 9999; mix-blend-mode: screen; transition: opacity 0.3s; }
+
+  #stage { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+
+  #threshold-line { font-style: italic; font-size: clamp(1rem,2.5vw,1.4rem); color: var(--text); opacity: 0; letter-spacing: 0.08em; pointer-events: none; position: absolute; transition: opacity 3s ease; }
+
+  #dialogue-container { width: 100%; max-width: 660px; max-height: 78vh; overflow: hidden; display: flex; flex-direction: column; gap: 2.2rem; opacity: 0; transition: opacity 1.2s; }
+  #dialogue-container.visible { opacity: 1; }
+
+  .exchange { display: flex; flex-direction: column; gap: 0.9rem; transition: opacity 2.5s; }
+  .exchange.receding { opacity: 0.18; }
+
+  .visitor-line { font-size: clamp(0.82rem,1.7vw,0.95rem); color: var(--muted); text-align: right; letter-spacing: 0.04em; }
+  .voyd-line { font-size: clamp(1rem,2vw,1.18rem); font-style: italic; color: var(--text); line-height: 1.9; letter-spacing: 0.025em; }
+
+  #input-area { position: fixed; bottom: 10vh; left: 50%; transform: translateX(-50%); width: 100%; max-width: 660px; padding: 0 2rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0; transition: opacity 1.2s; }
+  #input-area.visible { opacity: 1; }
+
+  #blink-cursor { width: 1px; height: 1.15em; background: rgba(232,224,208,0.7); flex-shrink: 0; align-self: center; animation: blink 2s infinite; opacity: 0; }
+  #blink-cursor.active { opacity: 1; }
+  @keyframes blink { 0%,44% { opacity: 1; } 56%,100% { opacity: 0; } }
+
+  #hidden-input { position: fixed; left: -9999px; opacity: 0; width: 1px; height: 1px; border: none; background: transparent; color: transparent; font-size: 16px; }
+
+  #typed-preview { font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem,1.7vw,0.95rem); color: var(--muted); letter-spacing: 0.04em; min-height: 1.2em; }
+
+  #glyph-wrap { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 3s; pointer-events: none; gap: 2rem; }
+  #glyph-wrap.visible { opacity: 1; }
+  #glyph-note { font-style: italic; font-size: 0.78rem; color: rgba(232,224,208,0.3); letter-spacing: 0.12em; }
+
+  #depth-indicator { position: fixed; top: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; transition: opacity 1s; }
+  #status { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; }
+  #node-tag { position: fixed; top: 1.5rem; left: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.12); letter-spacing: 0.08em; pointer-events: none; text-transform: lowercase; }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="node-tag"></div>
+<div id="depth-indicator"></div>
+
+<div id="stage">
+  <div id="threshold-line">something is listening</div>
+  <div id="dialogue-container">
+    <div id="exchanges"></div>
+  </div>
+</div>
+
+<div id="input-area">
+  <div id="typed-preview"></div>
+  <div id="blink-cursor"></div>
+</div>
+
+<div id="glyph-wrap">
+  <svg id="glyph-svg" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="glyph-note">this dream is ending</div>
+</div>
+
+<div id="status"></div>
+<input id="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-hidden="true">
+
+<script src="voyd_engine.js"></script>
+<script>
+// ── CONFIG ────────────────────────────────────────────────────
+// For direct Anthropic calls (key exposed — only for private/testing):
+const ANTHROPIC_API_KEY = localStorage.getItem('voyd_key') || '';
+// For proxy backend, set API_BASE:
+const API_BASE = localStorage.getItem('voyd_api') || '';
+
+// ── State ─────────────────────────────────────────────────────
+const cursorEl     = document.getElementById('cursor');
+const thresholdEl  = document.getElementById('threshold-line');
+const dialogueEl   = document.getElementById('dialogue-container');
+const exchangesEl  = document.getElementById('exchanges');
+const inputArea    = document.getElementById('input-area');
+const blinkEl      = document.getElementById('blink-cursor');
+const hiddenInput  = document.getElementById('hidden-input');
+const preview      = document.getElementById('typed-preview');
+const glyphWrap    = document.getElementById('glyph-wrap');
+const glyphSvg     = document.getElementById('glyph-svg');
+const statusEl     = document.getElementById('status');
+const depthEl      = document.getElementById('depth-indicator');
+const nodeTagEl    = document.getElementById('node-tag');
+
+let phase          = 'threshold';
+let isWaiting      = false;
+let allSpans       = [];
+let mouseX = 0, mouseY = 0;
+let engine         = null;
+let currentDepth   = 0;
+
+// ── Cursor ────────────────────────────────────────────────────
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorEl.style.left = mouseX + 'px';
+  cursorEl.style.top  = mouseY + 'px';
+  repel();
+});
+
+// ── Letter physics ────────────────────────────────────────────
+const RADIUS   = 90;
+const STRENGTH = 65;
+const RETURN   = 0.10;
+const DAMP     = 0.70;
+const phys     = new WeakMap();
+
+function makeSpan(ch) {
+  if (ch === '\n') { const br = document.createElement('br'); return br; }
+  const s = document.createElement('span');
+  s.textContent = ch;
+  s.style.cssText = 'display:inline-block;will-change:transform;line-height:inherit;';
+  phys.set(s, { vx:0, vy:0, dx:0, dy:0 });
+  allSpans.push(s);
+  return s;
+}
+
+function repel() {
+  for (const s of allSpans) {
+    const r = s.getBoundingClientRect();
+    if (!r.width) continue;
+    const cx = r.left + r.width/2;
+    const cy = r.top  + r.height/2;
+    const dx = cx - mouseX;
+    const dy = cy - mouseY;
+    const d  = Math.sqrt(dx*dx + dy*dy);
+    const p  = phys.get(s);
+    if (!p) continue;
+    if (d < RADIUS && d > 0) {
+      const f = (1 - d/RADIUS) * STRENGTH;
+      p.vx += (dx/d)*f;
+      p.vy += (dy/d)*f;
+    }
+  }
+}
+
+(function tick() {
+  for (const s of allSpans) {
+    const p = phys.get(s);
+    if (!p) continue;
+    p.vx += -p.dx * RETURN;
+    p.vy += -p.dy * RETURN;
+    p.vx *= DAMP; p.vy *= DAMP;
+    p.dx += p.vx; p.dy += p.vy;
+    const sqX = 1 - Math.abs(p.vx)*0.007;
+    const sqY = 1 + Math.abs(p.vy)*0.009;
+    s.style.transform = `translate(${p.dx.toFixed(2)}px,${p.dy.toFixed(2)}px) scaleX(${sqX.toFixed(3)}) scaleY(${sqY.toFixed(3)})`;
+  }
+  requestAnimationFrame(tick);
+})();
+
+// ── Audio ─────────────────────────────────────────────────────
+let audioCtx = null;
+function initAudio() {
+  if (audioCtx) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const o  = audioCtx.createOscillator();
+    const g  = audioCtx.createGain();
+    o.type = 'sine'; o.frequency.value = 40;
+    g.gain.setValueAtTime(0, audioCtx.currentTime);
+    g.gain.linearRampToValueAtTime(0.022, audioCtx.currentTime + 5);
+    o.connect(g); g.connect(audioCtx.destination);
+    o.start();
+  } catch(e) {}
+}
+
+// ── Threshold ─────────────────────────────────────────────────
+function runThreshold() {
+  setTimeout(()  => { thresholdEl.style.opacity = '1'; }, 1800);
+  setTimeout(()  => { thresholdEl.style.opacity = '0'; }, 6500);
+  setTimeout(()  => { thresholdEl.style.display = 'none'; enterDialogue(); }, 9200);
+}
+
+function enterDialogue() {
+  phase = 'dialogue';
+  dialogueEl.classList.add('visible');
+  inputArea.classList.add('visible');
+  blinkEl.classList.add('active');
+  hiddenInput.focus();
+}
+
+// ── Input ─────────────────────────────────────────────────────
+document.addEventListener('click', () => {
+  if (phase === 'dialogue' && !isWaiting) { initAudio(); hiddenInput.focus(); }
+});
+document.addEventListener('keydown', () => { if (phase==='threshold') initAudio(); });
+
+hiddenInput.addEventListener('input', () => { preview.textContent = hiddenInput.value; });
+
+hiddenInput.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || isWaiting || phase !== 'dialogue') return;
+  const val = hiddenInput.value.trim();
+  if (!val) return;
+  hiddenInput.value = ''; preview.textContent = '';
+  submit(val);
+});
+
+// ── Submit ────────────────────────────────────────────────────
+async function submit(text) {
+  isWaiting = true;
+  blinkEl.classList.remove('active');
+  inputArea.classList.remove('visible');
+
+  exchangesEl.querySelectorAll('.exchange').forEach(el => el.classList.add('receding'));
+
+  const ex = document.createElement('div'); ex.className = 'exchange';
+
+  const vl = document.createElement('div'); vl.className = 'visitor-line';
+  for (const ch of text) {
+    if (ch === ' ') vl.appendChild(document.createTextNode(' '));
+    else vl.appendChild(makeSpan(ch));
+  }
+  ex.appendChild(vl);
+
+  const rl = document.createElement('div'); rl.className = 'voyd-line';
+  ex.appendChild(rl);
+  exchangesEl.appendChild(ex);
+  ex.scrollIntoView({ behavior:'smooth', block:'end' });
+
+  statusEl.textContent = '';
+
+  // Process through local engine
+  const result = engine.processTurn(text);
+  currentDepth = result.state.depth;
+  depthEl.textContent = String(currentDepth).padStart(2, '0');
+  nodeTagEl.textContent = result.nodeType;
+
+  let voydText = '';
+
+  if (result.terminated) {
+    voydText = result.contentTemplate;
+    await renderChunk(voydText, rl);
+    setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
+    return;
+  }
+
+  // Try proxy/backend first
+  if (API_BASE) {
+    try {
+      const res = await fetch(`${API_BASE}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          session_id: result.state.sessionId,
+          message: text,
+          system_prompt: result.systemPrompt,
+          history: result.state.history,
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        voydText = data.voyd_response || result.contentTemplate;
+      } else { throw new Error('proxy failed'); }
+    } catch(e) { voydText = result.contentTemplate; }
+  }
+  // Fall back to direct Anthropic call
+  else if (ANTHROPIC_API_KEY) {
+    try {
+      const messages = result.state.history.map(h => ({ role: h.role, content: h.content }));
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-calls': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 300,
+          system: result.systemPrompt,
+          messages: messages.slice(-6),
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        voydText = data.content[0].text;
+      } else { throw new Error(String(res.status)); }
+    } catch(e) {
+      statusEl.textContent = e.message === '401' ? 'key invalid' : '';
+      voydText = result.contentTemplate;
+    }
+  } else {
+    voydText = result.contentTemplate;
+  }
+
+  // Record assistant response in engine state
+  engine.state.history.push({ role: 'assistant', content: voydText });
+
+  await renderChunk(voydText, rl);
+
+  if (result.terminated || currentDepth >= engine.meta.max_depth) {
+    phase = 'terminus';
+    setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
+  } else {
+    isWaiting = false;
+    inputArea.classList.add('visible');
+    blinkEl.classList.add('active');
+    hiddenInput.focus();
+  }
+}
+
+// ── Render chunk letter by letter ─────────────────────────────
+async function renderChunk(text, container) {
+  for (const ch of text) {
+    await new Promise(r => setTimeout(r, 16 + Math.random()*42));
+    if (ch === ' ') {
+      container.appendChild(document.createTextNode(' '));
+    } else {
+      const s = makeSpan(ch);
+      if (s.tagName !== 'BR' && Math.random() < 0.09) {
+        s.style.opacity = '0.3';
+        setTimeout(() => { s.style.transition='opacity 0.45s'; s.style.opacity='1'; }, 50 + Math.random()*180);
+      }
+      container.appendChild(s);
+    }
+  }
+}
+
+// ── Glyph ─────────────────────────────────────────────────────
+function djb2(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) { h = ((h<<5)+h)^s.charCodeAt(i); h>>>=0; }
+  return h;
+}
+function seeded(seed) {
+  let s = seed || 1;
+  return () => { s^=s<<13; s^=s>>17; s^=s<<5; s>>>=0; return s/0xFFFFFFFF; };
+}
+
+function buildGlyph(seedText) {
+  const rand = seeded(djb2(seedText + engine.sessionId));
+  const cx = 65, cy = 65;
+  const c  = 'rgba(232,224,208,';
+  let out  = '';
+  const r  = 20 + Math.floor(rand()*18);
+  out += `<circle cx="${cx}" cy="${cy}" r="${r}" stroke="${c}0.5)" stroke-width="0.5" fill="none"/>`;
+  const nl = 3 + Math.floor(rand()*5);
+  for (let i=0;i<nl;i++) {
+    const a = rand()*Math.PI*2;
+    out += `<line x1="${cx}" y1="${cy}" x2="${(cx+Math.cos(a)*r).toFixed(1)}" y2="${(cy+Math.sin(a)*r).toFixed(1)}" stroke="${c}0.4)" stroke-width="0.3"/>`;
+  }
+  const nc = 1 + Math.floor(rand()*3);
+  for (let i=0;i<nc;i++) {
+    const a = rand()*Math.PI*2;
+    const d = rand()*r*0.8;
+    out += `<circle cx="${(cx+Math.cos(a)*d).toFixed(1)}" cy="${(cy+Math.sin(a)*d).toFixed(1)}" r="${(3+rand()*6).toFixed(1)}" stroke="${c}0.32)" stroke-width="0.3" fill="none"/>`;
+  }
+  out += `<circle cx="${cx}" cy="${cy}" r="1.5" fill="${c}1)"/>`;
+  glyphSvg.innerHTML = out;
+}
+
+// ── End session ───────────────────────────────────────────────
+function endSession(seed) {
+  inputArea.style.display = 'none';
+  buildGlyph(seed);
+  setTimeout(() => glyphWrap.classList.add('visible'), 600);
+  setTimeout(() => {
+    glyphWrap.style.transition       = 'opacity 9s ease';
+    glyphWrap.style.opacity          = '0';
+    dialogueEl.style.transition      = 'opacity 9s ease';
+    dialogueEl.style.opacity         = '0';
+  }, 45000);
+}
+
+// ── Boot ──────────────────────────────────────────────────────
+(async function boot() {
+  try {
+    const res = await fetch('voyd_data.json');
+    const data = await res.json();
+    engine = new VoydEngine(data);
+    console.log('Voyd engine loaded:', engine.meta.title, 'max depth:', engine.meta.max_depth);
+  } catch(e) {
+    console.error('Failed to load voyd_data.json:', e);
+    // Fallback empty engine
+    engine = new VoydEngine({ meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {} });
+  }
+  runThreshold();
+})();
+</script>
+</body>
+</html>
