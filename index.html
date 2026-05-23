@@ -219,7 +219,10 @@ async function submit(text) {
   const ex = document.createElement('div'); ex.className = 'exchange';
 
   const vl = document.createElement('div'); vl.className = 'visitor-line';
-  for (const ch of text) vl.appendChild(makeSpan(ch));
+  for (const ch of text) {
+    if (ch === ' ') vl.appendChild(document.createTextNode(' '));
+    else vl.appendChild(makeSpan(ch));
+  }
   ex.appendChild(vl);
 
   const rl = document.createElement('div'); rl.className = 'voyd-line';
@@ -314,12 +317,16 @@ async function submit(text) {
 async function renderChunk(text, container) {
   for (const ch of text) {
     await new Promise(r => setTimeout(r, 16 + Math.random()*42));
-    const s = makeSpan(ch);
-    if (s.tagName !== 'BR' && Math.random() < 0.09) {
-      s.style.opacity = '0.3';
-      setTimeout(() => { s.style.transition='opacity 0.45s'; s.style.opacity='1'; }, 50 + Math.random()*180);
+    if (ch === ' ') {
+      container.appendChild(document.createTextNode(' '));
+    } else {
+      const s = makeSpan(ch);
+      if (s.tagName !== 'BR' && Math.random() < 0.09) {
+        s.style.opacity = '0.3';
+        setTimeout(() => { s.style.transition='opacity 0.45s'; s.style.opacity='1'; }, 50 + Math.random()*180);
+      }
+      container.appendChild(s);
     }
-    container.appendChild(s);
   }
 }
 
