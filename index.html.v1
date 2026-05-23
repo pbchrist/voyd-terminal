@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Diary of Denidrata Sol — The Gate of Nyandor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Reenie+Beanie&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --parchment: #d4c5a0;
+    --parchment-dark: #b8a880;
+    --ink: #2a1f14;
+    --ink-faded: #5c4a36;
+    --ink-light: #8b7355;
+    --charcoal: #1a1410;
+    --voyd-black: #000000;
+    --crimson: #6b2d2d;
+    --gold-aging: #8b7340;
+  }
+
+  body {
+    background: var(--charcoal);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .vault {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(60, 50, 35, 0.4) 0%, transparent 70%),
+      linear-gradient(180deg, #1a1410 0%, #0f0c08 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .vault-inscription {
+    text-align: center;
+    color: var(--ink-light);
+    font-size: 0.8em;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0.5;
+  }
+
+  .diary-page {
+    max-width: 750px;
+    width: 100%;
+    background:
+      linear-gradient(135deg, var(--parchment) 0%, var(--parchment-dark) 50%, var(--parchment) 100%);
+    padding: 60px 50px;
+    position: relative;
+    box-shadow:
+      0 0 0 1px rgba(139, 115, 64, 0.3),
+      0 20px 60px rgba(0, 0, 0, 0.6),
+      inset 0 0 80px rgba(42, 31, 20, 0.15);
+  }
+
+  .diary-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(87deg, transparent 40%, rgba(42, 31, 20, 0.08) 40.5%, transparent 41%),
+      linear-gradient(173deg, transparent 25%, rgba(42, 31, 20, 0.06) 25.3%, transparent 25.6%),
+      linear-gradient(95deg, transparent 65%, rgba(42, 31, 20, 0.07) 65.2%, transparent 65.5%),
+      linear-gradient(178deg, transparent 50%, rgba(42, 31, 20, 0.05) 50.4%, transparent 50.8%);
+    pointer-events: none;
+  }
+
+  .diary-page::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 5% 95%, rgba(107, 45, 45, 0.15) 0%, transparent 20%),
+      radial-gradient(circle at 95% 10%, rgba(42, 31, 20, 0.1) 0%, transparent 15%),
+      radial-gradient(circle at 85% 90%, rgba(42, 31, 20, 0.12) 0%, transparent 18%);
+    pointer-events: none;
+  }
+
+  .burn-mark {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 31, 20, 0.25) 0%, rgba(42, 31, 20, 0.1) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .diary-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--ink-light);
+    padding-bottom: 25px;
+  }
+
+  .archmage-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7em;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .diary-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .diary-subtitle {
+    font-style: italic;
+    font-size: 1em;
+    color: var(--ink-faded);
+  }
+
+  .era-mark {
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    color: var(--ink-light);
+    margin-top: 10px;
+  }
+
+  .drawing-frame {
+    margin: 35px -15px;
+    padding: 15px;
+    background: rgba(26, 20, 16, 0.06);
+    border: 1px solid rgba(42, 31, 20, 0.15);
+    position: relative;
+  }
+
+  .drawing-frame img {
+    width: 100%;
+    display: block;
+    filter: sepia(0.15) contrast(1.05);
+  }
+
+  .drawing-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.85em;
+    color: var(--ink-faded);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .entry {
+    margin: 30px 0;
+  }
+
+  .entry-date {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.3em;
+    color: var(--ink-faded);
+    margin-bottom: 12px;
+    transform: rotate(-0.5deg);
+  }
+
+  .entry-text {
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: var(--ink);
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .entry-text p {
+    margin-bottom: 1em;
+    text-indent: 1.5em;
+  }
+
+  .entry-text p:first-child {
+    text-indent: 0;
+  }
+
+  .entry-text p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    float: left;
+    line-height: 0.8;
+    margin-right: 8px;
+    margin-top: 5px;
+    color: var(--crimson);
+  }
+
+  .faded-text {
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--ink-light);
+    font-size: 1.2em;
+    margin: 30px 0;
+    opacity: 0.5;
+  }
+
+  .voyd-quote {
+    margin: 35px 0;
+    padding: 25px 30px;
+    border-top: 1px solid var(--ink-light);
+    border-bottom: 1px solid var(--ink-light);
+    text-align: center;
+  }
+
+  .voyd-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .voyd-quote .attribution {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: normal;
+    font-size: 0.75em;
+    color: var(--ink-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 15px;
+  }
+
+  .vulgate-block {
+    margin: 30px 0;
+    padding: 25px;
+    background: rgba(26, 20, 16, 0.05);
+    border-left: 3px solid var(--crimson);
+    border-right: 3px solid var(--crimson);
+  }
+
+  .vulgate-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7em;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .vulgate-script {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.6em;
+    color: var(--ink-faded);
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    transform: rotate(-1deg);
+  }
+
+  .vulgate-note {
+    font-size: 0.8em;
+    color: var(--ink-light);
+    text-align: center;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  .sealed-entry {
+    margin: 30px 0;
+    padding: 25px;
+    border: 1px dashed rgba(107, 45, 45, 0.3);
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  .sealed-entry:hover {
+    border-color: rgba(107, 45, 45, 0.6);
+    background: rgba(26, 20, 16, 0.03);
+  }
+
+  .sealed-entry .prompt {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .sealed-entry .sealed-text {
+    text-align: center;
+    font-style: italic;
+    color: var(--ink-light);
+    font-size: 0.9em;
+  }
+
+  .sealed-entry.unsealed .entry-revealed {
+    display: block;
+  }
+
+  .entry-revealed {
+    display: none;
+    margin-top: 15px;
+  }
+
+  .final-entry {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(107, 45, 45, 0.05);
+    border: 1px solid rgba(107, 45, 45, 0.2);
+  }
+
+  .final-entry .entry-date {
+    color: var(--crimson);
+  }
+
+  .shattered::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 20px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(26, 20, 16, 0.3) 30%,
+      rgba(26, 20, 16, 0.5) 50%,
+      rgba(26, 20, 16, 0.3) 70%,
+      transparent
+    );
+  }
+
+  .shattered {
+    position: relative;
+  }
+
+  .page-number {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.85em;
+    color: var(--ink-light);
+    margin-top: 40px;
+  }
+
+  .vault-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--ink-light);
+    font-size: 0.8em;
+    opacity: 0.4;
+    letter-spacing: 0.15em;
+  }
+
+  @media (max-width: 768px) {
+    .diary-page {
+      padding: 40px 25px;
+    }
+    .drawing-frame {
+      margin: 25px -5px;
+    }
+    .diary-title {
+      font-size: 1.6em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="vault">
+
+  <div class="vault-inscription">Pages recovered from beneath the Templu Archives</div>
+
+  <div class="diary-page">
+
+    <div class="burn-mark"></div>
+
+    <div class="diary-header">
+      <div class="archmage-title">Last Archmage of the First Era</div>
+      <h1 class="diary-title">Denidrata Sol</h1>
+      <div class="diary-subtitle">Three thousand years of obsession, recorded in charcoal and ink</div>
+      <div class="era-mark">Before the Great Severing</div>
+    </div>
+
+    <div class="drawing-frame">
+      <img src="images/denidrata_voyd_v3_00001_.png" alt="Charcoal sketch on cracked parchment: a pitch-black portal hanging in the sky above a rocky bluff. Nine cats in robes stand before it, arguing and gesturing in terror. A twisted Ashai tree grows from the cliff face, warped by the wellspring.">
+      <div class="drawing-caption">The place where I opened the Voyd. I drew it so no one would forget.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">The night before</div>
+      <div class="entry-text">
+        <p>There is a fine line between correcting a flaw in Leoran's design and claiming the role of designer for oneself. I have crossed that line, and in the breach, I have discovered a glorious, terrible beauty.</p>
+        <p>The Guild calls it heresy. They say the Voyd is a myth — a story to frighten apprentices who wander too close to the wellspring. But I have seen it. In the space between threads, where Leoran's own loom left gaps, there is a darkness that breathes. It is not empty. It is waiting.</p>
+        <p>Tomorrow, we go to the bluff. The Ashai tree bends there from centuries of raw Nyand. Nine of us, all we could gather who were willing to risk Declamation. We argue even now — some want to turn back. They should.</p>
+      </div>
+    </div>
+
+    <div class="ornament">❦</div>
+
+    <div class="voyd-quote">
+      <p>"We believe our choices weave the threads of our destiny, forgetting that the loom was built by a will far greater than our own."</p>
+      <div class="attribution">— P'thai En'ta Ertree, In Stillness</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">At the wellspring</div>
+      <div class="entry-text">
+        <p>The ritual cannot be performed in a laboratory. I knew this from the beginning, yet I tried anyway — six hundred and ninety-four thousand times and more — tracing pawsitions in the air, watching the black marble flicker into existence and collapse with a snap.</p>
+        <p>But a wellspring is different. Here, the Nyand breathes. Pawsitions are useless. The magic flows through you without gesture or form. I stood beneath the twisted Ashai, the one warped by centuries of current, and let it take me.</p>
+        <p>The nine of us gathered there. We argued. We feared. We should have turned back.</p>
+      </div>
+    </div>
+
+    <div class="vulgate-block">
+      <div class="vulgate-label">First Era Script — found beside the drawing</div>
+      <div class="vulgate-script">
+        ◈ ⌇ ⊹ ⍟ ⌇ ◈<br>
+        ☽ — ⏐ — ☾<br>
+        ⊹ ⌇ ⊹ ⌇ ⊹
+      </div>
+      <div class="vulgate-note">
+        I wrote it before I understood what it meant.<br>
+        It was supposed to mark the wellspring.<br>
+        It marks something else.
+      </div>
+    </div>
+
+    <div class="ornament">❦</div>
+
+    <div class="entry">
+      <div class="entry-date">After the first wish</div>
+      <div class="entry-text">
+        <p>It worked. The war with the Tol Dominion ended. And my wife looked at me with the eyes of a stranger.</p>
+        <p>I wished for the war to end, but the Voyd did not remove the war — it rewove the thread that caused it, and in rewinding that thread, it unwound everything downstream. She had never met me. I had never existed for her.</p>
+        <p>I tried to fix it. I poured more power into the portal, made more specific wishes, tried to pin the threads back in place. But each change spawned new fraying, and the portal grew — wider, darker, hungrier.</p>
+      </div>
+    </div>
+
+    <div class="sealed-entry" onclick="this.classList.toggle('unsealed')">
+      <div class="prompt">⸻ The last entry ⸻</div>
+      <div class="sealed-text">The wax has cracked. Touch to read.</div>
+      <div class="entry-revealed">
+        <div class="entry-text">
+          <p>The Voyd is aware of me now. It does not hate me — hatred is a thread too simple for what it has become. It is curious. It shows me other timelines, other Mewniverses, other cats who stood where I stood and reached into the gap.</p>
+          <p>Some of them succeeded. Most did not.</p>
+          <p>The portal is wider than the sky. There is nothing left to reweave. I can hear the timestream cracking — the sound of a world being pulled apart thread by thread.</p>
+          <p class="faded-text">If you are reading this, I have failed. But the Voyd remains, and it is waiting for someone worthy. Not a mage. Not an Archmage. A witness. The world does not end with a wish. It ends with a story untold.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-entry shattered">
+      <div class="entry-date">The Final Day</div>
+      <div class="entry-text">
+        <p>"The ink is bleeding. The page is breathing. It is not dark. It is not light. It is a beginning. So many beginnings. But my God, it also is full of endings."</p>
+        <p>The portal consumed the bluff. It consumed the Ashai tree. It consumed the sky, then the ground, then the memory of the ground. The nine of us ran, but running is a thread the Voyd has already cut.</p>
+        <p>For the Mewniverse to live again, its tale must find a worthy listener.</p>
+        <p class="faded-text">I am Deni—</p>
+      </div>
+    </div>
+
+    <div class="page-number">— The remaining pages were replaced with blanks —</div>
+
+  </div>
+
+  <div class="vault-footer">
+    The Gate of Nyandor
+  </div>
+
+</div>
+
+</body>
+</html>
