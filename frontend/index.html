@@ -78,7 +78,7 @@
 // For direct Anthropic calls (key exposed — only for private/testing):
 const ANTHROPIC_API_KEY = localStorage.getItem('voyd_key') || '';
 // For proxy backend, set API_BASE:
-const API_BASE = localStorage.getItem('voyd_api') || '';
+const API_BASE = localStorage.getItem('voyd_api') || 'http://100.73.250.50:8765';
 
 // ── State ─────────────────────────────────────────────────────
 const cursorEl     = document.getElementById('cursor');

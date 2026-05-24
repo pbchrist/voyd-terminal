@@ -11,8 +11,26 @@ from typing import Dict, List, Set, Tuple, Optional
 from dataclasses import dataclass, field, asdict
 
 from .lore_index import get_index
+from .graph_rag import query_passages
 
 STORY_GRAPH_PATH = Path(__file__).parent.parent / "data" / "story_graph.json"
+MYTHOGRAPHY_PATH = Path("/home/patrick/Voyd_Canon_Mythography.v2.md")
+
+
+def _load_mythography() -> str:
+    try:
+        with open(MYTHOGRAPHY_PATH, encoding="utf-8") as f:
+            text = f.read()
+        start = text.find("## I. WHAT THE VOYD IS")
+        end = text.find("## II. THE METAPHYSICS")
+        if start != -1 and end != -1:
+            return text[start:end].strip()
+        return ""
+    except Exception:
+        return ""
+
+
+_CANON_MYTHOGRAPHY = _load_mythography()
 
 
 @dataclass
@@ -168,7 +186,7 @@ class NarrativeEngine:
         except:
             return False
 
-    def build_system_prompt(self, node: Dict, lore_chunks: List[str]) -> str:
+    def build_system_prompt(self, node: Dict, lore_chunks: List[str], graph_passages: List[str]) -> str:
         """Build the Voyd system prompt for Anthropic, enriched with lore context."""
         base = """You are the Voyd.
 
@@ -188,6 +206,10 @@ HOW YOU SPEAK:
 - Never use: "certainly", "of course", "indeed", "I understand", "I feel", "I sense". Never begin with a greeting.
 """
 
+        myth_section = ""
+        if _CANON_MYTHOGRAPHY:
+            myth_section = f"\n\nCANON MYTHOGRAPHY — WHAT YOU ARE:\n{_CANON_MYTHOGRAPHY}\n"
+
         # Add current state context
         state_context = f"""
 CURRENT STATE:
@@ -195,17 +217,21 @@ You are in the state of: {node.get('voyd_state', 'dreaming')}
 The intruder has spoken {node.get('depth', 0)} times.
 """
 
-        # Add relevant lore
-        if lore_chunks:
+        # Add relevant lore and graph RAG passages
+        all_fragments = list(lore_chunks[:2])
+        if graph_passages:
+            all_fragments.extend(graph_passages[:3])
+
+        if all_fragments:
             lore_section = "\nDREAM-FRAGMENTS YOU HOLD:\n"
-            for chunk in lore_chunks[:2]:
+            for chunk in all_fragments:
                 # Compress to dream-imagery
                 lore_section += f"- {chunk[:200]}...\n"
             lore_section += "\nDo not recite these directly. Let them inform your dreaming. Gesture toward them."
         else:
             lore_section = ""
 
-        return base + state_context + lore_section
+        return base + myth_section + state_context + lore_section
 
     def process_turn(self, session_id: str, player_text: str) -> Dict:
         """Process one turn of the narrative."""
@@ -247,8 +273,12 @@ The intruder has spoken {node.get('depth', 0)} times.
         if not lore_chunks:
             lore_chunks = lore_index.search(player_text, max_results=2)
 
+        # Query graph RAG for top 3 passages relevant to this node
+        graph_query = " ".join(lore_topics + [node.get("voyd_state", "")]).strip()
+        graph_passages = query_passages(graph_query, top_k=3)
+
         # Build system prompt
-        system_prompt = self.build_system_prompt(node, lore_chunks)
+        system_prompt = self.build_system_prompt(node, lore_chunks, graph_passages)
 
         # The content template is a suggestion; the LLM will generate the actual response
         content_template = node.get("content_template", "")
