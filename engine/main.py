@@ -14,17 +14,24 @@ from pydantic import BaseModel
 
 from .narrative_engine import NarrativeEngine
 
-# Secure API key handling
+
+# Secure API key handling — prefers Kimi (Moonshot), falls back to Anthropic
+KIMI_API_KEY = os.environ.get("KIMI_API_KEY", "")
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-if not ANTHROPIC_API_KEY:
-    # Try to load from .env if present
+
+if not KIMI_API_KEY or not ANTHROPIC_API_KEY:
     env_path = os.path.expanduser("~/.hermes/.env")
     if os.path.exists(env_path):
         with open(env_path) as f:
             for line in f:
-                if line.startswith("ANTHROPIC_API_KEY="):
+                if line.startswith("KIMI_API_KEY=") and not KIMI_API_KEY:
+                    KIMI_API_KEY = line.strip().split("=", 1)[1].strip().strip('"')
+                elif line.startswith("ANTHROPIC_API_KEY=") and not ANTHROPIC_API_KEY:
                     ANTHROPIC_API_KEY = line.strip().split("=", 1)[1].strip().strip('"')
-                    break
+
+# Provider selection: Kimi is primary
+USE_KIMI = bool(KIMI_API_KEY)
+API_KEY = KIMI_API_KEY if USE_KIMI else ANTHROPIC_API_KEY
 
 engine = NarrativeEngine()
 
@@ -53,7 +60,7 @@ app.add_middleware(
 class ChatRequest(BaseModel):
     session_id: str = ""
     message: str
-    model: str = "claude-sonnet-4-20250514"
+    model: str = "moonshot-v1-8k"
 
 
 class ChatResponse(BaseModel):
@@ -84,9 +91,8 @@ async def chat(req: ChatRequest):
             glyph_seed=state.get("glyph_seed", ""),
         )
 
-    # Call Anthropic API securely server-side
     voyd_text = ""
-    if ANTHROPIC_API_KEY:
+    if API_KEY:
         try:
             import httpx
             messages = [
@@ -98,27 +104,53 @@ async def chat(req: ChatRequest):
                 messages.append({"role": "user", "content": req.message})
 
             async with httpx.AsyncClient(timeout=30.0) as client:
-                response = await client.post(
-                    "https://api.anthropic.com/v1/messages",
-                    headers={
-                        "Content-Type": "application/json",
-                        "x-api-key": ANTHROPIC_API_KEY,
-                        "anthropic-version": "2023-06-01",
-                    },
-                    json={
-                        "model": req.model,
-                        "max_tokens": 300,
-                        "system": result["system_prompt"],
-                        "messages": messages[-6:],  # Keep last 6 for context
-                    },
-                )
-                if response.status_code == 200:
-                    data = response.json()
-                    voyd_text = data["content"][0]["text"]
+                if USE_KIMI:
+                    # Kimi / Moonshot — OpenAI-compatible endpoint
+                    openai_messages = [
+                        {"role": "system", "content": result["system_prompt"]}
+                    ] + messages[-6:]
+
+                    response = await client.post(
+                        "https://api.moonshot.ai/v1/chat/completions",
+                        headers={
+                            "Content-Type": "application/json",
+                            "Authorization": f"Bearer {API_KEY}",
+                        },
+                        json={
+                            "model": req.model,
+                            "max_tokens": 300,
+                            "messages": openai_messages,
+                        },
+                    )
+                    if response.status_code == 200:
+                        data = response.json()
+                        voyd_text = data["choices"][0]["message"]["content"]
+                    else:
+                        print(f"Kimi error {response.status_code}: {response.text}")
+                        voyd_text = result["content_template"]
                 else:
-                    voyd_text = result["content_template"]
+                    # Anthropic — legacy endpoint
+                    response = await client.post(
+                        "https://api.anthropic.com/v1/messages",
+                        headers={
+                            "Content-Type": "application/json",
+                            "x-api-key": API_KEY,
+                            "anthropic-version": "2023-06-01",
+                        },
+                        json={
+                            "model": req.model,
+                            "max_tokens": 300,
+                            "system": result["system_prompt"],
+                            "messages": messages[-6:],
+                        },
+                    )
+                    if response.status_code == 200:
+                        data = response.json()
+                        voyd_text = data["content"][0]["text"]
+                    else:
+                        voyd_text = result["content_template"]
         except Exception as e:
-            print(f"Anthropic error: {e}")
+            print(f"LLM error: {e}")
             voyd_text = result["content_template"]
     else:
         # Fallback to template if no API key
@@ -151,7 +183,8 @@ async def get_glyph(session_id: str):
 
 @app.get("/api/health")
 async def health():
-    return {"status": "listening", "api_key_configured": bool(ANTHROPIC_API_KEY)}
+    provider = "kimi" if USE_KIMI else ("anthropic" if ANTHROPIC_API_KEY else "none")
+    return {"status": "listening", "provider": provider, "api_key_configured": bool(API_KEY)}
 
 
 if __name__ == "__main__":
