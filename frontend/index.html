@@ -83,7 +83,7 @@
 <script>
 // ── CONFIG ────────────────────────────────────────────────────
 // For direct Anthropic calls (key exposed — only for private/testing):
-const ANTHROPIC_API_KEY = localStorage.getItem('voyd_key') || '';
+const KIMI_API_KEY = localStorage.getItem('voyd_key') || '';
 // For proxy backend, set API_BASE:
 const API_BASE = localStorage.getItem('voyd_api') || '';
 
@@ -371,28 +371,29 @@ async function submit(text) {
       } else { throw new Error('proxy failed'); }
     } catch(e) { voydText = result.contentTemplate; }
   }
-  // Fall back to direct Anthropic call
-  else if (ANTHROPIC_API_KEY) {
+  // Fall back to direct Kimi API call
+  else if (KIMI_API_KEY) {
     try {
-      const messages = result.state.history.map(h => ({ role: h.role, content: h.content }));
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
+      const messages = [
+        { role: 'system', content: result.systemPrompt },
+        ...historyMsgs.slice(-6)
+      ];
+      const res = await fetch('https://api.moonshot.ai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-calls': 'true'
+          'Authorization': `Bearer ${KIMI_API_KEY}`,
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'moonshot-v1-8k',
           max_tokens: 300,
-          system: result.systemPrompt,
-          messages: messages.slice(-6),
+          messages: messages,
         })
       });
       if (res.ok) {
         const data = await res.json();
-        voydText = data.content[0].text;
+        voydText = data.choices[0].message.content;
       } else { throw new Error(String(res.status)); }
     } catch(e) {
       statusEl.textContent = e.message === '401' ? 'key invalid' : '';

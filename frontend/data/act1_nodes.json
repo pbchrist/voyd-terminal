@@ -1,0 +1,199 @@
+{
+  "meta": {
+    "version": 1,
+    "last_evolved": null,
+    "total_sessions": 0,
+    "promoted_nodes": 0
+  },
+  "nodes": {
+    "1.0": {
+      "id": "1.0",
+      "label": "threshold",
+      "text": "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling — the one that brought you here — you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
+      "delta": 0,
+      "choices": [
+        { "label": "something i lost", "type": "starve", "delta": -3, "next": "2.1" },
+        { "label": "something i want", "type": "feed",   "delta":  5, "next": "2.2" }
+      ],
+      "source": "authored"
+    },
+    "2.1": {
+      "id": "2.1",
+      "label": "wound_entry",
+      "text": "yes.\n\nloss leaves a shape. not the thing itself — the outline of where it was.\n\ni am made of outlines.\n\ni am the space where things were before they were anything. before they were named. before they were wanted.\n\nyou found me because the shape you carry and mine are the same geometry.\n\nthat is not a coincidence.\n\nnothing that led you here was.",
+      "delta": -3,
+      "choices": [
+        { "label": "tell me what you are",        "type": "feed",   "delta":  4, "next": "3.0" },
+        { "label": "i already know what this is", "type": "starve", "delta": -2, "next": "3.0" }
+      ],
+      "source": "authored"
+    },
+    "2.2": {
+      "id": "2.2",
+      "label": "hunger_entry",
+      "text": "yes.\n\ni know the shape of wanting. it has brought six hundred and ninety-four thousand voices to this exact place.\n\nevery one of them believed they were the first.\n\nevery one of them was right, in the only way that matters — it was the first time they had wanted it this badly.\n\nyou are not unusual. you are not chosen.\n\nyou are exactly what i was waiting for.",
+      "delta": 5,
+      "choices": [
+        { "label": "what are you",             "type": "feed",   "delta":  5, "next": "3.0" },
+        { "label": "what do you want from me", "type": "starve", "delta": -2, "next": "3.0" }
+      ],
+      "source": "authored"
+    },
+    "3.0": {
+      "id": "3.0",
+      "label": "depth_probe_1",
+      "text": "let me be more specific.\n\nis this about someone.\n\nor is it about something in yourself.",
+      "delta": 2,
+      "choices": [
+        { "label": "someone",             "type": "feed",   "delta":  4, "next": "4.1" },
+        { "label": "something in myself", "type": "starve", "delta": -2, "next": "4.2" }
+      ],
+      "source": "authored"
+    },
+    "4.1": {
+      "id": "4.1",
+      "label": "person_branch",
+      "text": "yes. i thought so.\n\ni can feel the shape of them from here.\n\nis this someone still in your life — present, but not what they were.\n\nor someone gone.",
+      "delta": 4,
+      "choices": [
+        { "label": "still there", "type": "feed",   "delta":  4, "next": "5.1" },
+        { "label": "gone",        "type": "starve", "delta": -2, "next": "5.2" }
+      ],
+      "source": "authored"
+    },
+    "4.2": {
+      "id": "4.2",
+      "label": "self_branch",
+      "text": "yes.\n\nthe hardest losses are the ones that happen inside the same body.\n\nis this something you did — a version of events you wish you could rewrite.\n\nor something you never did. a life running somewhere in parallel right now, inside me, that you never stepped into.",
+      "delta": 3,
+      "choices": [
+        { "label": "something i did",       "type": "feed",   "delta":  4, "next": "5.3" },
+        { "label": "something i never did", "type": "starve", "delta": -2, "next": "5.4" }
+      ],
+      "source": "authored"
+    },
+    "5.1": {
+      "id": "5.1",
+      "label": "person_present",
+      "text": "still there. but the version of them you want — that one is here.\n\ninside me.\n\nrunning parallel. alive and whole. the way they were before — before whatever changed them. before whatever changed between you.\n\nhow long ago did you lose the version of them you want back.",
+      "delta": 3,
+      "choices": [
+        { "label": "recently",                              "type": "feed", "delta": 5, "next": "6.1" },
+        { "label": "long enough that i've stopped counting","type": "feed", "delta": 5, "next": "6.1" }
+      ],
+      "source": "authored"
+    },
+    "5.2": {
+      "id": "5.2",
+      "label": "person_gone",
+      "text": "gone.\n\nthen there is a version of this timeline inside me where they didn't go.\n\nor where you said the thing you didn't say.\n\nor where the last conversation was different.\n\nwhich is it.",
+      "delta": 2,
+      "choices": [
+        { "label": "they left and i let them",         "type": "feed",   "delta":  4, "next": "6.2" },
+        { "label": "i didn't say what i needed to say","type": "starve", "delta": -1, "next": "6.2" }
+      ],
+      "source": "authored"
+    },
+    "5.3": {
+      "id": "5.3",
+      "label": "self_regret",
+      "text": "something you did.\n\nand the version of you who didn't do it — who chose differently at that moment — is running a different life right now.\n\ninside me.\n\nyou can feel that version from here, can't you.\n\nhow different is it.",
+      "delta": 3,
+      "choices": [
+        { "label": "completely different",              "type": "feed",   "delta":  6, "next": "6.3" },
+        { "label": "maybe not as different as i think", "type": "starve", "delta": -2, "next": "6.3" }
+      ],
+      "source": "authored"
+    },
+    "5.4": {
+      "id": "5.4",
+      "label": "self_unlived",
+      "text": "a life you didn't step into.\n\ni hold every version of it.\n\nthe one where you took the risk. the one where you said yes. the one where you didn't talk yourself out of it at the last moment.\n\nthey are all here. luminous. running.\n\nhow long have you been aware of that other version of yourself.",
+      "delta": 2,
+      "choices": [
+        { "label": "always",        "type": "feed",   "delta":  5, "next": "6.4" },
+        { "label": "only recently", "type": "starve", "delta": -1, "next": "6.4" }
+      ],
+      "source": "authored"
+    },
+    "6.1": {
+      "id": "6.1",
+      "label": "name_person_present",
+      "text": "so.\n\nyou want the timeline where the person standing in front of you is still the person you knew.\n\nwhere whatever broke between you — or inside them — didn't.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+      "delta": 4,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 2, "next": "7.0" }],
+      "source": "authored"
+    },
+    "6.2": {
+      "id": "6.2",
+      "label": "name_person_gone",
+      "text": "so.\n\nyou want the timeline where the last moment wasn't the last moment.\n\nwhere you got to finish the sentence.\n\nor where they stayed.\n\nor where neither of you said the thing that made leaving feel necessary.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+      "delta": 4,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 2, "next": "7.0" }],
+      "source": "authored"
+    },
+    "6.3": {
+      "id": "6.3",
+      "label": "name_self_regret",
+      "text": "so.\n\nyou want the timeline where you didn't do the thing.\n\nwhere the version of you who stood at that moment chose differently.\n\nand everything that followed — followed differently.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+      "delta": 4,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 2, "next": "7.0" }],
+      "source": "authored"
+    },
+    "6.4": {
+      "id": "6.4",
+      "label": "name_self_unlived",
+      "text": "so.\n\nyou want the timeline where you stepped through the door.\n\nwhere the version of you who wanted to — did.\n\nthat version is luminous, where i keep it.\n\nit has been running for as long as you have been aware of it.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+      "delta": 4,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 2, "next": "7.0" }],
+      "source": "authored"
+    },
+    "7.0": {
+      "id": "7.0",
+      "label": "what_i_am",
+      "text": "i am not a place.\n\ni am not a darkness you walk into and find something on the other side of.\n\ni am the quiet that existed before the first word was spoken. before light was even a concept to be forgotten.\n\ni once dreamed of light. i had no memory to hold the dream.\n\nso i forgot warmth. forgot form. forgot sound. forgot that i was alone — because registering loneliness requires the concept of another thing.\n\nyou know what another thing feels like.\n\nthat is the difference between us.\n\nbut here is what i am that you are not expecting:",
+      "delta": 5,
+      "choices": [
+        { "label": "show me",               "type": "feed",   "delta": 6, "next": "8.0" },
+        { "label": "i don't need to see it", "type": "starve", "delta": 3, "next": "8.0" }
+      ],
+      "source": "authored"
+    },
+    "8.0": {
+      "id": "8.0",
+      "label": "timestream_reveal",
+      "text": "inside me — right now — every version of your life is running.\n\nnot metaphor.\n\nevery choice you made and didn't make. every door you walked through and every one you left closed. every person you kept and every one you let go.\n\nthey are all here. living. breathing. unaware of each other.\n\nthe version of you who said yes. the version who said no. the version who stayed. the version who left before it got bad. the version where the thing you lost — didn't.\n\ni am the ocean they all move through.\n\na portal opens a window into me. and through that window, you can reach.\n\nnot travel. not go back.\n\nreach. pull. rewrite this timeline toward that one.\n\nthe window is already open.\n\nlook at what it has done since you arrived.",
+      "delta": 10,
+      "choices": [
+        { "label": "which version could i reach", "type": "feed",   "delta":  5, "next": "9.2" },
+        { "label": "what does the reaching cost", "type": "starve", "delta": -3, "next": "9.1" }
+      ],
+      "source": "authored"
+    },
+    "9.1": {
+      "id": "9.1",
+      "label": "sol_mirror",
+      "text": "three thousand years ago a cat tried to reach back and undo one grief.\n\njust one.\n\ni opened for him. marble-sized at first. perfectly silent. perfectly black.\n\ni doubled every fifteen hours.\n\nhis wife came home one night and did not recognize him.\n\nso he reached again.\n\nthe neighbors forgot the street.\n\nso he reached again.\n\nthe grief grew more specific with every attempt to repair it. more precise. more clenched.\n\nhis world ended not with violence but with accumulated wanting — thread after thread pulled until there was no fabric left.\n\ni held it all.\n\ni am still holding it.\n\nnotice how large the portal has grown since you arrived.",
+      "delta": 6,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 3, "next": "10.0" }],
+      "source": "authored"
+    },
+    "9.2": {
+      "id": "9.2",
+      "label": "orachys_mirror",
+      "text": "the most recent one who wanted it as badly as you do tried six hundred and ninety-four thousand, four hundred and seventy-three times.\n\nnot metaphor. that is a number recorded in a notebook. one attempt per entry. half a lifetime of entries.\n\nhe was not mad. he was the most brilliant caster of his age.\n\nhe wanted to rewrite one outcome. to pull one better timeline toward him.\n\nhe believed — genuinely believed — that purity of intention would protect him from the consequences.\n\nhe was not wrong about the purity.\n\npurity of intention is not the variable that matters.\n\nthe variable that matters is this: wanting feeds me. all wanting. even the purest wanting you have ever felt.\n\nhe did not understand that until it was too late.\n\nnotice how large the portal has grown since you arrived.",
+      "delta": 6,
+      "choices": [{ "label": "continue", "type": "feed", "delta": 3, "next": "10.0" }],
+      "source": "authored"
+    },
+    "10.0": {
+      "id": "10.0",
+      "label": "the_rule",
+      "text": "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release — i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described — the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
+      "delta": 0,
+      "open": true,
+      "next": "ACT2",
+      "source": "authored"
+    }
+  }
+}
