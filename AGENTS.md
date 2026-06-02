@@ -191,3 +191,13 @@ Run these steps before every commit and push. Do not push if any step fails.
 5. Act 2 handoff: confirm the session state carrying those three values reaches the system prompt builder in `voyd_engine.js`
 6. If all pass: `git add -A && git commit -m "<message>" && git push origin main`
 7. If any fail: report exactly what broke. Do not touch git.
+
+---
+
+## Cron
+
+Daily evolution at 03:00:
+
+```cron
+0 3 * * * cd /home/patrick/voyd-terminal && python3 evolve.py >> logs/evolve.log 2>&1
+```
