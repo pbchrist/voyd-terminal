@@ -177,3 +177,17 @@ There is no test suite, test framework, or CI configuration in this project. Tes
 - The frontend is designed to be served statically (e.g., GitHub Pages).
 - The backend is a single-process FastAPI app suitable for running behind a reverse proxy.
 - There is no Docker configuration, no production WSGI/ASGI server setup beyond Uvicorn, and no database.
+
+---
+
+## Testing Protocol
+
+Run these steps before every commit and push. Do not push if any step fails.
+
+1. Start the dev server: `./start.sh` — confirm it starts without errors
+2. Health check: `curl http://localhost:8765/api/health` — must return 200
+3. Graph integrity: load `data/act1_nodes.json` and walk every path from node `1.0` to node `10.0` — confirm every `next` pointer resolves and no dead ends exist
+4. Act 1 traversal: simulate all four archetype paths (person_present, person_gone, self_regret, self_unlived) and confirm `portalValue`, `archetype`, and `playerAnswer` are set correctly at node `10.0`
+5. Act 2 handoff: confirm the session state carrying those three values reaches the system prompt builder in `voyd_engine.js`
+6. If all pass: `git add -A && git commit -m "<message>" && git push origin main`
+7. If any fail: report exactly what broke. Do not touch git.
