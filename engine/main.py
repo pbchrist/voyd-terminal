@@ -54,6 +54,9 @@ class ChatRequest(BaseModel):
     session_id: str = ""
     message: str
     model: str = "claude-sonnet-4-20250514"
+    portal_value: int = 8
+    archetype: str = ""
+    player_answer: str = ""
 
 
 class ChatResponse(BaseModel):
@@ -71,6 +74,12 @@ async def chat(req: ChatRequest):
         req.session_id = str(uuid.uuid4())
 
     # Process through narrative engine
+    session = engine.get_or_create_session(req.session_id)
+    if req.archetype:
+        session.archetype = req.archetype
+        session.player_answer = req.player_answer
+        session.portal_value = req.portal_value
+
     result = engine.process_turn(req.session_id, req.message)
     state = result["state"]
 

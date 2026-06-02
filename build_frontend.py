@@ -4,6 +4,7 @@ Build script: generates frontend data files from the narrative engine.
 Outputs static JSON that the frontend loads.
 """
 import json
+import shutil
 from pathlib import Path
 
 # Load story graph
@@ -37,3 +38,11 @@ with open(out_path, "w") as f:
 
 print(f"Built {out_path}: {out_path.stat().st_size} bytes")
 print(f"Nodes: {len(graph['nodes'])}, Lore topics: {len(lore_map)}")
+
+# Copy act1_nodes.json to frontend data directory
+act1_src = Path("data/act1_nodes.json")
+act1_dst_dir = Path("frontend/data")
+act1_dst_dir.mkdir(exist_ok=True)
+act1_dst = act1_dst_dir / "act1_nodes.json"
+shutil.copy2(act1_src, act1_dst)
+print(f"Copied {act1_src} -> {act1_dst}")

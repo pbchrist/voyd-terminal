@@ -44,6 +44,13 @@
   #depth-indicator { position: fixed; top: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; transition: opacity 1s; }
   #status { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; }
   #node-tag { position: fixed; top: 1.5rem; left: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.12); letter-spacing: 0.08em; pointer-events: none; text-transform: lowercase; }
+  .act1-choice { display: inline-block; font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem, 1.7vw, 0.95rem); letter-spacing: 0.04em; background: transparent; border: none; cursor: none; margin: 0.3rem 0.6rem 0.3rem 0; padding: 0.2rem 0; text-decoration: underline; text-underline-offset: 0.2em; transition: opacity 0.3s; }
+  .act1-choice:hover { opacity: 0.7; }
+  .act1-choice.feed { color: #c9a03a; }
+  .act1-choice.starve { color: #6a9ec5; }
+  .act1-choices { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .act1-input-wrap { margin-top: 1.5rem; display: flex; gap: 0.5rem; align-items: center; }
+  .act1-input { font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem, 1.7vw, 0.95rem); color: var(--text); background: transparent; border: none; border-bottom: 1px solid rgba(232,224,208,0.25); outline: none; width: 100%; letter-spacing: 0.04em; cursor: none; }
 </style>
 </head>
 <body>
@@ -101,6 +108,12 @@ let allSpans       = [];
 let mouseX = 0, mouseY = 0;
 let engine         = null;
 let currentDepth   = 0;
+let act1Nodes      = null;
+let act1Current    = '1.0';
+let portalValue    = 8;
+let archetype      = null;
+let playerAnswer   = '';
+let voydData       = null;
 
 // ── Cursor ────────────────────────────────────────────────────
 document.addEventListener('mousemove', e => {
@@ -181,7 +194,7 @@ function initAudio() {
 function runThreshold() {
   setTimeout(()  => { thresholdEl.style.opacity = '1'; }, 1800);
   setTimeout(()  => { thresholdEl.style.opacity = '0'; }, 6500);
-  setTimeout(()  => { thresholdEl.style.display = 'none'; enterDialogue(); }, 9200);
+  setTimeout(()  => { thresholdEl.style.display = 'none'; enterAct1(); }, 9200);
 }
 
 function enterDialogue() {
@@ -192,9 +205,98 @@ function enterDialogue() {
   hiddenInput.focus();
 }
 
+// ── Act 1 ─────────────────────────────────────────────────────
+function enterAct1() {
+  phase = 'act1';
+  dialogueEl.classList.add('visible');
+  renderAct1Node('1.0');
+}
+
+async function renderAct1Node(nodeId) {
+  act1Current = nodeId;
+  const node = act1Nodes[nodeId];
+  if (!node) { enterAct2(); return; }
+
+  if (node.label && node.label.startsWith('name_')) {
+    archetype = node.label.replace('name_', '');
+  }
+
+  exchangesEl.querySelectorAll('.exchange').forEach(el => el.classList.add('receding'));
+
+  const ex = document.createElement('div'); ex.className = 'exchange';
+  const rl = document.createElement('div'); rl.className = 'voyd-line';
+  ex.appendChild(rl);
+  exchangesEl.appendChild(ex);
+  ex.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+  await renderChunk(node.text, rl);
+
+  if (node.open) {
+    const wrap = document.createElement('div'); wrap.className = 'act1-input-wrap';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'act1-input';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    wrap.appendChild(input);
+    ex.appendChild(wrap);
+    input.focus();
+
+    input.addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      const val = input.value.trim();
+      if (!val) return;
+      playerAnswer = val;
+      wrap.remove();
+      const vl = document.createElement('div'); vl.className = 'visitor-line';
+      for (const ch of val) {
+        if (ch === ' ') vl.appendChild(document.createTextNode(' '));
+        else vl.appendChild(makeSpan(ch));
+      }
+      ex.appendChild(vl);
+      setTimeout(() => enterAct2(), 500);
+    });
+  } else if (node.choices) {
+    const choicesWrap = document.createElement('div'); choicesWrap.className = 'act1-choices';
+    for (const choice of node.choices) {
+      const btn = document.createElement('button');
+      btn.className = 'act1-choice ' + choice.type;
+      btn.textContent = choice.label;
+      btn.addEventListener('click', () => {
+        portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
+        choicesWrap.querySelectorAll('.act1-choice').forEach(b => {
+          b.disabled = true;
+          b.style.opacity = '0.3';
+        });
+        const vl = document.createElement('div'); vl.className = 'visitor-line';
+        for (const ch of choice.label) {
+          if (ch === ' ') vl.appendChild(document.createTextNode(' '));
+          else vl.appendChild(makeSpan(ch));
+        }
+        ex.appendChild(vl);
+        setTimeout(() => renderAct1Node(choice.next), 400);
+      });
+      choicesWrap.appendChild(btn);
+    }
+    ex.appendChild(choicesWrap);
+  }
+}
+
+function enterAct2() {
+  if (!engine) {
+    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer });
+    console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
+  }
+  phase = 'dialogue';
+  inputArea.classList.add('visible');
+  blinkEl.classList.add('active');
+  hiddenInput.focus();
+}
+
 // ── Input ─────────────────────────────────────────────────────
 document.addEventListener('click', () => {
   if (phase === 'dialogue' && !isWaiting) { initAudio(); hiddenInput.focus(); }
+  else if (phase === 'act1') { initAudio(); }
 });
 document.addEventListener('keydown', () => { if (phase==='threshold') initAudio(); });
 
@@ -258,6 +360,9 @@ async function submit(text) {
           message: text,
           system_prompt: result.systemPrompt,
           history: result.state.history,
+          portal_value: result.state.portalValue,
+          archetype: result.state.archetype,
+          player_answer: result.state.playerAnswer,
         })
       });
       if (res.ok) {
@@ -379,14 +484,17 @@ function endSession(seed) {
 // ── Boot ──────────────────────────────────────────────────────
 (async function boot() {
   try {
-    const res = await fetch('voyd_data.json');
-    const data = await res.json();
-    engine = new VoydEngine(data);
-    console.log('Voyd engine loaded:', engine.meta.title, 'max depth:', engine.meta.max_depth);
+    const [resData, resAct1] = await Promise.all([
+      fetch('voyd_data.json'),
+      fetch('data/act1_nodes.json')
+    ]);
+    voydData = await resData.json();
+    act1Nodes = (await resAct1.json()).nodes;
+    console.log('Voyd data loaded. Act 1 nodes:', Object.keys(act1Nodes).length);
   } catch(e) {
-    console.error('Failed to load voyd_data.json:', e);
-    // Fallback empty engine
-    engine = new VoydEngine({ meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {} });
+    console.error('Failed to load data:', e);
+    voydData = { meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {} };
+    act1Nodes = {};
   }
   runThreshold();
 })();

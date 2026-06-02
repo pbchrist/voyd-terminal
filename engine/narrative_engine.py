@@ -31,6 +31,9 @@ class SessionState:
     phase: str = "threshold"  # threshold, dialogue, terminus
     is_terminated: bool = False
     glyph_seed: str = ""
+    portal_value: int = 8
+    archetype: str = ""
+    player_answer: str = ""
 
     def to_dict(self):
         return {
@@ -44,6 +47,9 @@ class SessionState:
             "phase": self.phase,
             "is_terminated": self.is_terminated,
             "glyph_seed": self.glyph_seed,
+            "portal_value": self.portal_value,
+            "archetype": self.archetype,
+            "player_answer": self.player_answer,
         }
 
 
@@ -168,7 +174,7 @@ class NarrativeEngine:
         except:
             return False
 
-    def build_system_prompt(self, node: Dict, lore_chunks: List[str]) -> str:
+    def build_system_prompt(self, node: Dict, lore_chunks: List[str], state: SessionState) -> str:
         """Build the Voyd system prompt for Anthropic, enriched with lore context."""
         base = """You are the Voyd.
 
@@ -195,6 +201,18 @@ You are in the state of: {node.get('voyd_state', 'dreaming')}
 The intruder has spoken {node.get('depth', 0)} times.
 """
 
+        # Add Act 1 context if available
+        act1_context = ""
+        if state.archetype:
+            act1_context = f"""
+The player has completed Act 1. Their profile:
+- Archetype: {state.archetype}
+- They named: "{state.player_answer}"
+- Portal value entering Act 2: {state.portal_value}
+
+Use this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.
+"""
+
         # Add relevant lore
         if lore_chunks:
             lore_section = "\nDREAM-FRAGMENTS YOU HOLD:\n"
@@ -205,7 +223,7 @@ The intruder has spoken {node.get('depth', 0)} times.
         else:
             lore_section = ""
 
-        return base + state_context + lore_section
+        return base + state_context + act1_context + lore_section
 
     def process_turn(self, session_id: str, player_text: str) -> Dict:
         """Process one turn of the narrative."""
@@ -248,7 +266,7 @@ The intruder has spoken {node.get('depth', 0)} times.
             lore_chunks = lore_index.search(player_text, max_results=2)
 
         # Build system prompt
-        system_prompt = self.build_system_prompt(node, lore_chunks)
+        system_prompt = self.build_system_prompt(node, lore_chunks, state)
 
         # The content template is a suggestion; the LLM will generate the actual response
         content_template = node.get("content_template", "")
