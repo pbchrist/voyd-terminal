@@ -1,3 +1,23 @@
+# START HERE — READ THIS FIRST
+
+You are working on the Voyd Terminal at /home/patrick/voyd-terminal on beastmaster.
+
+## State of the project
+- Act 1: fixed Akinator node graph in data/act1_nodes.json (nodes 1.0–10.0)
+- Act 2: live AI conversation, system prompt in frontend/voyd_engine.js
+- evolve.py: autonomous cron script (in progress on feat/evolve branch)
+- Local model: Qwen3.6-27B-Q6_K running on llama.cpp at http://localhost:8081/v1
+- Public model URL: https://patrick-beastmaster.tailf32530.ts.net/llm/v1
+- Repo: https://github.com/pbchrist/voyd-terminal
+- Live site: https://pbchrist.github.io/voyd-terminal
+
+## Rules you follow every session
+- Never push to main directly
+- Always work on feat/* branches
+- Run testing protocol from AGENTS.md before every push
+- Load API key from ~/.hermes/.env if not in environment
+- When in doubt: read AGENTS.md, read the code, ask before touching anything
+
 # AGENTS.md — The Voyd Terminal
 
 > This file is for AI coding agents. It describes the project architecture, conventions, and workflows. The project has no `README.md`; this is the primary source of truth.
