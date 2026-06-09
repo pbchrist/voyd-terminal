@@ -1,6 +1,7 @@
 """
 Lore Index for the Voyd Terminal
 Indexes all wiki and book text files for semantic/contextual search.
+Falls back to keyword search if ChromaDB is unavailable.
 """
 
 import os
@@ -14,6 +15,8 @@ BOOK_FILES = [
     "/home/patrick/Gate_of_Nyandor/book1_text.txt",
     "/home/patrick/Gate_of_Nyandor/book2_text.txt",
 ]
+
+CHROMA_DB_PATH = "/home/patrick/voyd_graph_rag/chromadb"
 
 LORE_TOPICS = {
     "voyd_entity": ["voyd", "void", "blackness", "singularity", "dimension", "potential", "darkness before"],
@@ -89,6 +92,36 @@ class LoreIndex:
                 scored.append((score, doc["text"]))
         scored.sort(reverse=True)
         return [t for _, t in scored[:max_results]]
+
+    def query_chromadb(self, query_text: str, n_results: int = 3) -> List[str]:
+        """Query the ChromaDB RAG store for semantically relevant passages."""
+        try:
+            import chromadb
+            client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+            collections = client.list_collections()
+            if not collections:
+                return []
+            col_name = collections[0].name if hasattr(collections[0], "name") else str(collections[0])
+            collection = client.get_collection(col_name)
+            results = collection.query(
+                query_texts=[query_text],
+                n_results=n_results,
+            )
+            docs = results.get("documents", [[]])[0]
+            return [d for d in docs if d]
+        except Exception:
+            return []
+
+    def query_rag(self, query_text: str, topics: List[str] = None, max_results: int = 3) -> List[str]:
+        """Try ChromaDB first, fall back to keyword index."""
+        chroma_results = self.query_chromadb(query_text, n_results=max_results)
+        if chroma_results:
+            return chroma_results
+        if topics:
+            topic_results = self.query(topics, max_results=max_results)
+            if topic_results:
+                return topic_results
+        return self.search(query_text, max_results=max_results)
 
 
 # Singleton

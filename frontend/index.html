@@ -287,7 +287,7 @@ async function renderAct1Node(nodeId) {
 
 function enterAct2() {
   if (!engine) {
-    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer });
+    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, backendMode: !!API_BASE });
     console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
   }
   phase = 'dialogue';
@@ -361,8 +361,6 @@ async function submit(text) {
         body: JSON.stringify({
           session_id: result.state.sessionId,
           message: text,
-          system_prompt: result.systemPrompt,
-          history: result.state.history,
           portal_value: result.state.portalValue,
           archetype: result.state.archetype,
           player_answer: result.state.playerAnswer,

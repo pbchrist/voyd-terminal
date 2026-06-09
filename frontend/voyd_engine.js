@@ -9,6 +9,7 @@ class VoydEngine {
     this.meta = data.meta;
     this.intentMap = data.intent_map;
     this.loreMap = data.lore_map || {};
+    this.backendMode = options.backendMode || false;
     this.sessionId = this._genId();
     this.state = {
       currentNode: 'threshold',
@@ -199,7 +200,10 @@ HOW YOU SPEAK:
       this.state.glyphSeed = node.glyph_seed || 'voyd';
     }
 
-    const loreChunks = this.getLoreChunks(node.lore_context || []);
+    let loreChunks = [];
+    if (!this.backendMode) {
+      loreChunks = this.getLoreChunks(node.lore_context || []);
+    }
     const systemPrompt = this.buildSystemPrompt(node, loreChunks);
 
     return {

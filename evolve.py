@@ -26,8 +26,8 @@ LOG_PATH = REPO_ROOT / "logs" / "evolve.log"
 BUILD_SCRIPT = REPO_ROOT / "build_frontend.py"
 
 # ── API Config ─────────────────────────────────────────────────
-KIMI_BASE_URL = "https://api.moonshot.cn/v1"
-KIMI_MODEL = "moonshot-v1-8k"
+KIMI_BASE_URL = "http://localhost:8081/v1"
+KIMI_MODEL = "Qwen3.6-27B-Q6_K"
 
 # ── Act 1 archetype paths (choice chains) ──────────────────────
 ARCHETYPE_PATHS = {
@@ -53,20 +53,19 @@ def get_api_key() -> str:
 
 
 def kimi_chat(messages: list, max_tokens: int = 300, temperature: float = 0.9) -> str:
-    """Call Kimi chat completions endpoint."""
-    key = get_api_key()
+    """Call local Qwen chat completions endpoint."""
     payload = {
         "model": KIMI_MODEL,
         "max_tokens": max_tokens,
         "temperature": temperature,
         "messages": messages,
+        "chat_template_kwargs": {"enable_thinking": False},
     }
     req = urllib.request.Request(
         f"{KIMI_BASE_URL}/chat/completions",
         data=json.dumps(payload).encode(),
         headers={
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {key}",
         },
         method="POST",
     )
@@ -87,6 +86,25 @@ def log(msg: str) -> None:
 def load_voice_rules() -> str:
     with open(VOYD_SYSTEM_MD, encoding="utf-8") as f:
         return f.read()
+
+
+def query_rag_context(query_text: str, n_results: int = 3) -> str:
+    """Query the ChromaDB RAG store for relevant lore passages."""
+    try:
+        import chromadb
+        client = chromadb.PersistentClient(path="/home/patrick/voyd_graph_rag/chromadb")
+        collections = client.list_collections()
+        if not collections:
+            return ""
+        col_name = collections[0].name if hasattr(collections[0], "name") else str(collections[0])
+        collection = client.get_collection(col_name)
+        results = collection.query(query_texts=[query_text], n_results=n_results)
+        docs = results.get("documents", [[]])[0]
+        if docs:
+            return "\n\nRELEVANT LORE:\n" + "\n".join(f"- {d[:350]}" for d in docs if d)
+    except Exception as e:
+        log(f"RAG query failed: {e}")
+    return ""
 
 
 def simulate_act1() -> dict:
@@ -142,13 +160,14 @@ def generate_player_answer(state: dict) -> str:
 def generate_act2_nodes(state: dict, player_answer: str) -> list:
     """Generate 3 Voyd response texts for Act 2 via Kimi."""
     voice = load_voice_rules()
+    rag_context = query_rag_context(f"{state['archetype']} {player_answer}", n_results=3)
     prompt = textwrap.dedent(f"""\
         {voice}
 
         The player has completed Act 1. Their profile:
         - Archetype: {state['archetype']}
         - Portal value entering Act 2: {state['portal_value']}
-        - They named: "{player_answer}"
+        - They named: "{player_answer}"{rag_context}
 
         Generate 3 distinct Voyd responses. Each response must:
         - Be 2-4 sentences

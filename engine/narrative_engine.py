@@ -258,10 +258,10 @@ Use this. The thing they named is the fuel. Weave it into your responses without
             state.is_terminated = True
             state.glyph_seed = node.get("glyph_seed", "unknown")
 
-        # Query lore
+        # Query lore via RAG (ChromaDB) with keyword fallback
         lore_topics = node.get("lore_context", [])
         lore_index = get_index()
-        lore_chunks = lore_index.query(lore_topics, max_results=3)
+        lore_chunks = lore_index.query_rag(player_text, topics=lore_topics, max_results=3)
         if not lore_chunks:
             lore_chunks = lore_index.search(player_text, max_results=2)
 
