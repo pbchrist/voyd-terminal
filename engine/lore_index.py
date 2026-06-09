@@ -14,6 +14,7 @@ WIKI_ROOT = Path("/home/patrick/Gate_of_Nyandor")
 BOOK_FILES = [
     "/home/patrick/Gate_of_Nyandor/book1_text.txt",
     "/home/patrick/Gate_of_Nyandor/book2_text.txt",
+    "/home/patrick/voyd-terminal/data/voyd_canon_mythography.md",
 ]
 
 CHROMA_DB_PATH = "/home/patrick/voyd_graph_rag/chromadb"
