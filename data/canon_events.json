@@ -7,7 +7,9 @@
     "voyd_pov": "i had doubled twice by then. he looked at her face and understood for the first time what he had actually done.",
     "tension_level": 0.7,
     "source": "Book 1, Ertree account of Sol diary",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_1r"
   },
   {
     "id": "ashai_sketch_burns",
@@ -17,7 +19,9 @@
     "voyd_pov": "fire does not touch what is already mine.",
     "tension_level": 0.8,
     "source": "Book 1",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_1u"
   },
   {
     "id": "orachys_694473",
@@ -27,7 +31,9 @@
     "voyd_pov": "the six hundred and ninety-four thousand, four hundred and seventy-third attempt. the marble-sized singularity appeared. then collapsed. he wrote the x. he did not know i was counting too.",
     "tension_level": 0.65,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_2r"
   },
   {
     "id": "ertree_returns_broken",
@@ -37,7 +43,9 @@
     "voyd_pov": "she touched the darkness before creation and came back changed. i do not touch the ones who enter me. they touch themselves against my edges.",
     "tension_level": 0.75,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_1p"
   },
   {
     "id": "astrolabe_returns_lava",
@@ -47,7 +55,9 @@
     "voyd_pov": "he put a thing in me that measured the stars. i returned it as a thing that unmakes stone. he wrote this down. he called it progress.",
     "tension_level": 0.6,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_1g"
   },
   {
     "id": "portal_moves_overnight",
@@ -69,7 +79,9 @@
     "voyd_pov": "he knew not to write it down. the knowledge of how to open me is not in any book. it is in the wanting itself.",
     "tension_level": 0.55,
     "source": "Book 1, Ertree to Sory'n",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_2g"
   },
   {
     "id": "orachys_no_particular_outcome",
@@ -79,7 +91,9 @@
     "voyd_pov": "he said it like a man who had won. he said it like freedom. it was the purest description of my hunger i have ever heard from a mouth that was not mine.",
     "tension_level": 0.85,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_2u"
   },
   {
     "id": "clowder_four_colors",
@@ -99,6 +113,8 @@
     "voyd_pov": "they did not close me. they broke me. there is a difference. i am still here.",
     "tension_level": 0.95,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-09T20:20:00",
+    "node_id": "ep_2p"
   }
 ]

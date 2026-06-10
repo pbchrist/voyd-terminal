@@ -57,10 +57,11 @@ Use this. The thing they named is the fuel. Weave it into your responses without
     return base + act1_ctx + "\n\nRespond to the player's first message."
 
 
-def play(input_source=None, chooser=None):
-    with open(ACT1_PATH) as f:
-        data = json.load(f)
-    nodes = data["nodes"]
+def play(input_source=None, chooser=None, act1_data=None):
+    if act1_data is None:
+        with open(ACT1_PATH) as f:
+            act1_data = json.load(f)
+    nodes = act1_data["nodes"]
 
     portal_value = 8
     archetype = None
@@ -101,6 +102,8 @@ def play(input_source=None, chooser=None):
             player_answer = val
             choices_made.append({"node": current, "type": "open", "value": val})
             next_node = node.get("next", "ACT2")
+            if node.get("next_archetype") and archetype and archetype in node["next_archetype"]:
+                next_node = node["next_archetype"][archetype]
             if next_node == "ACT2" or next_node not in nodes:
                 break
             current = next_node

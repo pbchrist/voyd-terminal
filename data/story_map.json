@@ -2,7 +2,7 @@
   "version": 1,
   "act": 2,
   "dialectic_position": "establishing_antithesis",
-  "tension_level": 0.45,
+  "tension_level": 0.71,
   "nodes": {
     "1.0": {
       "id": "1.0",
@@ -215,68 +215,6 @@
       ],
       "canon_event": null
     },
-    "7.0": {
-      "id": "7.0",
-      "type": "beat",
-      "act": 1,
-      "dialectic_role": "turn_approaching",
-      "tension_delta": 0.05,
-      "branches_to": [
-        "8.0",
-        "8.0"
-      ],
-      "converges_from": [
-        "6.1",
-        "6.2",
-        "6.3",
-        "6.4"
-      ],
-      "canon_event": null
-    },
-    "8.0": {
-      "id": "8.0",
-      "type": "beat",
-      "act": 1,
-      "dialectic_role": "turn_approaching",
-      "tension_delta": 0.05,
-      "branches_to": [
-        "9.2",
-        "9.1"
-      ],
-      "converges_from": [
-        "7.0",
-        "7.0"
-      ],
-      "canon_event": null
-    },
-    "9.1": {
-      "id": "9.1",
-      "type": "beat",
-      "act": 1,
-      "dialectic_role": "antithesis_peak",
-      "tension_delta": 0.05,
-      "branches_to": [
-        "10.0"
-      ],
-      "converges_from": [
-        "8.0"
-      ],
-      "canon_event": null
-    },
-    "9.2": {
-      "id": "9.2",
-      "type": "beat",
-      "act": 1,
-      "dialectic_role": "antithesis_peak",
-      "tension_delta": 0.05,
-      "branches_to": [
-        "10.0"
-      ],
-      "converges_from": [
-        "8.0"
-      ],
-      "canon_event": null
-    },
     "10.0": {
       "id": "10.0",
       "type": "choke",
@@ -292,213 +230,285 @@
       ],
       "canon_event": null
     },
-    "gen_1": {
-      "id": "gen_1",
-      "type": "branch",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_2",
-        "gen_3"
-      ],
-      "converges_from": [
-        "10.0"
-      ],
-      "canon_event": null
-    },
-    "gen_2": {
-      "id": "gen_2",
+    "ep_1p": {
+      "id": "ep_1p",
       "type": "beat",
       "act": 2,
       "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
+      "tension_delta": 0.08,
       "branches_to": [
-        "gen_4",
-        "gen_4"
+        "ep_2p",
+        "ep_2p"
       ],
-      "converges_from": [
-        "gen_1"
-      ],
-      "canon_event": null
+      "converges_from": [],
+      "canon_event": "ertree_returns_broken"
     },
-    "gen_3": {
-      "id": "gen_3",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_4",
-        "gen_4"
-      ],
-      "converges_from": [
-        "gen_1"
-      ],
-      "canon_event": null
-    },
-    "gen_4": {
-      "id": "gen_4",
+    "ep_2p": {
+      "id": "ep_2p",
       "type": "choke",
       "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_5",
-        "gen_6"
-      ],
-      "converges_from": [
-        "gen_2",
-        "gen_3"
-      ],
-      "canon_event": null
-    },
-    "gen_5": {
-      "id": "gen_5",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_7",
-        "gen_7"
-      ],
-      "converges_from": [
-        "gen_4"
-      ],
-      "canon_event": null
-    },
-    "gen_6": {
-      "id": "gen_6",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_7",
-        "gen_7"
-      ],
-      "converges_from": [
-        "gen_4"
-      ],
-      "canon_event": null
-    },
-    "gen_7": {
-      "id": "gen_7",
-      "type": "choke",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_8",
-        "gen_9"
-      ],
-      "converges_from": [
-        "gen_5",
-        "gen_6"
-      ],
-      "canon_event": null
-    },
-    "gen_8": {
-      "id": "gen_8",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_10",
-        "gen_10"
-      ],
-      "converges_from": [
-        "gen_7"
-      ],
-      "canon_event": null
-    },
-    "gen_9": {
-      "id": "gen_9",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_10",
-        "gen_10"
-      ],
-      "converges_from": [
-        "gen_7"
-      ],
-      "canon_event": null
-    },
-    "gen_10": {
-      "id": "gen_10",
-      "type": "choke",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_11",
-        "gen_12"
-      ],
-      "converges_from": [
-        "gen_8",
-        "gen_9"
-      ],
-      "canon_event": null
-    },
-    "gen_11": {
-      "id": "gen_11",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_13",
-        "gen_13"
-      ],
-      "converges_from": [
-        "gen_10"
-      ],
-      "canon_event": null
-    },
-    "gen_12": {
-      "id": "gen_12",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.03,
-      "branches_to": [
-        "gen_13",
-        "gen_13"
-      ],
-      "converges_from": [
-        "gen_10"
-      ],
-      "canon_event": null
-    },
-    "gen_13": {
-      "id": "gen_13",
-      "type": "beat",
-      "act": 2,
-      "dialectic_role": "establishing_antithesis",
-      "tension_delta": 0.0,
+      "dialectic_role": "catharsis",
+      "tension_delta": 0.18,
       "branches_to": [
         "ACT2",
         "ACT2"
       ],
       "converges_from": [
-        "gen_11",
-        "gen_12"
+        "ep_1p"
       ],
-      "canon_event": "portal_moves_overnight",
-      "score": {
-        "axes": {
-          "dialectic_function": 10,
-          "tension_advancement": 8,
-          "branch_choke_logic": 10
-        },
-        "total": 28,
-        "decision": "promote"
-      }
+      "canon_event": "portal_tears_not_closes"
+    },
+    "ep_1g": {
+      "id": "ep_1g",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "establishing_antithesis",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "ep_2g",
+        "ep_2g"
+      ],
+      "converges_from": [],
+      "canon_event": "astrolabe_returns_lava"
+    },
+    "ep_2g": {
+      "id": "ep_2g",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "catharsis",
+      "tension_delta": 0.18,
+      "branches_to": [
+        "ACT2",
+        "ACT2"
+      ],
+      "converges_from": [
+        "ep_1g"
+      ],
+      "canon_event": "sol_diary_wont_explain"
+    },
+    "ep_1r": {
+      "id": "ep_1r",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "establishing_antithesis",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "ep_2r",
+        "ep_2r"
+      ],
+      "converges_from": [],
+      "canon_event": "sol_wife_returns"
+    },
+    "ep_2r": {
+      "id": "ep_2r",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "catharsis",
+      "tension_delta": 0.18,
+      "branches_to": [
+        "ACT2",
+        "ACT2"
+      ],
+      "converges_from": [
+        "ep_1r"
+      ],
+      "canon_event": "orachys_694473"
+    },
+    "ep_1u": {
+      "id": "ep_1u",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "establishing_antithesis",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "ep_2u",
+        "ep_2u"
+      ],
+      "converges_from": [],
+      "canon_event": "ashai_sketch_burns"
+    },
+    "ep_2u": {
+      "id": "ep_2u",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "catharsis",
+      "tension_delta": 0.18,
+      "branches_to": [
+        "ACT2",
+        "ACT2"
+      ],
+      "converges_from": [
+        "ep_1u"
+      ],
+      "canon_event": "orachys_no_particular_outcome"
+    },
+    "7.0p": {
+      "id": "7.0p",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "turn_approaching",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "8.0p",
+        "8.0p"
+      ],
+      "converges_from": [],
+      "canon_event": null
+    },
+    "8.0p": {
+      "id": "8.0p",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "antithesis_peak",
+      "tension_delta": 0.12,
+      "branches_to": [
+        "9.1p",
+        "9.1p"
+      ],
+      "converges_from": [
+        "7.0p"
+      ],
+      "canon_event": null
+    },
+    "9.1p": {
+      "id": "9.1p",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "act_break",
+      "tension_delta": 0.15,
+      "branches_to": [
+        "10.0"
+      ],
+      "converges_from": [
+        "8.0p"
+      ],
+      "canon_event": null
+    },
+    "7.0g": {
+      "id": "7.0g",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "turn_approaching",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "8.0g",
+        "8.0g"
+      ],
+      "converges_from": [],
+      "canon_event": null
+    },
+    "8.0g": {
+      "id": "8.0g",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "antithesis_peak",
+      "tension_delta": 0.12,
+      "branches_to": [
+        "9.1g",
+        "9.1g"
+      ],
+      "converges_from": [
+        "7.0g"
+      ],
+      "canon_event": null
+    },
+    "9.1g": {
+      "id": "9.1g",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "act_break",
+      "tension_delta": 0.15,
+      "branches_to": [
+        "10.0"
+      ],
+      "converges_from": [
+        "8.0g"
+      ],
+      "canon_event": null
+    },
+    "7.0r": {
+      "id": "7.0r",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "turn_approaching",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "8.0r",
+        "8.0r"
+      ],
+      "converges_from": [],
+      "canon_event": null
+    },
+    "8.0r": {
+      "id": "8.0r",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "antithesis_peak",
+      "tension_delta": 0.12,
+      "branches_to": [
+        "9.2r",
+        "9.2r"
+      ],
+      "converges_from": [
+        "7.0r"
+      ],
+      "canon_event": null
+    },
+    "9.2r": {
+      "id": "9.2r",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "act_break",
+      "tension_delta": 0.15,
+      "branches_to": [
+        "10.0"
+      ],
+      "converges_from": [
+        "8.0r"
+      ],
+      "canon_event": null
+    },
+    "7.0u": {
+      "id": "7.0u",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "turn_approaching",
+      "tension_delta": 0.08,
+      "branches_to": [
+        "8.0u",
+        "8.0u"
+      ],
+      "converges_from": [],
+      "canon_event": null
+    },
+    "8.0u": {
+      "id": "8.0u",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "antithesis_peak",
+      "tension_delta": 0.12,
+      "branches_to": [
+        "9.2u",
+        "9.2u"
+      ],
+      "converges_from": [
+        "7.0u"
+      ],
+      "canon_event": null
+    },
+    "9.2u": {
+      "id": "9.2u",
+      "type": "choke",
+      "act": 2,
+      "dialectic_role": "act_break",
+      "tension_delta": 0.15,
+      "branches_to": [
+        "10.0"
+      ],
+      "converges_from": [
+        "8.0u"
+      ],
+      "canon_event": null
     }
   },
   "open_branches": [

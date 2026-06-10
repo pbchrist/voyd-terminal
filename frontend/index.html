@@ -256,7 +256,10 @@ async function renderAct1Node(nodeId) {
         else vl.appendChild(makeSpan(ch));
       }
       ex.appendChild(vl);
-      const nextNode = node.next;
+      let nextNode = node.next;
+      if (node.next_archetype && archetype && node.next_archetype[archetype]) {
+        nextNode = node.next_archetype[archetype];
+      }
       setTimeout(() => {
         if (nextNode && nextNode !== 'ACT2' && act1Nodes[nextNode]) renderAct1Node(nextNode);
         else enterAct2();

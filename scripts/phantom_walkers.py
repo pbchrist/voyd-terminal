@@ -173,19 +173,15 @@ def send_telegram(text):
         return False
 
 
-def main():
-    print("[phantom] Loading story map...")
+def run_walks(act1_data=None, save=True):
+    """Run all four archetype walks and return scored walks."""
     story_map = load_story_map()
-
-    print("[phantom] Running walks...")
     walks = []
     for arch in ARCHETYPES:
-        out_path = REPO_ROOT / "data" / f"walk_{arch}.json"
-        # Use existing if fresh, else regenerate
-        record = llm_run(arch, out_path=str(out_path))
+        out_path = REPO_ROOT / "data" / f"walk_{arch}.json" if save else None
+        record = llm_run(arch, out_path=out_path, act1_data=act1_data)
         walks.append(record)
 
-    print("[phantom] Scoring walks...")
     scored = []
     for walk in walks:
         scores = score_walk(walk, walks, story_map)
@@ -199,8 +195,6 @@ def main():
 
     kills = find_kills(walks)
     flags = find_flags(walks, story_map)
-
-    # Attach flags to walks
     for s in scored:
         s["flags"] = [f for f in flags if s["archetype"] in f]
 
@@ -210,24 +204,50 @@ def main():
         "kills_recommended": kills,
         "flags": flags,
     }
+    return report, walks
+
+
+def test_candidate(candidate_node, act1_data):
+    """Temporarily insert candidate and test path uniqueness. Returns min uniqueness score."""
+    import copy
+    test_data = copy.deepcopy(act1_data)
+    test_nodes = test_data["nodes"]
+
+    # Find frontier nodes pointing to ACT2 and wire them to candidate
+    for nid, node in test_nodes.items():
+        for choice in node.get("choices", []):
+            if choice.get("next") == "ACT2":
+                choice["next"] = candidate_node["id"]
+
+    # Add candidate node
+    test_nodes[candidate_node["id"]] = candidate_node
+
+    report, _ = run_walks(act1_data=test_data, save=False)
+    min_uniqueness = min(w["scores"]["path_uniqueness"] for w in report["walks"])
+    return min_uniqueness, report
+
+
+def main():
+    print("[phantom] Loading story map...")
+    report, _ = run_walks()
 
     with open(WALK_SCORES_PATH, "w") as f:
         json.dump(report, f, indent=2)
     print(f"[phantom] Saved {WALK_SCORES_PATH}")
 
     # Telegram summary
-    lines = ["*Phantom Walker Report*", f"Ran: {report['last_run']}"]
-    for s in scored:
+    lines = ["Phantom Walker Report", f"Ran: {report['last_run']}"]
+    for s in report["walks"]:
         lines.append(
-            f"\n*{s['archetype']}*: "
+            f"\n{s['archetype']}: "
             f"arc={s['scores']['dialectic_arc']} "
             f"unique={s['scores']['path_uniqueness']} "
             f"catharsis={s['scores']['cathartic_potential']}"
         )
-    if kills:
-        lines.append(f"\n*Kills recommended:* {', '.join(kills)}")
-    if flags:
-        lines.append(f"\n*Flags:* {len(flags)}")
+    if report["kills_recommended"]:
+        lines.append(f"\nKills recommended: {', '.join(report['kills_recommended'])}")
+    if report["flags"]:
+        lines.append(f"\nFlags: {len(report['flags'])}")
     msg = "\n".join(lines)
     send_telegram(msg)
 
