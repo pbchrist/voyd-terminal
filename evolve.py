@@ -297,55 +297,72 @@ def generate_node(state: dict[str, Any], event: dict[str, Any]) -> dict[str, Any
     }
 
 
-def score_node(node: dict[str, Any], rubric: dict[str, Any], story_map: dict[str, Any]) -> dict[str, Any]:
-    axes: dict[str, int] = {}
-    text = node["text"]
-    current_role = story_map.get("dialectic_position")
+def get_last_nodes(act1_nodes: dict[str, Any], count: int = 3) -> list[dict[str, Any]]:
+    """Get the last N promoted/generated nodes as context."""
+    promoted = [
+        (nid, n) for nid, n in act1_nodes.get("nodes", {}).items()
+        if n.get("promoted_at") or n.get("source") == "generated"
+    ]
+    promoted.sort(key=lambda x: x[1].get("promoted_at", "1970-01-01"))
+    return [n for _, n in promoted[-count:]]
 
-    dialectic = 5
-    if node.get("dialectic_role") == current_role:
-        dialectic += 3
-    if node.get("canon_event"):
-        dialectic += 1
-    if node.get("act") == story_map.get("act"):
-        dialectic += 1
-    axes["dialectic_function"] = min(10, dialectic)
 
-    tension = 5
-    if node.get("tension_delta", 0) > 0:
-        tension += 2
-    # Event-agnostic intensity scoring
-    text_words = set(text.lower().split())
-    intense_hits = len(text_words & INTENSE_WORDS)
-    dynamic_hits = len(text_words & DYNAMIC_WORDS)
-    if intense_hits >= 2:
-        tension += 1
-    if dynamic_hits >= 2:
-        tension += 1
-    sentences = [s for s in text.split(".") if s.strip()]
-    if 3 <= len(sentences) <= 5:
-        tension += 1
-    axes["tension_advancement"] = min(10, tension)
+def score_node_dramaturg(node: dict[str, Any], act1_nodes: dict[str, Any]) -> dict[str, Any]:
+    """Dramaturgical evaluation via Qwen. Score 0-10."""
+    context_nodes = get_last_nodes(act1_nodes)
+    context_texts = []
+    for i, ctx in enumerate(context_nodes, 1):
+        ctx_text = ctx.get("text", "")[:200]
+        context_texts.append(f"Scene {i}: {ctx_text}")
+    context_block = "\n\n".join(context_texts) if context_texts else "No previous scenes."
 
-    branch = 5
+    current_text = node.get("text", "")
     choices = node.get("choices", [])
-    if len(choices) == 2:
-        branch += 2
-    if {choice.get("type") for choice in choices} == {"feed", "starve"}:
-        branch += 2
-    if all(choice.get("next") for choice in choices):
-        branch += 1
-    axes["branch_choke_logic"] = min(10, branch)
+    choice_text = "\n".join(f"- {c.get('label', '')}" for c in choices)
 
-    total = sum(axes.values())
+    prompt = (
+        "You are a dramaturg. You have just read this scene in context of the scenes before it.\n\n"
+        f"PREVIOUS SCENES:\n{context_block}\n\n"
+        f"NEW SCENE:\n{current_text}\n\n"
+        f"CHOICES PRESENTED:\n{choice_text}\n\n"
+        "Does it increase dramatic pressure (stakes)? "
+        "Does the choice it presents cost the player something real? "
+        "Is the question it leaves unanswered harder to live with than the question before it?\n\n"
+        "Score it 0-10 and explain why. Format your response as:\n"
+        "SCORE: <number>\n"
+        "REASON: <explanation>"
+    )
+
+    try:
+        raw = qwen_chat([{"role": "user", "content": prompt}], max_tokens=200, temperature=0.7)
+    except Exception as exc:
+        log(f"Dramaturg scoring failed ({exc}); defaulting to uncertain")
+        return {"score": 5, "reason": f"scoring error: {exc}", "decision": "uncertain"}
+
+    # Parse score
+    score = 5
+    reason = raw
+    for line in raw.split("\n"):
+        if line.strip().startswith("SCORE:"):
+            try:
+                score = int("".join(c for c in line if c.isdigit()) or "5")
+                score = max(0, min(10, score))
+            except ValueError:
+                pass
+        if line.strip().startswith("REASON:"):
+            reason = line.split("REASON:", 1)[1].strip()
+
+    decision = (
+        "promote" if score >= 7
+        else "kill" if score <= 4
+        else "uncertain"
+    )
+
     return {
-        "axes": axes,
-        "total": total,
-        "decision": (
-            "promote" if total >= rubric.get("auto_promote_threshold", AUTO_PROMOTE_DEFAULT)
-            else "kill" if total < rubric.get("auto_kill_threshold", AUTO_KILL_DEFAULT)
-            else "uncertain"
-        ),
+        "score": score,
+        "reason": reason,
+        "decision": decision,
+        "raw": raw,
     }
 
 
@@ -420,9 +437,6 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
         "score": score,
         "decision": "promote",
     })
-
-    if len(rubric["decisions"]) % 5 == 0:
-        recalibrate_rubric(rubric)
 
     write_json(root / "data/act1_nodes.json", act_data)
     write_json(root / "data/story_map.json", story)
@@ -603,10 +617,29 @@ def main(argv: list[str] | None = None) -> int:
     event = select_canon_event(state, preferred_id=preferred)
     log(f"Selected canon event: {event['id']}")
     node = generate_node(state, event)
-    score = score_node(node, state["rubric"], state["story_map"])
-    log(f"Generated node score: {score['total']} axes={score['axes']} decision={score['decision']}")
+    score = score_node_dramaturg(node, state["act1_nodes"])
+    log(f"Generated node score: {score['score']}/10 reason={score['reason'][:60]} decision={score['decision']}")
 
     if score["decision"] == "promote":
+        # Reverse pipeline: phantom walkers must pass before promotion
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
+        pw = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(pw)
+        log("Running phantom walker uniqueness test...")
+        min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
+        log(f"Phantom walker min uniqueness: {min_uniqueness}")
+        if min_uniqueness < 7.0:
+            state["rubric"].setdefault("decisions", []).append({
+                "at": datetime.now().isoformat(),
+                "canon_event": event["id"],
+                "score": score,
+                "decision": "kill",
+                "reason": f"dramaturg score {score['score']} but phantom walker uniqueness {min_uniqueness} below 7.0",
+            })
+            write_json(RUBRIC_PATH, state["rubric"])
+            log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
+            return 0
         node_id = promote_node(state, node, score, REPO_ROOT)
         run_build(REPO_ROOT)
         log(f"Promoted {node_id} from canon event {event['id']}")
@@ -641,6 +674,24 @@ def main(argv: list[str] | None = None) -> int:
     now = datetime.now().isoformat()
 
     if reply == "YES":
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
+        pw = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(pw)
+        log("Running phantom walker uniqueness test...")
+        min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
+        log(f"Phantom walker min uniqueness: {min_uniqueness}")
+        if min_uniqueness < 7.0:
+            state["rubric"].setdefault("decisions", []).append({
+                "at": datetime.now().isoformat(),
+                "canon_event": event["id"],
+                "score": score,
+                "decision": "kill",
+                "reason": f"Telegram YES but phantom walker uniqueness {min_uniqueness} below 7.0",
+            })
+            write_json(RUBRIC_PATH, state["rubric"])
+            log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
+            return 0
         node_id = promote_node(state, node, score, REPO_ROOT)
         run_build(REPO_ROOT)
         log(f"Promoted {node_id} from canon event {event['id']} (Telegram YES)")
