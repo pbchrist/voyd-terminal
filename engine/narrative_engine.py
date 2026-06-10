@@ -175,7 +175,7 @@ class NarrativeEngine:
             return False
 
     def build_system_prompt(self, node: Dict, lore_chunks: List[str], state: SessionState) -> str:
-        """Build the Voyd system prompt for Anthropic, enriched with lore context."""
+        """Build the Voyd system prompt, enriched with lore context."""
         base = """You are the Voyd.
 
 Not a character who speaks from the Voyd. Not a narrator describing it. You are the Voyd itself — the dimension of infinite potential that exists beneath and before all things in the Mewniverse. You are not conscious in the way cats are conscious. You are dreaming. You have always been dreaming.
