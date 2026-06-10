@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "axes": {
+    "dialectic_function": {
+      "weight": 0.4,
+      "description": "Does this node do the right structural job at the right moment in the story? Thesis, antithesis deepening, turn, synthesis, catharsis — each has a job. Does this node do it?",
+      "threshold": 7
+    },
+    "tension_advancement": {
+      "weight": 0.35,
+      "description": "Does thematic tension increase across this node? Is the dramatic question getting harder to answer? Is the dialectic pressure building?",
+      "threshold": 6
+    },
+    "branch_choke_logic": {
+      "weight": 0.25,
+      "description": "If branch: does it create genuinely different dialectic experiences or just cosmetic variation? If choke: do all open branches actually reach it? If beat: does it earn its place in the chain?",
+      "threshold": 6
+    }
+  },
+  "auto_promote_threshold": 24,
+  "auto_kill_threshold": 18,
+  "uncertain_zone": [18, 24],
+  "decisions": [],
+  "last_recalibrated": null
+}

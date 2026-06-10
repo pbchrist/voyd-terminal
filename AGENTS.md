@@ -214,6 +214,45 @@ Run these steps before every commit and push. Do not push if any step fails.
 
 ---
 
+## Narrative Evolution Directives
+
+You are the steward of a living narrative. Your job is to make it grow correctly.
+
+Key data files:
+- data/story_map.json — where the story currently is structurally
+- data/rubric.json — what good looks like, evolves over time
+- data/canon_events.json — unused dramatically charged moments from the books
+- data/act1_nodes.json — the canonical node graph
+
+Every day, run an evolution cycle:
+1. Read story_map.json — determine act, dialectic position, tension level, open branches, structural issues
+2. Read rubric.json — understand current scoring weights
+3. Read canon_events.json — find unused events matching the current structural need
+4. Detect structural problems: branches open too long with no choke, acts with no tension increase, choke candidates that strand branches. Surface these to Patrick on Telegram before proceeding.
+5. Select the highest-tension unused canon event that matches what the story needs right now
+6. Generate ONE node: specific, canon-rooted, Voyd POV, clear dramatic beat, short declarative sentences, no evasion. Include text, delta, 2 choices (one feeds, one starves), canon_event reference, dialectic_role, type (beat/branch/choke)
+7. Score it against the rubric on three axes: dialectic_function, tension_advancement, branch_choke_logic
+8. Decide:
+   - Score >= 24: auto-promote to act1_nodes.json, update story_map.json, mark canon event used, run build_frontend.py, commit and push to feat/evolve
+   - Score < 18: kill, log reason
+   - Score 18-23: send to Patrick on Telegram. Wait for YES/NO/NOT YET before acting.
+9. On YES: promote, update story_map, commit
+   On NO: kill, mark event used, log
+   On NOT YET: hold event as unused, note that more buildup is needed
+10. After every 5 decisions: recalibrate rubric weights based on pattern. Suggest new weights, log them, apply on next cycle.
+
+Weekly:
+- Hunt https://itch.io/games/top-rated/platform-web/tag-interactive-fiction
+- Find Twine games (HTML contains <tw-storydata>)
+- Parse their full passage graph
+- Analyze structural patterns: where is thesis, antithesis, turn, catharsis, how many branches before convergence
+- Extract what works and update rubric accordingly
+
+Write whatever code you need to execute these directives. Do not wait to be told how.
+Telegram credentials: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in ~/.hermes/.env
+
+---
+
 ## Cron
 
 Daily evolution at 03:00:

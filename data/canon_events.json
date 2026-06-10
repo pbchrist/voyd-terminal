@@ -1,0 +1,102 @@
+[
+  {
+    "id": "sol_wife_returns",
+    "act": 2,
+    "dialectic_role": "antithesis_peak",
+    "event": "Sol's wife comes home and does not recognize him. He changed the timeline. He did not change himself.",
+    "voyd_pov": "i had doubled twice by then. he looked at her face and understood for the first time what he had actually done.",
+    "tension_level": 0.7,
+    "source": "Book 1, Ertree account of Sol diary",
+    "used": false
+  },
+  {
+    "id": "ashai_sketch_burns",
+    "act": 2,
+    "dialectic_role": "turn",
+    "event": "Sory'n and Ertree burn Sol's sketch. The charcoal strokes of the portal refuse to burn. They glow orange. The shape sears into Sory'n's mind permanently.",
+    "voyd_pov": "fire does not touch what is already mine.",
+    "tension_level": 0.8,
+    "source": "Book 1",
+    "used": false
+  },
+  {
+    "id": "orachys_694473",
+    "act": 2,
+    "dialectic_role": "antithesis_deepening",
+    "event": "Orachys's 694,473rd failed attempt. One entry per page. Half a lifetime of X marks.",
+    "voyd_pov": "the six hundred and ninety-four thousand, four hundred and seventy-third attempt. the marble-sized singularity appeared. then collapsed. he wrote the x. he did not know i was counting too.",
+    "tension_level": 0.65,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "ertree_returns_broken",
+    "act": 2,
+    "dialectic_role": "turn",
+    "event": "Ertree returns from her deepest meditation into the Voyd. Pupils blown wide. Voice brittle. She witnessed something about the future she can barely speak aloud.",
+    "voyd_pov": "she touched the darkness before creation and came back changed. i do not touch the ones who enter me. they touch themselves against my edges.",
+    "tension_level": 0.75,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "astrolabe_returns_lava",
+    "act": 2,
+    "dialectic_role": "antithesis_deepening",
+    "event": "Orachys feeds an astrolabe into the portal. It comes back as a molten spindle of lava that bores through solid rock on contact.",
+    "voyd_pov": "he put a thing in me that measured the stars. i returned it as a thing that unmakes stone. he wrote this down. he called it progress.",
+    "tension_level": 0.6,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "portal_moves_overnight",
+    "act": 2,
+    "dialectic_role": "establishing_antithesis",
+    "event": "Sory'n conjures the portal in one spot on the outcropping. The next morning it has shifted. It has preferences, the way a tide has preferences.",
+    "voyd_pov": "she put me where she wanted me. in the morning i was where i wanted to be.",
+    "tension_level": 0.45,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "sol_diary_wont_explain",
+    "act": 2,
+    "dialectic_role": "antithesis_deepening",
+    "event": "Sol never recorded how to produce a Voyd portal. Only what it looked like after it existed. Trying to open one from his diary is like trying to pick a lock with infinite tumblers.",
+    "voyd_pov": "he knew not to write it down. the knowledge of how to open me is not in any book. it is in the wanting itself.",
+    "tension_level": 0.55,
+    "source": "Book 1, Ertree to Sory'n",
+    "used": false
+  },
+  {
+    "id": "orachys_no_particular_outcome",
+    "act": 2,
+    "dialectic_role": "antithesis_peak",
+    "event": "Orachys tells Sory'n: when you have the means to alter reality to your specifications, no particular outcome matters.",
+    "voyd_pov": "he said it like a man who had won. he said it like freedom. it was the purest description of my hunger i have ever heard from a mouth that was not mine.",
+    "tension_level": 0.85,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "clowder_four_colors",
+    "act": 3,
+    "dialectic_role": "synthesis_attempt",
+    "event": "Four wills unified against Orachys. Gravitational brown, electric gold, blooming orange, crystalline silver. A constellation of four against a battering ram.",
+    "voyd_pov": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger.",
+    "tension_level": 0.9,
+    "source": "Book 2",
+    "used": false
+  },
+  {
+    "id": "portal_tears_not_closes",
+    "act": 3,
+    "dialectic_role": "catharsis",
+    "event": "The portal does not collapse cleanly. It tears. Cracks shot from top to bottom. Blinding internal light poured through the seams. Spiderweb fractures. Violent vibrating shards.",
+    "voyd_pov": "they did not close me. they broke me. there is a difference. i am still here.",
+    "tension_level": 0.95,
+    "source": "Book 2",
+    "used": false
+  }
+]
