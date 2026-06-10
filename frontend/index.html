@@ -256,7 +256,11 @@ async function renderAct1Node(nodeId) {
         else vl.appendChild(makeSpan(ch));
       }
       ex.appendChild(vl);
-      setTimeout(() => enterAct2(), 500);
+      const nextNode = node.next;
+      setTimeout(() => {
+        if (nextNode && nextNode !== 'ACT2' && act1Nodes[nextNode]) renderAct1Node(nextNode);
+        else enterAct2();
+      }, 500);
     });
   } else if (node.choices) {
     const choicesWrap = document.createElement('div'); choicesWrap.className = 'act1-choices';

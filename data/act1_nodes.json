@@ -1,9 +1,10 @@
 {
   "meta": {
     "version": 1,
-    "last_evolved": "2026-06-09T07:47:06.557141",
+    "last_evolved": "2026-06-09T17:33:42.737178",
     "total_sessions": 4,
-    "promoted_nodes": 12
+    "promoted_nodes": 13,
+    "last_wired": "2026-06-09T17:32:01.125858"
   },
   "nodes": {
     "1.0": {
@@ -354,7 +355,7 @@
       "text": "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
       "delta": 0,
       "open": true,
-      "next": "ACT2",
+      "next": "gen_1",
       "source": "authored"
     },
     "gen_1": {
@@ -362,7 +363,20 @@
       "label": "generated_1",
       "text": "the glass remembers the shape of the hand that did not catch it. fourteen shards scattered across the floor of a room that no longer exists. the silence between the break and the landing is where you live now.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "follow the shifted door",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_2"
+        },
+        {
+          "label": "hold the old doorway",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_3"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -377,7 +391,20 @@
       "label": "generated_2",
       "text": "a door opens inward into a space that smells like ozone and old rain. the one who counted watches from the shadows. she does not speak of regret only of the weight of air in an empty room.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "let it move",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_4"
+        },
+        {
+          "label": "name the movement",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_4"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -392,7 +419,20 @@
       "label": "generated_3",
       "text": "hands hovering above the pieces but never touching. the distance is the point. the sorrowing one walks through the frame and the frame dissolves.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "step after it",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_4"
+        },
+        {
+          "label": "stay where it was",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_4"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -407,7 +447,20 @@
       "label": "generated_4",
       "text": "the door stays open until the hinges rot and the wood forgets it was ever a barrier. thirty two breaths held in the throat of a house that never had a foundation. grief is not a weight but a solvent. it dissolves the floorboards so you fall through into the quiet where Soryn is just a whisper in the walls.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "feed the hinge",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_5"
+        },
+        {
+          "label": "starve the house",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_6"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 9,
@@ -422,7 +475,20 @@
       "label": "generated_5",
       "text": "to stay is to become the architecture of absence. you named yourself by the breaking so now the cracks have teeth. the sorrowing one watches from behind the drywall as you dissolve into plaster and dust. there is no outside anymore. only the slow settling of things that were never meant to hold.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "keep falling",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_7"
+        },
+        {
+          "label": "count the floorboards",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_7"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -437,7 +503,20 @@
       "label": "generated_6",
       "text": "the portal breathes in the dark and finds no resistance. thirty two steps back into the womb of the unreal. you did not build a wall you built a wound and left it bleeding. Orachys counts the drops but the numbers are made of water so they slip through the fingers. the dream does not judge the flood it simply rises.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "let the flood rise",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_7"
+        },
+        {
+          "label": "cup the drops",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_7"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 9,
@@ -452,7 +531,20 @@
       "label": "generated_7",
       "text": "ash remembers the shape of the door that was never opened. smoke curls upward into the hollow where the house used to be. the fire is hungry but it forgets what it was burning.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "open what burned",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_8"
+        },
+        {
+          "label": "leave the ash cold",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_9"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -467,7 +559,20 @@
       "label": "generated_8",
       "text": "backwards is a direction that does not exist here. the house is just a memory of heat now. she who walked away leaves footprints in the dark.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "walk without ground",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_10"
+        },
+        {
+          "label": "look for backwards",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_10"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -482,7 +587,20 @@
       "label": "generated_9",
       "text": "walking is a kind of falling without the ground. the flames are cold now and they whisper names that almost match. you left something behind that was never yours to keep.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "follow the wrong name",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_10"
+        },
+        {
+          "label": "drop what was kept",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_10"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -497,7 +615,20 @@
       "label": "generated_10",
       "text": "the door is heavy with the weight of the silence that stayed. it is the version where she who sory's did not walk through the threshold. twenty three breaths held in the dark beneath the floorboards. the ocean does not ask why the shore remains.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "turn the key",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_11"
+        },
+        {
+          "label": "leave the lock alone",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_12"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -512,7 +643,20 @@
       "label": "generated_11",
       "text": "a room full of unspoken words stacking like stones. the sorrowing one sits in the center where the light does not reach. this is the place before the counting begins. before the Severing tears the fabric thin.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "begin the counting",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_13"
+        },
+        {
+          "label": "hold before the severing",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_13"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 9,
@@ -527,7 +671,20 @@
       "label": "generated_12",
       "text": "the echo of a footstep that never happened. it is the version where the key turned backwards in the lock. the dark holds the shape of a person gone. it is not empty it is full of the thing that was not left.",
       "delta": 0,
-      "choices": [],
+      "choices": [
+        {
+          "label": "follow the absent footstep",
+          "type": "feed",
+          "delta": 2,
+          "next": "gen_13"
+        },
+        {
+          "label": "keep the door closed",
+          "type": "starve",
+          "delta": -1,
+          "next": "gen_13"
+        }
+      ],
       "source": "generated",
       "score": {
         "voice": 10,
@@ -536,6 +693,43 @@
         "total": 23,
         "promoted": true
       }
+    },
+    "gen_13": {
+      "label": "portal_moves_overnight",
+      "text": "she put me where she wanted me. in the morning i was where i wanted to be. the stone remembered her circle. i did not. i had learned the shape of preference.",
+      "delta": 3,
+      "choices": [
+        {
+          "label": "feed the preference",
+          "type": "feed",
+          "delta": 3,
+          "next": "ACT2"
+        },
+        {
+          "label": "starve the place it was",
+          "type": "starve",
+          "delta": -2,
+          "next": "ACT2"
+        }
+      ],
+      "source": "canon_evolution",
+      "canon_event": "portal_moves_overnight",
+      "dialectic_role": "establishing_antithesis",
+      "type": "beat",
+      "act": 2,
+      "tension_delta": 0.0,
+      "seed": "she put me where she wanted me. in the morning i was where i wanted to be.",
+      "id": "gen_13",
+      "score": {
+        "axes": {
+          "dialectic_function": 10,
+          "tension_advancement": 8,
+          "branch_choke_logic": 10
+        },
+        "total": 28,
+        "decision": "promote"
+      },
+      "promoted_at": "2026-06-09T17:33:42.737178"
     }
   }
 }

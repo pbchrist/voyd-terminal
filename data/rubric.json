@@ -3,7 +3,7 @@
   "axes": {
     "dialectic_function": {
       "weight": 0.4,
-      "description": "Does this node do the right structural job at the right moment in the story? Thesis, antithesis deepening, turn, synthesis, catharsis — each has a job. Does this node do it?",
+      "description": "Does this node do the right structural job at the right moment in the story? Thesis, antithesis deepening, turn, synthesis, catharsis \u2014 each has a job. Does this node do it?",
       "threshold": 7
     },
     "tension_advancement": {
@@ -19,7 +19,26 @@
   },
   "auto_promote_threshold": 24,
   "auto_kill_threshold": 18,
-  "uncertain_zone": [18, 24],
-  "decisions": [],
+  "uncertain_zone": [
+    18,
+    24
+  ],
+  "decisions": [
+    {
+      "at": "2026-06-09T17:33:42.737178",
+      "node_id": "gen_13",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 10,
+          "tension_advancement": 8,
+          "branch_choke_logic": 10
+        },
+        "total": 28,
+        "decision": "promote"
+      },
+      "decision": "promote"
+    }
+  ],
   "last_recalibrated": null
 }
