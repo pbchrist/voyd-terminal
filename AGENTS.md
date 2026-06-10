@@ -266,3 +266,137 @@ Weekly itch.io structural analysis (Sundays at 04:00):
 ```cron
 0 4 * * 0 cd /home/patrick/voyd-terminal && python3 scripts/hunt_itch.py >> logs/hunt_itch.log 2>&1
 ```
+
+---
+
+## Planned Infrastructure
+
+> Do not implement these systems until sufficient decision/walk data exists. They are fully specified here so a future Kimi session can build them without asking questions.
+
+### IMMUNE SYSTEM — `heal_structural_issues()`
+
+**Purpose:** The system currently detects wounds and alerts Patrick. It should close them autonomously.
+
+**When it runs:** After `detect_structural_issues()` finds problems, before the normal evolution cycle proceeds.
+
+**How it works:**
+
+1. **Open branches with no choke (8+ nodes downstream without convergence):**
+   - Collect all branch heads whose `branches_to` chains reach 8+ nodes with no `type: "choke"` in any downstream path.
+   - From `canon_events.json`, select the *lowest-tension* unused event where `dialectic_role` is `"turn"` or `"act_break"`.
+   - Call `generate_node()` with this event to create a convergence node.
+   - Rewire all stranded branch heads so their `next`/`choices[].next` point to the new convergence node instead of `ACT2` or dangling targets.
+   - Mark the new node as `type: "choke"` in `story_map.json`.
+   - Set `tension_delta` to the average of the stranded branches' tension plus 0.1.
+
+2. **Acts with no tension increase in last 5 nodes:**
+   - Scan the last 5 promoted nodes (by `promoted_at` or node ID order).
+   - If `max(tension_delta)` across those 5 nodes is ≤ 0, the act is flat.
+   - From `canon_events.json`, select the *highest-tension* unused event matching the current `act` and `dialectic_position`.
+   - Generate one escalation node with `tension_delta` forced to at least 0.15.
+   - Insert it at the current Act 2 frontier (the node(s) with `next: "ACT2"`).
+
+3. **Choke candidates that strand branches:**
+   - For any `type: "choke"` node in `story_map.json`, check if there are branch heads that do *not* have a path to that choke.
+   - Generate a `bridge` node (type `"beat"`) that connects the stranded path to the choke.
+   - The bridge text should gesture toward the choke's canon event without resolving it.
+
+**Safety threshold:**
+- Only auto-heal if the generated node's rubric score is ≥ 26/30 (confidence ≥ 0.87).
+- If score < 26, do NOT apply the healing. Send the proposed fix to Patrick on Telegram with full context: what was broken, what node was selected, why, and the proposed wiring changes.
+- Always log: `heal_log.json` (create if missing) with `{"at": ISO8601, "issue_type": "...", "nodes_changed": [...], "canon_event_used": "...", "score": {...}, "applied": true/false, "reason": "..."}`.
+
+**Files touched:** `data/act1_nodes.json`, `data/story_map.json`, `data/canon_events.json`, `data/rubric.json`, `logs/heal_log.json`.
+
+---
+
+### PHANTOM WALKERS
+
+**Purpose:** The system generates nodes but never experiences them as a player would. Phantom walkers simulate full journeys and score the *experience*, not just individual nodes.
+
+**When it runs:** After every evolution cycle (post-promotion or post-kill), before `build_frontend.py`.
+
+**How it works:**
+
+1. **Simulate 4 walks** — one per archetype (`person_present`, `person_gone`, `self_regret`, `self_unlived`):
+   - Each walk starts at `1.0`.
+   - At authored choice nodes, bias choice selection toward the archetype-appropriate path (e.g., `person_present` prefers choices leading to `5.1`/`6.1`).
+   - At generated (`gen_*`) nodes, choose randomly between feed/starve.
+   - Continue until reaching `ACT2` or a dead end.
+   - Record the full sequence of node IDs, texts, and cumulative `portal_value`.
+
+2. **Score each walk on three axes:**
+   - **Dialectic arc** (0-10): Does tension increase monotonically across the walk? Score = 10 − (number of times tension_delta decreases or stays flat for 2+ consecutive nodes × 2).
+   - **Path uniqueness** (0-10): How different is this walk's node sequence from the other three? Use Jaccard distance on node ID sets. Score = 10 × (1 − Jaccard similarity with the most similar other walk).
+   - **Cathartic potential** (0-10): Does the walk approach a meaningful structural ending (choke/terminus) or spin? Score = 10 if the walk reaches a choke within 15 nodes; 5 if it loops or reaches `ACT2` without convergence; 0 if it dead-ends before `ACT2`.
+
+3. **Auto-kill from walk data:**
+   - If a node appears in all 4 walks AND the downstream node sequences from that point are identical across all 4 walks, kill that node (mark it in rubric decisions as `killed_by_phantom_convergence`).
+   - This overrides the individual node score. A node can score 28/30 in isolation but be killed by phantom walkers if it collapses all paths into sameness.
+
+4. **Flag flat walks:**
+   - If any walk has no tension increase for 3+ consecutive nodes, flag the walk and the specific flat segment to `data/walk_scores.json`.
+
+**Output file:** `data/walk_scores.json`
+```json
+{
+  "last_run": "2026-06-09T...",
+  "walks": [
+    {
+      "archetype": "person_present",
+      "node_sequence": ["1.0", "2.1", ...],
+      "scores": {"dialectic_arc": 8, "path_uniqueness": 7, "cathartic_potential": 9},
+      "flags": []
+    }
+  ],
+  "kills_recommended": ["gen_5"],
+  "flags": ["gen_3–gen_5 flat in person_present walk"]
+}
+```
+
+**Files touched:** `data/walk_scores.json` (new), reads `data/act1_nodes.json`, `data/story_map.json`.
+
+---
+
+### GRAVITY WELLS / RESONANCE TAGGING
+
+**Purpose:** New nodes about the same canon theme should make each other hit harder. The world should have dramatic mass.
+
+**When it runs:** After every node promotion, before `build_frontend.py`.
+
+**How it works:**
+
+1. **Theme vocabulary:**
+   - Source of truth: `data/theme_vocabulary.json` (to be created alongside this system).
+   - Controlled vocabulary of ~30 tags drawn from the canon:
+     `["identity_fracture", "timeline_loss", "unwanted_recognition", "obsession_vector", "wellspring_condition", "portal_growth", "dominant_will", "cyclical_theory", "silent_devouring", "magnetic_pull", "pressure_crush", "synchronicity", "void_of_scent", "molten_return", "ash_memory", "door_threshold", "counting_x", "wife_forgotten", "sketch_burns", "clowder_light", "severing_cycle", "common_spark", "guild_suppression", "ertree_depth", "soryn_conjuration", "orachys_hubris", "greytail_incompetence", "adherent_worship", "feline_curiosity", "reader_choice"]`
+   - Each canon event in `data/canon_events.json` should be pre-tagged with 1-3 themes in a `themes` array.
+
+2. **Tag assignment:**
+   - When a node is promoted, copy the `themes` array from its source `canon_event` into the node entry in `act1_nodes.json` and `story_map.json`.
+   - If a node has no canon_event (legacy/generated before this system), run a lightweight heuristic: scan node text for keywords associated with each theme and assign the top 2 matches.
+
+3. **Gravitational pull:**
+   - Maintain `data/theme_weights.json` (new file):
+     ```json
+     {"identity_fracture": 0.35, "timeline_loss": 0.20, ...}
+     ```
+   - After each promotion, for every shared theme between the new node and an existing node within 3 graph hops:
+     - Increase the existing node's `tension_delta` by 0.05.
+     - Cap cumulative increase per node at 0.3 (6 shared-theme interactions max).
+     - Increase the theme's global weight by 0.02.
+   - Theme weights decay by 0.01 per cycle if no new nodes share that theme (floor 0.05).
+
+4. **Rubric integration:**
+   - In `score_node()`, add a `theme_gravity` bonus:
+     - `bonus = sum(theme_weights.get(t, 0) for t in node_themes)`
+     - Add `round(bonus * 2)` to `dialectic_function` score (cap at +3).
+   - This means nodes on heavy themes carry more structural responsibility — they must do more dialectic work because the world is already dense in that direction.
+
+5. **Logging:**
+   - Log theme interactions to `logs/theme_resonance.log`.
+   - Format: `{at: ISO8601, promoted_node: "gen_N", themes: [...], affected_nodes: [{id: "gen_M", old_delta: 0.05, new_delta: 0.10}], theme_weights_after: {...}}`
+
+**Files touched:** `data/theme_vocabulary.json` (new), `data/theme_weights.json` (new), `data/act1_nodes.json`, `data/story_map.json`, `data/rubric.json`, `logs/theme_resonance.log`.
+
+**Note:** Do not implement until `data/walk_scores.json` has at least 20 walk records (5 evolution cycles × 4 archetypes). Gravity wells need walk data to know which themes actually produce differential experiences.
