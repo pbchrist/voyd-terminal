@@ -5,3 +5,4 @@ __pycache__/
 chromadb/
 *.pkl
 .DS_Store
+logs/

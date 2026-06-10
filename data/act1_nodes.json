@@ -1,9 +1,9 @@
 {
   "meta": {
     "version": 1,
-    "last_evolved": "2026-06-09T17:33:42.737178",
+    "last_evolved": "2026-06-10T09:29:25.109156",
     "total_sessions": 4,
-    "promoted_nodes": 13,
+    "promoted_nodes": 14,
     "last_wired": "2026-06-09T17:32:01.125858"
   },
   "nodes": {
@@ -667,6 +667,40 @@
         }
       ],
       "source": "generated"
+    },
+    "gen_1": {
+      "label": "clowder_four_colors",
+      "text": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
+      "delta": 3,
+      "choices": [
+        {
+          "label": "pull the lights closer",
+          "type": "feed",
+          "delta": 3,
+          "next": "ACT2"
+        },
+        {
+          "label": "turn your back on them",
+          "type": "starve",
+          "delta": -2,
+          "next": "ACT2"
+        }
+      ],
+      "source": "canon_evolution",
+      "canon_event": "clowder_four_colors",
+      "dialectic_role": "synthesis_attempt",
+      "type": "beat",
+      "act": 3,
+      "tension_delta": 0.19,
+      "seed": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger.",
+      "id": "gen_1",
+      "score": {
+        "score": 9,
+        "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "decision": "promote",
+        "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
+      },
+      "promoted_at": "2026-06-10T09:29:25.109156"
     }
   }
 }

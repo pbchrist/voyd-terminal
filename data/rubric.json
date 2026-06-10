@@ -38,6 +38,18 @@
         "decision": "promote"
       },
       "decision": "promote"
+    },
+    {
+      "at": "2026-06-10T09:29:25.109156",
+      "node_id": "gen_1",
+      "canon_event": "clowder_four_colors",
+      "score": {
+        "score": 9,
+        "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "decision": "promote",
+        "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
+      },
+      "decision": "promote"
     }
   ],
   "last_recalibrated": null

@@ -103,7 +103,9 @@
     "voyd_pov": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger.",
     "tension_level": 0.9,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-06-10T09:29:25.109156",
+    "node_id": "gen_1"
   },
   {
     "id": "portal_tears_not_closes",

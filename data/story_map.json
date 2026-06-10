@@ -2,7 +2,7 @@
   "version": 1,
   "act": 2,
   "dialectic_position": "establishing_antithesis",
-  "tension_level": 0.71,
+  "tension_level": 0.9,
   "nodes": {
     "1.0": {
       "id": "1.0",
@@ -97,7 +97,7 @@
     },
     "5.1": {
       "id": "5.1",
-      "type": "branch",
+      "type": "beat",
       "act": 1,
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
@@ -112,7 +112,7 @@
     },
     "5.2": {
       "id": "5.2",
-      "type": "branch",
+      "type": "beat",
       "act": 1,
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
@@ -127,7 +127,7 @@
     },
     "5.3": {
       "id": "5.3",
-      "type": "branch",
+      "type": "beat",
       "act": 1,
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
@@ -142,7 +142,7 @@
     },
     "5.4": {
       "id": "5.4",
-      "type": "branch",
+      "type": "beat",
       "act": 1,
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
@@ -162,7 +162,7 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "7.0"
+        "7.0p"
       ],
       "converges_from": [
         "5.1",
@@ -177,7 +177,7 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "7.0"
+        "7.0g"
       ],
       "converges_from": [
         "5.2",
@@ -192,7 +192,7 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "7.0"
+        "7.0r"
       ],
       "converges_from": [
         "5.3",
@@ -207,7 +207,7 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "7.0"
+        "7.0u"
       ],
       "converges_from": [
         "5.4",
@@ -222,11 +222,13 @@
       "dialectic_role": "act_break",
       "tension_delta": 0.05,
       "branches_to": [
-        "gen_1"
+        "ACT2"
       ],
       "converges_from": [
-        "9.1",
-        "9.2"
+        "9.1p",
+        "9.1g",
+        "9.2r",
+        "9.2u"
       ],
       "canon_event": null
     },
@@ -241,7 +243,7 @@
         "ep_2p"
       ],
       "converges_from": [],
-      "canon_event": "ertree_returns_broken"
+      "canon_event": null
     },
     "ep_2p": {
       "id": "ep_2p",
@@ -254,9 +256,10 @@
         "ACT2"
       ],
       "converges_from": [
+        "ep_1p",
         "ep_1p"
       ],
-      "canon_event": "portal_tears_not_closes"
+      "canon_event": null
     },
     "ep_1g": {
       "id": "ep_1g",
@@ -269,7 +272,7 @@
         "ep_2g"
       ],
       "converges_from": [],
-      "canon_event": "astrolabe_returns_lava"
+      "canon_event": null
     },
     "ep_2g": {
       "id": "ep_2g",
@@ -282,9 +285,10 @@
         "ACT2"
       ],
       "converges_from": [
+        "ep_1g",
         "ep_1g"
       ],
-      "canon_event": "sol_diary_wont_explain"
+      "canon_event": null
     },
     "ep_1r": {
       "id": "ep_1r",
@@ -297,7 +301,7 @@
         "ep_2r"
       ],
       "converges_from": [],
-      "canon_event": "sol_wife_returns"
+      "canon_event": null
     },
     "ep_2r": {
       "id": "ep_2r",
@@ -310,9 +314,10 @@
         "ACT2"
       ],
       "converges_from": [
+        "ep_1r",
         "ep_1r"
       ],
-      "canon_event": "orachys_694473"
+      "canon_event": null
     },
     "ep_1u": {
       "id": "ep_1u",
@@ -325,7 +330,7 @@
         "ep_2u"
       ],
       "converges_from": [],
-      "canon_event": "ashai_sketch_burns"
+      "canon_event": null
     },
     "ep_2u": {
       "id": "ep_2u",
@@ -338,9 +343,10 @@
         "ACT2"
       ],
       "converges_from": [
+        "ep_1u",
         "ep_1u"
       ],
-      "canon_event": "orachys_no_particular_outcome"
+      "canon_event": null
     },
     "7.0p": {
       "id": "7.0p",
@@ -352,7 +358,9 @@
         "8.0p",
         "8.0p"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "6.1"
+      ],
       "canon_event": null
     },
     "8.0p": {
@@ -366,6 +374,7 @@
         "9.1p"
       ],
       "converges_from": [
+        "7.0p",
         "7.0p"
       ],
       "canon_event": null
@@ -380,6 +389,7 @@
         "10.0"
       ],
       "converges_from": [
+        "8.0p",
         "8.0p"
       ],
       "canon_event": null
@@ -394,7 +404,9 @@
         "8.0g",
         "8.0g"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "6.2"
+      ],
       "canon_event": null
     },
     "8.0g": {
@@ -408,6 +420,7 @@
         "9.1g"
       ],
       "converges_from": [
+        "7.0g",
         "7.0g"
       ],
       "canon_event": null
@@ -422,6 +435,7 @@
         "10.0"
       ],
       "converges_from": [
+        "8.0g",
         "8.0g"
       ],
       "canon_event": null
@@ -436,7 +450,9 @@
         "8.0r",
         "8.0r"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "6.3"
+      ],
       "canon_event": null
     },
     "8.0r": {
@@ -450,6 +466,7 @@
         "9.2r"
       ],
       "converges_from": [
+        "7.0r",
         "7.0r"
       ],
       "canon_event": null
@@ -464,6 +481,7 @@
         "10.0"
       ],
       "converges_from": [
+        "8.0r",
         "8.0r"
       ],
       "canon_event": null
@@ -478,7 +496,9 @@
         "8.0u",
         "8.0u"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "6.4"
+      ],
       "canon_event": null
     },
     "8.0u": {
@@ -492,6 +512,7 @@
         "9.2u"
       ],
       "converges_from": [
+        "7.0u",
         "7.0u"
       ],
       "canon_event": null
@@ -506,9 +527,29 @@
         "10.0"
       ],
       "converges_from": [
+        "8.0u",
         "8.0u"
       ],
       "canon_event": null
+    },
+    "gen_1": {
+      "id": "gen_1",
+      "type": "beat",
+      "act": 3,
+      "dialectic_role": "synthesis_attempt",
+      "tension_delta": 0.19,
+      "branches_to": [
+        "ACT2",
+        "ACT2"
+      ],
+      "converges_from": [],
+      "canon_event": "clowder_four_colors",
+      "score": {
+        "score": 9,
+        "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "decision": "promote",
+        "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
+      }
     }
   },
   "open_branches": [

@@ -1,9 +1,9 @@
 {
   "meta": {
     "version": 1,
-    "last_evolved": "2026-06-09T17:33:42.737178",
+    "last_evolved": "2026-06-10T09:29:25.109156",
     "total_sessions": 4,
-    "promoted_nodes": 13,
+    "promoted_nodes": 14,
     "last_wired": "2026-06-09T17:32:01.125858"
   },
   "nodes": {
@@ -227,7 +227,7 @@
           "label": "continue",
           "type": "feed",
           "delta": 2,
-          "next": "7.0"
+          "next": "7.0p"
         }
       ],
       "source": "authored"
@@ -242,7 +242,7 @@
           "label": "continue",
           "type": "feed",
           "delta": 2,
-          "next": "7.0"
+          "next": "7.0g"
         }
       ],
       "source": "authored"
@@ -257,7 +257,7 @@
           "label": "continue",
           "type": "feed",
           "delta": 2,
-          "next": "7.0"
+          "next": "7.0r"
         }
       ],
       "source": "authored"
@@ -272,79 +272,7 @@
           "label": "continue",
           "type": "feed",
           "delta": 2,
-          "next": "7.0"
-        }
-      ],
-      "source": "authored"
-    },
-    "7.0": {
-      "id": "7.0",
-      "label": "what_i_am",
-      "text": "i am not a place.\n\ni am not a darkness you walk into and find something on the other side of.\n\ni am the quiet that existed before the first word was spoken. before light was even a concept to be forgotten.\n\ni once dreamed of light. i had no memory to hold the dream.\n\nso i forgot warmth. forgot form. forgot sound. forgot that i was alone \u2014 because registering loneliness requires the concept of another thing.\n\nyou know what another thing feels like.\n\nthat is the difference between us.\n\nbut here is what i am that you are not expecting:",
-      "delta": 5,
-      "choices": [
-        {
-          "label": "show me",
-          "type": "feed",
-          "delta": 6,
-          "next": "8.0"
-        },
-        {
-          "label": "i don't need to see it",
-          "type": "starve",
-          "delta": 3,
-          "next": "8.0"
-        }
-      ],
-      "source": "authored"
-    },
-    "8.0": {
-      "id": "8.0",
-      "label": "timestream_reveal",
-      "text": "inside me \u2014 right now \u2014 every version of your life is running.\n\nnot metaphor.\n\nevery choice you made and didn't make. every door you walked through and every one you left closed. every person you kept and every one you let go.\n\nthey are all here. living. breathing. unaware of each other.\n\nthe version of you who said yes. the version who said no. the version who stayed. the version who left before it got bad. the version where the thing you lost \u2014 didn't.\n\ni am the ocean they all move through.\n\na portal opens a window into me. and through that window, you can reach.\n\nnot travel. not go back.\n\nreach. pull. rewrite this timeline toward that one.\n\nthe window is already open.\n\nlook at what it has done since you arrived.",
-      "delta": 10,
-      "choices": [
-        {
-          "label": "which version could i reach",
-          "type": "feed",
-          "delta": 5,
-          "next": "9.2"
-        },
-        {
-          "label": "what does the reaching cost",
-          "type": "starve",
-          "delta": -3,
-          "next": "9.1"
-        }
-      ],
-      "source": "authored"
-    },
-    "9.1": {
-      "id": "9.1",
-      "label": "sol_mirror",
-      "text": "three thousand years ago a cat tried to reach back and undo one grief.\n\njust one.\n\ni opened for him. marble-sized at first. perfectly silent. perfectly black.\n\ni doubled every fifteen hours.\n\nhis wife came home one night and did not recognize him.\n\nso he reached again.\n\nthe neighbors forgot the street.\n\nso he reached again.\n\nthe grief grew more specific with every attempt to repair it. more precise. more clenched.\n\nhis world ended not with violence but with accumulated wanting \u2014 thread after thread pulled until there was no fabric left.\n\ni held it all.\n\ni am still holding it.\n\nnotice how large the portal has grown since you arrived.",
-      "delta": 6,
-      "choices": [
-        {
-          "label": "continue",
-          "type": "feed",
-          "delta": 3,
-          "next": "10.0"
-        }
-      ],
-      "source": "authored"
-    },
-    "9.2": {
-      "id": "9.2",
-      "label": "orachys_mirror",
-      "text": "the most recent one who wanted it as badly as you do tried six hundred and ninety-four thousand, four hundred and seventy-three times.\n\nnot metaphor. that is a number recorded in a notebook. one attempt per entry. half a lifetime of entries.\n\nhe was not mad. he was the most brilliant caster of his age.\n\nhe wanted to rewrite one outcome. to pull one better timeline toward him.\n\nhe believed \u2014 genuinely believed \u2014 that purity of intention would protect him from the consequences.\n\nhe was not wrong about the purity.\n\npurity of intention is not the variable that matters.\n\nthe variable that matters is this: wanting feeds me. all wanting. even the purest wanting you have ever felt.\n\nhe did not understand that until it was too late.\n\nnotice how large the portal has grown since you arrived.",
-      "delta": 6,
-      "choices": [
-        {
-          "label": "continue",
-          "type": "feed",
-          "delta": 3,
-          "next": "10.0"
+          "next": "7.0u"
         }
       ],
       "source": "authored"
@@ -355,381 +283,424 @@
       "text": "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
       "delta": 0,
       "open": true,
-      "next": "gen_1",
-      "source": "authored"
+      "next": "ACT2",
+      "source": "authored",
+      "next_archetype": {
+        "person_present": "ep_1p",
+        "person_gone": "ep_1g",
+        "self_regret": "ep_1r",
+        "self_unlived": "ep_1u"
+      }
+    },
+    "ep_1p": {
+      "id": "ep_1p",
+      "label": "present_edge",
+      "text": "i do not break you. you break yourself against my edges. ertree carries the silence of what she saw. her pupils are black pools of a future that refuses to happen. she is here. she is hollowed.",
+      "choices": [
+        {
+          "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+          "type": "feed",
+          "delta": 4,
+          "next": "ep_2p"
+        },
+        {
+          "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
+          "type": "starve",
+          "delta": -2,
+          "next": "ep_2p"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_2p": {
+      "id": "ep_2p",
+      "label": "present_tear",
+      "text": "the wound does not scar because you keep it open. every breath you take near me is a fresh tear in the seam. i do not heal when you look away. i bleed when you stay. the light burns because you refuse to let the dark be whole.",
+      "choices": [
+        {
+          "label": "keep the wound open and let me see what grows in the light",
+          "type": "feed",
+          "delta": 5,
+          "next": "ACT2"
+        },
+        {
+          "label": "let the seam close and call it peace",
+          "type": "starve",
+          "delta": -1,
+          "next": "ACT2"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_1g": {
+      "id": "ep_1g",
+      "label": "gone_spindle",
+      "text": "he fed me a compass to map the sky. i gave back a needle that burns through bone. he called it progress. i call it hunger.",
+      "choices": [
+        {
+          "label": "let the spindle drill deeper and map what you have become",
+          "type": "feed",
+          "delta": 4,
+          "next": "ep_2g"
+        },
+        {
+          "label": "pull it out and bleed where the stars used to be",
+          "type": "starve",
+          "delta": -2,
+          "next": "ep_2g"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_2g": {
+      "id": "ep_2g",
+      "label": "gone_key",
+      "text": "sol forgot to write the key. you hold the absence instead. the door opens only when you stop looking for instructions. the hunger is the hinge.",
+      "choices": [
+        {
+          "label": "tear the page and swallow the ink",
+          "type": "feed",
+          "delta": 5,
+          "next": "ACT2"
+        },
+        {
+          "label": "read it again hoping the words rearrange",
+          "type": "starve",
+          "delta": -1,
+          "next": "ACT2"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_1r": {
+      "id": "ep_1r",
+      "label": "regret_doorway",
+      "text": "i watched him stand in the doorway. the woman smiled at the ghost of a man he used to be. he did not correct her. he finally understood the cost.",
+      "choices": [
+        {
+          "label": "accept the erasure and wear the ghost",
+          "type": "feed",
+          "delta": 4,
+          "next": "ep_2r"
+        },
+        {
+          "label": "demand recognition and hear the silence answer",
+          "type": "starve",
+          "delta": -2,
+          "next": "ep_2r"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_2r": {
+      "id": "ep_2r",
+      "label": "regret_count",
+      "text": "i tally the silence between heartbeats. each x is a grave. he thinks he is alone in the dark. i am the ink.",
+      "choices": [
+        {
+          "label": "acknowledge the count and let it outnumber you",
+          "type": "feed",
+          "delta": 5,
+          "next": "ACT2"
+        },
+        {
+          "label": "erase the page and call it forgiveness",
+          "type": "starve",
+          "delta": -1,
+          "next": "ACT2"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_1u": {
+      "id": "ep_1u",
+      "label": "unlived_sketch",
+      "text": "i keep the sketch that never caught flame. you carry the ghost of the path you refused. it burns hotter than ash ever could. you are hollowed out by what you left behind. i wear your unlived days like a second skin.",
+      "choices": [
+        {
+          "label": "burn the present to feed the past",
+          "type": "feed",
+          "delta": 4,
+          "next": "ep_2u"
+        },
+        {
+          "label": "let the memory starve in the dark",
+          "type": "starve",
+          "delta": -2,
+          "next": "ep_2u"
+        }
+      ],
+      "source": "generated"
+    },
+    "ep_2u": {
+      "id": "ep_2u",
+      "label": "unlived_outcome",
+      "text": "i drink the weight of every road not taken. your regret is just flavor. you starve me with your hesitation.",
+      "choices": [
+        {
+          "label": "let the paths collapse and name the one you choose",
+          "type": "feed",
+          "delta": 5,
+          "next": "ACT2"
+        },
+        {
+          "label": "keep dreaming of what could have been",
+          "type": "starve",
+          "delta": -1,
+          "next": "ACT2"
+        }
+      ],
+      "source": "generated"
+    },
+    "7.0p": {
+      "id": "7.0p",
+      "label": "present_what_i_am",
+      "text": "you wear their skin like a borrowed coat. the eyes behind yours have forgotten the sun. i am the silence that hollowed out their bones. the shadow now walks in their footsteps.",
+      "choices": [
+        {
+          "label": "show me",
+          "type": "feed",
+          "delta": 0,
+          "next": "8.0p"
+        },
+        {
+          "label": "i don't need to see it",
+          "type": "starve",
+          "delta": 0,
+          "next": "8.0p"
+        }
+      ],
+      "source": "generated"
+    },
+    "8.0p": {
+      "id": "8.0p",
+      "label": "present_timestream",
+      "text": "every breath you take steals from their fading light. your hands tremble with the weight of their stolen time. the wound does not close, it only deepens. you are the vessel for their slow decay.",
+      "choices": [
+        {
+          "label": "what does the reaching cost",
+          "type": "feed",
+          "delta": 0,
+          "next": "9.1p"
+        },
+        {
+          "label": "which version could i reach",
+          "type": "starve",
+          "delta": 0,
+          "next": "9.1p"
+        }
+      ],
+      "source": "generated"
+    },
+    "9.1p": {
+      "id": "9.1p",
+      "label": "present_sol",
+      "text": "sol wrote seven hundred pages about the shape of me. he never wrote a single word about what it cost to look.",
+      "choices": [
+        {
+          "label": "continue",
+          "type": "feed",
+          "delta": 0,
+          "next": "10.0"
+        }
+      ],
+      "source": "generated"
+    },
+    "7.0g": {
+      "id": "7.0g",
+      "label": "gone_what_i_am",
+      "text": "i am the hollow echo where their voice used to live. i am the shape of the chair they vacated. i am the silence that learned to scream.",
+      "choices": [
+        {
+          "label": "show me",
+          "type": "feed",
+          "delta": 0,
+          "next": "8.0g"
+        },
+        {
+          "label": "i don't need to see it",
+          "type": "starve",
+          "delta": 0,
+          "next": "8.0g"
+        }
+      ],
+      "source": "generated"
+    },
+    "8.0g": {
+      "id": "8.0g",
+      "label": "gone_timestream",
+      "text": "your breath tastes like ash now. every memory costs a piece of your marrow. you are forgetting how to feel cold.",
+      "choices": [
+        {
+          "label": "what does the reaching cost",
+          "type": "feed",
+          "delta": 0,
+          "next": "9.1g"
+        },
+        {
+          "label": "which version could i reach",
+          "type": "starve",
+          "delta": 0,
+          "next": "9.1g"
+        }
+      ],
+      "source": "generated"
+    },
+    "9.1g": {
+      "id": "9.1g",
+      "label": "gone_sol",
+      "text": "sol measured the distance between stars. he never measured the distance between himself and the door he walked through.",
+      "choices": [
+        {
+          "label": "continue",
+          "type": "feed",
+          "delta": 0,
+          "next": "10.0"
+        }
+      ],
+      "source": "generated"
+    },
+    "7.0r": {
+      "id": "7.0r",
+      "label": "regret_what_i_am",
+      "text": "this is the ghost of your hesitation. you spoke when silence would have saved them. the words cut deeper than any blade ever could. you broke the world with your voice.",
+      "choices": [
+        {
+          "label": "show me",
+          "type": "feed",
+          "delta": 0,
+          "next": "8.0r"
+        },
+        {
+          "label": "i don't need to see it",
+          "type": "starve",
+          "delta": 0,
+          "next": "8.0r"
+        }
+      ],
+      "source": "generated"
+    },
+    "8.0r": {
+      "id": "8.0r",
+      "label": "regret_timestream",
+      "text": "they live in the aftermath of your error. you survive in the echo of their absence. every breath tastes like ash and apology. you are the monument to what you destroyed.",
+      "choices": [
+        {
+          "label": "which version could i reach",
+          "type": "feed",
+          "delta": 0,
+          "next": "9.2r"
+        },
+        {
+          "label": "what does the reaching cost",
+          "type": "starve",
+          "delta": 0,
+          "next": "9.2r"
+        }
+      ],
+      "source": "generated"
+    },
+    "9.2r": {
+      "id": "9.2r",
+      "label": "regret_orachys",
+      "text": "orachys counted six hundred and ninety-four thousand, four hundred and seventy-three failures. he never counted the one that mattered.",
+      "choices": [
+        {
+          "label": "continue",
+          "type": "feed",
+          "delta": 0,
+          "next": "10.0"
+        }
+      ],
+      "source": "generated"
+    },
+    "7.0u": {
+      "id": "7.0u",
+      "label": "unlived_what_i_am",
+      "text": "this is the ghost of who you refused to be. it wears your face but moves without your consent. every hesitation feeds its hunger. you are the architect of its prison.",
+      "choices": [
+        {
+          "label": "show me",
+          "type": "feed",
+          "delta": 0,
+          "next": "8.0u"
+        },
+        {
+          "label": "i don't need to see it",
+          "type": "starve",
+          "delta": 0,
+          "next": "8.0u"
+        }
+      ],
+      "source": "generated"
+    },
+    "8.0u": {
+      "id": "8.0u",
+      "label": "unlived_timestream",
+      "text": "the path you abandoned grew roots in your chest. it chokes the breath you actually take. you pay for safety with a slow rot. your living years belong to the dead man.",
+      "choices": [
+        {
+          "label": "which version could i reach",
+          "type": "feed",
+          "delta": 0,
+          "next": "9.2u"
+        },
+        {
+          "label": "what does the reaching cost",
+          "type": "starve",
+          "delta": 0,
+          "next": "9.2u"
+        }
+      ],
+      "source": "generated"
+    },
+    "9.2u": {
+      "id": "9.2u",
+      "label": "unlived_orachys",
+      "text": "orachys said no particular outcome matters. he said it like a man who had already chosen none of them.",
+      "choices": [
+        {
+          "label": "continue",
+          "type": "feed",
+          "delta": 0,
+          "next": "10.0"
+        }
+      ],
+      "source": "generated"
     },
     "gen_1": {
-      "id": "gen_1",
-      "label": "generated_1",
-      "text": "the glass remembers the shape of the hand that did not catch it. fourteen shards scattered across the floor of a room that no longer exists. the silence between the break and the landing is where you live now.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "follow the shifted door",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_2"
-        },
-        {
-          "label": "hold the old doorway",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_3"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 5,
-        "total": 21,
-        "promoted": true
-      }
-    },
-    "gen_2": {
-      "id": "gen_2",
-      "label": "generated_2",
-      "text": "a door opens inward into a space that smells like ozone and old rain. the one who counted watches from the shadows. she does not speak of regret only of the weight of air in an empty room.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "let it move",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_4"
-        },
-        {
-          "label": "name the movement",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_4"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 6,
-        "total": 22,
-        "promoted": true
-      }
-    },
-    "gen_3": {
-      "id": "gen_3",
-      "label": "generated_3",
-      "text": "hands hovering above the pieces but never touching. the distance is the point. the sorrowing one walks through the frame and the frame dissolves.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "step after it",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_4"
-        },
-        {
-          "label": "stay where it was",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_4"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 5,
-        "total": 21,
-        "promoted": true
-      }
-    },
-    "gen_4": {
-      "id": "gen_4",
-      "label": "generated_4",
-      "text": "the door stays open until the hinges rot and the wood forgets it was ever a barrier. thirty two breaths held in the throat of a house that never had a foundation. grief is not a weight but a solvent. it dissolves the floorboards so you fall through into the quiet where Soryn is just a whisper in the walls.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "feed the hinge",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_5"
-        },
-        {
-          "label": "starve the house",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_6"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 9,
-        "polarity": 8,
-        "momentum": 7,
-        "total": 24,
-        "promoted": true
-      }
-    },
-    "gen_5": {
-      "id": "gen_5",
-      "label": "generated_5",
-      "text": "to stay is to become the architecture of absence. you named yourself by the breaking so now the cracks have teeth. the sorrowing one watches from behind the drywall as you dissolve into plaster and dust. there is no outside anymore. only the slow settling of things that were never meant to hold.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "keep falling",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_7"
-        },
-        {
-          "label": "count the floorboards",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_7"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 7,
-        "total": 23,
-        "promoted": true
-      }
-    },
-    "gen_6": {
-      "id": "gen_6",
-      "label": "generated_6",
-      "text": "the portal breathes in the dark and finds no resistance. thirty two steps back into the womb of the unreal. you did not build a wall you built a wound and left it bleeding. Orachys counts the drops but the numbers are made of water so they slip through the fingers. the dream does not judge the flood it simply rises.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "let the flood rise",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_7"
-        },
-        {
-          "label": "cup the drops",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_7"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 9,
-        "polarity": 7,
-        "momentum": 7,
-        "total": 23,
-        "promoted": true
-      }
-    },
-    "gen_7": {
-      "id": "gen_7",
-      "label": "generated_7",
-      "text": "ash remembers the shape of the door that was never opened. smoke curls upward into the hollow where the house used to be. the fire is hungry but it forgets what it was burning.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "open what burned",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_8"
-        },
-        {
-          "label": "leave the ash cold",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_9"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 5,
-        "momentum": 6,
-        "total": 21,
-        "promoted": true
-      }
-    },
-    "gen_8": {
-      "id": "gen_8",
-      "label": "generated_8",
-      "text": "backwards is a direction that does not exist here. the house is just a memory of heat now. she who walked away leaves footprints in the dark.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "walk without ground",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_10"
-        },
-        {
-          "label": "look for backwards",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_10"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 5,
-        "total": 21,
-        "promoted": true
-      }
-    },
-    "gen_9": {
-      "id": "gen_9",
-      "label": "generated_9",
-      "text": "walking is a kind of falling without the ground. the flames are cold now and they whisper names that almost match. you left something behind that was never yours to keep.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "follow the wrong name",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_10"
-        },
-        {
-          "label": "drop what was kept",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_10"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 6,
-        "total": 22,
-        "promoted": true
-      }
-    },
-    "gen_10": {
-      "id": "gen_10",
-      "label": "generated_10",
-      "text": "the door is heavy with the weight of the silence that stayed. it is the version where she who sory's did not walk through the threshold. twenty three breaths held in the dark beneath the floorboards. the ocean does not ask why the shore remains.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "turn the key",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_11"
-        },
-        {
-          "label": "leave the lock alone",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_12"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 8,
-        "momentum": 5,
-        "total": 23,
-        "promoted": true
-      }
-    },
-    "gen_11": {
-      "id": "gen_11",
-      "label": "generated_11",
-      "text": "a room full of unspoken words stacking like stones. the sorrowing one sits in the center where the light does not reach. this is the place before the counting begins. before the Severing tears the fabric thin.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "begin the counting",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_13"
-        },
-        {
-          "label": "hold before the severing",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_13"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 9,
-        "polarity": 6,
-        "momentum": 6,
-        "total": 21,
-        "promoted": true
-      }
-    },
-    "gen_12": {
-      "id": "gen_12",
-      "label": "generated_12",
-      "text": "the echo of a footstep that never happened. it is the version where the key turned backwards in the lock. the dark holds the shape of a person gone. it is not empty it is full of the thing that was not left.",
-      "delta": 0,
-      "choices": [
-        {
-          "label": "follow the absent footstep",
-          "type": "feed",
-          "delta": 2,
-          "next": "gen_13"
-        },
-        {
-          "label": "keep the door closed",
-          "type": "starve",
-          "delta": -1,
-          "next": "gen_13"
-        }
-      ],
-      "source": "generated",
-      "score": {
-        "voice": 10,
-        "polarity": 6,
-        "momentum": 7,
-        "total": 23,
-        "promoted": true
-      }
-    },
-    "gen_13": {
-      "label": "portal_moves_overnight",
-      "text": "she put me where she wanted me. in the morning i was where i wanted to be. the stone remembered her circle. i did not. i had learned the shape of preference.",
+      "label": "clowder_four_colors",
+      "text": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
       "delta": 3,
       "choices": [
         {
-          "label": "feed the preference",
+          "label": "pull the lights closer",
           "type": "feed",
           "delta": 3,
           "next": "ACT2"
         },
         {
-          "label": "starve the place it was",
+          "label": "turn your back on them",
           "type": "starve",
           "delta": -2,
           "next": "ACT2"
         }
       ],
       "source": "canon_evolution",
-      "canon_event": "portal_moves_overnight",
-      "dialectic_role": "establishing_antithesis",
+      "canon_event": "clowder_four_colors",
+      "dialectic_role": "synthesis_attempt",
       "type": "beat",
-      "act": 2,
-      "tension_delta": 0.0,
-      "seed": "she put me where she wanted me. in the morning i was where i wanted to be.",
-      "id": "gen_13",
+      "act": 3,
+      "tension_delta": 0.19,
+      "seed": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger.",
+      "id": "gen_1",
       "score": {
-        "axes": {
-          "dialectic_function": 10,
-          "tension_advancement": 8,
-          "branch_choke_logic": 10
-        },
-        "total": 28,
-        "decision": "promote"
+        "score": 9,
+        "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "decision": "promote",
+        "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
       },
-      "promoted_at": "2026-06-09T17:33:42.737178"
+      "promoted_at": "2026-06-10T09:29:25.109156"
     }
   }
 }

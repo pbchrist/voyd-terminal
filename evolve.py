@@ -71,7 +71,7 @@ def write_json(path: Path, data: Any) -> None:
 
 
 def load_dotenv(path: Path | None = None) -> dict[str, str]:
-    env_path = path or (Path.home() / ".hermes" / ".env")
+    env_path = path or Path(os.path.expanduser("~/.hermes/.env"))
     values: dict[str, str] = {}
     if not env_path.exists():
         return values
@@ -82,6 +82,11 @@ def load_dotenv(path: Path | None = None) -> dict[str, str]:
         key, value = line.split("=", 1)
         values[key.strip()] = value.strip().strip('"').strip("'")
     return values
+
+
+# Inject .env into os.environ immediately so cron jobs pick up credentials.
+for _k, _v in load_dotenv().items():
+    os.environ.setdefault(_k, _v)
 
 
 def qwen_chat(messages: list, max_tokens: int = 300, temperature: float = 0.9) -> str:
@@ -503,7 +508,7 @@ def recalibrate_rubric(rubric: dict[str, Any]) -> None:
 def send_structural_issues_to_telegram(issues: list[str]) -> bool:
     env = {**load_dotenv(), **os.environ}
     token = env.get("TELEGRAM_BOT_TOKEN")
-    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID") or env.get("TELEGRAM_HOME_CHANNEL")
     if not token or not chat_id:
         log("Telegram credentials missing; cannot send structural issues")
         return False
@@ -529,7 +534,7 @@ def send_structural_issues_to_telegram(issues: list[str]) -> bool:
 def send_uncertain_node_to_telegram(node: dict[str, Any], score: dict[str, Any]) -> bool:
     env = {**load_dotenv(), **os.environ}
     token = env.get("TELEGRAM_BOT_TOKEN")
-    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID") or env.get("TELEGRAM_HOME_CHANNEL")
     if not token or not chat_id:
         log("Telegram credentials missing; cannot send uncertain node")
         return False
@@ -626,6 +631,7 @@ def main(argv: list[str] | None = None) -> int:
         spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
         pw = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(pw)
+        node["id"] = next_generated_id(state["act1_nodes"]["nodes"])
         log("Running phantom walker uniqueness test...")
         min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
         log(f"Phantom walker min uniqueness: {min_uniqueness}")
@@ -665,7 +671,7 @@ def main(argv: list[str] | None = None) -> int:
 
     env = {**load_dotenv(), **os.environ}
     token = env.get("TELEGRAM_BOT_TOKEN")
-    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID") or env.get("TELEGRAM_HOME_CHANNEL")
     if not token or not chat_id:
         log("Telegram credentials missing; cannot poll for reply")
         return 3
@@ -678,6 +684,7 @@ def main(argv: list[str] | None = None) -> int:
         spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
         pw = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(pw)
+        node["id"] = next_generated_id(state["act1_nodes"]["nodes"])
         log("Running phantom walker uniqueness test...")
         min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
         log(f"Phantom walker min uniqueness: {min_uniqueness}")
