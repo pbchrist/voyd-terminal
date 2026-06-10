@@ -260,3 +260,9 @@ Daily evolution at 03:00:
 ```cron
 0 3 * * * cd /home/patrick/voyd-terminal && python3 evolve.py >> logs/evolve.log 2>&1
 ```
+
+Weekly itch.io structural analysis (Sundays at 04:00):
+
+```cron
+0 4 * * 0 cd /home/patrick/voyd-terminal && python3 scripts/hunt_itch.py >> logs/hunt_itch.log 2>&1
+```

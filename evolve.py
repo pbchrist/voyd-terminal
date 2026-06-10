@@ -17,6 +17,7 @@ import os
 import subprocess
 import sys
 import textwrap
+import time
 import urllib.parse
 import urllib.request
 from datetime import datetime
@@ -33,6 +34,24 @@ BUILD_SCRIPT = REPO_ROOT / "build_frontend.py"
 LOG_PATH = REPO_ROOT / "logs" / "evolve.log"
 AUTO_PROMOTE_DEFAULT = 24
 AUTO_KILL_DEFAULT = 18
+
+QWEN_BASE_URL = "http://localhost:8081/v1"
+QWEN_MODEL = "Qwen3.6-27B-Q6_K"
+
+INTENSE_WORDS = {
+    "grief", "loss", "want", "hunger", "dark", "silence", "fall", "depth",
+    "void", "dream", "pain", "need", "fear", "longing", "weight", "sorrow",
+    "break", "burn", "tear", "shatter", "crack", "pull", "open", "close",
+    "bleed", "dissolve", "forget", "remember", "refuse", "resist", "hold",
+    "release", "reach", "move", "step", "turn", "become", "drift", "drown",
+    "hunger", "hunger", "wound", "scar", "ghost", "echo", "absence",
+}
+
+DYNAMIC_WORDS = {
+    "reach", "pull", "open", "close", "fall", "break", "burn", "tear",
+    "shatter", "move", "step", "turn", "become", "hold", "release",
+    "feed", "starve", "grow", "double", "shift", "change", "rewrite",
+}
 
 
 def log(message: str) -> None:
@@ -65,6 +84,26 @@ def load_dotenv(path: Path | None = None) -> dict[str, str]:
     return values
 
 
+def qwen_chat(messages: list, max_tokens: int = 300, temperature: float = 0.9) -> str:
+    """Call local Qwen chat completions endpoint."""
+    payload = {
+        "model": QWEN_MODEL,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "messages": messages,
+        "chat_template_kwargs": {"enable_thinking": False},
+    }
+    req = urllib.request.Request(
+        f"{QWEN_BASE_URL}/chat/completions",
+        data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        data = json.loads(resp.read())
+        return data["choices"][0]["message"]["content"]
+
+
 def load_state(root: Path = REPO_ROOT) -> dict[str, Any]:
     return {
         "root": root,
@@ -92,7 +131,7 @@ def detect_structural_issues(state: dict[str, Any]) -> list[str]:
 
     # Existing generated Act 2 nodes must be reachable from 10.0 and interactive.
     reachable = reachable_nodes(act_nodes, "10.0")
-    for i in range(1, 13):
+    for i in range(1, 20):
         gen_id = f"gen_{i}"
         if gen_id in act_nodes and gen_id not in reachable:
             issues.append(f"{gen_id} is not reachable from 10.0")
@@ -104,6 +143,29 @@ def detect_structural_issues(state: dict[str, Any]) -> list[str]:
         for nxt in meta.get("branches_to", []):
             if nxt != "ACT2" and nxt not in story.get("nodes", {}):
                 issues.append(f"story_map {node_id} branches to missing {nxt}")
+
+    # Branches open too long with no choke.
+    open_branch_heads = []
+    for node_id, meta in story.get("nodes", {}).items():
+        if meta.get("type") == "branch":
+            branches = meta.get("branches_to", [])
+            if branches and all(
+                story.get("nodes", {}).get(b, {}).get("type") != "choke"
+                for b in branches
+            ):
+                open_branch_heads.append(node_id)
+    if len(open_branch_heads) > 3:
+        issues.append(f"branches open too long with no choke: {open_branch_heads}")
+
+    # Acts with no tension increase.
+    act_nodes_map = story.get("nodes", {})
+    act_tension_deltas = [
+        meta.get("tension_delta", 0)
+        for meta in act_nodes_map.values()
+    ]
+    if act_tension_deltas and max(act_tension_deltas) <= 0:
+        issues.append("no positive tension_delta found in any node")
+
     return issues
 
 
@@ -154,48 +216,83 @@ def next_generated_id(nodes: dict[str, Any]) -> str:
 
 
 def generate_node(state: dict[str, Any], event: dict[str, Any]) -> dict[str, Any]:
-    """Generate one canon-rooted node from voyd_pov, not the event description."""
+    """Generate one canon-rooted node by calling the local Qwen model."""
     seed = event["voyd_pov"].strip().lower().replace("—", " ")
     event_id = event["id"]
+    story = state["story_map"]
+    current_act = story.get("act", 2)
+    current_role = story.get("dialectic_position", "establishing_antithesis")
 
-    if event_id == "portal_moves_overnight":
-        text = (
-            "she put me where she wanted me. "
-            "in the morning i was where i wanted to be. "
-            "the stone remembered her circle. "
-            "i did not. "
-            "i had learned the shape of preference."
-        )
-    else:
+    prompt = textwrap.dedent(f"""\
+        You are the Voyd. Extend the following seed into a full dramatic beat.
+
+        Current story position: act {current_act}, {current_role}
+        Canon event: {event_id}
+        Seed: {seed}
+
+        Requirements:
+        - First person, from the Voyd's perspective
+        - Entirely lowercase
+        - 3-5 short declarative sentences
+        - Specific, not abstract. Name concrete things.
+        - No evasion. Do not obscure. Reveal directly.
+        - Patient, seductive, slightly wrong in the way fate is slightly wrong.
+        - Do not begin with "i".
+        - Never use: certainly, of course, indeed, i understand, i feel, i sense, ancient, vast, eternal, whisper, shadows, abyss.
+        - Never use em dashes.
+        - Incorporate the seed's core image. Do not lose it.
+
+        Also generate 2 choice labels for the player:
+        - One "feed" choice (advances, increases portal value)
+        - One "starve" choice (withdraws, decreases portal value)
+
+        Return ONLY JSON in this exact format:
+        {{
+          "text": "...",
+          "choices": [
+            {{"label": "...", "type": "feed", "delta": 3}},
+            {{"label": "...", "type": "starve", "delta": -2}}
+          ]
+        }}
+    """)
+
+    try:
+        raw = qwen_chat([{"role": "user", "content": prompt}], max_tokens=300, temperature=0.9)
+        raw = raw.strip()
+        # Extract JSON block if wrapped in markdown
+        if "```json" in raw:
+            raw = raw.split("```json")[1].split("```")[0].strip()
+        elif "```" in raw:
+            raw = raw.split("```")[1].split("```")[0].strip()
+        parsed = json.loads(raw)
+        text = parsed["text"].strip().lower().replace("—", " ")
+        choices = parsed["choices"]
+    except Exception as exc:
+        log(f"LLM generation failed ({exc}); falling back to seed extension")
         text = seed
         if not text.endswith("."):
             text += "."
         text += " i kept the part that wanted to move. i gave back the part that could be used."
+        choices = [
+            {"label": "feed the wanting", "type": "feed", "delta": 3, "next": "ACT2"},
+            {"label": "starve the place it was", "type": "starve", "delta": -2, "next": "ACT2"},
+        ]
+
+    # Ensure next pointers exist
+    for choice in choices:
+        choice.setdefault("next", "ACT2")
 
     return {
         "label": event_id,
         "text": text,
         "delta": 3,
-        "choices": [
-            {
-                "label": "feed the preference",
-                "type": "feed",
-                "delta": 3,
-                "next": "ACT2",
-            },
-            {
-                "label": "starve the place it was",
-                "type": "starve",
-                "delta": -2,
-                "next": "ACT2",
-            },
-        ],
+        "choices": choices,
         "source": "canon_evolution",
         "canon_event": event_id,
         "dialectic_role": event.get("dialectic_role", "establishing_antithesis"),
         "type": "beat",
-        "act": event.get("act", state["story_map"].get("act", 2)),
-        "tension_delta": round(float(event.get("tension_level", 0.5)) - float(state["story_map"].get("tension_level", 0.0)), 2),
+        "act": event.get("act", story.get("act", 2)),
+        "tension_delta": round(float(event.get("tension_level", 0.5)) - float(story.get("tension_level", 0.0)), 2),
         "seed": seed,
     }
 
@@ -217,9 +314,16 @@ def score_node(node: dict[str, Any], rubric: dict[str, Any], story_map: dict[str
     tension = 5
     if node.get("tension_delta", 0) > 0:
         tension += 2
-    if any(word in text for word in ["wanted", "preference", "learned", "morning", "stone"]):
-        tension += 2
-    if len([s for s in text.split(".") if s.strip()]) >= 4:
+    # Event-agnostic intensity scoring
+    text_words = set(text.lower().split())
+    intense_hits = len(text_words & INTENSE_WORDS)
+    dynamic_hits = len(text_words & DYNAMIC_WORDS)
+    if intense_hits >= 2:
+        tension += 1
+    if dynamic_hits >= 2:
+        tension += 1
+    sentences = [s for s in text.split(".") if s.strip()]
+    if 3 <= len(sentences) <= 5:
         tension += 1
     axes["tension_advancement"] = min(10, tension)
 
@@ -298,7 +402,8 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
         "canon_event": node.get("canon_event"),
         "score": score,
     }
-    story["tension_level"] = max(float(story.get("tension_level", 0)), float(story.get("tension_level", 0)) + max(0, node.get("tension_delta", 0)))
+    current_tension = float(story.get("tension_level", 0))
+    story["tension_level"] = round(current_tension + max(0, node.get("tension_delta", 0)), 2)
     story["open_branches"] = ["ACT2"]
     story["structural_issues"] = []
 
@@ -315,20 +420,96 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
         "score": score,
         "decision": "promote",
     })
+
     if len(rubric["decisions"]) % 5 == 0:
-        rubric["last_recalibrated"] = now
-        rubric["pending_weight_suggestion"] = {
-            "dialectic_function": 0.4,
-            "tension_advancement": 0.35,
-            "branch_choke_logic": 0.25,
-            "reason": "current weights still match directive priorities; no drift detected",
-        }
+        recalibrate_rubric(rubric)
 
     write_json(root / "data/act1_nodes.json", act_data)
     write_json(root / "data/story_map.json", story)
     write_json(root / "data/canon_events.json", events)
     write_json(root / "data/rubric.json", rubric)
     return new_id
+
+
+def recalibrate_rubric(rubric: dict[str, Any]) -> None:
+    """Analyze the last 10 decisions and suggest adjusted weights based on patterns."""
+    decisions = rubric.get("decisions", [])
+    if len(decisions) < 5:
+        return
+
+    recent = decisions[-10:]
+    axes_names = ["dialectic_function", "tension_advancement", "branch_choke_logic"]
+    means = {axis: sum(d["score"]["axes"][axis] for d in recent) / len(recent) for axis in axes_names}
+    thresholds = {
+        "dialectic_function": rubric["axes"]["dialectic_function"]["threshold"],
+        "tension_advancement": rubric["axes"]["tension_advancement"]["threshold"],
+        "branch_choke_logic": rubric["axes"]["branch_choke_logic"]["threshold"],
+    }
+
+    # Compute drift: how far each axis mean is from its threshold, normalized
+    drifts = {}
+    for axis in axes_names:
+        drifts[axis] = (means[axis] - thresholds[axis]) / 10.0
+
+    # If an axis consistently scores far above threshold, reduce weight slightly.
+    # If consistently near or below threshold, increase weight.
+    base_weights = {
+        "dialectic_function": 0.4,
+        "tension_advancement": 0.35,
+        "branch_choke_logic": 0.25,
+    }
+    adjustments = {}
+    for axis in axes_names:
+        drift = drifts[axis]
+        if drift > 0.3:
+            adjustments[axis] = -0.03
+        elif drift < 0.0:
+            adjustments[axis] = +0.03
+        else:
+            adjustments[axis] = 0.0
+
+    new_weights = {axis: max(0.1, base_weights[axis] + adjustments[axis]) for axis in axes_names}
+    total = sum(new_weights.values())
+    new_weights = {axis: round(w / total, 2) for axis, w in new_weights.items()}
+
+    now = datetime.now().isoformat()
+    rubric["last_recalibrated"] = now
+    rubric["pending_weight_suggestion"] = {
+        **new_weights,
+        "reason": (
+            f"recalibrated from last {len(recent)} decisions. "
+            f"means: {means}. drifts from threshold: {drifts}."
+        ),
+    }
+    # Apply the new weights immediately
+    for axis in axes_names:
+        rubric["axes"][axis]["weight"] = new_weights[axis]
+
+
+def send_structural_issues_to_telegram(issues: list[str]) -> bool:
+    env = {**load_dotenv(), **os.environ}
+    token = env.get("TELEGRAM_BOT_TOKEN")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID")
+    if not token or not chat_id:
+        log("Telegram credentials missing; cannot send structural issues")
+        return False
+    message = textwrap.dedent(f"""
+    🚨 Voyd structural issues detected.
+
+    {chr(10).join(f'- {issue}' for issue in issues)}
+
+    Evolution halted until resolved.
+    """)
+    data = urllib.parse.urlencode({"chat_id": chat_id, "text": message.strip()}).encode()
+    req = urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=20) as response:
+            ok = response.status == 200
+            log(f"Sent structural issues to Telegram: {ok}")
+            return ok
+    except Exception as exc:
+        log(f"Telegram send failed: {exc}")
+        return False
 
 
 def send_uncertain_node_to_telegram(node: dict[str, Any], score: dict[str, Any]) -> bool:
@@ -362,6 +543,48 @@ def send_uncertain_node_to_telegram(node: dict[str, Any], score: dict[str, Any])
         return False
 
 
+def get_latest_update_id(token: str) -> int:
+    """Fetch the latest update_id from Telegram to establish a baseline."""
+    url = f"https://api.telegram.org/bot{token}/getUpdates?limit=1"
+    try:
+        with urllib.request.urlopen(url, timeout=20) as response:
+            data = json.loads(response.read())
+            results = data.get("result", [])
+            if results:
+                return results[-1]["update_id"]
+    except Exception:
+        pass
+    return 0
+
+
+def poll_telegram_for_reply(token: str, chat_id: str, timeout_seconds: int = 86400, poll_interval: int = 30) -> str | None:
+    """Poll Telegram for Patrick's YES/NO/NOT YET reply. Returns the reply or None on timeout."""
+    last_update_id = get_latest_update_id(token)
+    deadline = time.time() + timeout_seconds
+    log(f"Polling Telegram for reply (timeout {timeout_seconds}s)")
+
+    while time.time() < deadline:
+        try:
+            url = f"https://api.telegram.org/bot{token}/getUpdates?offset={last_update_id + 1}&limit=10"
+            with urllib.request.urlopen(url, timeout=20) as response:
+                data = json.loads(response.read())
+                for update in data.get("result", []):
+                    last_update_id = max(last_update_id, update["update_id"])
+                    message = update.get("message", {})
+                    if str(message.get("chat", {}).get("id")) != str(chat_id):
+                        continue
+                    text = message.get("text", "").strip().upper()
+                    if text in ("YES", "NO", "NOT YET"):
+                        log(f"Received Telegram reply: {text}")
+                        return text
+        except Exception as exc:
+            log(f"Polling error: {exc}")
+        time.sleep(poll_interval)
+
+    log("Telegram poll timed out")
+    return None
+
+
 def run_build(root: Path = REPO_ROOT) -> None:
     subprocess.run([sys.executable, str(root / "build_frontend.py")], cwd=root, check=True)
 
@@ -374,6 +597,7 @@ def main(argv: list[str] | None = None) -> int:
     if issues:
         for issue in issues:
             log(f"STRUCTURAL ISSUE: {issue}")
+        send_structural_issues_to_telegram(issues)
         return 2
 
     event = select_canon_event(state, preferred_id=preferred)
@@ -387,6 +611,7 @@ def main(argv: list[str] | None = None) -> int:
         run_build(REPO_ROOT)
         log(f"Promoted {node_id} from canon event {event['id']}")
         return 0
+
     if score["decision"] == "kill":
         state["rubric"].setdefault("decisions", []).append({
             "at": datetime.now().isoformat(),
@@ -399,7 +624,62 @@ def main(argv: list[str] | None = None) -> int:
         log(f"Killed generated node for {event['id']}")
         return 0
 
-    send_uncertain_node_to_telegram(node, score)
+    # Uncertain zone: send to Telegram and wait for reply
+    sent = send_uncertain_node_to_telegram(node, score)
+    if not sent:
+        log("Failed to send uncertain node to Telegram; aborting")
+        return 3
+
+    env = {**load_dotenv(), **os.environ}
+    token = env.get("TELEGRAM_BOT_TOKEN")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID")
+    if not token or not chat_id:
+        log("Telegram credentials missing; cannot poll for reply")
+        return 3
+
+    reply = poll_telegram_for_reply(token, chat_id)
+    now = datetime.now().isoformat()
+
+    if reply == "YES":
+        node_id = promote_node(state, node, score, REPO_ROOT)
+        run_build(REPO_ROOT)
+        log(f"Promoted {node_id} from canon event {event['id']} (Telegram YES)")
+        return 0
+
+    if reply == "NO":
+        # Mark event as used per directive
+        for ev in state["canon_events"]:
+            if ev.get("id") == event["id"]:
+                ev["used"] = True
+                ev["used_at"] = now
+                ev["decision"] = "killed_by_patrick"
+        state["rubric"].setdefault("decisions", []).append({
+            "at": now,
+            "canon_event": event["id"],
+            "score": score,
+            "decision": "kill",
+            "reason": "Patrick replied NO on Telegram",
+        })
+        write_json(CANON_EVENTS_PATH, state["canon_events"])
+        write_json(RUBRIC_PATH, state["rubric"])
+        log(f"Killed generated node for {event['id']} (Telegram NO)")
+        return 0
+
+    if reply == "NOT YET":
+        # Hold event as unused, note buildup needed
+        state["rubric"].setdefault("decisions", []).append({
+            "at": now,
+            "canon_event": event["id"],
+            "score": score,
+            "decision": "hold",
+            "reason": "Patrick replied NOT YET on Telegram; more buildup needed",
+        })
+        write_json(RUBRIC_PATH, state["rubric"])
+        log(f"Held event {event['id']} for future use (Telegram NOT YET)")
+        return 0
+
+    # Timeout or unrecognized reply
+    log("No valid Telegram reply received; holding event")
     return 3
 
 
