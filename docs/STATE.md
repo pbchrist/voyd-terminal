@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 midday (session: reports + gen_1 rewrite + first deploy to Pages)
+Last updated: 2026-06-11 afternoon (session: organism auto-commits its data; LIVE ACT 2 IS DOWN — funnel /llm mount lost, fix needs Patrick)
 
 ---
 
@@ -95,6 +95,22 @@ iteration won't nag every turn.
 
 ## Session log
 
+### 2026-06-11 afternoon — organism self-commits + funnel outage found (same branch)
+Implemented next-step 0 option (a): `commit_data_changes()` in evolve.py — at the end of
+every cycle (try/finally in main) it commits changes under `data/` + `frontend/voyd_data.json`
+on the checked-out branch and pushes it; refuses to touch main or a detached HEAD; push
+failure keeps the commit local. Also sweeps up the 15:00 phantom run's data, since it
+commits whatever is dirty. Option (b) (auto-merge to main, unsupervised publishing) still
+open. Tests now 42, green. Verified live site = local byte-for-byte (37 nodes, rewritten
+gen_1 + gen_2 live). Solved yesterday's mystery: the 09:13–09:16 evolve.log timeouts were
+the morning gen_1-rewrite session's retries (rewrite_node loads evolve, shares its log).
+**Found: live Act 2 is DOWN.** The frontend calls
+`https://patrick-beastmaster.tailf32530.ts.net/llm/v1/chat/completions` → 404. The tailscale
+funnel now routes `/` → 127.0.0.1:8767 (mythomancer, hermes-instance2) and the `/llm` mount
+to the llama-server on 8081 is gone — presumably wiped when that other instance reconfigured
+the funnel. Claude is permission-blocked from re-exposing it; Patrick must run:
+`tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081`
+
 ### 2026-06-10/11 — audit + fixes (branch `feat/audit-fixes`, commit 3f0ca18)
 Full audit found and fixed: orphaned gen_1 (frontier mismatch between promote_node and
 phantom gate), ghost gen_13 canon reservation, scoring format schism (0-10 vs 0-30),
@@ -142,12 +158,17 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
 
 ## Next steps (in value order)
 
-0. **Decide how the live site tracks the organism.** Pages deploys only on push to main;
-   the organism grows nightly on this machine. Options: (a) evolve.py commits+pushes its
-   data changes to a branch and Patrick merges when he likes; (b) a cron/workflow
-   auto-merges data-only changes to main nightly (story updates go live unsupervised —
-   most in the spirit of the organism); (c) status quo, manual merges. Needs Patrick's
-   call because (b) means generated prose ships to the public site with no human gate.
+-1. **RESTORE LIVE ACT 2 (Patrick, one command):**
+   `tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081`
+   The funnel /llm mount vanished (mythomancer instance owns funnel / now); the frontend's
+   hardcoded LLM URL 404s, so Act 2 is dead on the live site AND in local play. Claude is
+   permission-blocked from running funnel commands. After running it, verify:
+   `curl https://patrick-beastmaster.tailf32530.ts.net/llm/v1/models` → 200.
+   Consider: longer-term, stop the two hermes instances from clobbering each other's mounts.
+0. ~~Decide how the live site tracks the organism~~ — option (a) DONE this session:
+   evolve.py now commits+pushes its data to the working branch every cycle; Patrick merges
+   when he likes. Open question remains whether to go to (b): auto-merge data-only changes
+   to main nightly, i.e. generated prose ships to the public site with no human gate.
 1. **Check today's 15:00 self-play** (`logs/phantom.log`, Telegram) — first verdict on the
    rewritten gen_1. If readers still flag it, try `python3 scripts/rewrite_node.py gen_1`
    again or consider killing the beat. Also the first standalone run with the new

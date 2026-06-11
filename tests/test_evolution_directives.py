@@ -7,6 +7,7 @@ import importlib.util
 import json
 import os
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -642,6 +643,60 @@ class ImmuneSystemTests(unittest.TestCase):
         patterns = self.evolve.external_patterns(rubric)
         self.assertEqual(len(patterns), 2)
         self.assertEqual(self.evolve.external_patterns({}), [])
+
+
+class CommitDataChangesTests(unittest.TestCase):
+    """The organism commits its cycle data on feat branches, never on main."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.evolve = load_module("evolve", "evolve.py")
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.origin = self.tmp / "origin.git"
+        self.repo = self.tmp / "repo"
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(self.origin)], check=True)
+        subprocess.run(["git", "clone", "-q", str(self.origin), str(self.repo)],
+                       check=True, capture_output=True)
+        self.git("config", "user.email", "test@test")
+        self.git("config", "user.name", "test")
+        (self.repo / "data").mkdir()
+        (self.repo / "frontend").mkdir()
+        (self.repo / "data" / "act1_nodes.json").write_text("{}")
+        (self.repo / "frontend" / "voyd_data.json").write_text("{}")
+        (self.repo / "evolve.py").write_text("# code")
+        self.git("add", "-A")
+        self.git("commit", "-qm", "init")
+        self.git("push", "-q", "-u", "origin", "main")
+
+    def git(self, *args):
+        return subprocess.run(["git", "-C", str(self.repo), *args],
+                              capture_output=True, text=True)
+
+    def test_commits_and_pushes_data_on_feat_branch(self):
+        self.git("checkout", "-q", "-b", "feat/test")
+        self.git("push", "-q", "-u", "origin", "feat/test")
+        (self.repo / "data" / "act1_nodes.json").write_text('{"grown": true}')
+        (self.repo / "data" / "walk_new.json").write_text("{}")  # untracked file
+        self.assertTrue(self.evolve.commit_data_changes(self.repo))
+        self.assertEqual(self.git("status", "--porcelain").stdout.strip(), "")
+        remote = self.git("log", "--format=%s", "origin/feat/test", "-1").stdout
+        self.assertIn("chore(organism)", remote)
+        self.assertIn("act1_nodes.json", remote)
+
+    def test_never_commits_on_main(self):
+        (self.repo / "data" / "act1_nodes.json").write_text('{"grown": true}')
+        self.assertFalse(self.evolve.commit_data_changes(self.repo))
+        self.assertIn("act1_nodes.json", self.git("status", "--porcelain").stdout)
+        self.assertEqual(self.git("log", "--format=%s", "-1").stdout.strip(), "init")
+
+    def test_ignores_non_data_changes(self):
+        self.git("checkout", "-q", "-b", "feat/test")
+        (self.repo / "evolve.py").write_text("# changed code")
+        self.assertFalse(self.evolve.commit_data_changes(self.repo))
+        self.assertIn("evolve.py", self.git("status", "--porcelain").stdout)
 
 
 if __name__ == "__main__":

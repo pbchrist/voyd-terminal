@@ -998,6 +998,43 @@ def run_build(root: Path = REPO_ROOT) -> None:
     subprocess.run([sys.executable, str(root / "build_frontend.py")], cwd=root, check=True)
 
 
+DATA_COMMIT_PATHS = ("data", "frontend/voyd_data.json")
+
+
+def commit_data_changes(root: Path = REPO_ROOT) -> bool:
+    """Commit and push this cycle's data changes on the checked-out feat branch.
+
+    The public site deploys only from main, so the organism's nightly growth is
+    invisible until a human merge; committing to the working branch keeps every
+    cycle one merge away from live. Never touches main or a detached HEAD — in
+    that case the changes simply stay in the working tree. A failed push keeps
+    the commit local and is only logged.
+    """
+    def git(*args: str) -> subprocess.CompletedProcess:
+        return subprocess.run(["git", *args], cwd=root, capture_output=True, text=True)
+
+    branch = git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+    if branch in ("", "HEAD", "main"):
+        log(f"Data changes left uncommitted (checked out: {branch or 'unknown'})")
+        return False
+    status = git("status", "--porcelain", "--", *DATA_COMMIT_PATHS).stdout
+    if not status.strip():
+        return False
+    changed = sorted({Path(line[3:].strip().strip('"')).name for line in status.strip().splitlines()})
+    git("add", "-A", "--", *DATA_COMMIT_PATHS)
+    message = f"chore(organism): cycle data — {', '.join(changed)}"
+    commit = git("commit", "-m", message, "--", *DATA_COMMIT_PATHS)
+    if commit.returncode != 0:
+        log(f"Data commit failed: {(commit.stderr or commit.stdout).strip()[:200]}")
+        return False
+    push = git("push", "origin", f"HEAD:{branch}")
+    if push.returncode != 0:
+        log(f"Data push failed; commit kept local: {(push.stderr or push.stdout).strip()[:200]}")
+    else:
+        log(f"Committed and pushed data changes to {branch}: {message}")
+    return True
+
+
 def run_phantom_gate(node: dict[str, Any], state: dict[str, Any]) -> float:
     """Insert the candidate into a copy of the graph, walk it, return min path uniqueness."""
     pw = _load_script("phantom_walkers")
@@ -1047,7 +1084,13 @@ def main(argv: list[str] | None = None) -> int:
     if lock is None:
         log("Another evolve.py run holds the lock; exiting")
         return 4
+    try:
+        return run_cycle(argv)
+    finally:
+        commit_data_changes()
 
+
+def run_cycle(argv: list[str] | None = None) -> int:
     argv = argv or sys.argv[1:]
     preferred = argv[0] if argv else os.environ.get("VOYD_CANON_EVENT")
     state = load_state(REPO_ROOT)
