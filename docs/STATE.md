@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 afternoon (session: organism auto-commits its data; LIVE ACT 2 IS DOWN — funnel /llm mount lost, fix needs Patrick)
+Last updated: 2026-06-11 afternoon (session: Act 2 actually fixed — three stacked bugs — plus scroll-follow; all verified in real Chrome; MERGE TO MAIN to ship)
 
 ---
 
@@ -95,6 +95,32 @@ iteration won't nag every turn.
 
 ## Session log
 
+### 2026-06-11 afternoon (later) — Act 2 was dead for THREE stacked reasons; all fixed
+Patrick: "front end is the same, same scroll problems, no new stuff, act 2 is dead."
+All confirmed and fixed, each verified with real headless-Chrome playthroughs (CDP driver,
+control + treatment runs):
+1. **Scroll**: `renderChunk` typed text without ever scrolling — with hidden scrollbars and
+   `cursor:none`, long beats typed up to **479px below the fold** (measured). Added
+   `followBottom()` per character; only follows when the reader is near the bottom, so
+   scrolling up to re-read still works. Post-fix max drift: 35–69px (≤ ~1 line, transient).
+2. **Funnel**: the `/llm` mount was gone (mythomancer/hermes-instance2 owns funnel `/` on
+   8767 and had clobbered the config). Restored with explicit user authorization:
+   `tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081` — re-add this if the other
+   instance wipes it again.
+3. **localStorage key gate**: the direct LLM call only fired if `localStorage.voyd_key`
+   was set — i.e. *no visitor ever reached the LLM*; Act 2 silently used canned templates.
+   The llama-server doesn't require auth, so the direct call is now the default path
+   (Bearer header still sent if a key is set).
+4. **Thinking mode** (the killer): Qwen3.6 spent the entire 300-token budget on hidden
+   reasoning and returned `content: ""` — the Voyd literally said nothing. The Python
+   scripts always passed `chat_template_kwargs: {enable_thinking: false}`; the frontend
+   never did. Now it does, with template fallback if content is ever empty.
+Final verification: full walk 1.0→…→gen_1→gen_2→ACT2, live LLM 200, real in-voice reply
+that wove in the player's named loss. 42 unit tests green. **"No new stuff" explained:**
+the organism's growth (gen_1 rewrite, gen_2) IS live on Pages but sits at the *end* of
+Act 1, and nothing visual changed — the audit work was engine/data. The visible fixes
+(scroll, Act 2) ship when feat/audit-fixes merges to main.
+
 ### 2026-06-11 afternoon — organism self-commits + funnel outage found (same branch)
 Implemented next-step 0 option (a): `commit_data_changes()` in evolve.py — at the end of
 every cycle (try/finally in main) it commits changes under `data/` + `frontend/voyd_data.json`
@@ -158,13 +184,11 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
 
 ## Next steps (in value order)
 
--1. **RESTORE LIVE ACT 2 (Patrick, one command):**
-   `tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081`
-   The funnel /llm mount vanished (mythomancer instance owns funnel / now); the frontend's
-   hardcoded LLM URL 404s, so Act 2 is dead on the live site AND in local play. Claude is
-   permission-blocked from running funnel commands. After running it, verify:
-   `curl https://patrick-beastmaster.tailf32530.ts.net/llm/v1/models` → 200.
-   Consider: longer-term, stop the two hermes instances from clobbering each other's mounts.
+-1. **MERGE `feat/audit-fixes` → main** to ship the scroll fix + working Act 2 to the
+   live site (Pages deploys on push to main; allow ~10 min CDN cache, hard-refresh).
+   Funnel /llm is restored and Act 2 verified live — but watch that the other hermes
+   instance (mythomancer, port 8767) doesn't clobber the funnel mount again; if Act 2
+   404s, re-run: `tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081`
 0. ~~Decide how the live site tracks the organism~~ — option (a) DONE this session:
    evolve.py now commits+pushes its data to the working branch every cycle; Patrick merges
    when he likes. Open question remains whether to go to (b): auto-merge data-only changes

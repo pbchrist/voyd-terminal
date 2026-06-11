@@ -381,36 +381,36 @@ async function submit(text) {
       } else { throw new Error('proxy failed'); }
     } catch(e) { voydText = result.contentTemplate; }
   }
-  // Fall back to direct Qwen proxy call
-  else if (LLM_API_KEY) {
+  // Direct call to the Voyd's mind; canned templates only if it's unreachable
+  else {
     try {
       const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
       const messages = [
         { role: 'system', content: result.systemPrompt },
         ...historyMsgs.slice(-6)
       ];
+      const headers = { 'Content-Type': 'application/json' };
+      if (LLM_API_KEY) headers['Authorization'] = `Bearer ${LLM_API_KEY}`;
       const res = await fetch('https://patrick-beastmaster.tailf32530.ts.net/llm/v1/chat/completions', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${LLM_API_KEY}`,
-        },
+        headers,
         body: JSON.stringify({
           model: 'Qwen3.6-27B-Q6_K',
           max_tokens: 300,
           messages: messages,
+          // Qwen3.6 is a thinking model: without this it spends the whole
+          // token budget reasoning and returns an empty content string.
+          chat_template_kwargs: { enable_thinking: false },
         })
       });
       if (res.ok) {
         const data = await res.json();
-        voydText = data.choices[0].message.content;
+        voydText = data.choices[0].message.content || result.contentTemplate;
       } else { throw new Error(String(res.status)); }
     } catch(e) {
       statusEl.textContent = e.message === '401' ? 'key invalid' : '';
       voydText = result.contentTemplate;
     }
-  } else {
-    voydText = result.contentTemplate;
   }
 
   // Record assistant response in engine state
@@ -430,6 +430,13 @@ async function submit(text) {
 }
 
 // ── Render chunk letter by letter ─────────────────────────────
+// Keep the newest text in view while it types, but never fight a reader who
+// has deliberately scrolled up to re-read earlier exchanges.
+function followBottom() {
+  const fromBottom = dialogueEl.scrollHeight - dialogueEl.scrollTop - dialogueEl.clientHeight;
+  if (fromBottom < 120) dialogueEl.scrollTop = dialogueEl.scrollHeight;
+}
+
 async function renderChunk(text, container) {
   for (const ch of text) {
     await new Promise(r => setTimeout(r, 16 + Math.random()*42));
@@ -443,6 +450,7 @@ async function renderChunk(text, container) {
       }
       container.appendChild(s);
     }
+    followBottom();
   }
 }
 
