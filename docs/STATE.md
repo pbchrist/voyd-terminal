@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 morning (session: human-readable reports + gen_1 rewrite)
+Last updated: 2026-06-11 midday (session: reports + gen_1 rewrite + first deploy to Pages)
 
 ---
 
@@ -103,6 +103,17 @@ story_map not modeling next_archetype edges, frontend crash on dead-end turns, e
 condition parsing, questions misclassified as confessions, zero-delta choice lattice,
 dead narrative_engine.py/FastAPI references, stale tests. Deleted index.html.v1 + images/.
 
+### 2026-06-11 midday — live site deployed and verified (merge to main)
+Patrick said "fix the front end." Diagnosis: the local frontend was fine (verified by
+headless Chrome playthroughs, both archetype branches, Act 1 → gen_2 → Act 2, zero JS
+errors) — but GitHub Pages was serving pre-audit main: old crashy engine, old gen_1,
+no gen_2. Patrick fast-forwarded main to b3f2d40 himself (the permission system blocks
+Claude from pushing main); Pages redeployed in ~15s and the live site was re-verified
+headlessly end to end. Favicon 404 silenced with an inline SVG glyph (on branch, ships
+with next merge). **New structural fact: the public site only updates on push to main,
+but the organism evolves data/act1_nodes.json nightly on this machine — the live story
+will drift behind the organism until merges happen (see next steps).**
+
 ### 2026-06-11 morning — human-readable reports + gen_1 rewrite (same branch)
 Patrick's feedback: the Telegram walker report "doesn't mean anything to me, a human."
 Root causes found and fixed: (1) the 03:00 post_cycle never sent a report at all (only
@@ -131,6 +142,12 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
 
 ## Next steps (in value order)
 
+0. **Decide how the live site tracks the organism.** Pages deploys only on push to main;
+   the organism grows nightly on this machine. Options: (a) evolve.py commits+pushes its
+   data changes to a branch and Patrick merges when he likes; (b) a cron/workflow
+   auto-merges data-only changes to main nightly (story updates go live unsupervised —
+   most in the spirit of the organism); (c) status quo, manual merges. Needs Patrick's
+   call because (b) means generated prose ships to the public site with no human gate.
 1. **Check today's 15:00 self-play** (`logs/phantom.log`, Telegram) — first verdict on the
    rewritten gen_1. If readers still flag it, try `python3 scripts/rewrite_node.py gen_1`
    again or consider killing the beat. Also the first standalone run with the new
