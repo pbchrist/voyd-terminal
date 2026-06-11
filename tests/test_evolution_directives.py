@@ -191,10 +191,17 @@ class EvolvePipelineTests(unittest.TestCase):
         self.assertEqual([], self.evolve.detect_structural_issues(state))
 
     def test_find_act2_frontier_includes_all_node_kinds(self):
+        # The frontier moves every time the organism grows, so assert structure, not ids:
+        # exactly the nodes with a choice into ACT2, and never empty.
         state = self.evolve.load_state(ROOT)
-        frontier = self.evolve.find_act2_frontier(state["act1_nodes"]["nodes"])
-        # gen_1 is the current frontier; the function must not filter by id prefix.
-        self.assertEqual(frontier, ["gen_1"])
+        nodes = state["act1_nodes"]["nodes"]
+        frontier = self.evolve.find_act2_frontier(nodes)
+        expected = sorted(
+            nid for nid, node in nodes.items()
+            if any(c.get("next") == "ACT2" for c in node.get("choices", []))
+        )
+        self.assertEqual(sorted(frontier), expected)
+        self.assertTrue(frontier)
 
     def _rubric(self):
         return load_json("data/rubric.json")
@@ -245,6 +252,7 @@ class EvolvePipelineTests(unittest.TestCase):
             tmp_root = Path(tmp)
             shutil.copytree(ROOT / "data", tmp_root / "data")
             state = self.evolve.load_state(tmp_root)
+            old_frontier = self.evolve.find_act2_frontier(state["act1_nodes"]["nodes"])
             node = self._node()
             score = {"axes": {a: 9 for a in self.evolve.SCORE_AXES}, "total": 27,
                      "reason": "x", "decision": "promote", "raw": "transcript"}
@@ -253,16 +261,19 @@ class EvolvePipelineTests(unittest.TestCase):
             act = json.loads((tmp_root / "data/act1_nodes.json").read_text())
             nodes = act["nodes"]
             self.assertIn(new_id, nodes)
-            # The old frontier (gen_1) must now point at the new node, not ACT2.
-            for choice in nodes["gen_1"]["choices"]:
-                self.assertEqual(choice["next"], new_id)
+            # Every old frontier node must now point at the new node, not ACT2.
+            for fid in old_frontier:
+                for choice in nodes[fid]["choices"]:
+                    self.assertEqual(choice["next"], new_id)
             # The new node carries no raw transcript.
             self.assertNotIn("raw", nodes[new_id]["score"])
 
             story = json.loads((tmp_root / "data/story_map.json").read_text())
             self.assertIn(new_id, story["nodes"])
-            self.assertEqual(story["nodes"]["gen_1"]["branches_to"], [new_id])
-            self.assertEqual(story["nodes"][new_id]["converges_from"], ["gen_1"])
+            for fid in old_frontier:
+                self.assertEqual(story["nodes"][fid]["branches_to"], [new_id])
+            self.assertEqual(sorted(story["nodes"][new_id]["converges_from"]),
+                             sorted(old_frontier))
             self.assertEqual(story["open_branches"], ["ACT2"])
 
             events = json.loads((tmp_root / "data/canon_events.json").read_text())
@@ -368,6 +379,115 @@ class PhantomWalkerTests(unittest.TestCase):
                 with mock.patch.object(self.pw, "WALK_SCORES_PATH", Path(tmp) / "ws.json"):
                     self.pw.record_run(report)
                 self.assertEqual(self.pw.walk_history_count(), 2)
+
+    def test_build_report_message_quotes_beats(self):
+        report = {
+            "last_run": "2026-06-11T03:01:46",
+            "walks": [
+                {"archetype": "person_present", "scores": {"path_uniqueness": 6.67},
+                 "experience": {"score": 8}},
+                {"archetype": "self_regret", "scores": {"path_uniqueness": 7.0},
+                 "experience": {"score": 7}},
+            ],
+            "kills_recommended": ["gen_9"],
+            "reader_notes": [
+                {"archetype": "person_present", "weakest": "gen_1",
+                 "reason": "the color metaphors break the intimacy."},
+                {"archetype": "self_regret", "weakest": "gen_1",
+                 "reason": "abstract imagery stalls the momentum."},
+            ],
+        }
+        nodes = {"gen_1": {"text": "four small lights pressing\n\nagainst me."}}
+        msg = self.pw.build_report_message(report, nodes=nodes, cycle_summary="🌱 grew gen_2")
+        self.assertIn("🌱 grew gen_2", msg)
+        self.assertIn("person_present 8/10", msg)
+        # The weakest beat is quoted (newlines flattened), grouped across readers, full reasons shown
+        self.assertIn("four small lights pressing against me.", msg)
+        self.assertIn("gen_1 — flagged by 2/2 readers", msg)
+        self.assertIn("break the intimacy", msg)
+        self.assertIn("stalls the momentum", msg)
+        self.assertIn("gen_9", msg)
+        self.assertLessEqual(len(msg), 4000)
+
+    def test_build_report_message_truncates_for_telegram(self):
+        report = {
+            "last_run": "2026-06-11T03:01:46",
+            "walks": [{"archetype": f"a{i}", "scores": {"path_uniqueness": 7.0},
+                       "experience": {"score": 8}} for i in range(4)],
+            "kills_recommended": [],
+            "reader_notes": [
+                {"archetype": f"a{i}", "weakest": f"n{i}", "reason": "x" * 400}
+                for i in range(40)
+            ],
+        }
+        msg = self.pw.build_report_message(report, nodes={})
+        self.assertLessEqual(len(msg), 4001)
+
+
+class RewriteNodeTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.rn = load_module("rewrite_node", "scripts/rewrite_node.py")
+
+    def test_rewrite_replaces_prose_but_preserves_graph(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_root = Path(tmp)
+            shutil.copytree(ROOT / "data", tmp_root / "data")
+            ev = self.rn.evolve
+            gen_reply = json.dumps({
+                "text": "the lights are her four names. each one a question she never asked aloud.",
+                "choices": [
+                    {"label": "answer for her", "type": "feed", "delta": 3},
+                    {"label": "let the names starve", "type": "starve", "delta": -2},
+                ],
+            })
+            judge_reply = ("DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\n"
+                           "BRANCH_CHOKE_LOGIC: 8\nPRECEDENT: x\nREASON: better.")
+            before = json.loads((tmp_root / "data/act1_nodes.json").read_text())["nodes"]["gen_1"]
+            with mock.patch.object(self.rn, "REPO_ROOT", tmp_root), \
+                 mock.patch.object(ev, "ACT1_NODES_PATH", tmp_root / "data/act1_nodes.json"), \
+                 mock.patch.object(ev, "RUBRIC_PATH", tmp_root / "data/rubric.json"), \
+                 mock.patch.object(ev, "qwen_chat", side_effect=[gen_reply, judge_reply]), \
+                 mock.patch.object(ev, "run_build") as build, \
+                 mock.patch.object(ev, "send_telegram_text", return_value=True):
+                self.assertTrue(self.rn.rewrite("gen_1", max_attempts=1))
+            after = json.loads((tmp_root / "data/act1_nodes.json").read_text())["nodes"]["gen_1"]
+            self.assertNotEqual(after["text"], before["text"])
+            # The graph is untouched: same id, same choice targets per type.
+            self.assertEqual({c["type"]: c["next"] for c in after["choices"]},
+                             {c["type"]: c["next"] for c in before["choices"]})
+            self.assertEqual(after["score"]["total"], 25)
+            self.assertNotIn("raw", after["score"])
+            self.assertIn("rewritten_at", after)
+            build.assert_called_once()
+            rubric = json.loads((tmp_root / "data/rubric.json").read_text())
+            self.assertEqual(rubric["decisions"][-1]["decision"], "rewrite")
+
+    def test_rewrite_leaves_node_alone_when_dramaturg_unconvinced(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_root = Path(tmp)
+            shutil.copytree(ROOT / "data", tmp_root / "data")
+            ev = self.rn.evolve
+            gen_reply = json.dumps({
+                "text": "x.",
+                "choices": [
+                    {"label": "a", "type": "feed", "delta": 3},
+                    {"label": "b", "type": "starve", "delta": -2},
+                ],
+            })
+            judge_reply = ("DIALECTIC_FUNCTION: 4\nTENSION_ADVANCEMENT: 4\n"
+                           "BRANCH_CHOKE_LOGIC: 4\nREASON: worse.")
+            before = json.loads((tmp_root / "data/act1_nodes.json").read_text())["nodes"]["gen_1"]
+            with mock.patch.object(self.rn, "REPO_ROOT", tmp_root), \
+                 mock.patch.object(ev, "ACT1_NODES_PATH", tmp_root / "data/act1_nodes.json"), \
+                 mock.patch.object(ev, "RUBRIC_PATH", tmp_root / "data/rubric.json"), \
+                 mock.patch.object(ev, "qwen_chat", side_effect=[gen_reply, judge_reply] * 2), \
+                 mock.patch.object(ev, "run_build") as build, \
+                 mock.patch.object(ev, "send_telegram_text", return_value=True):
+                self.assertFalse(self.rn.rewrite("gen_1", max_attempts=2))
+            after = json.loads((tmp_root / "data/act1_nodes.json").read_text())["nodes"]["gen_1"]
+            self.assertEqual(after, before)
+            build.assert_not_called()
 
 
 class MinerTests(unittest.TestCase):

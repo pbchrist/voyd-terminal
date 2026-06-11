@@ -313,6 +313,57 @@ def walk_history_count():
         return sum(1 for line in f if line.strip())
 
 
+def _quote(text, limit):
+    flat = " ".join(text.split())
+    return flat[: limit - 1] + "…" if len(flat) > limit else flat
+
+
+def build_report_message(report, nodes=None, cycle_summary=None):
+    """Render a walk report for a human: quote the actual beats, not just their ids."""
+    if nodes is None:
+        with open(REPO_ROOT / "data" / "act1_nodes.json") as f:
+            nodes = json.load(f).get("nodes", {})
+
+    when = report.get("last_run", "")[:16].replace("T", " ")
+    lines = [f"🌒 Phantom Walkers — {when}",
+             "Four phantom readers played the story start to finish."]
+    if cycle_summary:
+        lines += ["", cycle_summary]
+
+    verdicts = []
+    for s in report["walks"]:
+        score = (s.get("experience") or {}).get("score")
+        verdicts.append(f"{s['archetype']} {score if score is not None else '?'}/10")
+    lines += ["", "How much each reader felt it:", "  " + " · ".join(verdicts)]
+
+    by_beat = {}
+    for note in report.get("reader_notes", []):
+        by_beat.setdefault(note["weakest"], []).append(note)
+    if by_beat:
+        lines += ["", "Beats the readers stumbled on:"]
+        for beat, beat_notes in sorted(by_beat.items(), key=lambda kv: -len(kv[1])):
+            who = ", ".join(n["archetype"] for n in beat_notes)
+            tally = f"{len(beat_notes)}/{len(report['walks'])} readers" if len(beat_notes) > 1 else who
+            lines.append(f"\n▸ {beat} — flagged by {tally}")
+            text = (nodes.get(beat) or {}).get("text", "")
+            if text:
+                lines.append(f"  “{_quote(text, 220)}”")
+            for n in beat_notes:
+                lines.append(f"  {n['archetype']}: {_quote(n.get('reason', ''), 300)}")
+
+    if report.get("kills_recommended"):
+        lines += ["", "⚔️ Kills recommended (all four walks collapse into the same "
+                      "sequence there): " + ", ".join(report["kills_recommended"])]
+
+    uniq = [s["scores"]["path_uniqueness"] for s in report["walks"]]
+    lines += ["", f"Paths diverged {min(uniq)}–{max(uniq)}/10 across readers; "
+                  f"{walk_history_count()} walks in history (immune system wakes at 20).",
+              "Full playthrough transcripts: data/walk_<archetype>.json"]
+
+    msg = "\n".join(lines)
+    return msg[:4000] + "…" if len(msg) > 4000 else msg  # Telegram hard limit 4096
+
+
 def test_candidate(candidate_node, act1_data):
     """Temporarily insert candidate and test path uniqueness. Returns min uniqueness score.
 
@@ -349,25 +400,7 @@ def main():
     record_run(report)
     print(f"[phantom] Saved {WALK_SCORES_PATH} (history: {walk_history_count()} records)")
 
-    # Telegram summary
-    lines = ["Phantom Walker Report", f"Ran: {report['last_run']}"]
-    for s in report["walks"]:
-        exp = s.get("experience") or {}
-        exp_str = f" reader={exp['score']}" if exp.get("score") is not None else ""
-        lines.append(
-            f"\n{s['archetype']}: "
-            f"arc={s['scores']['dialectic_arc']} "
-            f"unique={s['scores']['path_uniqueness']} "
-            f"catharsis={s['scores']['cathartic_potential']}{exp_str}"
-        )
-    if report["kills_recommended"]:
-        lines.append(f"\nKills recommended: {', '.join(report['kills_recommended'])}")
-    for note in report.get("reader_notes", [])[:4]:
-        lines.append(f"\nweakest beat ({note['archetype']}): {note['weakest']} — {note['reason'][:100]}")
-    if report["flags"]:
-        lines.append(f"\nFlags: {len(report['flags'])}")
-    msg = "\n".join(lines)
-    send_telegram(msg)
+    send_telegram(build_report_message(report))
 
     print("[phantom] Done.")
     return report

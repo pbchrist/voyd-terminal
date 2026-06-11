@@ -50,7 +50,8 @@ QWEN_MODEL = "Qwen3.6-27B-Q6_K"
 
 def log(message: str) -> None:
     line = f"[{datetime.now().isoformat()}] {message}"
-    print(line)
+    if sys.stdout.isatty():
+        print(line)  # cron redirects stdout into the log file; printing there would duplicate every line
     if os.environ.get("VOYD_TEST"):
         return  # keep test runs out of the production log
     LOG_PATH.parent.mkdir(exist_ok=True)
@@ -277,13 +278,24 @@ def generate_node(state: dict[str, Any], event: dict[str, Any]) -> dict[str, Any
     current_act = story.get("act", 2)
     current_role = story.get("dialectic_position", "establishing_antithesis")
 
+    # Show the generator what readers stumbled on, not just the dramaturg —
+    # otherwise it can repeat the exact flagged mistake and waste the night's cycle.
+    complaints = reader_feedback()
+    complaints_block = ""
+    if complaints:
+        complaints_block = (
+            "\nPhantom readers flagged these weaknesses in recent beats. "
+            "Do not repeat them:\n"
+            + "\n".join(f"- {c}" for c in complaints) + "\n"
+        )
+
     prompt = textwrap.dedent(f"""\
         You are the Voyd. Extend the following seed into a full dramatic beat.
 
         Current story position: act {current_act}, {current_role}
         Canon event: {event_id}
         Seed: {seed}
-
+        {complaints_block}
         Requirements:
         - First person, from the Voyd's perspective
         - Entirely lowercase
@@ -361,9 +373,15 @@ def get_last_nodes(act1_nodes: dict[str, Any], count: int = 3) -> list[dict[str,
     return [n for _, n in promoted[-count:]]
 
 
-def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[str, Any]) -> dict[str, Any]:
-    """Dramaturgical evaluation via Qwen on the rubric's three axes (0-10 each, total 0-30)."""
-    context_nodes = get_last_nodes(act1_nodes)
+def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[str, Any],
+               context_nodes: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Dramaturgical evaluation via Qwen on the rubric's three axes (0-10 each, total 0-30).
+
+    context_nodes overrides the default last-promoted context — needed when judging a
+    rewrite, whose position in the graph is not at the frontier.
+    """
+    if context_nodes is None:
+        context_nodes = get_last_nodes(act1_nodes)
     context_texts = []
     for i, ctx in enumerate(context_nodes, 1):
         ctx_text = ctx.get("text", "")[:200]
@@ -913,8 +931,8 @@ def heal_structural_issues(state: dict[str, Any], issues: list[str],
     return healed, remaining
 
 
-def post_cycle(state: dict[str, Any]) -> None:
-    """Self-play after every resolved cycle: walk all archetypes, judge, record."""
+def post_cycle(state: dict[str, Any], cycle_summary: str | None = None) -> None:
+    """Self-play after every resolved cycle: walk all archetypes, judge, record, report."""
     try:
         pw = _load_script("phantom_walkers")
         report, _ = pw.run_walks()
@@ -925,12 +943,11 @@ def post_cycle(state: dict[str, Any]) -> None:
             f"flags={len(report['flags'])} reader_notes={len(report.get('reader_notes', []))} "
             f"history={history} records"
         )
-        if report["kills_recommended"]:
-            send_telegram_text(
-                "⚔️ Phantom walkers recommend killing: "
-                + ", ".join(report["kills_recommended"])
-                + "\n(All four walks collapse into an identical sequence there.)"
-            )
+        pw.send_telegram(pw.build_report_message(
+            report,
+            nodes=state["act1_nodes"]["nodes"],
+            cycle_summary=cycle_summary,
+        ))
     except Exception as exc:
         log(f"Self-play failed: {exc}")
 
@@ -1008,12 +1025,20 @@ def gated_promote(state: dict[str, Any], node: dict[str, Any], score: dict[str, 
         })
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
-        post_cycle(state)
+        post_cycle(state, cycle_summary=(
+            f"🪓 Tonight's draft (from '{event['id']}') passed the dramaturg but was killed: "
+            f"with it spliced in, walk uniqueness fell to {min_uniqueness} "
+            f"(floor {PHANTOM_UNIQUENESS_FLOOR}). The event stays in the larder."
+        ))
         return 0
     node_id = promote_node(state, node, score, REPO_ROOT)
     run_build(REPO_ROOT)
     log(f"Promoted {node_id} from canon event {event['id']} ({context})")
-    post_cycle(state)
+    post_cycle(state, cycle_summary=(
+        f"🌱 The story grew a new beat tonight: {node_id} "
+        f"(from canon event '{event['id']}', {context}).\n"
+        f"“{node['text'][:220]}”"
+    ))
     return 0
 
 
@@ -1083,7 +1108,10 @@ def main(argv: list[str] | None = None) -> int:
         })
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']}")
-        post_cycle(state)
+        post_cycle(state, cycle_summary=(
+            f"🪓 Tonight's draft (from '{event['id']}') was killed by the dramaturg "
+            f"at {score['total']}/30: {score['reason'][:220]}"
+        ))
         return 0
 
     # Uncertain zone: send to Telegram and wait for reply
@@ -1122,7 +1150,10 @@ def main(argv: list[str] | None = None) -> int:
         write_json(CANON_EVENTS_PATH, state["canon_events"])
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']} (Telegram NO)")
-        post_cycle(state)
+        post_cycle(state, cycle_summary=(
+            f"🪓 Killed tonight's draft from '{event['id']}' per your NO; "
+            f"the event is marked used and retired."
+        ))
         return 0
 
     if reply == "NOT YET":
