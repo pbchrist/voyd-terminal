@@ -86,6 +86,25 @@
         "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The recognition in *Oedipus Rex*, though this scene earns the comparison only partially; it offers the horror of self-discovery but lacks the tragic inevitability of Oedipus\u2019s realization, instead leaning into a more abstract, psychological horror reminiscent of Dostoevsky\u2019s *Notes from Underground*.\nREASON: The scene effectively deepens the thematic tension by revealing the parasitic, intimate relationship between the narrator and the victim, moving from abstract poetic imagery to a visceral, horrifying realization of identity and existence. However, the branch choices (\"drink deep of her terror\" vs. \"pull back and leave her empty\") feel somewhat binary and lack the nuanced dialectic pressure that would make each choice lead to distinctly different psychological or narrative consequences, thus slightly weakening the branch logic. The scene succeeds in making the next question harder to live with by blurring the lines between self and other, but it could benefit from more intricate branching that explores the full implications of this blurred identity."
       },
       "decision": "promote"
+    },
+    {
+      "at": "2026-06-11T09:21:33.499391",
+      "canon_event": "clowder_four_colors",
+      "node_id": "gen_1",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the metaphysical hunger of Scene 2 to a visceral, biological imperative, grounding the \"four small lights\" as a tangible consequence of the previous absence. This shift from \"ink\" to \"warmth\" provides a necessary dialectic counterweight (Thesis: separation/hunger -> Antithesis: contact/saturation), making the dramatic question harder because the protagonist now has something concrete to lose rather than just an abstract void to fill. However, the choices feel slightly binary and safe compared to the existential dread of the preceding scenes, lacking the sharp, fatalistic edge of a true Chekhovian or Ibsenite turn where the \"right\" choice is indistinguishable from destruction.",
+        "precedent": "The moment in *Antigone* where the body is covered in earth; it earns the comparison by transforming abstract grief into tactile, irreversible physical reality, though the choice mechanism lacks the tragic inevitability of Sophocles' structural trap.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The moment in *Antigone* where the body is covered in earth; it earns the comparison by transforming abstract grief into tactile, irreversible physical reality, though the choice mechanism lacks the tragic inevitability of Sophocles' structural trap.\nREASON: The scene successfully pivots from the metaphysical hunger of Scene 2 to a visceral, biological imperative, grounding the \"four small lights\" as a tangible consequence of the previous absence. This shift from \"ink\" to \"warmth\" provides a necessary dialectic counterweight (Thesis: separation/hunger -> Antithesis: contact/saturation), making the dramatic question harder because the protagonist now has something concrete to lose rather than just an abstract void to fill. However, the choices feel slightly binary and safe compared to the existential dread of the preceding scenes, lacking the sharp, fatalistic edge of a true Chekhovian or Ibsenite turn where the \"right\" choice is indistinguishable from destruction."
+      },
+      "decision": "rewrite",
+      "reason": "reader-judge repeatedly flagged this beat as weakest; prose regenerated in place"
     }
   ],
   "last_recalibrated": null

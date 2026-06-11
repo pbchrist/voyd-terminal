@@ -670,17 +670,17 @@
     },
     "gen_1": {
       "label": "clowder_four_colors",
-      "text": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
+      "text": "four small lights press against my ribs. they are warm and wet and real. hunger recedes like a tide. this is contact.",
       "delta": 3,
       "choices": [
         {
-          "label": "pull the lights closer",
+          "label": "open the membrane to let them in",
           "type": "feed",
           "delta": 3,
           "next": "gen_2"
         },
         {
-          "label": "turn your back on them",
+          "label": "turn your back to the cold dark",
           "type": "starve",
           "delta": -2,
           "next": "gen_2"
@@ -695,11 +695,18 @@
       "seed": "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger.",
       "id": "gen_1",
       "score": {
-        "score": 9,
-        "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the metaphysical hunger of Scene 2 to a visceral, biological imperative, grounding the \"four small lights\" as a tangible consequence of the previous absence. This shift from \"ink\" to \"warmth\" provides a necessary dialectic counterweight (Thesis: separation/hunger -> Antithesis: contact/saturation), making the dramatic question harder because the protagonist now has something concrete to lose rather than just an abstract void to fill. However, the choices feel slightly binary and safe compared to the existential dread of the preceding scenes, lacking the sharp, fatalistic edge of a true Chekhovian or Ibsenite turn where the \"right\" choice is indistinguishable from destruction.",
+        "precedent": "The moment in *Antigone* where the body is covered in earth; it earns the comparison by transforming abstract grief into tactile, irreversible physical reality, though the choice mechanism lacks the tragic inevitability of Sophocles' structural trap.",
         "decision": "promote"
       },
-      "promoted_at": "2026-06-10T09:29:25.109156"
+      "promoted_at": "2026-06-10T09:29:25.109156",
+      "rewritten_at": "2026-06-11T09:21:33.499391"
     },
     "gen_2": {
       "label": "soryn_null_state_pain",
