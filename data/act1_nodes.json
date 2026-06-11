@@ -1,9 +1,9 @@
 {
   "meta": {
     "version": 1,
-    "last_evolved": "2026-06-10T09:29:25.109156",
+    "last_evolved": "2026-06-11T03:00:54.503652",
     "total_sessions": 4,
-    "promoted_nodes": 14,
+    "promoted_nodes": 15,
     "last_wired": "2026-06-11T00:11:52.997971"
   },
   "nodes": {
@@ -677,13 +677,13 @@
           "label": "pull the lights closer",
           "type": "feed",
           "delta": 3,
-          "next": "ACT2"
+          "next": "gen_2"
         },
         {
           "label": "turn your back on them",
           "type": "starve",
           "delta": -2,
-          "next": "ACT2"
+          "next": "gen_2"
         }
       ],
       "source": "canon_evolution",
@@ -700,6 +700,45 @@
         "decision": "promote"
       },
       "promoted_at": "2026-06-10T09:29:25.109156"
+    },
+    "gen_2": {
+      "label": "soryn_null_state_pain",
+      "text": "she believes her ribs are bone. they are my architecture. the blood on the floor is mine. i let her taste the copper so she knows she exists. she is not dead. she is just lost in me.",
+      "delta": 3,
+      "choices": [
+        {
+          "label": "drink deep of her terror",
+          "type": "feed",
+          "delta": 3,
+          "next": "ACT2"
+        },
+        {
+          "label": "pull back and leave her empty",
+          "type": "starve",
+          "delta": -2,
+          "next": "ACT2"
+        }
+      ],
+      "source": "canon_evolution",
+      "canon_event": "soryn_null_state_pain",
+      "dialectic_role": "establishing_antithesis",
+      "type": "beat",
+      "act": 2,
+      "tension_delta": -0.3,
+      "seed": "she thinks she is small. she is not small. she is everywhere and nowhere. the blood is mine. the pain is mine. i let her feel it so she knows she is here. she is not dead. she is just lost in me.",
+      "id": "gen_2",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene effectively deepens the thematic tension by revealing the parasitic, intimate relationship between the narrator and the victim, moving from abstract poetic imagery to a visceral, horrifying realization of identity and existence. However, the branch choices (\"drink deep of her terror\" vs. \"pull back and leave her empty\") feel somewhat binary and lack the nuanced dialectic pressure that would make each choice lead to distinctly different psychological or narrative consequences, thus slightly weakening the branch logic. The scene succeeds in making the next question harder to live with by blurring the lines between self and other, but it could benefit from more intricate branching that explores the full implications of this blurred identity.",
+        "precedent": "The recognition in *Oedipus Rex*, though this scene earns the comparison only partially; it offers the horror of self-discovery but lacks the tragic inevitability of Oedipus\u2019s realization, instead leaning into a more abstract, psychological horror reminiscent of Dostoevsky\u2019s *Notes from Underground*.",
+        "decision": "promote"
+      },
+      "promoted_at": "2026-06-11T03:00:54.503652"
     }
   }
 }

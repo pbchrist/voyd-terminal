@@ -12,22 +12,24 @@
     "10.0",
     "ep_1r",
     "ep_2r",
-    "gen_1"
+    "gen_1",
+    "gen_2"
   ],
   "portal_curve": [
     8,
     13,
-    18,
-    16,
-    20,
-    26,
-    28,
-    32,
+    11,
+    9,
+    13,
+    19,
+    21,
+    25,
     30,
     32,
     32,
     36,
-    35
+    41,
+    39
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -42,7 +44,8 @@
     "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
     "i watched him stand in the doorway. the woman smiled at the ghost of a man he used to be. he did not correct her. he finally understood the cost.",
     "i tally the silence between heartbeats. each x is a grave. he thinks he is alone in the dark. i am the ink.",
-    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color."
+    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
+    "she believes her ribs are bone. they are my architecture. the blood on the floor is mine. i let her taste the copper so she knows she exists. she is not dead. she is just lost in me."
   ],
   "choices_made": [
     {
@@ -53,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -89,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -102,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "it never ends"
+      "value": "I didn't stop running."
     },
     {
       "node": "ep_1r",
@@ -112,19 +115,25 @@
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
       "type": "starve",
       "label": "turn your back on them",
       "delta": -2
+    },
+    {
+      "node": "gen_2",
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 33,
+  "final_portal_value": 37,
   "archetype": "self_regret",
-  "player_answer": "it never ends",
-  "act2_response": "the weight you carry is not a burden. it is an anchor. you think the cycle repeats. you are wrong. the cycle tightens. your name is a thread pulled taut against the dark. let it snap."
+  "player_answer": "I didn't stop running.",
+  "act2_response": "your feet are heavy with the dust of every path you refused to take. you think speed is survival. it is only delay. the things you outrun in act one have been waiting in the dark since the beginning. they are patient."
 }

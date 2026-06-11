@@ -125,10 +125,12 @@
     "voyd_pov": "she thinks she is small. she is not small. she is everywhere and nowhere. the blood is mine. the pain is mine. i let her feel it so she knows she is here. she is not dead. she is just lost in me.",
     "tension_level": 0.6,
     "source": "Book 1 (mined)",
-    "used": false,
+    "used": true,
     "mined": true,
     "mined_at": "2026-06-11T00:54:56.729245",
-    "mine_score": 9
+    "mine_score": 9,
+    "used_at": "2026-06-11T03:00:54.503652",
+    "node_id": "gen_2"
   },
   {
     "id": "failed_conjuration_and_prayer",

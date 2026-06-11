@@ -510,7 +510,7 @@
       "dialectic_role": "synthesis_attempt",
       "tension_delta": 0.19,
       "branches_to": [
-        "ACT2"
+        "gen_2"
       ],
       "converges_from": [
         "ep_2p",
@@ -522,6 +522,31 @@
       "score": {
         "score": 9,
         "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
+        "decision": "promote"
+      }
+    },
+    "gen_2": {
+      "id": "gen_2",
+      "type": "beat",
+      "act": 2,
+      "dialectic_role": "establishing_antithesis",
+      "tension_delta": -0.3,
+      "branches_to": [
+        "ACT2"
+      ],
+      "converges_from": [
+        "gen_1"
+      ],
+      "canon_event": "soryn_null_state_pain",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene effectively deepens the thematic tension by revealing the parasitic, intimate relationship between the narrator and the victim, moving from abstract poetic imagery to a visceral, horrifying realization of identity and existence. However, the branch choices (\"drink deep of her terror\" vs. \"pull back and leave her empty\") feel somewhat binary and lack the nuanced dialectic pressure that would make each choice lead to distinctly different psychological or narrative consequences, thus slightly weakening the branch logic. The scene succeeds in making the next question harder to live with by blurring the lines between self and other, but it could benefit from more intricate branching that explores the full implications of this blurred identity.",
+        "precedent": "The recognition in *Oedipus Rex*, though this scene earns the comparison only partially; it offers the horror of self-discovery but lacks the tragic inevitability of Oedipus\u2019s realization, instead leaning into a more abstract, psychological horror reminiscent of Dostoevsky\u2019s *Notes from Underground*.",
         "decision": "promote"
       }
     }
