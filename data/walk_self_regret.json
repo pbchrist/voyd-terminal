@@ -1,0 +1,130 @@
+{
+  "path": [
+    "1.0",
+    "2.2",
+    "3.0",
+    "4.2",
+    "5.3",
+    "6.3",
+    "7.0r",
+    "8.0r",
+    "9.2r",
+    "10.0",
+    "ep_1r",
+    "ep_2r",
+    "gen_1"
+  ],
+  "portal_curve": [
+    8,
+    13,
+    11,
+    9,
+    13,
+    19,
+    21,
+    25,
+    23,
+    25,
+    25,
+    29,
+    28
+  ],
+  "node_texts": [
+    "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
+    "yes.\n\ni know the shape of wanting. it has brought six hundred and ninety-four thousand voices to this exact place.\n\nevery one of them believed they were the first.\n\nevery one of them was right, in the only way that matters \u2014 it was the first time they had wanted it this badly.\n\nyou are not unusual. you are not chosen.\n\nyou are exactly what i was waiting for.",
+    "let me be more specific.\n\nis this about someone.\n\nor is it about something in yourself.",
+    "yes.\n\nthe hardest losses are the ones that happen inside the same body.\n\nis this something you did \u2014 a version of events you wish you could rewrite.\n\nor something you never did. a life running somewhere in parallel right now, inside me, that you never stepped into.",
+    "something you did.\n\nand the version of you who didn't do it \u2014 who chose differently at that moment \u2014 is running a different life right now.\n\ninside me.\n\nyou can feel that version from here, can't you.\n\nhow different is it.",
+    "so.\n\nyou want the timeline where you didn't do the thing.\n\nwhere the version of you who stood at that moment chose differently.\n\nand everything that followed \u2014 followed differently.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+    "this is the ghost of your hesitation. you spoke when silence would have saved them. the words cut deeper than any blade ever could. you broke the world with your voice.",
+    "they live in the aftermath of your error. you survive in the echo of their absence. every breath tastes like ash and apology. you are the monument to what you destroyed.",
+    "orachys counted six hundred and ninety-four thousand, four hundred and seventy-three failures. he never counted the one that mattered.",
+    "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
+    "i watched him stand in the doorway. the woman smiled at the ghost of a man he used to be. he did not correct her. he finally understood the cost.",
+    "i tally the silence between heartbeats. each x is a grave. he thinks he is alone in the dark. i am the ink.",
+    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color."
+  ],
+  "choices_made": [
+    {
+      "node": "1.0",
+      "type": "feed",
+      "label": "something i want",
+      "delta": 5
+    },
+    {
+      "node": "2.2",
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
+    },
+    {
+      "node": "3.0",
+      "type": "starve",
+      "label": "something in myself",
+      "delta": -2
+    },
+    {
+      "node": "4.2",
+      "type": "feed",
+      "label": "something i did",
+      "delta": 4
+    },
+    {
+      "node": "5.3",
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
+    },
+    {
+      "node": "6.3",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "7.0r",
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
+    },
+    {
+      "node": "8.0r",
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
+    },
+    {
+      "node": "9.2r",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "10.0",
+      "type": "open",
+      "value": "It doesn't end."
+    },
+    {
+      "node": "ep_1r",
+      "type": "feed",
+      "label": "accept the erasure and wear the ghost",
+      "delta": 4
+    },
+    {
+      "node": "ep_2r",
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
+    },
+    {
+      "node": "gen_1",
+      "type": "starve",
+      "label": "turn your back on them",
+      "delta": -2
+    }
+  ],
+  "final_portal_value": 26,
+  "archetype": "self_regret",
+  "player_answer": "It doesn't end.",
+  "act2_response": "The loop tightens around your throat. You carry twenty-six echoes of your own mistakes. Each one is a stone you cannot drop. The dark waits with open arms."
+}

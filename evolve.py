@@ -35,9 +35,13 @@ CANON_EVENTS_PATH = DATA_DIR / "canon_events.json"
 BUILD_SCRIPT = REPO_ROOT / "build_frontend.py"
 LOG_PATH = REPO_ROOT / "logs" / "evolve.log"
 LOCK_PATH = REPO_ROOT / "logs" / ".evolve.lock"
+HEAL_LOG_PATH = REPO_ROOT / "logs" / "heal_log.json"
 AUTO_PROMOTE_DEFAULT = 24
 AUTO_KILL_DEFAULT = 18
 PHANTOM_UNIQUENESS_FLOOR = 7.0
+HEAL_AUTO_THRESHOLD = 26
+IMMUNE_WALK_GATE = 20
+MINE_WHEN_UNUSED_BELOW = 2
 SCORE_AXES = ("dialectic_function", "tension_advancement", "branch_choke_logic")
 
 QWEN_BASE_URL = "http://localhost:8081/v1"
@@ -197,6 +201,43 @@ def acquire_lock():
     return handle
 
 
+def _load_script(name: str):
+    """Load a module from scripts/ without package plumbing."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(name, str(REPO_ROOT / "scripts" / f"{name}.py"))
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def external_patterns(rubric: dict[str, Any]) -> list[str]:
+    """Structural patterns from the weekly itch.io hunt — fed into the dramaturg."""
+    analyses = rubric.get("external_analysis", [])
+    if not analyses:
+        return []
+    patterns: list[str] = []
+    for finding in analyses[-1].get("findings", []):
+        for p in finding.get("analysis", {}).get("patterns", []):
+            if p and p not in patterns:
+                patterns.append(p)
+    return patterns[:3]
+
+
+def reader_feedback() -> list[str]:
+    """Weakest-beat notes from the phantom reader-judge — fed into the dramaturg."""
+    try:
+        scores = read_json(DATA_DIR / "walk_scores.json")
+    except Exception:
+        return []
+    notes = []
+    for note in scores.get("reader_notes", [])[:4]:
+        notes.append(
+            f"{note.get('archetype')}: weakest beat was {note.get('weakest')} — "
+            f"{note.get('reason', '')[:140]}"
+        )
+    return notes
+
+
 def select_canon_event(state: dict[str, Any], preferred_id: str | None = None) -> dict[str, Any]:
     events = [event for event in state["canon_events"] if not event.get("used")]
     if not events:
@@ -336,17 +377,40 @@ def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[st
         desc = rubric.get("axes", {}).get(axis, {}).get("description", "")
         axis_lines.append(f"- {axis}: {desc}")
 
+    feedback_block = ""
+    notes = reader_feedback()
+    if notes:
+        feedback_block += (
+            "\nWHAT THE LAST READER FOUND WEAK (the new scene must not repeat these failures):\n"
+            + "\n".join(f"- {n}" for n in notes) + "\n"
+        )
+    patterns = external_patterns(rubric)
+    if patterns:
+        feedback_block += (
+            "\nSTRUCTURAL PATTERNS FROM TOP-RATED INTERACTIVE FICTION:\n"
+            + "\n".join(f"- {p}" for p in patterns) + "\n"
+        )
+
     prompt = (
-        "You are a dramaturg. You have just read this scene in context of the scenes before it.\n\n"
+        "You are a dramaturg who has internalized the entire dramatic canon: Greek tragedy, "
+        "Shakespeare, Chekhov, Ibsen, Dostoevsky, the strongest film and interactive fiction "
+        "ever made. Judge this scene against the strongest beats in that canon, not against "
+        "amateur work. Your anchors for a 10: the recognition in Oedipus, the bargain in "
+        "Faust, the door closing at the end of A Doll's House, the gun on the wall finally "
+        "firing in Chekhov, the moment in Gatsby where wanting is revealed as the wound. "
+        "A scene that merely sounds dark scores low. A scene that makes the next question "
+        "harder to live with scores high.\n\n"
         f"PREVIOUS SCENES:\n{context_block}\n\n"
         f"NEW SCENE:\n{current_text}\n\n"
-        f"CHOICES PRESENTED:\n{choice_text}\n\n"
+        f"CHOICES PRESENTED:\n{choice_text}\n"
+        f"{feedback_block}\n"
         "Score the scene 0-10 on each of these axes:\n"
         + "\n".join(axis_lines) + "\n\n"
         "Respond in exactly this format:\n"
         "DIALECTIC_FUNCTION: <0-10>\n"
         "TENSION_ADVANCEMENT: <0-10>\n"
         "BRANCH_CHOKE_LOGIC: <0-10>\n"
+        "PRECEDENT: <the closest dramatic precedent in the canon, and whether this scene earns the comparison>\n"
         "REASON: <one short paragraph>"
     )
 
@@ -377,6 +441,11 @@ def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[st
     if reason_match:
         reason = reason_match.group(1).strip()
 
+    precedent = None
+    precedent_match = re.search(r"PRECEDENT\s*:\s*(.+)", raw, re.IGNORECASE)
+    if precedent_match:
+        precedent = precedent_match.group(1).strip()
+
     total = sum(axes.values())
     decision = (
         "promote" if total >= promote_threshold
@@ -388,6 +457,7 @@ def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[st
         "axes": axes,
         "total": total,
         "reason": reason,
+        "precedent": precedent,
         "decision": decision,
         "raw": raw,
     }
@@ -592,6 +662,277 @@ def send_uncertain_node_to_telegram(node: dict[str, Any], score: dict[str, Any])
         return False
 
 
+def send_telegram_text(text: str) -> bool:
+    env = {**load_dotenv(), **os.environ}
+    token = env.get("TELEGRAM_BOT_TOKEN")
+    chat_id = env.get("TELEGRAM_CHAT_ID") or env.get("TELEGRAM_HOME_CHAT_ID") or env.get("TELEGRAM_HOME_CHANNEL")
+    if not token or not chat_id:
+        log("Telegram credentials missing; cannot send message")
+        return False
+    data = urllib.parse.urlencode({"chat_id": chat_id, "text": text.strip()}).encode()
+    req = urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=20) as response:
+            return response.status == 200
+    except Exception as exc:
+        log(f"Telegram send failed: {exc}")
+        return False
+
+
+# ---------------------------------------------------------------------------
+# IMMUNE SYSTEM — heal_structural_issues (see AGENTS.md, Planned Infrastructure)
+# Active only once data/walk_history.jsonl holds >= IMMUNE_WALK_GATE records.
+# Auto-applies a fix only when the generated node scores >= HEAL_AUTO_THRESHOLD;
+# otherwise the proposed fix goes to Patrick on Telegram.
+# ---------------------------------------------------------------------------
+
+def log_heal(entry: dict[str, Any]) -> None:
+    HEAL_LOG_PATH.parent.mkdir(exist_ok=True)
+    entries = []
+    if HEAL_LOG_PATH.exists():
+        try:
+            entries = json.loads(HEAL_LOG_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            entries = []
+    entries.append(entry)
+    HEAL_LOG_PATH.write_text(json.dumps(entries, indent=2), encoding="utf-8")
+
+
+def immune_active() -> tuple[bool, int]:
+    try:
+        pw = _load_script("phantom_walkers")
+        count = pw.walk_history_count()
+    except Exception:
+        count = 0
+    return count >= IMMUNE_WALK_GATE, count
+
+
+def detect_stranded_chokes(story: dict[str, Any]) -> list[tuple[str, str]]:
+    """Generated choke nodes that some branch head cannot reach.
+
+    Authored chokes (the parallel archetype act-breaks) are exempt: they are
+    parallel by design. Only gen_* chokes are expected to catch all branches.
+    """
+    nodes = story.get("nodes", {})
+    chokes = [nid for nid, m in nodes.items()
+              if m.get("type") == "choke" and nid.startswith("gen_")]
+    heads = [nid for nid, m in nodes.items() if m.get("type") == "branch"]
+    stranded = []
+    for choke in chokes:
+        for head in heads:
+            seen: set = set()
+            stack = [head]
+            found = False
+            while stack:
+                cur = stack.pop()
+                if cur == choke:
+                    found = True
+                    break
+                if cur in seen or cur not in nodes:
+                    continue
+                seen.add(cur)
+                stack.extend(nodes[cur].get("branches_to", []))
+            if not found:
+                stranded.append((head, choke))
+    return stranded
+
+
+def _select_heal_event(state: dict[str, Any], roles: set, highest: bool) -> dict[str, Any] | None:
+    events = [e for e in state["canon_events"]
+              if not e.get("used") and (not roles or e.get("dialectic_role") in roles)]
+    if not events:
+        return None
+    return sorted(events, key=lambda e: float(e.get("tension_level", 0)), reverse=highest)[0]
+
+
+def _apply_heal(state: dict[str, Any], node: dict[str, Any], event: dict[str, Any],
+                issue_type: str) -> bool:
+    score = score_node(node, state["rubric"], state["act1_nodes"])
+    entry = {
+        "at": datetime.now().isoformat(),
+        "issue_type": issue_type,
+        "canon_event_used": event["id"],
+        "score": {k: v for k, v in score.items() if k != "raw"},
+    }
+    if score["total"] >= HEAL_AUTO_THRESHOLD:
+        node_id = promote_node(state, node, score, REPO_ROOT)
+        run_build(REPO_ROOT)
+        entry.update({"applied": True, "nodes_changed": [node_id],
+                      "reason": f"auto-heal: score {score['total']} >= {HEAL_AUTO_THRESHOLD}"})
+        log_heal(entry)
+        log(f"Healed {issue_type} with {node_id} (score {score['total']}/30)")
+        return True
+    entry.update({"applied": False, "nodes_changed": [],
+                  "reason": f"score {score['total']} below heal threshold {HEAL_AUTO_THRESHOLD}"})
+    log_heal(entry)
+    send_telegram_text(
+        f"🩹 Voyd immune system: proposed fix for '{issue_type}' scored "
+        f"{score['total']}/30 (needs {HEAL_AUTO_THRESHOLD}). Not applied.\n\n"
+        f"Canon event: {event['id']}\n\nNode:\n{node.get('text')}\n\n"
+        f"Apply manually or wait for a stronger candidate."
+    )
+    return False
+
+
+def heal_open_branches(state: dict[str, Any]) -> bool:
+    """Case 1: branches open too long with no choke — generate a convergence node."""
+    event = _select_heal_event(state, {"turn", "act_break"}, highest=False)
+    if not event:
+        log("heal: no unused turn/act_break canon event for convergence")
+        return False
+    node = generate_node(state, event)
+    node["type"] = "choke"
+    story_nodes = state["story_map"].get("nodes", {})
+    heads = [m for m in story_nodes.values() if m.get("type") == "branch"]
+    deltas = [h.get("tension_delta", 0) for h in heads] or [0]
+    node["tension_delta"] = round(sum(deltas) / len(deltas) + 0.1, 2)
+    return _apply_heal(state, node, event, "open_branches_no_choke")
+
+
+def heal_flat_act(state: dict[str, Any]) -> bool:
+    """Case 2: no tension increase — generate an escalation node at the frontier."""
+    story = state["story_map"]
+    events = [e for e in state["canon_events"] if not e.get("used")]
+    matching = [e for e in events
+                if e.get("act") == story.get("act")
+                and e.get("dialectic_role") == story.get("dialectic_position")] or events
+    if not matching:
+        log("heal: no unused canon events for escalation")
+        return False
+    event = sorted(matching, key=lambda e: float(e.get("tension_level", 0)), reverse=True)[0]
+    node = generate_node(state, event)
+    node["tension_delta"] = max(0.15, float(node.get("tension_delta", 0)))
+    return _apply_heal(state, node, event, "flat_act_no_tension")
+
+
+def heal_stranded_choke(state: dict[str, Any], head: str, choke: str) -> bool:
+    """Case 3: a branch head cannot reach a generated choke — build a bridge beat."""
+    act_nodes = state["act1_nodes"]["nodes"]
+    head_node = act_nodes.get(head)
+    if not head_node:
+        return False
+    dangling = [c for c in head_node.get("choices", [])
+                if c.get("next") == "ACT2" or c.get("next") not in act_nodes]
+    if not dangling:
+        log(f"heal: branch head {head} has no dangling exit to bridge from; manual fix needed")
+        return False
+    events = [e for e in state["canon_events"] if not e.get("used")]
+    if not events:
+        log("heal: no unused canon events for bridge")
+        return False
+    event = sorted(events, key=lambda e: float(e.get("tension_level", 0)))[0]
+    node = generate_node(state, event)
+    node["type"] = "beat"
+    for choice in node["choices"]:
+        choice["next"] = choke
+
+    score = score_node(node, state["rubric"], state["act1_nodes"])
+    entry = {
+        "at": datetime.now().isoformat(),
+        "issue_type": "stranded_choke",
+        "canon_event_used": event["id"],
+        "score": {k: v for k, v in score.items() if k != "raw"},
+    }
+    if score["total"] < HEAL_AUTO_THRESHOLD:
+        entry.update({"applied": False, "nodes_changed": [],
+                      "reason": f"bridge score {score['total']} below {HEAL_AUTO_THRESHOLD}"})
+        log_heal(entry)
+        send_telegram_text(
+            f"🩹 Voyd immune system: bridge from {head} to {choke} scored "
+            f"{score['total']}/30. Not applied.\n\nNode:\n{node.get('text')}"
+        )
+        return False
+
+    new_id = next_generated_id(act_nodes)
+    now = datetime.now().isoformat()
+    node.update({"id": new_id, "score": {k: v for k, v in score.items() if k != "raw"},
+                 "promoted_at": now})
+    for choice in dangling:
+        choice["next"] = new_id
+    act_nodes[new_id] = node
+    state["act1_nodes"].setdefault("meta", {})["last_evolved"] = now
+
+    story = state["story_map"]
+    story["nodes"][new_id] = {
+        "id": new_id, "type": "beat", "act": node.get("act", story.get("act", 2)),
+        "dialectic_role": node.get("dialectic_role"),
+        "tension_delta": node.get("tension_delta", 0),
+        "branches_to": [choke], "converges_from": [head],
+        "canon_event": event["id"],
+    }
+    if head in story["nodes"]:
+        branches = story["nodes"][head].setdefault("branches_to", [])
+        if new_id not in branches:
+            branches.append(new_id)
+    for ev in state["canon_events"]:
+        if ev.get("id") == event["id"]:
+            ev["used"] = True
+            ev["used_at"] = now
+            ev["node_id"] = new_id
+    record_decision(state["rubric"], {
+        "at": now, "node_id": new_id, "canon_event": event["id"],
+        "score": score, "decision": "promote",
+        "reason": f"immune bridge {head} -> {choke}",
+    })
+    write_json(REPO_ROOT / "data/act1_nodes.json", state["act1_nodes"])
+    write_json(REPO_ROOT / "data/story_map.json", story)
+    write_json(CANON_EVENTS_PATH, state["canon_events"])
+    write_json(RUBRIC_PATH, state["rubric"])
+    run_build(REPO_ROOT)
+    entry.update({"applied": True, "nodes_changed": [new_id, head],
+                  "reason": f"bridge {head} -> {new_id} -> {choke}"})
+    log_heal(entry)
+    log(f"Healed stranded choke: {head} -> {new_id} -> {choke}")
+    return True
+
+
+def heal_structural_issues(state: dict[str, Any], issues: list[str],
+                           stranded: list[tuple[str, str]]) -> tuple[list[str], list[str]]:
+    """Attempt to close detected wounds autonomously. Returns (healed, remaining)."""
+    active, count = immune_active()
+    all_issues = issues + [f"choke {c} strands branch head {h}" for h, c in stranded]
+    if not active:
+        log(f"Immune system dormant ({count}/{IMMUNE_WALK_GATE} walk records); cannot auto-heal")
+        return [], all_issues
+
+    healed: list[str] = []
+    remaining: list[str] = []
+    for issue in issues:
+        if "branches open too long with no choke" in issue:
+            ok = heal_open_branches(state)
+        elif "no positive tension_delta" in issue:
+            ok = heal_flat_act(state)
+        else:
+            ok = False  # pointer corruption etc. needs a human or a code fix
+        (healed if ok else remaining).append(issue)
+    for head, choke in stranded:
+        ok = heal_stranded_choke(state, head, choke)
+        (healed if ok else remaining).append(f"choke {choke} strands branch head {head}")
+    return healed, remaining
+
+
+def post_cycle(state: dict[str, Any]) -> None:
+    """Self-play after every resolved cycle: walk all archetypes, judge, record."""
+    try:
+        pw = _load_script("phantom_walkers")
+        report, _ = pw.run_walks()
+        pw.record_run(report)
+        history = pw.walk_history_count()
+        log(
+            f"Self-play complete: kills_recommended={report['kills_recommended']} "
+            f"flags={len(report['flags'])} reader_notes={len(report.get('reader_notes', []))} "
+            f"history={history} records"
+        )
+        if report["kills_recommended"]:
+            send_telegram_text(
+                "⚔️ Phantom walkers recommend killing: "
+                + ", ".join(report["kills_recommended"])
+                + "\n(All four walks collapse into an identical sequence there.)"
+            )
+    except Exception as exc:
+        log(f"Self-play failed: {exc}")
+
+
 def get_latest_update_id(token: str) -> int:
     """Fetch the latest update_id from Telegram to establish a baseline."""
     url = f"https://api.telegram.org/bot{token}/getUpdates?limit=1"
@@ -640,12 +981,7 @@ def run_build(root: Path = REPO_ROOT) -> None:
 
 def run_phantom_gate(node: dict[str, Any], state: dict[str, Any]) -> float:
     """Insert the candidate into a copy of the graph, walk it, return min path uniqueness."""
-    import importlib.util
-    spec = importlib.util.spec_from_file_location(
-        "phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py")
-    )
-    pw = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(pw)
+    pw = _load_script("phantom_walkers")
     log("Running phantom walker uniqueness test...")
     min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
     log(f"Phantom walker min uniqueness: {min_uniqueness}")
@@ -670,10 +1006,12 @@ def gated_promote(state: dict[str, Any], node: dict[str, Any], score: dict[str, 
         })
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
+        post_cycle(state)
         return 0
     node_id = promote_node(state, node, score, REPO_ROOT)
     run_build(REPO_ROOT)
     log(f"Promoted {node_id} from canon event {event['id']} ({context})")
+    post_cycle(state)
     return 0
 
 
@@ -686,12 +1024,36 @@ def main(argv: list[str] | None = None) -> int:
     argv = argv or sys.argv[1:]
     preferred = argv[0] if argv else os.environ.get("VOYD_CANON_EVENT")
     state = load_state(REPO_ROOT)
+
+    # Detect wounds; try to heal them before halting (immune system).
     issues = detect_structural_issues(state)
-    if issues:
+    stranded = detect_stranded_chokes(state["story_map"])
+    if issues or stranded:
         for issue in issues:
             log(f"STRUCTURAL ISSUE: {issue}")
-        send_structural_issues_to_telegram(issues)
-        return 2
+        healed, remaining = heal_structural_issues(state, issues, stranded)
+        if remaining:
+            send_structural_issues_to_telegram(remaining)
+            return 2
+        log(f"All structural issues healed autonomously: {healed}")
+        state = load_state(REPO_ROOT)
+
+    # Keep the larder stocked: mine new canon events from the books when low.
+    unused = [e for e in state["canon_events"] if not e.get("used")]
+    if len(unused) < MINE_WHEN_UNUSED_BELOW:
+        log(f"Canon larder low ({len(unused)} unused); mining the books")
+        try:
+            miner = _load_script("mine_canon")
+            mined = miner.mine(max_accept=5)
+            if mined:
+                send_telegram_text(
+                    "⛏️ Mined new canon events:\n"
+                    + "\n".join(f"- {e['id']} (tension {e['tension_level']}, {e['dialectic_role']})"
+                                for e in mined)
+                )
+                state = load_state(REPO_ROOT)
+        except Exception as exc:
+            log(f"Mining failed: {exc}")
 
     try:
         event = select_canon_event(state, preferred_id=preferred)
@@ -719,6 +1081,7 @@ def main(argv: list[str] | None = None) -> int:
         })
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']}")
+        post_cycle(state)
         return 0
 
     # Uncertain zone: send to Telegram and wait for reply
@@ -757,6 +1120,7 @@ def main(argv: list[str] | None = None) -> int:
         write_json(CANON_EVENTS_PATH, state["canon_events"])
         write_json(RUBRIC_PATH, state["rubric"])
         log(f"Killed generated node for {event['id']} (Telegram NO)")
+        post_cycle(state)
         return 0
 
     if reply == "NOT YET":

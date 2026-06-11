@@ -2,6 +2,7 @@
 """Phantom Walkers: simulate all four archetypes and score the combined experience."""
 import json
 import os
+import re
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -9,9 +10,11 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from llm_play import run as llm_run
+from headless_play import qwen_chat
 
 REPO_ROOT = Path(__file__).parent.parent
 WALK_SCORES_PATH = REPO_ROOT / "data" / "walk_scores.json"
+WALK_HISTORY_PATH = REPO_ROOT / "data" / "walk_history.jsonl"
 STORY_MAP_PATH = REPO_ROOT / "data" / "story_map.json"
 ENV_PATH = Path.home() / ".hermes" / ".env"
 
@@ -114,7 +117,14 @@ def score_walk(walk, all_walks, story_map):
 
 
 def find_kills(walks):
-    """Kill nodes that appear in all 4 walks with identical downstream sequences."""
+    """Recommend killing generated nodes that collapse all walks into sameness.
+
+    A node is flagged only if it appears in all 4 walks AND the downstream
+    sequence from it is identical across walks AND that shared downstream is
+    3+ nodes long. A terminal frontier node trivially has an identical
+    (near-empty) suffix — that is convergence by design, not collapse.
+    Authored nodes are never flagged; only gen_* nodes are candidates.
+    """
     if len(walks) < 4:
         return []
 
@@ -126,17 +136,58 @@ def find_kills(walks):
 
     kills = []
     for node in common:
+        if not node.startswith("gen_"):
+            continue
         # Get downstream sequences from this node for each walk
         suffixes = []
         for p in paths:
             idx = p.index(node)
             suffixes.append(tuple(p[idx:]))
 
-        if len(set(suffixes)) == 1:
-            # All identical downstream
+        if len(set(suffixes)) == 1 and len(suffixes[0]) >= 3:
+            # All identical downstream, and the shared tail is long enough to matter
             kills.append(node)
 
     return kills
+
+
+def score_experience(walk):
+    """LLM reader-judge: rate the full playthrough against the strongest drama ever written."""
+    lines = []
+    choices_by_node = {c.get("node"): c for c in walk.get("choices_made", [])}
+    for node_id, text in zip(walk.get("path", []), walk.get("node_texts", [])):
+        lines.append(f"[{node_id}]\n{text}")
+        choice = choices_by_node.get(node_id)
+        if choice and choice.get("label"):
+            lines.append(f"> player chose: {choice['label']}")
+        elif choice and choice.get("value"):
+            lines.append(f"> player wrote: {choice['value']}")
+    if walk.get("act2_response"):
+        lines.append(f"[ACT2 opening]\n{walk['act2_response']}")
+    transcript = "\n\n".join(lines)
+
+    prompt = (
+        "You have read every great play, novel, and interactive narrative — Sophocles, "
+        "Shakespeare, Chekhov, Dostoevsky, the strongest interactive fiction ever made. "
+        "You are reading the transcript of one playthrough of an interactive piece in which "
+        "a player converses with the Voyd, a dark dimension that feeds on wanting.\n\n"
+        f"TRANSCRIPT:\n{transcript}\n\n"
+        "Judge it as a reader, against that canon: Does the pressure build? Do the choices "
+        "cost something? Is there a beat where you, the reader, went slack?\n\n"
+        "Respond in exactly this format:\n"
+        "SCORE: <0-10>\n"
+        "WEAKEST: <node id of the weakest beat>\n"
+        "REASON: <one or two sentences — what the weakest beat fails to do>"
+    )
+    raw = qwen_chat([{"role": "user", "content": prompt}], max_tokens=200, temperature=0.5)
+    score_match = re.search(r"SCORE\s*:\s*(\d+)", raw, re.IGNORECASE)
+    weakest_match = re.search(r"WEAKEST\s*:\s*(\S+)", raw, re.IGNORECASE)
+    reason_match = re.search(r"REASON\s*:\s*(.+)", raw, re.IGNORECASE | re.DOTALL)
+    return {
+        "score": max(0, min(10, int(score_match.group(1)))) if score_match else None,
+        "weakest": weakest_match.group(1).strip().strip("[]") if weakest_match else None,
+        "reason": reason_match.group(1).strip() if reason_match else raw.strip(),
+    }
 
 
 def find_flags(walks, story_map):
@@ -189,8 +240,14 @@ def send_telegram(text):
         return False
 
 
-def run_walks(act1_data=None, save=True):
-    """Run all four archetype walks and return scored walks."""
+def run_walks(act1_data=None, save=True, judge=None):
+    """Run all four archetype walks and return scored walks.
+
+    judge: run the LLM reader-judge on each transcript. Defaults to `save`
+    (full nightly runs get judged; candidate-gate runs stay fast).
+    """
+    if judge is None:
+        judge = save
     story_map = load_story_map()
     walks = []
     for arch in ARCHETYPES:
@@ -199,15 +256,30 @@ def run_walks(act1_data=None, save=True):
         walks.append(record)
 
     scored = []
+    reader_notes = []
     for walk in walks:
         scores = score_walk(walk, walks, story_map)
-        scored.append({
+        entry = {
             "archetype": walk["archetype"],
             "node_sequence": walk["path"],
             "portal_curve": walk["portal_curve"],
             "scores": scores,
             "flags": [],
-        })
+        }
+        if judge:
+            try:
+                experience = score_experience(walk)
+                entry["experience"] = experience
+                if experience.get("weakest"):
+                    reader_notes.append({
+                        "archetype": walk["archetype"],
+                        "score": experience.get("score"),
+                        "weakest": experience["weakest"],
+                        "reason": experience.get("reason", ""),
+                    })
+            except Exception as e:
+                print(f"[phantom] reader-judge failed for {walk['archetype']}: {e}")
+        scored.append(entry)
 
     kills = find_kills(walks)
     flags = find_flags(walks, story_map)
@@ -219,8 +291,26 @@ def run_walks(act1_data=None, save=True):
         "walks": scored,
         "kills_recommended": kills,
         "flags": flags,
+        "reader_notes": reader_notes,
     }
     return report, walks
+
+
+def record_run(report):
+    """Persist a walk run: overwrite walk_scores.json, append each walk to history."""
+    with open(WALK_SCORES_PATH, "w") as f:
+        json.dump(report, f, indent=2)
+    with open(WALK_HISTORY_PATH, "a") as f:
+        for walk in report["walks"]:
+            f.write(json.dumps({"at": report["last_run"], **walk}) + "\n")
+
+
+def walk_history_count():
+    """Number of accumulated walk records (gates the immune system at 20)."""
+    if not WALK_HISTORY_PATH.exists():
+        return 0
+    with open(WALK_HISTORY_PATH) as f:
+        return sum(1 for line in f if line.strip())
 
 
 def test_candidate(candidate_node, act1_data):
@@ -256,21 +346,24 @@ def main():
     print("[phantom] Loading story map...")
     report, _ = run_walks()
 
-    with open(WALK_SCORES_PATH, "w") as f:
-        json.dump(report, f, indent=2)
-    print(f"[phantom] Saved {WALK_SCORES_PATH}")
+    record_run(report)
+    print(f"[phantom] Saved {WALK_SCORES_PATH} (history: {walk_history_count()} records)")
 
     # Telegram summary
     lines = ["Phantom Walker Report", f"Ran: {report['last_run']}"]
     for s in report["walks"]:
+        exp = s.get("experience") or {}
+        exp_str = f" reader={exp['score']}" if exp.get("score") is not None else ""
         lines.append(
             f"\n{s['archetype']}: "
             f"arc={s['scores']['dialectic_arc']} "
             f"unique={s['scores']['path_uniqueness']} "
-            f"catharsis={s['scores']['cathartic_potential']}"
+            f"catharsis={s['scores']['cathartic_potential']}{exp_str}"
         )
     if report["kills_recommended"]:
         lines.append(f"\nKills recommended: {', '.join(report['kills_recommended'])}")
+    for note in report.get("reader_notes", [])[:4]:
+        lines.append(f"\nweakest beat ({note['archetype']}): {note['weakest']} — {note['reason'][:100]}")
     if report["flags"]:
         lines.append(f"\nFlags: {len(report['flags'])}")
     msg = "\n".join(lines)

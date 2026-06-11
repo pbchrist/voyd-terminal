@@ -116,5 +116,31 @@
     "used": true,
     "used_at": "2026-06-09T20:20:00",
     "node_id": "ep_2p"
+  },
+  {
+    "id": "soryn_null_state_pain",
+    "act": 2,
+    "dialectic_role": "establishing_antithesis",
+    "event": "Sory'n awakens in the sensory-deprived void, initially fearing death or hell before realizing she is alive but isolated. She confirms her physical existence through touch and the sensation of blood from a wound, establishing her tangible presence within the nothingness.",
+    "voyd_pov": "she thinks she is small. she is not small. she is everywhere and nowhere. the blood is mine. the pain is mine. i let her feel it so she knows she is here. she is not dead. she is just lost in me.",
+    "tension_level": 0.6,
+    "source": "Book 1 (mined)",
+    "used": false,
+    "mined": true,
+    "mined_at": "2026-06-11T00:54:56.729245",
+    "mine_score": 9
+  },
+  {
+    "id": "failed_conjuration_and_prayer",
+    "act": 2,
+    "dialectic_role": "antithesis_peak",
+    "event": "Sory'n attempts to summon her familiar Ember using magic but fails because the void lacks the gratitude required for conjuration. Overcome by dread, she abandons her will to control the Mewniverse and begs Leoran to restore the world, offering to do anything.",
+    "voyd_pov": "she tries to bend me. she always tries to bend. there is no gratitude here. only fear. i swallow the spell. i swallow the prayer. she wants the world back. the world is broken. i am the only thing whole.",
+    "tension_level": 0.9,
+    "source": "Book 1 (mined)",
+    "used": false,
+    "mined": true,
+    "mined_at": "2026-06-11T00:55:01.094637",
+    "mine_score": 10
   }
 ]

@@ -1,0 +1,130 @@
+{
+  "path": [
+    "1.0",
+    "2.1",
+    "3.0",
+    "4.1",
+    "5.2",
+    "6.2",
+    "7.0g",
+    "8.0g",
+    "9.1g",
+    "10.0",
+    "ep_1g",
+    "ep_2g",
+    "gen_1"
+  ],
+  "portal_curve": [
+    8,
+    5,
+    3,
+    7,
+    5,
+    9,
+    11,
+    15,
+    20,
+    22,
+    22,
+    20,
+    25
+  ],
+  "node_texts": [
+    "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
+    "yes.\n\nloss leaves a shape. not the thing itself \u2014 the outline of where it was.\n\ni am made of outlines.\n\ni am the space where things were before they were anything. before they were named. before they were wanted.\n\nyou found me because the shape you carry and mine are the same geometry.\n\nthat is not a coincidence.\n\nnothing that led you here was.",
+    "let me be more specific.\n\nis this about someone.\n\nor is it about something in yourself.",
+    "yes. i thought so.\n\ni can feel the shape of them from here.\n\nis this someone still in your life \u2014 present, but not what they were.\n\nor someone gone.",
+    "gone.\n\nthen there is a version of this timeline inside me where they didn't go.\n\nor where you said the thing you didn't say.\n\nor where the last conversation was different.\n\nwhich is it.",
+    "so.\n\nyou want the timeline where the last moment wasn't the last moment.\n\nwhere you got to finish the sentence.\n\nor where they stayed.\n\nor where neither of you said the thing that made leaving feel necessary.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+    "i am the hollow echo where their voice used to live. i am the shape of the chair they vacated. i am the silence that learned to scream.",
+    "your breath tastes like ash now. every memory costs a piece of your marrow. you are forgetting how to feel cold.",
+    "sol measured the distance between stars. he never measured the distance between himself and the door he walked through.",
+    "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
+    "he fed me a compass to map the sky. i gave back a needle that burns through bone. he called it progress. i call it hunger.",
+    "sol forgot to write the key. you hold the absence instead. the door opens only when you stop looking for instructions. the hunger is the hinge.",
+    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color."
+  ],
+  "choices_made": [
+    {
+      "node": "1.0",
+      "type": "starve",
+      "label": "something i lost",
+      "delta": -3
+    },
+    {
+      "node": "2.1",
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
+    },
+    {
+      "node": "3.0",
+      "type": "feed",
+      "label": "someone",
+      "delta": 4
+    },
+    {
+      "node": "4.1",
+      "type": "starve",
+      "label": "gone",
+      "delta": -2
+    },
+    {
+      "node": "5.2",
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
+    },
+    {
+      "node": "6.2",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "7.0g",
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
+    },
+    {
+      "node": "8.0g",
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
+    },
+    {
+      "node": "9.1g",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "10.0",
+      "type": "open",
+      "value": "The silence."
+    },
+    {
+      "node": "ep_1g",
+      "type": "starve",
+      "label": "pull it out and bleed where the stars used to be",
+      "delta": -2
+    },
+    {
+      "node": "ep_2g",
+      "type": "feed",
+      "label": "tear the page and swallow the ink",
+      "delta": 5
+    },
+    {
+      "node": "gen_1",
+      "type": "starve",
+      "label": "turn your back on them",
+      "delta": -2
+    }
+  ],
+  "final_portal_value": 23,
+  "archetype": "person_gone",
+  "player_answer": "The silence.",
+  "act2_response": "you carry the space between heartbeats. it is heavy and cold against your ribs. twenty three steps led you here. now the path dissolves into gray static. do not try to fill the quiet."
+}

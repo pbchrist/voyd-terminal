@@ -2,6 +2,10 @@
 
 You are working on the Voyd Terminal at /home/patrick/voyd-terminal on beastmaster.
 
+**Then read `docs/STATE.md`** — the living session-handoff document: current state, in-flight
+work, next steps, session log. **Update it before you end any session.** It exists so no
+session ever wastes tokens rediscovering what a previous session already knew.
+
 ## State of the project
 - Act 1: fixed Akinator node graph in data/act1_nodes.json (nodes 1.0–10.0, archetype epilogues, generated gen_* nodes)
 - Act 2: live AI conversation; the Voyd voice prompt lives in data/voyd_system.md (single source of truth, embedded into voyd_data.json at build time)
@@ -68,7 +72,8 @@ There is **no** `pyproject.toml`, `setup.py`, `package.json`, `Cargo.toml`, or s
 ├── scripts/
 │   ├── headless_play.py          # Pure-Python Act 1 traversal (no browser)
 │   ├── llm_play.py               # LLM-driven archetype player
-│   ├── phantom_walkers.py        # Walk simulation + uniqueness gate
+│   ├── phantom_walkers.py        # Self-play: walks, reader-judge, uniqueness gate
+│   ├── mine_canon.py             # Canon event miner (keeps canon_events.json stocked)
 │   └── hunt_itch.py              # Weekly itch.io Twine structural analysis
 ├── tests/
 │   └── test_evolution_directives.py  # Hermetic suite (LLM mocked)
@@ -243,25 +248,28 @@ Telegram credentials: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in ~/.hermes/.env
 
 ## Cron
 
-Daily evolution at 03:00:
+Installed for user patrick (verify with `crontab -l`):
 
 ```cron
+# Daily evolution at 03:00
 0 3 * * * cd /home/patrick/voyd-terminal && python3 evolve.py >> logs/evolve.log 2>&1
-```
-
-Weekly itch.io structural analysis (Sundays at 04:00):
-
-```cron
+# Weekly itch.io structural analysis (Sundays at 04:00)
 0 4 * * 0 cd /home/patrick/voyd-terminal && python3 scripts/hunt_itch.py >> logs/hunt_itch.log 2>&1
+# Daily self-play at 15:00 (accumulates data/walk_history.jsonl toward the immune gate)
+0 15 * * * cd /home/patrick/voyd-terminal && python3 scripts/phantom_walkers.py >> logs/phantom.log 2>&1
 ```
 
 ---
 
 ## Planned Infrastructure
 
-> Do not implement these systems until sufficient decision/walk data exists. They are fully specified here so a future Kimi session can build them without asking questions.
+> Status (2026-06-11): IMMUNE SYSTEM and PHANTOM WALKERS are **implemented** (see
+> `evolve.py` and `scripts/phantom_walkers.py`); the immune system is gated until
+> `data/walk_history.jsonl` holds 20 records. GRAVITY WELLS remains unbuilt — same gate.
+> A CANON EVENT MINER (`scripts/mine_canon.py`) was added beyond this spec: it keeps
+> `canon_events.json` stocked from the book texts, with canon-fidelity validation.
 
-### IMMUNE SYSTEM — `heal_structural_issues()`
+### IMMUNE SYSTEM — `heal_structural_issues()` — IMPLEMENTED (gated at 20 walk records)
 
 **Purpose:** The system currently detects wounds and alerts Patrick. It should close them autonomously.
 
@@ -298,7 +306,7 @@ Weekly itch.io structural analysis (Sundays at 04:00):
 
 ---
 
-### PHANTOM WALKERS
+### PHANTOM WALKERS — IMPLEMENTED
 
 **Purpose:** The system generates nodes but never experiences them as a player would. Phantom walkers simulate full journeys and score the *experience*, not just individual nodes.
 

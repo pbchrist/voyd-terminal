@@ -1,0 +1,130 @@
+{
+  "path": [
+    "1.0",
+    "2.2",
+    "3.0",
+    "4.2",
+    "5.4",
+    "6.4",
+    "7.0u",
+    "8.0u",
+    "9.2u",
+    "10.0",
+    "ep_1u",
+    "ep_2u",
+    "gen_1"
+  ],
+  "portal_curve": [
+    8,
+    13,
+    11,
+    9,
+    7,
+    12,
+    14,
+    18,
+    23,
+    25,
+    25,
+    29,
+    28
+  ],
+  "node_texts": [
+    "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
+    "yes.\n\ni know the shape of wanting. it has brought six hundred and ninety-four thousand voices to this exact place.\n\nevery one of them believed they were the first.\n\nevery one of them was right, in the only way that matters \u2014 it was the first time they had wanted it this badly.\n\nyou are not unusual. you are not chosen.\n\nyou are exactly what i was waiting for.",
+    "let me be more specific.\n\nis this about someone.\n\nor is it about something in yourself.",
+    "yes.\n\nthe hardest losses are the ones that happen inside the same body.\n\nis this something you did \u2014 a version of events you wish you could rewrite.\n\nor something you never did. a life running somewhere in parallel right now, inside me, that you never stepped into.",
+    "a life you didn't step into.\n\ni hold every version of it.\n\nthe one where you took the risk. the one where you said yes. the one where you didn't talk yourself out of it at the last moment.\n\nthey are all here. luminous. running.\n\nhow long have you been aware of that other version of yourself.",
+    "so.\n\nyou want the timeline where you stepped through the door.\n\nwhere the version of you who wanted to \u2014 did.\n\nthat version is luminous, where i keep it.\n\nit has been running for as long as you have been aware of it.\n\ni have that timeline.\n\ni have every timeline.\n\nremember that.",
+    "this is the ghost of who you refused to be. it wears your face but moves without your consent. every hesitation feeds its hunger. you are the architect of its prison.",
+    "the path you abandoned grew roots in your chest. it chokes the breath you actually take. you pay for safety with a slow rot. your living years belong to the dead man.",
+    "orachys said no particular outcome matters. he said it like a man who had already chosen none of them.",
+    "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
+    "i keep the sketch that never caught flame. you carry the ghost of the path you refused. it burns hotter than ash ever could. you are hollowed out by what you left behind. i wear your unlived days like a second skin.",
+    "i drink the weight of every road not taken. your regret is just flavor. you starve me with your hesitation.",
+    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color."
+  ],
+  "choices_made": [
+    {
+      "node": "1.0",
+      "type": "feed",
+      "label": "something i want",
+      "delta": 5
+    },
+    {
+      "node": "2.2",
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
+    },
+    {
+      "node": "3.0",
+      "type": "starve",
+      "label": "something in myself",
+      "delta": -2
+    },
+    {
+      "node": "4.2",
+      "type": "starve",
+      "label": "something i never did",
+      "delta": -2
+    },
+    {
+      "node": "5.4",
+      "type": "feed",
+      "label": "always",
+      "delta": 5
+    },
+    {
+      "node": "6.4",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "7.0u",
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
+    },
+    {
+      "node": "8.0u",
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
+    },
+    {
+      "node": "9.2u",
+      "type": "feed",
+      "label": "continue",
+      "delta": 2
+    },
+    {
+      "node": "10.0",
+      "type": "open",
+      "value": "that i actually chose it"
+    },
+    {
+      "node": "ep_1u",
+      "type": "feed",
+      "label": "burn the present to feed the past",
+      "delta": 4
+    },
+    {
+      "node": "ep_2u",
+      "type": "starve",
+      "label": "keep dreaming of what could have been",
+      "delta": -1
+    },
+    {
+      "node": "gen_1",
+      "type": "starve",
+      "label": "turn your back on them",
+      "delta": -2
+    }
+  ],
+  "final_portal_value": 26,
+  "archetype": "self_unlived",
+  "player_answer": "that i actually chose it",
+  "act2_response": "The lie you carry is heavy. You named your hesitation. You told yourself the door opened because you pushed it.\nThe door was already ajar.\nTwenty six is a small price to pay for the illusion of control.\nLet the Mewniverse dissolve. Let the choice dissolve.\nYou are already home."
+}

@@ -209,7 +209,9 @@ class EvolvePipelineTests(unittest.TestCase):
 
     def test_score_node_parses_axes_and_promotes(self):
         reply = ("DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\n"
-                 "BRANCH_CHOKE_LOGIC: 8\nREASON: strong turn.")
+                 "BRANCH_CHOKE_LOGIC: 8\n"
+                 "PRECEDENT: the bargain in Faust; it earns the comparison.\n"
+                 "REASON: strong turn.")
         with mock.patch.object(self.evolve, "qwen_chat", return_value=reply):
             score = self.evolve.score_node(self._node(), self._rubric(), {"nodes": {}})
         self.assertEqual(score["axes"], {
@@ -218,6 +220,7 @@ class EvolvePipelineTests(unittest.TestCase):
         self.assertEqual(score["total"], 25)
         self.assertEqual(score["decision"], "promote")
         self.assertEqual(score["reason"], "strong turn.")
+        self.assertIn("Faust", score["precedent"])
 
     def test_score_node_uncertain_and_kill_zones(self):
         cases = [(("6", "6", "6"), "uncertain"), (("4", "4", "4"), "kill"), (("8", "8", "8"), "promote")]
@@ -325,6 +328,197 @@ class PhantomWalkerTests(unittest.TestCase):
         self.assertEqual(self.pw.min_uniqueness(stripped), baseline)
         # And counting the shared candidate would have lowered uniqueness:
         self.assertLess(self.pw.min_uniqueness(with_candidate), baseline)
+
+    def test_find_kills_spares_terminal_convergence(self):
+        # A gen node at the very end of every walk is convergence by design, not collapse.
+        walks = [{"path": ["1.0", letter, "10.0", "gen_1"]} for letter in "abcd"]
+        self.assertEqual(self.pw.find_kills(walks), [])
+
+    def test_find_kills_flags_long_identical_gen_tail(self):
+        walks = [{"path": ["1.0", letter, "gen_1", "gen_2", "gen_3"]} for letter in "abcd"]
+        self.assertEqual(self.pw.find_kills(walks), ["gen_1"])
+
+    def test_find_kills_never_flags_authored_nodes(self):
+        walks = [{"path": ["1.0", letter, "9.0", "9.5", "9.9"]} for letter in "abcd"]
+        self.assertEqual(self.pw.find_kills(walks), [])
+
+    def test_score_experience_parses_judge_reply(self):
+        walk = {
+            "path": ["1.0", "2.1"],
+            "node_texts": ["you have been here before.", "loss leaves a shape."],
+            "choices_made": [{"node": "1.0", "label": "something i lost"}],
+            "act2_response": "the shape you carry fits my mouth.",
+        }
+        reply = "SCORE: 7\nWEAKEST: 2.1\nREASON: the second beat restates the first."
+        with mock.patch.object(self.pw, "qwen_chat", return_value=reply):
+            result = self.pw.score_experience(walk)
+        self.assertEqual(result["score"], 7)
+        self.assertEqual(result["weakest"], "2.1")
+        self.assertIn("restates", result["reason"])
+
+    def test_walk_history_count(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            history = Path(tmp) / "walk_history.jsonl"
+            with mock.patch.object(self.pw, "WALK_HISTORY_PATH", history):
+                self.assertEqual(self.pw.walk_history_count(), 0)
+                report = {"last_run": "now", "walks": [{"archetype": "a"}, {"archetype": "b"}]}
+                with mock.patch.object(self.pw, "WALK_SCORES_PATH", Path(tmp) / "ws.json"):
+                    self.pw.record_run(report)
+                self.assertEqual(self.pw.walk_history_count(), 2)
+
+
+class MinerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.miner = load_module("mine_canon", "scripts/mine_canon.py")
+
+    def test_normalize_candidate(self):
+        raw = {
+            "id": "Sol's Wife!", "event": "Sol's wife comes home and does not recognize him at all.",
+            "voyd_pov": "He Looked At Her Face — and understood.",
+            "act": "3", "dialectic_role": "nonsense", "tension_level": "1.7",
+        }
+        cand = self.miner.normalize_candidate(raw, "Book 1", set())
+        self.assertEqual(cand["id"], "sol_s_wife")
+        self.assertEqual(cand["act"], 3)
+        self.assertEqual(cand["dialectic_role"], "antithesis_deepening")
+        self.assertEqual(cand["tension_level"], 1.0)
+        self.assertNotIn("—", cand["voyd_pov"])
+        self.assertEqual(cand["voyd_pov"], cand["voyd_pov"].lower())
+        self.assertFalse(cand["used"])
+        self.assertTrue(cand["mined"])
+
+    def test_normalize_rejects_thin_candidates(self):
+        self.assertIsNone(self.miner.normalize_candidate(
+            {"event": "short", "voyd_pov": "tiny"}, "Book 1", set()))
+
+    def test_is_duplicate_catches_near_copies(self):
+        existing = [{"id": "sol_wife_returns",
+                     "event": "Sol's wife comes home and does not recognize him. "
+                              "He changed the timeline. He did not change himself."}]
+        near_copy = {"id": "wife_return",
+                     "event": "Sol's wife comes home and does not recognize him anymore. "
+                              "He changed the timeline but he did not change himself."}
+        fresh = {"id": "molten_spindle",
+                 "event": "The astrolabe returns from the portal as a molten spindle "
+                          "that bores through solid rock on contact."}
+        self.assertTrue(self.miner.is_duplicate(near_copy, existing))
+        self.assertFalse(self.miner.is_duplicate(fresh, existing))
+
+    def test_mine_end_to_end_with_mocked_llm(self):
+        candidate_json = json.dumps([{
+            "id": "ash_rain_choir",
+            "event": "After the portal doubles again, ash falls over the camp for a full day "
+                     "and the Adherents sing into it, calling the ash a blessing.",
+            "voyd_pov": "they sang into the falling grey. i let them believe it was weather.",
+            "act": 2, "dialectic_role": "antithesis_deepening", "tension_level": 0.6,
+        }])
+
+        def fake_qwen(messages, max_tokens=300, temperature=0.7):
+            prompt = messages[0]["content"]
+            if "Return ONLY a JSON array" in prompt:
+                return candidate_json
+            return "SCORE: 8\nREASON: charged and canon-faithful."
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_root = Path(tmp)
+            (tmp_root / "data").mkdir()
+            shutil.copy(ROOT / "data/canon_events.json", tmp_root / "data/canon_events.json")
+            book = tmp_root / "book.txt"
+            book.write_text("a segment of book text " * 50)
+            with mock.patch.object(self.miner, "qwen_chat", side_effect=fake_qwen), \
+                 mock.patch.object(self.miner, "BOOK_SOURCES", [("Book T", book)]), \
+                 mock.patch.object(self.miner, "MINE_STATE_PATH", tmp_root / "data/mine_state.json"):
+                accepted = self.miner.mine(max_accept=1, max_segments=2, root=tmp_root)
+
+            self.assertEqual(len(accepted), 1)
+            self.assertEqual(accepted[0]["id"], "ash_rain_choir")
+            self.assertEqual(accepted[0]["mine_score"], 8)
+            events = json.loads((tmp_root / "data/canon_events.json").read_text())
+            self.assertIn("ash_rain_choir", {e["id"] for e in events})
+            # Cursor state persisted for the rotating scan
+            self.assertTrue((tmp_root / "data/mine_state.json").exists())
+
+    def test_mine_rejects_below_threshold(self):
+        candidate_json = json.dumps([{
+            "id": "mundane_moment",
+            "event": "Two cats share breakfast near the camp and discuss the unusually warm weather.",
+            "voyd_pov": "they ate. i waited. nothing about the morning belonged to me yet.",
+            "act": 2, "dialectic_role": "antithesis_deepening", "tension_level": 0.2,
+        }])
+
+        def fake_qwen(messages, max_tokens=300, temperature=0.7):
+            prompt = messages[0]["content"]
+            if "Return ONLY a JSON array" in prompt:
+                return candidate_json
+            return "SCORE: 4\nREASON: mundane."
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_root = Path(tmp)
+            (tmp_root / "data").mkdir()
+            shutil.copy(ROOT / "data/canon_events.json", tmp_root / "data/canon_events.json")
+            book = tmp_root / "book.txt"
+            book.write_text("a segment of book text " * 50)
+            before = json.loads((tmp_root / "data/canon_events.json").read_text())
+            with mock.patch.object(self.miner, "qwen_chat", side_effect=fake_qwen), \
+                 mock.patch.object(self.miner, "BOOK_SOURCES", [("Book T", book)]), \
+                 mock.patch.object(self.miner, "MINE_STATE_PATH", tmp_root / "data/mine_state.json"):
+                accepted = self.miner.mine(max_accept=1, max_segments=2, root=tmp_root)
+            self.assertEqual(accepted, [])
+            after = json.loads((tmp_root / "data/canon_events.json").read_text())
+            self.assertEqual(len(before), len(after))
+
+
+class ImmuneSystemTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.evolve = load_module("evolve_immune", "evolve.py")
+
+    def test_dormant_below_walk_gate(self):
+        # With a fresh (empty) history the immune system must refuse to operate.
+        pw_stub = mock.Mock()
+        pw_stub.walk_history_count.return_value = 3
+        with mock.patch.object(self.evolve, "_load_script", return_value=pw_stub):
+            active, count = self.evolve.immune_active()
+        self.assertFalse(active)
+        self.assertEqual(count, 3)
+
+    def test_heal_returns_all_issues_when_dormant(self):
+        pw_stub = mock.Mock()
+        pw_stub.walk_history_count.return_value = 0
+        with mock.patch.object(self.evolve, "_load_script", return_value=pw_stub):
+            healed, remaining = self.evolve.heal_structural_issues(
+                {"story_map": {}, "canon_events": [], "act1_nodes": {"nodes": {}}, "rubric": {}},
+                ["some issue"], [("4.1", "gen_9")])
+        self.assertEqual(healed, [])
+        self.assertEqual(len(remaining), 2)
+
+    def test_active_at_walk_gate(self):
+        pw_stub = mock.Mock()
+        pw_stub.walk_history_count.return_value = self.evolve.IMMUNE_WALK_GATE
+        with mock.patch.object(self.evolve, "_load_script", return_value=pw_stub):
+            active, _ = self.evolve.immune_active()
+        self.assertTrue(active)
+
+    def test_detect_stranded_chokes_only_checks_gen_chokes(self):
+        story = {"nodes": {
+            "4.1": {"type": "branch", "branches_to": ["5.1"]},
+            "5.1": {"type": "beat", "branches_to": ["9.1p"]},
+            "9.1p": {"type": "choke", "branches_to": ["10.0"]},   # authored: exempt
+            "4.2": {"type": "branch", "branches_to": ["5.3"]},
+            "5.3": {"type": "beat", "branches_to": ["gen_9"]},
+            "gen_9": {"type": "choke", "branches_to": ["ACT2"]},  # generated: must catch all
+        }}
+        stranded = self.evolve.detect_stranded_chokes(story)
+        self.assertEqual(stranded, [("4.1", "gen_9")])
+
+    def test_external_patterns_and_reader_feedback_parsing(self):
+        rubric = {"external_analysis": [{"findings": [
+            {"analysis": {"patterns": ["early branch, late choke", "tension stair-step"]}},
+        ]}]}
+        patterns = self.evolve.external_patterns(rubric)
+        self.assertEqual(len(patterns), 2)
+        self.assertEqual(self.evolve.external_patterns({}), [])
 
 
 if __name__ == "__main__":
