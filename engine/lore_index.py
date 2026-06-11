@@ -49,10 +49,20 @@ class LoreIndex:
         self._load_all()
 
     def _load_all(self):
-        """Load all markdown/text files from the wiki."""
+        """Load all markdown/text files from the wiki, plus the explicit BOOK_FILES."""
         files = list(self.wiki_root.rglob("*.md")) + list(self.wiki_root.rglob("*.txt"))
+        files += [Path(p) for p in BOOK_FILES]
+        seen_paths = set()
         for fp in files:
             try:
+                resolved = fp.resolve()
+                if resolved in seen_paths or not resolved.exists():
+                    continue
+                seen_paths.add(resolved)
+                try:
+                    source = str(fp.relative_to(self.wiki_root))
+                except ValueError:
+                    source = fp.name
                 text = fp.read_text(encoding="utf-8", errors="ignore")
                 # Chunk by paragraphs
                 chunks = [c.strip() for c in text.split("\n\n") if len(c.strip()) > 40]
@@ -60,7 +70,7 @@ class LoreIndex:
                     doc_id = len(self.documents)
                     self.documents.append({
                         "id": doc_id,
-                        "source": str(fp.relative_to(self.wiki_root)),
+                        "source": source,
                         "text": chunk,
                     })
                     # Index by topic

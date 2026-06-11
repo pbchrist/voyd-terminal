@@ -24,7 +24,6 @@
       "dialectic_role": "thesis",
       "tension_delta": 0.05,
       "branches_to": [
-        "3.0",
         "3.0"
       ],
       "converges_from": [
@@ -39,7 +38,6 @@
       "dialectic_role": "thesis",
       "tension_delta": 0.05,
       "branches_to": [
-        "3.0",
         "3.0"
       ],
       "converges_from": [
@@ -59,8 +57,6 @@
       ],
       "converges_from": [
         "2.1",
-        "2.1",
-        "2.2",
         "2.2"
       ],
       "canon_event": null
@@ -102,7 +98,6 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "6.1",
         "6.1"
       ],
       "converges_from": [
@@ -117,7 +112,6 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "6.2",
         "6.2"
       ],
       "converges_from": [
@@ -132,7 +126,6 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "6.3",
         "6.3"
       ],
       "converges_from": [
@@ -147,7 +140,6 @@
       "dialectic_role": "antithesis_deepening",
       "tension_delta": 0.05,
       "branches_to": [
-        "6.4",
         "6.4"
       ],
       "converges_from": [
@@ -165,7 +157,6 @@
         "7.0p"
       ],
       "converges_from": [
-        "5.1",
         "5.1"
       ],
       "canon_event": null
@@ -180,7 +171,6 @@
         "7.0g"
       ],
       "converges_from": [
-        "5.2",
         "5.2"
       ],
       "canon_event": null
@@ -195,7 +185,6 @@
         "7.0r"
       ],
       "converges_from": [
-        "5.3",
         "5.3"
       ],
       "canon_event": null
@@ -210,7 +199,6 @@
         "7.0u"
       ],
       "converges_from": [
-        "5.4",
         "5.4"
       ],
       "canon_event": null
@@ -222,7 +210,10 @@
       "dialectic_role": "act_break",
       "tension_delta": 0.05,
       "branches_to": [
-        "ACT2"
+        "ep_1p",
+        "ep_1g",
+        "ep_1r",
+        "ep_1u"
       ],
       "converges_from": [
         "9.1p",
@@ -239,10 +230,11 @@
       "dialectic_role": "establishing_antithesis",
       "tension_delta": 0.08,
       "branches_to": [
-        "ep_2p",
         "ep_2p"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "10.0"
+      ],
       "canon_event": null
     },
     "ep_2p": {
@@ -252,11 +244,9 @@
       "dialectic_role": "catharsis",
       "tension_delta": 0.18,
       "branches_to": [
-        "ACT2",
-        "ACT2"
+        "gen_1"
       ],
       "converges_from": [
-        "ep_1p",
         "ep_1p"
       ],
       "canon_event": null
@@ -268,10 +258,11 @@
       "dialectic_role": "establishing_antithesis",
       "tension_delta": 0.08,
       "branches_to": [
-        "ep_2g",
         "ep_2g"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "10.0"
+      ],
       "canon_event": null
     },
     "ep_2g": {
@@ -281,11 +272,9 @@
       "dialectic_role": "catharsis",
       "tension_delta": 0.18,
       "branches_to": [
-        "ACT2",
-        "ACT2"
+        "gen_1"
       ],
       "converges_from": [
-        "ep_1g",
         "ep_1g"
       ],
       "canon_event": null
@@ -297,10 +286,11 @@
       "dialectic_role": "establishing_antithesis",
       "tension_delta": 0.08,
       "branches_to": [
-        "ep_2r",
         "ep_2r"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "10.0"
+      ],
       "canon_event": null
     },
     "ep_2r": {
@@ -310,11 +300,9 @@
       "dialectic_role": "catharsis",
       "tension_delta": 0.18,
       "branches_to": [
-        "ACT2",
-        "ACT2"
+        "gen_1"
       ],
       "converges_from": [
-        "ep_1r",
         "ep_1r"
       ],
       "canon_event": null
@@ -326,10 +314,11 @@
       "dialectic_role": "establishing_antithesis",
       "tension_delta": 0.08,
       "branches_to": [
-        "ep_2u",
         "ep_2u"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "10.0"
+      ],
       "canon_event": null
     },
     "ep_2u": {
@@ -339,11 +328,9 @@
       "dialectic_role": "catharsis",
       "tension_delta": 0.18,
       "branches_to": [
-        "ACT2",
-        "ACT2"
+        "gen_1"
       ],
       "converges_from": [
-        "ep_1u",
         "ep_1u"
       ],
       "canon_event": null
@@ -355,7 +342,6 @@
       "dialectic_role": "turn_approaching",
       "tension_delta": 0.08,
       "branches_to": [
-        "8.0p",
         "8.0p"
       ],
       "converges_from": [
@@ -370,11 +356,9 @@
       "dialectic_role": "antithesis_peak",
       "tension_delta": 0.12,
       "branches_to": [
-        "9.1p",
         "9.1p"
       ],
       "converges_from": [
-        "7.0p",
         "7.0p"
       ],
       "canon_event": null
@@ -389,7 +373,6 @@
         "10.0"
       ],
       "converges_from": [
-        "8.0p",
         "8.0p"
       ],
       "canon_event": null
@@ -401,7 +384,6 @@
       "dialectic_role": "turn_approaching",
       "tension_delta": 0.08,
       "branches_to": [
-        "8.0g",
         "8.0g"
       ],
       "converges_from": [
@@ -416,11 +398,9 @@
       "dialectic_role": "antithesis_peak",
       "tension_delta": 0.12,
       "branches_to": [
-        "9.1g",
         "9.1g"
       ],
       "converges_from": [
-        "7.0g",
         "7.0g"
       ],
       "canon_event": null
@@ -435,7 +415,6 @@
         "10.0"
       ],
       "converges_from": [
-        "8.0g",
         "8.0g"
       ],
       "canon_event": null
@@ -447,7 +426,6 @@
       "dialectic_role": "turn_approaching",
       "tension_delta": 0.08,
       "branches_to": [
-        "8.0r",
         "8.0r"
       ],
       "converges_from": [
@@ -462,11 +440,9 @@
       "dialectic_role": "antithesis_peak",
       "tension_delta": 0.12,
       "branches_to": [
-        "9.2r",
         "9.2r"
       ],
       "converges_from": [
-        "7.0r",
         "7.0r"
       ],
       "canon_event": null
@@ -481,7 +457,6 @@
         "10.0"
       ],
       "converges_from": [
-        "8.0r",
         "8.0r"
       ],
       "canon_event": null
@@ -493,7 +468,6 @@
       "dialectic_role": "turn_approaching",
       "tension_delta": 0.08,
       "branches_to": [
-        "8.0u",
         "8.0u"
       ],
       "converges_from": [
@@ -508,11 +482,9 @@
       "dialectic_role": "antithesis_peak",
       "tension_delta": 0.12,
       "branches_to": [
-        "9.2u",
         "9.2u"
       ],
       "converges_from": [
-        "7.0u",
         "7.0u"
       ],
       "canon_event": null
@@ -527,7 +499,6 @@
         "10.0"
       ],
       "converges_from": [
-        "8.0u",
         "8.0u"
       ],
       "canon_event": null
@@ -539,16 +510,19 @@
       "dialectic_role": "synthesis_attempt",
       "tension_delta": 0.19,
       "branches_to": [
-        "ACT2",
         "ACT2"
       ],
-      "converges_from": [],
+      "converges_from": [
+        "ep_2p",
+        "ep_2g",
+        "ep_2r",
+        "ep_2u"
+      ],
       "canon_event": "clowder_four_colors",
       "score": {
         "score": 9,
         "reason": "The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.",
-        "decision": "promote",
-        "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
+        "decision": "promote"
       }
     }
   },

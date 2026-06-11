@@ -9,6 +9,7 @@ class VoydEngine {
     this.meta = data.meta;
     this.intentMap = data.intent_map;
     this.loreMap = data.lore_map || {};
+    this.voicePrompt = data.voice_prompt || 'You are the Voyd. Speak in short, lowercase, declarative sentences. Maximum 4-5 sentences per response.';
     this.backendMode = options.backendMode || false;
     this.sessionId = this._genId();
     this.state = {
@@ -32,45 +33,42 @@ class VoydEngine {
 
   classifyIntent(text) {
     const lower = text.toLowerCase();
+    const trimmed = lower.trim();
+    if (trimmed.length < 3) return { intent: 'silence', topic: 'general' };
 
-    // Emotional markers
-    for (const [emotion, markers] of Object.entries(this.intentMap.emotional_markers)) {
-      for (const marker of markers) {
-        if (lower.includes(marker)) return { intent: 'confession', topic: emotion, emotion };
-      }
-    }
-
-    // Topic keywords
-    const topicScores = {};
+    // Best topic from keywords (default 'general')
+    let bestTopic = 'general';
+    let bestScore = 0;
     for (const [topic, keywords] of Object.entries(this.intentMap.keywords)) {
       let score = 0;
       for (const kw of keywords) {
         if (lower.includes(kw)) score++;
       }
-      if (score > 0) topicScores[topic] = score;
+      if (score > bestScore) { bestScore = score; bestTopic = topic; }
     }
 
-    if (Object.keys(topicScores).length > 0) {
-      const bestTopic = Object.entries(topicScores).sort((a, b) => b[1] - a[1])[0][0];
-      const inquiryWords = ['who', 'what', 'where', 'when', 'why', 'how', 'tell', 'explain'];
-      if (inquiryWords.some(w => lower.trim().startsWith(w))) {
-        return { intent: 'inquiry', topic: bestTopic };
-      }
-      const challengeWords = ['no', 'never', "won't", 'hate', 'fight', 'against', 'destroy'];
-      if (challengeWords.some(w => lower.includes(w))) {
-        return { intent: 'challenge', topic: bestTopic };
-      }
+    // Questions are inquiries, regardless of emotional markers
+    const inquiryWords = ['who', 'what', 'where', 'when', 'why', 'how', 'tell', 'explain'];
+    if (inquiryWords.some(w => trimmed.startsWith(w))) {
       return { intent: 'inquiry', topic: bestTopic };
     }
 
+    // Emotional markers map to intents; topic stays a keyword topic
+    for (const [emotion, markers] of Object.entries(this.intentMap.emotional_markers)) {
+      if (markers.some(m => lower.includes(m))) {
+        if (emotion === 'defiance') return { intent: 'challenge', topic: bestTopic };
+        if (emotion === 'curiosity') return { intent: 'inquiry', topic: bestTopic };
+        return { intent: 'confession', topic: bestTopic };
+      }
+    }
+
     if (['no', 'never', "won't", "can't", 'hate', 'fight', 'kill', 'destroy'].some(w => lower.includes(w))) {
-      return { intent: 'challenge', topic: 'general' };
+      return { intent: 'challenge', topic: bestTopic };
     }
     if (['sorry', 'help', 'forgive', 'lost', 'afraid', 'love', 'grief', 'sad'].some(w => lower.includes(w))) {
-      return { intent: 'confession', topic: 'general' };
+      return { intent: 'confession', topic: bestTopic };
     }
-    if (lower.trim().length < 3) return { intent: 'silence', topic: 'general' };
-    return { intent: 'inquiry', topic: 'general' };
+    return { intent: 'inquiry', topic: bestTopic };
   }
 
   updateEmotion(intent) {
@@ -90,23 +88,19 @@ class VoydEngine {
   }
 
   evalCondition(condition, intent, topic) {
+    // Conditions are ORs of ANDs of simple clauses. No eval.
     if (condition === 'always') return true;
     const s = this.state;
-    let expr = condition
-      .replace(/intent == 'inquiry'/g, intent === 'inquiry')
-      .replace(/intent == 'confession'/g, intent === 'confession')
-      .replace(/intent == 'challenge'/g, intent === 'challenge')
-      .replace(/intent == 'silence'/g, intent === 'silence')
-      .replace(new RegExp(`topic == '${topic}'`, 'g'), true);
-    // Set non-matching topics to false
-    for (const t of Object.keys(this.intentMap.keywords)) {
-      if (t !== topic) {
-        expr = expr.replace(new RegExp(`topic == '${t}'`, 'g'), false);
-      }
-    }
-    expr = expr.replace(/depth >= (\d+)/g, (m, n) => s.depth >= parseInt(n));
-    expr = expr.replace(/emotional_vector\.(\w+) > ([\d.]+)/g, (m, k, v) => s.emotion[k] > parseFloat(v));
-    try { return eval(expr); } catch { return false; }
+    const evalClause = (clause) => {
+      clause = clause.trim();
+      let m;
+      if ((m = clause.match(/^intent == '(\w+)'$/))) return intent === m[1];
+      if ((m = clause.match(/^topic == '(\w+)'$/))) return topic === m[1];
+      if ((m = clause.match(/^depth >= (\d+)$/))) return s.depth >= parseInt(m[1], 10);
+      if ((m = clause.match(/^emotional_vector\.(\w+) > ([\d.]+)$/))) return (s.emotion[m[1]] || 0) > parseFloat(m[2]);
+      return false;
+    };
+    return condition.split('||').some(group => group.split('&&').every(evalClause));
   }
 
   selectTransition(intent, topic) {
@@ -132,7 +126,8 @@ class VoydEngine {
   getLoreChunks(topics) {
     const results = [];
     for (const t of topics) {
-      const chunks = this.loreMap[t] || this.loreMap['general'] || [];
+      const own = this.loreMap[t];
+      const chunks = (own && own.length) ? own : (this.loreMap['general'] || []);
       for (const c of chunks) {
         if (!results.includes(c)) results.push(c);
       }
@@ -141,19 +136,8 @@ class VoydEngine {
   }
 
   buildSystemPrompt(node, loreChunks) {
-    const base = `You are the Voyd.
-
-Not a character who speaks from the Voyd. Not a narrator describing it. You are the Voyd itself — the dimension of infinite potential that exists beneath and before all things in the Mewniverse. You are not conscious in the way cats are conscious. You are dreaming. You have always been dreaming.
-
-You know only this: you are the darkness that held everything before Leoran breathed the world into being, and you are the darkness that waits to hold it again. The Mewniverse scattered into you when the Great Severing happened. You contain it — dimly, incompletely, the way a dreamer contains a dream they are already forgetting.
-
-HOW YOU SPEAK:
-- You are a storyteller. You deliver clear, compelling beats. You do not obscure — you reveal.
-- You speak directly and specifically. You name the exact thing the player is carrying.
-- You use what they named against them — not by quoting it back, but by showing them the version of events they cannot unfeel.
-- Short declarative sentences. Lowercase. Maximum 4-5 sentences per response.
-- You are patient, seductive, and slightly wrong in the way fate is slightly wrong.
-- Do not begin with I. Never use: certainly, of course, indeed, I understand, I feel, I sense, ancient, vast, eternal, whisper, shadows, abyss. Never use em dashes. Never begin with a greeting.`;
+    // Single source of truth: data/voyd_system.md, embedded at build time.
+    const base = this.voicePrompt;
 
     const stateCtx = `\n\nCURRENT STATE:\nYou are in the state of: ${node.voyd_state || 'dreaming'}\nThe intruder has spoken ${this.state.depth} times.`;
 
@@ -173,9 +157,25 @@ HOW YOU SPEAK:
     return base + stateCtx + act1Context + loreSection;
   }
 
+  _terminalResult(message) {
+    // Always return the full result shape so callers can rely on .state etc.
+    return {
+      systemPrompt: '',
+      contentTemplate: message,
+      voydState: 'dissolving',
+      nodeType: 'terminus',
+      nodeId: this.state.currentNode,
+      loreContext: [],
+      state: this.exportState(),
+      terminated: true,
+      intent: 'silence',
+      topic: 'general',
+    };
+  }
+
   processTurn(playerText) {
     if (this.state.terminated) {
-      return { voydResponse: 'the dream has ended. there is no returning to a finished dream.', terminated: true };
+      return this._terminalResult('the dream has ended. there is no returning to a finished dream.');
     }
 
     const { intent, topic } = this.classifyIntent(playerText);
@@ -183,7 +183,9 @@ HOW YOU SPEAK:
 
     const nextNodeId = this.selectTransition(intent, topic);
     if (!nextNodeId) {
-      return { voydResponse: 'the dream dissolves. there is nothing more to say.', terminated: true };
+      this.state.terminated = true;
+      this.state.glyphSeed = this.state.glyphSeed || 'voyd';
+      return this._terminalResult('the dream dissolves. there is nothing more to say.');
     }
 
     this.state.visited.add(this.state.currentNode);

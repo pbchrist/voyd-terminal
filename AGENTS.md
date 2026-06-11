@@ -3,9 +3,9 @@
 You are working on the Voyd Terminal at /home/patrick/voyd-terminal on beastmaster.
 
 ## State of the project
-- Act 1: fixed Akinator node graph in data/act1_nodes.json (nodes 1.0–10.0)
-- Act 2: live AI conversation, system prompt in frontend/voyd_engine.js
-- evolve.py: autonomous cron script (in progress on feat/evolve branch)
+- Act 1: fixed Akinator node graph in data/act1_nodes.json (nodes 1.0–10.0, archetype epilogues, generated gen_* nodes)
+- Act 2: live AI conversation; the Voyd voice prompt lives in data/voyd_system.md (single source of truth, embedded into voyd_data.json at build time)
+- evolve.py: autonomous evolution pipeline (daily cron at 03:00)
 - Local model: Qwen3.6-27B-Q6_K running on llama.cpp at http://localhost:8081/v1
 - Public model URL: https://patrick-beastmaster.tailf32530.ts.net/llm/v1
 - Repo: https://github.com/pbchrist/voyd-terminal
@@ -49,19 +49,34 @@ There is **no** `pyproject.toml`, `setup.py`, `package.json`, `Cargo.toml`, or s
 ```
 .
 ├── data/
-│   └── story_graph.json          # Master narrative DAG (nodes, transitions, intent map)
-├── engine/                       # Python lore + narrative logic
+│   ├── act1_nodes.json           # Canonical Act 1 node graph (authored + generated)
+│   ├── story_graph.json          # Act 2 fallback DAG (nodes, transitions, intent map)
+│   ├── story_map.json            # Structural map (dialectic roles, tension, branches)
+│   ├── rubric.json               # Scoring rubric + decision log
+│   ├── canon_events.json         # Canon moments available to the evolution pipeline
+│   ├── walk_scores.json          # Phantom walker output
+│   ├── voyd_system.md            # Canonical Voyd voice prompt (single source of truth)
+│   └── voyd_canon_mythography.md # Complete canon reference
+├── engine/
 │   ├── __init__.py               # Empty
-│   ├── narrative_engine.py       # DAG traversal, intent classification, prompt builder
-│   └── lore_index.py             # Keyword-based lore retrieval from external wiki files
-├── frontend/                     # Static web assets
+│   └── lore_index.py             # Keyword-based lore retrieval from wiki/book files
+├── frontend/                     # Static web assets (deployed to GitHub Pages)
 │   ├── index.html                # Single-page immersive UI
-│   ├── voyd_engine.js            # Client-side narrative engine (mirrors Python logic)
-│   └── voyd_data.json            # Generated compact data file (see Build)
-├── build_frontend.py             # Script that generates voyd_data.json
+│   ├── voyd_engine.js            # Client-side narrative engine (the only engine)
+│   ├── voyd_data.json            # Generated compact data file (see Build)
+│   └── data/act1_nodes.json      # Generated copy of data/act1_nodes.json
+├── scripts/
+│   ├── headless_play.py          # Pure-Python Act 1 traversal (no browser)
+│   ├── llm_play.py               # LLM-driven archetype player
+│   ├── phantom_walkers.py        # Walk simulation + uniqueness gate
+│   └── hunt_itch.py              # Weekly itch.io Twine structural analysis
+├── tests/
+│   └── test_evolution_directives.py  # Hermetic suite (LLM mocked)
+├── evolve.py                     # Daily narrative evolution pipeline
+├── build_frontend.py             # Script that generates frontend data files
 ├── requirements.txt              # Python dependencies
 ├── start.sh                      # Dev server launcher
-└── venv/                         # Python virtual environment
+└── .venv/                        # Python virtual environment
 ```
 
 ---
@@ -98,16 +113,16 @@ Runs `python3 -m http.server 8765` from the `frontend/` directory for local test
 - Otherwise, if `voyd_key` is set (via `localStorage`), it calls the public Qwen proxy at `patrick-beastmaster.tailf32530.ts.net`.
 - If neither is available, it falls back to `content_template`.
 
-### Narrative Engine (`engine/narrative_engine.py` and `frontend/voyd_engine.js`)
-Both implementations share the same logic:
+### Narrative Engine (`frontend/voyd_engine.js`)
+The engine runs entirely client-side:
 - **Nodes** have types: `threshold`, `dialogue`, `revelation`, `choice`, `terminus`.
-- **Intent classification** maps player text to one of: `inquiry`, `confession`, `challenge`, `silence`, plus a topic.
+- **Intent classification** maps player text to one of: `inquiry`, `confession`, `challenge`, `silence`, plus a topic. Questions (who/what/why/...) always classify as `inquiry`.
 - **Emotional vector** tracks `surrender`, `defiance`, `curiosity` (0.0–1.0). Values shift per turn and decay slightly.
-- **Transition selection** evaluates conditions against intent, topic, depth, and emotional state. Unvisited nodes are preferred. Dead-ends fall back to `gravity` or `choice`.
-- **System prompt construction** builds a highly specific persona prompt for the LLM, embedding lore fragments and current node state. The prompt enforces lowercase output, dream-logic, sentence count limits, and banned phrases.
+- **Transition selection** evaluates conditions against intent, topic, depth, and emotional state via a small clause parser (no `eval`). Unvisited nodes are preferred. Dead-ends fall back to `gravity` or `choice`, then terminate gracefully.
+- **System prompt construction** combines the canonical voice prompt (from `data/voyd_system.md`, embedded as `voice_prompt` in `voyd_data.json` at build time) with lore fragments and current node state. The prompt enforces lowercase output, dream-logic, sentence count limits, and banned phrases.
 
 ### Lore Index (`engine/lore_index.py`)
-- Scans markdown and text files under `/home/patrick/Gate_of_Nyandor` (the project's external wiki/novel source material).
+- Scans markdown and text files under `/home/patrick/Gate_of_Nyandor` (the project's external wiki/novel source material), plus the explicit `BOOK_FILES` list (including `data/voyd_canon_mythography.md`).
 - Chunks text by paragraph and indexes by keyword topics defined in `LORE_TOPICS`.
 - Retrieval is keyword-based, not vector/semantic. It supports topic queries and free-text search.
 - The index is a singleton loaded lazily via `get_index()`.
@@ -140,7 +155,7 @@ The master narrative source. Structure:
 ```
 
 ### `frontend/voyd_data.json`
-Generated by `build_frontend.py`. Same shape as `story_graph.json` but with `lore_map` attached (topic → lore chunks). Used by the client-side engine.
+Generated by `build_frontend.py`. Same shape as `story_graph.json` but with `lore_map` attached (lore_context topic → lore chunks; empty topics omitted) and `voice_prompt` (the canonical Voyd voice from `data/voyd_system.md`). Used by the client-side engine.
 
 ---
 
@@ -155,22 +170,22 @@ Generated by `build_frontend.py`. Same shape as `story_graph.json` but with `lor
 
 ## Security Considerations
 
-- The frontend's LLM mode (`localStorage.getItem('voyd_key')`) is explicitly marked as "only for private/testing" in the code.
+- The frontend's LLM mode (`localStorage.getItem('voyd_key')`) is explicitly marked as "only for private/testing" in the code. The key is sent as a Bearer token to the Qwen proxy.
 - Session state is held in localStorage/memory; there is no authentication or authorization.
 
 ---
 
 ## Testing
 
-There is no test suite, test framework, or CI configuration in this project. Testing is manual via browser interaction.
+`python3 -m unittest discover -s tests -v` runs the hermetic suite (graph integrity, archetype walks, story_map consistency, evolution pipeline, recalibration, phantom walker math). It makes no LLM or network calls — `qwen_chat` is mocked. Browser interaction remains the final manual check.
 
 ---
 
 ## Deployment Notes
 
-- The frontend is designed to be served statically (e.g., GitHub Pages).
-- The backend is a single-process FastAPI app suitable for running behind a reverse proxy.
-- There is no Docker configuration, no production WSGI/ASGI server setup beyond Uvicorn, and no database.
+- The frontend is served statically (GitHub Pages, deployed from `frontend/` on push to main).
+- There is no backend service. The optional live-LLM mode talks to an external llama.cpp proxy; if unreachable, the frontend falls back to static `content_template` text.
+- There is no Docker configuration and no database.
 
 ---
 
@@ -178,11 +193,11 @@ There is no test suite, test framework, or CI configuration in this project. Tes
 
 Run these steps before every commit and push. Do not push if any step fails.
 
-1. Start the static server: `./start.sh` — confirm it starts without errors
-2. Graph integrity: load `data/act1_nodes.json` and walk every path from node `1.0` to node `10.0` — confirm every `next` pointer resolves and no dead ends exist
-3. Act 1 traversal: simulate all four archetype paths (person_present, person_gone, self_regret, self_unlived) and confirm `portalValue`, `archetype`, and `playerAnswer` are set correctly at node `10.0`
-4. Act 2 handoff: confirm the session state carrying those three values reaches the system prompt builder in `voyd_engine.js`
-5. If all pass: `git add -A && git commit -m "<message>" && git push origin main`
+1. Run the test suite: `python3 -m unittest discover -s tests -v` — all tests must pass. It covers graph integrity (every `next` pointer resolves, no dead ends), all four archetype walks (person_present, person_gone, self_regret, self_unlived — `portalValue` and `archetype` set correctly), and the evolution pipeline.
+2. Rebuild frontend data: `python3 build_frontend.py` — confirm `frontend/data/act1_nodes.json` is in sync
+3. Start the static server: `./start.sh` — confirm it starts without errors
+4. Act 2 handoff: confirm the session state carrying `portalValue`, `archetype`, and `playerAnswer` reaches the system prompt builder in `voyd_engine.js`
+5. If all pass: commit on a `feat/*` branch and `git push origin <branch>`. Never push to main directly (see rules above); main is updated via merge.
 6. If any fail: report exactly what broke. Do not touch git.
 
 ---

@@ -83,8 +83,9 @@
 <script src="voyd_engine.js"></script>
 <script>
 // ── CONFIG ────────────────────────────────────────────────────
-// For direct LLM calls via Qwen proxy (key exposed — only for private/testing):
-const KIMI_API_KEY = localStorage.getItem('voyd_key') || '';
+// For direct LLM calls via the public Qwen proxy (key exposed — only for private/testing).
+// Sent as a Bearer token; the proxy may also be open, in which case it acts as a gate.
+const LLM_API_KEY = localStorage.getItem('voyd_key') || '';
 // For proxy backend, set API_BASE:
 const API_BASE = localStorage.getItem('voyd_api') || '';
 
@@ -379,8 +380,8 @@ async function submit(text) {
       } else { throw new Error('proxy failed'); }
     } catch(e) { voydText = result.contentTemplate; }
   }
-  // Fall back to direct Kimi API call
-  else if (KIMI_API_KEY) {
+  // Fall back to direct Qwen proxy call
+  else if (LLM_API_KEY) {
     try {
       const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
       const messages = [
@@ -391,6 +392,7 @@ async function submit(text) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${LLM_API_KEY}`,
         },
         body: JSON.stringify({
           model: 'Qwen3.6-27B-Q6_K',
@@ -501,7 +503,7 @@ function endSession(seed) {
     console.log('Voyd data loaded. Act 1 nodes:', Object.keys(act1Nodes).length);
   } catch(e) {
     console.error('Failed to load data:', e);
-    voydData = { meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {} };
+    voydData = { meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {}, voice_prompt: '' };
     act1Nodes = {};
   }
   runThreshold();

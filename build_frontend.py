@@ -15,14 +15,23 @@ with open("data/story_graph.json") as f:
 from engine.lore_index import get_index
 index = get_index()
 
-# Build compact topic → chunks map
+# Build compact topic → chunks map, keyed by the lore_context names the
+# client-side engine actually queries at runtime.
+lore_topics = set()
+for node in graph["nodes"].values():
+    lore_topics.update(node.get("lore_context", []))
+
 lore_map = {}
-for topic in graph["intent_map"]["keywords"].keys():
+for topic in sorted(lore_topics):
     chunks = index.query([topic], max_results=3)
-    lore_map[topic] = chunks
+    if chunks:
+        lore_map[topic] = chunks
 
 # Also include general fallback
 lore_map["general"] = index.query(["voyd_entity", "mewniverse"], max_results=3)
+
+# The Voyd voice prompt has a single source of truth: data/voyd_system.md
+voice_prompt = Path("data/voyd_system.md").read_text(encoding="utf-8").strip()
 
 # Write compact data file
 output = {
@@ -30,6 +39,7 @@ output = {
     "nodes": graph["nodes"],
     "intent_map": graph["intent_map"],
     "lore_map": lore_map,
+    "voice_prompt": voice_prompt,
 }
 
 out_path = Path("frontend/voyd_data.json")

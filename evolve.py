@@ -12,8 +12,10 @@ The cycle is intentionally data-driven:
 
 from __future__ import annotations
 
+import fcntl
 import json
 import os
+import re
 import subprocess
 import sys
 import textwrap
@@ -32,26 +34,14 @@ RUBRIC_PATH = DATA_DIR / "rubric.json"
 CANON_EVENTS_PATH = DATA_DIR / "canon_events.json"
 BUILD_SCRIPT = REPO_ROOT / "build_frontend.py"
 LOG_PATH = REPO_ROOT / "logs" / "evolve.log"
+LOCK_PATH = REPO_ROOT / "logs" / ".evolve.lock"
 AUTO_PROMOTE_DEFAULT = 24
 AUTO_KILL_DEFAULT = 18
+PHANTOM_UNIQUENESS_FLOOR = 7.0
+SCORE_AXES = ("dialectic_function", "tension_advancement", "branch_choke_logic")
 
 QWEN_BASE_URL = "http://localhost:8081/v1"
 QWEN_MODEL = "Qwen3.6-27B-Q6_K"
-
-INTENSE_WORDS = {
-    "grief", "loss", "want", "hunger", "dark", "silence", "fall", "depth",
-    "void", "dream", "pain", "need", "fear", "longing", "weight", "sorrow",
-    "break", "burn", "tear", "shatter", "crack", "pull", "open", "close",
-    "bleed", "dissolve", "forget", "remember", "refuse", "resist", "hold",
-    "release", "reach", "move", "step", "turn", "become", "drift", "drown",
-    "hunger", "hunger", "wound", "scar", "ghost", "echo", "absence",
-}
-
-DYNAMIC_WORDS = {
-    "reach", "pull", "open", "close", "fall", "break", "burn", "tear",
-    "shatter", "move", "step", "turn", "become", "hold", "release",
-    "feed", "starve", "grow", "double", "shift", "change", "rewrite",
-}
 
 
 def log(message: str) -> None:
@@ -129,18 +119,20 @@ def detect_structural_issues(state: dict[str, Any]) -> list[str]:
         direct_next = node.get("next")
         if direct_next and direct_next != "ACT2" and direct_next not in act_nodes:
             issues.append(f"{node_id} has unresolved next pointer {direct_next}")
+        for archetype, target in (node.get("next_archetype") or {}).items():
+            if target != "ACT2" and target not in act_nodes:
+                issues.append(f"{node_id} next_archetype[{archetype}] points to missing {target}")
         for choice in node.get("choices", []):
             nxt = choice.get("next")
             if nxt and nxt != "ACT2" and nxt not in act_nodes:
                 issues.append(f"{node_id} choice '{choice.get('label')}' points to missing {nxt}")
 
-    # Existing generated Act 2 nodes must be reachable from 10.0 and interactive.
-    reachable = reachable_nodes(act_nodes, "10.0")
-    for i in range(1, 20):
-        gen_id = f"gen_{i}"
-        if gen_id in act_nodes and gen_id not in reachable:
-            issues.append(f"{gen_id} is not reachable from 10.0")
-        if gen_id in act_nodes and not act_nodes[gen_id].get("choices"):
+    # Every generated node must be reachable from the start and interactive.
+    reachable = reachable_nodes(act_nodes, "1.0")
+    for gen_id in sorted(n for n in act_nodes if n.startswith("gen_")):
+        if gen_id not in reachable:
+            issues.append(f"{gen_id} is not reachable from 1.0")
+        if not act_nodes[gen_id].get("choices"):
             issues.append(f"{gen_id} has no choices")
 
     # Story map should mirror structural exits.
@@ -185,10 +177,24 @@ def reachable_nodes(nodes: dict[str, Any], start: str) -> set[str]:
         node = nodes[node_id]
         if node.get("next"):
             stack.append(node["next"])
+        for target in (node.get("next_archetype") or {}).values():
+            stack.append(target)
         for choice in node.get("choices", []):
             if choice.get("next"):
                 stack.append(choice["next"])
     return seen
+
+
+def acquire_lock():
+    """Prevent overlapping evolution runs (the Telegram poll can block for hours)."""
+    LOCK_PATH.parent.mkdir(exist_ok=True)
+    handle = LOCK_PATH.open("w")
+    try:
+        fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        handle.close()
+        return None
+    return handle
 
 
 def select_canon_event(state: dict[str, Any], preferred_id: str | None = None) -> dict[str, Any]:
@@ -312,8 +318,8 @@ def get_last_nodes(act1_nodes: dict[str, Any], count: int = 3) -> list[dict[str,
     return [n for _, n in promoted[-count:]]
 
 
-def score_node_dramaturg(node: dict[str, Any], act1_nodes: dict[str, Any]) -> dict[str, Any]:
-    """Dramaturgical evaluation via Qwen. Score 0-10."""
+def score_node(node: dict[str, Any], rubric: dict[str, Any], act1_nodes: dict[str, Any]) -> dict[str, Any]:
+    """Dramaturgical evaluation via Qwen on the rubric's three axes (0-10 each, total 0-30)."""
     context_nodes = get_last_nodes(act1_nodes)
     context_texts = []
     for i, ctx in enumerate(context_nodes, 1):
@@ -325,46 +331,62 @@ def score_node_dramaturg(node: dict[str, Any], act1_nodes: dict[str, Any]) -> di
     choices = node.get("choices", [])
     choice_text = "\n".join(f"- {c.get('label', '')}" for c in choices)
 
+    axis_lines = []
+    for axis in SCORE_AXES:
+        desc = rubric.get("axes", {}).get(axis, {}).get("description", "")
+        axis_lines.append(f"- {axis}: {desc}")
+
     prompt = (
         "You are a dramaturg. You have just read this scene in context of the scenes before it.\n\n"
         f"PREVIOUS SCENES:\n{context_block}\n\n"
         f"NEW SCENE:\n{current_text}\n\n"
         f"CHOICES PRESENTED:\n{choice_text}\n\n"
-        "Does it increase dramatic pressure (stakes)? "
-        "Does the choice it presents cost the player something real? "
-        "Is the question it leaves unanswered harder to live with than the question before it?\n\n"
-        "Score it 0-10 and explain why. Format your response as:\n"
-        "SCORE: <number>\n"
-        "REASON: <explanation>"
+        "Score the scene 0-10 on each of these axes:\n"
+        + "\n".join(axis_lines) + "\n\n"
+        "Respond in exactly this format:\n"
+        "DIALECTIC_FUNCTION: <0-10>\n"
+        "TENSION_ADVANCEMENT: <0-10>\n"
+        "BRANCH_CHOKE_LOGIC: <0-10>\n"
+        "REASON: <one short paragraph>"
     )
 
+    promote_threshold = rubric.get("auto_promote_threshold", AUTO_PROMOTE_DEFAULT)
+    kill_threshold = rubric.get("auto_kill_threshold", AUTO_KILL_DEFAULT)
+
     try:
-        raw = qwen_chat([{"role": "user", "content": prompt}], max_tokens=200, temperature=0.7)
+        raw = qwen_chat([{"role": "user", "content": prompt}], max_tokens=300, temperature=0.7)
     except Exception as exc:
         log(f"Dramaturg scoring failed ({exc}); defaulting to uncertain")
-        return {"score": 5, "reason": f"scoring error: {exc}", "decision": "uncertain"}
+        axes = {axis: 6 for axis in SCORE_AXES}
+        return {
+            "axes": axes,
+            "total": sum(axes.values()),
+            "reason": f"scoring error: {exc}",
+            "decision": "uncertain",
+            "raw": "",
+        }
 
-    # Parse score
-    score = 5
-    reason = raw
-    for line in raw.split("\n"):
-        if line.strip().startswith("SCORE:"):
-            try:
-                score = int("".join(c for c in line if c.isdigit()) or "5")
-                score = max(0, min(10, score))
-            except ValueError:
-                pass
-        if line.strip().startswith("REASON:"):
-            reason = line.split("REASON:", 1)[1].strip()
+    axes = {}
+    for axis in SCORE_AXES:
+        match = re.search(rf"{axis}\s*:\s*(\d+)", raw, re.IGNORECASE)
+        value = int(match.group(1)) if match else 6
+        axes[axis] = max(0, min(10, value))
 
+    reason = raw.strip()
+    reason_match = re.search(r"REASON\s*:\s*(.+)", raw, re.IGNORECASE | re.DOTALL)
+    if reason_match:
+        reason = reason_match.group(1).strip()
+
+    total = sum(axes.values())
     decision = (
-        "promote" if score >= 7
-        else "kill" if score <= 4
+        "promote" if total >= promote_threshold
+        else "kill" if total < kill_threshold
         else "uncertain"
     )
 
     return {
-        "score": score,
+        "axes": axes,
+        "total": total,
         "reason": reason,
         "decision": decision,
         "raw": raw,
@@ -372,13 +394,12 @@ def score_node_dramaturg(node: dict[str, Any], act1_nodes: dict[str, Any]) -> di
 
 
 def find_act2_frontier(nodes: dict[str, Any]) -> list[str]:
+    """All nodes with a choice pointing at ACT2 — the same topology phantom walkers test."""
     frontier: list[str] = []
     for node_id, node in nodes.items():
-        if not node_id.startswith("gen_"):
-            continue
         if any(choice.get("next") == "ACT2" for choice in node.get("choices", [])):
             frontier.append(node_id)
-    return sorted(frontier, key=lambda item: int(item.split("_", 1)[1]))
+    return sorted(frontier)
 
 
 def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, Any], root: Path = REPO_ROOT) -> str:
@@ -396,11 +417,14 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
             if choice.get("next") == "ACT2":
                 choice["next"] = new_id
 
+    # Keep the raw LLM transcript out of data shipped to players' browsers.
+    stored_score = {k: v for k, v in score.items() if k != "raw"}
+
     promoted = dict(node)
     promoted.update({
         "id": new_id,
         "label": node.get("label", new_id),
-        "score": score,
+        "score": stored_score,
         "promoted_at": now,
     })
     nodes[new_id] = promoted
@@ -413,21 +437,24 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
             story["nodes"][frontier_id]["branches_to"] = [
                 new_id if nxt == "ACT2" else nxt for nxt in story["nodes"][frontier_id].get("branches_to", [])
             ]
+    branches_to = []
+    for choice in node.get("choices", []):
+        if choice["next"] not in branches_to:
+            branches_to.append(choice["next"])
     story["nodes"][new_id] = {
         "id": new_id,
         "type": node.get("type", "beat"),
         "act": node.get("act", story.get("act", 2)),
         "dialectic_role": node.get("dialectic_role"),
         "tension_delta": node.get("tension_delta", 0),
-        "branches_to": [choice["next"] for choice in node.get("choices", [])],
+        "branches_to": branches_to,
         "converges_from": frontier,
         "canon_event": node.get("canon_event"),
-        "score": score,
+        "score": stored_score,
     }
     current_tension = float(story.get("tension_level", 0))
     story["tension_level"] = round(current_tension + max(0, node.get("tension_delta", 0)), 2)
-    story["open_branches"] = ["ACT2"]
-    story["structural_issues"] = []
+    story["open_branches"] = branches_to
 
     for event in events:
         if event.get("id") == node.get("canon_event"):
@@ -435,7 +462,7 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
             event["used_at"] = now
             event["node_id"] = new_id
 
-    rubric.setdefault("decisions", []).append({
+    record_decision(rubric, {
         "at": now,
         "node_id": new_id,
         "canon_event": node.get("canon_event"),
@@ -451,19 +478,18 @@ def promote_node(state: dict[str, Any], node: dict[str, Any], score: dict[str, A
 
 
 def recalibrate_rubric(rubric: dict[str, Any]) -> None:
-    """Analyze the last 10 decisions and suggest adjusted weights based on patterns."""
-    decisions = rubric.get("decisions", [])
-    if len(decisions) < 5:
+    """Analyze the last 10 axis-scored decisions and adjust weights based on patterns."""
+    scored = [
+        d for d in rubric.get("decisions", [])
+        if isinstance(d.get("score"), dict) and isinstance(d["score"].get("axes"), dict)
+    ]
+    if len(scored) < 5:
         return
 
-    recent = decisions[-10:]
-    axes_names = ["dialectic_function", "tension_advancement", "branch_choke_logic"]
-    means = {axis: sum(d["score"]["axes"][axis] for d in recent) / len(recent) for axis in axes_names}
-    thresholds = {
-        "dialectic_function": rubric["axes"]["dialectic_function"]["threshold"],
-        "tension_advancement": rubric["axes"]["tension_advancement"]["threshold"],
-        "branch_choke_logic": rubric["axes"]["branch_choke_logic"]["threshold"],
-    }
+    recent = scored[-10:]
+    axes_names = list(SCORE_AXES)
+    means = {axis: sum(d["score"]["axes"].get(axis, 0) for d in recent) / len(recent) for axis in axes_names}
+    thresholds = {axis: rubric["axes"][axis]["threshold"] for axis in axes_names}
 
     # Compute drift: how far each axis mean is from its threshold, normalized
     drifts = {}
@@ -472,11 +498,7 @@ def recalibrate_rubric(rubric: dict[str, Any]) -> None:
 
     # If an axis consistently scores far above threshold, reduce weight slightly.
     # If consistently near or below threshold, increase weight.
-    base_weights = {
-        "dialectic_function": 0.4,
-        "tension_advancement": 0.35,
-        "branch_choke_logic": 0.25,
-    }
+    base_weights = {axis: rubric["axes"][axis]["weight"] for axis in axes_names}
     adjustments = {}
     for axis in axes_names:
         drift = drifts[axis]
@@ -503,6 +525,14 @@ def recalibrate_rubric(rubric: dict[str, Any]) -> None:
     # Apply the new weights immediately
     for axis in axes_names:
         rubric["axes"][axis]["weight"] = new_weights[axis]
+
+
+def record_decision(rubric: dict[str, Any], entry: dict[str, Any]) -> None:
+    """Append a decision and recalibrate weights after every 5 decisions (directive step 10)."""
+    decisions = rubric.setdefault("decisions", [])
+    decisions.append(entry)
+    if len(decisions) % 5 == 0:
+        recalibrate_rubric(rubric)
 
 
 def send_structural_issues_to_telegram(issues: list[str]) -> bool:
@@ -608,7 +638,51 @@ def run_build(root: Path = REPO_ROOT) -> None:
     subprocess.run([sys.executable, str(root / "build_frontend.py")], cwd=root, check=True)
 
 
+def run_phantom_gate(node: dict[str, Any], state: dict[str, Any]) -> float:
+    """Insert the candidate into a copy of the graph, walk it, return min path uniqueness."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py")
+    )
+    pw = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(pw)
+    log("Running phantom walker uniqueness test...")
+    min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
+    log(f"Phantom walker min uniqueness: {min_uniqueness}")
+    return min_uniqueness
+
+
+def gated_promote(state: dict[str, Any], node: dict[str, Any], score: dict[str, Any],
+                  event: dict[str, Any], context: str) -> int:
+    """Reverse pipeline: phantom walkers must pass before promotion."""
+    node["id"] = next_generated_id(state["act1_nodes"]["nodes"])
+    min_uniqueness = run_phantom_gate(node, state)
+    if min_uniqueness < PHANTOM_UNIQUENESS_FLOOR:
+        record_decision(state["rubric"], {
+            "at": datetime.now().isoformat(),
+            "canon_event": event["id"],
+            "score": score,
+            "decision": "kill",
+            "reason": (
+                f"{context} but phantom walker uniqueness {min_uniqueness} "
+                f"below {PHANTOM_UNIQUENESS_FLOOR}"
+            ),
+        })
+        write_json(RUBRIC_PATH, state["rubric"])
+        log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
+        return 0
+    node_id = promote_node(state, node, score, REPO_ROOT)
+    run_build(REPO_ROOT)
+    log(f"Promoted {node_id} from canon event {event['id']} ({context})")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
+    lock = acquire_lock()
+    if lock is None:
+        log("Another evolve.py run holds the lock; exiting")
+        return 4
+
     argv = argv or sys.argv[1:]
     preferred = argv[0] if argv else os.environ.get("VOYD_CANON_EVENT")
     state = load_state(REPO_ROOT)
@@ -619,40 +693,24 @@ def main(argv: list[str] | None = None) -> int:
         send_structural_issues_to_telegram(issues)
         return 2
 
-    event = select_canon_event(state, preferred_id=preferred)
+    try:
+        event = select_canon_event(state, preferred_id=preferred)
+    except RuntimeError as exc:
+        log(f"No evolution possible: {exc}")
+        return 0
     log(f"Selected canon event: {event['id']}")
     node = generate_node(state, event)
-    score = score_node_dramaturg(node, state["act1_nodes"])
-    log(f"Generated node score: {score['score']}/10 reason={score['reason'][:60]} decision={score['decision']}")
+    score = score_node(node, state["rubric"], state["act1_nodes"])
+    log(
+        f"Generated node score: {score['total']}/30 axes={score['axes']} "
+        f"reason={score['reason'][:60]} decision={score['decision']}"
+    )
 
     if score["decision"] == "promote":
-        # Reverse pipeline: phantom walkers must pass before promotion
-        import importlib.util
-        spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
-        pw = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(pw)
-        node["id"] = next_generated_id(state["act1_nodes"]["nodes"])
-        log("Running phantom walker uniqueness test...")
-        min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
-        log(f"Phantom walker min uniqueness: {min_uniqueness}")
-        if min_uniqueness < 7.0:
-            state["rubric"].setdefault("decisions", []).append({
-                "at": datetime.now().isoformat(),
-                "canon_event": event["id"],
-                "score": score,
-                "decision": "kill",
-                "reason": f"dramaturg score {score['score']} but phantom walker uniqueness {min_uniqueness} below 7.0",
-            })
-            write_json(RUBRIC_PATH, state["rubric"])
-            log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
-            return 0
-        node_id = promote_node(state, node, score, REPO_ROOT)
-        run_build(REPO_ROOT)
-        log(f"Promoted {node_id} from canon event {event['id']}")
-        return 0
+        return gated_promote(state, node, score, event, f"dramaturg total {score['total']}")
 
     if score["decision"] == "kill":
-        state["rubric"].setdefault("decisions", []).append({
+        record_decision(state["rubric"], {
             "at": datetime.now().isoformat(),
             "canon_event": event["id"],
             "score": score,
@@ -680,29 +738,7 @@ def main(argv: list[str] | None = None) -> int:
     now = datetime.now().isoformat()
 
     if reply == "YES":
-        import importlib.util
-        spec = importlib.util.spec_from_file_location("phantom_walkers", str(REPO_ROOT / "scripts" / "phantom_walkers.py"))
-        pw = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(pw)
-        node["id"] = next_generated_id(state["act1_nodes"]["nodes"])
-        log("Running phantom walker uniqueness test...")
-        min_uniqueness, _ = pw.test_candidate(node, state["act1_nodes"])
-        log(f"Phantom walker min uniqueness: {min_uniqueness}")
-        if min_uniqueness < 7.0:
-            state["rubric"].setdefault("decisions", []).append({
-                "at": datetime.now().isoformat(),
-                "canon_event": event["id"],
-                "score": score,
-                "decision": "kill",
-                "reason": f"Telegram YES but phantom walker uniqueness {min_uniqueness} below 7.0",
-            })
-            write_json(RUBRIC_PATH, state["rubric"])
-            log(f"Killed generated node for {event['id']} — uniqueness too low ({min_uniqueness})")
-            return 0
-        node_id = promote_node(state, node, score, REPO_ROOT)
-        run_build(REPO_ROOT)
-        log(f"Promoted {node_id} from canon event {event['id']} (Telegram YES)")
-        return 0
+        return gated_promote(state, node, score, event, "Telegram YES")
 
     if reply == "NO":
         # Mark event as used per directive
@@ -711,7 +747,7 @@ def main(argv: list[str] | None = None) -> int:
                 ev["used"] = True
                 ev["used_at"] = now
                 ev["decision"] = "killed_by_patrick"
-        state["rubric"].setdefault("decisions", []).append({
+        record_decision(state["rubric"], {
             "at": now,
             "canon_event": event["id"],
             "score": score,
@@ -725,7 +761,7 @@ def main(argv: list[str] | None = None) -> int:
 
     if reply == "NOT YET":
         # Hold event as unused, note buildup needed
-        state["rubric"].setdefault("decisions", []).append({
+        record_decision(state["rubric"], {
             "at": now,
             "canon_event": event["id"],
             "score": score,

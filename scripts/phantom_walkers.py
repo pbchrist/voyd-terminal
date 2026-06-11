@@ -42,6 +42,22 @@ def jaccard_similarity(set_a, set_b):
     return inter / union if union else 0.0
 
 
+def min_uniqueness(paths):
+    """Minimum per-walk uniqueness score (10 * (1 - Jaccard with most similar other walk))."""
+    scores = []
+    for i, path in enumerate(paths):
+        own = set(path)
+        best_sim = 0.0
+        for j, other in enumerate(paths):
+            if i == j:
+                continue
+            sim = jaccard_similarity(own, set(other))
+            if sim > best_sim:
+                best_sim = sim
+        scores.append(round(10 * (1 - best_sim), 2))
+    return min(scores) if scores else 10.0
+
+
 def score_walk(walk, all_walks, story_map):
     path = walk["path"]
     nodes = story_map.get("nodes", {})
@@ -208,7 +224,12 @@ def run_walks(act1_data=None, save=True):
 
 
 def test_candidate(candidate_node, act1_data):
-    """Temporarily insert candidate and test path uniqueness. Returns min uniqueness score."""
+    """Temporarily insert candidate and test path uniqueness. Returns min uniqueness score.
+
+    The candidate is excluded from the uniqueness comparison: by construction it is
+    spliced into every walk, so counting it would penalize deliberate convergence
+    (choke) nodes. What matters is whether the walks still diverge around it.
+    """
     import copy
     test_data = copy.deepcopy(act1_data)
     test_nodes = test_data["nodes"]
@@ -223,8 +244,12 @@ def test_candidate(candidate_node, act1_data):
     test_nodes[candidate_node["id"]] = candidate_node
 
     report, _ = run_walks(act1_data=test_data, save=False)
-    min_uniqueness = min(w["scores"]["path_uniqueness"] for w in report["walks"])
-    return min_uniqueness, report
+    candidate_id = candidate_node["id"]
+    paths = [
+        [n for n in w["node_sequence"] if n != candidate_id]
+        for w in report["walks"]
+    ]
+    return min_uniqueness(paths), report
 
 
 def main():
