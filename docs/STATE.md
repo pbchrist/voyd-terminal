@@ -84,6 +84,14 @@ canon → phantom-gate → promote/kill/Telegram → self-play + reader-judge �
 0 15 * * * cd /home/patrick/voyd-terminal && python3 scripts/phantom_walkers.py >> logs/phantom.log 2>&1
 ```
 
+## Enforcement
+
+A **Stop hook** (`.claude/settings.json` → `.claude/hooks/check_state_md.sh`) blocks any
+Claude session from finishing a turn while the repo has changed >20 min more recently than
+this file. If you're reading this because the hook redirected you: add a session-log entry,
+refresh "Current state" and "Next steps", then stop. The 20-minute grace means rapid
+iteration won't nag every turn.
+
 ## Session log
 
 ### 2026-06-10/11 — audit + fixes (branch `feat/audit-fixes`, commit 3f0ca18)

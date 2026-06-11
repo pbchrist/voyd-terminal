@@ -6,3 +6,4 @@ chromadb/
 *.pkl
 .DS_Store
 logs/
+.claude/settings.local.json
