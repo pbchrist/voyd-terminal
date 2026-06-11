@@ -50,6 +50,24 @@
         "raw": "SCORE: 9\nREASON: The scene achieves a masterful pivot in dramatic pressure by shifting from abstract existential dread to immediate, visceral sensory confrontation.\n\n1. **Dramatic Pressure (Stakes):** The stakes are elevated because the protagonist is no longer merely observing their decay (Scenes 1-2) or accepting nihilism (Scene 3); they are now being *invaded*. The \"four small lights\" represent an external force or internal awakening that violates the protagonist's established numbness. The specificity of the sensations (hot iron, wet moss, cold glass) grounds the metaphysical in the physical, making the threat tangible. The choice is no longer about philosophical alignment but about physical/psychological survival or transformation.\n\n2. **Real Cost:** The cost of the choice is profound and irreversible.\n    *   *Pulling the lights closer* costs the protagonist their remaining humanity or sanity. To \"swallow the color\" implies a fundamental alteration of self"
       },
       "decision": "promote"
+    },
+    {
+      "at": "2026-06-11T01:01:02.660055",
+      "canon_event": "soryn_null_state_pain",
+      "score": {
+        "axes": {
+          "dialectic_function": 4,
+          "tension_advancement": 3,
+          "branch_choke_logic": 6
+        },
+        "total": 13,
+        "reason": "This scene commits the exact error flagged by the previous reader feedback: it retreats into abstract, surreal metaphor (\"lattice,\" \"drum,\" \"heavy coat\") at the precise moment the narrative demands grounded psychological horror and visceral stakes. By dissolving the character\u2019s identity into vague, poetic imagery, it numbs the tension rather than sharpening it, offering a mood piece instead of a structural turn. The choices presented are melodramatic clich\u00e9s (\"drown,\" \"choke\") that feel disconnected from the specific, tactile reality established in earlier scenes, resulting in a beat that sounds dark but lacks the painful specificity required to make the next question harder to live with.",
+        "precedent": "The Witching Hour in Macbeth (the \"Double, double\" chant) \u2014 this scene fails the comparison because it offers ritualistic atmosphere without the concrete, devastating consequence that Macbeth\u2019s witches impose on the protagonist\u2019s trajectory.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 4\nTENSION_ADVANCEMENT: 3\nBRANCH_CHOKE_LOGIC: 6\nPRECEDENT: The Witching Hour in Macbeth (the \"Double, double\" chant) \u2014 this scene fails the comparison because it offers ritualistic atmosphere without the concrete, devastating consequence that Macbeth\u2019s witches impose on the protagonist\u2019s trajectory.\nREASON: This scene commits the exact error flagged by the previous reader feedback: it retreats into abstract, surreal metaphor (\"lattice,\" \"drum,\" \"heavy coat\") at the precise moment the narrative demands grounded psychological horror and visceral stakes. By dissolving the character\u2019s identity into vague, poetic imagery, it numbs the tension rather than sharpening it, offering a mood piece instead of a structural turn. The choices presented are melodramatic clich\u00e9s (\"drown,\" \"choke\") that feel disconnected from the specific, tactile reality established in earlier scenes, resulting in a beat that sounds dark but lacks the painful specificity required to make the next question harder to live with."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": null

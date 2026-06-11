@@ -17,17 +17,17 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    13,
-    19,
-    21,
-    25,
-    23,
-    25,
-    25,
-    29,
-    28
+    18,
+    16,
+    20,
+    26,
+    28,
+    32,
+    30,
+    32,
+    32,
+    36,
+    35
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -53,9 +53,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -102,7 +102,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It doesn't end."
+      "value": "it never ends"
     },
     {
       "node": "ep_1r",
@@ -123,8 +123,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 33,
   "archetype": "self_regret",
-  "player_answer": "It doesn't end.",
-  "act2_response": "The loop tightens around your throat. You carry twenty-six echoes of your own mistakes. Each one is a stone you cannot drop. The dark waits with open arms."
+  "player_answer": "it never ends",
+  "act2_response": "the weight you carry is not a burden. it is an anchor. you think the cycle repeats. you are wrong. the cycle tightens. your name is a thread pulled taut against the dark. let it snap."
 }

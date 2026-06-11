@@ -23,11 +23,11 @@
     22,
     24,
     22,
-    20,
-    22,
-    22,
-    26,
-    31
+    27,
+    29,
+    29,
+    33,
+    38
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -89,9 +89,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -102,7 +102,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "In the other one, I never stopped trying to fix you."
     },
     {
       "node": "ep_1p",
@@ -118,13 +118,13 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "pull the lights closer",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back on them",
+      "delta": -2
     }
   ],
-  "final_portal_value": 34,
+  "final_portal_value": 36,
   "archetype": "person_present",
-  "player_answer": "nothing",
-  "act2_response": "you brought nothing to the edge of the world. it is heavy in your hands. leoran breathed life from the dark and you carry that same weight. thirty-four sparks still burn against the cold. step forward into the forgetting."
+  "player_answer": "In the other one, I never stopped trying to fix you.",
+  "act2_response": "you clung to the broken glass while the room burned.\nthirty six fragments remain in your pocket.\nthey cut your fingers because you refused to let them fall.\nthe fire took the house anyway.\nlet the glass go."
 }

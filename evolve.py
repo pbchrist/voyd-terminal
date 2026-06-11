@@ -51,6 +51,8 @@ QWEN_MODEL = "Qwen3.6-27B-Q6_K"
 def log(message: str) -> None:
     line = f"[{datetime.now().isoformat()}] {message}"
     print(line)
+    if os.environ.get("VOYD_TEST"):
+        return  # keep test runs out of the production log
     LOG_PATH.parent.mkdir(exist_ok=True)
     with LOG_PATH.open("a", encoding="utf-8") as handle:
         handle.write(line + "\n")

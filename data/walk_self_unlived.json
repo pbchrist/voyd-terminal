@@ -17,17 +17,17 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
+    16,
+    14,
+    19,
+    21,
+    19,
+    17,
+    19,
+    19,
     23,
-    25,
-    25,
-    29,
-    28
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -53,9 +53,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -83,15 +83,15 @@
     },
     {
       "node": "7.0u",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -102,7 +102,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "that i actually chose it"
+      "value": "The silence of being left alone"
     },
     {
       "node": "ep_1u",
@@ -118,13 +118,13 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back on them",
-      "delta": -2
+      "type": "feed",
+      "label": "pull the lights closer",
+      "delta": 3
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 25,
   "archetype": "self_unlived",
-  "player_answer": "that i actually chose it",
-  "act2_response": "The lie you carry is heavy. You named your hesitation. You told yourself the door opened because you pushed it.\nThe door was already ajar.\nTwenty six is a small price to pay for the illusion of control.\nLet the Mewniverse dissolve. Let the choice dissolve.\nYou are already home."
+  "player_answer": "The silence of being left alone",
+  "act2_response": "you carried that quiet into the dark. it fits you. the pieces of the world you lost are waiting here, scattered like dust in a sunbeam. you are the empty space between the stars now. step closer."
 }

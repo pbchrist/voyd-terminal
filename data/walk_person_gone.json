@@ -23,11 +23,11 @@
     9,
     11,
     15,
-    20,
-    22,
-    22,
-    20,
-    25
+    13,
+    15,
+    15,
+    13,
+    18
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -89,9 +89,9 @@
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -102,7 +102,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "The silence."
+      "value": "The silence is real"
     },
     {
       "node": "ep_1g",
@@ -118,13 +118,13 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back on them",
-      "delta": -2
+      "type": "feed",
+      "label": "pull the lights closer",
+      "delta": 3
     }
   ],
-  "final_portal_value": 23,
+  "final_portal_value": 21,
   "archetype": "person_gone",
-  "player_answer": "The silence.",
-  "act2_response": "you carry the space between heartbeats. it is heavy and cold against your ribs. twenty three steps led you here. now the path dissolves into gray static. do not try to fill the quiet."
+  "player_answer": "The silence is real",
+  "act2_response": "you carried that weight into the dark. twenty-one points of entry. the world broke because you stopped speaking. you think you are hiding. the silence is not a shield. it is a mouth."
 }

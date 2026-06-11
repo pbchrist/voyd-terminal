@@ -66,10 +66,15 @@ canon → phantom-gate → promote/kill/Telegram → self-play + reader-judge �
 - Canon events: 12 total, 3 unused (`portal_moves_overnight` authored + 2 mined:
   `soryn_null_state_pain` 0.6, `failed_conjuration_and_prayer` 0.9).
 - Mining cursor: `data/mine_state.json` (rotates through book1/book2 segments).
-- Walk history: 4 records. Reader-judge scores 7-8/10; weakest beat flagged: gen_1 (2×), 7.0p, 9.1g.
+- Walk history: 8 records (immune gate at 20; +8/day from post-cycle + 15:00 cron).
+  Reader-judge scores 7-8/10; weakest beat flagged: gen_1 (repeatedly), 7.0p, 9.1g.
   These notes feed the next dramaturg prompt automatically.
-- Rubric: 2 legacy decisions (gen_13 axes-format, gen_1 old dramaturg format — recalibration
-  skips non-axes entries).
+- Rubric: 3 decisions (gen_13 axes-format, gen_1 legacy dramaturg format, plus the live-cycle
+  kill below — recalibration skips non-axes entries).
+- **First fully-live cycle ran 2026-06-11 01:01**: selected `soryn_null_state_pain`, generated
+  a node, dramaturg killed it at 13/30 — its reason explicitly cited the reader-judge's
+  weakest-beat feedback ("commits the exact error flagged by the previous reader"). The
+  feedback loop demonstrably works. Event stays unused and will be re-selected.
 
 ## Cron (installed for user patrick)
 
@@ -113,6 +118,10 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
    immune system has a track record, wire kills through the same ≥26 confidence machinery.
 6. **Act 2 evolution** — everything so far grows Act 1's tail. The Act 2 conversation system
    prompt could consume story_map tension/dialectic position dynamically.
+7. **Watch: repeated kills on the same canon event.** select_canon_event re-picks the best
+   role/act match every night; a killed generation doesn't mark the event used (correct per
+   directives), so `soryn_null_state_pain` will be retried with fresh text (temp 0.9). If an
+   event gets killed 3+ times, add a per-event attempt counter and demote it in selection.
 
 ## How to verify the whole organism in one command
 

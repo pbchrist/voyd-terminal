@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime
@@ -45,6 +46,8 @@ DIALECTIC_ROLES = {
 def log(msg: str) -> None:
     line = f"[{datetime.now().isoformat()}] [miner] {msg}"
     print(line)
+    if os.environ.get("VOYD_TEST"):
+        return  # keep test runs out of the production log
     log_path = REPO_ROOT / "logs" / "evolve.log"
     log_path.parent.mkdir(exist_ok=True)
     with log_path.open("a", encoding="utf-8") as handle:

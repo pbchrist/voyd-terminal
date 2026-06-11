@@ -5,11 +5,14 @@ Run with: python3 -m unittest discover -s tests -v
 """
 import importlib.util
 import json
+import os
 import shutil
 import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
+
+os.environ["VOYD_TEST"] = "1"  # keep test runs out of logs/evolve.log
 
 ROOT = Path(__file__).resolve().parents[1]
 
