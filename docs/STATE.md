@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 (session: full audit fixes + self-improvement organism build)
+Last updated: 2026-06-11 morning (session: human-readable reports + gen_1 rewrite)
 
 ---
 
@@ -61,20 +61,21 @@ canon → phantom-gate → promote/kill/Telegram → self-play + reader-judge �
 
 ## Current state of the narrative data
 
-- Graph: 1.0→10.0 authored, 4 archetype epilogue chains (ep_1*→ep_2*), all converge → gen_1 → ACT2.
-- Frontier (choices → ACT2): `gen_1` only.
-- Canon events: 12 total, 3 unused (`portal_moves_overnight` authored + 2 mined:
-  `soryn_null_state_pain` 0.6, `failed_conjuration_and_prayer` 0.9).
+- Graph: 1.0→10.0 authored, 4 archetype epilogue chains (ep_1*→ep_2*), all converge →
+  gen_1 → gen_2 → ACT2.
+- Frontier (choices → ACT2): `gen_2` only.
+- Canon events: 12 total, 2 unused (`portal_moves_overnight`, `failed_conjuration_and_prayer`
+  0.9). Tonight's cycle will drop unused to 1 → miner auto-triggers the night after.
 - Mining cursor: `data/mine_state.json` (rotates through book1/book2 segments).
-- Walk history: 8 records (immune gate at 20; +8/day from post-cycle + 15:00 cron).
-  Reader-judge scores 7-8/10; weakest beat flagged: gen_1 (repeatedly), 7.0p, 9.1g.
-  These notes feed the next dramaturg prompt automatically.
-- Rubric: 3 decisions (gen_13 axes-format, gen_1 legacy dramaturg format, plus the live-cycle
-  kill below — recalibration skips non-axes entries).
-- **First fully-live cycle ran 2026-06-11 01:01**: selected `soryn_null_state_pain`, generated
-  a node, dramaturg killed it at 13/30 — its reason explicitly cited the reader-judge's
-  weakest-beat feedback ("commits the exact error flagged by the previous reader"). The
-  feedback loop demonstrably works. Event stays unused and will be re-selected.
+- Walk history: 12 records (immune gate at 20 → expected to go live ~2026-06-12).
+  Reader-judge scores 7-8/10.
+- Rubric: 5 decisions; recalibration fires at every 5th, so it ran on the gen_1 rewrite.
+- **First autonomous 03:00 cron cycle ran 2026-06-11**: re-selected `soryn_null_state_pain`
+  (killed at 13/30 the night before), generated fresh text, dramaturg promoted **gen_2 at
+  24/30** with an Oedipus precedent line. Kill→retry→promote works end to end.
+- **gen_1 rewritten in place 2026-06-11 morning** (dramaturg 24/30, was the consensus
+  weakest beat 4 walks running). New text keeps the four-lights seed, drops the abstract
+  color catalog. Today's 15:00 self-play is the first test of whether the flag clears.
 
 ## Cron (installed for user patrick)
 
@@ -102,6 +103,22 @@ story_map not modeling next_archetype edges, frontend crash on dead-end turns, e
 condition parsing, questions misclassified as confessions, zero-delta choice lattice,
 dead narrative_engine.py/FastAPI references, stale tests. Deleted index.html.v1 + images/.
 
+### 2026-06-11 morning — human-readable reports + gen_1 rewrite (same branch)
+Patrick's feedback: the Telegram walker report "doesn't mean anything to me, a human."
+Root causes found and fixed: (1) the 03:00 post_cycle never sent a report at all (only
+kill recommendations); (2) the report showed bare node ids and truncated jargon. Now
+`build_report_message()` quotes the actual beat text, groups weakest-beat complaints by
+beat across readers, shows full judge reasoning, and leads with the night's cycle outcome
+(grew/killed, with text). post_cycle sends it every night. Also: reader complaints now
+feed the *generator* prompt (not just the dramaturg) so a flagged mistake isn't repeated
+and killed the same night; `log()` no longer duplicates every line under cron;
+`scripts/rewrite_node.py` rewrites a flagged beat's prose in place, dramaturg-gated,
+scored against its real graph predecessors (first version scored against the frontier —
+the dramaturg punished the candidate for "repeating" the very scene it replaced).
+Used it live: gen_1 rewritten at 24/30. Tests: 39 green (frontier tests made structural).
+Unexplained: a second evolve.py tried to start at 03:00:38 and was correctly rejected by
+the lock; cron fired only once per journalctl. Watch whether it recurs tonight.
+
 ### 2026-06-11 — organism build (same branch)
 Built: canon miner (rotating cursor, extraction + canon-fidelity validation, dedupe),
 dramaturg upgraded to judge against the dramatic canon (Oedipus/Faust/Chekhov anchors,
@@ -114,22 +131,28 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
 
 ## Next steps (in value order)
 
-1. **Watch tonight's 03:00 run** — first fully autonomous cycle with all loops. Check
-   `logs/evolve.log`. It will likely promote from `failed_conjuration_and_prayer` (0.9 tension).
-2. **Immune system goes live ~2026-06-13** when walk history hits 20. First real heal will
-   trigger whenever detect/stranded finds a wound.
-3. **Act on reader-judge feedback about gen_1** — flagged weakest twice. The dramaturg now
-   sees this; if the next nodes don't fix it, consider a manual rewrite or phantom kill.
-4. **Gravity wells / resonance tagging** (AGENTS.md Planned Infrastructure) — spec says wait
-   for 20 walk records; same gate as immune. `data/theme_vocabulary.json` to be created.
-5. **Auto-apply phantom kills** — currently kills_recommended only goes to Telegram. Once
+1. **Check today's 15:00 self-play** (`logs/phantom.log`, Telegram) — first verdict on the
+   rewritten gen_1. If readers still flag it, try `python3 scripts/rewrite_node.py gen_1`
+   again or consider killing the beat. Also the first standalone run with the new
+   human-readable report format.
+2. **Watch tonight's 03:00 run** — it will likely promote from `failed_conjuration_and_prayer`
+   (0.9 tension) and now sends the readable nightly report. Also watch whether the mystery
+   second evolve.py instance (rejected by the lock at 03:00:38 last night) recurs.
+3. **Immune system goes live ~2026-06-12** when walk history hits 20 (now 12, +8/day).
+   First real heal triggers whenever detect/stranded finds a wound.
+4. **Other repeatedly-flagged beats are authored, not generated**: 7.0p, 9.1g, ep_1g, 9.2u
+   have each been flagged once-twice with the same complaint class (abstract imagery breaks
+   intimacy). rewrite_node works on any node with a canon_event; authored nodes lack one, so
+   rewriting those needs either a synthetic event or Patrick's hand. Track flag counts first.
+5. **Gravity wells / resonance tagging** (AGENTS.md Planned Infrastructure) — wait for
+   20 walk records; same gate as immune. `data/theme_vocabulary.json` to be created.
+6. **Auto-apply phantom kills** — currently kills_recommended only goes to Telegram. Once
    immune system has a track record, wire kills through the same ≥26 confidence machinery.
-6. **Act 2 evolution** — everything so far grows Act 1's tail. The Act 2 conversation system
+7. **Act 2 evolution** — everything so far grows Act 1's tail. The Act 2 conversation system
    prompt could consume story_map tension/dialectic position dynamically.
-7. **Watch: repeated kills on the same canon event.** select_canon_event re-picks the best
-   role/act match every night; a killed generation doesn't mark the event used (correct per
-   directives), so `soryn_null_state_pain` will be retried with fresh text (temp 0.9). If an
-   event gets killed 3+ times, add a per-event attempt counter and demote it in selection.
+8. **Watch: repeated kills on the same canon event.** A killed generation doesn't mark the
+   event used (correct per directives). soryn_null_state_pain proved kill→retry→promote
+   works; if an event gets killed 3+ times, add a per-event attempt counter and demote it.
 
 ## How to verify the whole organism in one command
 
@@ -138,4 +161,5 @@ python3 -m unittest discover -s tests && python3 build_frontend.py && \
   tail -5 logs/evolve.log
 ```
 Plus: `python3 scripts/mine_canon.py --max 1` (live miner), `python3 scripts/phantom_walkers.py`
-(live self-play; sends Telegram).
+(live self-play; sends Telegram), `python3 scripts/rewrite_node.py <gen_id>` (in-place
+prose rewrite of a flagged beat, dramaturg-gated).
