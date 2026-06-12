@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
+    9,
+    13,
+    17,
     22,
-    27,
-    29,
-    29,
-    33,
+    24,
+    28,
+    26,
+    28,
+    28,
     32,
-    35
+    37,
+    40
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I am present in this moment"
+      "value": "It doesn't matter."
     },
     {
       "node": "ep_1p",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
   "final_portal_value": 38,
   "archetype": "person_present",
-  "player_answer": "I am present in this moment",
-  "act2_response": "you stand still while the world unravels around you. thirty-eight sparks cling to your coat. they are too heavy for a man who refuses to move. the void does not ask for action. it asks for surrender."
+  "player_answer": "It doesn't matter.",
+  "act2_response": "you carry that phrase like a stone.\nit is heavy in your pocket.\nthe world you left behind is already dissolving.\nthirty-eight beats remain in your heart.\nchoose quickly."
 }

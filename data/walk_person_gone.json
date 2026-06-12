@@ -23,13 +23,13 @@
     5,
     9,
     11,
-    15,
-    13,
-    15,
-    15,
-    13,
-    18,
-    21
+    9,
+    7,
+    9,
+    9,
+    7,
+    12,
+    10
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "the silence"
+      "value": "I don't want to be happy."
     },
     {
       "node": "ep_1g",
@@ -121,19 +121,19 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 8,
   "archetype": "person_gone",
-  "player_answer": "the silence",
-  "act2_response": "the silence is heavy now. twenty-four beats of it sit in your chest like a stone. you brought it through the door. it is not empty. it is waiting."
+  "player_answer": "I don't want to be happy.",
+  "act2_response": "the light you chased in the first act was a lie anyway. happiness is a cage made of bright glass. you broke it on purpose. now the shards cut deep enough to keep you grounded. the dark does not judge the weight you refuse to put down. it simply holds the space where the joy used to be."
 }

@@ -24,12 +24,12 @@
     12,
     14,
     18,
-    16,
-    18,
-    18,
-    22,
-    21,
-    19
+    23,
+    25,
+    25,
+    29,
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't have to apologize for taking up space."
+      "value": "in it, you stayed."
     },
     {
       "node": "ep_1u",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 17,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "I didn't have to apologize for taking up space.",
-  "act2_response": "the space you occupy is a wound in the dream. you named it freedom but it is just weight. seventeen doors opened because you refused to shrink. now the floor beneath you remembers how to dissolve. step forward and let the nothing take you back."
+  "player_answer": "in it, you stayed.",
+  "act2_response": "the weight remains.\nyou chose to linger in the space between heartbeats.\nthat is why you carry the silence where a voice should be.\ntwenty-four doors stand open before you.\nwalk through the one that does not look back."
 }

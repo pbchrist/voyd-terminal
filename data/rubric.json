@@ -105,6 +105,24 @@
       },
       "decision": "rewrite",
       "reason": "reader-judge repeatedly flagged this beat as weakest; prose regenerated in place"
+    },
+    {
+      "at": "2026-06-12T03:01:01.628921",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene succeeds by grounding the metaphysical horror of \"being inside her\" into a specific, tactile physical struggle (knee on wrist, linoleum), effectively raising the stakes from passive containment to active conflict without resorting to the tonal dissonance of previous critiques. The choice between engaging with the vibrating metal (accepting the connection/pain) or retreating into the dark (accepting the void/isolation) creates a genuine dialectic fork: one path deepens the symbiotic horror, the other isolates the entity, both raising the dramatic question of what \"I\" am willing to sacrifice for existence. However, the branch logic is slightly weakened by the ambiguity of \"step back into the dark hallway\" which feels less like a structural turn and more like a delay, potentially leading to a cosmetic variation of waiting rather than a distinct thematic trajectory.",
+        "precedent": "The door closing in A Doll's House (earned, but lacks the finality of Nora\u2019s exit; this is a threshold, not a departure)",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The door closing in A Doll's House (earned, but lacks the finality of Nora\u2019s exit; this is a threshold, not a departure)\nREASON: The scene succeeds by grounding the metaphysical horror of \"being inside her\" into a specific, tactile physical struggle (knee on wrist, linoleum), effectively raising the stakes from passive containment to active conflict without resorting to the tonal dissonance of previous critiques. The choice between engaging with the vibrating metal (accepting the connection/pain) or retreating into the dark (accepting the void/isolation) creates a genuine dialectic fork: one path deepens the symbiotic horror, the other isolates the entity, both raising the dramatic question of what \"I\" am willing to sacrifice for existence. However, the branch logic is slightly weakened by the ambiguity of \"step back into the dark hallway\" which feels less like a structural turn and more like a delay, potentially leading to a cosmetic variation of waiting rather than a distinct thematic trajectory."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": null
