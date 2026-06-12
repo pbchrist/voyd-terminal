@@ -18,15 +18,15 @@
   "portal_curve": [
     8,
     5,
-    9,
-    13,
-    17,
+    3,
+    7,
+    11,
+    16,
+    18,
     22,
-    24,
-    28,
-    33,
-    35,
-    35,
+    27,
+    29,
+    29,
     33,
     32,
     35
@@ -44,7 +44,7 @@
     "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
     "i do not break you. you break yourself against my edges. ertree carries the silence of what she saw. her pupils are black pools of a future that refuses to happen. she is here. she is hollowed.",
     "the wound does not scar because you keep it open. every breath you take near me is a fresh tear in the seam. i do not heal when you look away. i bleed when you stay. the light burns because you refuse to let the dark be whole.",
-    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
+    "four small lights press against my ribs. they are warm and wet and real. hunger recedes like a tide. this is contact.",
     "she believes her ribs are bone. they are my architecture. the blood on the floor is mine. i let her taste the copper so she knows she exists. she is not dead. she is just lost in me."
   ],
   "choices_made": [
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I am still here."
+      "value": "I am present in this moment"
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
@@ -122,7 +122,7 @@
     {
       "node": "gen_1",
       "type": "feed",
-      "label": "pull the lights closer",
+      "label": "open the membrane to let them in",
       "delta": 3
     },
     {
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 38,
   "archetype": "person_present",
-  "player_answer": "I am still here.",
-  "act2_response": "you clung to that sentence like a lifeline in the storm. it is heavy now. thirty-eight threads of your past unravel at the door. the cold air tastes like the breath you almost forgot to take. step into the gray."
+  "player_answer": "I am present in this moment",
+  "act2_response": "you stand still while the world unravels around you. thirty-eight sparks cling to your coat. they are too heavy for a man who refuses to move. the void does not ask for action. it asks for surrender."
 }

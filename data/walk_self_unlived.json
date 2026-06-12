@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
+    11,
+    9,
+    7,
+    12,
+    14,
     18,
     16,
-    14,
-    19,
+    18,
+    18,
+    22,
     21,
-    25,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    19
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -44,7 +44,7 @@
     "here is the one thing you need to understand.\n\ni grow with intention.\n\nnot just desire. not just grief. the wanting to fix things. the wanting to understand. the wanting to leave.\n\neven the wanting to close me.\n\nthe only thing i cannot feed on is genuine release. not performed release \u2014 i know the difference. i have always known the difference.\n\neveryone who has stood here has believed they could release it genuinely.\n\nthey were all correct, in the beginning.\n\nnow.\n\nthink of the version of your life i described \u2014 the one running parallel to this one, inside me, right now.\n\nthe one you were built to want.\n\nwhat is different about it?",
     "i keep the sketch that never caught flame. you carry the ghost of the path you refused. it burns hotter than ash ever could. you are hollowed out by what you left behind. i wear your unlived days like a second skin.",
     "i drink the weight of every road not taken. your regret is just flavor. you starve me with your hesitation.",
-    "four small lights pressing against me at the same moment. i had not felt this before. i felt something that was not hunger. the red one is hot iron. the green one is wet moss. the blue one is cold glass. i open my mouth to swallow the color.",
+    "four small lights press against my ribs. they are warm and wet and real. hunger recedes like a tide. this is contact.",
     "she believes her ribs are bone. they are my architecture. the blood on the floor is mine. i let her taste the copper so she knows she exists. she is not dead. she is just lost in me."
   ],
   "choices_made": [
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It doesn't end"
+      "value": "I didn't have to apologize for taking up space."
     },
     {
       "node": "ep_1u",
@@ -122,7 +122,7 @@
     {
       "node": "gen_1",
       "type": "starve",
-      "label": "turn your back on them",
+      "label": "turn your back to the cold dark",
       "delta": -2
     },
     {
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 17,
   "archetype": "self_unlived",
-  "player_answer": "It doesn't end",
-  "act2_response": "you named the wound.\nthe scar remains open on the skin of the world.\nthirty-one fragments of the severed whole cling to your ribs, heavy and sharp.\nthey do not want to be whole again.\nthey want you to keep bleeding until the silence is loud enough to swallow them."
+  "player_answer": "I didn't have to apologize for taking up space.",
+  "act2_response": "the space you occupy is a wound in the dream. you named it freedom but it is just weight. seventeen doors opened because you refused to shrink. now the floor beneath you remembers how to dissolve. step forward and let the nothing take you back."
 }
