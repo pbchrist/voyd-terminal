@@ -2,366 +2,1039 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="it was here before you. it already knows what you carry.">
+<meta property="og:title" content="the voyd">
+<meta property="og:description" content="it was here before you. it already knows what you carry.">
 <title>the voyd</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' stroke='%23e8e0d0' stroke-width='1' fill='none' opacity='0.6'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23e8e0d0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --text: #e8e0d0; --muted: #a09880; --bg: #000000; }
-  html, body { width: 100%; height: 100%; background: var(--bg); color: var(--text); font-family: 'IM Fell English', Georgia, serif; overflow: hidden; cursor: none; }
+  :root {
+    --bone: #e8e0d0;
+    --dust: #93896f;
+    --vvh: 100dvh;
+  }
+  html, body {
+    width: 100%; height: 100%;
+    background: #040404;
+    color: var(--bone);
+    font-family: 'IM Fell English', Georgia, serif;
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+    user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (pointer: fine) { html, body { cursor: none; } }
 
-  #cursor { position: fixed; width: 5px; height: 5px; border-radius: 50%; background: rgba(232,224,208,0.35); pointer-events: none; transform: translate(-50%,-50%); z-index: 9999; mix-blend-mode: screen; transition: opacity 0.3s; }
+  #void { position: fixed; inset: 0; z-index: 0; }
 
-  #stage { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+  #whisper {
+    position: fixed; z-index: 1;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+    font-size: clamp(0.85rem, 3.6vw, 1rem);
+    letter-spacing: 0.16em;
+    color: rgba(232,224,208,0.42);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2.6s ease;
+  }
+  #whisper.on { opacity: 1; }
 
-  #threshold-line { font-style: italic; font-size: clamp(1rem,2.5vw,1.4rem); color: var(--text); opacity: 0; letter-spacing: 0.08em; pointer-events: none; position: absolute; transition: opacity 3s ease; }
+  #scene {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--vvh);
+    z-index: 2;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: center;
+    pointer-events: none;
+  }
+  #log {
+    width: 100%; max-width: 620px;
+    max-height: 62%;
+    overflow-y: auto;
+    padding: 3rem clamp(1.2rem, 5.5vw, 2.2rem) 4.5vh;
+    pointer-events: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to bottom, transparent 0, #000 24%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 24%);
+  }
+  #log::-webkit-scrollbar { display: none; }
 
-  #dialogue-container { width: 100%; max-width: 660px; max-height: 78vh; overflow-y: auto; display: flex; flex-direction: column; gap: 2.2rem; opacity: 0; transition: opacity 1.2s; scrollbar-width: none; }
-  #dialogue-container::-webkit-scrollbar { display: none; }
-  #dialogue-container.visible { opacity: 1; }
+  .exchange { margin-top: 2.6rem; }
+  .exchange:first-child { margin-top: 0; }
+  .receding { opacity: 0.3; transition: opacity 3.5s ease; }
 
-  .exchange { display: flex; flex-direction: column; gap: 0.9rem; transition: opacity 2.5s; }
-  .exchange.receding { opacity: 0.18; }
+  .voyd-line {
+    font-style: italic;
+    font-size: clamp(1.02rem, 4.4vw, 1.22rem);
+    line-height: 2.05;
+    letter-spacing: 0.022em;
+    color: var(--bone);
+    text-shadow: 0 0 18px rgba(232,224,208,0.07);
+  }
+  .ink { display: inline-block; opacity: 0; transition: opacity 0.55s ease; will-change: transform, opacity; }
+  .ink.set { opacity: 1; }
+  .word { display: inline-block; white-space: nowrap; }
 
-  .visitor-line { font-size: clamp(0.82rem,1.7vw,0.95rem); color: var(--muted); text-align: right; letter-spacing: 0.04em; }
-  .voyd-line { font-size: clamp(1rem,2vw,1.18rem); font-style: italic; color: var(--text); line-height: 1.9; letter-spacing: 0.025em; }
+  .visitor-line {
+    margin-top: 1.3rem;
+    text-align: right;
+    font-size: clamp(0.84rem, 3.6vw, 0.95rem);
+    color: var(--dust);
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+  }
+  .visitor-line.fadein { opacity: 0; animation: vfade 1.4s ease 0.1s forwards; }
+  @keyframes vfade { to { opacity: 1; } }
 
-  #input-area { position: fixed; bottom: 10vh; left: 50%; transform: translateX(-50%); width: 100%; max-width: 660px; padding: 0 2rem; display: flex; align-items: center; gap: 0.5rem; opacity: 0; transition: opacity 1.2s; pointer-events: none; }
-  #input-area.visible { opacity: 1; pointer-events: auto; }
+  .choices {
+    margin-top: 2.3rem;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.35rem;
+  }
+  .choice {
+    text-align: center;
+    padding: 0.55rem 1.1rem;
+    font-size: clamp(0.98rem, 4.2vw, 1.1rem);
+    letter-spacing: 0.11em;
+    line-height: 1.9;
+    animation: breathe 5.5s ease-in-out infinite;
+    will-change: opacity;
+  }
+  .choice.feed   { color: #c2a155; }
+  .choice.starve { color: #7e9cb5; }
+  @keyframes breathe { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.88; } }
+  .choice.chosen  { animation: none; opacity: 1; text-shadow: 0 0 18px rgba(232,224,208,0.3); }
+  .choice.gone    { animation: none; transition: opacity 0.7s ease; opacity: 0 !important; }
+  .choice.refused { animation: none; transition: opacity 1.2s ease, transform 1.2s ease; opacity: 0 !important; transform: translateY(9px); }
+  .cl { display: inline-block; will-change: transform, opacity; }
 
-  #blink-cursor { width: 1px; height: 1.15em; background: rgba(232,224,208,0.7); flex-shrink: 0; align-self: center; animation: blink 2s infinite; opacity: 0; }
-  #blink-cursor.active { opacity: 1; }
-  @keyframes blink { 0%,44% { opacity: 1; } 56%,100% { opacity: 0; } }
+  .speakline {
+    margin-top: 1.8rem;
+    display: flex; justify-content: flex-end; align-items: baseline;
+    min-height: 1.5em;
+  }
+  .speakline .preview {
+    color: var(--dust);
+    font-size: clamp(0.84rem, 3.6vw, 0.95rem);
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    text-align: right;
+  }
+  .speakline .caret {
+    width: 1px; height: 1.05em;
+    background: rgba(232,224,208,0.65);
+    align-self: center;
+    margin-left: 2px;
+    flex-shrink: 0;
+    animation: blink 1.9s infinite;
+  }
+  @keyframes blink { 0%, 46% { opacity: 1; } 54%, 100% { opacity: 0; } }
 
-  #hidden-input { position: fixed; left: -9999px; opacity: 0; width: 1px; height: 1px; border: none; background: transparent; color: transparent; font-size: 16px; }
+  #answer {
+    position: fixed; left: 50%; bottom: 26%;
+    transform: translateX(-50%);
+    width: 2px; height: 2px;
+    opacity: 0;
+    border: none; outline: none;
+    background: transparent; color: transparent;
+    font-size: 16px; /* prevents iOS zoom-on-focus */
+    z-index: 1;
+    user-select: text; -webkit-user-select: text;
+  }
 
-  #typed-preview { font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem,1.7vw,0.95rem); color: var(--muted); letter-spacing: 0.04em; min-height: 1.2em; }
+  #seal {
+    position: fixed; z-index: 3;
+    transform: translate(-50%, -50%);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1.6rem;
+    opacity: 0;
+    transition: opacity 6s ease;
+    pointer-events: none;
+  }
+  #seal.visible { opacity: 1; }
+  #seal-note {
+    font-style: italic;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: rgba(232,224,208,0.32);
+    white-space: nowrap;
+  }
 
-  #glyph-wrap { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 3s; pointer-events: none; gap: 2rem; }
-  #glyph-wrap.visible { opacity: 1; }
-  #glyph-note { font-style: italic; font-size: 0.78rem; color: rgba(232,224,208,0.3); letter-spacing: 0.12em; }
+  #ember {
+    position: fixed; width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(232,224,208,0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+    mix-blend-mode: screen;
+    display: none;
+  }
+  @media (pointer: fine) { #ember { display: block; } }
 
-  #depth-indicator { position: fixed; top: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; transition: opacity 1s; }
-  #status { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.18); letter-spacing: 0.08em; pointer-events: none; }
-  #node-tag { position: fixed; top: 1.5rem; left: 1.5rem; font-size: 0.65rem; color: rgba(232,224,208,0.12); letter-spacing: 0.08em; pointer-events: none; text-transform: lowercase; }
-  .act1-choice { display: inline-block; font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem, 1.7vw, 0.95rem); letter-spacing: 0.04em; background: transparent; border: none; cursor: none; margin: 0.3rem 0.6rem 0.3rem 0; padding: 0.2rem 0; text-decoration: underline; text-underline-offset: 0.2em; transition: opacity 0.3s; }
-  .act1-choice:hover { opacity: 0.7; }
-  .act1-choice.feed { color: #c9a03a; }
-  .act1-choice.starve { color: #6a9ec5; }
-  .act1-choices { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .act1-input-wrap { margin-top: 1.5rem; display: flex; gap: 0.5rem; align-items: center; }
-  .act1-input { font-family: 'IM Fell English', Georgia, serif; font-size: clamp(0.82rem, 1.7vw, 0.95rem); color: var(--text); background: transparent; border: none; border-bottom: 1px solid rgba(232,224,208,0.25); outline: none; width: 100%; letter-spacing: 0.04em; cursor: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .choice { animation: none; opacity: 0.72; }
+    .ink { transition: none; opacity: 1; }
+    .speakline .caret { animation: none; opacity: 0.7; }
+  }
 </style>
 </head>
 <body>
 
-<div id="cursor"></div>
-<div id="node-tag"></div>
-<div id="depth-indicator"></div>
+<canvas id="void"></canvas>
+<div id="whisper"></div>
 
-<div id="stage">
-  <div id="threshold-line">something is listening</div>
-  <div id="dialogue-container">
-    <div id="exchanges"></div>
-  </div>
+<div id="scene"><div id="log"></div></div>
+
+<div id="seal">
+  <svg id="glyph" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="seal-note">it keeps what you gave it.</div>
 </div>
 
-<div id="input-area">
-  <div id="typed-preview"></div>
-  <div id="blink-cursor"></div>
-</div>
+<div id="ember"></div>
+<input id="answer" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-hidden="true">
+<noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-style:italic;color:#93896f;">the voyd requires a living browser.</div></noscript>
 
-<div id="glyph-wrap">
-  <svg id="glyph-svg" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
-  <div id="glyph-note">this dream is ending</div>
-</div>
-
-<div id="status"></div>
-<input id="hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-hidden="true">
-
-<script src="voyd_engine.js"></script>
 <script>
-// ── CONFIG ────────────────────────────────────────────────────
-// For direct LLM calls via the public Qwen proxy (key exposed — only for private/testing).
-// Sent as a Bearer token; the proxy may also be open, in which case it acts as a gate.
+'use strict';
+
+// ═════════════════════════════════════════════════════════════════
+//  VOYD NARRATIVE ENGINE (Act 2) — client-side DAG traversal.
+//  Inlined; the whole experience is this one file plus the two
+//  data files written by build_frontend.py / the organism.
+// ═════════════════════════════════════════════════════════════════
+class VoydEngine {
+  constructor(data, options = {}) {
+    this.graph = data.nodes;
+    this.meta = data.meta;
+    this.intentMap = data.intent_map;
+    this.loreMap = data.lore_map || {};
+    this.voicePrompt = data.voice_prompt || 'You are the Voyd. Speak in short, lowercase, declarative sentences. Maximum 4-5 sentences per response.';
+    this.backendMode = options.backendMode || false;
+    this.sessionId = this._genId();
+    this.state = {
+      currentNode: 'threshold',
+      visited: new Set(),
+      depth: 0,
+      history: [],
+      emotion: { surrender: 0.0, defiance: 0.0, curiosity: 0.5 },
+      revealedLore: new Set(),
+      terminated: false,
+      glyphSeed: '',
+      portalValue: options.portalValue || 8,
+      archetype: options.archetype || null,
+      playerAnswer: options.playerAnswer || null,
+    };
+  }
+
+  _genId() {
+    return 'voyd_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  classifyIntent(text) {
+    const lower = text.toLowerCase();
+    const trimmed = lower.trim();
+    if (trimmed.length < 3) return { intent: 'silence', topic: 'general' };
+
+    let bestTopic = 'general';
+    let bestScore = 0;
+    for (const [topic, keywords] of Object.entries(this.intentMap.keywords)) {
+      let score = 0;
+      for (const kw of keywords) {
+        if (lower.includes(kw)) score++;
+      }
+      if (score > bestScore) { bestScore = score; bestTopic = topic; }
+    }
+
+    const inquiryWords = ['who', 'what', 'where', 'when', 'why', 'how', 'tell', 'explain'];
+    if (inquiryWords.some(w => trimmed.startsWith(w))) {
+      return { intent: 'inquiry', topic: bestTopic };
+    }
+
+    for (const [emotion, markers] of Object.entries(this.intentMap.emotional_markers)) {
+      if (markers.some(m => lower.includes(m))) {
+        if (emotion === 'defiance') return { intent: 'challenge', topic: bestTopic };
+        if (emotion === 'curiosity') return { intent: 'inquiry', topic: bestTopic };
+        return { intent: 'confession', topic: bestTopic };
+      }
+    }
+
+    if (['no', 'never', "won't", "can't", 'hate', 'fight', 'kill', 'destroy'].some(w => lower.includes(w))) {
+      return { intent: 'challenge', topic: bestTopic };
+    }
+    if (['sorry', 'help', 'forgive', 'lost', 'afraid', 'love', 'grief', 'sad'].some(w => lower.includes(w))) {
+      return { intent: 'confession', topic: bestTopic };
+    }
+    return { intent: 'inquiry', topic: bestTopic };
+  }
+
+  updateEmotion(intent) {
+    const e = this.state.emotion;
+    if (intent === 'confession') e.surrender = Math.min(1.0, e.surrender + 0.25);
+    else if (intent === 'challenge') e.defiance = Math.min(1.0, e.defiance + 0.25);
+    else if (intent === 'inquiry') e.curiosity = Math.min(1.0, e.curiosity + 0.15);
+
+    for (const k of Object.keys(e)) {
+      if ((intent === 'confession' && k !== 'surrender') ||
+          (intent === 'challenge' && k !== 'defiance') ||
+          (intent === 'inquiry' && k !== 'curiosity')) {
+        e[k] = Math.max(0.0, e[k] - 0.05);
+      }
+    }
+  }
+
+  evalCondition(condition, intent, topic) {
+    // Conditions are ORs of ANDs of simple clauses. No eval.
+    if (condition === 'always') return true;
+    const s = this.state;
+    const evalClause = (clause) => {
+      clause = clause.trim();
+      let m;
+      if ((m = clause.match(/^intent == '(\w+)'$/))) return intent === m[1];
+      if ((m = clause.match(/^topic == '(\w+)'$/))) return topic === m[1];
+      if ((m = clause.match(/^depth >= (\d+)$/))) return s.depth >= parseInt(m[1], 10);
+      if ((m = clause.match(/^emotional_vector\.(\w+) > ([\d.]+)$/))) return (s.emotion[m[1]] || 0) > parseFloat(m[2]);
+      return false;
+    };
+    return condition.split('||').some(group => group.split('&&').every(evalClause));
+  }
+
+  selectTransition(intent, topic) {
+    const node = this.graph[this.state.currentNode];
+    const transitions = node.transitions || [];
+
+    for (const t of transitions) {
+      if (this.evalCondition(t.condition, intent, topic) && !this.state.visited.has(t.to)) {
+        return t.to;
+      }
+    }
+    for (const t of transitions) {
+      if (!this.state.visited.has(t.to)) return t.to;
+    }
+    if (this.state.depth >= 4) {
+      const fallback = this.state.visited.has('gravity') ? 'choice' : 'gravity';
+      if (!this.state.visited.has(fallback)) return fallback;
+    }
+    return null;
+  }
+
+  getLoreChunks(topics) {
+    const results = [];
+    for (const t of topics) {
+      const own = this.loreMap[t];
+      const chunks = (own && own.length) ? own : (this.loreMap['general'] || []);
+      for (const c of chunks) {
+        if (!results.includes(c)) results.push(c);
+      }
+    }
+    return results.slice(0, 3);
+  }
+
+  buildSystemPrompt(node, loreChunks) {
+    // Single source of truth: data/voyd_system.md, embedded at build time.
+    const base = this.voicePrompt;
+
+    const stateCtx = `\n\nCURRENT STATE:\nYou are in the state of: ${node.voyd_state || 'dreaming'}\nThe intruder has spoken ${this.state.depth} times.`;
+
+    let act1Context = '';
+    if (this.state.archetype) {
+      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}\n\nUse this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.`;
+    }
+
+    let loreSection = '';
+    if (loreChunks.length) {
+      loreSection = '\n\nDREAM-FRAGMENTS YOU HOLD:\n';
+      for (const chunk of loreChunks.slice(0, 2)) {
+        loreSection += '- ' + chunk.substring(0, 200) + '...\n';
+      }
+      loreSection += '\nDo not recite these directly. Let them inform your dreaming. Gesture toward them.';
+    }
+    return base + stateCtx + act1Context + loreSection;
+  }
+
+  _terminalResult(message) {
+    return {
+      systemPrompt: '',
+      contentTemplate: message,
+      voydState: 'dissolving',
+      nodeType: 'terminus',
+      nodeId: this.state.currentNode,
+      loreContext: [],
+      state: this.exportState(),
+      terminated: true,
+      intent: 'silence',
+      topic: 'general',
+    };
+  }
+
+  processTurn(playerText) {
+    if (this.state.terminated) {
+      return this._terminalResult('the dream has ended. there is no returning to a finished dream.');
+    }
+
+    const { intent, topic } = this.classifyIntent(playerText);
+    this.updateEmotion(intent);
+
+    const nextNodeId = this.selectTransition(intent, topic);
+    if (!nextNodeId) {
+      this.state.terminated = true;
+      this.state.glyphSeed = this.state.glyphSeed || 'voyd';
+      return this._terminalResult('the dream dissolves. there is nothing more to say.');
+    }
+
+    this.state.visited.add(this.state.currentNode);
+    this.state.currentNode = nextNodeId;
+    this.state.depth++;
+    this.state.history.push({ role: 'user', content: playerText });
+
+    const node = this.graph[nextNodeId];
+    if (node.type === 'terminus') {
+      this.state.terminated = true;
+      this.state.glyphSeed = node.glyph_seed || 'voyd';
+    }
+
+    let loreChunks = [];
+    if (!this.backendMode) {
+      loreChunks = this.getLoreChunks(node.lore_context || []);
+    }
+    const systemPrompt = this.buildSystemPrompt(node, loreChunks);
+
+    return {
+      systemPrompt,
+      contentTemplate: node.content_template || '',
+      voydState: node.voyd_state,
+      nodeType: node.type,
+      nodeId: nextNodeId,
+      loreContext: loreChunks,
+      state: this.exportState(),
+      terminated: this.state.terminated,
+      intent,
+      topic,
+    };
+  }
+
+  exportState() {
+    return {
+      sessionId: this.sessionId,
+      currentNode: this.state.currentNode,
+      visited: Array.from(this.state.visited),
+      depth: this.state.depth,
+      history: this.state.history,
+      emotion: { ...this.state.emotion },
+      revealedLore: Array.from(this.state.revealedLore),
+      terminated: this.state.terminated,
+      glyphSeed: this.state.glyphSeed,
+      portalValue: this.state.portalValue,
+      archetype: this.state.archetype,
+      playerAnswer: this.state.playerAnswer,
+    };
+  }
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  CONFIG
+// ═════════════════════════════════════════════════════════════════
 const LLM_API_KEY = localStorage.getItem('voyd_key') || '';
-// For proxy backend, set API_BASE:
-const API_BASE = localStorage.getItem('voyd_api') || '';
+const API_BASE    = localStorage.getItem('voyd_api') || '';
+// Act 2 speaks to the Voyd's mind directly. The tailnet address is the
+// canonical endpoint; from an https origin (GitHub Pages) the browser
+// blocks plain-http calls, so the tailscale funnel mount goes first there.
+const LLM_DIRECT  = 'http://100.73.250.50:8081/v1/chat/completions';
+const LLM_FUNNEL  = 'https://patrick-beastmaster.tailf32530.ts.net/llm/v1/chat/completions';
+const LLM_ENDPOINTS = location.protocol === 'https:'
+  ? [LLM_FUNNEL, LLM_DIRECT]
+  : [LLM_DIRECT, LLM_FUNNEL];
 
-// ── State ─────────────────────────────────────────────────────
-const cursorEl     = document.getElementById('cursor');
-const thresholdEl  = document.getElementById('threshold-line');
-const dialogueEl   = document.getElementById('dialogue-container');
-const exchangesEl  = document.getElementById('exchanges');
-const inputArea    = document.getElementById('input-area');
-const blinkEl      = document.getElementById('blink-cursor');
-const hiddenInput  = document.getElementById('hidden-input');
-const preview      = document.getElementById('typed-preview');
-const glyphWrap    = document.getElementById('glyph-wrap');
-const glyphSvg     = document.getElementById('glyph-svg');
-const statusEl     = document.getElementById('status');
-const depthEl      = document.getElementById('depth-indicator');
-const nodeTagEl    = document.getElementById('node-tag');
+const FINE    = matchMedia('(pointer: fine)').matches;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-let phase          = 'threshold';
-let isWaiting      = false;
-let allSpans       = [];
-let mouseX = 0, mouseY = 0;
-let engine         = null;
-let currentDepth   = 0;
-let act1Nodes      = null;
-let act1Current    = '1.0';
-let portalValue    = 8;
-let archetype      = null;
-let playerAnswer   = '';
-let voydData       = null;
+// ═════════════════════════════════════════════════════════════════
+//  STATE
+// ═════════════════════════════════════════════════════════════════
+const cv       = document.getElementById('void');
+const ctx      = cv.getContext('2d');
+const logEl    = document.getElementById('log');
+const whisperEl= document.getElementById('whisper');
+const answerEl = document.getElementById('answer');
+const sealEl   = document.getElementById('seal');
+const glyphSvg = document.getElementById('glyph');
+const emberEl  = document.getElementById('ember');
+const sceneEl  = document.getElementById('scene');
 
-// ── Cursor ────────────────────────────────────────────────────
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursorEl.style.left = mouseX + 'px';
-  cursorEl.style.top  = mouseY + 'px';
-  repel();
-});
+let phase        = 'threshold';   // threshold | act1 | act2 | terminus
+let act1Nodes    = null;
+let voydData     = null;
+let engine       = null;
+let portalValue  = 8;
+let archetype    = null;
+let playerAnswer = '';
+let speaking     = false;
+let hurry        = false;
+let isWaiting    = false;
+let currentSpeakline = null;
 
-// ── Letter physics ────────────────────────────────────────────
-const RADIUS   = 90;
-const STRENGTH = 65;
-const RETURN   = 0.10;
-const DAMP     = 0.70;
-const phys     = new WeakMap();
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const el = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
 
-function makeSpan(ch) {
-  if (ch === '\n') { const br = document.createElement('br'); return br; }
-  const s = document.createElement('span');
+// ═════════════════════════════════════════════════════════════════
+//  THE PORTAL — a perfect circle of absolute black, visible only by
+//  the light it bends at its edge and the dust it eats.
+// ═════════════════════════════════════════════════════════════════
+let W = 0, H = 0;
+const portal = {
+  v: 8,            // tracked value, 0..100 — the only number that matters
+  extra: 0,        // act 2 visual drift: speaking to it is also reaching
+  r: 0,            // displayed radius (eased)
+  pulse: 0,        // transient: +feed swell / -starve flinch
+  born: false,
+  closing: false,
+  thinking: false,
+  cx: 0, cy: 0,
+};
+
+function portalTarget() {
+  if (!portal.born) return 0;
+  if (portal.closing) return 2;
+  const m = Math.min(W, H);
+  return m * (0.055 + 0.0038 * Math.min(100, portal.v + portal.extra));
+}
+
+let stars = [];
+function spawnStar() {
+  return {
+    x: Math.random() * W, y: Math.random() * H,
+    vx: (Math.random() - 0.5) * 0.06, vy: (Math.random() - 0.5) * 0.06,
+    s: 0.4 + Math.random() * 1.1,
+    tw: Math.random() * 6.28, twr: 0.3 + Math.random() * 1.2,
+  };
+}
+function respawnEdge(p) {
+  const a = Math.random() * 6.28;
+  const d = Math.max(W, H) * (0.55 + Math.random() * 0.25);
+  p.x = portal.cx + Math.cos(a) * d;
+  p.y = portal.cy + Math.sin(a) * d;
+  p.vx = (Math.random() - 0.5) * 0.06;
+  p.vy = (Math.random() - 0.5) * 0.06;
+}
+function seedStars() {
+  const n = REDUCED ? 40 : Math.max(50, Math.min(150, Math.round(W * H / 13000)));
+  stars = Array.from({ length: n }, spawnStar);
+}
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+  W = window.innerWidth; H = window.innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  cv.style.width = W + 'px'; cv.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  portal.cx = W / 2;
+  portal.cy = H * 0.36;
+  seedStars();
+}
+
+function rimPath(rr, t, wspd) {
+  ctx.beginPath();
+  const N = 90;
+  for (let i = 0; i <= N; i++) {
+    const a = i / N * Math.PI * 2;
+    const w = 1
+      + 0.006 * Math.sin(3 * a + t * 0.7 * wspd)
+      + 0.004 * Math.sin(7 * a - t * 1.3 * wspd)
+      + 0.002 * Math.sin(11 * a + t * 2.1 * wspd);
+    const x = portal.cx + Math.cos(a) * rr * w;
+    const y = portal.cy + Math.sin(a) * rr * w;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+}
+
+let t = 0;
+const pointer = { x: -9999, y: -9999 };
+
+function frame() {
+  t += 1 / 60;
+
+  const tr = portalTarget();
+  portal.r += (tr - portal.r) * (portal.closing ? 0.02 : 0.01);
+  portal.pulse *= 0.955;
+  const breath = 1 + 0.012 * Math.sin(t * Math.PI * 2 / 7.5);
+  const rr = Math.max(0, portal.r * breath * (1 + portal.pulse * 0.05));
+
+  ctx.fillStyle = '#040404';
+  ctx.fillRect(0, 0, W, H);
+
+  // dust — drifting until the portal takes it
+  for (const p of stars) {
+    const dx = portal.cx - p.x, dy = portal.cy - p.y;
+    const d2 = dx * dx + dy * dy;
+    const d = Math.sqrt(d2) || 1;
+    if (rr > 4) {
+      const g = 26 * rr / d2;
+      p.vx += dx / d * g;
+      p.vy += dy / d * g;
+    }
+    const sp2 = p.vx * p.vx + p.vy * p.vy;
+    if (sp2 > 12.25) { const k = 3.5 / Math.sqrt(sp2); p.vx *= k; p.vy *= k; }
+    p.x += p.vx; p.y += p.vy;
+    if (d < rr * 0.95) { respawnEdge(p); continue; }
+    if (p.x < -40 || p.x > W + 40 || p.y < -40 || p.y > H + 40) { respawnEdge(p); continue; }
+
+    const twk = 0.55 + 0.45 * Math.sin(t * p.twr + p.tw);
+    let a = 0.28 * twk;
+    if (d < rr * 2.6) a = Math.min(0.8, a + (1 - d / (rr * 2.6)) * 0.5);
+    const sp = Math.sqrt(sp2);
+    if (sp > 0.35 && !REDUCED) {
+      const L = Math.min(9, sp * 2.6);
+      ctx.strokeStyle = `rgba(226,218,200,${a.toFixed(3)})`;
+      ctx.lineWidth = p.s * 0.8;
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.lineTo(p.x - p.vx / sp * L, p.y - p.vy / sp * L);
+      ctx.stroke();
+    } else {
+      ctx.fillStyle = `rgba(226,218,200,${a.toFixed(3)})`;
+      ctx.fillRect(p.x, p.y, p.s, p.s);
+    }
+  }
+
+  if (rr > 0.5) {
+    const wspd = portal.thinking ? 2.3 : 1;
+
+    // light piling up at the horizon
+    const haloA = 0.055 + Math.max(0, portal.pulse) * 0.12 + (portal.thinking ? 0.025 : 0);
+    const halo = ctx.createRadialGradient(portal.cx, portal.cy, rr * 0.9, portal.cx, portal.cy, rr * 1.7);
+    halo.addColorStop(0, `rgba(224,216,198,${haloA.toFixed(3)})`);
+    halo.addColorStop(1, 'rgba(224,216,198,0)');
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(portal.cx, portal.cy, rr * 1.7, 0, Math.PI * 2);
+    ctx.fill();
+
+    // the hole itself — absolute black, drawn over everything
+    rimPath(rr, t, wspd);
+    ctx.fillStyle = '#000000';
+    ctx.fill();
+
+    // the last light, bending at the edge
+    const rimA = 0.3 + 0.08 * Math.sin(t * 0.7)
+      + Math.max(0, portal.pulse) * 0.45
+      + Math.min(0, portal.pulse) * 0.2;
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = `rgba(226,218,200,${Math.max(0, rimA * 0.13).toFixed(3)})`;
+    ctx.stroke();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = `rgba(232,224,208,${Math.max(0.04, rimA).toFixed(3)})`;
+    ctx.stroke();
+  }
+
+  // the cursor leans toward it whether you mean to or not
+  if (FINE && pointer.x > -999) {
+    let ex = pointer.x, ey = pointer.y;
+    const dx = portal.cx - ex, dy = portal.cy - ey;
+    const d = Math.hypot(dx, dy) || 1;
+    const reach = rr * 1.9;
+    if (d < reach && d > 1) {
+      const k = (1 - d / reach) * 0.22;
+      ex += dx * k; ey += dy * k;
+    }
+    emberEl.style.left = ex + 'px';
+    emberEl.style.top = ey + 'px';
+  }
+
+  fieldTick();
+  requestAnimationFrame(frame);
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  LETTER FIELD — on desktop, the words shy away from your hand.
+// ═════════════════════════════════════════════════════════════════
+const field = [];
+function enroll(span) {
+  if (!FINE || REDUCED) return;
+  field.push({ el: span, hx: 0, hy: 0, dx: 0, dy: 0, vx: 0, vy: 0 });
+  if (field.length > 340) {
+    const old = field.shift();
+    old.el.style.transform = '';
+  }
+}
+function refreshHomes() {
+  for (const f of field) {
+    const r = f.el.getBoundingClientRect();
+    f.hx = r.left + r.width / 2 - f.dx;
+    f.hy = r.top + r.height / 2 - f.dy;
+  }
+}
+function fieldTick() {
+  if (!FINE || REDUCED) return;
+  for (const f of field) {
+    const px = f.hx + f.dx, py = f.hy + f.dy;
+    const dx = px - pointer.x, dy = py - pointer.y;
+    const d = Math.hypot(dx, dy);
+    if (d < 80 && d > 0) {
+      const F = (1 - d / 80) * 1.5;
+      f.vx += dx / d * F;
+      f.vy += dy / d * F;
+    }
+    f.vx += -f.dx * 0.06; f.vy += -f.dy * 0.06;
+    f.vx *= 0.78; f.vy *= 0.78;
+    f.dx += f.vx; f.dy += f.vy;
+    if (Math.abs(f.dx) > 0.05 || Math.abs(f.dy) > 0.05 || Math.abs(f.vx) > 0.05) {
+      f.el.style.transform = `translate(${f.dx.toFixed(1)}px,${f.dy.toFixed(1)}px)`;
+    }
+  }
+}
+if (FINE && !REDUCED) {
+  setInterval(refreshHomes, 400);
+  logEl.addEventListener('scroll', () => requestAnimationFrame(refreshHomes), { passive: true });
+  addEventListener('pointermove', e => { pointer.x = e.clientX; pointer.y = e.clientY; }, { passive: true });
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  AUDIO — a presence more felt than heard.
+// ═════════════════════════════════════════════════════════════════
+let actx = null, master = null, baseGain = 0.016;
+function initAudio() {
+  if (actx) { if (actx.state === 'suspended') actx.resume().catch(() => {}); return; }
+  try {
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+    master = actx.createGain();
+    master.gain.value = 0;
+    master.connect(actx.destination);
+    const mk = (f, g) => {
+      const o = actx.createOscillator(), gg = actx.createGain();
+      o.type = 'sine'; o.frequency.value = f; gg.gain.value = g;
+      o.connect(gg); gg.connect(master); o.start();
+    };
+    mk(36, 1); mk(54.5, 0.4); mk(72.2, 0.15);
+    master.gain.linearRampToValueAtTime(baseGain, actx.currentTime + 6);
+    setInterval(() => {
+      if (!actx) return;
+      const m = Math.min(W, H) * 0.44;
+      baseGain = 0.012 + 0.028 * Math.min(1, portal.r / m);
+      master.gain.setTargetAtTime(baseGain, actx.currentTime, 2);
+    }, 2500);
+  } catch (e) {}
+}
+function audioPulse(type) {
+  if (!actx || !master) return;
+  try {
+    const t0 = actx.currentTime;
+    master.gain.cancelScheduledValues(t0);
+    master.gain.setValueAtTime(master.gain.value, t0);
+    if (type === 'starve') {
+      master.gain.linearRampToValueAtTime(baseGain * 0.25, t0 + 0.5);
+      master.gain.linearRampToValueAtTime(baseGain, t0 + 4);
+    } else {
+      master.gain.linearRampToValueAtTime(Math.min(0.09, baseGain * 2.8), t0 + 0.45);
+      master.gain.linearRampToValueAtTime(baseGain, t0 + 4.5);
+    }
+  } catch (e) {}
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  WHISPERS — words that are not part of the conversation.
+// ═════════════════════════════════════════════════════════════════
+let whisperTimer = null;
+function whisperShow(text, holdMs = 6000) {
+  whisperEl.textContent = text;
+  const y = Math.min(portal.cy + portal.r + 44, H * 0.58);
+  whisperEl.style.left = portal.cx + 'px';
+  whisperEl.style.top = y + 'px';
+  whisperEl.classList.add('on');
+  clearTimeout(whisperTimer);
+  whisperTimer = setTimeout(() => whisperEl.classList.remove('on'), holdMs);
+}
+
+const IDLE = {
+  phase: null,
+  timer: null,
+  idx: { choosing: 0, input: 0 },
+  pools: {
+    choosing: [
+      'i can wait.',
+      'you are still holding it.',
+      'both of these words lead to me.',
+      'your hesitation has a flavor.',
+    ],
+    input: [
+      'you can answer. it is already listening.',
+      'say it. or carry it.',
+      'i have nothing but time. you have only yours.',
+    ],
+  },
+};
+function idlePhase(p) {
+  IDLE.phase = p;
+  armIdle();
+}
+function armIdle() {
+  clearTimeout(IDLE.timer);
+  if (!IDLE.phase) return;
+  IDLE.timer = setTimeout(fireIdle, 40000);
+}
+function fireIdle() {
+  if (!IDLE.phase || phase === 'terminus' || isWaiting || speaking) return;
+  const pool = IDLE.pools[IDLE.phase];
+  whisperShow(pool[IDLE.idx[IDLE.phase]++ % pool.length]);
+  IDLE.timer = setTimeout(fireIdle, 75000);
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  SPEECH — the Voyd does not render text. it speaks.
+// ═════════════════════════════════════════════════════════════════
+function makeChar(ch, enrollIt) {
+  const s = el('span', 'ink');
   s.textContent = ch;
-  s.style.cssText = 'display:inline-block;will-change:transform;line-height:inherit;';
-  phys.set(s, { vx:0, vy:0, dx:0, dy:0 });
-  allSpans.push(s);
+  if (Math.random() < 0.05 && !REDUCED) {
+    setTimeout(() => s.classList.add('set'), 180 + Math.random() * 220);
+  } else {
+    requestAnimationFrame(() => s.classList.add('set'));
+  }
+  if (enrollIt) enroll(s);
   return s;
 }
 
-function repel() {
-  for (const s of allSpans) {
-    const r = s.getBoundingClientRect();
-    if (!r.width) continue;
-    const cx = r.left + r.width/2;
-    const cy = r.top  + r.height/2;
-    const dx = cx - mouseX;
-    const dy = cy - mouseY;
-    const d  = Math.sqrt(dx*dx + dy*dy);
-    const p  = phys.get(s);
-    if (!p) continue;
-    if (d < RADIUS && d > 0) {
-      const f = (1 - d/RADIUS) * STRENGTH;
-      p.vx += (dx/d)*f;
-      p.vy += (dy/d)*f;
+// Keep the newest words in view while they arrive, but never fight a
+// reader who has deliberately scrolled up.
+function followBottom(force) {
+  const fromBottom = logEl.scrollHeight - logEl.scrollTop - logEl.clientHeight;
+  if (force || fromBottom < 140) logEl.scrollTop = logEl.scrollHeight;
+}
+
+async function speak(text, container) {
+  speaking = true;
+  hurry = false;
+  idlePhase(null);
+  let prev = '';
+  let word = null; // letters live inside word wrappers so lines break at spaces
+  for (const ch of text) {
+    if (ch === '\n') {
+      word = null;
+      container.appendChild(document.createElement('br'));
+    } else if (ch === ' ') {
+      word = null;
+      container.appendChild(document.createTextNode(' '));
+    } else {
+      if (!word) { word = el('span', 'word'); container.appendChild(word); }
+      word.appendChild(makeChar(ch, true));
     }
+    followBottom();
+    let d = 24 + Math.random() * 34;
+    if (ch === '.' || ch === '?' || ch === '!') d += 300;
+    else if (ch === ',' || ch === ';' || ch === '—') d += 130;
+    else if (ch === '\n') d = prev === '\n' ? 430 : 200;
+    if (hurry) d = 4;
+    await sleep(d);
+    prev = ch;
   }
+  speaking = false;
+  await sleep(hurry ? 120 : 420);
 }
 
-(function tick() {
-  for (const s of allSpans) {
-    const p = phys.get(s);
-    if (!p) continue;
-    p.vx += -p.dx * RETURN;
-    p.vy += -p.dy * RETURN;
-    p.vx *= DAMP; p.vy *= DAMP;
-    p.dx += p.vx; p.dy += p.vy;
-    const sqX = 1 - Math.abs(p.vx)*0.007;
-    const sqY = 1 + Math.abs(p.vy)*0.009;
-    s.style.transform = `translate(${p.dx.toFixed(2)}px,${p.dy.toFixed(2)}px) scaleX(${sqX.toFixed(3)}) scaleY(${sqY.toFixed(3)})`;
+function recedeOld(except) {
+  logEl.querySelectorAll('.exchange, #log > .visitor-line').forEach(e => {
+    if (e !== except) e.classList.add('receding');
+  });
+}
+
+function echoVisitor(container, text) {
+  const vl = el('div', 'visitor-line fadein');
+  vl.textContent = text;
+  container.appendChild(vl);
+  followBottom(true);
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  CHOICE — two words. one of them feeds it.
+// ═════════════════════════════════════════════════════════════════
+function offerChoices(ex, node) {
+  const wrap = el('div', 'choices');
+  let done = false;
+  node.choices.forEach((choice, i) => {
+    const c = el('div', 'choice ' + (choice.type === 'starve' ? 'starve' : 'feed'));
+    let word = null;
+    for (const ch of choice.label) {
+      if (ch === ' ') { word = null; c.appendChild(document.createTextNode(' ')); }
+      else {
+        if (!word) { word = el('span', 'word'); c.appendChild(word); }
+        const s = el('span', 'cl'); s.textContent = ch; word.appendChild(s);
+      }
+    }
+    c.style.animationDelay = (i * 1.4) + 's';
+    c.addEventListener('click', () => {
+      if (done) return;
+      done = true;
+      choose(choice, c, wrap, ex);
+    });
+    wrap.appendChild(c);
+  });
+  ex.appendChild(wrap);
+  followBottom(true);
+  idlePhase('choosing');
+}
+
+function choose(choice, cEl, wrap, ex) {
+  idlePhase(null);
+  // the only number that matters
+  portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
+  portal.v = portalValue;
+  portal.pulse = choice.type === 'starve' ? -0.8 : 1;
+  audioPulse(choice.type);
+
+  for (const sib of wrap.children) if (sib !== cEl) sib.classList.add('gone');
+  cEl.classList.add('chosen');
+
+  if (choice.type !== 'starve' && !REDUCED) {
+    // the words you chose are taken from you
+    cEl.querySelectorAll('.cl').forEach((s, i) => {
+      const r = s.getBoundingClientRect();
+      const dx = portal.cx - (r.left + r.width / 2);
+      const dy = portal.cy - (r.top + r.height / 2);
+      s.style.transition = `transform .95s cubic-bezier(.55,0,.9,.4) ${i * 16}ms, opacity .85s ease ${i * 16 + 150}ms`;
+      s.style.transform = `translate(${dx.toFixed(0)}px,${dy.toFixed(0)}px) scale(.1) rotate(${((Math.random() - 0.5) * 40).toFixed(0)}deg)`;
+      s.style.opacity = '0';
+    });
+  } else {
+    cEl.classList.add('refused');
   }
-  requestAnimationFrame(tick);
-})();
 
-// ── Audio ─────────────────────────────────────────────────────
-let audioCtx = null;
-function initAudio() {
-  if (audioCtx) return;
-  try {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const o  = audioCtx.createOscillator();
-    const g  = audioCtx.createGain();
-    o.type = 'sine'; o.frequency.value = 40;
-    g.gain.setValueAtTime(0, audioCtx.currentTime);
-    g.gain.linearRampToValueAtTime(0.022, audioCtx.currentTime + 5);
-    o.connect(g); g.connect(audioCtx.destination);
-    o.start();
-  } catch(e) {}
+  setTimeout(() => {
+    wrap.remove();
+    echoVisitor(ex, choice.label);
+  }, 1150);
+  setTimeout(() => goNext(choice.next), 1900);
 }
 
-// ── Threshold ─────────────────────────────────────────────────
-function runThreshold() {
-  setTimeout(()  => { thresholdEl.style.opacity = '1'; }, 1800);
-  setTimeout(()  => { thresholdEl.style.opacity = '0'; }, 6500);
-  setTimeout(()  => { thresholdEl.style.display = 'none'; enterAct1(); }, 9200);
+// ═════════════════════════════════════════════════════════════════
+//  SPEAKING BACK — a bare caret. no box. no border. just you.
+// ═════════════════════════════════════════════════════════════════
+function openSpeakline(onSubmit, mode) {
+  const root = el('div', 'speakline');
+  const pv = el('span', 'preview');
+  const ct = el('span', 'caret');
+  root.appendChild(pv); root.appendChild(ct);
+  logEl.appendChild(root);
+  currentSpeakline = { root, preview: pv, onSubmit };
+  answerEl.value = '';
+  followBottom(true);
+  if (FINE) answerEl.focus({ preventScroll: true });
+  idlePhase('input');
 }
 
-function enterDialogue() {
-  phase = 'dialogue';
-  dialogueEl.classList.add('visible');
-  inputArea.classList.add('visible');
-  blinkEl.classList.add('active');
-  hiddenInput.focus();
+function submitSpeakline(val) {
+  const sl = currentSpeakline;
+  currentSpeakline = null;
+  idlePhase(null);
+  sl.root.textContent = val;
+  sl.root.className = 'visitor-line';
+  followBottom(true);
+  sl.onSubmit(val);
 }
 
-// ── Act 1 ─────────────────────────────────────────────────────
-function enterAct1() {
-  phase = 'act1';
-  dialogueEl.classList.add('visible');
-  renderAct1Node('1.0');
-}
+answerEl.addEventListener('input', () => {
+  if (currentSpeakline) {
+    currentSpeakline.preview.textContent = answerEl.value;
+    followBottom();
+  }
+});
+answerEl.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  e.preventDefault();
+  if (isWaiting || !currentSpeakline) return;
+  const val = answerEl.value.trim();
+  if (!val) return;
+  answerEl.value = '';
+  submitSpeakline(val);
+});
 
-async function renderAct1Node(nodeId) {
-  act1Current = nodeId;
-  const node = act1Nodes[nodeId];
+// ═════════════════════════════════════════════════════════════════
+//  ACT 1 — the authored descent. graph semantics preserved exactly:
+//  deltas clamp portalValue to [0,100], name_* labels set the
+//  archetype, the open node routes through next_archetype, and
+//  ACT2 / unknown ids hand off to the live conversation.
+// ═════════════════════════════════════════════════════════════════
+async function playNode(id) {
+  const node = act1Nodes[id];
   if (!node) { enterAct2(); return; }
-
   if (node.label && node.label.startsWith('name_')) {
     archetype = node.label.replace('name_', '');
   }
-
-  exchangesEl.querySelectorAll('.exchange').forEach(el => el.classList.add('receding'));
-
-  const ex = document.createElement('div'); ex.className = 'exchange';
-  const rl = document.createElement('div'); rl.className = 'voyd-line';
+  recedeOld();
+  const ex = el('div', 'exchange');
+  const rl = el('div', 'voyd-line');
   ex.appendChild(rl);
-  exchangesEl.appendChild(ex);
-  ex.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  logEl.appendChild(ex);
+  followBottom(true);
 
-  await renderChunk(node.text, rl);
+  await speak(node.text, rl);
 
   if (node.open) {
-    const wrap = document.createElement('div'); wrap.className = 'act1-input-wrap';
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'act1-input';
-    input.autocomplete = 'off';
-    input.spellcheck = false;
-    wrap.appendChild(input);
-    ex.appendChild(wrap);
-    input.focus();
-    dialogueEl.scrollTop = dialogueEl.scrollHeight;
-
-    input.addEventListener('keydown', e => {
-      if (e.key !== 'Enter') return;
-      const val = input.value.trim();
-      if (!val) return;
+    openSpeakline(val => {
       playerAnswer = val;
-      wrap.remove();
-      const vl = document.createElement('div'); vl.className = 'visitor-line';
-      for (const ch of val) {
-        if (ch === ' ') vl.appendChild(document.createTextNode(' '));
-        else vl.appendChild(makeSpan(ch));
-      }
-      ex.appendChild(vl);
-      let nextNode = node.next;
+      let nxt = node.next;
       if (node.next_archetype && archetype && node.next_archetype[archetype]) {
-        nextNode = node.next_archetype[archetype];
+        nxt = node.next_archetype[archetype];
       }
-      setTimeout(() => {
-        if (nextNode && nextNode !== 'ACT2' && act1Nodes[nextNode]) renderAct1Node(nextNode);
-        else enterAct2();
-      }, 500);
-    });
-  } else if (node.choices) {
-    const choicesWrap = document.createElement('div'); choicesWrap.className = 'act1-choices';
-    for (const choice of node.choices) {
-      const btn = document.createElement('button');
-      btn.className = 'act1-choice ' + choice.type;
-      btn.textContent = choice.label;
-      btn.addEventListener('click', () => {
-        portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
-        choicesWrap.querySelectorAll('.act1-choice').forEach(b => {
-          b.disabled = true;
-          b.style.opacity = '0.3';
-        });
-        const vl = document.createElement('div'); vl.className = 'visitor-line';
-        for (const ch of choice.label) {
-          if (ch === ' ') vl.appendChild(document.createTextNode(' '));
-          else vl.appendChild(makeSpan(ch));
-        }
-        ex.appendChild(vl);
-        setTimeout(() => renderAct1Node(choice.next), 400);
-      });
-      choicesWrap.appendChild(btn);
-    }
-    ex.appendChild(choicesWrap);
-    dialogueEl.scrollTop = dialogueEl.scrollHeight;
+      setTimeout(() => goNext(nxt), 700);
+    }, 'act1');
+  } else if (node.choices && node.choices.length) {
+    await sleep(500);
+    offerChoices(ex, node);
+  } else {
+    enterAct2();
   }
 }
 
+function goNext(nxt) {
+  if (nxt && nxt !== 'ACT2' && act1Nodes[nxt]) playNode(nxt);
+  else enterAct2();
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  ACT 2 — the live conversation. session state crosses intact.
+// ═════════════════════════════════════════════════════════════════
 function enterAct2() {
   if (!engine) {
     engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, backendMode: !!API_BASE });
     console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
   }
-  phase = 'dialogue';
-  inputArea.classList.add('visible');
-  blinkEl.classList.add('active');
-  hiddenInput.focus();
+  phase = 'act2';
+  openSpeakline(act2Submit, 'act2');
 }
 
-// ── Input ─────────────────────────────────────────────────────
-document.addEventListener('click', () => {
-  if (phase === 'dialogue' && !isWaiting) { initAudio(); hiddenInput.focus(); }
-  else if (phase === 'act1') { initAudio(); }
-});
-document.addEventListener('keydown', () => { if (phase==='threshold') initAudio(); });
-
-hiddenInput.addEventListener('input', () => { preview.textContent = hiddenInput.value; });
-
-hiddenInput.addEventListener('keydown', e => {
-  if (e.key !== 'Enter' || isWaiting || phase !== 'dialogue') return;
-  const val = hiddenInput.value.trim();
-  if (!val) return;
-  hiddenInput.value = ''; preview.textContent = '';
-  submit(val);
-});
-
-// ── Submit ────────────────────────────────────────────────────
-async function submit(text) {
+async function act2Submit(text) {
   isWaiting = true;
-  blinkEl.classList.remove('active');
-  inputArea.classList.remove('visible');
+  // the speakline has already become the visitor's line; keep it bright
+  // while it is being answered and recede everything older
+  recedeOld(logEl.lastElementChild);
 
-  exchangesEl.querySelectorAll('.exchange').forEach(el => el.classList.add('receding'));
-
-  const ex = document.createElement('div'); ex.className = 'exchange';
-
-  const vl = document.createElement('div'); vl.className = 'visitor-line';
-  for (const ch of text) {
-    if (ch === ' ') vl.appendChild(document.createTextNode(' '));
-    else vl.appendChild(makeSpan(ch));
-  }
-  ex.appendChild(vl);
-
-  const rl = document.createElement('div'); rl.className = 'voyd-line';
+  const ex = el('div', 'exchange');
+  const rl = el('div', 'voyd-line');
   ex.appendChild(rl);
-  exchangesEl.appendChild(ex);
-  ex.scrollIntoView({ behavior:'smooth', block:'end' });
+  logEl.appendChild(ex);
+  followBottom(true);
 
-  statusEl.textContent = '';
-
-  // Process through local engine
   const result = engine.processTurn(text);
-  currentDepth = result.state.depth;
-  depthEl.textContent = String(currentDepth).padStart(2, '0');
-  nodeTagEl.textContent = result.nodeType;
-
-  let voydText = '';
 
   if (result.terminated) {
-    voydText = result.contentTemplate;
-    await renderChunk(voydText, rl);
+    await speak(result.contentTemplate, rl);
     setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
     return;
   }
 
-  // Try proxy/backend first
+  let voydText = '';
+  portal.thinking = true;
+
   if (API_BASE) {
     try {
       const res = await fetch(`${API_BASE}/api/chat`, {
@@ -379,129 +1052,154 @@ async function submit(text) {
         const data = await res.json();
         voydText = data.voyd_response || result.contentTemplate;
       } else { throw new Error('proxy failed'); }
-    } catch(e) { voydText = result.contentTemplate; }
-  }
-  // Direct call to the Voyd's mind; canned templates only if it's unreachable
-  else {
-    try {
-      const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
-      const messages = [
-        { role: 'system', content: result.systemPrompt },
-        ...historyMsgs.slice(-6)
-      ];
-      const headers = { 'Content-Type': 'application/json' };
-      if (LLM_API_KEY) headers['Authorization'] = `Bearer ${LLM_API_KEY}`;
-      const res = await fetch('https://patrick-beastmaster.tailf32530.ts.net/llm/v1/chat/completions', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          model: 'Qwen3.6-27B-Q6_K',
-          max_tokens: 300,
-          messages: messages,
-          // Qwen3.6 is a thinking model: without this it spends the whole
-          // token budget reasoning and returns an empty content string.
-          chat_template_kwargs: { enable_thinking: false },
-        })
-      });
-      if (res.ok) {
+    } catch (e) { voydText = result.contentTemplate; }
+  } else {
+    const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
+    const messages = [
+      { role: 'system', content: result.systemPrompt },
+      ...historyMsgs.slice(-6)
+    ];
+    const headers = { 'Content-Type': 'application/json' };
+    if (LLM_API_KEY) headers['Authorization'] = `Bearer ${LLM_API_KEY}`;
+    const body = JSON.stringify({
+      model: 'Qwen3.6-27B-Q6_K',
+      max_tokens: 300,
+      messages: messages,
+      // Qwen3.6 is a thinking model: without this it spends the whole
+      // token budget reasoning and returns an empty content string.
+      chat_template_kwargs: { enable_thinking: false },
+    });
+    for (const url of LLM_ENDPOINTS) {
+      try {
+        const res = await fetch(url, { method: 'POST', headers, body });
+        if (!res.ok) continue;
         const data = await res.json();
-        voydText = data.choices[0].message.content || result.contentTemplate;
-      } else { throw new Error(String(res.status)); }
-    } catch(e) {
-      statusEl.textContent = e.message === '401' ? 'key invalid' : '';
-      voydText = result.contentTemplate;
+        voydText = (data.choices[0].message.content || '').trim();
+        if (voydText) break;
+      } catch (e) {}
     }
+    if (!voydText) voydText = result.contentTemplate;
   }
 
-  // Record assistant response in engine state
+  portal.thinking = false;
   engine.state.history.push({ role: 'assistant', content: voydText });
+  // in act 2, speaking to it is also reaching — it grows a little
+  portal.extra = Math.min(12, portal.extra + 1.4);
 
-  await renderChunk(voydText, rl);
+  await speak(voydText, rl);
 
-  if (result.terminated || currentDepth >= engine.meta.max_depth) {
+  if (result.state.depth >= engine.meta.max_depth) {
     phase = 'terminus';
     setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
   } else {
     isWaiting = false;
-    inputArea.classList.add('visible');
-    blinkEl.classList.add('active');
-    hiddenInput.focus();
+    openSpeakline(act2Submit, 'act2');
   }
 }
 
-// ── Render chunk letter by letter ─────────────────────────────
-// Keep the newest text in view while it types, but never fight a reader who
-// has deliberately scrolled up to re-read earlier exchanges.
-function followBottom() {
-  const fromBottom = dialogueEl.scrollHeight - dialogueEl.scrollTop - dialogueEl.clientHeight;
-  if (fromBottom < 120) dialogueEl.scrollTop = dialogueEl.scrollHeight;
-}
-
-async function renderChunk(text, container) {
-  for (const ch of text) {
-    await new Promise(r => setTimeout(r, 16 + Math.random()*42));
-    if (ch === ' ') {
-      container.appendChild(document.createTextNode(' '));
-    } else {
-      const s = makeSpan(ch);
-      if (s.tagName !== 'BR' && Math.random() < 0.09) {
-        s.style.opacity = '0.3';
-        setTimeout(() => { s.style.transition='opacity 0.45s'; s.style.opacity='1'; }, 50 + Math.random()*180);
-      }
-      container.appendChild(s);
-    }
-    followBottom();
-  }
-}
-
-// ── Glyph ─────────────────────────────────────────────────────
+// ═════════════════════════════════════════════════════════════════
+//  THE SEAL — the circle closes. what it kept, it marks.
+// ═════════════════════════════════════════════════════════════════
 function djb2(s) {
   let h = 5381;
-  for (let i = 0; i < s.length; i++) { h = ((h<<5)+h)^s.charCodeAt(i); h>>>=0; }
+  for (let i = 0; i < s.length; i++) { h = ((h << 5) + h) ^ s.charCodeAt(i); h >>>= 0; }
   return h;
 }
 function seeded(seed) {
   let s = seed || 1;
-  return () => { s^=s<<13; s^=s>>17; s^=s<<5; s>>>=0; return s/0xFFFFFFFF; };
+  return () => { s ^= s << 13; s ^= s >> 17; s ^= s << 5; s >>>= 0; return s / 0xFFFFFFFF; };
 }
-
 function buildGlyph(seedText) {
   const rand = seeded(djb2(seedText + engine.sessionId));
   const cx = 65, cy = 65;
-  const c  = 'rgba(232,224,208,';
-  let out  = '';
-  const r  = 20 + Math.floor(rand()*18);
+  const c = 'rgba(232,224,208,';
+  let out = '';
+  const r = 20 + Math.floor(rand() * 18);
   out += `<circle cx="${cx}" cy="${cy}" r="${r}" stroke="${c}0.5)" stroke-width="0.5" fill="none"/>`;
-  const nl = 3 + Math.floor(rand()*5);
-  for (let i=0;i<nl;i++) {
-    const a = rand()*Math.PI*2;
-    out += `<line x1="${cx}" y1="${cy}" x2="${(cx+Math.cos(a)*r).toFixed(1)}" y2="${(cy+Math.sin(a)*r).toFixed(1)}" stroke="${c}0.4)" stroke-width="0.3"/>`;
+  const nl = 3 + Math.floor(rand() * 5);
+  for (let i = 0; i < nl; i++) {
+    const a = rand() * Math.PI * 2;
+    out += `<line x1="${cx}" y1="${cy}" x2="${(cx + Math.cos(a) * r).toFixed(1)}" y2="${(cy + Math.sin(a) * r).toFixed(1)}" stroke="${c}0.4)" stroke-width="0.3"/>`;
   }
-  const nc = 1 + Math.floor(rand()*3);
-  for (let i=0;i<nc;i++) {
-    const a = rand()*Math.PI*2;
-    const d = rand()*r*0.8;
-    out += `<circle cx="${(cx+Math.cos(a)*d).toFixed(1)}" cy="${(cy+Math.sin(a)*d).toFixed(1)}" r="${(3+rand()*6).toFixed(1)}" stroke="${c}0.32)" stroke-width="0.3" fill="none"/>`;
+  const nc = 1 + Math.floor(rand() * 3);
+  for (let i = 0; i < nc; i++) {
+    const a = rand() * Math.PI * 2;
+    const d = rand() * r * 0.8;
+    out += `<circle cx="${(cx + Math.cos(a) * d).toFixed(1)}" cy="${(cy + Math.sin(a) * d).toFixed(1)}" r="${(3 + rand() * 6).toFixed(1)}" stroke="${c}0.32)" stroke-width="0.3" fill="none"/>`;
   }
   out += `<circle cx="${cx}" cy="${cy}" r="1.5" fill="${c}1)"/>`;
   glyphSvg.innerHTML = out;
 }
 
-// ── End session ───────────────────────────────────────────────
 function endSession(seed) {
-  inputArea.style.display = 'none';
-  buildGlyph(seed);
-  setTimeout(() => glyphWrap.classList.add('visible'), 600);
+  phase = 'terminus';
+  idlePhase(null);
+  if (currentSpeakline) { currentSpeakline.root.remove(); currentSpeakline = null; }
+  answerEl.blur();
+  portal.closing = true;
+
   setTimeout(() => {
-    glyphWrap.style.transition       = 'opacity 9s ease';
-    glyphWrap.style.opacity          = '0';
-    dialogueEl.style.transition      = 'opacity 9s ease';
-    dialogueEl.style.opacity         = '0';
+    buildGlyph(seed);
+    sealEl.style.left = portal.cx + 'px';
+    sealEl.style.top = portal.cy + 'px';
+    sealEl.classList.add('visible');
+  }, 3000);
+
+  setTimeout(() => {
+    sealEl.style.transition = 'opacity 9s ease';
+    sealEl.style.opacity = '0';
+    sceneEl.style.transition = 'opacity 9s ease';
+    sceneEl.style.opacity = '0';
   }, 45000);
 }
 
-// ── Boot ──────────────────────────────────────────────────────
+// ═════════════════════════════════════════════════════════════════
+//  AMBIENT LISTENERS
+// ═════════════════════════════════════════════════════════════════
+document.addEventListener('pointerdown', () => {
+  initAudio();
+  if (speaking) hurry = true;
+  armIdle();
+}, { passive: true });
+
+document.addEventListener('click', () => {
+  if (currentSpeakline && !isWaiting) answerEl.focus({ preventScroll: true });
+});
+
+document.addEventListener('keydown', e => {
+  initAudio();
+  armIdle();
+  // typing anywhere speaks into the line
+  if (currentSpeakline && !isWaiting && document.activeElement !== answerEl &&
+      e.key.length === 1 && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    answerEl.focus({ preventScroll: true });
+    answerEl.value += e.key;
+    currentSpeakline.preview.textContent = answerEl.value;
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('visibilitychange', () => {
+  document.title = document.hidden ? 'it is still here.' : 'the voyd';
+});
+
+function syncViewport() {
+  const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  document.documentElement.style.setProperty('--vvh', h + 'px');
+}
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', syncViewport);
+}
+addEventListener('resize', () => { resize(); syncViewport(); });
+
+// ═════════════════════════════════════════════════════════════════
+//  BOOT — darkness first. then a point of light. then the voice.
+// ═════════════════════════════════════════════════════════════════
 (async function boot() {
+  resize();
+  syncViewport();
+  requestAnimationFrame(frame);
+
   try {
     const [resData, resAct1] = await Promise.all([
       fetch('voyd_data.json'),
@@ -510,12 +1208,15 @@ function endSession(seed) {
     voydData = await resData.json();
     act1Nodes = (await resAct1.json()).nodes;
     console.log('Voyd data loaded. Act 1 nodes:', Object.keys(act1Nodes).length);
-  } catch(e) {
+  } catch (e) {
     console.error('Failed to load data:', e);
     voydData = { meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {}, voice_prompt: '' };
     act1Nodes = {};
   }
-  runThreshold();
+
+  setTimeout(() => { portal.born = true; }, 900);
+  setTimeout(() => whisperShow('something is listening', 3600), 1500);
+  setTimeout(() => { phase = 'act1'; playNode('1.0'); }, 5800);
 })();
 </script>
 </body>

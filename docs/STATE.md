@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 afternoon (session: Act 2 actually fixed — three stacked bugs — plus scroll-follow; all verified in real Chrome; MERGE TO MAIN to ship)
+Last updated: 2026-06-11 night (session: frontend rebuilt from scratch around the portal — single file, engine inlined, verified end-to-end in headless Chrome at phone size; MERGE TO MAIN to ship)
 
 ---
 
@@ -94,6 +94,41 @@ refresh "Current state" and "Next steps", then stop. The 20-minute grace means r
 iteration won't nag every turn.
 
 ## Session log
+
+### 2026-06-11 night — frontend rebuilt from scratch ("worthy of what this thing actually is")
+Patrick's brief: the portal is the only UI element that matters; text is spoken, not rendered;
+choices are words, not buttons; no chrome, no spinners; mobile-first; single file.
+`frontend/index.html` fully rewritten (~1100 lines, no frameworks, no build step):
+- **The portal is now real**: a canvas-rendered circle of absolute black at 36% viewport
+  height, visible only by its trembling event-horizon rim and the dust/starlight that
+  gravitationally lenses into it and is consumed. Radius driven directly by `portalValue`
+  (8 → ~8.5% of min viewport dim, 100 → ~44%, slow eased growth + 7.5s breath). Feed
+  choices make it swell (pulse + audio); starve makes it flinch and dim.
+- **Choices**: bare floating words (warm = feed, cold = starve), breathing. When you feed,
+  the chosen letters are physically pulled into the portal and consumed. Choice ritual ≈2s.
+- **Speech cadence**: per-char with pauses at sentence/paragraph breaks; tap accelerates.
+  Words wrapped in nowrap spans (mid-word line breaks were the first verify finding).
+- **Input**: no box — a bare blinking caret in the dialogue; hidden input captures
+  (16px font so iOS doesn't zoom; visualViewport → --vvh so the keyboard doesn't cover it).
+- **No chrome**: depth/node/status indicators all removed. Discoverability handled by
+  diegetic idle whispers near the portal at 40s ("you can answer. it is already listening.").
+  Tab-hidden title becomes "it is still here."
+- **End**: portal closes to a point, the session glyph appears at its center,
+  "it keeps what you gave it."
+- **Engine inlined** (single-file directive): `frontend/voyd_engine.js` deleted, `VoydEngine`
+  class unchanged inside index.html. AGENTS.md references updated. Tests untouched (42 green;
+  they mirror logic, not DOM).
+- **Preserved exactly**: act1_nodes graph semantics (delta clamp 0-100, name_* archetype,
+  next_archetype routing at 10.0), portalValue start 8, Act 2 payload (model, max_tokens 300,
+  history slice -6, enable_thinking:false, Bearer if voyd_key). Act 2 endpoint is now a
+  fallback chain: https origin → funnel first then tailnet IP (mixed content blocks http
+  from Pages); http/local → `http://100.73.250.50:8081/v1/chat/completions` first.
+- **Verified end-to-end** in headless Chrome at 390×844 via CDP driver (`/tmp/voyd_drive.py`):
+  full walk 1.0→…→10.0(open answer)→ep_1p→ep_2p→gen_1→gen_2→ACT2, portal curve
+  8→5→9→13→17→22→24→28→33→35→39→44→47→50 matches deltas exactly, archetype person_present,
+  live LLM replied in voice weaving the typed answer ("i told her the truth before she left" →
+  "you traded the lie for the truth and lost her anyway"). Zero console errors. Screenshot
+  fixes applied and re-verified: word wrapping, double visitor echo in Act 2, receding rules.
 
 ### 2026-06-11 afternoon (later) — Act 2 was dead for THREE stacked reasons; all fixed
 Patrick: "front end is the same, same scroll problems, no new stuff, act 2 is dead."

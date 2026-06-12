@@ -65,8 +65,7 @@ There is **no** `pyproject.toml`, `setup.py`, `package.json`, `Cargo.toml`, or s
 │   ├── __init__.py               # Empty
 │   └── lore_index.py             # Keyword-based lore retrieval from wiki/book files
 ├── frontend/                     # Static web assets (deployed to GitHub Pages)
-│   ├── index.html                # Single-page immersive UI
-│   ├── voyd_engine.js            # Client-side narrative engine (the only engine)
+│   ├── index.html                # Single-file immersive UI + inlined narrative engine (the only engine)
 │   ├── voyd_data.json            # Generated compact data file (see Build)
 │   └── data/act1_nodes.json      # Generated copy of data/act1_nodes.json
 ├── scripts/
@@ -109,16 +108,16 @@ Runs `python3 -m http.server 8765` from the `frontend/` directory for local test
 
 ## Runtime Architecture
 
-### Frontend (`frontend/index.html` + `voyd_engine.js`)
-- Loads `voyd_data.json` at boot and instantiates `VoydEngine`.
-- The UI is immersive and atmospheric: black background, custom cursor, letter-level physics (mouse repulsion), ambient audio, and a seeded SVG glyph shown at session end.
-- User input is captured via a hidden input field; typed text is mirrored into a styled preview.
-- Voyd responses are rendered character-by-character with variable timing.
+### Frontend (`frontend/index.html` — single file, no frameworks, no build step)
+- Loads `voyd_data.json` + `data/act1_nodes.json` at boot; instantiates the inlined `VoydEngine` at the Act 2 handoff.
+- The experience is built around the portal: a canvas-rendered circle of absolute black (event-horizon rim, infalling dust/starlight) whose radius is driven by `portalValue`. Feed choices visibly swell it; starve choices make it flinch.
+- Speech renders character-by-character with breath cadence (pauses at sentence ends and paragraph breaks); choices are bare floating words — feed choices are physically pulled into the portal when chosen.
+- User input is captured via a hidden input field; typed text mirrors into a bare caret line in the dialogue. Idle whispers near the portal handle discoverability (no UI chrome anywhere).
 - If `API_BASE` is set (via `localStorage` key `voyd_api`), the frontend calls a backend proxy.
-- Otherwise, if `voyd_key` is set (via `localStorage`), it calls the public Qwen proxy at `patrick-beastmaster.tailf32530.ts.net`.
-- If neither is available, it falls back to `content_template`.
+- Otherwise it calls the LLM directly: from https origins the tailscale funnel (`patrick-beastmaster.tailf32530.ts.net/llm`) first, from http/local the tailnet address (`100.73.250.50:8081`) first, falling through the other on failure. `voyd_key` (localStorage) is sent as a Bearer token if present.
+- If no endpoint answers with content, it falls back to `content_template`.
 
-### Narrative Engine (`frontend/voyd_engine.js`)
+### Narrative Engine (`VoydEngine`, inlined in `frontend/index.html`)
 The engine runs entirely client-side:
 - **Nodes** have types: `threshold`, `dialogue`, `revelation`, `choice`, `terminus`.
 - **Intent classification** maps player text to one of: `inquiry`, `confession`, `challenge`, `silence`, plus a topic. Questions (who/what/why/...) always classify as `inquiry`.
@@ -201,7 +200,7 @@ Run these steps before every commit and push. Do not push if any step fails.
 1. Run the test suite: `python3 -m unittest discover -s tests -v` — all tests must pass. It covers graph integrity (every `next` pointer resolves, no dead ends), all four archetype walks (person_present, person_gone, self_regret, self_unlived — `portalValue` and `archetype` set correctly), and the evolution pipeline.
 2. Rebuild frontend data: `python3 build_frontend.py` — confirm `frontend/data/act1_nodes.json` is in sync
 3. Start the static server: `./start.sh` — confirm it starts without errors
-4. Act 2 handoff: confirm the session state carrying `portalValue`, `archetype`, and `playerAnswer` reaches the system prompt builder in `voyd_engine.js`
+4. Act 2 handoff: confirm the session state carrying `portalValue`, `archetype`, and `playerAnswer` reaches the system prompt builder (`VoydEngine.buildSystemPrompt`, inlined in `frontend/index.html`)
 5. If all pass: commit on a `feat/*` branch and `git push origin <branch>`. Never push to main directly (see rules above); main is updated via merge.
 6. If any fail: report exactly what broke. Do not touch git.
 
