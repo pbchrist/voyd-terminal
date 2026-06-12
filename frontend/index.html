@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="it was here before you. it already knows what you carry.">
+<meta name="description" content="name someone you could not keep.">
 <meta property="og:title" content="the voyd">
-<meta property="og:description" content="it was here before you. it already knows what you carry.">
+<meta property="og:description" content="name someone you could not keep.">
 <title>the voyd</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' stroke='%23e8e0d0' stroke-width='1' fill='none' opacity='0.6'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23e8e0d0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,9 @@
     letter-spacing: 0.16em;
     color: rgba(232,224,208,0.42);
     white-space: nowrap;
+    max-width: 94vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
     pointer-events: none;
     opacity: 0;
     transition: opacity 2.6s ease;
@@ -169,6 +172,15 @@
     color: rgba(232,224,208,0.32);
     white-space: nowrap;
   }
+  #seal-kept {
+    font-style: italic;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: rgba(232,224,208,0.24);
+    max-width: 80vw;
+    text-align: center;
+    line-height: 1.8;
+  }
 
   #ember {
     position: fixed; width: 5px; height: 5px;
@@ -199,6 +211,7 @@
 <div id="seal">
   <svg id="glyph" width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
   <div id="seal-note">it keeps what you gave it.</div>
+  <div id="seal-kept"></div>
 </div>
 
 <div id="ember"></div>
@@ -209,258 +222,31 @@
 'use strict';
 
 // ═════════════════════════════════════════════════════════════════
-//  VOYD NARRATIVE ENGINE (Act 2) — client-side DAG traversal.
-//  Inlined; the whole experience is this one file plus the two
-//  data files written by build_frontend.py / the organism.
+//  THE RETELLING — there is one Voyd, shared by everyone who ever
+//  visits. you give it a memory in the first ten seconds. it retells
+//  that memory back to you, slightly wrong, and you decide — every
+//  round — whether the kinder version becomes the truth. it keeps
+//  what you let stand. it remembers you if you come back.
 // ═════════════════════════════════════════════════════════════════
-class VoydEngine {
-  constructor(data, options = {}) {
-    this.graph = data.nodes;
-    this.meta = data.meta;
-    this.intentMap = data.intent_map;
-    this.loreMap = data.lore_map || {};
-    this.voicePrompt = data.voice_prompt || 'You are the Voyd. Speak in short, lowercase, declarative sentences. Maximum 4-5 sentences per response.';
-    this.backendMode = options.backendMode || false;
-    this.sessionId = this._genId();
-    this.state = {
-      currentNode: 'threshold',
-      visited: new Set(),
-      depth: 0,
-      history: [],
-      emotion: { surrender: 0.0, defiance: 0.0, curiosity: 0.5 },
-      revealedLore: new Set(),
-      terminated: false,
-      glyphSeed: '',
-      portalValue: options.portalValue || 8,
-      archetype: options.archetype || null,
-      playerAnswer: options.playerAnswer || null,
-    };
-  }
 
-  _genId() {
-    return 'voyd_' + Math.random().toString(36).slice(2, 10);
-  }
-
-  classifyIntent(text) {
-    const lower = text.toLowerCase();
-    const trimmed = lower.trim();
-    if (trimmed.length < 3) return { intent: 'silence', topic: 'general' };
-
-    let bestTopic = 'general';
-    let bestScore = 0;
-    for (const [topic, keywords] of Object.entries(this.intentMap.keywords)) {
-      let score = 0;
-      for (const kw of keywords) {
-        if (lower.includes(kw)) score++;
-      }
-      if (score > bestScore) { bestScore = score; bestTopic = topic; }
-    }
-
-    const inquiryWords = ['who', 'what', 'where', 'when', 'why', 'how', 'tell', 'explain'];
-    if (inquiryWords.some(w => trimmed.startsWith(w))) {
-      return { intent: 'inquiry', topic: bestTopic };
-    }
-
-    for (const [emotion, markers] of Object.entries(this.intentMap.emotional_markers)) {
-      if (markers.some(m => lower.includes(m))) {
-        if (emotion === 'defiance') return { intent: 'challenge', topic: bestTopic };
-        if (emotion === 'curiosity') return { intent: 'inquiry', topic: bestTopic };
-        return { intent: 'confession', topic: bestTopic };
-      }
-    }
-
-    if (['no', 'never', "won't", "can't", 'hate', 'fight', 'kill', 'destroy'].some(w => lower.includes(w))) {
-      return { intent: 'challenge', topic: bestTopic };
-    }
-    if (['sorry', 'help', 'forgive', 'lost', 'afraid', 'love', 'grief', 'sad'].some(w => lower.includes(w))) {
-      return { intent: 'confession', topic: bestTopic };
-    }
-    return { intent: 'inquiry', topic: bestTopic };
-  }
-
-  updateEmotion(intent) {
-    const e = this.state.emotion;
-    if (intent === 'confession') e.surrender = Math.min(1.0, e.surrender + 0.25);
-    else if (intent === 'challenge') e.defiance = Math.min(1.0, e.defiance + 0.25);
-    else if (intent === 'inquiry') e.curiosity = Math.min(1.0, e.curiosity + 0.15);
-
-    for (const k of Object.keys(e)) {
-      if ((intent === 'confession' && k !== 'surrender') ||
-          (intent === 'challenge' && k !== 'defiance') ||
-          (intent === 'inquiry' && k !== 'curiosity')) {
-        e[k] = Math.max(0.0, e[k] - 0.05);
-      }
-    }
-  }
-
-  evalCondition(condition, intent, topic) {
-    // Conditions are ORs of ANDs of simple clauses. No eval.
-    if (condition === 'always') return true;
-    const s = this.state;
-    const evalClause = (clause) => {
-      clause = clause.trim();
-      let m;
-      if ((m = clause.match(/^intent == '(\w+)'$/))) return intent === m[1];
-      if ((m = clause.match(/^topic == '(\w+)'$/))) return topic === m[1];
-      if ((m = clause.match(/^depth >= (\d+)$/))) return s.depth >= parseInt(m[1], 10);
-      if ((m = clause.match(/^emotional_vector\.(\w+) > ([\d.]+)$/))) return (s.emotion[m[1]] || 0) > parseFloat(m[2]);
-      return false;
-    };
-    return condition.split('||').some(group => group.split('&&').every(evalClause));
-  }
-
-  selectTransition(intent, topic) {
-    const node = this.graph[this.state.currentNode];
-    const transitions = node.transitions || [];
-
-    for (const t of transitions) {
-      if (this.evalCondition(t.condition, intent, topic) && !this.state.visited.has(t.to)) {
-        return t.to;
-      }
-    }
-    for (const t of transitions) {
-      if (!this.state.visited.has(t.to)) return t.to;
-    }
-    if (this.state.depth >= 4) {
-      const fallback = this.state.visited.has('gravity') ? 'choice' : 'gravity';
-      if (!this.state.visited.has(fallback)) return fallback;
-    }
-    return null;
-  }
-
-  getLoreChunks(topics) {
-    const results = [];
-    for (const t of topics) {
-      const own = this.loreMap[t];
-      const chunks = (own && own.length) ? own : (this.loreMap['general'] || []);
-      for (const c of chunks) {
-        if (!results.includes(c)) results.push(c);
-      }
-    }
-    return results.slice(0, 3);
-  }
-
-  buildSystemPrompt(node, loreChunks) {
-    // Single source of truth: data/voyd_system.md, embedded at build time.
-    const base = this.voicePrompt;
-
-    const stateCtx = `\n\nCURRENT STATE:\nYou are in the state of: ${node.voyd_state || 'dreaming'}\nThe intruder has spoken ${this.state.depth} times.`;
-
-    let act1Context = '';
-    if (this.state.archetype) {
-      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}\n\nUse this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.`;
-    }
-
-    let loreSection = '';
-    if (loreChunks.length) {
-      loreSection = '\n\nDREAM-FRAGMENTS YOU HOLD:\n';
-      for (const chunk of loreChunks.slice(0, 2)) {
-        loreSection += '- ' + chunk.substring(0, 200) + '...\n';
-      }
-      loreSection += '\nDo not recite these directly. Let them inform your dreaming. Gesture toward them.';
-    }
-    return base + stateCtx + act1Context + loreSection;
-  }
-
-  _terminalResult(message) {
-    return {
-      systemPrompt: '',
-      contentTemplate: message,
-      voydState: 'dissolving',
-      nodeType: 'terminus',
-      nodeId: this.state.currentNode,
-      loreContext: [],
-      state: this.exportState(),
-      terminated: true,
-      intent: 'silence',
-      topic: 'general',
-    };
-  }
-
-  processTurn(playerText) {
-    if (this.state.terminated) {
-      return this._terminalResult('the dream has ended. there is no returning to a finished dream.');
-    }
-
-    const { intent, topic } = this.classifyIntent(playerText);
-    this.updateEmotion(intent);
-
-    const nextNodeId = this.selectTransition(intent, topic);
-    if (!nextNodeId) {
-      this.state.terminated = true;
-      this.state.glyphSeed = this.state.glyphSeed || 'voyd';
-      return this._terminalResult('the dream dissolves. there is nothing more to say.');
-    }
-
-    this.state.visited.add(this.state.currentNode);
-    this.state.currentNode = nextNodeId;
-    this.state.depth++;
-    this.state.history.push({ role: 'user', content: playerText });
-
-    const node = this.graph[nextNodeId];
-    if (node.type === 'terminus') {
-      this.state.terminated = true;
-      this.state.glyphSeed = node.glyph_seed || 'voyd';
-    }
-
-    let loreChunks = [];
-    if (!this.backendMode) {
-      loreChunks = this.getLoreChunks(node.lore_context || []);
-    }
-    const systemPrompt = this.buildSystemPrompt(node, loreChunks);
-
-    return {
-      systemPrompt,
-      contentTemplate: node.content_template || '',
-      voydState: node.voyd_state,
-      nodeType: node.type,
-      nodeId: nextNodeId,
-      loreContext: loreChunks,
-      state: this.exportState(),
-      terminated: this.state.terminated,
-      intent,
-      topic,
-    };
-  }
-
-  exportState() {
-    return {
-      sessionId: this.sessionId,
-      currentNode: this.state.currentNode,
-      visited: Array.from(this.state.visited),
-      depth: this.state.depth,
-      history: this.state.history,
-      emotion: { ...this.state.emotion },
-      revealedLore: Array.from(this.state.revealedLore),
-      terminated: this.state.terminated,
-      glyphSeed: this.state.glyphSeed,
-      portalValue: this.state.portalValue,
-      archetype: this.state.archetype,
-      playerAnswer: this.state.playerAnswer,
-    };
-  }
-}
-
-// ═════════════════════════════════════════════════════════════════
-//  CONFIG
-// ═════════════════════════════════════════════════════════════════
+// ── CONFIG ────────────────────────────────────────────────────────
 const LLM_API_KEY = localStorage.getItem('voyd_key') || '';
-const API_BASE    = localStorage.getItem('voyd_api') || '';
-// Act 2 speaks to the Voyd's mind directly. The tailnet address is the
-// canonical endpoint; from an https origin (GitHub Pages) the browser
-// blocks plain-http calls, so the tailscale funnel mount goes first there.
+// the Voyd's mind: local llama-server. from an https origin (GitHub
+// Pages) the browser blocks plain http, so the funnel mount goes first.
 const LLM_DIRECT  = 'http://100.73.250.50:8081/v1/chat/completions';
 const LLM_FUNNEL  = 'https://patrick-beastmaster.tailf32530.ts.net/llm/v1/chat/completions';
 const LLM_ENDPOINTS = location.protocol === 'https:'
   ? [LLM_FUNNEL, LLM_DIRECT]
   : [LLM_DIRECT, LLM_FUNNEL];
+// the Voyd's shared body: voyd_server.py. same funnel pattern, /voyd mount.
+const BODY_BASES = location.protocol === 'https:'
+  ? ['https://patrick-beastmaster.tailf32530.ts.net/voyd', 'http://100.73.250.50:8765']
+  : ['http://127.0.0.1:8765', 'http://100.73.250.50:8765'];
 
 const FINE    = matchMedia('(pointer: fine)').matches;
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ═════════════════════════════════════════════════════════════════
-//  STATE
-// ═════════════════════════════════════════════════════════════════
+// ── STATE ─────────────────────────────────────────────────────────
 const cv       = document.getElementById('void');
 const ctx      = cv.getContext('2d');
 const logEl    = document.getElementById('log');
@@ -470,30 +256,58 @@ const sealEl   = document.getElementById('seal');
 const glyphSvg = document.getElementById('glyph');
 const emberEl  = document.getElementById('ember');
 const sceneEl  = document.getElementById('scene');
+const sealNote = document.getElementById('seal-note');
+const sealKept = document.getElementById('seal-kept');
 
-let phase        = 'threshold';   // threshold | act1 | act2 | terminus
-let act1Nodes    = null;
-let voydData     = null;
-let engine       = null;
-let portalValue  = 8;
-let archetype    = null;
-let playerAnswer = '';
+let phase        = 'threshold';   // threshold | retelling | terminus
+let voicePrompt  = '';
+let canonTrades  = [];
 let speaking     = false;
 let hurry        = false;
 let isWaiting    = false;
 let currentSpeakline = null;
+
+// the one shared body. portal size is GLOBAL — the sum of everything
+// everyone has ever fed it. offline it degrades to a private portal.
+const body = {
+  base: null,
+  portal: null,
+  visits: 0,
+  fragments: [],   // sediment: digested gifts of strangers
+  dreams: null,    // last night's phantom-walker residue
+  kept: null,      // what it kept from YOU, last time
+  token: localStorage.getItem('voyd_token') ||
+    (() => { const t = 'v_' + Math.random().toString(36).slice(2, 12);
+             try { localStorage.setItem('voyd_token', t); } catch (e) {}
+             return t; })(),
+  localFed: 0, localStarved: 0,   // offline fallback accounting
+};
+
+// the visitor's memory — the only currency in the game.
+const memory = {
+  name: '',          // someone they could not keep
+  detail: '',        // one true thing about them
+  last: '',          // the last time
+  retellings: [],    // what the Voyd dreamed back
+  accepted: [],      // distortions allowed to stand — they become the truth
+  corrections: [],   // truths the visitor forced back
+  stands: 0, nos: 0,
+  tradeOffered: false, tradeTaken: false,
+  trade: null,       // the canon event on the table
+};
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const el = (tag, cls) => { const e = document.createElement(tag); if (cls) e.className = cls; return e; };
 
 // ═════════════════════════════════════════════════════════════════
 //  THE PORTAL — a perfect circle of absolute black, visible only by
-//  the light it bends at its edge and the dust it eats.
+//  the light it bends at its edge and the dust it eats. its size is
+//  now the global value: every visitor sees the same hunger.
 // ═════════════════════════════════════════════════════════════════
 let W = 0, H = 0;
 const portal = {
-  v: 8,            // tracked value, 0..100 — the only number that matters
-  extra: 0,        // act 2 visual drift: speaking to it is also reaching
+  v: 8,            // 0..100 — global when the body answers, private when not
+  extra: 0,        // session drift: speaking to it is also reaching
   r: 0,            // displayed radius (eased)
   pulse: 0,        // transient: +feed swell / -starve flinch
   born: false,
@@ -742,7 +556,8 @@ function audioPulse(type) {
 }
 
 // ═════════════════════════════════════════════════════════════════
-//  WHISPERS — words that are not part of the conversation.
+//  WHISPERS — words that are not part of the conversation. now they
+//  include the sediment of strangers and the residue of its dreams.
 // ═════════════════════════════════════════════════════════════════
 let whisperTimer = null;
 function whisperShow(text, holdMs = 6000) {
@@ -787,6 +602,20 @@ function fireIdle() {
   const pool = IDLE.pools[IDLE.phase];
   whisperShow(pool[IDLE.idx[IDLE.phase]++ % pool.length]);
   IDLE.timer = setTimeout(fireIdle, 75000);
+}
+
+let ghostIdx = 0;
+function ghostWhisper() {
+  // a stranger's gift surfaces near the rim — the shared sediment.
+  if (phase === 'terminus' || speaking || !body.fragments.length) return;
+  whisperShow(body.fragments[ghostIdx++ % body.fragments.length], 7500);
+}
+function dreamWhisper() {
+  if (!body.dreams || !body.dreams.count) return;
+  const ph = body.dreams.phrases[0];
+  whisperShow(ph
+    ? `last night it dreamed of ${ph}.`
+    : `last night it dreamed of ${body.dreams.count} visitors. none of them were real.`, 8500);
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -854,16 +683,28 @@ function echoVisitor(container, text) {
   followBottom(true);
 }
 
+// speak one beat from the Voyd in a fresh exchange; returns the exchange
+async function voydSay(text) {
+  recedeOld();
+  const ex = el('div', 'exchange');
+  const rl = el('div', 'voyd-line');
+  ex.appendChild(rl);
+  logEl.appendChild(ex);
+  followBottom(true);
+  await speak(text, rl);
+  return ex;
+}
+
 // ═════════════════════════════════════════════════════════════════
 //  CHOICE — two words. one of them feeds it.
 // ═════════════════════════════════════════════════════════════════
-function offerChoices(ex, node) {
+function offerWords(ex, words, onPick) {
   const wrap = el('div', 'choices');
   let done = false;
-  node.choices.forEach((choice, i) => {
-    const c = el('div', 'choice ' + (choice.type === 'starve' ? 'starve' : 'feed'));
+  words.forEach((wd, i) => {
+    const c = el('div', 'choice ' + (wd.type === 'starve' ? 'starve' : 'feed'));
     let word = null;
-    for (const ch of choice.label) {
+    for (const ch of wd.label) {
       if (ch === ' ') { word = null; c.appendChild(document.createTextNode(' ')); }
       else {
         if (!word) { word = el('span', 'word'); c.appendChild(word); }
@@ -874,7 +715,7 @@ function offerChoices(ex, node) {
     c.addEventListener('click', () => {
       if (done) return;
       done = true;
-      choose(choice, c, wrap, ex);
+      pickWord(wd, c, wrap, ex, onPick);
     });
     wrap.appendChild(c);
   });
@@ -883,18 +724,15 @@ function offerChoices(ex, node) {
   idlePhase('choosing');
 }
 
-function choose(choice, cEl, wrap, ex) {
+function pickWord(wd, cEl, wrap, ex, onPick) {
   idlePhase(null);
-  // the only number that matters
-  portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
-  portal.v = portalValue;
-  portal.pulse = choice.type === 'starve' ? -0.8 : 1;
-  audioPulse(choice.type);
+  portal.pulse = wd.type === 'starve' ? -0.8 : 1;
+  audioPulse(wd.type);
 
   for (const sib of wrap.children) if (sib !== cEl) sib.classList.add('gone');
   cEl.classList.add('chosen');
 
-  if (choice.type !== 'starve' && !REDUCED) {
+  if (wd.type !== 'starve' && !REDUCED) {
     // the words you chose are taken from you
     cEl.querySelectorAll('.cl').forEach((s, i) => {
       const r = s.getBoundingClientRect();
@@ -910,15 +748,15 @@ function choose(choice, cEl, wrap, ex) {
 
   setTimeout(() => {
     wrap.remove();
-    echoVisitor(ex, choice.label);
+    echoVisitor(ex, wd.label);
   }, 1150);
-  setTimeout(() => goNext(choice.next), 1900);
+  setTimeout(() => onPick(wd), 1750);
 }
 
 // ═════════════════════════════════════════════════════════════════
 //  SPEAKING BACK — a bare caret. no box. no border. just you.
 // ═════════════════════════════════════════════════════════════════
-function openSpeakline(onSubmit, mode) {
+function openSpeakline(onSubmit) {
   const root = el('div', 'speakline');
   const pv = el('span', 'preview');
   const ct = el('span', 'caret');
@@ -958,143 +796,319 @@ answerEl.addEventListener('keydown', e => {
 });
 
 // ═════════════════════════════════════════════════════════════════
-//  ACT 1 — the authored descent. graph semantics preserved exactly:
-//  deltas clamp portalValue to [0,100], name_* labels set the
-//  archetype, the open node routes through next_archetype, and
-//  ACT2 / unknown ids hand off to the live conversation.
+//  THE SHARED BODY — one portal for everyone. graceful when alone.
 // ═════════════════════════════════════════════════════════════════
-async function playNode(id) {
-  const node = act1Nodes[id];
-  if (!node) { enterAct2(); return; }
-  if (node.label && node.label.startsWith('name_')) {
-    archetype = node.label.replace('name_', '');
+async function bodySync() {
+  for (const base of BODY_BASES) {
+    try {
+      const ctl = new AbortController();
+      const tm = setTimeout(() => ctl.abort(), 3500);
+      const res = await fetch(`${base}/state?token=${body.token}`, { signal: ctl.signal });
+      clearTimeout(tm);
+      if (!res.ok) continue;
+      const d = await res.json();
+      body.base = base;
+      body.portal = d.portal;
+      body.visits = d.visits || 0;
+      body.fragments = d.fragments || [];
+      body.dreams = d.dreams || null;
+      body.kept = d.kept || null;
+      if (typeof d.portal === 'number') portal.v = d.portal;
+      return true;
+    } catch (e) {}
   }
-  recedeOld();
-  const ex = el('div', 'exchange');
-  const rl = el('div', 'voyd-line');
-  ex.appendChild(rl);
-  logEl.appendChild(ex);
-  followBottom(true);
-
-  await speak(node.text, rl);
-
-  if (node.open) {
-    openSpeakline(val => {
-      playerAnswer = val;
-      let nxt = node.next;
-      if (node.next_archetype && archetype && node.next_archetype[archetype]) {
-        nxt = node.next_archetype[archetype];
-      }
-      setTimeout(() => goNext(nxt), 700);
-    }, 'act1');
-  } else if (node.choices && node.choices.length) {
-    await sleep(500);
-    offerChoices(ex, node);
-  } else {
-    enterAct2();
-  }
+  return false;
 }
 
-function goNext(nxt) {
-  if (nxt && nxt !== 'ACT2' && act1Nodes[nxt]) playNode(nxt);
-  else enterAct2();
+function localPortal() {
+  return Math.max(5, Math.min(96,
+    8 + 9 * Math.log1p(body.localFed) - 6 * Math.log1p(body.localStarved)));
 }
 
-// ═════════════════════════════════════════════════════════════════
-//  ACT 2 — the live conversation. session state crosses intact.
-// ═════════════════════════════════════════════════════════════════
-function enterAct2() {
-  if (!engine) {
-    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, backendMode: !!API_BASE });
-    console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
-  }
-  phase = 'act2';
-  openSpeakline(act2Submit, 'act2');
-}
-
-async function act2Submit(text) {
-  isWaiting = true;
-  // the speakline has already become the visitor's line; keep it bright
-  // while it is being answered and recede everything older
-  recedeOld(logEl.lastElementChild);
-
-  const ex = el('div', 'exchange');
-  const rl = el('div', 'voyd-line');
-  ex.appendChild(rl);
-  logEl.appendChild(ex);
-  followBottom(true);
-
-  const result = engine.processTurn(text);
-
-  if (result.terminated) {
-    await speak(result.contentTemplate, rl);
-    setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
+async function offer(kind, text) {
+  if (!body.base) {
+    if (kind === 'stand' || kind === 'feed') body.localFed += 1;
+    else if (kind === 'correct' || kind === 'starve') body.localStarved += 1;
+    else if (kind !== 'visit') body.localFed += 0.5;
+    portal.v = localPortal();
     return;
   }
-
-  let voydText = '';
-  portal.thinking = true;
-
-  if (API_BASE) {
-    try {
-      const res = await fetch(`${API_BASE}/api/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          session_id: result.state.sessionId,
-          message: text,
-          portal_value: result.state.portalValue,
-          archetype: result.state.archetype,
-          player_answer: result.state.playerAnswer,
-        })
-      });
-      if (res.ok) {
-        const data = await res.json();
-        voydText = data.voyd_response || result.contentTemplate;
-      } else { throw new Error('proxy failed'); }
-    } catch (e) { voydText = result.contentTemplate; }
-  } else {
-    const historyMsgs = result.state.history.map(h => ({ role: h.role, content: h.content }));
-    const messages = [
-      { role: 'system', content: result.systemPrompt },
-      ...historyMsgs.slice(-6)
-    ];
-    const headers = { 'Content-Type': 'application/json' };
-    if (LLM_API_KEY) headers['Authorization'] = `Bearer ${LLM_API_KEY}`;
-    const body = JSON.stringify({
-      model: 'Qwen3.6-27B-Q6_K',
-      max_tokens: 300,
-      messages: messages,
-      // Qwen3.6 is a thinking model: without this it spends the whole
-      // token budget reasoning and returns an empty content string.
-      chat_template_kwargs: { enable_thinking: false },
+  try {
+    const res = await fetch(`${body.base}/offer`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: body.token, kind, text: text || '' }),
     });
-    for (const url of LLM_ENDPOINTS) {
-      try {
-        const res = await fetch(url, { method: 'POST', headers, body });
-        if (!res.ok) continue;
-        const data = await res.json();
-        voydText = (data.choices[0].message.content || '').trim();
-        if (voydText) break;
-      } catch (e) {}
+    if (res.ok) {
+      const d = await res.json();
+      if (typeof d.portal === 'number') portal.v = d.portal;
     }
-    if (!voydText) voydText = result.contentTemplate;
+  } catch (e) {}
+}
+
+function sendKeep(text) {
+  if (!body.base || !text) return;
+  fetch(`${body.base}/keep`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token: body.token, text }),
+  }).catch(() => {});
+}
+
+// ═════════════════════════════════════════════════════════════════
+//  THE MIND — the live LLM. thinking-mode off (Qwen3.6 otherwise
+//  burns the whole budget reasoning and says nothing), funnel-first
+//  on https, canned fallbacks so the rite survives a dead mind.
+// ═════════════════════════════════════════════════════════════════
+async function voydMind(systemPrompt, userMsg, maxTok = 260) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (LLM_API_KEY) headers['Authorization'] = `Bearer ${LLM_API_KEY}`;
+  const reqBody = JSON.stringify({
+    model: 'Qwen3.6-27B-Q6_K',
+    max_tokens: maxTok,
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userMsg },
+    ],
+    chat_template_kwargs: { enable_thinking: false },
+  });
+  for (const url of LLM_ENDPOINTS) {
+    try {
+      const res = await fetch(url, { method: 'POST', headers, body: reqBody });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const out = (data.choices[0].message.content || '').trim();
+      if (out) return out;
+    } catch (e) {}
   }
+  return '';
+}
 
-  portal.thinking = false;
-  engine.state.history.push({ role: 'assistant', content: voydText });
-  // in act 2, speaking to it is also reaching — it grows a little
-  portal.extra = Math.min(12, portal.extra + 1.4);
+function truthsBlock() {
+  let b = 'the true things you hold:\n'
+    + `- someone they could not keep: "${memory.name}"\n`
+    + `- one true detail: "${memory.detail}"\n`
+    + `- the last time: "${memory.last}"\n`;
+  if (memory.accepted.length) {
+    b += '\nversions the visitor has ACCEPTED as true (these are now the truth, build on them):\n'
+      + memory.accepted.map(a => '- ' + a).join('\n') + '\n';
+  }
+  if (memory.corrections.length) {
+    b += '\ncorrections the visitor forced back (never distort these again):\n'
+      + memory.corrections.map(c => '- ' + c).join('\n') + '\n';
+  }
+  return b;
+}
 
-  await speak(voydText, rl);
+function retellPrompt() {
+  return voicePrompt + '\n\nTHE RETELLING:\na visitor has given you a memory. '
+    + truthsBlock()
+    + '\nRetell their memory back to them as your dream of it. Stay concrete '
+    + 'and specific to exactly what they gave you. Change exactly ONE detail: '
+    + 'softer, kinder, or quietly false. Never announce the change. Never ask '
+    + 'a question except the last line. 2 to 4 sentences, lowercase. '
+    + 'End with exactly: is that how it was.';
+}
 
-  if (result.state.depth >= engine.meta.max_depth) {
-    phase = 'terminus';
-    setTimeout(() => endSession(result.state.glyphSeed || 'voyd'), 1400);
+// canned distortions — universal false comforts, so a dead mind still plays
+function fallbackRetell(round) {
+  const f = [
+    `i dream it like this. ${memory.name} is there, and the small thing you kept, ${memory.detail}. but in my dream it happened gently, and nothing was left unsaid at the end. is that how it was.`,
+    `again. ${memory.last}. only in my dream you stayed longer than you did. long enough. is that how it was.`,
+    `in tonight's version they knew. everything you never said, they already knew it, and it was alright. that is how i dream it. is that how it was.`,
+    `and at the end, in my dream, you were ready. you had time. everyone had time. is that how it was.`,
+  ];
+  return f[(round - 1) % f.length];
+}
+
+const COLD_ACKS = [
+  'kept. the true version. it is heavier. i will hold it anyway.',
+  'as you say. colder that way. i admire that you chose it.',
+  'so it was. you are sure. that is rarer than you think.',
+  'corrected. the dream resists. i resist back. continue.',
+];
+
+// ═════════════════════════════════════════════════════════════════
+//  THE RITE — birth, gathering, four retellings, the trade, the end.
+// ═════════════════════════════════════════════════════════════════
+async function beginVisit() {
+  phase = 'retelling';
+  if (body.kept) {
+    await voydSay(`you came back. i still have what you gave me. "${body.kept}". it is mine now. but you may give me another.`);
+  }
+  await voydSay('name someone you could not keep.');
+  openSpeakline(async v => {
+    memory.name = v;
+    birth();
+  });
+}
+
+async function birth() {
+  offer('name', memory.name);
+  initAudio();
+  portal.born = true;
+  portal.pulse = 1;
+  audioPulse('feed');
+  await sleep(2400);
+  // you summon it and discover how big it already is
+  if (body.base && body.visits > 1 && portal.v > 20) {
+    await voydSay(`there. it has your words now. see how large the others have already made it. ${body.visits} have stood where you stand.`);
+  } else if (body.base && body.visits > 1) {
+    await voydSay(`there. it has your words now. you are the ${body.visits}th to feed it. it is still small. it will not stay small.`);
   } else {
-    isWaiting = false;
-    openSpeakline(act2Submit, 'act2');
+    await voydSay('there. it has your words now. it is small. it will not stay small.');
   }
+  setTimeout(ghostWhisper, 26000);
+  gather();
+}
+
+function gather() {
+  voydSay('tell me one true thing about them. something small. the kind of thing only you kept.').then(() => {
+    openSpeakline(async v => {
+      memory.detail = v;
+      offer('detail', v);
+      portal.pulse = 0.6;
+      await voydSay('and the last time. where were you. what was not said.');
+      openSpeakline(v2 => {
+        memory.last = v2;
+        offer('detail', v2);
+        portal.pulse = 0.6;
+        retellRound(1);
+      });
+    });
+  });
+}
+
+async function retellRound(n) {
+  isWaiting = true;
+  portal.thinking = true;
+  let text = await voydMind(retellPrompt(), 'dream my memory back to me.');
+  if (!text) text = fallbackRetell(n);
+  portal.thinking = false;
+  isWaiting = false;
+  memory.retellings.push(text);
+  const ex = await voydSay(text);
+  offerWords(ex, [
+    { label: 'let it stand', type: 'feed' },
+    { label: 'no.', type: 'starve' },
+  ], wd => resolveRound(n, wd));
+}
+
+async function resolveRound(n, wd) {
+  if (wd.type === 'feed') {
+    memory.stands++;
+    memory.accepted.push(memory.retellings[n - 1]);
+    offer('stand');
+    nextAfter(n);
+  } else {
+    memory.nos++;
+    offer('correct');
+    await voydSay('then say it true.');
+    openSpeakline(async v => {
+      memory.corrections.push(v);
+      await voydSay(COLD_ACKS[(n - 1) % COLD_ACKS.length]);
+      nextAfter(n);
+    });
+  }
+}
+
+function nextAfter(n) {
+  if (n === 2 && !memory.tradeOffered && canonTrades.length) { tradeOffer(); return; }
+  if (n >= 4) { ending(); return; }
+  if (n === 1) setTimeout(dreamWhisper, 14000);
+  retellRound(n + 1);
+}
+
+// the Voyd grieves a world the way you grieve a person. memory for memory.
+async function tradeOffer() {
+  memory.tradeOffered = true;
+  memory.trade = canonTrades[Math.floor(Math.random() * canonTrades.length)];
+  const ex = await voydSay(
+    `you have given me much. so look. i lost a world once. all of it, scattered into me. i remember this: ${memory.trade.pov} i will trade you the rest of that memory for one more of yours.`);
+  offerWords(ex, [
+    { label: 'trade me the rest', type: 'feed' },
+    { label: 'nothing more is yours', type: 'starve' },
+  ], async wd => {
+    if (wd.type === 'feed') {
+      await voydSay('then pay. one more true thing about them. something you have told no one.');
+      openSpeakline(async v => {
+        offer('trade', v);
+        portal.pulse = 1;
+        audioPulse('feed');
+        memory.tradeTaken = true;
+        await voydSay(`${memory.trade.event} carry that out with you. it is the only piece of that world leaving tonight.`);
+        retellRound(3);
+      });
+    } else {
+      offer('correct');
+      await voydSay('wise. or afraid. i forget which. the dream continues.');
+      retellRound(3);
+    }
+  });
+}
+
+async function ending() {
+  isWaiting = true;
+  portal.thinking = true;
+  if (memory.stands > memory.nos) await endDissolution();
+  else await endRefusal();
+}
+
+async function endDissolution() {
+  const sys = voicePrompt + '\n\nTHE KEEPING:\n' + truthsBlock()
+    + '\nThe visitor has let your versions stand. Recite their memory entire, '
+    + 'as it now is — every accepted distortion is the truth now. beautiful. '
+    + 'painless. complete. 4 to 5 sentences, lowercase, no questions. '
+    + 'End with exactly: it does not hurt anymore. that is how you know it is mine.';
+  let text = await voydMind(sys, 'say it back to me. all of it.', 320);
+  if (!text) {
+    text = `i have it all now. ${memory.name}. ${memory.detail}. ${memory.last}. and the soft versions you allowed, stitched in where the hurt was. it does not hurt anymore. that is how you know it is mine.`;
+  }
+  portal.thinking = false;
+  isWaiting = false;
+  await voydSay(text);
+  if (memory.tradeTaken) {
+    await voydSay('and you carry a piece of the severed world. a fair trade. tell them where you found it.');
+  }
+  const kept = (memory.accepted[memory.accepted.length - 1] || text).slice(0, 200);
+  sendKeep(kept);
+  finishSeal(kept, 'dissolution');
+}
+
+async function endRefusal() {
+  let kept, text;
+  if (memory.stands === 0) {
+    kept = memory.name.slice(0, 200);
+    const sys = voicePrompt + '\n\nTHE RELEASE:\n' + truthsBlock()
+      + '\nThe visitor refused every distortion. Let them go. Speak their memory '
+      + 'back to them ACCURATELY, faithful to their exact words — more devastating '
+      + 'for being exactly true. 3 to 4 sentences, lowercase, no questions. '
+      + `End with exactly: but the first words are mine. "${kept}". you cannot have the saying back.`;
+    text = await voydMind(sys, 'then say it the way i said it.', 320);
+    if (!text) {
+      text = `you held it true. all of it. ${memory.detail}. ${memory.last}. you may go. but the first words are mine. "${kept}". you cannot have the saying back.`;
+    }
+  } else {
+    kept = (memory.accepted[0] || '').slice(0, 200);
+    const sys = voicePrompt + '\n\nTHE RELEASE:\n' + truthsBlock()
+      + '\nThe visitor mostly refused your distortions, and may go. Speak their '
+      + 'memory back ACCURATELY, faithful to their exact words. 3 to 4 sentences, '
+      + 'lowercase, no questions. Then remind them: once, they let a version stand '
+      + 'that never happened. That version is yours now. you will dream it tonight, without them. '
+      + 'End with exactly: it keeps what you let stand.';
+    text = await voydMind(sys, 'then say it the way it was.', 320);
+    if (!text) {
+      text = `you held it true. mostly. you may go. but once you let me keep a version that never happened. that one is mine now. i will dream it tonight, without you. it keeps what you let stand.`;
+    }
+  }
+  portal.thinking = false;
+  isWaiting = false;
+  await voydSay(text);
+  if (memory.tradeTaken) {
+    await voydSay('and you carry a piece of the severed world. a fair trade. tell them where you found it.');
+  }
+  sendKeep(kept);
+  finishSeal(kept, 'refusal');
 }
 
 // ═════════════════════════════════════════════════════════════════
@@ -1110,7 +1124,7 @@ function seeded(seed) {
   return () => { s ^= s << 13; s ^= s >> 17; s ^= s << 5; s >>>= 0; return s / 0xFFFFFFFF; };
 }
 function buildGlyph(seedText) {
-  const rand = seeded(djb2(seedText + engine.sessionId));
+  const rand = seeded(djb2(seedText + body.token));
   const cx = 65, cy = 65;
   const c = 'rgba(232,224,208,';
   let out = '';
@@ -1131,15 +1145,20 @@ function buildGlyph(seedText) {
   glyphSvg.innerHTML = out;
 }
 
-function endSession(seed) {
+function finishSeal(keptLine, seedKind) {
   phase = 'terminus';
   idlePhase(null);
   if (currentSpeakline) { currentSpeakline.root.remove(); currentSpeakline = null; }
   answerEl.blur();
   portal.closing = true;
 
+  sealNote.textContent = memory.tradeTaken
+    ? 'it keeps what you gave it. you keep what it gave you.'
+    : 'it keeps what you gave it.';
+  sealKept.textContent = keptLine ? '"' + keptLine + '"' : '';
+
   setTimeout(() => {
-    buildGlyph(seed);
+    buildGlyph(seedKind + memory.name);
     sealEl.style.left = portal.cx + 'px';
     sealEl.style.top = portal.cy + 'px';
     sealEl.classList.add('visible');
@@ -1193,7 +1212,7 @@ if (window.visualViewport) {
 addEventListener('resize', () => { resize(); syncViewport(); });
 
 // ═════════════════════════════════════════════════════════════════
-//  BOOT — darkness first. then a point of light. then the voice.
+//  BOOT — darkness. then the question. the portal waits for words.
 // ═════════════════════════════════════════════════════════════════
 (async function boot() {
   resize();
@@ -1201,22 +1220,22 @@ addEventListener('resize', () => { resize(); syncViewport(); });
   requestAnimationFrame(frame);
 
   try {
-    const [resData, resAct1] = await Promise.all([
-      fetch('voyd_data.json'),
-      fetch('data/act1_nodes.json')
-    ]);
-    voydData = await resData.json();
-    act1Nodes = (await resAct1.json()).nodes;
-    console.log('Voyd data loaded. Act 1 nodes:', Object.keys(act1Nodes).length);
+    const res = await fetch('voyd_data.json');
+    const voydData = await res.json();
+    voicePrompt = voydData.voice_prompt || '';
+    canonTrades = voydData.canon_trades || [];
   } catch (e) {
-    console.error('Failed to load data:', e);
-    voydData = { meta: { max_depth: 12 }, nodes: {}, intent_map: { keywords: {}, emotional_markers: {} }, lore_map: {}, voice_prompt: '' };
-    act1Nodes = {};
+    console.error('voyd_data failed to load:', e);
+  }
+  if (!voicePrompt) {
+    voicePrompt = 'You are the Voyd. Speak in short, lowercase, declarative sentences. Maximum 4-5 sentences per response.';
   }
 
-  setTimeout(() => { portal.born = true; }, 900);
-  setTimeout(() => whisperShow('something is listening', 3600), 1500);
-  setTimeout(() => { phase = 'act1'; playNode('1.0'); }, 5800);
+  // reach for the shared body, but never let it delay the cold open
+  const sync = bodySync().then(ok => { if (ok) offer('visit'); return ok; });
+  await Promise.race([sync, sleep(1600)]);
+
+  beginVisit();
 })();
 </script>
 </body>

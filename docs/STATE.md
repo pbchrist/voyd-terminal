@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 night (session: frontend rebuilt from scratch around the portal — single file, engine inlined, verified end-to-end in headless Chrome at phone size; MERGE TO MAIN to ship)
+Last updated: 2026-06-12 (session: THE RETELLING BUILT — branch `feat/the-retelling`. New game live locally: cold open, retell-it-wrong loop, the trade, shared global portal via voyd_server.py, it-remembers-you, sediment, dream residue. Verified end-to-end headless, 53 tests green. **Patrick must run 2 commands** (funnel + cron) — see Next steps -2.)
 
 ---
 
@@ -94,6 +94,73 @@ refresh "Current state" and "Next steps", then stop. The 20-minute grace means r
 iteration won't nag every turn.
 
 ## Session log
+
+### 2026-06-12 (later) — THE RETELLING BUILT (branch `feat/the-retelling`, off feat/audit-fixes)
+Patrick said "make it." Built and verified the full reconceptualization:
+- **`voyd_server.py`** (NEW, stdlib-only, port 8765): the shared body. ONE global portal
+  (log-scaled from cumulative fed/starved across all visitors ever), visit counter,
+  sediment (visitor gifts digested by the local LLM into dream-wrong one-liners —
+  raw text is NEVER served, only digested; digestion loop every 20s), kept-memory per
+  visitor token (the return greeting), dream residue from walk_history.jsonl (the
+  phantom walkers ARE its dreams, surfaced diegetically). State in `state/voyd_state.json`
+  — **gitignored**, confessions must never enter the public repo. Endpoints: GET /state,
+  POST /offer, POST /keep; CORS open; tolerates /voyd prefix (funnel strips it).
+- **`frontend/index.html` rewritten around THE RETELLING** (portal/speech/input/audio
+  machinery preserved verbatim from the verified rebuild): cold open = black screen +
+  "name someone you could not keep." + caret, portal NOT born until the player's first
+  words; 2 gather questions (true detail, the last time); 4 retellings — LLM retells the
+  memory with exactly ONE detail made kinder/falser, accepted lies compound into the next
+  round's "truth", "no." forces typing the true detail back; THE TRADE after round 2
+  (canon_events voyd_pov = teaser, event = the Mewniverse fragment paid out); endings:
+  dissolution (stands>nos, full drifted recite) / refusal (accurate echo — worse — plus
+  what it keeps: first accepted lie, or the first words if perfect). Seal shows the kept
+  line under the glyph. Ghost whispers = strangers' sediment; dream whisper = walker count.
+  All LLM lessons preserved: enable_thinking:false, funnel-first on https, canned-fallback
+  retellings (universal false comforts) so a dead mind still plays. Graceful offline mode
+  (private portal) if voyd_server unreachable.
+- **`build_frontend.py`**: ships `canon_trades` (all 12 events' voyd_pov+event) in
+  voyd_data.json. act1_nodes copy kept (tests + organism still reference it; no longer played).
+- **Tests: 53 green** (11 new in tests/test_voyd_server.py — hermetic, ephemeral port,
+  temp state; covers global portal, clamps, digestion queue isolation, keep/return,
+  sanitization, bad kinds). `scripts/voyd_server_guard.sh` keeps the server alive (flock).
+- **Verified end-to-end headless** (390×844, /tmp/retelling_drive.py): live Qwen produced
+  real compounding distortions ("you whispered that you loved him before the monitor
+  flatlined" after the player said *he said nothing*), refusal ending echoed the player's
+  corrections verbatim then named the kept lie; trade paid a real canon fragment; server
+  kept the lie; **visit 2 greeted with "you came back. i still have what you gave me…"**.
+  Zero console errors. Sediment digestion verified live (8/8 digested, e.g. "someone gave
+  me the whistle of a worried brother, but it came out as smoke.").
+- **Permission-blocked (Patrick must run, see Next steps -2):** funnel mount + cron guard.
+
+### 2026-06-12 — PATRICK PLAYED IT AND REJECTED IT; reconceptualization "THE RETELLING" (design only, NO code)
+Patrick's verdict, verbatim spirit: boring as fuck, players bail in ten seconds, no stakes,
+"the output had nothing to do with what I wrote," wants a soup-to-nuts reconceptualization
+that plays the concept at the heart of his books. **Treat the current Act1-graph→Act2-chat
+design as dead.** Diagnosis delivered: (1) player input is structurally ignored until the
+very end — the LLM never sees the typed answer until after gen_2; (2) nothing can be lost —
+feed/starve moves an invisible number; (3) the opening is lore, not a hook.
+
+**The new concept (Patrick has seen it; awaiting his go for a build plan):**
+- **Cold open second 0**: black screen, one line — "name someone you could not keep." —
+  blinking cursor. The player types FIRST; the portal is born from their words.
+- **Core loop — the Voyd retells the player's memory back, slightly wrong** (one detail
+  altered, softer/falser each beat). Player verbs: *let it stand* (feed — warm, easy, the
+  lie becomes canon and drifts further) or *"no"* (starve — must type the true detail,
+  restating the pain). Feed/starve becomes comfort-vs-truth; the stakes are the player's
+  own memory. Every Voyd line must contain a specific noun the player gave it.
+- **Canon events become the Voyd's counter-confessions**: it trades memory for memory —
+  it is grieving the Mewniverse (Soryn, the Severing, failed conjuration) the way the
+  player grieves their person. This is how the books enter play.
+- **Endings**: Dissolution (memory recited entire, beautiful, no longer yours); Refusal
+  (it speaks your first words back accurately, then shows the one detail you never
+  corrected); The Trade (rare — you carry one of ITS memories out; the book funnel).
+- **Shareable artifact**: glyph + "what it kept" (one line of your distorted memory).
+- **Pacing rule**: 5–8 min run, player acts every ≤20 seconds.
+- **Organism survives**: nodes become distortion beats (authored spine steering the LLM),
+  miner mines the Voyd's tradeable memories, dramaturg/walkers/immune/rubric all still
+  score the spine. The Act1/Act2 split is what dies.
+One-sentence anchor: the player's typed memory is the only currency, the Voyd's
+distortions are the only antagonist, and the books are what it pays you with.
 
 ### 2026-06-11 night — frontend rebuilt from scratch ("worthy of what this thing actually is")
 Patrick's brief: the portal is the only UI element that matters; text is spoken, not rendered;
@@ -219,8 +286,32 @@ miner auto-trigger in evolve.py, 15:00 self-play cron. Live-verified: mined 2 re
 
 ## Next steps (in value order)
 
--1. **MERGE `feat/audit-fixes` → main** to ship the scroll fix + working Act 2 to the
-   live site (Pages deploys on push to main; allow ~10 min CDN cache, hard-refresh).
+-2. **PATRICK: two commands the permission system blocks Claude from running**, then the
+   live site has the shared body:
+   ```
+   tailscale funnel --bg --set-path=/voyd http://127.0.0.1:8765
+   (crontab -l; echo '*/5 * * * * /home/patrick/voyd-terminal/scripts/voyd_server_guard.sh'; \
+    echo '@reboot /home/patrick/voyd-terminal/scripts/voyd_server_guard.sh') | crontab -
+   ```
+   (voyd_server.py is already running this session via the guard script; cron makes it
+   survive reboots/crashes. Without the funnel, public visitors get private-portal mode.)
+-1. **MERGE `feat/the-retelling` → main** to ship the new game (Pages deploys on push;
+   ~10 min CDN cache). It supersedes feat/audit-fixes (branched from it, so the audit
+   fixes ride along). PLAY IT FIRST locally: `python3 -m http.server 8899 -d frontend`
+   → http://localhost:8899 (server + LLM already up).
+0. **Repurpose the organism for the Retelling** — evolve.py still grows act1_nodes,
+   which is no longer played. Highest-value rewiring: phantom walkers walk the Retelling
+   (they have confessions to give); dramaturg scores retelling-transcript quality and
+   tunes the distortion directive; miner keeps feeding canon_trades (already shipped).
+   Until then the nightly cycle is harmless but pointless.
+1. **AGENTS.md still documents the Act1/Act2 architecture** — update after merge.
+2. **The tether** (pillar 3): voyd_server already stores kept-memory per token; add an
+   optional contact at the seal ("leave a way to be found") + a cron that sends one line
+   days later, drifting further. Telegram plumbing exists for Patrick's reports.
+3. **The long clock** (pillar 5): fed/starved totals are already accumulating in
+   state/voyd_state.json. Decide the two world-event thresholds and what each does.
+4. **Watch tonight's 03:00 cron** — it will commit cycle data on feat/the-retelling
+   (commit_data_changes commits to the checked-out branch).
    Funnel /llm is restored and Act 2 verified live — but watch that the other hermes
    instance (mythomancer, port 8767) doesn't clobber the funnel mount again; if Act 2
    404s, re-run: `tailscale funnel --bg --set-path=/llm http://127.0.0.1:8081`

@@ -33,6 +33,17 @@ lore_map["general"] = index.query(["voyd_entity", "mewniverse"], max_results=3)
 # The Voyd voice prompt has a single source of truth: data/voyd_system.md
 voice_prompt = Path("data/voyd_system.md").read_text(encoding="utf-8").strip()
 
+# Canon events become the Voyd's tradeable memories: the voyd_pov line is
+# the teaser it speaks, the event text is the fragment of the severed world
+# a visitor can carry out (THE TRADE). All events qualify — used or not,
+# they are things the Voyd remembers.
+with open("data/canon_events.json") as f:
+    canon_trades = [
+        {"pov": e["voyd_pov"], "event": e["event"]}
+        for e in json.load(f)
+        if e.get("voyd_pov") and e.get("event")
+    ]
+
 # Write compact data file
 output = {
     "meta": graph["meta"],
@@ -40,6 +51,7 @@ output = {
     "intent_map": graph["intent_map"],
     "lore_map": lore_map,
     "voice_prompt": voice_prompt,
+    "canon_trades": canon_trades,
 }
 
 out_path = Path("frontend/voyd_data.json")
