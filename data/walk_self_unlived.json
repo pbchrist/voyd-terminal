@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in it, you stayed."
+      "value": "nothing"
     },
     {
       "node": "ep_1u",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "in it, you stayed.",
-  "act2_response": "the weight remains.\nyou chose to linger in the space between heartbeats.\nthat is why you carry the silence where a voice should be.\ntwenty-four doors stand open before you.\nwalk through the one that does not look back."
+  "player_answer": "nothing",
+  "act2_response": "you carry the weight of a name that is no name at all. it sits in your hands like cold stone. you think it is empty. you are wrong. the void does not hunger for things. it hungers for the shape of the hole they leave behind. twenty four beats of a heart that refuses to stop. keep walking. the dream remembers the silence."
 }

@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
-    20,
-    26,
+    11,
+    9,
+    13,
+    11,
+    13,
+    17,
+    22,
+    24,
+    24,
     28,
-    32,
-    37,
-    39,
-    39,
-    43,
-    42,
-    40
+    27,
+    25
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "Nothing."
+      "value": "in that life i didn't look back."
     },
     {
       "node": "ep_1r",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 38,
+  "final_portal_value": 28,
   "archetype": "self_regret",
-  "player_answer": "Nothing.",
-  "act2_response": "you brought an empty hand to a full world and called it peace. the weight of that absence is thirty-eight units of silence. you think the void wants to take you. it only wants to return what you dropped. look down."
+  "player_answer": "in that life i didn't look back.",
+  "act2_response": "the weight of your silence is heavy. twenty-eight doors remain open. you kept your head high then. now the ground opens beneath you. look down. see what you left behind."
 }

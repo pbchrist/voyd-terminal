@@ -123,6 +123,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-13T03:00:22.528893",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 3,
+          "tension_advancement": 2,
+          "branch_choke_logic": 1
+        },
+        "total": 6,
+        "reason": "The scene collapses the intricate, body-horror dialectic of the previous beats (where the protagonist is physically and mentally consumed) into a trivial, almost comical shift in location (\"open hill\") that lacks causal connection to the preceding trauma. The choices offered (\"step into light\" vs \"climb back\") are cosmetic variations on the same theme of submission vs. escape, failing to present a genuine dialectic turn or synthesis; instead of making the next question harder to live with, it resets the tension to zero by removing the immediate visceral threat without offering a new, deeper psychological or metaphysical complication, thus violating the principle that drama must escalate, not reset.",
+        "precedent": "The transition from the claustrophobic intimacy of *The Turn of the Screw* to the sudden, unearned pastoral freedom of a generic RPG tutorial; this scene fails to earn the comparison because it abandons the established metaphysical horror for a clich\u00e9 binary choice, reducing complex psychological entrapment to a simplistic \"escape or stay\" mechanic that resolves rather than deepens the central dilemma.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 3\nTENSION_ADVANCEMENT: 2\nBRANCH_CHOKE_LOGIC: 1\nPRECEDENT: The transition from the claustrophobic intimacy of *The Turn of the Screw* to the sudden, unearned pastoral freedom of a generic RPG tutorial; this scene fails to earn the comparison because it abandons the established metaphysical horror for a clich\u00e9 binary choice, reducing complex psychological entrapment to a simplistic \"escape or stay\" mechanic that resolves rather than deepens the central dilemma.\nREASON: The scene collapses the intricate, body-horror dialectic of the previous beats (where the protagonist is physically and mentally consumed) into a trivial, almost comical shift in location (\"open hill\") that lacks causal connection to the preceding trauma. The choices offered (\"step into light\" vs \"climb back\") are cosmetic variations on the same theme of submission vs. escape, failing to present a genuine dialectic turn or synthesis; instead of making the next question harder to live with, it resets the tension to zero by removing the immediate visceral threat without offering a new, deeper psychological or metaphysical complication, thus violating the principle that drama must escalate, not reset."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": null
