@@ -141,6 +141,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-06-14T03:01:01.096225",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the internal, biological horror of Scene 3 to an external, spatial threat, raising the stakes from \"am I alive?\" to \"can I escape?\" The shift in perspective (\"you\") and the mechanical intrusion (\"portal slid\") effectively disrupt the intimacy established, creating a tangible barrier that forces a choice between submission (walking through) and violent rejection (kicking). However, the branch logic is slightly binary and lacks the nuanced dialectic of a true synthesis; \"kicking\" feels like a cosmetic refusal rather than a philosophically distinct path, and the transition from first-person intimacy to second-person address risks alienating the reader if not handled with extreme care, potentially repeating the \"tonal disjoint\" criticism noted by previous readers.",
+        "precedent": "The locked door in *The Turn of the Screw* (James) or the shifting geometry of *The Shining* (Kubrick); it earns the comparison by using spatial violation to manifest psychological entrapment, though it lacks the specific moral weight of the canon\u2019s greatest thresholds.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The locked door in *The Turn of the Screw* (James) or the shifting geometry of *The Shining* (Kubrick); it earns the comparison by using spatial violation to manifest psychological entrapment, though it lacks the specific moral weight of the canon\u2019s greatest thresholds.\nREASON: The scene successfully pivots from the internal, biological horror of Scene 3 to an external, spatial threat, raising the stakes from \"am I alive?\" to \"can I escape?\" The shift in perspective (\"you\") and the mechanical intrusion (\"portal slid\") effectively disrupt the intimacy established, creating a tangible barrier that forces a choice between submission (walking through) and violent rejection (kicking). However, the branch logic is slightly binary and lacks the nuanced dialectic of a true synthesis; \"kicking\" feels like a cosmetic refusal rather than a philosophically distinct path, and the transition from first-person intimacy to second-person address risks alienating the reader if not handled with extreme care, potentially repeating the \"tonal disjoint\" criticism noted by previous readers."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": null

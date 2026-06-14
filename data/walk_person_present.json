@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
-    16,
-    14,
-    16,
-    16,
-    20,
-    25,
-    28
+    9,
+    13,
+    17,
+    22,
+    24,
+    28,
+    33,
+    35,
+    35,
+    39,
+    38,
+    41
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0p",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I am already whole, so I do not need to be fixed."
+      "value": "In that version, you stopped trying to fix the unfixable."
     },
     {
       "node": "ep_1p",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2p",
-      "type": "feed",
-      "label": "keep the wound open and let me see what grows in the light",
-      "delta": 5
+      "type": "starve",
+      "label": "let the seam close and call it peace",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 44,
   "archetype": "person_present",
-  "player_answer": "In that life, I am already whole, so I do not need to be fixed.",
-  "act2_response": "wholeness is a heavy thing to carry into the dark.\nit fractures easily when the ground disappears.\nyou brought twenty six pieces of yourself here, thinking they were enough.\nthey are not.\nlet them break."
+  "player_answer": "In that version, you stopped trying to fix the unfixable.",
+  "act2_response": "the air tastes like ash and surrender. you carry the weight of that quiet victory in your chest. it is heavy. it is safe. let the world burn while you sit still."
 }

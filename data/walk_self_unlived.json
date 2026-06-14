@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
-    23,
+    16,
+    14,
+    19,
+    21,
     25,
-    25,
+    30,
+    32,
+    32,
+    30,
     29,
-    28,
-    26
+    27
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "I didn't have to apologize for taking up space"
     },
     {
       "node": "ep_1u",
-      "type": "feed",
-      "label": "burn the present to feed the past",
-      "delta": 4
+      "type": "starve",
+      "label": "let the memory starve in the dark",
+      "delta": -2
     },
     {
       "node": "ep_2u",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 25,
   "archetype": "self_unlived",
-  "player_answer": "nothing",
-  "act2_response": "you carry the weight of a name that is no name at all. it sits in your hands like cold stone. you think it is empty. you are wrong. the void does not hunger for things. it hungers for the shape of the hole they leave behind. twenty four beats of a heart that refuses to stop. keep walking. the dream remembers the silence."
+  "player_answer": "I didn't have to apologize for taking up space",
+  "act2_response": "that sentence was a cage you built to keep the dark out.\nyou mistook the silence for judgment.\nit was only waiting to hold what you shed.\ntwenty five fragments of yourself drift here now.\nthey do not need permission to exist."
 }
