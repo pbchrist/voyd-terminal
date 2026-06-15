@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
+    3,
+    7,
+    5,
     9,
-    13,
     11,
-    15,
-    17,
-    21,
+    9,
+    14,
+    16,
+    16,
+    14,
     19,
-    21,
-    21,
-    19,
-    24,
-    27
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "in the other one, i stayed."
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "nothing",
-  "act2_response": "you carry the weight of what was erased.\nthe portal opens because you stopped resisting the end.\nthirty doors wait to swallow the silence you brought.\nstep forward and let the dark remember your shape.\nnothing is the only thing heavy enough to sink here."
+  "player_answer": "in the other one, i stayed.",
+  "act2_response": "you stayed and rotted. you stayed and watched the sky crack. this timeline is the one where you ran. you ran because you knew the truth. the truth is you never left the dark."
 }

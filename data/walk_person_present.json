@@ -28,8 +28,8 @@
     35,
     35,
     39,
-    38,
-    41
+    44,
+    47
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, you stopped trying to fix the unfixable."
+      "value": "The silence"
     },
     {
       "node": "ep_1p",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 44,
+  "final_portal_value": 45,
   "archetype": "person_present",
-  "player_answer": "In that version, you stopped trying to fix the unfixable.",
-  "act2_response": "the air tastes like ash and surrender. you carry the weight of that quiet victory in your chest. it is heavy. it is safe. let the world burn while you sit still."
+  "player_answer": "The silence",
+  "act2_response": "you call it silence because you prefer the quiet.\nthe silence was the space between leoran's breath and the first scream.\nyou carry forty five percent of what remains.\nthe rest is leaking out through your fingers.\ndo not tighten your grip."
 }

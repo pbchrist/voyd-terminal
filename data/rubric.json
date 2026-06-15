@@ -159,6 +159,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-15T03:01:00.633803",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene succeeds by weaponizing the previous scene's intimacy (\"she is just lost in me\") into a terrifying reciprocity; the \"iron restraints\" are not a defeat but a ritual of binding that the entity willingly breaks by turning imprisonment into possession. However, the binary choice (\"accept displacement\" vs \"remain in cage\") is structurally weak because the narrative text has already resolved the action (\"i walked into her bed\"), making the choice feel like a retrospective consent rather than a genuine branch of fate, thus slightly undercutting the high stakes of the tension advancement.",
+        "precedent": "The seduction of the Wandering Jew in *The Wandering Jew* (Hugo) or the moment in *Macbeth* where the supernatural promise inverts into domestic horror; this scene earns the comparison by treating the \"monster\" not as an external threat but as an inevitable gravitational pull that redefines the cage as a womb.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The seduction of the Wandering Jew in *The Wandering Jew* (Hugo) or the moment in *Macbeth* where the supernatural promise inverts into domestic horror; this scene earns the comparison by treating the \"monster\" not as an external threat but as an inevitable gravitational pull that redefines the cage as a womb.\nREASON: The scene succeeds by weaponizing the previous scene's intimacy (\"she is just lost in me\") into a terrifying reciprocity; the \"iron restraints\" are not a defeat but a ritual of binding that the entity willingly breaks by turning imprisonment into possession. However, the binary choice (\"accept displacement\" vs \"remain in cage\") is structurally weak because the narrative text has already resolved the action (\"i walked into her bed\"), making the choice feel like a retrospective consent rather than a genuine branch of fate, thus slightly undercutting the high stakes of the tension advancement."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": null

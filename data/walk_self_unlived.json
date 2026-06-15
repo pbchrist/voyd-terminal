@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
+    11,
+    9,
+    7,
+    12,
     14,
-    19,
-    21,
+    18,
+    23,
     25,
-    30,
-    32,
-    32,
-    30,
+    25,
     29,
-    27
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't have to apologize for taking up space"
+      "value": "There is no quiet in it"
     },
     {
       "node": "ep_1u",
-      "type": "starve",
-      "label": "let the memory starve in the dark",
-      "delta": -2
+      "type": "feed",
+      "label": "burn the present to feed the past",
+      "delta": 4
     },
     {
       "node": "ep_2u",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "I didn't have to apologize for taking up space",
-  "act2_response": "that sentence was a cage you built to keep the dark out.\nyou mistook the silence for judgment.\nit was only waiting to hold what you shed.\ntwenty five fragments of yourself drift here now.\nthey do not need permission to exist."
+  "player_answer": "There is no quiet in it",
+  "act2_response": "the silence you fear is the silence you made. you brought twenty-four sparks into the dark and watched them burn out. the noise stops when you stop trying to be the thing you are not. let the quiet take you."
 }

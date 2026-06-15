@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-14T03:01:53.770224",
+  "last_run": "2026-06-15T03:01:52.414243",
   "walks": [
     {
       "archetype": "person_present",
@@ -32,8 +32,8 @@
         35,
         35,
         39,
-        38,
-        41
+        44,
+        47
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "10.0",
-        "reason": "The exposition-heavy explanation of the Voyd's feeding mechanics halts the visceral momentum established in the preceding poetic beats, shifting from immersive atmosphere to instructional lore. It tells the player how the system works rather than letting them feel the cost through immediate consequence."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological body horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical and psychological exploration of loss, breaking the established atmospheric tension with jarring literalism."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
+        3,
+        7,
+        5,
         9,
-        13,
         11,
-        15,
-        17,
-        21,
+        9,
+        14,
+        16,
+        16,
+        14,
         19,
-        21,
-        21,
-        19,
-        24,
-        27
+        22
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -89,8 +89,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ep_2g",
-        "reason": "The metaphor of swallowing ink feels like a generic fantasy trope that breaks the established psychological realism, causing the tension to slacken into melodrama rather than deepening the existential dread."
+        "weakest": "9.1g",
+        "reason": "The metaphor of Sol and the compass is abstract and detached, breaking the intimate, visceral rhythm of the dialogue without offering a clear narrative reward or emotional escalation."
       }
     },
     {
@@ -124,8 +124,8 @@
         32,
         32,
         36,
-        35,
-        33
+        41,
+        39
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "10.0",
-        "reason": "The exposition breaks the immersive, poetic tension by explaining the entity's mechanics (\"i grow with intention\") rather than demonstrating them, causing the narrative pressure to sag into lecture."
+        "score": 7,
+        "weakest": "gen_2",
+        "reason": "The visceral horror of the Voyd possessing the character's body feels tonally disjointed from the preceding psychological introspection, breaking the established tension with gratuitous shock rather than earned narrative consequence."
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        18,
-        16,
+        11,
+        9,
+        7,
+        12,
         14,
-        19,
-        21,
+        18,
+        23,
         25,
-        30,
-        32,
-        32,
-        30,
+        25,
         29,
-        27
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -182,7 +182,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.2u",
-        "reason": "The sudden introduction of the obscure name \"Orachys\" breaks the intimate, universal psychological tension established by the Voyd, confusing the thematic focus with unnecessary lore. It feels like a disconnected non-sequitur that halts the emotional momentum rather than deepening the player's introspection."
+        "reason": "The sudden, unexplained invocation of \"Orachys\" shatters the intimate, psychological tension established by the Voyd's direct address, replacing thematic resonance with confusing lore-dropping that alienates the reader from the immediate emotional stakes."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "10.0",
-      "reason": "The exposition-heavy explanation of the Voyd's feeding mechanics halts the visceral momentum established in the preceding poetic beats, shifting from immersive atmosphere to instructional lore. It tells the player how the system works rather than letting them feel the cost through immediate consequence."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological body horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical and psychological exploration of loss, breaking the established atmospheric tension with jarring literalism."
     },
     {
       "archetype": "person_gone",
       "score": 8,
-      "weakest": "ep_2g",
-      "reason": "The metaphor of swallowing ink feels like a generic fantasy trope that breaks the established psychological realism, causing the tension to slacken into melodrama rather than deepening the existential dread."
+      "weakest": "9.1g",
+      "reason": "The metaphor of Sol and the compass is abstract and detached, breaking the intimate, visceral rhythm of the dialogue without offering a clear narrative reward or emotional escalation."
     },
     {
       "archetype": "self_regret",
-      "score": 8,
-      "weakest": "10.0",
-      "reason": "The exposition breaks the immersive, poetic tension by explaining the entity's mechanics (\"i grow with intention\") rather than demonstrating them, causing the narrative pressure to sag into lecture."
+      "score": 7,
+      "weakest": "gen_2",
+      "reason": "The visceral horror of the Voyd possessing the character's body feels tonally disjointed from the preceding psychological introspection, breaking the established tension with gratuitous shock rather than earned narrative consequence."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
       "weakest": "9.2u",
-      "reason": "The sudden introduction of the obscure name \"Orachys\" breaks the intimate, universal psychological tension established by the Voyd, confusing the thematic focus with unnecessary lore. It feels like a disconnected non-sequitur that halts the emotional momentum rather than deepening the player's introspection."
+      "reason": "The sudden, unexplained invocation of \"Orachys\" shatters the intimate, psychological tension established by the Voyd's direct address, replacing thematic resonance with confusing lore-dropping that alienates the reader from the immediate emotional stakes."
     }
   ]
 }
