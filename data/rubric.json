@@ -177,7 +177,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-16T03:01:02.764686",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 8
+        },
+        "total": 26,
+        "reason": "This scene achieves a masterful \"Chekhov's Gun\" inversion: the violence of Scene 3 (blood, architecture) is not resolved but *sublimated* into the domestic object (the cup). It avoids the previous failures by refusing exposition; instead, it deepens the horror through implication. The cup holding \"my shape\" suggests the protagonist has been consumed or molded by the entity, turning the choice into a terrifying existential test: do you drink your own essence (acceptance/submission) or leave it (rejection/continuation of the cycle)? It makes the next question harder to live with by asking whether survival requires becoming the monster or remaining the victim.",
+        "precedent": "The shift from the cellar to the kitchen mirrors the sudden, jarring clarity of the protagonist in Dostoevsky's *Notes from Underground*\u2014the fever dream of violence snapping into the banal, terrifying normalcy of a cup of tea. It earns the comparison by making the mundane feel more violated than the gore.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 8\nPRECEDENT: The shift from the cellar to the kitchen mirrors the sudden, jarring clarity of the protagonist in Dostoevsky's *Notes from Underground*\u2014the fever dream of violence snapping into the banal, terrifying normalcy of a cup of tea. It earns the comparison by making the mundane feel more violated than the gore.\nREASON: This scene achieves a masterful \"Chekhov's Gun\" inversion: the violence of Scene 3 (blood, architecture) is not resolved but *sublimated* into the domestic object (the cup). It avoids the previous failures by refusing exposition; instead, it deepens the horror through implication. The cup holding \"my shape\" suggests the protagonist has been consumed or molded by the entity, turning the choice into a terrifying existential test: do you drink your own essence (acceptance/submission) or leave it (rejection/continuation of the cycle)? It makes the next question harder to live with by asking whether survival requires becoming the monster or remaining the victim."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": null
+  "last_recalibrated": "2026-06-16T03:01:02.764715",
+  "pending_weight_suggestion": {
+    "dialectic_function": 0.4,
+    "tension_advancement": 0.35,
+    "branch_choke_logic": 0.25,
+    "reason": "recalibrated from last 9 decisions. means: {'dialectic_function': 7.444444444444445, 'tension_advancement': 7.333333333333333, 'branch_choke_logic': 6.666666666666667}. drifts from threshold: {'dialectic_function': 0.04444444444444447, 'tension_advancement': 0.1333333333333333, 'branch_choke_logic': 0.0666666666666667}."
+  }
 }
