@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    13,
-    19,
-    21,
-    25,
-    23,
-    25,
-    25,
-    29,
+    18,
+    16,
+    20,
+    26,
     28,
-    26
+    32,
+    30,
+    32,
+    32,
+    36,
+    35,
+    33
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In the other one, I didn't stay long enough to ruin it."
+      "value": "In that life, I didn't let it happen."
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 31,
   "archetype": "self_regret",
-  "player_answer": "In the other one, I didn't stay long enough to ruin it.",
-  "act2_response": "you left the door open. you told yourself mercy was leaving early. it was cowardice. the glass is still warm in your pocket. twenty-four cracks remain."
+  "player_answer": "In that life, I didn't let it happen.",
+  "act2_response": "you held the door shut. you kept the breath in your lungs. you saved the life you thought was yours. now you stand in the quiet after the scream. thirty-one fragments of that choice bleed into the dark."
 }

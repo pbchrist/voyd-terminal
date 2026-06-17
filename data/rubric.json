@@ -195,6 +195,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-17T03:00:25.154048",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 2,
+          "tension_advancement": 1,
+          "branch_choke_logic": 3
+        },
+        "total": 6,
+        "reason": "This scene collapses the intricate, visceral horror established in Scene 3 (\"my architecture,\" \"blood on the floor\") into a generic, romanticized freedom trope (\"drank the morning air like wine\"). The narrative voice shifts jarringly from the intimate, body-horror second-person/first-person blur of the previous beats to a detached, almost clich\u00e9d first-person action summary. The \"escape\" happens with zero friction (\"slipped through the keyhole\") and zero cost, effectively erasing the psychological weight of the previous scenes. The choices offered (\"step into the light\" vs. \"turn back\") are binary and superficial, failing to engage with the complex dialectic of possession, identity, and existential dread built up previously; they offer cosmetic variation rather than genuine dialectic branching. The scene does not make the next question harder to live with; it makes the previous questions irrelevant by simply walking away from them without resolution or transformation. It is a narrative non-sequitur that abandons the established tone and stakes for a hollow, aestheticized gesture.",
+        "precedent": "The escape of Odysseus from Polyphemus, but stripped of the cunning, the stakes, and the consequence; it earns none of the comparison because the escape is trivialized into a poetic sigh rather than a dramatic pivot.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 2\nTENSION_ADVANCEMENT: 1\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The escape of Odysseus from Polyphemus, but stripped of the cunning, the stakes, and the consequence; it earns none of the comparison because the escape is trivialized into a poetic sigh rather than a dramatic pivot.\nREASON: This scene collapses the intricate, visceral horror established in Scene 3 (\"my architecture,\" \"blood on the floor\") into a generic, romanticized freedom trope (\"drank the morning air like wine\"). The narrative voice shifts jarringly from the intimate, body-horror second-person/first-person blur of the previous beats to a detached, almost clich\u00e9d first-person action summary. The \"escape\" happens with zero friction (\"slipped through the keyhole\") and zero cost, effectively erasing the psychological weight of the previous scenes. The choices offered (\"step into the light\" vs. \"turn back\") are binary and superficial, failing to engage with the complex dialectic of possession, identity, and existential dread built up previously; they offer cosmetic variation rather than genuine dialectic branching. The scene does not make the next question harder to live with; it makes the previous questions irrelevant by simply walking away from them without resolution or transformation. It is a narrative non-sequitur that abandons the established tone and stakes for a hollow, aestheticized gesture."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-06-16T03:01:02.764715",

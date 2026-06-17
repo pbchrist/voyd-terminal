@@ -23,13 +23,13 @@
     11,
     15,
     17,
-    15,
-    13,
-    15,
-    15,
-    13,
-    18,
-    16
+    21,
+    26,
+    28,
+    28,
+    26,
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that one i stayed"
+      "value": "it is quiet"
     },
     {
       "node": "ep_1g",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 19,
+  "final_portal_value": 37,
   "archetype": "person_gone",
-  "player_answer": "in that one i stayed",
-  "act2_response": "the path you chose is heavy. it drags at your heels like wet clay. nineteen threads bind you to the mistake of staying. look how the ground remembers your weight. let go and sink."
+  "player_answer": "it is quiet",
+  "act2_response": "the silence you named is not empty. it is the breath before the scream. you carry thirty-seven shards of a world that refused to stay broken. the quiet is listening. do not let it hear your fear."
 }
