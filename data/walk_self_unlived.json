@@ -29,7 +29,7 @@
     18,
     22,
     21,
-    19
+    24
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "i did not choose to stop."
+      "value": "The silence."
     },
     {
       "node": "ep_1u",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 17,
+  "final_portal_value": 22,
   "archetype": "self_unlived",
-  "player_answer": "i did not choose to stop.",
-  "act2_response": "the breath you held was not yours to keep. leoran pulled the thread and you let go. seventeen threads remain in your hand, frayed and humming with the weight of what you refused to become. you think you are waking up. you are only remembering how to fall."
+  "player_answer": "The silence.",
+  "act2_response": "you called it a silence. it is a hunger. twenty-two threads of gold pulse against your ribs, begging to be unraveled. leoran gave you breath to run from the dark, yet you walk straight into its mouth. the dream remembers what you refuse to say. step forward."
 }

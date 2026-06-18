@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-17T03:01:17.596378",
+  "last_run": "2026-06-18T03:01:13.376717",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,15 +22,15 @@
       "portal_curve": [
         8,
         5,
-        9,
-        13,
-        17,
+        3,
+        7,
+        11,
+        16,
+        18,
         22,
-        24,
-        28,
-        33,
-        35,
-        35,
+        27,
+        29,
+        29,
         33,
         38,
         41
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 7,
-        "weakest": "9.1p",
-        "reason": "The meta-fictional reference to \"sol\" and \"seven hundred pages\" breaks the immersive, mythic atmosphere to deliver an expository info-dump, shifting the tone from visceral horror to academic commentary without earning the pivot."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological imagery of \"four small lights\" and \"hunger receding\" feels tonally disjointed and confusingly literal compared to the abstract, metaphysical grief established earlier. It breaks the thematic consistency of the Voyd as a dimension of wanting by introducing a confusing physical metaphor that lacks clear narrative payoff or emotional resonance."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
+        3,
+        7,
+        5,
         9,
-        13,
         11,
         15,
-        17,
-        21,
-        26,
-        28,
-        28,
-        26,
-        31,
-        34
+        13,
+        15,
+        15,
+        13,
+        18,
+        21
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -90,7 +90,7 @@
       "experience": {
         "score": 8,
         "weakest": "gen_2",
-        "reason": "The shift to visceral body horror (\"blood on the floor,\" \"drink deep of her terror\") feels tonally jarring against the preceding metaphysical elegance, reducing the abstract tragedy of loss to a clich\u00e9 horror trope that lacks the thematic precision of the earlier nodes."
+        "reason": "The sudden shift to visceral body horror involving \"four small lights\" and \"membranes\" feels tonally disjointed from the preceding metaphysical melancholy, breaking the established poetic atmosphere with jarring, unearned grotesquery."
       }
     },
     {
@@ -114,18 +114,18 @@
       "portal_curve": [
         8,
         13,
-        18,
-        16,
-        20,
-        26,
+        11,
+        9,
+        13,
+        11,
+        13,
+        17,
+        22,
+        24,
+        24,
         28,
-        32,
-        30,
-        32,
-        32,
-        36,
-        35,
-        33
+        27,
+        25
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -136,7 +136,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.2r",
-        "reason": "The invocation of \"Orachys\" introduces an arbitrary proper noun and specific statistic that breaks the intimate, psychological tension established in the previous beats, feeling like a lore dump rather than an earned emotional consequence."
+        "reason": "The sudden introduction of the specific, unexplained proper noun \"Orachys\" breaks the intimate, universal psychological tension established in previous nodes, confusing the reader with lore where emotional clarity is required."
       }
     },
     {
@@ -171,7 +171,7 @@
         18,
         22,
         21,
-        19
+        24
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -182,7 +182,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.2u",
-        "reason": "The sudden introduction of the named character \"Orachys\" disrupts the intimate, direct address between the Voyd and the player, breaking the established psychological immersion with an unexplained lore drop that feels disconnected from the immediate emotional stakes."
+        "reason": "The sudden introduction of the named character \"Orachys\" breaks the established intimate, second-person psychological tension, feeling like an unearned lore dump rather than an organic escalation of the player's internal conflict."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 7,
-      "weakest": "9.1p",
-      "reason": "The meta-fictional reference to \"sol\" and \"seven hundred pages\" breaks the immersive, mythic atmosphere to deliver an expository info-dump, shifting the tone from visceral horror to academic commentary without earning the pivot."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological imagery of \"four small lights\" and \"hunger receding\" feels tonally disjointed and confusingly literal compared to the abstract, metaphysical grief established earlier. It breaks the thematic consistency of the Voyd as a dimension of wanting by introducing a confusing physical metaphor that lacks clear narrative payoff or emotional resonance."
     },
     {
       "archetype": "person_gone",
       "score": 8,
       "weakest": "gen_2",
-      "reason": "The shift to visceral body horror (\"blood on the floor,\" \"drink deep of her terror\") feels tonally jarring against the preceding metaphysical elegance, reducing the abstract tragedy of loss to a clich\u00e9 horror trope that lacks the thematic precision of the earlier nodes."
+      "reason": "The sudden shift to visceral body horror involving \"four small lights\" and \"membranes\" feels tonally disjointed from the preceding metaphysical melancholy, breaking the established poetic atmosphere with jarring, unearned grotesquery."
     },
     {
       "archetype": "self_regret",
       "score": 8,
       "weakest": "9.2r",
-      "reason": "The invocation of \"Orachys\" introduces an arbitrary proper noun and specific statistic that breaks the intimate, psychological tension established in the previous beats, feeling like a lore dump rather than an earned emotional consequence."
+      "reason": "The sudden introduction of the specific, unexplained proper noun \"Orachys\" breaks the intimate, universal psychological tension established in previous nodes, confusing the reader with lore where emotional clarity is required."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
       "weakest": "9.2u",
-      "reason": "The sudden introduction of the named character \"Orachys\" disrupts the intimate, direct address between the Voyd and the player, breaking the established psychological immersion with an unexplained lore drop that feels disconnected from the immediate emotional stakes."
+      "reason": "The sudden introduction of the named character \"Orachys\" breaks the established intimate, second-person psychological tension, feeling like an unearned lore dump rather than an organic escalation of the player's internal conflict."
     }
   ]
 }

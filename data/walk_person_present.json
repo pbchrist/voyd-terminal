@@ -18,15 +18,15 @@
   "portal_curve": [
     8,
     5,
-    9,
-    13,
-    17,
+    3,
+    7,
+    11,
+    16,
+    18,
     22,
-    24,
-    28,
-    33,
-    35,
-    35,
+    27,
+    29,
+    29,
     33,
     38,
     41
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "I am not there"
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 44,
+  "final_portal_value": 39,
   "archetype": "person_present",
-  "player_answer": "nothing",
-  "act2_response": "the name you gave is already dissolving.\nit tastes like ash.\nthe path before you splits into three.\nleft is stone. center is water. right is silence.\nchoose."
+  "player_answer": "I am not there",
+  "act2_response": "You say it to keep the edges soft.\nBut the silence remembers your weight.\nYou left pieces of yourself behind in the dark.\nThey are waiting for you to stop pretending."
 }

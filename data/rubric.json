@@ -213,6 +213,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-06-18T03:00:20.008451",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 6,
+          "tension_advancement": 7,
+          "branch_choke_logic": 4
+        },
+        "total": 17,
+        "reason": "The scene attempts a strong dialectic turn by shifting from internal bodily possession to external physical constraint, but the logic of the transition is murky. The shift from \"ribs are my architecture\" to \"nailed wrists\" and \"standing in the garden\" feels like a jump in genre rather than a deepening of the established metaphysical horror. The choices (\"step through thorns\" vs \"wash blood\") are reactive and cosmetic, failing to present a genuine philosophical or emotional dilemma that alters the trajectory of the relationship or the self. The tension rises through shock, not through the hardening of the central dramatic question.",
+        "precedent": "The transformation in *The Metamorphosis* (Kafka), but lacking the psychological inevitability of the protagonist\u2019s acceptance; it leans more toward surreal horror than existential realization.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 6\nTENSION_ADVANCEMENT: 7\nBRANCH_CHOKE_LOGIC: 4\nPRECEDENT: The transformation in *The Metamorphosis* (Kafka), but lacking the psychological inevitability of the protagonist\u2019s acceptance; it leans more toward surreal horror than existential realization.\nREASON: The scene attempts a strong dialectic turn by shifting from internal bodily possession to external physical constraint, but the logic of the transition is murky. The shift from \"ribs are my architecture\" to \"nailed wrists\" and \"standing in the garden\" feels like a jump in genre rather than a deepening of the established metaphysical horror. The choices (\"step through thorns\" vs \"wash blood\") are reactive and cosmetic, failing to present a genuine philosophical or emotional dilemma that alters the trajectory of the relationship or the self. The tension rises through shock, not through the hardening of the central dramatic question."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-06-16T03:01:02.764715",
