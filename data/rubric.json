@@ -231,6 +231,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-06-21T03:00:21.099754",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 6,
+          "tension_advancement": 4,
+          "branch_choke_logic": 3
+        },
+        "total": 13,
+        "reason": "The scene collapses the established dialectic of intimate, visceral possession (Scenes 2-3) into a sterile, bureaucratic summary of events (\"i put you where she wanted you\"). By resolving the immediate physical tension (the hunger, the blood, the ribs) with a passive, off-screen manipulation rather than an active confrontation or choice, it robs the player of the \"recognition\" or \"bargain\" required to move the plot forward. The choices presented (step through/remain) feel arbitrary because the scene itself has already decided the outcome (\"in the morning you were where you wanted to be\"), rendering the dramatic question moot before the player can engage with it.",
+        "precedent": "The final scene of *Antigone*\u2014but it fails the comparison because Ismene\u2019s submission is a tragedy of will, whereas this scene\u2019s agency is erased by narrative fiat.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 6\nTENSION_ADVANCEMENT: 4\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The final scene of *Antigone*\u2014but it fails the comparison because Ismene\u2019s submission is a tragedy of will, whereas this scene\u2019s agency is erased by narrative fiat.\nREASON: The scene collapses the established dialectic of intimate, visceral possession (Scenes 2-3) into a sterile, bureaucratic summary of events (\"i put you where she wanted you\"). By resolving the immediate physical tension (the hunger, the blood, the ribs) with a passive, off-screen manipulation rather than an active confrontation or choice, it robs the player of the \"recognition\" or \"bargain\" required to move the plot forward. The choices presented (step through/remain) feel arbitrary because the scene itself has already decided the outcome (\"in the morning you were where you wanted to be\"), rendering the dramatic question moot before the player can engage with it."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-06-16T03:01:02.764715",

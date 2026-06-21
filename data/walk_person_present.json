@@ -24,12 +24,12 @@
     22,
     24,
     28,
-    26,
-    28,
-    28,
-    32,
-    37,
-    40
+    33,
+    35,
+    35,
+    39,
+    44,
+    47
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "Nothing is different."
+      "value": "there is no one else to blame"
     },
     {
       "node": "ep_1p",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 38,
+  "final_portal_value": 45,
   "archetype": "person_present",
-  "player_answer": "Nothing is different.",
-  "act2_response": "you carry the weight of stasis like a stone in your throat. the world bleeds into the gray while you stand perfectly still. thirty-eight degrees of heat remain in your veins to prove you are alive. let the silence take the rest."
+  "player_answer": "there is no one else to blame",
+  "act2_response": "you carry the weight of the broken world in your hands. every choice you made led here. every choice you did not make led here. the silence is heavy because you filled it. the dark is waiting for you to admit you are alone."
 }
