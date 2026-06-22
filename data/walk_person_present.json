@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    9,
-    13,
-    17,
+    3,
+    7,
+    11,
+    16,
+    18,
     22,
-    24,
-    28,
-    33,
-    35,
-    35,
-    39,
-    44,
-    47
+    27,
+    29,
+    29,
+    27,
+    26,
+    29
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "there is no one else to blame"
+      "value": "I am present"
     },
     {
       "node": "ep_1p",
-      "type": "feed",
-      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
-      "delta": 4
+      "type": "starve",
+      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
+      "delta": -2
     },
     {
       "node": "ep_2p",
-      "type": "feed",
-      "label": "keep the wound open and let me see what grows in the light",
-      "delta": 5
+      "type": "starve",
+      "label": "let the seam close and call it peace",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 45,
+  "final_portal_value": 27,
   "archetype": "person_present",
-  "player_answer": "there is no one else to blame",
-  "act2_response": "you carry the weight of the broken world in your hands. every choice you made led here. every choice you did not make led here. the silence is heavy because you filled it. the dark is waiting for you to admit you are alone."
+  "player_answer": "I am present",
+  "act2_response": "presence is a heavy thing to carry.\nyou hold the space where nothing moves.\nthe portal hums with twenty seven degrees of silence.\nyou stand still while the world fractures around you.\nlet it break."
 }

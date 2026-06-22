@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-21T03:01:15.428796",
+  "last_run": "2026-06-22T03:02:01.448471",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,18 +22,18 @@
       "portal_curve": [
         8,
         5,
-        9,
-        13,
-        17,
+        3,
+        7,
+        11,
+        16,
+        18,
         22,
-        24,
-        28,
-        33,
-        35,
-        35,
-        39,
-        44,
-        47
+        27,
+        29,
+        29,
+        27,
+        26,
+        29
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -42,9 +42,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 7,
-        "weakest": "gen_1",
-        "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"hunger recedes\") creates a jarring tonal whiplash that abandons the established metaphysical abstraction, making the horror feel generic rather than earned."
+        "score": 9,
+        "weakest": "10.0",
+        "reason": "The explicit meta-reference to \"Sol\" breaks the immersive, timeless mythos of the Voyd, grounding the piece in a specific external lore that feels like a tutorial explanation rather than an organic dramatic beat. It shifts the tone from poetic horror to game-design commentary, causing the reader to step out of the emotional experience."
       }
     },
     {
@@ -73,13 +73,13 @@
         5,
         9,
         11,
-        15,
-        13,
-        15,
-        15,
-        13,
-        18,
-        16
+        9,
+        14,
+        16,
+        16,
+        14,
+        19,
+        22
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -89,8 +89,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ACT2",
-        "reason": "The sudden introduction of the proper noun \"mewniverse\" shatters the established mythic ambiguity, replacing organic dread with generic sci-fi jargon that feels unearned and tonally disjointed from the preceding poetic abstraction."
+        "weakest": "9.1g",
+        "reason": "The metaphor of Sol and the compass feels like a non-sequitur that halts the intimate, visceral momentum established in the previous beats, replacing immediate emotional stakes with abstract, disconnected lore."
       }
     },
     {
@@ -117,15 +117,15 @@
         11,
         9,
         13,
-        19,
-        21,
-        25,
-        23,
-        25,
-        25,
-        29,
+        11,
+        13,
+        17,
+        22,
+        24,
+        24,
         28,
-        26
+        27,
+        25
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "gen_2",
-        "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally dissonant with the preceding psychological introspection, breaking the thematic consistency of \"wanting\" and \"regret\" in favor of generic shock value."
+        "score": 9,
+        "weakest": "gen_1",
+        "reason": "The visceral, tactile imagery of \"four small lights\" and \"warm and wet\" contact disrupts the established metaphysical and psychological tone, feeling tonally dissonant and oddly specific compared to the surrounding abstract horror."
       }
     },
     {
@@ -163,15 +163,15 @@
         11,
         9,
         7,
-        6,
-        8,
         12,
-        17,
-        19,
-        19,
+        14,
+        18,
         23,
-        22,
-        20
+        25,
+        25,
+        29,
+        28,
+        31
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -182,7 +182,7 @@
       "experience": {
         "score": 7,
         "weakest": "9.2u",
-        "reason": "The sudden introduction of the specific character \"Orachys\" without prior context or thematic grounding breaks the intimate, psychological tension, feeling like a disjointed lore dump rather than an organic progression of the player's internal conflict."
+        "reason": "The sudden introduction of the specific character \"Orachys\" breaks the immersive, intimate address of the Voyd, feeling like an unearned lore dump rather than an organic escalation of the player's internal conflict."
       }
     }
   ],
@@ -191,27 +191,27 @@
   "reader_notes": [
     {
       "archetype": "person_present",
-      "score": 7,
-      "weakest": "gen_1",
-      "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"hunger recedes\") creates a jarring tonal whiplash that abandons the established metaphysical abstraction, making the horror feel generic rather than earned."
+      "score": 9,
+      "weakest": "10.0",
+      "reason": "The explicit meta-reference to \"Sol\" breaks the immersive, timeless mythos of the Voyd, grounding the piece in a specific external lore that feels like a tutorial explanation rather than an organic dramatic beat. It shifts the tone from poetic horror to game-design commentary, causing the reader to step out of the emotional experience."
     },
     {
       "archetype": "person_gone",
       "score": 8,
-      "weakest": "ACT2",
-      "reason": "The sudden introduction of the proper noun \"mewniverse\" shatters the established mythic ambiguity, replacing organic dread with generic sci-fi jargon that feels unearned and tonally disjointed from the preceding poetic abstraction."
+      "weakest": "9.1g",
+      "reason": "The metaphor of Sol and the compass feels like a non-sequitur that halts the intimate, visceral momentum established in the previous beats, replacing immediate emotional stakes with abstract, disconnected lore."
     },
     {
       "archetype": "self_regret",
-      "score": 8,
-      "weakest": "gen_2",
-      "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally dissonant with the preceding psychological introspection, breaking the thematic consistency of \"wanting\" and \"regret\" in favor of generic shock value."
+      "score": 9,
+      "weakest": "gen_1",
+      "reason": "The visceral, tactile imagery of \"four small lights\" and \"warm and wet\" contact disrupts the established metaphysical and psychological tone, feeling tonally dissonant and oddly specific compared to the surrounding abstract horror."
     },
     {
       "archetype": "self_unlived",
       "score": 7,
       "weakest": "9.2u",
-      "reason": "The sudden introduction of the specific character \"Orachys\" without prior context or thematic grounding breaks the intimate, psychological tension, feeling like a disjointed lore dump rather than an organic progression of the player's internal conflict."
+      "reason": "The sudden introduction of the specific character \"Orachys\" breaks the immersive, intimate address of the Voyd, feeling like an unearned lore dump rather than an organic escalation of the player's internal conflict."
     }
   ]
 }

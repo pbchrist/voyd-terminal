@@ -249,6 +249,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-06-22T03:01:08.404806",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 9
+        },
+        "total": 27,
+        "reason": "This scene functions as the violent turn from psychological abstraction to physical reality. Scene 3 established that the narrator\u2019s body is the architecture; here, the \"she\" reacts to this violation by pinning him with the very tools of connection (thumbtacks). The shift to the roof is not a tonal stumble but a dissociative break\u2014the body rejects the merged state. The choices (tear shingles vs. make coffee) offer a profound dialectic: active self-destruction/reclamation versus passive domestic normalization of the horror. It avoids the previous failures by grounding the horror in specific, tactile objects (thumbtacks, drywall, rain) rather than generic abstractions or alien nouns. The tension advances because the \"she\" is no longer just lost in him; she is actively restraining him, raising the stakes from existential confusion to physical captivity.",
+        "precedent": "The \"gun on the wall\" in Chekhov's *The Cherry Orchard* (the thumbtacks as the inevitable consequence of the merged architecture) and the dissociative horror of *The Shining* (the shift from internal to external reality). This scene earns the comparison by turning the metaphorical \"architecture\" of Scene 3 into literal, painful physical evidence.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The \"gun on the wall\" in Chekhov's *The Cherry Orchard* (the thumbtacks as the inevitable consequence of the merged architecture) and the dissociative horror of *The Shining* (the shift from internal to external reality). This scene earns the comparison by turning the metaphorical \"architecture\" of Scene 3 into literal, painful physical evidence.\nREASON: This scene functions as the violent turn from psychological abstraction to physical reality. Scene 3 established that the narrator\u2019s body is the architecture; here, the \"she\" reacts to this violation by pinning him with the very tools of connection (thumbtacks). The shift to the roof is not a tonal stumble but a dissociative break\u2014the body rejects the merged state. The choices (tear shingles vs. make coffee) offer a profound dialectic: active self-destruction/reclamation versus passive domestic normalization of the horror. It avoids the previous failures by grounding the horror in specific, tactile objects (thumbtacks, drywall, rain) rather than generic abstractions or alien nouns. The tension advances because the \"she\" is no longer just lost in him; she is actively restraining him, raising the stakes from existential confusion to physical captivity."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-16T03:01:02.764715",
