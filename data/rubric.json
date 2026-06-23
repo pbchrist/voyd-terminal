@@ -2,17 +2,17 @@
   "version": 1,
   "axes": {
     "dialectic_function": {
-      "weight": 0.4,
+      "weight": 0.41,
       "description": "Does this node do the right structural job at the right moment in the story? Thesis, antithesis deepening, turn, synthesis, catharsis \u2014 each has a job. Does this node do it?",
       "threshold": 7
     },
     "tension_advancement": {
-      "weight": 0.35,
+      "weight": 0.33,
       "description": "Does thematic tension increase across this node? Is the dramatic question getting harder to answer? Is the dialectic pressure building?",
       "threshold": 6
     },
     "branch_choke_logic": {
-      "weight": 0.25,
+      "weight": 0.26,
       "description": "If branch: does it create genuinely different dialectic experiences or just cosmetic variation? If choke: do all open branches actually reach it? If beat: does it earn its place in the chain?",
       "threshold": 6
     }
@@ -267,13 +267,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-23T03:01:01.019641",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene executes a masterful \"Chekhov's Gun\" reversal: the environment itself betrays the character's sense of control. By removing the iron door (the symbol of containment/separation) and placing the protagonist in the kitchen (the site of biological sustenance/hunger from Scene 2), the text deepens the dialectic of \"being lost in me\" from metaphor to spatial reality. The tension advances because the safety of the \"armchair\" was an illusion; the protagonist is now exposed on \"cold tile,\" heightening the vulnerability established in Scene 2. However, the branch logic is slightly weaker because \"touch the doorframe\" (of a gone door) and \"sit back down\" (in a chair you are no longer in) feel like tests of player compliance rather than distinct dialectic choices, risking a \"cosmetic variation\" failure if the outcomes do not diverge significantly in thematic weight.",
+        "precedent": "The disappearance of the door in *A Doll's House* (the final exit), but inverted: here, the door vanishing is not liberation but the collapse of the container, forcing the protagonist into the domestic horror of the kitchen. It earns the comparison by making the \"exit\" a trap rather than an escape.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The disappearance of the door in *A Doll's House* (the final exit), but inverted: here, the door vanishing is not liberation but the collapse of the container, forcing the protagonist into the domestic horror of the kitchen. It earns the comparison by making the \"exit\" a trap rather than an escape.\nREASON: The scene executes a masterful \"Chekhov's Gun\" reversal: the environment itself betrays the character's sense of control. By removing the iron door (the symbol of containment/separation) and placing the protagonist in the kitchen (the site of biological sustenance/hunger from Scene 2), the text deepens the dialectic of \"being lost in me\" from metaphor to spatial reality. The tension advances because the safety of the \"armchair\" was an illusion; the protagonist is now exposed on \"cold tile,\" heightening the vulnerability established in Scene 2. However, the branch logic is slightly weaker because \"touch the doorframe\" (of a gone door) and \"sit back down\" (in a chair you are no longer in) feel like tests of player compliance rather than distinct dialectic choices, risking a \"cosmetic variation\" failure if the outcomes do not diverge significantly in thematic weight."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-06-16T03:01:02.764715",
+  "last_recalibrated": "2026-06-23T03:01:01.019669",
   "pending_weight_suggestion": {
-    "dialectic_function": 0.4,
-    "tension_advancement": 0.35,
-    "branch_choke_logic": 0.25,
-    "reason": "recalibrated from last 9 decisions. means: {'dialectic_function': 7.444444444444445, 'tension_advancement': 7.333333333333333, 'branch_choke_logic': 6.666666666666667}. drifts from threshold: {'dialectic_function': 0.04444444444444447, 'tension_advancement': 0.1333333333333333, 'branch_choke_logic': 0.0666666666666667}."
+    "dialectic_function": 0.41,
+    "tension_advancement": 0.33,
+    "branch_choke_logic": 0.26,
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 6.7, 'tension_advancement': 6.8, 'branch_choke_logic': 5.6}. drifts from threshold: {'dialectic_function': -0.02999999999999998, 'tension_advancement': 0.07999999999999999, 'branch_choke_logic': -0.040000000000000036}."
   }
 }

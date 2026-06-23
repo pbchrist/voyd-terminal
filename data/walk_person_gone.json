@@ -21,15 +21,15 @@
     3,
     7,
     5,
-    9,
-    11,
-    9,
-    14,
-    16,
-    16,
-    14,
-    19,
-    22
+    4,
+    6,
+    10,
+    8,
+    10,
+    10,
+    8,
+    7,
+    10
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "feed",
-      "label": "they left and i let them",
-      "delta": 4
+      "type": "starve",
+      "label": "i didn't say what i needed to say",
+      "delta": -1
     },
     {
       "node": "6.2",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It never ends"
+      "value": "The silence."
     },
     {
       "node": "ep_1g",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2g",
-      "type": "feed",
-      "label": "tear the page and swallow the ink",
-      "delta": 5
+      "type": "starve",
+      "label": "read it again hoping the words rearrange",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 13,
   "archetype": "person_gone",
-  "player_answer": "It never ends",
-  "act2_response": "you named your exhaustion after the horizon. it is a heavy thing to carry into the dark. the mewniverse remembers your weight. you are already forgetting where you began."
+  "player_answer": "The silence.",
+  "act2_response": "you called it that because you are afraid of the noise you made breaking the world. thirteen fractures hang in the air like unspoken words waiting to rot. you think silence is peace but it is only the pause before the scream returns. the door to the second act does not open for those who wish to be heard. it opens for those who have already forgotten their own voice."
 }

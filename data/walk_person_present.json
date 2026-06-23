@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
+    9,
+    13,
+    17,
     22,
-    27,
-    29,
-    29,
-    27,
+    24,
+    28,
     26,
-    29
+    28,
+    28,
+    32,
+    37,
+    40
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "long enough that i've stopped counting",
+      "label": "recently",
       "delta": 5
     },
     {
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1p",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I am present"
+      "value": "in that version, you let me stay."
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 27,
+  "final_portal_value": 43,
   "archetype": "person_present",
-  "player_answer": "I am present",
-  "act2_response": "presence is a heavy thing to carry.\nyou hold the space where nothing moves.\nthe portal hums with twenty seven degrees of silence.\nyou stand still while the world fractures around you.\nlet it break."
+  "player_answer": "in that version, you let me stay.",
+  "act2_response": "the world you saved is rotting in the dark. you kept the promise. you kept the pain. forty-three hearts beat where one should not. they are heavy."
 }

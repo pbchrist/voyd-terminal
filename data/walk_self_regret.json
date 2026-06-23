@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    11,
-    13,
-    17,
-    22,
-    24,
-    24,
+    19,
+    21,
+    25,
+    23,
+    25,
+    25,
+    29,
     28,
-    27,
-    25
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "starve",
-      "label": "maybe not as different as i think",
-      "delta": -2
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
     },
     {
       "node": "6.3",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In the other life, I didn't stop."
+      "value": "In that life I didn't stop trying to fix you."
     },
     {
       "node": "ep_1r",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 23,
+  "final_portal_value": 29,
   "archetype": "self_regret",
-  "player_answer": "In the other life, I didn't stop.",
-  "act2_response": "you kept moving.\nyou watched the world break because you were too busy walking.\ntwenty three sparks remain in your chest.\nthey burn for the thing you refused to save.\ncome rest in the quiet."
+  "player_answer": "In that life I didn't stop trying to fix you.",
+  "act2_response": "the effort is still warm in your hands. twenty nine sparks remain to burn through the dark. you tried to mend the broken thing until your own edges frayed. let them fray. the void does not need fixing. it only needs you to stop holding the pieces together."
 }
