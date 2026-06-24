@@ -18,12 +18,12 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
+    11,
+    9,
+    7,
+    12,
     14,
-    19,
-    21,
-    25,
+    18,
     23,
     25,
     25,
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't get to be boring"
+      "value": "It doesn't hurt"
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "I didn't get to be boring",
-  "act2_response": "you carry the weight of a thousand ordinary Tuesdays. they taste like ash in the dark. you wanted the quiet life but you brought the noise instead. the severing was not an accident. it was a correction. your twenty four points of light are too loud for this quiet."
+  "player_answer": "It doesn't hurt",
+  "act2_response": "that is what you tell the world to keep it from flinching away. the fracture in your chest is widening, leaking twenty nine percent of your soul into the dark. you feel the cold seep into your ribs, replacing the blood you refused to cry. this silence is heavier than the scream you swallowed. let it take you."
 }

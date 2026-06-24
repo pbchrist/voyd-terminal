@@ -285,6 +285,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-24T03:01:05.288980",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 10,
+          "branch_choke_logic": 9
+        },
+        "total": 28,
+        "reason": "This beat executes a perfect dialectical inversion of Scene 3. Where the Voyd previously claimed \"she is lost in me\" (predatory containment), the new scene reveals \"i woke in the warm center of her chest\" (mutual, parasitic symbiosis). The \"lock clicking shut\" is not just a plot point but a Chekhovian gun firing: the \"four small lights\" of Scene 2 are now identified as the mechanism of this imprisonment. The tension advances from \"who is eating whom?\" to \"we are digesting each other.\" The choices\u2014swallow the key (internalize the agency/destroy the exit) or wait for rot (passive decay/surrender to the biological process)\u2014are not cosmetic; they represent two distinct philosophical responses to inescapable intimacy. Swallowing the key is an active, violent acceptance of the bond; waiting for rot is a nihilistic surrender to time. Both choices make",
+        "precedent": "The moment in *The Tempest* where Prospero\u2019s magic is revealed as self-imprisonment, or the claustrophobic realization in *No Exit* that hell is other people\u2019s gaze made flesh. This scene earns the comparison by inverting the domestic into the anatomical and the psychological into the literal.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9.5\nTENSION_ADVANCEMENT: 10\nBRANCH_CHOKE_LOGIC: 9.0\nPRECEDENT: The moment in *The Tempest* where Prospero\u2019s magic is revealed as self-imprisonment, or the claustrophobic realization in *No Exit* that hell is other people\u2019s gaze made flesh. This scene earns the comparison by inverting the domestic into the anatomical and the psychological into the literal.\nREASON: This beat executes a perfect dialectical inversion of Scene 3. Where the Voyd previously claimed \"she is lost in me\" (predatory containment), the new scene reveals \"i woke in the warm center of her chest\" (mutual, parasitic symbiosis). The \"lock clicking shut\" is not just a plot point but a Chekhovian gun firing: the \"four small lights\" of Scene 2 are now identified as the mechanism of this imprisonment. The tension advances from \"who is eating whom?\" to \"we are digesting each other.\" The choices\u2014swallow the key (internalize the agency/destroy the exit) or wait for rot (passive decay/surrender to the biological process)\u2014are not cosmetic; they represent two distinct philosophical responses to inescapable intimacy. Swallowing the key is an active, violent acceptance of the bond; waiting for rot is a nihilistic surrender to time. Both choices make"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 28 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-23T03:01:01.019669",
