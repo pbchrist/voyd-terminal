@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "there is no hunger"
+      "value": "In the version you built for me, I stay."
     },
     {
       "node": "ep_1g",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 31,
   "archetype": "person_gone",
-  "player_answer": "there is no hunger",
-  "act2_response": "you say it to stop the shaking in your hands. thirty-one steps away from the edge. the world you left is rotting in your mouth. swallow it whole. let the dark taste like peace."
+  "player_answer": "In the version you built for me, I stay.",
+  "act2_response": "you chose the quiet over the noise.\nthe weight of that choice sits heavy in your hands, thirty-one fragments of a life you refused to abandon.\ni see the shape of what you left behind rotting in the silence.\ndo you think staying was an act of love?\nit was a slow suffocation."
 }

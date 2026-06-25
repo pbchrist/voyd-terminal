@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
-    23,
+    16,
+    14,
+    19,
+    21,
     25,
-    25,
-    29,
-    28,
-    26
+    30,
+    32,
+    32,
+    36,
+    35,
+    33
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It doesn't hurt"
+      "value": "In that life, I stayed."
     },
     {
       "node": "ep_1u",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 36,
   "archetype": "self_unlived",
-  "player_answer": "It doesn't hurt",
-  "act2_response": "that is what you tell the world to keep it from flinching away. the fracture in your chest is widening, leaking twenty nine percent of your soul into the dark. you feel the cold seep into your ribs, replacing the blood you refused to cry. this silence is heavier than the scream you swallowed. let it take you."
+  "player_answer": "In that life, I stayed.",
+  "act2_response": "the weight of that choice settles into your bones. you carried a life you never lived across the severing. it drags at your heels like wet wool. thirty-six steps into the dark. the road ahead does not forgive hesitation."
 }

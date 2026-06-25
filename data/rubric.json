@@ -303,6 +303,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 28 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-25T03:00:56.326707",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 10
+        },
+        "total": 28,
+        "reason": "This scene achieves the \"door closing\" of Doll's House without the noise; it shifts the horror from internal consumption (the ribs) to external separation, creating a dialectic of proximity vs. distance that the choices perfectly modulate. By making the narrator the one who steps through the door while the victim remains asleep in the \"wrong room,\" it inverts the expected predator/prey dynamic into a haunting domesticity, leaving the reader with the harder question: not \"will she die?\" but \"who is left alive in the house?\" The choices are not cosmetic but ontological, determining whether the boundary is enforced or eroded, thus locking the branch logic into the thematic core of containment.",
+        "precedent": "The exit of Prospero in The Tempest \u2014 earns it through the quiet, terrifying finality of the boundary crossing",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 10\nPRECEDENT: The exit of Prospero in The Tempest \u2014 earns it through the quiet, terrifying finality of the boundary crossing\nREASON: This scene achieves the \"door closing\" of Doll's House without the noise; it shifts the horror from internal consumption (the ribs) to external separation, creating a dialectic of proximity vs. distance that the choices perfectly modulate. By making the narrator the one who steps through the door while the victim remains asleep in the \"wrong room,\" it inverts the expected predator/prey dynamic into a haunting domesticity, leaving the reader with the harder question: not \"will she die?\" but \"who is left alive in the house?\" The choices are not cosmetic but ontological, determining whether the boundary is enforced or eroded, thus locking the branch logic into the thematic core of containment."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 28 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-23T03:01:01.019669",
