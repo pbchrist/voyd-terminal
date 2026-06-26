@@ -321,6 +321,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 28 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-26T03:01:00.656012",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully synthesizes the visceral horror of Scene 3 with the existential resignation of Scene 1 by shifting from the metaphysical \"architecture\" of the body to the literal architecture of the room. The \"warm handle\" is a Chekhovian gun that has finally been fired\u2014it is the tangible evidence of the other\u2019s presence and intent, turning the abstract \"lost in me\" into a concrete imprisonment. However, the branch logic is slightly weak because \"lie still\" feels like a passive delay rather than a distinct dialectic choice; a stronger antithesis would require an action that risks immediate consequence, not just inaction. The tension advances brilliantly by making the \"contact\" of Scene 2 a violation and the \"existence\" of Scene 3 a trap, raising the dramatic question from \"Who am I?\" to \"How do I survive being known?\"",
+        "precedent": "The moment in *No Exit* where the door is locked from the outside, but the realization that the hell is internal; this scene earns the comparison by externalizing the internal trap of the previous scenes into a physical, inescapable geometry.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The moment in *No Exit* where the door is locked from the outside, but the realization that the hell is internal; this scene earns the comparison by externalizing the internal trap of the previous scenes into a physical, inescapable geometry.\nREASON: The scene successfully synthesizes the visceral horror of Scene 3 with the existential resignation of Scene 1 by shifting from the metaphysical \"architecture\" of the body to the literal architecture of the room. The \"warm handle\" is a Chekhovian gun that has finally been fired\u2014it is the tangible evidence of the other\u2019s presence and intent, turning the abstract \"lost in me\" into a concrete imprisonment. However, the branch logic is slightly weak because \"lie still\" feels like a passive delay rather than a distinct dialectic choice; a stronger antithesis would require an action that risks immediate consequence, not just inaction. The tension advances brilliantly by making the \"contact\" of Scene 2 a violation and the \"existence\" of Scene 3 a trap, raising the dramatic question from \"Who am I?\" to \"How do I survive being known?\""
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-23T03:01:01.019669",

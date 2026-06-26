@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-25T03:01:49.124932",
+  "last_run": "2026-06-26T03:01:52.951726",
   "walks": [
     {
       "archetype": "person_present",
@@ -28,12 +28,12 @@
         22,
         24,
         28,
-        26,
-        28,
-        28,
-        26,
-        31,
-        34
+        33,
+        35,
+        35,
+        39,
+        44,
+        47
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -44,7 +44,7 @@
       "experience": {
         "score": 8,
         "weakest": "gen_2",
-        "reason": "The sudden shift to visceral, biological horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, breaking the established thematic consistency without earning the grotesque turn."
+        "reason": "The shift to visceral, biological horror regarding \"ribs\" and \"blood\" feels tonally dissonant with the established metaphysical and psychological atmosphere, breaking the thematic cohesion of loss and timeline. It introduces arbitrary physical stakes that dilute the abstract, haunting power of the Voyd's narrative voice."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        5,
         9,
+        13,
         11,
         15,
-        20,
-        22,
-        22,
-        20,
-        25,
-        28
+        17,
+        21,
+        26,
+        28,
+        28,
+        26,
+        31,
+        34
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -90,7 +90,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.1g",
-        "reason": "The allusion to Sol is opaque and abstract, breaking the immediate emotional intimacy established in the previous nodes without offering a clear narrative payoff or understandable metaphor for the cost of reaching."
+        "reason": "The metaphor of Sol and the stars is abstract and disconnected from the immediate, visceral grief established in previous nodes, causing a tonal drift that momentarily stalls the narrative momentum."
       }
     },
     {
@@ -120,12 +120,12 @@
         19,
         21,
         25,
-        30,
-        32,
-        32,
-        36,
-        41,
-        44
+        23,
+        25,
+        25,
+        29,
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -136,7 +136,7 @@
       "experience": {
         "score": 8,
         "weakest": "gen_2",
-        "reason": "The visceral horror of the entity consuming a mother's biology feels tonally jarring and overly grotesque compared to the psychological precision of the surrounding nodes, breaking the established mood of melancholic introspection."
+        "reason": "The shift into visceral body horror feels tonally jarring against the established metaphysical melancholy, breaking the thematic consistency of \"wanting\" with gratuitous grotesquery."
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        18,
-        16,
+        11,
+        9,
+        7,
+        12,
         14,
-        19,
-        21,
+        18,
+        23,
         25,
-        30,
-        32,
-        32,
-        36,
-        35,
-        33
+        25,
+        29,
+        28,
+        31
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -181,8 +181,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.2u",
-        "reason": "The sudden introduction of the proper noun \"Orachys\" breaks the immersive, intimate second-person address without context, causing a jarring shift from psychological horror to disjointed lore-dumping."
+        "weakest": "10.0",
+        "reason": "The expository lecture on the Voyd's feeding mechanics halts the visceral momentum established by the previous nodes, replacing immediate emotional stakes with abstract lore. It feels like a pause in the narrative breath rather than a deepening of the tension."
       }
     }
   ],
@@ -193,25 +193,25 @@
       "archetype": "person_present",
       "score": 8,
       "weakest": "gen_2",
-      "reason": "The sudden shift to visceral, biological horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, breaking the established thematic consistency without earning the grotesque turn."
+      "reason": "The shift to visceral, biological horror regarding \"ribs\" and \"blood\" feels tonally dissonant with the established metaphysical and psychological atmosphere, breaking the thematic cohesion of loss and timeline. It introduces arbitrary physical stakes that dilute the abstract, haunting power of the Voyd's narrative voice."
     },
     {
       "archetype": "person_gone",
       "score": 8,
       "weakest": "9.1g",
-      "reason": "The allusion to Sol is opaque and abstract, breaking the immediate emotional intimacy established in the previous nodes without offering a clear narrative payoff or understandable metaphor for the cost of reaching."
+      "reason": "The metaphor of Sol and the stars is abstract and disconnected from the immediate, visceral grief established in previous nodes, causing a tonal drift that momentarily stalls the narrative momentum."
     },
     {
       "archetype": "self_regret",
       "score": 8,
       "weakest": "gen_2",
-      "reason": "The visceral horror of the entity consuming a mother's biology feels tonally jarring and overly grotesque compared to the psychological precision of the surrounding nodes, breaking the established mood of melancholic introspection."
+      "reason": "The shift into visceral body horror feels tonally jarring against the established metaphysical melancholy, breaking the thematic consistency of \"wanting\" with gratuitous grotesquery."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
-      "weakest": "9.2u",
-      "reason": "The sudden introduction of the proper noun \"Orachys\" breaks the immersive, intimate second-person address without context, causing a jarring shift from psychological horror to disjointed lore-dumping."
+      "weakest": "10.0",
+      "reason": "The expository lecture on the Voyd's feeding mechanics halts the visceral momentum established by the previous nodes, replacing immediate emotional stakes with abstract lore. It feels like a pause in the narrative breath rather than a deepening of the tension."
     }
   ]
 }

@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    30,
-    32,
-    32,
-    36,
-    41,
-    44
+    23,
+    25,
+    25,
+    29,
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life, i never tried to fix them, i just let them go"
+      "value": "I didn't run away."
     },
     {
       "node": "ep_1r",
@@ -115,15 +115,15 @@
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 42,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "in that life, i never tried to fix them, i just let them go",
-  "act2_response": "the fracture is a door. 42 breaths remain before it swings shut. you carried the weight of your silence across the severing. now the void asks what you will break to stay. step forward and stop running from the ghost of what you refused to mend."
+  "player_answer": "I didn't run away.",
+  "act2_response": "you stood your ground while the world burned. you thought courage was staying. the ash is still under your fingernails. you are carrying the weight of a choice that cost you everything."
 }

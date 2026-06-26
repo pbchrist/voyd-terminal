@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
+    11,
+    9,
+    7,
+    12,
     14,
-    19,
-    21,
+    18,
+    23,
     25,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    25,
+    29,
+    28,
+    31
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stayed."
+      "value": "It doesn't ask me to choose."
     },
     {
       "node": "ep_1u",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 36,
+  "final_portal_value": 34,
   "archetype": "self_unlived",
-  "player_answer": "In that life, I stayed.",
-  "act2_response": "the weight of that choice settles into your bones. you carried a life you never lived across the severing. it drags at your heels like wet wool. thirty-six steps into the dark. the road ahead does not forgive hesitation."
+  "player_answer": "It doesn't ask me to choose.",
+  "act2_response": "the weight settles in your chest because choice is a burden you refuse to carry. you float through the silence waiting for the world to decide for you. leoran breathed life into chaos but you breathe hesitation into the void. thirty four fragments of yourself drift in the dark. let them fall where they may."
 }
