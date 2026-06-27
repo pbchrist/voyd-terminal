@@ -339,6 +339,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-27T03:01:02.034879",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 8
+        },
+        "total": 26,
+        "reason": "The previous feedback cited \"body horror\" as a tonal break, so this scene correctly pivots back to the metaphysical/psychological register established in Scene 1, but retains the visceral stakes of Scene 3. The shift from \"ribs are my architecture\" (internal colonization) to \"pinned to the floorboards\" (external containment) creates a perfect dialectic turn: the internal horror has now manifested as a physical trap. The choice between \"step through the glass\" (transcendence/death) and \"pull the curtains tight\" (denial/isolation) is structurally sound because it forces the reader to choose between accepting the surreal logic of the world or retreating into a mundane lie. It doesn't just advance the plot; it deepens the central question: Is \"she\" a victim or a jailer? The \"latch clicking open by itself\" is the Chekhovian gun firing\u2014the supernatural agency is confirmed, raising the stakes from psychological doubt to ontological crisis.\n</think>\n\nDIALECT",
+        "precedent": "The final scene of *A Doll's House* (Ibsen) \u2014 Nora\u2019s departure is not just a physical exit but the collapse of the theatrical illusion; this scene earns the comparison by making the environment itself the agent of liberation/confinement.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 8\nPRECEDENT: The final scene of *A Doll's House* (Ibsen) \u2014 Nora\u2019s departure is not just a physical exit but the collapse of the theatrical illusion; this scene earns the comparison by making the environment itself the agent of liberation/confinement.\nREASON: The previous feedback cited \"body horror\" as a tonal break, so this scene correctly pivots back to the metaphysical/psychological register established in Scene 1, but retains the visceral stakes of Scene 3. The shift from \"ribs are my architecture\" (internal colonization) to \"pinned to the floorboards\" (external containment) creates a perfect dialectic turn: the internal horror has now manifested as a physical trap. The choice between \"step through the glass\" (transcendence/death) and \"pull the curtains tight\" (denial/isolation) is structurally sound because it forces the reader to choose between accepting the surreal logic of the world or retreating into a mundane lie. It doesn't just advance the plot; it deepens the central question: Is \"she\" a victim or a jailer? The \"latch clicking open by itself\" is the Chekhovian gun firing\u2014the supernatural agency is confirmed, raising the stakes from psychological doubt to ontological crisis.\n</think>\n\nDIALECT"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-23T03:01:01.019669",

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-26T03:01:52.951726",
+  "last_run": "2026-06-27T03:01:58.898002",
   "walks": [
     {
       "archetype": "person_present",
@@ -28,12 +28,12 @@
         22,
         24,
         28,
-        33,
-        35,
-        35,
-        39,
-        44,
-        47
+        26,
+        28,
+        28,
+        32,
+        37,
+        40
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_2",
-        "reason": "The shift to visceral, biological horror regarding \"ribs\" and \"blood\" feels tonally dissonant with the established metaphysical and psychological atmosphere, breaking the thematic cohesion of loss and timeline. It introduces arbitrary physical stakes that dilute the abstract, haunting power of the Voyd's narrative voice."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical abstraction, breaking the established atmosphere of elegant, geometric sorrow. It sacrifices the text's thematic cohesion for a jarring sensory shock that lacks narrative grounding."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
+        3,
+        7,
+        5,
         9,
-        13,
         11,
-        15,
-        17,
-        21,
-        26,
-        28,
-        28,
-        26,
-        31,
-        34
+        9,
+        7,
+        9,
+        9,
+        7,
+        12,
+        15
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -88,9 +88,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "9.1g",
-        "reason": "The metaphor of Sol and the stars is abstract and disconnected from the immediate, visceral grief established in previous nodes, causing a tonal drift that momentarily stalls the narrative momentum."
+        "score": 9,
+        "weakest": "gen_2",
+        "reason": "The shift to a disjointed, third-person horror vignette (\"she believes her ribs are bone\") breaks the established intimate second-person address and lacks clear narrative causality from the previous choice, causing a jarring loss of immersion."
       }
     },
     {
@@ -120,12 +120,12 @@
         19,
         21,
         25,
-        23,
-        25,
-        25,
-        29,
-        28,
-        26
+        30,
+        32,
+        32,
+        36,
+        35,
+        33
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -135,8 +135,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_2",
-        "reason": "The shift into visceral body horror feels tonally jarring against the established metaphysical melancholy, breaking the thematic consistency of \"wanting\" with gratuitous grotesquery."
+        "weakest": "ACT2",
+        "reason": "The transition from the intimate, specific tragedy of the player's personal failure to the abstract, generic metaphor of \"rot\" and \"self-respect\" feels tonally jarring and emotionally hollow. It abandons the visceral stakes established in the previous nodes for vague, preachy imagery that fails to maintain the psychological tension."
       }
     },
     {
@@ -165,13 +165,13 @@
         7,
         12,
         14,
-        18,
+        12,
+        17,
+        19,
+        19,
         23,
-        25,
-        25,
-        29,
-        28,
-        31
+        22,
+        20
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -180,9 +180,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "10.0",
-        "reason": "The expository lecture on the Voyd's feeding mechanics halts the visceral momentum established by the previous nodes, replacing immediate emotional stakes with abstract lore. It feels like a pause in the narrative breath rather than a deepening of the tension."
+        "score": 9,
+        "weakest": "9.2u",
+        "reason": "The abrupt introduction of the specific name \"Orachys\" without prior context or narrative grounding breaks the immersive, personal intimacy of the dialogue, causing a jarring shift from psychological horror to disjointed lore-dumping."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "gen_2",
-      "reason": "The shift to visceral, biological horror regarding \"ribs\" and \"blood\" feels tonally dissonant with the established metaphysical and psychological atmosphere, breaking the thematic cohesion of loss and timeline. It introduces arbitrary physical stakes that dilute the abstract, haunting power of the Voyd's narrative voice."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical abstraction, breaking the established atmosphere of elegant, geometric sorrow. It sacrifices the text's thematic cohesion for a jarring sensory shock that lacks narrative grounding."
     },
     {
       "archetype": "person_gone",
-      "score": 8,
-      "weakest": "9.1g",
-      "reason": "The metaphor of Sol and the stars is abstract and disconnected from the immediate, visceral grief established in previous nodes, causing a tonal drift that momentarily stalls the narrative momentum."
+      "score": 9,
+      "weakest": "gen_2",
+      "reason": "The shift to a disjointed, third-person horror vignette (\"she believes her ribs are bone\") breaks the established intimate second-person address and lacks clear narrative causality from the previous choice, causing a jarring loss of immersion."
     },
     {
       "archetype": "self_regret",
       "score": 8,
-      "weakest": "gen_2",
-      "reason": "The shift into visceral body horror feels tonally jarring against the established metaphysical melancholy, breaking the thematic consistency of \"wanting\" with gratuitous grotesquery."
+      "weakest": "ACT2",
+      "reason": "The transition from the intimate, specific tragedy of the player's personal failure to the abstract, generic metaphor of \"rot\" and \"self-respect\" feels tonally jarring and emotionally hollow. It abandons the visceral stakes established in the previous nodes for vague, preachy imagery that fails to maintain the psychological tension."
     },
     {
       "archetype": "self_unlived",
-      "score": 8,
-      "weakest": "10.0",
-      "reason": "The expository lecture on the Voyd's feeding mechanics halts the visceral momentum established by the previous nodes, replacing immediate emotional stakes with abstract lore. It feels like a pause in the narrative breath rather than a deepening of the tension."
+      "score": 9,
+      "weakest": "9.2u",
+      "reason": "The abrupt introduction of the specific name \"Orachys\" without prior context or narrative grounding breaks the immersive, personal intimacy of the dialogue, causing a jarring shift from psychological horror to disjointed lore-dumping."
     }
   ]
 }

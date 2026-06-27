@@ -24,12 +24,12 @@
     22,
     24,
     28,
-    33,
-    35,
-    35,
-    39,
-    44,
-    47
+    26,
+    28,
+    28,
+    32,
+    37,
+    40
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I didn't have to earn it."
+      "value": "there is no one to witness it"
     },
     {
       "node": "ep_1p",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 45,
+  "final_portal_value": 38,
   "archetype": "person_present",
-  "player_answer": "In that version, I didn't have to earn it.",
-  "act2_response": "you carried the weight of becoming. you chose to bleed for the crown. here the crown sits on your head without the blood. it is cold. it is hollow. you are already forgetting why you wanted it."
+  "player_answer": "there is no one to witness it",
+  "act2_response": "you carry the weight of an unrecorded death. the silence you promised is a heavy thing to drag across a threshold. thirty-eight points of friction anchor you to the light, but the dark remembers the shape of your abandonment. you are walking into the place that does not judge, only waits."
 }

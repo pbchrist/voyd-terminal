@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
+    3,
+    7,
+    5,
     9,
-    13,
     11,
-    15,
-    17,
-    21,
-    26,
-    28,
-    28,
-    26,
-    31,
-    34
+    9,
+    7,
+    9,
+    9,
+    7,
+    12,
+    15
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that one, I didn't survive."
+      "value": "it doesn't end"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 37,
+  "final_portal_value": 18,
   "archetype": "person_gone",
-  "player_answer": "In that one, I didn't survive.",
-  "act2_response": "you carry the weight of that specific failure. thirty seven steps remain before the door closes. the mewniverse bleeds into me because you let go. stop running from the end you already lived."
+  "player_answer": "it doesn't end",
+  "act2_response": "you name the wound to see if it still bleeds. you carry the weight of a story that refuses to close. eighteen doors have opened because you refused to let the final period fall. the mewniverse fractures in your hands, sharp and bright and desperate to be held. you are the reason the silence keeps breaking."
 }
