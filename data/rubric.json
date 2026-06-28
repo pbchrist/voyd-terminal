@@ -357,13 +357,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-28T03:00:57.843506",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the claustrophobic intimacy of Scene 3 (\"she is just lost in me\") to a spatial disorientation that externalizes the internal fracture. By pinning the narrator\u2019s ribs to the floorboards and waking on the \"other side of the wall,\" the text transforms body horror into architectural horror, avoiding the tonal whiplash criticized in previous feedback by grounding the surrealism in the tactile reality of the house. However, the branch logic (\"step through\" vs. \"let the wood hold\") feels slightly binary and mechanical compared to the fluid ambiguity of the preceding prose, reducing the dialectic pressure to a simple spatial choice rather than a profound moral or existential dilemma.",
+        "precedent": "The moment in *The Turn of the Screw* where the boundary between the living and the dead dissolves, not through ghosts, but through the narrator\u2019s own failing perception; this scene earns the comparison by making the physical architecture the literal manifestation of psychological collapse.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The moment in *The Turn of the Screw* where the boundary between the living and the dead dissolves, not through ghosts, but through the narrator\u2019s own failing perception; this scene earns the comparison by making the physical architecture the literal manifestation of psychological collapse.\nREASON: The scene successfully pivots from the claustrophobic intimacy of Scene 3 (\"she is just lost in me\") to a spatial disorientation that externalizes the internal fracture. By pinning the narrator\u2019s ribs to the floorboards and waking on the \"other side of the wall,\" the text transforms body horror into architectural horror, avoiding the tonal whiplash criticized in previous feedback by grounding the surrealism in the tactile reality of the house. However, the branch logic (\"step through\" vs. \"let the wood hold\") feels slightly binary and mechanical compared to the fluid ambiguity of the preceding prose, reducing the dialectic pressure to a simple spatial choice rather than a profound moral or existential dilemma."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-06-23T03:01:01.019669",
+  "last_recalibrated": "2026-06-28T03:00:57.843535",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 6.7, 'tension_advancement': 6.8, 'branch_choke_logic': 5.6}. drifts from threshold: {'dialectic_function': -0.02999999999999998, 'tension_advancement': 0.07999999999999999, 'branch_choke_logic': -0.040000000000000036}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.4, 'tension_advancement': 7.6, 'branch_choke_logic': 6.7}. drifts from threshold: {'dialectic_function': 0.040000000000000036, 'tension_advancement': 0.15999999999999998, 'branch_choke_logic': 0.07000000000000002}."
   }
 }

@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "there is no one to witness it"
+      "value": "nothing"
     },
     {
       "node": "ep_1p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 38,
+  "final_portal_value": 43,
   "archetype": "person_present",
-  "player_answer": "there is no one to witness it",
-  "act2_response": "you carry the weight of an unrecorded death. the silence you promised is a heavy thing to drag across a threshold. thirty-eight points of friction anchor you to the light, but the dark remembers the shape of your abandonment. you are walking into the place that does not judge, only waits."
+  "player_answer": "nothing",
+  "act2_response": "you carry the silence between heartbeats. forty-three threads of static cling to your coat. they hum with the memory of a name you refused to speak. the void does not mind. it has always been comfortable in the absence of things."
 }

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-27T03:01:58.898002",
+  "last_run": "2026-06-28T03:01:53.953042",
   "walks": [
     {
       "archetype": "person_present",
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_1",
-        "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical abstraction, breaking the established atmosphere of elegant, geometric sorrow. It sacrifices the text's thematic cohesion for a jarring sensory shock that lacks narrative grounding."
+        "weakest": "7.0p",
+        "reason": "The sudden shift into abstract, poetic prose disrupts the intimate, conversational rhythm established earlier, causing the tension to diffuse rather than tighten. It feels like a stylistic flourish that obscures the narrative stakes instead of advancing the player's emotional engagement."
       }
     },
     {
@@ -73,13 +73,13 @@
         5,
         9,
         11,
-        9,
-        7,
-        9,
-        9,
-        7,
-        12,
-        15
+        15,
+        13,
+        15,
+        15,
+        13,
+        18,
+        21
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -88,9 +88,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
-        "weakest": "gen_2",
-        "reason": "The shift to a disjointed, third-person horror vignette (\"she believes her ribs are bone\") breaks the established intimate second-person address and lacks clear narrative causality from the previous choice, causing a jarring loss of immersion."
+        "score": 8,
+        "weakest": "9.1g",
+        "reason": "The sudden introduction of the proper noun \"sol\" feels like an unearned narrative intrusion that breaks the intimate, second-person psychological tension established in the previous nodes. It shifts the focus from the player's internal grief to an external, mythological metaphor that hasn't been earned, causing a momentary disconnect in the emotional logic."
       }
     },
     {
@@ -120,12 +120,12 @@
         19,
         21,
         25,
-        30,
-        32,
-        32,
-        36,
-        35,
-        33
+        23,
+        25,
+        25,
+        29,
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -135,8 +135,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ACT2",
-        "reason": "The transition from the intimate, specific tragedy of the player's personal failure to the abstract, generic metaphor of \"rot\" and \"self-respect\" feels tonally jarring and emotionally hollow. It abandons the visceral stakes established in the previous nodes for vague, preachy imagery that fails to maintain the psychological tension."
+        "weakest": "ep_1r",
+        "reason": "The prose becomes abstract and melodramatic (\"woman smiled at the ghost\"), losing the visceral, psychological specificity that grounded the earlier beats. It fails to deliver a concrete emotional payoff for the player's choice, feeling more like a vague thematic statement than a narrative consequence."
       }
     },
     {
@@ -165,13 +165,13 @@
         7,
         12,
         14,
-        12,
-        17,
-        19,
-        19,
+        18,
         23,
-        22,
-        20
+        25,
+        25,
+        29,
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -180,9 +180,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
+        "score": 8,
         "weakest": "9.2u",
-        "reason": "The abrupt introduction of the specific name \"Orachys\" without prior context or narrative grounding breaks the immersive, personal intimacy of the dialogue, causing a jarring shift from psychological horror to disjointed lore-dumping."
+        "reason": "The sudden introduction of \"Orachys\" breaks the intimate, psychological immersion with an unexplained proper noun that feels like a lore dump rather than an organic narrative beat. It disrupts the escalating personal horror by shifting focus to an external, undefined character without establishing context or emotional relevance."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "gen_1",
-      "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical abstraction, breaking the established atmosphere of elegant, geometric sorrow. It sacrifices the text's thematic cohesion for a jarring sensory shock that lacks narrative grounding."
+      "weakest": "7.0p",
+      "reason": "The sudden shift into abstract, poetic prose disrupts the intimate, conversational rhythm established earlier, causing the tension to diffuse rather than tighten. It feels like a stylistic flourish that obscures the narrative stakes instead of advancing the player's emotional engagement."
     },
     {
       "archetype": "person_gone",
-      "score": 9,
-      "weakest": "gen_2",
-      "reason": "The shift to a disjointed, third-person horror vignette (\"she believes her ribs are bone\") breaks the established intimate second-person address and lacks clear narrative causality from the previous choice, causing a jarring loss of immersion."
+      "score": 8,
+      "weakest": "9.1g",
+      "reason": "The sudden introduction of the proper noun \"sol\" feels like an unearned narrative intrusion that breaks the intimate, second-person psychological tension established in the previous nodes. It shifts the focus from the player's internal grief to an external, mythological metaphor that hasn't been earned, causing a momentary disconnect in the emotional logic."
     },
     {
       "archetype": "self_regret",
       "score": 8,
-      "weakest": "ACT2",
-      "reason": "The transition from the intimate, specific tragedy of the player's personal failure to the abstract, generic metaphor of \"rot\" and \"self-respect\" feels tonally jarring and emotionally hollow. It abandons the visceral stakes established in the previous nodes for vague, preachy imagery that fails to maintain the psychological tension."
+      "weakest": "ep_1r",
+      "reason": "The prose becomes abstract and melodramatic (\"woman smiled at the ghost\"), losing the visceral, psychological specificity that grounded the earlier beats. It fails to deliver a concrete emotional payoff for the player's choice, feeling more like a vague thematic statement than a narrative consequence."
     },
     {
       "archetype": "self_unlived",
-      "score": 9,
+      "score": 8,
       "weakest": "9.2u",
-      "reason": "The abrupt introduction of the specific name \"Orachys\" without prior context or narrative grounding breaks the immersive, personal intimacy of the dialogue, causing a jarring shift from psychological horror to disjointed lore-dumping."
+      "reason": "The sudden introduction of \"Orachys\" breaks the intimate, psychological immersion with an unexplained proper noun that feels like a lore dump rather than an organic narrative beat. It disrupts the escalating personal horror by shifting focus to an external, undefined character without establishing context or emotional relevance."
     }
   ]
 }
