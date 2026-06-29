@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-28T03:01:53.953042",
+  "last_run": "2026-06-29T03:01:14.902264",
   "walks": [
     {
       "archetype": "person_present",
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "7.0p",
-        "reason": "The sudden shift into abstract, poetic prose disrupts the intimate, conversational rhythm established earlier, causing the tension to diffuse rather than tighten. It feels like a stylistic flourish that obscures the narrative stakes instead of advancing the player's emotional engagement."
+        "weakest": "gen_2",
+        "reason": "The sudden shift from abstract metaphysical horror to visceral body horror feels tonally disjointed and introduces a confusing, unearned layer of violence that disrupts the established psychological tension."
       }
     },
     {
@@ -74,12 +74,12 @@
         9,
         11,
         15,
-        13,
-        15,
-        15,
-        13,
-        18,
-        21
+        20,
+        22,
+        22,
+        20,
+        25,
+        28
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -90,7 +90,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.1g",
-        "reason": "The sudden introduction of the proper noun \"sol\" feels like an unearned narrative intrusion that breaks the intimate, second-person psychological tension established in the previous nodes. It shifts the focus from the player's internal grief to an external, mythological metaphor that hasn't been earned, causing a momentary disconnect in the emotional logic."
+        "reason": "The metaphor of Sol and the burning needle is abstract and disconnected from the immediate emotional stakes of the player's loss, causing a break in narrative momentum. It relies on cryptic lore rather than deepening the visceral cost of the interaction."
       }
     },
     {
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "ep_1r",
-        "reason": "The prose becomes abstract and melodramatic (\"woman smiled at the ghost\"), losing the visceral, psychological specificity that grounded the earlier beats. It fails to deliver a concrete emotional payoff for the player's choice, feeling more like a vague thematic statement than a narrative consequence."
+        "score": 7,
+        "weakest": "gen_2",
+        "reason": "The prose shifts into a confusing, grotesque metaphor that obscures the narrative stakes, causing the emotional momentum to stall as the reader struggles to parse the imagery rather than feel the consequence."
       }
     },
     {
@@ -163,15 +163,15 @@
         11,
         9,
         7,
+        6,
+        8,
         12,
-        14,
-        18,
-        23,
-        25,
-        25,
-        29,
-        28,
-        26
+        10,
+        12,
+        12,
+        16,
+        15,
+        13
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -182,7 +182,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.2u",
-        "reason": "The sudden introduction of \"Orachys\" breaks the intimate, psychological immersion with an unexplained proper noun that feels like a lore dump rather than an organic narrative beat. It disrupts the escalating personal horror by shifting focus to an external, undefined character without establishing context or emotional relevance."
+        "reason": "The sudden invocation of \"Orachys\" introduces an opaque ex nihilo lore drop that breaks the intimate, psychological momentum of the scene without providing necessary context or emotional resonance. It feels like a mechanical placeholder for exposition rather than an earned beat in the player's internal journey."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "7.0p",
-      "reason": "The sudden shift into abstract, poetic prose disrupts the intimate, conversational rhythm established earlier, causing the tension to diffuse rather than tighten. It feels like a stylistic flourish that obscures the narrative stakes instead of advancing the player's emotional engagement."
+      "weakest": "gen_2",
+      "reason": "The sudden shift from abstract metaphysical horror to visceral body horror feels tonally disjointed and introduces a confusing, unearned layer of violence that disrupts the established psychological tension."
     },
     {
       "archetype": "person_gone",
       "score": 8,
       "weakest": "9.1g",
-      "reason": "The sudden introduction of the proper noun \"sol\" feels like an unearned narrative intrusion that breaks the intimate, second-person psychological tension established in the previous nodes. It shifts the focus from the player's internal grief to an external, mythological metaphor that hasn't been earned, causing a momentary disconnect in the emotional logic."
+      "reason": "The metaphor of Sol and the burning needle is abstract and disconnected from the immediate emotional stakes of the player's loss, causing a break in narrative momentum. It relies on cryptic lore rather than deepening the visceral cost of the interaction."
     },
     {
       "archetype": "self_regret",
-      "score": 8,
-      "weakest": "ep_1r",
-      "reason": "The prose becomes abstract and melodramatic (\"woman smiled at the ghost\"), losing the visceral, psychological specificity that grounded the earlier beats. It fails to deliver a concrete emotional payoff for the player's choice, feeling more like a vague thematic statement than a narrative consequence."
+      "score": 7,
+      "weakest": "gen_2",
+      "reason": "The prose shifts into a confusing, grotesque metaphor that obscures the narrative stakes, causing the emotional momentum to stall as the reader struggles to parse the imagery rather than feel the consequence."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
       "weakest": "9.2u",
-      "reason": "The sudden introduction of \"Orachys\" breaks the intimate, psychological immersion with an unexplained proper noun that feels like a lore dump rather than an organic narrative beat. It disrupts the escalating personal horror by shifting focus to an external, undefined character without establishing context or emotional relevance."
+      "reason": "The sudden invocation of \"Orachys\" introduces an opaque ex nihilo lore drop that breaks the intimate, psychological momentum of the scene without providing necessary context or emotional resonance. It feels like a mechanical placeholder for exposition rather than an earned beat in the player's internal journey."
     }
   ]
 }

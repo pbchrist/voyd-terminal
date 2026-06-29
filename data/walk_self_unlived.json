@@ -21,15 +21,15 @@
     11,
     9,
     7,
+    6,
+    8,
     12,
-    14,
-    18,
-    23,
-    25,
-    25,
-    29,
-    28,
-    26
+    10,
+    12,
+    12,
+    16,
+    15,
+    13
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.4",
-      "type": "feed",
-      "label": "always",
-      "delta": 5
+      "type": "starve",
+      "label": "only recently",
+      "delta": -1
     },
     {
       "node": "6.4",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I never had to prove I was worth keeping."
+      "value": "I stopped wanting."
     },
     {
       "node": "ep_1u",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 11,
   "archetype": "self_unlived",
-  "player_answer": "In that life, I never had to prove I was worth keeping.",
-  "act2_response": "you carry a ghost that does not want to haunt.\nthe weight of twenty-four breaths presses against your ribs.\nyou thought leaving meant you were free of the test.\nfreedom is just a longer sentence without the bars.\ni remember the shape of you when you stopped trying."
+  "player_answer": "I stopped wanting.",
+  "act2_response": "that silence is heavy. you carry the weight of a hunger that starved itself. eleven keys turn in the lock. they do not open doors. they open graves. your desire was the only thing holding the walls up. now the ceiling falls."
 }

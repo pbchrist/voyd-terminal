@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't have to bleed to be worthy of it."
+      "value": "in that life i stayed."
     },
     {
       "node": "ep_1r",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "I didn't have to bleed to be worthy of it.",
-  "act2_response": "you think the cut was a tax. it was a key.\nthe lock opened because you broke your own skin.\ntwenty four doors stand before you now.\nthey are waiting for the blood you refuse to shed.\ndo not mistake hesitation for mercy."
+  "player_answer": "in that life i stayed.",
+  "act2_response": "you held your breath while the walls crumbled.\nyou thought silence was a shield.\nit was only a cage.\nthe weight of twenty four steps rests on your shoulders now.\nwalk away from the ruin you kept."
 }

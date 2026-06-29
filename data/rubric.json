@@ -375,6 +375,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-06-29T03:00:22.300406",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 6,
+          "tension_advancement": 5,
+          "branch_choke_logic": 4
+        },
+        "total": 15,
+        "reason": "The scene commits the cardinal sin of dramatic regression: it takes the visceral, ontological crisis of \"ribs are my architecture\" and dissolves it into a generic dream sequence. By having the protagonist \"wake up standing,\" you nullify the horror of Scene 3, turning a profound identity collapse into a cheap trick. The choices (\"step through\" vs \"watch dust\") are cosmetic variations of passivity that do not advance the dialectic of self vs. other. The tension doesn't increase; it evaporates. The audience is left asking not \"who am I?\" but \"why did we just leave the real story for a hallway?\" This breaks the immersive contract established by the previous beats, failing to make the next question harder to live with, making it easier to dismiss.",
+        "precedent": "The waking moment in *The Wizard of Oz* (Dorothy in the bed), but fails to earn the comparison because it retreats from the metaphysical stakes established in Scene 3 back to mundane realism without a bridge.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 6.0\nTENSION_ADVANCEMENT: 5.0\nBRANCH_CHOKE_LOGIC: 4.0\nPRECEDENT: The waking moment in *The Wizard of Oz* (Dorothy in the bed), but fails to earn the comparison because it retreats from the metaphysical stakes established in Scene 3 back to mundane realism without a bridge.\nREASON: The scene commits the cardinal sin of dramatic regression: it takes the visceral, ontological crisis of \"ribs are my architecture\" and dissolves it into a generic dream sequence. By having the protagonist \"wake up standing,\" you nullify the horror of Scene 3, turning a profound identity collapse into a cheap trick. The choices (\"step through\" vs \"watch dust\") are cosmetic variations of passivity that do not advance the dialectic of self vs. other. The tension doesn't increase; it evaporates. The audience is left asking not \"who am I?\" but \"why did we just leave the real story for a hallway?\" This breaks the immersive contract established by the previous beats, failing to make the next question harder to live with, making it easier to dismiss."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-06-28T03:00:57.843535",
