@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life i stayed."
+      "value": "In that life, I never had to apologize for existing."
     },
     {
       "node": "ep_1r",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "in that life i stayed.",
-  "act2_response": "you held your breath while the walls crumbled.\nyou thought silence was a shield.\nit was only a cage.\nthe weight of twenty four steps rests on your shoulders now.\nwalk away from the ruin you kept."
+  "player_answer": "In that life, I never had to apologize for existing.",
+  "act2_response": "the apology lives in your bones now. twenty-four points of light to keep the dark at bay. you traded a quiet peace for this noise. the door is open. step through."
 }

@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    9,
-    13,
-    17,
+    3,
+    7,
+    11,
+    16,
+    18,
     22,
-    24,
-    28,
+    20,
+    22,
+    22,
     26,
-    28,
-    28,
-    32,
-    37,
-    40
+    25,
+    28
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life I never had to choose"
+      "value": "There is no one left to disappoint"
     },
     {
       "node": "ep_1p",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2p",
-      "type": "feed",
-      "label": "keep the wound open and let me see what grows in the light",
-      "delta": 5
+      "type": "starve",
+      "label": "let the seam close and call it peace",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 43,
+  "final_portal_value": 26,
   "archetype": "person_present",
-  "player_answer": "In that life I never had to choose",
-  "act2_response": "you carry the weight of a door that never closed. the mews you spared still bleed in your memory. you think you saved them. you only delayed the silence. choose now or drown in the echo."
+  "player_answer": "There is no one left to disappoint",
+  "act2_response": "the weight in your hands is heavy because you still expect to hold it.\nyou speak of emptiness like it is a victory.\nit is only the absence of those who demanded you be small.\nbut the void does not ask you to be small.\nit asks you to be nothing at all."
 }

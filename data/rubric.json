@@ -393,6 +393,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-06-30T03:00:25.540026",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 6,
+          "tension_advancement": 4,
+          "branch_choke_logic": 3
+        },
+        "total": 13,
+        "reason": "The scene suffers from a catastrophic tonal rupture that violates the established dialectic of intimate, biological possession. Scenes 1-3 established a claustrophobic, visceral connection (\"my architecture,\" \"taste the copper\") where the horror lies in the blurring of self and other. This new scene abruptly switches to a sterile, external sci-fi thriller aesthetic (\"ozone,\" \"shimmering tear,\" \"cold brick\"), effectively resetting the stakes to zero. The dramatic question shifts from \"How do I survive being consumed by this entity?\" to a generic \"Do I escape or stay?\", which is a step backward in complexity. The choices offered are cosmetic rather than dialectic: stepping through a tear is a physical action, not a moral or existential commitment that deepens the wound. It abandons the \"wet and warm\" reality of the previous beats for a cold, abstract puzzle, making the next question easier, not harder, because it relies on plot mechanics rather than character destruction.",
+        "precedent": "The Shining (Kubrick) \u2014 The scene attempts the disorienting, spatial breakdown of reality, but fails to earn the comparison because the preceding intimacy is abandoned for generic sci-fi tropes rather than deepening the psychological horror of the bond.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 6\nTENSION_ADVANCEMENT: 4\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The Shining (Kubrick) \u2014 The scene attempts the disorienting, spatial breakdown of reality, but fails to earn the comparison because the preceding intimacy is abandoned for generic sci-fi tropes rather than deepening the psychological horror of the bond.\nREASON: The scene suffers from a catastrophic tonal rupture that violates the established dialectic of intimate, biological possession. Scenes 1-3 established a claustrophobic, visceral connection (\"my architecture,\" \"taste the copper\") where the horror lies in the blurring of self and other. This new scene abruptly switches to a sterile, external sci-fi thriller aesthetic (\"ozone,\" \"shimmering tear,\" \"cold brick\"), effectively resetting the stakes to zero. The dramatic question shifts from \"How do I survive being consumed by this entity?\" to a generic \"Do I escape or stay?\", which is a step backward in complexity. The choices offered are cosmetic rather than dialectic: stepping through a tear is a physical action, not a moral or existential commitment that deepens the wound. It abandons the \"wet and warm\" reality of the previous beats for a cold, abstract puzzle, making the next question easier, not harder, because it relies on plot mechanics rather than character destruction."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-06-28T03:00:57.843535",

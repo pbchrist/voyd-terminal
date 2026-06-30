@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-29T03:01:14.902264",
+  "last_run": "2026-06-30T03:01:17.743047",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,18 +22,18 @@
       "portal_curve": [
         8,
         5,
-        9,
-        13,
-        17,
+        3,
+        7,
+        11,
+        16,
+        18,
         22,
-        24,
-        28,
+        20,
+        22,
+        22,
         26,
-        28,
-        28,
-        32,
-        37,
-        40
+        25,
+        28
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_2",
-        "reason": "The sudden shift from abstract metaphysical horror to visceral body horror feels tonally disjointed and introduces a confusing, unearned layer of violence that disrupts the established psychological tension."
+        "weakest": "7.0p",
+        "reason": "The shift into abstract, poetic body-horror feels unearned and disconnected from the grounded interpersonal grief established in the previous nodes, causing the emotional momentum to stall."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        5,
         9,
+        13,
         11,
-        15,
-        20,
-        22,
-        22,
-        20,
-        25,
-        28
+        10,
+        12,
+        10,
+        8,
+        10,
+        10,
+        8,
+        13,
+        16
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -89,8 +89,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.1g",
-        "reason": "The metaphor of Sol and the burning needle is abstract and disconnected from the immediate emotional stakes of the player's loss, causing a break in narrative momentum. It relies on cryptic lore rather than deepening the visceral cost of the interaction."
+        "weakest": "7.0g",
+        "reason": "The shift from psychological dialogue to abstract, purple prose (\"silence that learned to scream\") feels like a stylistic indulgence rather than a narrative progression, breaking the intimate momentum established in the previous nodes."
       }
     },
     {
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 7,
-        "weakest": "gen_2",
-        "reason": "The prose shifts into a confusing, grotesque metaphor that obscures the narrative stakes, causing the emotional momentum to stall as the reader struggles to parse the imagery rather than feel the consequence."
+        "score": 8,
+        "weakest": "9.2r",
+        "reason": "The reference to \"Orachys\" introduces an opaque, unexplained proper noun that breaks the immersive, psychological intimacy of the piece, functioning as confusing lore-dropping rather than advancing the emotional stakes."
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        11,
-        9,
-        7,
-        6,
-        8,
-        12,
-        10,
-        12,
-        12,
+        18,
         16,
-        15,
-        13
+        14,
+        19,
+        21,
+        25,
+        30,
+        32,
+        32,
+        36,
+        35,
+        33
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -180,9 +180,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "9.2u",
-        "reason": "The sudden invocation of \"Orachys\" introduces an opaque ex nihilo lore drop that breaks the intimate, psychological momentum of the scene without providing necessary context or emotional resonance. It feels like a mechanical placeholder for exposition rather than an earned beat in the player's internal journey."
+        "score": 7,
+        "weakest": "10.0",
+        "reason": "The sudden expository dump about the Voyd's mechanics and Orachys breaks the immersive, visceral tension built by the previous nodes, shifting from personal horror to abstract lore. It halts the emotional momentum by explaining the rules rather than letting the player feel the consequence of their desire."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "gen_2",
-      "reason": "The sudden shift from abstract metaphysical horror to visceral body horror feels tonally disjointed and introduces a confusing, unearned layer of violence that disrupts the established psychological tension."
+      "weakest": "7.0p",
+      "reason": "The shift into abstract, poetic body-horror feels unearned and disconnected from the grounded interpersonal grief established in the previous nodes, causing the emotional momentum to stall."
     },
     {
       "archetype": "person_gone",
       "score": 8,
-      "weakest": "9.1g",
-      "reason": "The metaphor of Sol and the burning needle is abstract and disconnected from the immediate emotional stakes of the player's loss, causing a break in narrative momentum. It relies on cryptic lore rather than deepening the visceral cost of the interaction."
+      "weakest": "7.0g",
+      "reason": "The shift from psychological dialogue to abstract, purple prose (\"silence that learned to scream\") feels like a stylistic indulgence rather than a narrative progression, breaking the intimate momentum established in the previous nodes."
     },
     {
       "archetype": "self_regret",
-      "score": 7,
-      "weakest": "gen_2",
-      "reason": "The prose shifts into a confusing, grotesque metaphor that obscures the narrative stakes, causing the emotional momentum to stall as the reader struggles to parse the imagery rather than feel the consequence."
+      "score": 8,
+      "weakest": "9.2r",
+      "reason": "The reference to \"Orachys\" introduces an opaque, unexplained proper noun that breaks the immersive, psychological intimacy of the piece, functioning as confusing lore-dropping rather than advancing the emotional stakes."
     },
     {
       "archetype": "self_unlived",
-      "score": 8,
-      "weakest": "9.2u",
-      "reason": "The sudden invocation of \"Orachys\" introduces an opaque ex nihilo lore drop that breaks the intimate, psychological momentum of the scene without providing necessary context or emotional resonance. It feels like a mechanical placeholder for exposition rather than an earned beat in the player's internal journey."
+      "score": 7,
+      "weakest": "10.0",
+      "reason": "The sudden expository dump about the Voyd's mechanics and Orachys breaks the immersive, visceral tension built by the previous nodes, shifting from personal horror to abstract lore. It halts the emotional momentum by explaining the rules rather than letting the player feel the consequence of their desire."
     }
   ]
 }

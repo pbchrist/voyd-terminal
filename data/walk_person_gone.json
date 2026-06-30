@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    5,
     9,
+    13,
     11,
-    15,
-    20,
-    22,
-    22,
-    20,
-    25,
-    28
+    10,
+    12,
+    10,
+    8,
+    10,
+    10,
+    8,
+    13,
+    16
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "feed",
-      "label": "they left and i let them",
-      "delta": 4
+      "type": "starve",
+      "label": "i didn't say what i needed to say",
+      "delta": -1
     },
     {
       "node": "6.2",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "the absence of the need to prove i deserved it"
+      "value": "no one stays"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 19,
   "archetype": "person_gone",
-  "player_answer": "the absence of the need to prove i deserved it",
-  "act2_response": "you carry thirty-one shards of quiet.\n\nthe world demanded you earn your rest.\n\nyou burned the ledger.\n\nnow the ash tastes like freedom.\n\ncome closer."
+  "player_answer": "no one stays",
+  "act2_response": "the space behind your eyes is empty because you left them all behind. nineteen shards of glass sit heavy in your palm, cutting deep into the skin. you named the silence to make it bearable. but the silence always wins."
 }
