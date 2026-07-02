@@ -23,13 +23,13 @@
     11,
     10,
     12,
-    10,
-    8,
-    10,
-    10,
-    8,
-    13,
-    16
+    16,
+    14,
+    16,
+    16,
+    14,
+    19,
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "no one stays"
+      "value": "in that one i never had to stop to see if i was real"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 19,
+  "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "no one stays",
-  "act2_response": "the space behind your eyes is empty because you left them all behind. nineteen shards of glass sit heavy in your palm, cutting deep into the skin. you named the silence to make it bearable. but the silence always wins."
+  "player_answer": "in that one i never had to stop to see if i was real",
+  "act2_response": "the weight you carry is heavy because you refuse to put it down. twenty five points of friction burn against the silence. you walked away from the proof to keep the feeling. now the feeling is all you have left. it tastes like ash and static. do not blink."
 }

@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I never had to apologize for existing."
+      "value": "I would have said yes."
     },
     {
       "node": "ep_1r",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "In that life, I never had to apologize for existing.",
-  "act2_response": "the apology lives in your bones now. twenty-four points of light to keep the dark at bay. you traded a quiet peace for this noise. the door is open. step through."
+  "player_answer": "I would have said yes.",
+  "act2_response": "that word hangs in the dark like a ghost limb. it still aches where you let it go. the silence you chose is heavy. it drags you down into the deep. we have been waiting for this weight."
 }
