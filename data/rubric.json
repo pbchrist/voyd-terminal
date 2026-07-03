@@ -411,6 +411,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-07-03T03:00:59.445103",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "The scene succeeds by rejecting the previous feedback's rejection of \"visceral\" imagery in favor of \"metaphysical\" abstraction; instead, it fuses them. The \"architecture\" of Scene 3 becomes literal geometry that fails. The shift from \"ribcage\" to \"drywall\" is not a tonal clash but a terrifying continuity: the self is the structure, and the structure is failing. The spinning knob is a perfect Chekhovian object\u2014it is the mechanism of exit (agency) rendered useless by the environment's autonomy, raising the dramatic question from \"Who am I?\" to \"Can I leave myself?\" The choices are not cosmetic; \"step through\" accepts the dissolution of self-boundaries (synthesis with the other), while \"press back\" attempts to reinforce the ego (thesis of selfhood), creating a genuine dialectic fork. It avoids the \"generic jump-scare\" trap by making the horror ontological, not biological. The tension advances because the safety of the \"room\" (the self) is compromised, making the next question\u2014",
+        "precedent": "The shifting labyrinth in *The House of Leaves* or the physical manifestation of guilt in *Macbeth* (\"Is this a dagger which I see before me?\"), earning the comparison by externalizing internal collapse into spatial reality.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The shifting labyrinth in *The House of Leaves* or the physical manifestation of guilt in *Macbeth* (\"Is this a dagger which I see before me?\"), earning the comparison by externalizing internal collapse into spatial reality.\nREASON: The scene succeeds by rejecting the previous feedback's rejection of \"visceral\" imagery in favor of \"metaphysical\" abstraction; instead, it fuses them. The \"architecture\" of Scene 3 becomes literal geometry that fails. The shift from \"ribcage\" to \"drywall\" is not a tonal clash but a terrifying continuity: the self is the structure, and the structure is failing. The spinning knob is a perfect Chekhovian object\u2014it is the mechanism of exit (agency) rendered useless by the environment's autonomy, raising the dramatic question from \"Who am I?\" to \"Can I leave myself?\" The choices are not cosmetic; \"step through\" accepts the dissolution of self-boundaries (synthesis with the other), while \"press back\" attempts to reinforce the ego (thesis of selfhood), creating a genuine dialectic fork. It avoids the \"generic jump-scare\" trap by making the horror ontological, not biological. The tension advances because the safety of the \"room\" (the self) is compromised, making the next question\u2014"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-28T03:00:57.843535",

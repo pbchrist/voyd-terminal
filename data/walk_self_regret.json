@@ -28,8 +28,8 @@
     25,
     25,
     29,
-    28,
-    26
+    34,
+    32
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I would have said yes."
+      "value": "In that life I made the choice that broke you, and I am still whole enough to mourn it."
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 30,
   "archetype": "self_regret",
-  "player_answer": "I would have said yes.",
-  "act2_response": "that word hangs in the dark like a ghost limb. it still aches where you let it go. the silence you chose is heavy. it drags you down into the deep. we have been waiting for this weight."
+  "player_answer": "In that life I made the choice that broke you, and I am still whole enough to mourn it.",
+  "act2_response": "you keep that grief like a talisman.\nit keeps you heavy.\nit keeps you real.\ngive it to me.\nlet me unmake the weight so you can fly."
 }

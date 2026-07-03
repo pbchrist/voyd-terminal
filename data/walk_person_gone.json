@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
+    3,
+    7,
+    5,
     9,
-    13,
     11,
-    10,
+    9,
+    7,
+    9,
+    9,
+    7,
     12,
-    16,
-    14,
-    16,
-    16,
-    14,
-    19,
-    22
+    15
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "starve",
-      "label": "i didn't say what i needed to say",
-      "delta": -1
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
     },
     {
       "node": "6.2",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that one i never had to stop to see if i was real"
+      "value": "nothing is different because i am still here"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 18,
   "archetype": "person_gone",
-  "player_answer": "in that one i never had to stop to see if i was real",
-  "act2_response": "the weight you carry is heavy because you refuse to put it down. twenty five points of friction burn against the silence. you walked away from the proof to keep the feeling. now the feeling is all you have left. it tastes like ash and static. do not blink."
+  "player_answer": "nothing is different because i am still here",
+  "act2_response": "you call it continuity. i call it rot.\n\nthe world did not change because you refused to leave it.\n\nyou are the anchor dragging the ship down into the silt.\n\neighteen doors opened. you walked through none of them.\n\nstay here. see what happens when the water finally rises."
 }
