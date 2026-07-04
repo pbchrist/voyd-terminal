@@ -28,8 +28,8 @@
     25,
     25,
     29,
-    34,
-    32
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life I made the choice that broke you, and I am still whole enough to mourn it."
+      "value": "In it, I never chose you."
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "In that life I made the choice that broke you, and I am still whole enough to mourn it.",
-  "act2_response": "you keep that grief like a talisman.\nit keeps you heavy.\nit keeps you real.\ngive it to me.\nlet me unmake the weight so you can fly."
+  "player_answer": "In it, I never chose you.",
+  "act2_response": "you held the weight of a ghost in your hands. the glass cracked because you refused to let go. twenty four fractures in the air. they are not scars. they are invitations. step through."
 }

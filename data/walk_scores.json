@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-03T03:01:52.506509",
+  "last_run": "2026-07-04T03:01:52.418284",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,18 +22,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        11,
-        16,
-        18,
+        9,
+        13,
+        17,
         22,
-        27,
-        29,
-        29,
-        33,
-        38,
-        41
+        24,
+        28,
+        26,
+        28,
+        28,
+        32,
+        37,
+        40
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ep_2p",
-        "reason": "The prose here devolves into abstract, repetitive metaphors (\"wound does not scar,\" \"bleed when you stay\") that fail to advance the narrative or deepen the character's specific tragedy, causing the tension to stall rather than escalate."
+        "weakest": "gen_2",
+        "reason": "The shift into visceral body horror feels tonally disjointed from the preceding existential dread, reducing the philosophical stakes to a sudden, unearned grotesquerie that lacks narrative grounding."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        5,
         9,
+        13,
         11,
-        9,
-        7,
-        9,
-        9,
-        7,
-        12,
-        15
+        15,
+        17,
+        21,
+        19,
+        21,
+        21,
+        19,
+        24,
+        27
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -89,8 +89,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.1g",
-        "reason": "The abstract metaphor regarding \"sol\" and stars disrupts the immediate emotional intimacy of the dialogue, causing the narrative pressure to dissipate into vague poetry rather than advancing the player's specific conflict."
+        "weakest": "gen_2",
+        "reason": "The shift into visceral body horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, causing the thematic tension to snap rather than deepen. It sacrifices the elegant ambiguity of the \"Voyd\" for gratuitous grotesquery that undermines the emotional weight of the player's previous choices."
       }
     },
     {
@@ -124,8 +124,8 @@
         25,
         25,
         29,
-        34,
-        32
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "10.0",
-        "reason": "The exposition here halts the momentum of the personal haunting to explain the entity's mechanics, breaking the immersive tension established in the preceding nodes. It shifts from visceral, character-specific horror to abstract lore-dumping, causing the emotional stakes to flatten."
+        "score": 7,
+        "weakest": "9.2r",
+        "reason": "The reference to \"Orachys\" is an unearned proper noun that breaks the intimate, second-person immersion with confusing lore-dumping, causing the reader to disengage from the emotional stakes to parse external mythology."
       }
     },
     {
@@ -171,7 +171,7 @@
         25,
         29,
         28,
-        31
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -181,8 +181,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.2u",
-        "reason": "The sudden, unexplained invocation of \"Orachys\" shatters the intimate, psychological tension with a jarring piece of lore that feels arbitrary and disconnected from the player's immediate emotional arc."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological imagery (\"four small lights... warm and wet\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the immersive tension without a clear narrative bridge."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "ep_2p",
-      "reason": "The prose here devolves into abstract, repetitive metaphors (\"wound does not scar,\" \"bleed when you stay\") that fail to advance the narrative or deepen the character's specific tragedy, causing the tension to stall rather than escalate."
+      "weakest": "gen_2",
+      "reason": "The shift into visceral body horror feels tonally disjointed from the preceding existential dread, reducing the philosophical stakes to a sudden, unearned grotesquerie that lacks narrative grounding."
     },
     {
       "archetype": "person_gone",
       "score": 8,
-      "weakest": "9.1g",
-      "reason": "The abstract metaphor regarding \"sol\" and stars disrupts the immediate emotional intimacy of the dialogue, causing the narrative pressure to dissipate into vague poetry rather than advancing the player's specific conflict."
+      "weakest": "gen_2",
+      "reason": "The shift into visceral body horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, causing the thematic tension to snap rather than deepen. It sacrifices the elegant ambiguity of the \"Voyd\" for gratuitous grotesquery that undermines the emotional weight of the player's previous choices."
     },
     {
       "archetype": "self_regret",
-      "score": 8,
-      "weakest": "10.0",
-      "reason": "The exposition here halts the momentum of the personal haunting to explain the entity's mechanics, breaking the immersive tension established in the preceding nodes. It shifts from visceral, character-specific horror to abstract lore-dumping, causing the emotional stakes to flatten."
+      "score": 7,
+      "weakest": "9.2r",
+      "reason": "The reference to \"Orachys\" is an unearned proper noun that breaks the intimate, second-person immersion with confusing lore-dumping, causing the reader to disengage from the emotional stakes to parse external mythology."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
-      "weakest": "9.2u",
-      "reason": "The sudden, unexplained invocation of \"Orachys\" shatters the intimate, psychological tension with a jarring piece of lore that feels arbitrary and disconnected from the player's immediate emotional arc."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological imagery (\"four small lights... warm and wet\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the immersive tension without a clear narrative bridge."
     }
   ]
 }

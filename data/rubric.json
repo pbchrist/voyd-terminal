@@ -429,6 +429,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-04T03:00:58.547869",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 10
+        },
+        "total": 27,
+        "reason": "The scene succeeds by rejecting the tonal whiplash of previous iterations; instead of explaining the horror or escalating it grotesquely, it sublimates the visceral \"architecture\" of the self into a quiet, terrifying agency. The brass hook and rust are not gore but the weight of a choice, and the door appearing in the mud is a Chekhovian gun that finally fires\u2014not with a bang, but with a step. The branches offered are not cosmetic but existential: to pull the door deeper is to embrace the parasitic nature of the \"architecture,\" while closing one\u2019s eyes is to surrender to the void, making the dramatic question shift from \"what is happening to me?\" to \"who will I be when I choose to leave or remain?\"",
+        "precedent": "The moment in *The Tempest* where Prospero breaks his staff and drowns his book; this scene earns the comparison by transforming the internalized horror of the previous beats into an irreversible external action, moving from passive endurance to active dissolution.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 10\nPRECEDENT: The moment in *The Tempest* where Prospero breaks his staff and drowns his book; this scene earns the comparison by transforming the internalized horror of the previous beats into an irreversible external action, moving from passive endurance to active dissolution.\nREASON: The scene succeeds by rejecting the tonal whiplash of previous iterations; instead of explaining the horror or escalating it grotesquely, it sublimates the visceral \"architecture\" of the self into a quiet, terrifying agency. The brass hook and rust are not gore but the weight of a choice, and the door appearing in the mud is a Chekhovian gun that finally fires\u2014not with a bang, but with a step. The branches offered are not cosmetic but existential: to pull the door deeper is to embrace the parasitic nature of the \"architecture,\" while closing one\u2019s eyes is to surrender to the void, making the dramatic question shift from \"what is happening to me?\" to \"who will I be when I choose to leave or remain?\""
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-06-28T03:00:57.843535",
