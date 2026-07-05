@@ -4,7 +4,7 @@
  */
 
 class VoydEngine {
-  constructor(data) {
+  constructor(data, options = {}) {
     this.graph = data.nodes;
     this.meta = data.meta;
     this.intentMap = data.intent_map;
@@ -19,6 +19,9 @@ class VoydEngine {
       revealedLore: new Set(),
       terminated: false,
       glyphSeed: '',
+      portalValue: options.portalValue || 8,
+      archetype: options.archetype || null,
+      playerAnswer: options.playerAnswer || null,
     };
   }
 
@@ -156,6 +159,11 @@ HOW YOU SPEAK:
 
     const stateCtx = `\n\nCURRENT STATE:\nYou are in the state of: ${node.voyd_state || 'dreaming'}\nThe intruder has spoken ${this.state.depth} times.`;
 
+    let act1Context = '';
+    if (this.state.archetype) {
+      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}\n\nUse this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.`;
+    }
+
     let loreSection = '';
     if (loreChunks.length) {
       loreSection = '\n\nDREAM-FRAGMENTS YOU HOLD:\n';
@@ -164,7 +172,7 @@ HOW YOU SPEAK:
       }
       loreSection += '\nDo not recite these directly. Let them inform your dreaming. Gesture toward them.';
     }
-    return base + stateCtx + loreSection;
+    return base + stateCtx + act1Context + loreSection;
   }
 
   processTurn(playerText) {
@@ -219,6 +227,9 @@ HOW YOU SPEAK:
       revealedLore: Array.from(this.state.revealedLore),
       terminated: this.state.terminated,
       glyphSeed: this.state.glyphSeed,
+      portalValue: this.state.portalValue,
+      archetype: this.state.archetype,
+      playerAnswer: this.state.playerAnswer,
     };
   }
 
