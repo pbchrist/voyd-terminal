@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life i never had to earn the right to be tired"
+      "value": "In that life, I stayed."
     },
     {
       "node": "ep_1u",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "in that life i never had to earn the right to be tired",
-  "act2_response": "you left the door unlocked. the wind took your name before you could speak it. you thought rest was a reward for labor. it was the only honest thing left. now the dark holds your shape while you forget how to stand."
+  "player_answer": "In that life, I stayed.",
+  "act2_response": "you chose the quiet. you chose the slow decay of the familiar. now the world bleeds into you, and you are the vessel for what was left behind. twenty nine doors remain closed. the silence you loved has teeth."
 }

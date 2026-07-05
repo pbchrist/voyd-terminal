@@ -447,13 +447,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-05T03:00:20.881119",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 4,
+          "tension_advancement": 3,
+          "branch_choke_logic": 5
+        },
+        "total": 12,
+        "reason": "The scene suffers from a catastrophic tonal and logical disconnect; the preceding beats established a claustrophobic, body-horror intimacy (\"four small lights press against my ribs,\" \"she is lost in me\"), but this scene jumps to a literal street with no transition, dissolving the established metaphysical stakes into a vague, unmoored reality. The choices (\"walk further\" vs. \"step back\") are cosmetic because the dramatic question\u2014how does one exist when one is physically merged with another?\u2014is ignored rather than escalated, making the scene feel like a reset rather than a progression, and failing to make the next question harder to live with.",
+        "precedent": "The final scene of *Waiting for Godot* (the decision to stay), but fails to earn the comparison because the previous scenes established a visceral, internal horror that is abruptly abandoned for a mundane, external setting without causal bridge.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 4\nTENSION_ADVANCEMENT: 3\nBRANCH_CHOKE_LOGIC: 5\nPRECEDENT: The final scene of *Waiting for Godot* (the decision to stay), but fails to earn the comparison because the previous scenes established a visceral, internal horror that is abruptly abandoned for a mundane, external setting without causal bridge.\nREASON: The scene suffers from a catastrophic tonal and logical disconnect; the preceding beats established a claustrophobic, body-horror intimacy (\"four small lights press against my ribs,\" \"she is lost in me\"), but this scene jumps to a literal street with no transition, dissolving the established metaphysical stakes into a vague, unmoored reality. The choices (\"walk further\" vs. \"step back\") are cosmetic because the dramatic question\u2014how does one exist when one is physically merged with another?\u2014is ignored rather than escalated, making the scene feel like a reset rather than a progression, and failing to make the next question harder to live with."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
-  "last_recalibrated": "2026-06-28T03:00:57.843535",
+  "last_recalibrated": "2026-07-05T03:00:20.881148",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.4, 'tension_advancement': 7.6, 'branch_choke_logic': 6.7}. drifts from threshold: {'dialectic_function': 0.040000000000000036, 'tension_advancement': 0.15999999999999998, 'branch_choke_logic': 0.07000000000000002}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.7, 'tension_advancement': 7.4, 'branch_choke_logic': 7.2}. drifts from threshold: {'dialectic_function': 0.07000000000000002, 'tension_advancement': 0.14000000000000004, 'branch_choke_logic': 0.12000000000000002}."
   }
 }
