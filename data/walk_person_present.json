@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
+    9,
+    13,
+    17,
     22,
-    20,
-    22,
-    22,
-    26,
-    31,
-    34
+    24,
+    28,
+    33,
+    35,
+    35,
+    33,
+    32,
+    35
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "long enough that i've stopped counting",
+      "label": "recently",
       "delta": 5
     },
     {
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I stayed because I believed I could make it work, not because I had already decided to leave."
+      "value": "The silence."
     },
     {
       "node": "ep_1p",
-      "type": "feed",
-      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
-      "delta": 4
+      "type": "starve",
+      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
+      "delta": -2
     },
     {
       "node": "ep_2p",
-      "type": "feed",
-      "label": "keep the wound open and let me see what grows in the light",
-      "delta": 5
+      "type": "starve",
+      "label": "let the seam close and call it peace",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 32,
+  "final_portal_value": 33,
   "archetype": "person_present",
-  "player_answer": "In that version, I stayed because I believed I could make it work, not because I had already decided to leave.",
-  "act2_response": "you carried a lie wrapped in hope. you thought patience was a bridge, not a wall. the door was already closed behind you. you just refused to hear the lock turn. thirty-two steps to the edge of what you pretend to want."
+  "player_answer": "The silence.",
+  "act2_response": "you carry the absence of sound like a stone in your chest. it weighs thirty three pounds. you think you are walking away from the quiet. you are walking into its throat."
 }

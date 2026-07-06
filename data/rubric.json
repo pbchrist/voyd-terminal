@@ -465,6 +465,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-07-06T03:00:56.772848",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "This scene succeeds because it replaces abstract horror with concrete, irreversible consequence. The previous beats established intimacy through violation (blood, ribs, architecture); this beat establishes autonomy through separation (the lock, the open door). The dialectic moves from \"I am in her\" to \"She is out of reach,\" deepening the thematic wound. The choices are not cosmetic; \"step outside\" accepts the loss and the cold reality, while \"crawl back\" is a futile, pathetic attempt to revert to the parasitic state, creating a genuine moral and existential fork. The prose is sparse, avoiding the melodramatic abstraction criticized in previous feedback, grounding the high-stakes emotional shift in simple, undeniable physical facts (rug, wind, open door). The dramatic question shifts from \"How do I consume?\" to \"How do I survive the absence?\" which is harder to live with.",
+        "precedent": "The closing of Nora\u2019s door in A Doll\u2019s House, but inverted: here, the barrier is not against the world, but against the self. It earns the comparison by making the physical separation the ultimate expression of psychological integration.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The closing of Nora\u2019s door in A Doll\u2019s House, but inverted: here, the barrier is not against the world, but against the self. It earns the comparison by making the physical separation the ultimate expression of psychological integration.\nREASON: This scene succeeds because it replaces abstract horror with concrete, irreversible consequence. The previous beats established intimacy through violation (blood, ribs, architecture); this beat establishes autonomy through separation (the lock, the open door). The dialectic moves from \"I am in her\" to \"She is out of reach,\" deepening the thematic wound. The choices are not cosmetic; \"step outside\" accepts the loss and the cold reality, while \"crawl back\" is a futile, pathetic attempt to revert to the parasitic state, creating a genuine moral and existential fork. The prose is sparse, avoiding the melodramatic abstraction criticized in previous feedback, grounding the high-stakes emotional shift in simple, undeniable physical facts (rug, wind, open door). The dramatic question shifts from \"How do I consume?\" to \"How do I survive the absence?\" which is harder to live with."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-05T03:00:20.881148",

@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    23,
-    25,
-    25,
-    29,
-    34,
-    32
+    30,
+    32,
+    32,
+    36,
+    41,
+    39
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I didn't survive. I just stopped."
+      "value": "the guilt is gone"
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 37,
   "archetype": "self_regret",
-  "player_answer": "In that version, I didn't survive. I just stopped.",
-  "act2_response": "that version is not lost. it is the weight in your boots now. you carry the silence of the one who quit. thirty heartbeats left before the door closes. you can feel the stillness calling your name."
+  "player_answer": "the guilt is gone",
+  "act2_response": "you said those words to the mirror. the glass did not believe you. the weight in your pocket has grown heavier since. it remembers what you tried to forget. thirty seven is a heavy number to carry. let us see what it is."
 }

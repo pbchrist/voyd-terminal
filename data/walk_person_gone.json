@@ -21,15 +21,15 @@
     9,
     13,
     11,
-    10,
-    12,
-    16,
-    14,
-    16,
-    16,
-    14,
-    19,
-    22
+    15,
+    17,
+    21,
+    26,
+    28,
+    28,
+    26,
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "starve",
-      "label": "i didn't say what i needed to say",
-      "delta": -1
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
     },
     {
       "node": "6.2",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "i am whole"
+      "value": "It is silent"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 37,
   "archetype": "person_gone",
-  "player_answer": "i am whole",
-  "act2_response": "you stitched yourself back together with threads that do not belong to you. the seams are already fraying. you carry twenty-five fractures in your chest, each one a door. do not pretend you are solid."
+  "player_answer": "It is silent",
+  "act2_response": "you carry the weight of a breath held too long.\nthe silence you named is not peace.\nit is the pause before the fall.\nyour portal cracks at thirty seven degrees of certainty.\nthe world you left is waiting to be unmade."
 }
