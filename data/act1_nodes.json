@@ -717,13 +717,13 @@
           "label": "drink deep of her terror",
           "type": "feed",
           "delta": 3,
-          "next": "ACT2"
+          "next": "gen_3"
         },
         {
           "label": "pull back and leave her empty",
           "type": "starve",
           "delta": -2,
-          "next": "ACT2"
+          "next": "gen_3"
         }
       ],
       "source": "canon_evolution",
@@ -746,6 +746,84 @@
         "decision": "promote"
       },
       "promoted_at": "2026-06-11T03:00:54.503652"
+    },
+    "gen_3": {
+      "label": "portal_moves_overnight",
+      "text": "the door is not where she left it. its frame has learned to crawl. each morning it stands closer to the bed, patient as a mouth. when she names it a door, it becomes a choice.",
+      "delta": 3,
+      "choices": [
+        {
+          "label": "step through before it reaches the pillow",
+          "type": "feed",
+          "delta": 3,
+          "next": "gen_4"
+        },
+        {
+          "label": "nail the frame back to the wall",
+          "type": "starve",
+          "delta": -2,
+          "next": "gen_4"
+        }
+      ],
+      "source": "canon_evolution",
+      "canon_event": "portal_moves_overnight",
+      "dialectic_role": "establishing_antithesis",
+      "type": "beat",
+      "act": 2,
+      "tension_delta": 0.18,
+      "seed": "she put me where she wanted me. in the morning i was where i wanted to be.",
+      "id": "gen_3",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 8,
+          "branch_choke_logic": 8
+        },
+        "total": 24,
+        "reason": "Manual Patrick-directed story beat: a concrete escalation from intimacy/body horror into spatial agency; the portal acts, advances, and forces a choice before Act 2.",
+        "precedent": "The moving threshold earns a light comparison to the door in A Doll\u2019s House inverted: instead of departure, the door comes for the character.",
+        "decision": "promote"
+      },
+      "promoted_at": "2026-07-06T02:01:31.428620"
+    },
+    "gen_4": {
+      "label": "failed_conjuration_and_prayer",
+      "text": "the chalk circle breaks before the spell begins. her prayer crawls across the floor on its knees. i eat the word please and leave the teeth. now she knows the world will not come back for her.",
+      "delta": 3,
+      "choices": [
+        {
+          "label": "feed me the broken prayer",
+          "type": "feed",
+          "delta": 4,
+          "next": "ACT2"
+        },
+        {
+          "label": "keep the last tooth under your tongue",
+          "type": "starve",
+          "delta": -3,
+          "next": "ACT2"
+        }
+      ],
+      "source": "canon_evolution",
+      "canon_event": "failed_conjuration_and_prayer",
+      "dialectic_role": "antithesis_peak",
+      "type": "beat",
+      "act": 2,
+      "tension_delta": 0.45,
+      "seed": "she tries to bend me. there is no gratitude here. only fear. i swallow the spell. i swallow the prayer.",
+      "id": "gen_4",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 8
+        },
+        "total": 26,
+        "reason": "Manual Patrick-directed story beat: converts failed magic into an irreversible recognition, then hands Act 2 a sharper wound to speak from.",
+        "precedent": "Closest to Faust\u2019s bargain stripped of romance: the invocation fails because the power was already in the room.",
+        "decision": "promote"
+      },
+      "promoted_at": "2026-07-06T02:01:31.428620"
     }
   }
 }

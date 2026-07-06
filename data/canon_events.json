@@ -67,7 +67,9 @@
     "voyd_pov": "she put me where she wanted me. in the morning i was where i wanted to be.",
     "tension_level": 0.45,
     "source": "Book 2",
-    "used": false
+    "used": true,
+    "used_at": "2026-07-06T02:01:31.428620",
+    "decision": "promote_manual_story_beat"
   },
   {
     "id": "sol_diary_wont_explain",
@@ -140,9 +142,11 @@
     "voyd_pov": "she tries to bend me. she always tries to bend. there is no gratitude here. only fear. i swallow the spell. i swallow the prayer. she wants the world back. the world is broken. i am the only thing whole.",
     "tension_level": 0.9,
     "source": "Book 1 (mined)",
-    "used": false,
+    "used": true,
     "mined": true,
     "mined_at": "2026-06-11T00:55:01.094637",
-    "mine_score": 10
+    "mine_score": 10,
+    "used_at": "2026-07-06T02:01:31.428620",
+    "decision": "promote_manual_story_beat"
   }
 ]

@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-06-11 night (session: frontend rebuilt from scratch around the portal — single file, engine inlined, verified end-to-end in headless Chrome at phone size; MERGE TO MAIN to ship)
+Last updated: 2026-07-06 (session: removed mistaken music-beat WebAudio work; added two actual story beats gen_3/gen_4 and verified 42 tests)
 
 ---
 
@@ -94,6 +94,12 @@ refresh "Current state" and "Next steps", then stop. The 20-minute grace means r
 iteration won't nag every turn.
 
 ## Session log
+
+### 2026-07-06 — story beats, not music beats
+Patrick clarified that “new beats” meant **story beats**, not audio/music. Removed the mistaken WebAudio generative beat engine commit from `frontend/index.html`. Added two concrete canon-rooted Act 1 continuation beats:
+- `gen_3` from `portal_moves_overnight`: the portal/door starts moving toward the bed and forces a threshold choice.
+- `gen_4` from `failed_conjuration_and_prayer`: the failed spell/prayer becomes an irreversible recognition before Act 2.
+Rewired `gen_2 → gen_3 → gen_4 → ACT2`, updated `data/story_map.json`, marked the two canon events used, rebuilt frontend data, and verified `python3 -m unittest discover -s tests -v` = 42 green. Going forward, inspect `git diff`/diffstat before committing to avoid unintended changes.
 
 ### 2026-06-11 night — frontend rebuilt from scratch ("worthy of what this thing actually is")
 Patrick's brief: the portal is the only UI element that matters; text is spoken, not rendered;
