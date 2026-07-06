@@ -700,198 +700,43 @@ if (FINE && !REDUCED) {
 }
 
 // ═════════════════════════════════════════════════════════════════
-//  AUDIO — the portal now writes a new beat while it listens.
+//  AUDIO — a presence more felt than heard.
 // ═════════════════════════════════════════════════════════════════
-let actx = null, master = null, beatBus = null, baseGain = 0.018;
-let beat = null, beatTimer = null;
-
+let actx = null, master = null, baseGain = 0.016;
 function initAudio() {
+  if (actx) { if (actx.state === 'suspended') actx.resume().catch(() => {}); return; }
   try {
-    if (actx) {
-      if (actx.state === 'suspended') actx.resume().catch(() => {});
-      if (beat && !beat.running) startBeat();
-      return;
-    }
-
     actx = new (window.AudioContext || window.webkitAudioContext)();
     master = actx.createGain();
-    beatBus = actx.createGain();
-    const comp = actx.createDynamicsCompressor();
-    const delay = actx.createDelay(0.6);
-    const feedback = actx.createGain();
-    const wet = actx.createGain();
-    const lowpass = actx.createBiquadFilter();
-
     master.gain.value = 0;
-    beatBus.gain.value = 0.64;
-    comp.threshold.value = -20;
-    comp.knee.value = 22;
-    comp.ratio.value = 5;
-    comp.attack.value = 0.006;
-    comp.release.value = 0.18;
-    delay.delayTime.value = 0.1875;
-    feedback.gain.value = 0.20;
-    wet.gain.value = 0.12;
-    lowpass.type = 'lowpass';
-    lowpass.frequency.value = 3400;
-
-    master.connect(comp);
-    comp.connect(actx.destination);
-    beatBus.connect(master);
-    beatBus.connect(delay);
-    delay.connect(feedback);
-    feedback.connect(delay);
-    delay.connect(wet);
-    wet.connect(lowpass);
-    lowpass.connect(master);
-
+    master.connect(actx.destination);
     const mk = (f, g) => {
       const o = actx.createOscillator(), gg = actx.createGain();
       o.type = 'sine'; o.frequency.value = f; gg.gain.value = g;
       o.connect(gg); gg.connect(master); o.start();
     };
-    mk(36, 0.42); mk(54.5, 0.18); mk(72.2, 0.08);
-
-    beat = {
-      bpm: 96,
-      step: 0,
-      next: 0,
-      root: 43,
-      swing: 0.055,
-      seed: 0xC0FFEE,
-      running: false,
-      patterns: makeBeatPatterns(0xC0FFEE),
-    };
-
-    master.gain.linearRampToValueAtTime(baseGain, actx.currentTime + 3.5);
+    mk(36, 1); mk(54.5, 0.4); mk(72.2, 0.15);
+    master.gain.linearRampToValueAtTime(baseGain, actx.currentTime + 6);
     setInterval(() => {
-      if (!actx || !master) return;
+      if (!actx) return;
       const m = Math.min(W, H) * 0.44;
-      baseGain = 0.014 + 0.03 * Math.min(1, portal.r / m);
-      master.gain.setTargetAtTime(baseGain, actx.currentTime, 1.8);
+      baseGain = 0.012 + 0.028 * Math.min(1, portal.r / m);
+      master.gain.setTargetAtTime(baseGain, actx.currentTime, 2);
     }, 2500);
-    startBeat();
   } catch (e) {}
-}
-
-function hashBeatSeed(str) {
-  let h = 2166136261;
-  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
-  return h >>> 0;
-}
-function beatRand(seed) {
-  let s = seed >>> 0;
-  return () => {
-    s += 0x6D2B79F5;
-    let t = s;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-function makeBeatPatterns(seed) {
-  const r = beatRand(seed);
-  const kick = Array(16).fill(0), snare = Array(16).fill(0), hat = Array(16).fill(0), perc = Array(16).fill(0);
-  const bass = Array(16).fill(null), pluck = Array(16).fill(null);
-  [0, 8].forEach(i => kick[i] = 1);
-  if (r() > 0.25) kick[6] = 0.72;
-  if (r() > 0.42) kick[10] = 0.66;
-  if (r() > 0.55) kick[14] = 0.52;
-  snare[4] = 0.92; snare[12] = 1;
-  if (r() > 0.55) snare[15] = 0.28;
-  for (let i = 0; i < 16; i++) {
-    if (i % 2 === 0 || r() > 0.46) hat[i] = 0.18 + r() * 0.28;
-    if (r() > 0.78) perc[i] = 0.22 + r() * 0.42;
-  }
-  const motif = [0, 0, 3, 0, 5, 3, 7, 10].sort(() => r() - 0.5);
-  for (let i = 0; i < 16; i += 2) bass[i] = motif[(i / 2) % motif.length] - (r() > 0.8 ? 12 : 0);
-  for (let i = 1; i < 16; i += 2) if (r() > 0.38) pluck[i] = motif[(i + Math.floor(r() * 5)) % motif.length] + 12;
-  return { kick, snare, hat, perc, bass, pluck };
-}
-function mutateBeat(text = '') {
-  if (!beat) return;
-  beat.seed = hashBeatSeed(`${text}|${portalValue}|${archetype || ''}|${playerAnswer || ''}|${Date.now()}`);
-  beat.patterns = makeBeatPatterns(beat.seed);
-  beat.bpm = 86 + (beat.seed % 34);
-  beat.root = 38 + (beat.seed % 10);
-  beat.swing = 0.035 + ((beat.seed >>> 8) % 55) / 1000;
-}
-function startBeat() {
-  if (!beat || !actx) return;
-  beat.running = true;
-  beat.next = actx.currentTime + 0.05;
-  clearTimeout(beatTimer);
-  scheduleBeat();
-}
-function scheduleBeat() {
-  if (!beat || !beat.running || !actx) return;
-  const stepDur = 60 / beat.bpm / 4;
-  while (beat.next < actx.currentTime + 0.18) {
-    const swing = beat.step % 2 ? stepDur * beat.swing : 0;
-    playBeatStep(beat.step, beat.next + swing);
-    beat.step = (beat.step + 1) % 16;
-    beat.next += stepDur;
-  }
-  beatTimer = setTimeout(scheduleBeat, 36);
-}
-function midiHz(n) { return 440 * Math.pow(2, (n - 69) / 12); }
-function eg(peak, t, a, d, out = beatBus) {
-  const g = actx.createGain();
-  g.gain.setValueAtTime(0.0001, t);
-  g.gain.exponentialRampToValueAtTime(Math.max(0.0002, peak), t + a);
-  g.gain.exponentialRampToValueAtTime(0.0001, t + a + d);
-  g.connect(out);
-  return g;
-}
-function kick(t, v) {
-  const o = actx.createOscillator(), g = eg(0.9 * v, t, 0.004, 0.46);
-  o.type = 'sine'; o.frequency.setValueAtTime(142, t); o.frequency.exponentialRampToValueAtTime(38, t + 0.09);
-  o.connect(g); o.start(t); o.stop(t + 0.52);
-}
-function noiseHit(t, v, type) {
-  const len = Math.floor(actx.sampleRate * (type === 'hat' ? 0.07 : 0.22));
-  const buf = actx.createBuffer(1, len, actx.sampleRate), d = buf.getChannelData(0);
-  for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
-  const src = actx.createBufferSource(), f = actx.createBiquadFilter();
-  const g = eg(type === 'hat' ? 0.16 * v : 0.36 * v, t, 0.002, type === 'hat' ? 0.05 : 0.16);
-  src.buffer = buf;
-  f.type = type === 'hat' ? 'highpass' : 'bandpass';
-  f.frequency.value = type === 'hat' ? 7600 : 1450;
-  f.Q.value = type === 'hat' ? 0.8 : 1.7;
-  src.connect(f); f.connect(g); src.start(t); src.stop(t + 0.25);
-}
-function toneHit(t, note, v, kind) {
-  const o = actx.createOscillator(), f = actx.createBiquadFilter();
-  const g = eg(kind === 'bass' ? 0.34 * v : 0.16 * v, t, 0.008, kind === 'bass' ? 0.28 : 0.42);
-  o.type = kind === 'bass' ? 'triangle' : 'sawtooth';
-  o.frequency.value = midiHz(note);
-  f.type = 'lowpass';
-  f.frequency.setValueAtTime(kind === 'bass' ? 620 : 1800, t);
-  f.frequency.exponentialRampToValueAtTime(kind === 'bass' ? 110 : 520, t + 0.24);
-  o.connect(f); f.connect(g); o.start(t); o.stop(t + 0.5);
-}
-function playBeatStep(i, t) {
-  const p = beat.patterns;
-  if (p.kick[i]) kick(t, p.kick[i]);
-  if (p.snare[i]) noiseHit(t, p.snare[i], 'snare');
-  if (p.hat[i]) noiseHit(t, p.hat[i], 'hat');
-  if (p.perc[i]) noiseHit(t + 0.015, p.perc[i], 'perc');
-  if (p.bass[i] !== null) toneHit(t, beat.root + p.bass[i], 1, 'bass');
-  if (p.pluck[i] !== null) toneHit(t + 0.012, beat.root + p.pluck[i], 0.8, 'pluck');
 }
 function audioPulse(type) {
   if (!actx || !master) return;
   try {
-    mutateBeat(type);
     const t0 = actx.currentTime;
     master.gain.cancelScheduledValues(t0);
     master.gain.setValueAtTime(master.gain.value, t0);
     if (type === 'starve') {
-      master.gain.linearRampToValueAtTime(baseGain * 0.35, t0 + 0.35);
-      master.gain.linearRampToValueAtTime(baseGain, t0 + 2.2);
+      master.gain.linearRampToValueAtTime(baseGain * 0.25, t0 + 0.5);
+      master.gain.linearRampToValueAtTime(baseGain, t0 + 4);
     } else {
-      master.gain.linearRampToValueAtTime(Math.min(0.11, baseGain * 3.2), t0 + 0.22);
-      master.gain.linearRampToValueAtTime(baseGain, t0 + 3.2);
+      master.gain.linearRampToValueAtTime(Math.min(0.09, baseGain * 2.8), t0 + 0.45);
+      master.gain.linearRampToValueAtTime(baseGain, t0 + 4.5);
     }
   } catch (e) {}
 }
@@ -1087,8 +932,6 @@ function openSpeakline(onSubmit, mode) {
 }
 
 function submitSpeakline(val) {
-  initAudio();
-  mutateBeat(val);
   const sl = currentSpeakline;
   currentSpeakline = null;
   idlePhase(null);
