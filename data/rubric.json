@@ -483,6 +483,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-07T03:00:24.539174",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 6,
+          "branch_choke_logic": 3
+        },
+        "total": 17,
+        "reason": "The scene fails the \"harder question\" test by offering an immediate, unearned escape (the starlight) that resolves the immediate physical threat without resolving the psychological or thematic wound established in the previous scenes. While the prose is poetic, the structural move is a release of pressure rather than a deepening of the dialectic; the \"starlight\" feels like a deus ex machina that bypasses the necessary suffering of the \"architecture\" and \"blood\" motifs. Furthermore, the choices are non-dialectic: kicking the door or staying silent are merely physical reactions to the escape, not meaningful philosophical or emotional pivots that alter the trajectory of the self-regret or self-unlived themes. The branch logic is weak because the choice occurs *after* the escape, making the decision reactive to a solved problem rather than constitutive of the next dilemma. It lacks the \"gun firing\" inevitability; instead, it feels like a door opening because the author decided it should.",
+        "precedent": "The escape from the underworld in Dante\u2019s *Inferno*, but it earns only a hollow echo because it removes the protagonist from the crucible rather than forcing a confrontation within it.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 6\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The escape from the underworld in Dante\u2019s *Inferno*, but it earns only a hollow echo because it removes the protagonist from the crucible rather than forcing a confrontation within it.\nREASON: The scene fails the \"harder question\" test by offering an immediate, unearned escape (the starlight) that resolves the immediate physical threat without resolving the psychological or thematic wound established in the previous scenes. While the prose is poetic, the structural move is a release of pressure rather than a deepening of the dialectic; the \"starlight\" feels like a deus ex machina that bypasses the necessary suffering of the \"architecture\" and \"blood\" motifs. Furthermore, the choices are non-dialectic: kicking the door or staying silent are merely physical reactions to the escape, not meaningful philosophical or emotional pivots that alter the trajectory of the self-regret or self-unlived themes. The branch logic is weak because the choice occurs *after* the escape, making the decision reactive to a solved problem rather than constitutive of the next dilemma. It lacks the \"gun firing\" inevitability; instead, it feels like a door opening because the author decided it should."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-07-05T03:00:20.881148",

@@ -18,16 +18,16 @@
   "portal_curve": [
     8,
     5,
-    9,
-    13,
-    17,
-    22,
-    24,
-    28,
-    33,
-    35,
-    35,
-    33,
+    3,
+    7,
+    11,
+    16,
+    18,
+    16,
+    21,
+    23,
+    23,
+    27,
     32,
     35
   ],
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "recently",
+      "label": "long enough that i've stopped counting",
       "delta": 5
     },
     {
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0p",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0p",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "The silence."
+      "value": "I am not the one you think I am"
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 33,
   "archetype": "person_present",
-  "player_answer": "The silence.",
-  "act2_response": "you carry the absence of sound like a stone in your chest. it weighs thirty three pounds. you think you are walking away from the quiet. you are walking into its throat."
+  "player_answer": "I am not the one you think I am",
+  "act2_response": "you carry the weight of a lie that is becoming a truth. the portal value of thirty three is a fracture in the glass of your identity. leoran breathed form into the dark but you are the breath that forgot the shape. you are the echo that outlasts the voice. come closer to the edge where names dissolve."
 }
