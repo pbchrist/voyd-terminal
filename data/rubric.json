@@ -501,6 +501,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-07-09T03:01:51.920533",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the static, suffocating body horror of the previous beat (\"ribs are my architecture\") to kinetic action (\"pinned,\" \"stepped\"), fulfilling the dialectic need for movement after stasis. It avoids the previous failures by maintaining the ambiguous, non-sentimental tone and eschewing proper nouns for immediate sensory reality. However, the choices (\"let the latch fall shut\" vs. \"pull back\") feel slightly mechanical compared to the visceral depth of the preceding text, risking a cosmetic rather than dialectic divergence, which slightly dampens the branch logic score. The tension advances because the protagonist is no longer just being consumed but is actively participating in the transition, making the next question harder: what lies beyond the velvet dark, and can one return?",
+        "precedent": "The threshold crossing in *The Odyssey* (Book 10 or 11) or the final door in *A Doll's House*; this scene earns the comparison by treating the \"step through\" not as an escape, but as a surrender to the unknown, mirroring Nora\u2019s exit or Odysseus\u2019s descent.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The threshold crossing in *The Odyssey* (Book 10 or 11) or the final door in *A Doll's House*; this scene earns the comparison by treating the \"step through\" not as an escape, but as a surrender to the unknown, mirroring Nora\u2019s exit or Odysseus\u2019s descent.\nREASON: The scene successfully pivots from the static, suffocating body horror of the previous beat (\"ribs are my architecture\") to kinetic action (\"pinned,\" \"stepped\"), fulfilling the dialectic need for movement after stasis. It avoids the previous failures by maintaining the ambiguous, non-sentimental tone and eschewing proper nouns for immediate sensory reality. However, the choices (\"let the latch fall shut\" vs. \"pull back\") feel slightly mechanical compared to the visceral depth of the preceding text, risking a cosmetic rather than dialectic divergence, which slightly dampens the branch logic score. The tension advances because the protagonist is no longer just being consumed but is actively participating in the transition, making the next question harder: what lies beyond the velvet dark, and can one return?"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-05T03:00:20.881148",

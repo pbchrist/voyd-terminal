@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
+    11,
+    9,
+    7,
+    12,
     14,
-    19,
-    21,
+    18,
+    23,
     25,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    25,
+    23,
+    22,
+    20
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I got the promotion."
+      "value": "In that life, I didn't have to watch you leave."
     },
     {
       "node": "ep_1u",
-      "type": "feed",
-      "label": "burn the present to feed the past",
-      "delta": 4
+      "type": "starve",
+      "label": "let the memory starve in the dark",
+      "delta": -2
     },
     {
       "node": "ep_2u",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 36,
+  "final_portal_value": 23,
   "archetype": "self_unlived",
-  "player_answer": "I got the promotion.",
-  "act2_response": "the title fits tight. the collar cuts the skin. you sit at the desk and the chair is made of bones you forgot to bury. the applause is the sound of the world dissolving. thirty six doors close behind you."
+  "player_answer": "In that life, I didn't have to watch you leave.",
+  "act2_response": "that life was a lie you told to survive the grief.\nyou carried the weight of a departure that never happened in this flesh.\ntwenty three doors stand between you and the truth of your own hands.\nlet go of the memory.\nstep through."
 }

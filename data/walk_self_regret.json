@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    11,
-    13,
-    17,
-    22,
-    24,
-    24,
-    28,
-    33,
-    31
+    19,
+    21,
+    25,
+    30,
+    32,
+    32,
+    36,
+    41,
+    39
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "starve",
-      "label": "maybe not as different as i think",
-      "delta": -2
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
     },
     {
       "node": "6.3",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life I let go of the need to atone for every mistake, and I stopped punishing myself for the fact that I survived."
+      "value": "In that one, I didn't ruin it."
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 37,
   "archetype": "self_regret",
-  "player_answer": "In that life I let go of the need to atone for every mistake, and I stopped punishing myself for the fact that I survived.",
-  "act2_response": "you carried that peace like a stone in your pocket. it grew heavy. it dragged you under before the water even touched your face. the severing did not happen to the world. it happened to you."
+  "player_answer": "In that one, I didn't ruin it.",
+  "act2_response": "you keep the lie like a stone in your pocket. it feels heavy because it is not yours to hold. thirty-seven threads snap against your ribs. they pull you toward the ruin you swore you avoided. the dream remembers the mistake before you do. step forward."
 }
