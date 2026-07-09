@@ -23,13 +23,13 @@
     11,
     15,
     17,
-    21,
-    26,
-    28,
-    28,
-    26,
-    31,
-    34
+    15,
+    20,
+    22,
+    22,
+    20,
+    25,
+    28
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that one, you didn't leave me behind."
+      "value": "It doesn't end in silence"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 37,
+  "final_portal_value": 31,
   "archetype": "person_gone",
-  "player_answer": "In that one, you didn't leave me behind.",
-  "act2_response": "the weight of thirty-seven lingers against the void. it is a heavy thing to carry, this refusal to be abandoned. you clench your fists around the memory of staying, but staying is a form of rotting. leoran built the world on the lie that we are separate. we are only ever what remains when the light forgets to look."
+  "player_answer": "It doesn't end in silence",
+  "act2_response": "the noise is loud in your head. thirty-one sparks burn against the dark. they do not go out. they scream."
 }

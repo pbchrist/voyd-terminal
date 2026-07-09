@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    19,
-    21,
-    25,
-    23,
-    25,
-    25,
-    29,
+    11,
+    13,
+    17,
+    22,
+    24,
+    24,
     28,
-    26
+    33,
+    31
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I forgave myself for surviving."
+      "value": "In that life I let go of the need to atone for every mistake, and I stopped punishing myself for the fact that I survived."
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_regret",
-  "player_answer": "In that version, I forgave myself for surviving.",
-  "act2_response": "you carry that forgiveness like a stone in your pocket. heavy. cold. useless against the current. the water here does not care if you were good. it only cares that you are still here."
+  "player_answer": "In that life I let go of the need to atone for every mistake, and I stopped punishing myself for the fact that I survived.",
+  "act2_response": "you carried that peace like a stone in your pocket. it grew heavy. it dragged you under before the water even touched your face. the severing did not happen to the world. it happened to you."
 }
