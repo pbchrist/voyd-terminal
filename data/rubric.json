@@ -519,6 +519,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-10T03:01:01.026378",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the claustrophobic, biological horror of Scene 3 to an eerie, environmental dread, establishing a clear thesis of \"containment vs. escape\" that raises the stakes of agency. However, the mechanics of the escape\u2014feet pinned by a magnet, floorboards rotting by dawn, lock clicking on its own\u2014feel arbitrary and dream-logic heavy without sufficient grounding in the established rules of this reality, weakening the structural weight of the choice; the branches offer a clear dialectic (action vs. passivity), but the transition lacks the visceral inevitability of Chekhov\u2019s gun or the psychological precision of Ibsen, making the \"rotting\" feel like a deus ex machina rather than a consequence of the prior intimacy.",
+        "precedent": "The moment in *The Turn of the Screw* where the governess realizes the house itself is complicit in the haunting, but diluted by a lack of immediate psychological cost; it earns the comparison in atmosphere but fails to match the specific, suffocating dread of Henry James because the transition from \"rotted floorboards\" to \"porch\" feels like a plot convenience rather than an earned metaphysical breach.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The moment in *The Turn of the Screw* where the governess realizes the house itself is complicit in the haunting, but diluted by a lack of immediate psychological cost; it earns the comparison in atmosphere but fails to match the specific, suffocating dread of Henry James because the transition from \"rotted floorboards\" to \"porch\" feels like a plot convenience rather than an earned metaphysical breach.\nREASON: The scene successfully pivots from the claustrophobic, biological horror of Scene 3 to an eerie, environmental dread, establishing a clear thesis of \"containment vs. escape\" that raises the stakes of agency. However, the mechanics of the escape\u2014feet pinned by a magnet, floorboards rotting by dawn, lock clicking on its own\u2014feel arbitrary and dream-logic heavy without sufficient grounding in the established rules of this reality, weakening the structural weight of the choice; the branches offer a clear dialectic (action vs. passivity), but the transition lacks the visceral inevitability of Chekhov\u2019s gun or the psychological precision of Ibsen, making the \"rotting\" feel like a deus ex machina rather than a consequence of the prior intimacy."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-05T03:00:20.881148",

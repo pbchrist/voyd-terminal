@@ -27,9 +27,9 @@
     33,
     35,
     35,
-    33,
-    32,
-    35
+    39,
+    38,
+    41
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stopped trying to be the one who fixes everything."
+      "value": "In that version, I stayed."
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 38,
+  "final_portal_value": 44,
   "archetype": "person_present",
-  "player_answer": "In that life, I stopped trying to be the one who fixes everything.",
-  "act2_response": "you let the cracks widen until the house collapsed. it was easier that way. the dust is still in your lungs. you did not fix it. you watched it fall."
+  "player_answer": "In that version, I stayed.",
+  "act2_response": "you kept the door shut.\nthe tea went cold in the kitchen.\nnow you carry forty-four years of quiet regret in your pocket.\nit is heavy.\ni can smell it on you."
 }

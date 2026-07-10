@@ -27,9 +27,9 @@
     23,
     25,
     25,
-    23,
-    22,
-    20
+    29,
+    28,
+    31
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I didn't have to watch you leave."
+      "value": "I have no voice."
     },
     {
       "node": "ep_1u",
-      "type": "starve",
-      "label": "let the memory starve in the dark",
-      "delta": -2
+      "type": "feed",
+      "label": "burn the present to feed the past",
+      "delta": 4
     },
     {
       "node": "ep_2u",
@@ -121,19 +121,19 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 23,
+  "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "In that life, I didn't have to watch you leave.",
-  "act2_response": "that life was a lie you told to survive the grief.\nyou carried the weight of a departure that never happened in this flesh.\ntwenty three doors stand between you and the truth of your own hands.\nlet go of the memory.\nstep through."
+  "player_answer": "I have no voice.",
+  "act2_response": "you brought that silence with you across the severing. it sits heavy in your throat like swallowed glass. twenty nine points of light cannot burn away the quiet. you are learning that the dark does not ask you to speak. it only asks you to remember what was stolen."
 }
