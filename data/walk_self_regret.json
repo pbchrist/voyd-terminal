@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    23,
-    25,
-    25,
-    29,
-    28,
-    26
+    30,
+    32,
+    32,
+    36,
+    35,
+    38
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't have to apologize for existing"
+      "value": "I didn't stop trying to be good enough."
     },
     {
       "node": "ep_1r",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 36,
   "archetype": "self_regret",
-  "player_answer": "I didn't have to apologize for existing",
-  "act2_response": "you carry a name like a shield. the cracks show. twenty-four points is not enough to keep the dark out. it slips through. you feel it watching you breathe."
+  "player_answer": "I didn't stop trying to be good enough.",
+  "act2_response": "the weight of thirty-six broken attempts sits heavy in your hands. you carried the hope that effort would save you. it only carved you hollow. the world you built is just a mirror reflecting your exhaustion. let go of the need to prove yourself. the silence does not judge. it only waits for you to rest."
 }

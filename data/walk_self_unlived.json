@@ -29,7 +29,7 @@
     25,
     29,
     28,
-    31
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I have no voice."
+      "value": "No one was waiting for me to arrive."
     },
     {
       "node": "ep_1u",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "I have no voice.",
-  "act2_response": "you brought that silence with you across the severing. it sits heavy in your throat like swallowed glass. twenty nine points of light cannot burn away the quiet. you are learning that the dark does not ask you to speak. it only asks you to remember what was stolen."
+  "player_answer": "No one was waiting for me to arrive.",
+  "act2_response": "the silence you carried was heavy. it settled into the cracks of the floor. the world you left behind did not miss you. it only noticed the space you stopped filling. now you stand in the dark that remembers your weight."
 }

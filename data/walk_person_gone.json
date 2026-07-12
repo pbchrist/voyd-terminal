@@ -23,13 +23,13 @@
     5,
     9,
     11,
-    15,
-    13,
-    15,
-    15,
-    13,
-    18,
-    21
+    9,
+    7,
+    9,
+    9,
+    7,
+    12,
+    15
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "The absence of the weight I carried to get here."
+      "value": "It lacks the rot"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 18,
   "archetype": "person_gone",
-  "player_answer": "The absence of the weight I carried to get here.",
-  "act2_response": "you dropped the burden. it sits here now, heavy and black as a stone that never sank. twenty-four doors stand open behind you. you think you are free because you are lighter. you are only hollow."
+  "player_answer": "It lacks the rot",
+  "act2_response": "you name a void that does not exist. the mewniverse is rot. it is beautiful because it decays. your eighteen points of entry are clean, sterile, and wrong. you are carrying a corpse that refuses to smell. let it fester."
 }
