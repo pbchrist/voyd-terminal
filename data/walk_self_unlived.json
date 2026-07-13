@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "No one was waiting for me to arrive."
+      "value": "It doesn't have to end."
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "No one was waiting for me to arrive.",
-  "act2_response": "the silence you carried was heavy. it settled into the cracks of the floor. the world you left behind did not miss you. it only noticed the space you stopped filling. now you stand in the dark that remembers your weight."
+  "player_answer": "It doesn't have to end.",
+  "act2_response": "you cling to that hope like a drowning man clings to a stone. it will only drag you down. leoran did not breathe you into being to last. he breathed you into being to burn. look at the ash on your hands."
 }

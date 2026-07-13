@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-11T15:00:56.993177",
+  "last_run": "2026-07-13T03:01:52.405583",
   "walks": [
     {
       "archetype": "person_present",
@@ -27,13 +27,13 @@
         17,
         22,
         24,
-        22,
-        20,
-        22,
-        22,
+        28,
         26,
-        31,
-        34
+        28,
+        28,
+        32,
+        37,
+        40
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ep_1p",
-        "reason": "The abrupt shift to third-person prose describing \"ertree\" breaks the established intimate second-person address without sufficient narrative bridge, causing a jarring loss of player agency and immersion."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical and psychological horror, breaking the established thematic consistency of \"outlines\" and \"timelines\" without sufficient narrative bridge."
       }
     },
     {
@@ -68,18 +68,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        5,
         9,
+        13,
         11,
-        9,
-        7,
-        9,
-        9,
-        7,
-        12,
-        15
+        15,
+        17,
+        21,
+        19,
+        21,
+        21,
+        19,
+        24,
+        27
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -90,7 +90,7 @@
       "experience": {
         "score": 8,
         "weakest": "gen_2",
-        "reason": "It abruptly shifts from the player's internal grief to a visceral, unearned body-horror scenario involving \"she\" and \"my architecture,\" breaking the established psychological intimacy and confusing the narrative stakes."
+        "reason": "The shift to visceral body horror feels tonally jarring and derivative compared to the preceding metaphysical abstraction, breaking the established thematic consistency of \"outlines\" and \"timelines\" without earning the grotesque pivot."
       }
     },
     {
@@ -125,7 +125,7 @@
         32,
         36,
         35,
-        38
+        33
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
-        "weakest": "ACT2",
-        "reason": "The sudden shift to a therapeutic, expository tone (\"let go of the need to prove yourself\") shatters the established mythic horror atmosphere, replacing visceral dread with generic self-help platitudes. It resolves the tension through explanation rather than maintaining the unsettling ambiguity of the Voyd's predatory nature."
+        "score": 8,
+        "weakest": "gen_2",
+        "reason": "The visceral horror of the entity consuming the player's perception of reality feels tonally jarring and overly grotesque compared to the psychological subtlety of the earlier \"ghost\" and \"erasure\" beats. It shifts the narrative from an existential tragedy about regret to a body-horror trope, which dilutes the emotional weight of the preceding choices."
       }
     },
     {
@@ -180,9 +180,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
+        "score": 8,
         "weakest": "9.2u",
-        "reason": "The sudden invocation of \"Orachys\" breaks the intimate, psychological immersion by introducing an unexplained external lore element that feels like a generic fantasy trope rather than a natural evolution of the internal conflict."
+        "reason": "The sudden introduction of the proper noun \"Orachys\" creates a jarring tonal shift from intimate psychological horror to generic fantasy exposition, breaking the immersive tension built by the previous personal beats."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "ep_1p",
-      "reason": "The abrupt shift to third-person prose describing \"ertree\" breaks the established intimate second-person address without sufficient narrative bridge, causing a jarring loss of player agency and immersion."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological imagery (\"four small lights,\" \"warm and wet\") feels tonally disjointed from the preceding metaphysical and psychological horror, breaking the established thematic consistency of \"outlines\" and \"timelines\" without sufficient narrative bridge."
     },
     {
       "archetype": "person_gone",
       "score": 8,
       "weakest": "gen_2",
-      "reason": "It abruptly shifts from the player's internal grief to a visceral, unearned body-horror scenario involving \"she\" and \"my architecture,\" breaking the established psychological intimacy and confusing the narrative stakes."
+      "reason": "The shift to visceral body horror feels tonally jarring and derivative compared to the preceding metaphysical abstraction, breaking the established thematic consistency of \"outlines\" and \"timelines\" without earning the grotesque pivot."
     },
     {
       "archetype": "self_regret",
-      "score": 9,
-      "weakest": "ACT2",
-      "reason": "The sudden shift to a therapeutic, expository tone (\"let go of the need to prove yourself\") shatters the established mythic horror atmosphere, replacing visceral dread with generic self-help platitudes. It resolves the tension through explanation rather than maintaining the unsettling ambiguity of the Voyd's predatory nature."
+      "score": 8,
+      "weakest": "gen_2",
+      "reason": "The visceral horror of the entity consuming the player's perception of reality feels tonally jarring and overly grotesque compared to the psychological subtlety of the earlier \"ghost\" and \"erasure\" beats. It shifts the narrative from an existential tragedy about regret to a body-horror trope, which dilutes the emotional weight of the preceding choices."
     },
     {
       "archetype": "self_unlived",
-      "score": 9,
+      "score": 8,
       "weakest": "9.2u",
-      "reason": "The sudden invocation of \"Orachys\" breaks the intimate, psychological immersion by introducing an unexplained external lore element that feels like a generic fantasy trope rather than a natural evolution of the internal conflict."
+      "reason": "The sudden introduction of the proper noun \"Orachys\" creates a jarring tonal shift from intimate psychological horror to generic fantasy exposition, breaking the immersive tension built by the previous personal beats."
     }
   ]
 }

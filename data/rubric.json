@@ -537,13 +537,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-13T03:00:59.463676",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene succeeds because it resolves the metaphysical horror of Scene 3 into a chilling psychological equilibrium. The shift from \"blood on the floor\" to \"iron lock turned to dust\" is not disjointed but evolutionary\u2014the narrator has moved from being a victim of architecture to the architect of their own paralysis. The line \"she put me where she wanted me. in the morning i was where i wanted to be\" is the dramatic pivot: it reveals that the horror is no longer external confinement, but internal complicity. The dialectic shifts from \"Am I trapped?\" to \"Why do I want to be?\" The branch choices (taste rust vs. step on rot) are weak not because they are redundant, but because they are sensory distractions from the massive psychological shift just achieved; they offer texture where the moment demands silence. The scene makes the next question harder to live with because it removes the desire for rescue.",
+        "precedent": "The closing of the door in A Doll\u2019s House (Ibsen), though inverted. Nora\u2019s exit is a rejection of the cage; here, the narrator\u2019s acceptance of the cage is the liberation. It earns the comparison by flipping the signifier of freedom: not escape, but the cessation of the will to escape.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The closing of the door in A Doll\u2019s House (Ibsen), though inverted. Nora\u2019s exit is a rejection of the cage; here, the narrator\u2019s acceptance of the cage is the liberation. It earns the comparison by flipping the signifier of freedom: not escape, but the cessation of the will to escape.\nREASON: The scene succeeds because it resolves the metaphysical horror of Scene 3 into a chilling psychological equilibrium. The shift from \"blood on the floor\" to \"iron lock turned to dust\" is not disjointed but evolutionary\u2014the narrator has moved from being a victim of architecture to the architect of their own paralysis. The line \"she put me where she wanted me. in the morning i was where i wanted to be\" is the dramatic pivot: it reveals that the horror is no longer external confinement, but internal complicity. The dialectic shifts from \"Am I trapped?\" to \"Why do I want to be?\" The branch choices (taste rust vs. step on rot) are weak not because they are redundant, but because they are sensory distractions from the massive psychological shift just achieved; they offer texture where the moment demands silence. The scene makes the next question harder to live with because it removes the desire for rescue."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-07-05T03:00:20.881148",
+  "last_recalibrated": "2026-07-13T03:00:59.463706",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.7, 'tension_advancement': 7.4, 'branch_choke_logic': 7.2}. drifts from threshold: {'dialectic_function': 0.07000000000000002, 'tension_advancement': 0.14000000000000004, 'branch_choke_logic': 0.12000000000000002}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.6, 'tension_advancement': 6.8, 'branch_choke_logic': 6.4}. drifts from threshold: {'dialectic_function': 0.05999999999999996, 'tension_advancement': 0.07999999999999999, 'branch_choke_logic': 0.040000000000000036}."
   }
 }
