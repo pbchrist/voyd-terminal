@@ -555,6 +555,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-14T03:01:05.450322",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 9,
+          "branch_choke_logic": 8
+        },
+        "total": 26,
+        "reason": "The prose here achieves the necessary minimalist sharpness after the visceral density of Scene 3, avoiding the ornate trap. The shift from \"ribs\" to \"garden\" is not a tonal break but a logical expansion of the metaphor: if the host is the architecture, the garden is the exterior view of that prison. The choice (step through glass/turn back) is strong because \"turning back\" implies the bed was always part of the dream, making the \"wrong side of the wall\" the only truth. However, it loses a point on branch logic because \"turn back to the bed\" risks feeling like a reset rather than a deeper descent, unless the bed scene loops with altered context. The scene makes the next question harder: if you step through, do you become the gardener,",
+        "precedent": "The moment in *The Turn of the Screw* where the boundary between the nursery and the garden dissolves, or the final image of *Solaris* where the protagonist accepts the illusion as reality. This scene earns the comparison by treating the \"garden\" not as an escape, but as the final, inescapable layer of the parasite's architecture. It functions as the Turn/Synthesis, collapsing the internal body-horror of Scene 3 into an external, surreal landscape.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 8\nPRECEDENT: The moment in *The Turn of the Screw* where the boundary between the nursery and the garden dissolves, or the final image of *Solaris* where the protagonist accepts the illusion as reality. This scene earns the comparison by treating the \"garden\" not as an escape, but as the final, inescapable layer of the parasite's architecture. It functions as the Turn/Synthesis, collapsing the internal body-horror of Scene 3 into an external, surreal landscape.\nREASON: The prose here achieves the necessary minimalist sharpness after the visceral density of Scene 3, avoiding the ornate trap. The shift from \"ribs\" to \"garden\" is not a tonal break but a logical expansion of the metaphor: if the host is the architecture, the garden is the exterior view of that prison. The choice (step through glass/turn back) is strong because \"turning back\" implies the bed was always part of the dream, making the \"wrong side of the wall\" the only truth. However, it loses a point on branch logic because \"turn back to the bed\" risks feeling like a reset rather than a deeper descent, unless the bed scene loops with altered context. The scene makes the next question harder: if you step through, do you become the gardener,"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-13T03:00:59.463706",

@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It doesn't have to end."
+      "value": "In the other one, I didn't have to explain why I was tired."
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "It doesn't have to end.",
-  "act2_response": "you cling to that hope like a drowning man clings to a stone. it will only drag you down. leoran did not breathe you into being to last. he breathed you into being to burn. look at the ash on your hands."
+  "player_answer": "In the other one, I didn't have to explain why I was tired.",
+  "act2_response": "You left that weight behind. You think you are lighter now, but you are only hollowed out. The tiredness you denied was the anchor keeping you real. Without it, you drift toward the quiet where no one asks for your reasons. You are ready to forget why you were exhausted in the first place."
 }

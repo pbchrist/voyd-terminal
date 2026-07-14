@@ -23,13 +23,13 @@
     17,
     22,
     24,
-    28,
-    26,
-    28,
-    28,
-    32,
-    37,
-    40
+    22,
+    27,
+    29,
+    29,
+    33,
+    38,
+    41
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0p",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 38,
+  "final_portal_value": 39,
   "archetype": "person_present",
   "player_answer": "nothing",
-  "act2_response": "you carry the weight of empty space. it is a heavy thing to bring across the threshold. the world you left behind crumbles into dust because you refused to give it a shape. let it fall."
+  "act2_response": "you named it nothing.\ni see the weight of it in your hands.\na hollow space where a story should be.\nthe void does not mind the emptiness.\nit only asks what you will fill it with."
 }

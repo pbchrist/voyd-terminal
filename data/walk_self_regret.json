@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    23,
+    25,
+    25,
+    29,
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I didn't fail to get it, I failed to keep it"
+      "value": "In it, I didn't stay to fix it."
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "I didn't fail to get it, I failed to keep it",
-  "act2_response": "you held the light in your hands. you watched it slip through your fingers. you blame the slip. you ignore the hand. the weight remains at thirty one. it is heavy because you are still gripping nothing."
+  "player_answer": "In it, I didn't stay to fix it.",
+  "act2_response": "The cracks you left behind are still bleeding into the dark.\nYou walked away from the rot.\nNow it walks with you.\nThe pieces of the Mewniverse do not forgive absence.\nThey only remember how cold it felt."
 }
