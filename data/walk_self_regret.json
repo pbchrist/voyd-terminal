@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    19,
-    21,
-    25,
-    23,
-    25,
-    25,
-    29,
+    11,
+    13,
+    17,
+    22,
+    24,
+    24,
     28,
-    31
+    27,
+    25
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "i stayed"
+      "value": "In that one, I didn't choose"
     },
     {
       "node": "ep_1r",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 23,
   "archetype": "self_regret",
-  "player_answer": "i stayed",
-  "act2_response": "the door did not close because you held it shut. it closed because you let go. you are twenty nine fragments of a promise you broke to yourself. the darkness does not punish. it only waits for the weight to settle. you brought the silence with you."
+  "player_answer": "In that one, I didn't choose",
+  "act2_response": "You carried that weight into the dark. Twenty-three steps forward, but the door behind you remains open. You did not choose, so the world chose for you. The silence is loud enough to break your bones. Step into the quiet."
 }

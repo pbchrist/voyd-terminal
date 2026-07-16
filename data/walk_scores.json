@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-15T03:01:18.713117",
+  "last_run": "2026-07-16T03:01:15.779180",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,18 +22,18 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        11,
-        16,
-        18,
-        16,
-        21,
-        23,
-        23,
-        27,
-        26,
-        29
+        9,
+        13,
+        17,
+        22,
+        24,
+        28,
+        33,
+        35,
+        35,
+        39,
+        44,
+        47
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.1p",
-        "reason": "The reference to \"Sol\" breaks the immersive, second-person intimacy of the piece by introducing an external, meta-fictional author figure without sufficient context, causing the reader to step out of the narrative and into critical analysis."
+        "weakest": "10.0",
+        "reason": "The exposition-heavy explanation of the Voyd's mechanics halts the emotional momentum established by the visceral, poetic horror of the previous nodes. It shifts the tone from immersive experience to instructional manual, breaking the spell just before the climax."
       }
     },
     {
@@ -73,13 +73,13 @@
         11,
         15,
         17,
-        15,
-        13,
-        15,
-        15,
-        13,
-        18,
-        21
+        21,
+        26,
+        28,
+        28,
+        26,
+        31,
+        29
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -88,9 +88,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
+        "score": 8,
         "weakest": "gen_2",
-        "reason": "The shift to visceral body horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical grief, breaking the established thematic consistency without earning the pivot."
+        "reason": "The sudden shift to a third-person, dissociative perspective (\"she believes her ribs are bone\") breaks the established intimate second-person address, causing a jarring loss of player agency and emotional immersion."
       }
     },
     {
@@ -117,15 +117,15 @@
         11,
         9,
         13,
-        19,
-        21,
-        25,
-        23,
-        25,
-        25,
-        29,
+        11,
+        13,
+        17,
+        22,
+        24,
+        24,
         28,
-        31
+        27,
+        25
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "9.2r",
-        "reason": "The abrupt introduction of the proper noun \"Orachys\" feels like an arbitrary lore dump that breaks the intimate, psychological tension established by the Voyd's voice, shifting from personal haunting to generic fantasy exposition without sufficient narrative grounding."
+        "score": 9,
+        "weakest": "gen_2",
+        "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally disjointed from the preceding psychological and metaphysical themes of regret and choice, breaking the established mood of quiet, existential dread."
       }
     },
     {
@@ -166,12 +166,12 @@
         12,
         14,
         18,
-        23,
-        25,
-        25,
-        29,
-        28,
-        31
+        16,
+        18,
+        18,
+        22,
+        21,
+        24
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -182,7 +182,7 @@
       "experience": {
         "score": 8,
         "weakest": "9.2u",
-        "reason": "The sudden introduction of an unestablished character (\"Orachys\") breaks the intimate, direct address between the Voyd and the player, causing a jarring tonal shift that feels like lore-dumping rather than organic narrative progression."
+        "reason": "The sudden invocation of \"Orachys\" introduces an unestablished proper noun that breaks the intimate, psychological tension without providing immediate context or narrative payoff. It feels like a placeholder for lore rather than an organic escalation of the player's internal conflict."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "9.1p",
-      "reason": "The reference to \"Sol\" breaks the immersive, second-person intimacy of the piece by introducing an external, meta-fictional author figure without sufficient context, causing the reader to step out of the narrative and into critical analysis."
+      "weakest": "10.0",
+      "reason": "The exposition-heavy explanation of the Voyd's mechanics halts the emotional momentum established by the visceral, poetic horror of the previous nodes. It shifts the tone from immersive experience to instructional manual, breaking the spell just before the climax."
     },
     {
       "archetype": "person_gone",
-      "score": 9,
+      "score": 8,
       "weakest": "gen_2",
-      "reason": "The shift to visceral body horror (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical grief, breaking the established thematic consistency without earning the pivot."
+      "reason": "The sudden shift to a third-person, dissociative perspective (\"she believes her ribs are bone\") breaks the established intimate second-person address, causing a jarring loss of player agency and emotional immersion."
     },
     {
       "archetype": "self_regret",
-      "score": 8,
-      "weakest": "9.2r",
-      "reason": "The abrupt introduction of the proper noun \"Orachys\" feels like an arbitrary lore dump that breaks the intimate, psychological tension established by the Voyd's voice, shifting from personal haunting to generic fantasy exposition without sufficient narrative grounding."
+      "score": 9,
+      "weakest": "gen_2",
+      "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally disjointed from the preceding psychological and metaphysical themes of regret and choice, breaking the established mood of quiet, existential dread."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
       "weakest": "9.2u",
-      "reason": "The sudden introduction of an unestablished character (\"Orachys\") breaks the intimate, direct address between the Voyd and the player, causing a jarring tonal shift that feels like lore-dumping rather than organic narrative progression."
+      "reason": "The sudden invocation of \"Orachys\" introduces an unestablished proper noun that breaks the intimate, psychological tension without providing immediate context or narrative payoff. It feels like a placeholder for lore rather than an organic escalation of the player's internal conflict."
     }
   ]
 }

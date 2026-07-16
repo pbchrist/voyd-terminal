@@ -24,12 +24,12 @@
     12,
     14,
     18,
-    23,
-    25,
-    25,
-    29,
-    28,
-    31
+    16,
+    18,
+    18,
+    22,
+    21,
+    24
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stopped apologizing for taking up space."
+      "value": "It had no exit"
     },
     {
       "node": "ep_1u",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 22,
   "archetype": "self_unlived",
-  "player_answer": "In that life, I stopped apologizing for taking up space.",
-  "act2_response": "you thought space was a crime to be atoned for. now you occupy the silence where the world used to be. twenty-nine fragments of your old self drift in the dark, heavy with unspent weight. do not shrink. the void expands to meet the thing that refuses to fold. let them watch you fill it."
+  "player_answer": "It had no exit",
+  "act2_response": "you carried a door that never opened. twenty two steps forward into the same room. the mewniverse remembers the shape of your waiting. it is time to break the lock."
 }

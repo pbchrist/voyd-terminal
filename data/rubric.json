@@ -591,6 +591,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-07-16T03:00:24.010872",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 2,
+          "tension_advancement": 1,
+          "branch_choke_logic": 3
+        },
+        "total": 6,
+        "reason": "This scene commits the cardinal sin of dramatic writing: it tells us the result (\"in the morning i was where i wanted to be\") rather than staging the struggle. The previous scenes established a claustrophobic, parasitic intimacy where the boundary between self and other is dissolving (\"she is just lost in me\"). To suddenly jump to a travelogue of \"silver archway\" and \"morning\" without any transitional cost, conflict, or internal reckoning obliterates the tension. The dialectic is broken because the character simply decides to move, erasing the stakes. The choices are cosmetic because the outcome (being where they wanted to be) has already been narrated as fact, rendering the player\u2019s agency an illusion. It is a non-event that kills the dramatic momentum built by the visceral horror of Scene 3.",
+        "precedent": "The Green Light in *The Great Gatsby* \u2014 but where Gatsby\u2019s yearning is a wound that defines his entire ontology, this scene\u2019s \"threshold\" is a set dressing with no emotional cost. It fails to earn the comparison because the shift from visceral internal horror to external travel montage is a narrative collapse, not a thematic deepening.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 2\nTENSION_ADVANCEMENT: 1\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The Green Light in *The Great Gatsby* \u2014 but where Gatsby\u2019s yearning is a wound that defines his entire ontology, this scene\u2019s \"threshold\" is a set dressing with no emotional cost. It fails to earn the comparison because the shift from visceral internal horror to external travel montage is a narrative collapse, not a thematic deepening.\nREASON: This scene commits the cardinal sin of dramatic writing: it tells us the result (\"in the morning i was where i wanted to be\") rather than staging the struggle. The previous scenes established a claustrophobic, parasitic intimacy where the boundary between self and other is dissolving (\"she is just lost in me\"). To suddenly jump to a travelogue of \"silver archway\" and \"morning\" without any transitional cost, conflict, or internal reckoning obliterates the tension. The dialectic is broken because the character simply decides to move, erasing the stakes. The choices are cosmetic because the outcome (being where they wanted to be) has already been narrated as fact, rendering the player\u2019s agency an illusion. It is a non-event that kills the dramatic momentum built by the visceral horror of Scene 3."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-07-13T03:00:59.463706",

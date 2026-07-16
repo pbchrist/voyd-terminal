@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
-    16,
-    21,
-    23,
-    23,
-    27,
-    26,
-    29
+    9,
+    13,
+    17,
+    22,
+    24,
+    28,
+    33,
+    35,
+    35,
+    39,
+    44,
+    47
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0p",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I am already at peace"
+      "value": "It has no audience."
     },
     {
       "node": "ep_1p",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 27,
+  "final_portal_value": 50,
   "archetype": "person_present",
-  "player_answer": "In that version, I am already at peace",
-  "act2_response": "peace is a heavy thing to carry. it weighs twenty-seven pounds in the dark. you think you left the noise behind, but silence has teeth. it is chewing on the edges of your memory right now. do not let it swallow the name you were given."
+  "player_answer": "It has no audience.",
+  "act2_response": "the stage is bare. you built it for no one, yet here you stand waiting for applause. silence is the only sound that fits a theater with empty seats. your performance is over before the curtain rises. go find the crowd that never existed."
 }
