@@ -609,6 +609,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-07-17T03:00:56.093338",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "The scene succeeds by internalizing the external threat: the door is not just an object, but a dislocated piece of the entity\u2019s anatomy (\"your door\") now invading the protagonist\u2019s sanctuary (\"my living room\"). It avoids the previous failures by remaining strictly visceral and spatial, rejecting abstract metaphor or lore dumps. The dialectic shifts from \"am I dead/lost?\" to \"can I escape the house I am inside?\" The choice is not cosmetic; touching the door risks re-integration with the entity, while stepping back accepts the haunting as permanent. It raises the dramatic question from survival to sovereignty over one\u2019s own reality.",
+        "precedent": "The locked room in *The Turn of the Screw* meets the spatial distortion of *Inception*; it earns the comparison by making the architecture itself the antagonist\u2019s psyche, rather than a mere setting.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The locked room in *The Turn of the Screw* meets the spatial distortion of *Inception*; it earns the comparison by making the architecture itself the antagonist\u2019s psyche, rather than a mere setting.\nREASON: The scene succeeds by internalizing the external threat: the door is not just an object, but a dislocated piece of the entity\u2019s anatomy (\"your door\") now invading the protagonist\u2019s sanctuary (\"my living room\"). It avoids the previous failures by remaining strictly visceral and spatial, rejecting abstract metaphor or lore dumps. The dialectic shifts from \"am I dead/lost?\" to \"can I escape the house I am inside?\" The choice is not cosmetic; touching the door risks re-integration with the entity, while stepping back accepts the haunting as permanent. It raises the dramatic question from survival to sovereignty over one\u2019s own reality."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-13T03:00:59.463706",

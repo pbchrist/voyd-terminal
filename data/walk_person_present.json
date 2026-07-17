@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "long enough that i've stopped counting",
+      "label": "recently",
       "delta": 5
     },
     {
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It has no audience."
+      "value": "the absence of the weight"
     },
     {
       "node": "ep_1p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 50,
+  "final_portal_value": 45,
   "archetype": "person_present",
-  "player_answer": "It has no audience.",
-  "act2_response": "the stage is bare. you built it for no one, yet here you stand waiting for applause. silence is the only sound that fits a theater with empty seats. your performance is over before the curtain rises. go find the crowd that never existed."
+  "player_answer": "the absence of the weight",
+  "act2_response": "you think you have dropped the burden. you have only misplaced it in the dark. your name for it tastes like ash and relief. forty-five is the number of steps away from waking up. do not turn around."
 }

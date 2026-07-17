@@ -24,12 +24,12 @@
     12,
     14,
     18,
-    16,
-    18,
-    18,
+    23,
+    25,
+    25,
+    23,
     22,
-    21,
-    24
+    25
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2u",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It had no exit"
+      "value": "in the other life i didn't have to become anyone but myself"
     },
     {
       "node": "ep_1u",
-      "type": "feed",
-      "label": "burn the present to feed the past",
-      "delta": 4
+      "type": "starve",
+      "label": "let the memory starve in the dark",
+      "delta": -2
     },
     {
       "node": "ep_2u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 22,
+  "final_portal_value": 28,
   "archetype": "self_unlived",
-  "player_answer": "It had no exit",
-  "act2_response": "you carried a door that never opened. twenty two steps forward into the same room. the mewniverse remembers the shape of your waiting. it is time to break the lock."
+  "player_answer": "in the other life i didn't have to become anyone but myself",
+  "act2_response": "you are carrying the weight of a life you never lived. it is heavy because it does not exist. you named the absence of choice as freedom. that was your first mistake. now the dark demands you choose who you are not."
 }
