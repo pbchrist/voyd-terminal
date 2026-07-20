@@ -627,13 +627,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-20T03:00:58.544730",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene executes a brutal inversion of power dynamics that serves as a sharp antithesis to the previous scene's suffocating intimacy; where the narrator previously claimed to be the architecture, the antagonist now becomes the lock and the narrator the trapped object. The choice to walk out without turning back functions as a chilling synthesis of detachment, rejecting the biological horror of Scene 2 for a cold, existential severance. However, the branch logic is slightly weakened by the text \"i walked out without turning back,\" which narratively pre-empts the player's agency, making the choice feel like a confirmation of an already-taken action rather than a genuine fork in the dialectic. The tension advances significantly by shifting from internal violation to external abandonment, but the mechanical execution of the choice lags behind the thematic weight.",
+        "precedent": "The final exit in *A Doll's House* (Nora leaving the room), but earned through visceral reversal rather than social declaration.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The final exit in *A Doll's House* (Nora leaving the room), but earned through visceral reversal rather than social declaration.\nREASON: The scene executes a brutal inversion of power dynamics that serves as a sharp antithesis to the previous scene's suffocating intimacy; where the narrator previously claimed to be the architecture, the antagonist now becomes the lock and the narrator the trapped object. The choice to walk out without turning back functions as a chilling synthesis of detachment, rejecting the biological horror of Scene 2 for a cold, existential severance. However, the branch logic is slightly weakened by the text \"i walked out without turning back,\" which narratively pre-empts the player's agency, making the choice feel like a confirmation of an already-taken action rather than a genuine fork in the dialectic. The tension advances significantly by shifting from internal violation to external abandonment, but the mechanical execution of the choice lags behind the thematic weight."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-07-13T03:00:59.463706",
+  "last_recalibrated": "2026-07-20T03:00:58.544759",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.6, 'tension_advancement': 6.8, 'branch_choke_logic': 6.4}. drifts from threshold: {'dialectic_function': 0.05999999999999996, 'tension_advancement': 0.07999999999999999, 'branch_choke_logic': 0.040000000000000036}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.6, 'tension_advancement': 7.2, 'branch_choke_logic': 6.4}. drifts from threshold: {'dialectic_function': 0.05999999999999996, 'tension_advancement': 0.12000000000000002, 'branch_choke_logic': 0.040000000000000036}."
   }
 }

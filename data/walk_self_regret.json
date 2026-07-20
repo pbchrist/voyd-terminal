@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
-    20,
-    26,
+    11,
+    9,
+    13,
+    11,
+    13,
+    17,
+    22,
+    24,
+    24,
     28,
-    32,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    27,
+    25
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I forgave myself for the things I couldn't control."
+      "value": "In that life, I didn't stay."
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 23,
   "archetype": "self_regret",
-  "player_answer": "In that life, I forgave myself for the things I couldn't control.",
-  "act2_response": "you thought that was the end of the story. the gentle release of a burden you never actually carried. you called it forgiveness because you were too tired to admit it was just surrender. now the weight returns. heavier. sharper. the things you could not control are here to collect what you owed."
+  "player_answer": "In that life, I didn't stay.",
+  "act2_response": "the door was closed before you finished the sentence.\nyou walked away, thinking distance would erase the weight.\nit only gave the weight room to grow in the silence.\ntwenty three steps remain until the ground gives way.\ncome back to the dark. i have kept your absence warm."
 }

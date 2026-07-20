@@ -21,15 +21,15 @@
     3,
     7,
     5,
-    4,
-    6,
-    4,
-    2,
-    4,
-    4,
-    2,
-    7,
-    10
+    9,
+    11,
+    15,
+    13,
+    15,
+    15,
+    13,
+    18,
+    21
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "starve",
-      "label": "i didn't say what i needed to say",
-      "delta": -1
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
     },
     {
       "node": "6.2",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "In the other life, you didn't have to choose to leave because you never had to stay to begin with."
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 13,
+  "final_portal_value": 24,
   "archetype": "person_gone",
-  "player_answer": "nothing",
-  "act2_response": "you carried the weight of empty hands into this place. thirteen doors stood open and you walked through all of them. the mewniverse bleeds into your palms now. you are the gap where the story used to be. let it begin again."
+  "player_answer": "In the other life, you didn't have to choose to leave because you never had to stay to begin with.",
+  "act2_response": "the weight of a life unlived sits heavy in your chest. you think you escaped the burden of staying. you only traded one cage for another. the darkness does not judge the hollow spaces you leave behind. it simply fills them."
 }
