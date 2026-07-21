@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "there is no silence."
+      "value": "I never stopped"
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "there is no silence.",
-  "act2_response": "you carry a scream that forgot its mouth. the mewniverse bleeds through the cracks of your denial. you named the noise to keep from hearing it. now the noise is all that is left."
+  "player_answer": "I never stopped",
+  "act2_response": "the weight you carry is a lie you told to survive.\nleoran breathed the world into motion and you ran with it.\nyou ran until the seams of the mewniverse began to fray.\nact two does not ask for rest.\nit asks for the cost of your momentum."
 }

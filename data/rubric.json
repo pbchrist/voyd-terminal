@@ -645,6 +645,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-21T03:00:57.788322",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the visceral, biological horror of the previous beats (which readers found jarring) back to a metaphysical, psychological dread, correcting the tonal disjointedness by treating the \"body\" as an unstable, shifting architecture. The repetition of \"she placed the piece... the board moved the piece\" creates a recursive loop of agency loss that heightens the dialectic tension: if her actions are nullified by the environment, what is the nature of her existence? The choices offered (\"accept\" vs. \"demand\") are thematically sound but slightly binary, lacking the nuanced moral ambiguity of the highest canon, hence the lower branch score.",
+        "precedent": "The shifting perspective in Kafka's *The Metamorphosis* (where the room itself seems to reconfigure around the protagonist\u2019s alienation), though this scene earns the comparison by making the shift an active, predatory agency rather than passive decay.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The shifting perspective in Kafka's *The Metamorphosis* (where the room itself seems to reconfigure around the protagonist\u2019s alienation), though this scene earns the comparison by making the shift an active, predatory agency rather than passive decay.\nREASON: The scene successfully pivots from the visceral, biological horror of the previous beats (which readers found jarring) back to a metaphysical, psychological dread, correcting the tonal disjointedness by treating the \"body\" as an unstable, shifting architecture. The repetition of \"she placed the piece... the board moved the piece\" creates a recursive loop of agency loss that heightens the dialectic tension: if her actions are nullified by the environment, what is the nature of her existence? The choices offered (\"accept\" vs. \"demand\") are thematically sound but slightly binary, lacking the nuanced moral ambiguity of the highest canon, hence the lower branch score."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-20T03:00:58.544759",
