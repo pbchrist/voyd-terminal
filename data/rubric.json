@@ -663,6 +663,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-22T03:00:56.876456",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 10,
+          "branch_choke_logic": 8
+        },
+        "total": 27,
+        "reason": "This scene executes a masterful synthesis of body horror and spatial disorientation, transforming the previous \"architecture\" metaphor into literal, impossible geometry. It raises the dramatic question from \"what is happening to us?\" to \"does reality still obey laws, or have we become part of the monster's logic?\" The choice between tracing the evidence (acceptance/complicity) and sleeping (denial/collapse) creates a genuine dialectic fork regarding the protagonist's agency in a dissolving world.",
+        "precedent": "The shifting house in *The Haunting of Hill House* meets the domestic entrapment of *A Doll's House*, earning the comparison by making the architecture itself the antagonist\u2019s body.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 10\nBRANCH_CHOKE_LOGIC: 8\nPRECEDENT: The shifting house in *The Haunting of Hill House* meets the domestic entrapment of *A Doll's House*, earning the comparison by making the architecture itself the antagonist\u2019s body.\nREASON: This scene executes a masterful synthesis of body horror and spatial disorientation, transforming the previous \"architecture\" metaphor into literal, impossible geometry. It raises the dramatic question from \"what is happening to us?\" to \"does reality still obey laws, or have we become part of the monster's logic?\" The choice between tracing the evidence (acceptance/complicity) and sleeping (denial/collapse) creates a genuine dialectic fork regarding the protagonist's agency in a dissolving world."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-20T03:00:58.544759",

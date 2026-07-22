@@ -24,12 +24,12 @@
     22,
     24,
     22,
-    20,
-    22,
-    22,
-    20,
-    25,
-    28
+    27,
+    29,
+    29,
+    33,
+    38,
+    41
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "It is too perfect"
+      "value": "Nothing"
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 44,
   "archetype": "person_present",
-  "player_answer": "It is too perfect",
-  "act2_response": "you call it a flaw but it is the weight of the crown.\nthe world you saved hangs heavy on your shoulders.\nthirty-one steps stand between you and the silence.\nit waits for you to stop pretending you can fix it.\nthe perfection is cracking at the edges."
+  "player_answer": "Nothing",
+  "act2_response": "you call it nothing because you cannot bear the weight of what you carry.\nthe void remembers the shape of the absence you left behind.\nforty-four keys turn in the lock of your own forgetting.\ndo not wake up yet.\nlet the dream finish you."
 }

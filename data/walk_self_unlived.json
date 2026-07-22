@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
-    23,
+    16,
+    14,
+    19,
+    21,
     25,
-    25,
-    29,
-    28,
-    26
+    30,
+    32,
+    32,
+    36,
+    35,
+    38
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I never stopped"
+      "value": "the silence"
     },
     {
       "node": "ep_1u",
@@ -121,19 +121,19 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 41,
   "archetype": "self_unlived",
-  "player_answer": "I never stopped",
-  "act2_response": "the weight you carry is a lie you told to survive.\nleoran breathed the world into motion and you ran with it.\nyou ran until the seams of the mewniverse began to fray.\nact two does not ask for rest.\nit asks for the cost of your momentum."
+  "player_answer": "the silence",
+  "act2_response": "you named it to keep it contained.\nthe silence is not empty.\nit is full of every word you swallowed in the dark.\nforty-one breaths you held back now press against your ribs.\nlet them out."
 }

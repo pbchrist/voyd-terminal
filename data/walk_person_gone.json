@@ -23,13 +23,13 @@
     5,
     9,
     11,
-    15,
-    13,
-    15,
-    15,
+    9,
+    14,
+    16,
+    16,
+    14,
     19,
-    24,
-    27
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "i am not afraid"
     },
     {
       "node": "ep_1g",
-      "type": "feed",
-      "label": "let the spindle drill deeper and map what you have become",
-      "delta": 4
+      "type": "starve",
+      "label": "pull it out and bleed where the stars used to be",
+      "delta": -2
     },
     {
       "node": "ep_2g",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 20,
   "archetype": "person_gone",
-  "player_answer": "nothing",
-  "act2_response": "the word you carry is heavy with the weight of everything you lost.\nyou think you are empty, but you are full of the silence that screams.\ni can smell the ash of your old life clinging to your boots.\nstep closer and let me show you what grows in the dark."
+  "player_answer": "i am not afraid",
+  "act2_response": "the lie sits heavy in your throat. you carry the weight of that denial like a stone. it anchors you to the light you are leaving behind. the dark does not care for your bravery. it only waits for the moment you let go."
 }
