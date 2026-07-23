@@ -681,6 +681,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-23T03:00:59.436101",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "The scene succeeds by stripping away the visceral gore of the previous beat and replacing it with a cold, geometric inevitability. The \"correction\" of the room\u2019s geometry serves as the antithesis to the chaotic intimacy of Scene 3, establishing that the captor controls not just the body, but the very laws of space. The binary choice\u2014step toward the glass (acceptance/curiosity) or pull the curtains (denial/retreat)\u2014creates a genuine dialectic fork: one path leads to witnessing the mundane world (the kitchen table) and realizing the horror is domestic, while the other reinforces the isolation. This avoids the previous failures by maintaining a consistent tone of psychological dread without relying on confusing metaphors or abrupt tonal shifts; the horror is now in the *clarity* of the trap, not the messiness of the violence.",
+        "precedent": "The shifting architecture of the house in *The Haunting of Hill House* (Jackson), where the environment itself becomes the antagonist\u2019s will; this scene earns the comparison by moving from internal violation (Scene 3) to external entrapment, forcing the protagonist to confront the reality of their captivity rather than just the sensation of it.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The shifting architecture of the house in *The Haunting of Hill House* (Jackson), where the environment itself becomes the antagonist\u2019s will; this scene earns the comparison by moving from internal violation (Scene 3) to external entrapment, forcing the protagonist to confront the reality of their captivity rather than just the sensation of it.\nREASON: The scene succeeds by stripping away the visceral gore of the previous beat and replacing it with a cold, geometric inevitability. The \"correction\" of the room\u2019s geometry serves as the antithesis to the chaotic intimacy of Scene 3, establishing that the captor controls not just the body, but the very laws of space. The binary choice\u2014step toward the glass (acceptance/curiosity) or pull the curtains (denial/retreat)\u2014creates a genuine dialectic fork: one path leads to witnessing the mundane world (the kitchen table) and realizing the horror is domestic, while the other reinforces the isolation. This avoids the previous failures by maintaining a consistent tone of psychological dread without relying on confusing metaphors or abrupt tonal shifts; the horror is now in the *clarity* of the trap, not the messiness of the violence."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-20T03:00:58.544759",

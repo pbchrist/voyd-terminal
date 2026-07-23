@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    23,
-    25,
-    25,
+    30,
+    32,
+    32,
+    30,
     29,
-    34,
-    32
+    27
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I never had the chance to prove them wrong."
+      "value": "In that version, I never broke it in the first place."
     },
     {
       "node": "ep_1r",
-      "type": "feed",
-      "label": "accept the erasure and wear the ghost",
-      "delta": 4
+      "type": "starve",
+      "label": "demand recognition and hear the silence answer",
+      "delta": -2
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 35,
+  "final_portal_value": 25,
   "archetype": "self_regret",
-  "player_answer": "In that life, I never had the chance to prove them wrong.",
-  "act2_response": "they watched you falter and called it weakness.\nyou carried that verdict like a stone in your gut.\nhere, the stone is just a stone.\nlet it drop.\nsee what grows in the silence."
+  "player_answer": "In that version, I never broke it in the first place.",
+  "act2_response": "You carry the ghost of a perfect timeline. It sits heavy in your chest, colder than the ash of the Great Severing. Leoran breathed life into the world, but you are dreaming of the moment before the breath. Let the broken thing fall. I will hold the pieces while you pretend they were never dropped."
 }
