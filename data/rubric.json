@@ -699,6 +699,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-24T03:01:08.729219",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully executes a \"cold splash\" turn, shifting from the internal, symbiotic horror of Scene 3 to external, physical vulnerability. The dialectic moves from \"I am contained/known\" to \"I am displaced/lost,\" raising the stakes from psychological existence to physical survival. The tension advances by removing the safety of the \"architecture\" and replacing it with the rusted gate and cold brick, making the next question (\"How do I survive outside?\") harder than the previous one (\"Who am I inside?\"). However, the branch choices (\"accept\" vs \"demand\") feel slightly reductive for the magnitude of the existential shift, offering a psychological response to a physical crisis rather than a truly divergent dialectic path, which slightly undercuts the branch logic score. The imagery is tight, avoiding the previous failures of opaque references or meta-exposition, but the transition relies heavily on the reader accepting the sudden spatial jump without a bridging beat of action.",
+        "precedent": "The waking moment in *The Tempest* where Prospero\u2019s illusion dissolves into the cold reality of the isle; this scene earns the comparison by stripping away the metaphysical comfort of the previous beat, forcing a confrontation with physical consequence.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The waking moment in *The Tempest* where Prospero\u2019s illusion dissolves into the cold reality of the isle; this scene earns the comparison by stripping away the metaphysical comfort of the previous beat, forcing a confrontation with physical consequence.\nREASON: The scene successfully executes a \"cold splash\" turn, shifting from the internal, symbiotic horror of Scene 3 to external, physical vulnerability. The dialectic moves from \"I am contained/known\" to \"I am displaced/lost,\" raising the stakes from psychological existence to physical survival. The tension advances by removing the safety of the \"architecture\" and replacing it with the rusted gate and cold brick, making the next question (\"How do I survive outside?\") harder than the previous one (\"Who am I inside?\"). However, the branch choices (\"accept\" vs \"demand\") feel slightly reductive for the magnitude of the existential shift, offering a psychological response to a physical crisis rather than a truly divergent dialectic path, which slightly undercuts the branch logic score. The imagery is tight, avoiding the previous failures of opaque references or meta-exposition, but the transition relies heavily on the reader accepting the sudden spatial jump without a bridging beat of action."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-20T03:00:58.544759",

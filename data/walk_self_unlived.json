@@ -29,7 +29,7 @@
     25,
     29,
     28,
-    26
+    31
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "no one knows my name"
+      "value": "in that life i never stopped to listen to the silence so i could hear my own name"
     },
     {
       "node": "ep_1u",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "no one knows my name",
-  "act2_response": "you call it anonymity. i call it erasure. the silence you wear is heavy with the weight of twenty-four unspoken truths. leoran gave the world a voice so you could forget yours. the void remembers the shape of what you lost."
+  "player_answer": "in that life i never stopped to listen to the silence so i could hear my own name",
+  "act2_response": "you carried a name that was never yours. the silence you avoided is now the only room left. you brought twenty nine fragments of that unlived life into the dark. they do not fit together. you must learn to be quiet enough to let them dissolve."
 }

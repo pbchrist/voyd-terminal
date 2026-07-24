@@ -24,12 +24,12 @@
     19,
     21,
     25,
-    30,
-    32,
-    32,
-    30,
+    23,
+    25,
+    25,
     29,
-    27
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2r",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I never broke it in the first place."
+      "value": "in that life, i stayed."
     },
     {
       "node": "ep_1r",
-      "type": "starve",
-      "label": "demand recognition and hear the silence answer",
-      "delta": -2
+      "type": "feed",
+      "label": "accept the erasure and wear the ghost",
+      "delta": 4
     },
     {
       "node": "ep_2r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "In that version, I never broke it in the first place.",
-  "act2_response": "You carry the ghost of a perfect timeline. It sits heavy in your chest, colder than the ash of the Great Severing. Leoran breathed life into the world, but you are dreaming of the moment before the breath. Let the broken thing fall. I will hold the pieces while you pretend they were never dropped."
+  "player_answer": "in that life, i stayed.",
+  "act2_response": "you held the door shut with both hands.\nthe world outside burned while you watched the fire die in your own hearth.\nthat safety was a slow suffocation.\nyou traded the sky for a corner where the light could not reach you.\nnow the sky is gone, and you are left with only the corner."
 }
