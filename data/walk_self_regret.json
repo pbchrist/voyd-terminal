@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    13,
-    19,
-    21,
-    25,
-    23,
-    25,
-    25,
-    29,
+    18,
+    16,
+    20,
+    26,
     28,
-    26
+    32,
+    37,
+    39,
+    39,
+    43,
+    42,
+    40
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life, i stayed."
+      "value": "I don't get to choose."
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 38,
   "archetype": "self_regret",
-  "player_answer": "in that life, i stayed.",
-  "act2_response": "you held the door shut with both hands.\nthe world outside burned while you watched the fire die in your own hearth.\nthat safety was a slow suffocation.\nyou traded the sky for a corner where the light could not reach you.\nnow the sky is gone, and you are left with only the corner."
+  "player_answer": "I don't get to choose.",
+  "act2_response": "You did choose. You chose the weight. You chose to carry the ghost of a life you could not live into this dark. That is why your hands shake now. That is why the ground beneath you feels so thin. You wanted to be held, so you let the world fall away. Now you are alone with the consequence."
 }

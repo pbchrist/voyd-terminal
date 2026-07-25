@@ -717,13 +717,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-25T03:01:01.396239",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 7,
+          "tension_advancement": 8,
+          "branch_choke_logic": 9
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the visceral horror of Scene 3 to a disorienting psychological thriller, utilizing the \"unreliable narrator/environment\" trope effectively. The transition from \"pinned against radiator\" to \"standing in your kitchen\" creates a jarring temporal or spatial rupture that deepens the mystery of the narrator's nature (is he a ghost? a shapeshifter? a hallucination?). However, it risks the \"lore dump\" failure mode if this shift isn't earned by preceding mechanics; the prose is tighter than previous criticisms, avoiding melodrama by focusing on sensory details (rust, coffee), but the dramatic question shifts from \"Is she dead?\" to \"What is the narrator?\" which raises tension but may dilute the immediate physical stakes established in Scene 3. The choices provided are strong because they force the player to interact with the new reality's rules (accepting the domestic normalcy vs. securing the boundary), making",
+        "precedent": "The shifting reality in Pirandello's *Six Characters in Search of an Author*, but with the visceral, domestic horror of Shirley Jackson's *The Haunting of Hill House*. It earns the comparison by grounding metaphysical confusion in mundane, tactile details (coffee, rust), though it lacks the structural inevitability of Pirandello.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 7.5\nTENSION_ADVANCEMENT: 8.0\nBRANCH_CHOKE_LOGIC: 9.0\nPRECEDENT: The shifting reality in Pirandello's *Six Characters in Search of an Author*, but with the visceral, domestic horror of Shirley Jackson's *The Haunting of Hill House*. It earns the comparison by grounding metaphysical confusion in mundane, tactile details (coffee, rust), though it lacks the structural inevitability of Pirandello.\nREASON: The scene successfully pivots from the visceral horror of Scene 3 to a disorienting psychological thriller, utilizing the \"unreliable narrator/environment\" trope effectively. The transition from \"pinned against radiator\" to \"standing in your kitchen\" creates a jarring temporal or spatial rupture that deepens the mystery of the narrator's nature (is he a ghost? a shapeshifter? a hallucination?). However, it risks the \"lore dump\" failure mode if this shift isn't earned by preceding mechanics; the prose is tighter than previous criticisms, avoiding melodrama by focusing on sensory details (rust, coffee), but the dramatic question shifts from \"Is she dead?\" to \"What is the narrator?\" which raises tension but may dilute the immediate physical stakes established in Scene 3. The choices provided are strong because they force the player to interact with the new reality's rules (accepting the domestic normalcy vs. securing the boundary), making"
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-07-20T03:00:58.544759",
+  "last_recalibrated": "2026-07-25T03:01:01.396270",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.6, 'tension_advancement': 7.2, 'branch_choke_logic': 6.4}. drifts from threshold: {'dialectic_function': 0.05999999999999996, 'tension_advancement': 0.12000000000000002, 'branch_choke_logic': 0.040000000000000036}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.4, 'tension_advancement': 7.7, 'branch_choke_logic': 7.1}. drifts from threshold: {'dialectic_function': 0.040000000000000036, 'tension_advancement': 0.17, 'branch_choke_logic': 0.10999999999999996}."
   }
 }
