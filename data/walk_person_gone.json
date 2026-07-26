@@ -24,12 +24,12 @@
     15,
     17,
     21,
-    19,
-    21,
-    21,
-    19,
-    24,
-    27
+    26,
+    28,
+    28,
+    26,
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "there is no hunger"
+      "value": "It\u2019s perfect."
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 37,
   "archetype": "person_gone",
-  "player_answer": "there is no hunger",
-  "act2_response": "you carry that lie like a stone.\nthe meat remembers its own emptiness.\nleoran left a hole where your ribs used to be.\nfill it with the blood of the scattered."
+  "player_answer": "It\u2019s perfect.",
+  "act2_response": "the silence you crave is already here. thirty seven sparks flicker in the dark, waiting to go out. you named your end a beginning. now watch the lights dim."
 }

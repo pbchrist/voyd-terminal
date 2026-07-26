@@ -735,6 +735,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-26T03:01:00.806448",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene succeeds by weaponizing the previous \"weakness\" of disjointed imagery; it resolves the tension between metaphysical abstraction and visceral biology by making the body itself the site of the paradox. The shift from \"bones into dust\" to \"exactly where she left me\" creates a terrifying stasis that mirrors the opening line's nihilism, effectively deepening the dialectic of control vs. surrender. However, the branch choices (\"taste copper\" vs \"watch dust\") are somewhat cosmetic, offering sensory variations rather than distinct philosophical forks, which slightly lowers the branch logic score despite the strong atmospheric cohesion.",
+        "precedent": "The dissolution of the physical boundary in *Possession* or the bodily horror of *The Fly*, but earning the comparison through the terrifying passivity of the narrator rather than active monstrosity.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The dissolution of the physical boundary in *Possession* or the bodily horror of *The Fly*, but earning the comparison through the terrifying passivity of the narrator rather than active monstrosity.\nREASON: The scene succeeds by weaponizing the previous \"weakness\" of disjointed imagery; it resolves the tension between metaphysical abstraction and visceral biology by making the body itself the site of the paradox. The shift from \"bones into dust\" to \"exactly where she left me\" creates a terrifying stasis that mirrors the opening line's nihilism, effectively deepening the dialectic of control vs. surrender. However, the branch choices (\"taste copper\" vs \"watch dust\") are somewhat cosmetic, offering sensory variations rather than distinct philosophical forks, which slightly lowers the branch logic score despite the strong atmospheric cohesion."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-25T03:01:01.396270",

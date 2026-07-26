@@ -18,12 +18,12 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
+    16,
+    14,
+    19,
+    21,
+    25,
     23,
     25,
     25,
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "It doesn't end."
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_unlived",
-  "player_answer": "nothing",
-  "act2_response": "you call it nothing because you fear the weight.\nthe portal hums with a frequency of twenty-four.\nthat number is the toll for the door you just opened.\nit is not empty. it is hungry.\nstep closer and let it take you."
+  "player_answer": "It doesn't end.",
+  "act2_response": "twenty nine keys turn in the lock. the door swings open on hinges of bone and rust. you carried that fear because you were afraid of the quiet. there is only noise now. the story is hungry."
 }
