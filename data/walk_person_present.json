@@ -27,9 +27,9 @@
     26,
     28,
     28,
-    32,
-    37,
-    40
+    26,
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "no one is watching"
+      "value": "The silence is deafening"
     },
     {
       "node": "ep_1p",
-      "type": "feed",
-      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
-      "delta": 4
+      "type": "starve",
+      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
+      "delta": -2
     },
     {
       "node": "ep_2p",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 43,
+  "final_portal_value": 37,
   "archetype": "person_present",
-  "player_answer": "no one is watching",
-  "act2_response": "the eyes you think are closed are the only ones that see. you carry the silence of an empty room in your chest. forty three beats remain before the dream forgets your shape. you thought you were hiding. you were only waiting to be found."
+  "player_answer": "The silence is deafening",
+  "act2_response": "that quiet is a cage you built yourself. leoran gave you noise to keep it out. you let it in. thirty seven shards remain. they cut when you speak."
 }

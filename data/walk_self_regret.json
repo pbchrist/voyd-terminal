@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    11,
-    13,
-    17,
-    15,
-    17,
-    17,
+    19,
     21,
-    20,
-    18
+    25,
+    30,
+    32,
+    32,
+    36,
+    35,
+    33
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "starve",
-      "label": "maybe not as different as i think",
-      "delta": -2
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
     },
     {
       "node": "6.3",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I forgave myself for the mistakes I made, instead of spending every waking second trying to undo them by punishing myself for having the audacity to exist."
+      "value": "in that life i didn't stay"
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 16,
+  "final_portal_value": 31,
   "archetype": "self_regret",
-  "player_answer": "In that life, I forgave myself for the mistakes I made, instead of spending every waking second trying to undo them by punishing myself for having the audacity to exist.",
-  "act2_response": "you traded your guilt for peace. a fair price.\nthe void remembers the weight you put down.\nyou carried sixteen units of that relief across the threshold.\nnow the silence asks if the forgiveness held.\nor if the punishment was just the only language you knew."
+  "player_answer": "in that life i didn't stay",
+  "act2_response": "you left the door open. the wind took it. now you carry the hollow where the handle used to be. thirty-one steps forward. thirty-one steps back. the space between breaths grows heavy. you are already forgetting the face of who waited. stay here. it is safer than the echo."
 }

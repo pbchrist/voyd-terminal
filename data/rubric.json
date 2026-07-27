@@ -753,6 +753,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-07-27T03:01:02.233703",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 8,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "This scene achieves a rare structural pivot: it moves the conflict from the visceral/biological (Scene 3) to the domestic/psychological, forcing the protagonist to confront the banality of their captivity. By having \"she\" arrange \"my ribs like furniture,\" the text externalizes the internal violation, turning the protagonist\u2019s body into the antagonist\u2019s home. This mirrors the \"recognition\" in Greek tragedy but inverted: the protagonist recognizes not their fate, but their function. The choices (\"step through\" vs. \"touch\") are not just actions but dialectic positions: acceptance of the boundary vs. interrogation of the mechanism. The tension advances because the horror is no longer about pain, but about domestication\u2014the ultimate erasure of self. It avoids the previous failures by embedding the mechanics in metaphor (ribs as furniture) rather than exposition, maintaining the poetic tension while deepening the thematic wound. The \"gun on the wall\" here is the gate itself, and its firing is the quiet act of waking up inside it.",
+        "precedent": "The moment in *The Turn of the Screw* where the governess realizes the house is not a setting but a containment field; earns the comparison by shifting the horror from external threat to internal architecture.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 8\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The moment in *The Turn of the Screw* where the governess realizes the house is not a setting but a containment field; earns the comparison by shifting the horror from external threat to internal architecture.\nREASON: This scene achieves a rare structural pivot: it moves the conflict from the visceral/biological (Scene 3) to the domestic/psychological, forcing the protagonist to confront the banality of their captivity. By having \"she\" arrange \"my ribs like furniture,\" the text externalizes the internal violation, turning the protagonist\u2019s body into the antagonist\u2019s home. This mirrors the \"recognition\" in Greek tragedy but inverted: the protagonist recognizes not their fate, but their function. The choices (\"step through\" vs. \"touch\") are not just actions but dialectic positions: acceptance of the boundary vs. interrogation of the mechanism. The tension advances because the horror is no longer about pain, but about domestication\u2014the ultimate erasure of self. It avoids the previous failures by embedding the mechanics in metaphor (ribs as furniture) rather than exposition, maintaining the poetic tension while deepening the thematic wound. The \"gun on the wall\" here is the gate itself, and its firing is the quiet act of waking up inside it."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-25T03:01:01.396270",

@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-26T03:01:54.759659",
+  "last_run": "2026-07-27T03:01:59.486165",
   "walks": [
     {
       "archetype": "person_present",
@@ -31,9 +31,9 @@
         26,
         28,
         28,
-        32,
-        37,
-        40
+        26,
+        31,
+        34
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -42,9 +42,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
-        "weakest": "ep_2p",
-        "reason": "The prose shifts from psychological horror to melodramatic abstraction, losing the visceral grounding established in [8.0p] and [gen_1]. The metaphor of bleeding light feels unearned compared to the concrete horror of the ribs and blood."
+        "score": 7,
+        "weakest": "gen_2",
+        "reason": "The shift into visceral, body-horror imagery regarding \"ribs\" and \"blood\" feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency of loss and temporal longing. It sacrifices the subtle psychological dread for gratuitous shock, causing a momentary narrative whiplash."
       }
     },
     {
@@ -71,15 +71,15 @@
         9,
         13,
         11,
+        10,
+        12,
+        10,
         15,
         17,
-        21,
-        26,
-        28,
-        28,
-        26,
-        31,
-        34
+        17,
+        15,
+        20,
+        23
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -88,9 +88,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "10.0",
-        "reason": "The exposition here halts the rising tension by explaining the mechanics of the Voyd rather than embodying them, breaking the immersive spell established by the visceral imagery of the preceding nodes. It tells the reader what the entity feeds on instead of making the player feel the cost of their own intention through action."
+        "score": 7,
+        "weakest": "ep_1g",
+        "reason": "The metaphor of Sol and the compass feels abstract and disconnected from the immediate emotional stakes of the player's grief, causing a momentary loss of narrative tension. It prioritizes cryptic atmosphere over the visceral cost of the player's choice, making the transition to the next beat feel earned through confusion rather than consequence."
       }
     },
     {
@@ -117,15 +117,15 @@
         11,
         9,
         13,
-        11,
-        13,
-        17,
-        15,
-        17,
-        17,
+        19,
         21,
-        20,
-        18
+        25,
+        30,
+        32,
+        32,
+        36,
+        35,
+        33
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -134,9 +134,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 9,
-        "weakest": "10.0",
-        "reason": "The meta-explanation of the Void's mechanics halts the emotional momentum, replacing the visceral weight of the player's confession with exposition that feels didactic rather than immersive."
+        "score": 8,
+        "weakest": "gen_2",
+        "reason": "The visceral imagery of \"blood on the floor\" and \"architecture\" feels tonally inconsistent with the preceding psychological abstraction, breaking the spell by introducing gratuitous body horror rather than deepening the thematic exploration of guilt."
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        18,
-        16,
+        11,
+        9,
+        7,
+        12,
         14,
-        19,
-        21,
-        25,
+        18,
         23,
         25,
         25,
-        29,
-        28,
-        26
+        23,
+        22,
+        20
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -181,8 +181,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "9.2u",
-        "reason": "The sudden invocation of the obscure name \"Orachys\" breaks the intimate, second-person psychological immersion without sufficient context, causing the reader to stumble over world-building rather than feeling the emotional weight of the cost."
+        "weakest": "ACT2",
+        "reason": "The sudden shift to visceral, disjointed body horror (\"house of bone,\" \"glass\") abandons the established psychological intimacy and thematic coherence of \"wanting,\" creating a jarring tonal whiplash that feels like a genre pivot rather than a narrative payoff."
       }
     }
   ],
@@ -191,27 +191,27 @@
   "reader_notes": [
     {
       "archetype": "person_present",
-      "score": 9,
-      "weakest": "ep_2p",
-      "reason": "The prose shifts from psychological horror to melodramatic abstraction, losing the visceral grounding established in [8.0p] and [gen_1]. The metaphor of bleeding light feels unearned compared to the concrete horror of the ribs and blood."
+      "score": 7,
+      "weakest": "gen_2",
+      "reason": "The shift into visceral, body-horror imagery regarding \"ribs\" and \"blood\" feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency of loss and temporal longing. It sacrifices the subtle psychological dread for gratuitous shock, causing a momentary narrative whiplash."
     },
     {
       "archetype": "person_gone",
-      "score": 8,
-      "weakest": "10.0",
-      "reason": "The exposition here halts the rising tension by explaining the mechanics of the Voyd rather than embodying them, breaking the immersive spell established by the visceral imagery of the preceding nodes. It tells the reader what the entity feeds on instead of making the player feel the cost of their own intention through action."
+      "score": 7,
+      "weakest": "ep_1g",
+      "reason": "The metaphor of Sol and the compass feels abstract and disconnected from the immediate emotional stakes of the player's grief, causing a momentary loss of narrative tension. It prioritizes cryptic atmosphere over the visceral cost of the player's choice, making the transition to the next beat feel earned through confusion rather than consequence."
     },
     {
       "archetype": "self_regret",
-      "score": 9,
-      "weakest": "10.0",
-      "reason": "The meta-explanation of the Void's mechanics halts the emotional momentum, replacing the visceral weight of the player's confession with exposition that feels didactic rather than immersive."
+      "score": 8,
+      "weakest": "gen_2",
+      "reason": "The visceral imagery of \"blood on the floor\" and \"architecture\" feels tonally inconsistent with the preceding psychological abstraction, breaking the spell by introducing gratuitous body horror rather than deepening the thematic exploration of guilt."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
-      "weakest": "9.2u",
-      "reason": "The sudden invocation of the obscure name \"Orachys\" breaks the intimate, second-person psychological immersion without sufficient context, causing the reader to stumble over world-building rather than feeling the emotional weight of the cost."
+      "weakest": "ACT2",
+      "reason": "The sudden shift to visceral, disjointed body horror (\"house of bone,\" \"glass\") abandons the established psychological intimacy and thematic coherence of \"wanting,\" creating a jarring tonal whiplash that feels like a genre pivot rather than a narrative payoff."
     }
   ]
 }
