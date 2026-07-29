@@ -21,15 +21,15 @@
     9,
     13,
     11,
-    10,
-    12,
-    10,
     15,
     17,
-    17,
-    15,
-    20,
-    23
+    21,
+    19,
+    21,
+    21,
+    19,
+    24,
+    27
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "starve",
-      "label": "i didn't say what i needed to say",
-      "delta": -1
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
     },
     {
       "node": "6.2",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "it has no weight"
     },
     {
       "node": "ep_1g",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 30,
   "archetype": "person_gone",
-  "player_answer": "nothing",
-  "act2_response": "you named it. you gave the shape a label. the void does not correct names.\nthat weight sits heavy in your hands now. twenty six fragments of what used to be you.\nthe silence is not empty. it is waiting for you to stop pretending there is a difference.\nsleep. the rest is just noise."
+  "player_answer": "it has no weight",
+  "act2_response": "the stone sits heavy in your hand.\nyou lied to yourself about the burden.\nit anchors you to the ground while your mind floats away.\ni will take the stone and leave you with the weight.\nstep forward and let go of what you cannot carry."
 }

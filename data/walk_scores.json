@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-27T03:01:59.486165",
+  "last_run": "2026-07-27T15:00:58.179380",
   "walks": [
     {
       "archetype": "person_present",
@@ -28,12 +28,12 @@
         22,
         24,
         28,
-        26,
-        28,
-        28,
-        26,
-        31,
-        34
+        33,
+        35,
+        35,
+        39,
+        44,
+        47
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -42,9 +42,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 7,
+        "score": 9,
         "weakest": "gen_2",
-        "reason": "The shift into visceral, body-horror imagery regarding \"ribs\" and \"blood\" feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency of loss and temporal longing. It sacrifices the subtle psychological dread for gratuitous shock, causing a momentary narrative whiplash."
+        "reason": "The sudden, jarring shift into visceral body horror and the introduction of specific, unexplained proper nouns (Leoran, Ertree) breaks the established metaphysical intimacy, confusing the thematic focus on internal grief with disjointed lore."
       }
     },
     {
@@ -71,15 +71,15 @@
         9,
         13,
         11,
-        10,
-        12,
-        10,
         15,
         17,
-        17,
-        15,
-        20,
-        23
+        21,
+        19,
+        21,
+        21,
+        19,
+        24,
+        27
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -88,9 +88,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 7,
-        "weakest": "ep_1g",
-        "reason": "The metaphor of Sol and the compass feels abstract and disconnected from the immediate emotional stakes of the player's grief, causing a momentary loss of narrative tension. It prioritizes cryptic atmosphere over the visceral cost of the player's choice, making the transition to the next beat feel earned through confusion rather than consequence."
+        "score": 8,
+        "weakest": "gen_2",
+        "reason": "The transition from the player's agency to the Voyd's predatory consumption of \"her terror\" feels tonally disjointed and mechanically abrupt, breaking the established intimacy of the grief narrative with a sudden, unearned horror trope that lacks the poetic cohesion of the surrounding text."
       }
     },
     {
@@ -117,15 +117,15 @@
         11,
         9,
         13,
-        19,
-        21,
-        25,
-        30,
-        32,
-        32,
-        36,
-        35,
-        33
+        11,
+        13,
+        17,
+        22,
+        24,
+        24,
+        28,
+        27,
+        30
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -135,8 +135,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_2",
-        "reason": "The visceral imagery of \"blood on the floor\" and \"architecture\" feels tonally inconsistent with the preceding psychological abstraction, breaking the spell by introducing gratuitous body horror rather than deepening the thematic exploration of guilt."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally dissonant with the preceding abstract metaphysical dialogue, breaking the established mood of psychological dread without sufficient narrative grounding."
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        11,
-        9,
-        7,
-        12,
-        14,
         18,
-        23,
-        25,
-        25,
-        23,
-        22,
-        20
+        16,
+        14,
+        19,
+        21,
+        19,
+        24,
+        26,
+        26,
+        30,
+        29,
+        32
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -181,8 +181,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "ACT2",
-        "reason": "The sudden shift to visceral, disjointed body horror (\"house of bone,\" \"glass\") abandons the established psychological intimacy and thematic coherence of \"wanting,\" creating a jarring tonal whiplash that feels like a genre pivot rather than a narrative payoff."
+        "weakest": "gen_1",
+        "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency and confusing the narrative stakes."
       }
     }
   ],
@@ -191,27 +191,27 @@
   "reader_notes": [
     {
       "archetype": "person_present",
-      "score": 7,
+      "score": 9,
       "weakest": "gen_2",
-      "reason": "The shift into visceral, body-horror imagery regarding \"ribs\" and \"blood\" feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency of loss and temporal longing. It sacrifices the subtle psychological dread for gratuitous shock, causing a momentary narrative whiplash."
+      "reason": "The sudden, jarring shift into visceral body horror and the introduction of specific, unexplained proper nouns (Leoran, Ertree) breaks the established metaphysical intimacy, confusing the thematic focus on internal grief with disjointed lore."
     },
     {
       "archetype": "person_gone",
-      "score": 7,
-      "weakest": "ep_1g",
-      "reason": "The metaphor of Sol and the compass feels abstract and disconnected from the immediate emotional stakes of the player's grief, causing a momentary loss of narrative tension. It prioritizes cryptic atmosphere over the visceral cost of the player's choice, making the transition to the next beat feel earned through confusion rather than consequence."
+      "score": 8,
+      "weakest": "gen_2",
+      "reason": "The transition from the player's agency to the Voyd's predatory consumption of \"her terror\" feels tonally disjointed and mechanically abrupt, breaking the established intimacy of the grief narrative with a sudden, unearned horror trope that lacks the poetic cohesion of the surrounding text."
     },
     {
       "archetype": "self_regret",
       "score": 8,
-      "weakest": "gen_2",
-      "reason": "The visceral imagery of \"blood on the floor\" and \"architecture\" feels tonally inconsistent with the preceding psychological abstraction, breaking the spell by introducing gratuitous body horror rather than deepening the thematic exploration of guilt."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally dissonant with the preceding abstract metaphysical dialogue, breaking the established mood of psychological dread without sufficient narrative grounding."
     },
     {
       "archetype": "self_unlived",
       "score": 8,
-      "weakest": "ACT2",
-      "reason": "The sudden shift to visceral, disjointed body horror (\"house of bone,\" \"glass\") abandons the established psychological intimacy and thematic coherence of \"wanting,\" creating a jarring tonal whiplash that feels like a genre pivot rather than a narrative payoff."
+      "weakest": "gen_1",
+      "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the established thematic consistency and confusing the narrative stakes."
     }
   ]
 }

@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    19,
-    21,
-    25,
-    30,
-    32,
-    32,
-    36,
-    35,
-    33
+    11,
+    13,
+    17,
+    22,
+    24,
+    24,
+    28,
+    27,
+    30
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life i didn't stay"
+      "value": "In that version, I never learned that I was the problem."
     },
     {
       "node": "ep_1r",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 28,
   "archetype": "self_regret",
-  "player_answer": "in that life i didn't stay",
-  "act2_response": "you left the door open. the wind took it. now you carry the hollow where the handle used to be. thirty-one steps forward. thirty-one steps back. the space between breaths grows heavy. you are already forgetting the face of who waited. stay here. it is safer than the echo."
+  "player_answer": "In that version, I never learned that I was the problem.",
+  "act2_response": "you keep that version safe inside your chest. it is the only thing you have left to burn. the door before you hums at twenty eight. it remembers the shape of your failure. step through and let it eat the lie."
 }
