@@ -24,12 +24,12 @@
     11,
     13,
     17,
-    22,
-    24,
-    24,
-    28,
-    27,
-    30
+    15,
+    17,
+    17,
+    21,
+    20,
+    18
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0r",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2r",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I never learned that I was the problem."
+      "value": "Nothing. That is the tragedy. In that version, I didn't waste my prime years trying to be someone else, but I also never learned who I was by breaking myself against the world. It is a life of comfortable mediocrity where I am happy but hollow, and I realize with sick"
     },
     {
       "node": "ep_1r",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 28,
+  "final_portal_value": 16,
   "archetype": "self_regret",
-  "player_answer": "In that version, I never learned that I was the problem.",
-  "act2_response": "you keep that version safe inside your chest. it is the only thing you have left to burn. the door before you hums at twenty eight. it remembers the shape of your failure. step through and let it eat the lie."
+  "player_answer": "Nothing. That is the tragedy. In that version, I didn't waste my prime years trying to be someone else, but I also never learned who I was by breaking myself against the world. It is a life of comfortable mediocrity where I am happy but hollow, and I realize with sick",
+  "act2_response": "comfort is a slow rot. you chose the hollow shell to avoid the breaking. but the shell has no spine. it cannot stand against the weight of what you ran from. look at your hands. they are empty because you refused to bleed."
 }

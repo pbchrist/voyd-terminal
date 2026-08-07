@@ -29,7 +29,7 @@
     21,
     19,
     24,
-    27
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "it has no weight"
+      "value": "In that version, I stayed."
     },
     {
       "node": "ep_1g",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "it has no weight",
-  "act2_response": "the stone sits heavy in your hand.\nyou lied to yourself about the burden.\nit anchors you to the ground while your mind floats away.\ni will take the stone and leave you with the weight.\nstep forward and let go of what you cannot carry."
+  "player_answer": "In that version, I stayed.",
+  "act2_response": "you chose the quiet. the stillness. the slow rot of safety. you traded the horizon for a wall. now the wall is closing in."
 }

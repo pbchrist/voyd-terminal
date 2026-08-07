@@ -771,6 +771,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-08-07T03:00:17.670708",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 4,
+          "tension_advancement": 2,
+          "branch_choke_logic": 1
+        },
+        "total": 7,
+        "reason": "The scene collapses the dialectic by offering a cheap escape (the rusted lock) that negates the previous scene\u2019s visceral entrapment, turning a metaphysical crisis into a logistical error. The choices (\"accept the view\" vs \"demand an explanation\") are functionally identical in a narrative where the narrator admits to placing the player there; there is no genuine branch, only a delay of the inevitable, failing to raise the stakes or deepen the thematic wound.",
+        "precedent": "The \"magic trick\" reveal in a second-rate horror film; it earns the comparison by relying on spectacle rather than structural inevitability.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 4\nTENSION_ADVANCEMENT: 2\nBRANCH_CHOKE_LOGIC: 1\nPRECEDENT: The \"magic trick\" reveal in a second-rate horror film; it earns the comparison by relying on spectacle rather than structural inevitability.\nREASON: The scene collapses the dialectic by offering a cheap escape (the rusted lock) that negates the previous scene\u2019s visceral entrapment, turning a metaphysical crisis into a logistical error. The choices (\"accept the view\" vs \"demand an explanation\") are functionally identical in a narrative where the narrator admits to placing the player there; there is no genuine branch, only a delay of the inevitable, failing to raise the stakes or deepen the thematic wound."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-07-25T03:01:01.396270",

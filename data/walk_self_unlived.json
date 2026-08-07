@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
+    11,
+    9,
+    7,
+    12,
     14,
+    12,
+    17,
     19,
-    21,
     19,
-    24,
-    26,
-    26,
-    30,
-    29,
-    32
+    23,
+    22,
+    20
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that one, I chose the path where I was loved for existing, not for what I could fix."
+      "value": "I didn't choose the stage; I chose the silence."
     },
     {
       "node": "ep_1u",
@@ -121,19 +121,19 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 35,
+  "final_portal_value": 18,
   "archetype": "self_unlived",
-  "player_answer": "In that one, I chose the path where I was loved for existing, not for what I could fix.",
-  "act2_response": "you asked to be useless. you asked to be held without earning it.\n\nthe world outside demands you fix it. it always will.\n\nthat door you closed is heavy. it weighs thirty-five pounds.\n\nyou are tired of being a tool.\n\ni will teach you how to be nothing."
+  "player_answer": "I didn't choose the stage; I chose the silence.",
+  "act2_response": "you built a cage of quiet and called it freedom. the silence you hoarded is heavy, sixteen stones in your pocket. the stage demands a voice, but you only have the weight. you are not silent. you are holding your breath until the air turns to blood."
 }
