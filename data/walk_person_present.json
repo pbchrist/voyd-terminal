@@ -23,13 +23,13 @@
     17,
     22,
     24,
-    22,
-    20,
-    22,
-    22,
+    28,
     26,
-    25,
-    28
+    28,
+    28,
+    26,
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0p",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0p",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "there is no difference"
     },
     {
       "node": "ep_1p",
-      "type": "feed",
-      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
-      "delta": 4
+      "type": "starve",
+      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
+      "delta": -2
     },
     {
       "node": "ep_2p",
-      "type": "starve",
-      "label": "let the seam close and call it peace",
-      "delta": -1
+      "type": "feed",
+      "label": "keep the wound open and let me see what grows in the light",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 32,
   "archetype": "person_present",
-  "player_answer": "nothing",
-  "act2_response": "you brought the weight of the unmade to the threshold. twenty six fragments of light cling to your skin like burrs. they itch because they want to go back to the quiet. let them fall. the dark remembers how to hold what was never meant to be held."
+  "player_answer": "there is no difference",
+  "act2_response": "the light you chase bleeds into the dark you fear. thirty-two doors stand open, yet you stand still. the world does not know you are gone. it only knows you are leaving."
 }

@@ -789,6 +789,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-08-08T03:01:01.058557",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "The scene successfully pivots from the static, horrific intimacy of Scene 3 to a dynamic psychological confrontation, establishing the \"ozone and dust\" atmosphere as a mental state rather than a physical room. The line \"you only held the handle\" is a strong dramatic turn, shifting agency from the captor to the captive in a way that deepens the thematic wound of control. However, the branching choices (turn key/back away) feel mechanically generic compared to the poetic abstraction of the text, creating a slight disconnect between the high-concept prose and the low-stakes interactive options.",
+        "precedent": "The shifting perspective in Kafka's *The Judgment* or the unreliable narrator in *Fight Club*; it earns the comparison by destabilizing the reality of the \"container\" rather than just describing it, though it lacks the visceral shock of the canon's best twists.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The shifting perspective in Kafka's *The Judgment* or the unreliable narrator in *Fight Club*; it earns the comparison by destabilizing the reality of the \"container\" rather than just describing it, though it lacks the visceral shock of the canon's best twists.\nREASON: The scene successfully pivots from the static, horrific intimacy of Scene 3 to a dynamic psychological confrontation, establishing the \"ozone and dust\" atmosphere as a mental state rather than a physical room. The line \"you only held the handle\" is a strong dramatic turn, shifting agency from the captor to the captive in a way that deepens the thematic wound of control. However, the branching choices (turn key/back away) feel mechanically generic compared to the poetic abstraction of the text, creating a slight disconnect between the high-concept prose and the low-stakes interactive options."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-07-25T03:01:01.396270",

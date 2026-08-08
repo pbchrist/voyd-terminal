@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "Nothing. That is the tragedy. In that version, I didn't waste my prime years trying to be someone else, but I also never learned who I was by breaking myself against the world. It is a life of comfortable mediocrity where I am happy but hollow, and I realize with sick"
+      "value": "In that version, I never stopped trying to fix it."
     },
     {
       "node": "ep_1r",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 16,
   "archetype": "self_regret",
-  "player_answer": "Nothing. That is the tragedy. In that version, I didn't waste my prime years trying to be someone else, but I also never learned who I was by breaking myself against the world. It is a life of comfortable mediocrity where I am happy but hollow, and I realize with sick",
-  "act2_response": "comfort is a slow rot. you chose the hollow shell to avoid the breaking. but the shell has no spine. it cannot stand against the weight of what you ran from. look at your hands. they are empty because you refused to bleed."
+  "player_answer": "In that version, I never stopped trying to fix it.",
+  "act2_response": "you held the broken pieces until your fingers bled. the glass did not heal. it only cut deeper. try it again."
 }
