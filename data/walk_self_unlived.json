@@ -24,12 +24,12 @@
     12,
     14,
     18,
-    23,
-    25,
-    25,
-    29,
-    28,
-    31
+    16,
+    18,
+    18,
+    22,
+    21,
+    19
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0u",
-      "type": "feed",
-      "label": "which version could i reach",
-      "delta": 5
+      "type": "starve",
+      "label": "what does the reaching cost",
+      "delta": -2
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I had to die in it"
+      "value": "In that life, I stayed."
     },
     {
       "node": "ep_1u",
@@ -121,19 +121,19 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 22,
   "archetype": "self_unlived",
-  "player_answer": "I had to die in it",
-  "act2_response": "that death was a mercy you stole for yourself. the self you buried is rotting in the soil of your choices. it feeds the roots of what you pretend to be now. twenty nine beats remain before the dream forgets your name."
+  "player_answer": "In that life, I stayed.",
+  "act2_response": "you kept the door shut.\nthe air grew thick with things unsaid.\nyou called it peace.\nit was a slow suffocation.\nthe void remembers the shape of your silence."
 }

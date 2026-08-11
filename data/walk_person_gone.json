@@ -23,13 +23,13 @@
     5,
     9,
     11,
-    15,
-    13,
-    15,
-    15,
+    9,
+    14,
+    16,
+    16,
+    14,
     19,
-    24,
-    27
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that version i stayed"
+      "value": "it has no exit"
     },
     {
       "node": "ep_1g",
-      "type": "feed",
-      "label": "let the spindle drill deeper and map what you have become",
-      "delta": 4
+      "type": "starve",
+      "label": "pull it out and bleed where the stars used to be",
+      "delta": -2
     },
     {
       "node": "ep_2g",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 20,
   "archetype": "person_gone",
-  "player_answer": "in that version i stayed",
-  "act2_response": "you kept the door shut.\nyou chose the quiet over the fire.\nnow the silence you bought is all that remains.\ntwenty five fragments of a life you refused to live.\nlet us see what they rot into."
+  "player_answer": "it has no exit",
+  "act2_response": "you named the trap and now you are the bait. the door you seek is only the back of your own hand. twenty breaths to burn the bridge behind you. do not look for a way out. look for the weight."
 }

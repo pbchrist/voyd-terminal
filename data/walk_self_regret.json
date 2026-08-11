@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    11,
-    13,
-    17,
-    15,
-    17,
-    17,
+    19,
     21,
-    26,
-    24
+    25,
+    23,
+    25,
+    25,
+    29,
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "starve",
-      "label": "maybe not as different as i think",
-      "delta": -2
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
     },
     {
       "node": "6.3",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "the silence is real"
+      "value": "in that life, I made the choice to let you go before I broke, so I wouldn't have to spend the rest of my existence watching myself pretend that staying was a victory."
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 27,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "the silence is real",
-  "act2_response": "the quiet you carry is heavy. it presses against the twenty-seven doors standing between you and the end. you think the hush is peace. it is only the pause before the scream."
+  "player_answer": "in that life, I made the choice to let you go before I broke, so I wouldn't have to spend the rest of my existence watching myself pretend that staying was a victory.",
+  "act2_response": "you call it mercy. the voyd calls it theft.\n\nyou stole the ending from yourself to save your hands from the blood.\n\nnow your hands are clean and empty in the dark.\n\ntwenty four doors remain open because you refused to burn the house down.\n\nwalk through the first one."
 }

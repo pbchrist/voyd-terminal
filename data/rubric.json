@@ -825,6 +825,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-08-11T03:00:22.432367",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 3,
+          "tension_advancement": 2,
+          "branch_choke_logic": 4
+        },
+        "total": 9,
+        "reason": "This scene commits the cardinal sin of tonal whiplash by abandoning the claustrophobic, visceral body horror of Scene 3 (the ribs, the blood, the architecture) for a generic, pastoral surrealism that feels unearned and emotionally hollow. The transition from \"she is lost in me\" to \"stepping through drywall into a garden\" breaks the established internal logic of the horror without providing a compensatory psychological insight; the \"garden\" is a clich\u00e9 symbol of freedom that contradicts the established entrapment, making the dramatic question easier to dismiss rather than harder to live with. The choices offered are cosmetic rather than dialectical, failing to deepen the central conflict of identity and consumption.",
+        "precedent": "A failed attempt at the surreal intrusion of *The Cabinet of Dr. Caligari*; it lacks the coherent nightmare logic that makes that precedent terrifying, resulting instead in a disjointed dream sequence that feels accidental rather than inevitable.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 3\nTENSION_ADVANCEMENT: 2\nBRANCH_CHOKE_LOGIC: 4\nPRECEDENT: A failed attempt at the surreal intrusion of *The Cabinet of Dr. Caligari*; it lacks the coherent nightmare logic that makes that precedent terrifying, resulting instead in a disjointed dream sequence that feels accidental rather than inevitable.\nREASON: This scene commits the cardinal sin of tonal whiplash by abandoning the claustrophobic, visceral body horror of Scene 3 (the ribs, the blood, the architecture) for a generic, pastoral surrealism that feels unearned and emotionally hollow. The transition from \"she is lost in me\" to \"stepping through drywall into a garden\" breaks the established internal logic of the horror without providing a compensatory psychological insight; the \"garden\" is a clich\u00e9 symbol of freedom that contradicts the established entrapment, making the dramatic question easier to dismiss rather than harder to live with. The choices offered are cosmetic rather than dialectical, failing to deepen the central conflict of identity and consumption."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-08-10T21:24:36.183422",
