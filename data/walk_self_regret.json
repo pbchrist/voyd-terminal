@@ -27,9 +27,9 @@
     15,
     17,
     17,
-    15,
-    14,
-    12
+    21,
+    26,
+    24
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,19 +105,19 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "i let go"
+      "value": "the silence is real"
     },
     {
       "node": "ep_1r",
-      "type": "starve",
-      "label": "demand recognition and hear the silence answer",
-      "delta": -2
+      "type": "feed",
+      "label": "accept the erasure and wear the ghost",
+      "delta": 4
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 10,
+  "final_portal_value": 27,
   "archetype": "self_regret",
-  "player_answer": "i let go",
-  "act2_response": "the space where your hand used to be is still warm.\nyou thought the fall would hurt less if you stopped holding on.\nit did not.\nthe silence you chose is now the only sound in the room.\nten steps remain before the floor gives way."
+  "player_answer": "the silence is real",
+  "act2_response": "the quiet you carry is heavy. it presses against the twenty-seven doors standing between you and the end. you think the hush is peace. it is only the pause before the scream."
 }

@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
-    16,
-    14,
-    16,
-    16,
-    20,
-    25,
-    28
+    9,
+    13,
+    17,
+    22,
+    24,
+    22,
+    27,
+    29,
+    29,
+    33,
+    38,
+    36
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "the silence"
+      "value": "In the one you described, I never had to choose."
     },
     {
       "node": "ep_1p",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 39,
   "archetype": "person_present",
-  "player_answer": "the silence",
-  "act2_response": "you carry the weight of a breath not taken.\nthirty one doors left to close behind you.\nthe world you built is already forgetting your name.\nlet the quiet take you back to where nothing began."
+  "player_answer": "In the one you described, I never had to choose.",
+  "act2_response": "choice was the wound that birthed the world.\nyou carry that refusal like a stone in your chest.\nthe door you seek does not open for those who decide.\nit opens for those who let the weight crush them.\nstand still and let the silence take you back."
 }

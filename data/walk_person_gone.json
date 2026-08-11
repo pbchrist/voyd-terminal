@@ -24,12 +24,12 @@
     9,
     11,
     15,
-    20,
-    22,
-    22,
-    20,
-    25,
-    28
+    13,
+    15,
+    15,
+    19,
+    24,
+    27
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I am not afraid of losing myself in it."
+      "value": "in that version i stayed"
     },
     {
       "node": "ep_1g",
-      "type": "starve",
-      "label": "pull it out and bleed where the stars used to be",
-      "delta": -2
+      "type": "feed",
+      "label": "let the spindle drill deeper and map what you have become",
+      "delta": 4
     },
     {
       "node": "ep_2g",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 31,
+  "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "I am not afraid of losing myself in it.",
-  "act2_response": "you said you were not afraid. that was a lie you told the light.\n\nthe dark remembers the truth of your bones. they tremble at the thought of dissolving.\n\nyou are a person gone. the space where you used to be is already hollow.\n\nstop fighting the erasure. let it take the shape you tried so hard to keep.\n\nthirty-one fragments remain. let them fall."
+  "player_answer": "in that version i stayed",
+  "act2_response": "you kept the door shut.\nyou chose the quiet over the fire.\nnow the silence you bought is all that remains.\ntwenty five fragments of a life you refused to live.\nlet us see what they rot into."
 }

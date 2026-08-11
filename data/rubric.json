@@ -807,13 +807,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-08-10T21:24:36.183393",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 2,
+          "tension_advancement": 1,
+          "branch_choke_logic": 1
+        },
+        "total": 4,
+        "reason": "This scene is a catastrophic failure of dramatic logic and tonal continuity. After three scenes establishing a visceral, symbiotic, and horrifyingly intimate reality where \"ribs are architecture\" and blood confirms existence, the sudden shift to a mundane, almost pastoral image of a \"brass key\" and \"morning light\" is not a synthesis\u2014it is a lobotomy. It abandons the established stakes (the biological merger, the loss of self) for a generic fantasy trope that feels unearned and tonally deaf. The choices (\"step across,\" \"close door\") are binary mechanics with no dialectic weight because the preceding text has failed to establish what is on the other side of the door or why the key matters in the context of being \"lost in\" another person. It resolves the tension by evading it entirely, replacing the high-stakes existential horror of Scene 3 with a hollow, generic transition. In the canon, this is the equivalent of Hamlet suddenly deciding to go fishing in Act 3, Scene 3; it breaks the contract of the drama.",
+        "precedent": "The final curtain of a play that has forgotten its conflict; it earns the comparison by being utterly inert.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 2\nTENSION_ADVANCEMENT: 1\nBRANCH_CHOKE_LOGIC: 1\nPRECEDENT: The final curtain of a play that has forgotten its conflict; it earns the comparison by being utterly inert.\nREASON: This scene is a catastrophic failure of dramatic logic and tonal continuity. After three scenes establishing a visceral, symbiotic, and horrifyingly intimate reality where \"ribs are architecture\" and blood confirms existence, the sudden shift to a mundane, almost pastoral image of a \"brass key\" and \"morning light\" is not a synthesis\u2014it is a lobotomy. It abandons the established stakes (the biological merger, the loss of self) for a generic fantasy trope that feels unearned and tonally deaf. The choices (\"step across,\" \"close door\") are binary mechanics with no dialectic weight because the preceding text has failed to establish what is on the other side of the door or why the key matters in the context of being \"lost in\" another person. It resolves the tension by evading it entirely, replacing the high-stakes existential horror of Scene 3 with a hollow, generic transition. In the canon, this is the equivalent of Hamlet suddenly deciding to go fishing in Act 3, Scene 3; it breaks the contract of the drama."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
-  "last_recalibrated": "2026-07-25T03:01:01.396270",
+  "last_recalibrated": "2026-08-10T21:24:36.183422",
   "pending_weight_suggestion": {
     "dialectic_function": 0.41,
     "tension_advancement": 0.33,
     "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.4, 'tension_advancement': 7.7, 'branch_choke_logic': 7.1}. drifts from threshold: {'dialectic_function': 0.040000000000000036, 'tension_advancement': 0.17, 'branch_choke_logic': 0.10999999999999996}."
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.1, 'tension_advancement': 7.4, 'branch_choke_logic': 6.5}. drifts from threshold: {'dialectic_function': 0.009999999999999964, 'tension_advancement': 0.14000000000000004, 'branch_choke_logic': 0.05}."
   }
 }
