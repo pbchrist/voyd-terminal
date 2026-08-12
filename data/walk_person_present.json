@@ -24,12 +24,12 @@
     16,
     18,
     22,
-    20,
-    22,
-    22,
-    20,
-    25,
-    28
+    27,
+    29,
+    29,
+    27,
+    32,
+    35
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I don't have to explain why I'm leaving."
+      "value": "In that version, you never had to earn your rest."
     },
     {
       "node": "ep_1p",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 26,
+  "final_portal_value": 33,
   "archetype": "person_present",
-  "player_answer": "In that life, I don't have to explain why I'm leaving.",
-  "act2_response": "the weight of that silence settles in your chest. twenty-six steps into the dark. you leave behind the need to be understood. i keep the reasons you gave them. they are heavy here. they taste like ash."
+  "player_answer": "In that version, you never had to earn your rest.",
+  "act2_response": "that version is a heavy thing to carry.\nyou brought it here because you are tired.\nthe void offers the rest you thought you deserved.\nit asks only that you stop fighting for it.\nsleep now."
 }

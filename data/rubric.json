@@ -843,6 +843,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-08-12T03:01:02.591342",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 9
+        },
+        "total": 26,
+        "reason": "The scene succeeds by replacing the visceral body horror of Scene 3 with existential spatial horror, maintaining the abstract, dream-logic tone without slipping into exposition. The \"threshold sliding three feet to the left\" is a perfect Chekhovian gun that has finally fired: it is a subtle, impossible detail that retroactively invalidates the protagonist's understanding of their reality, making the \"door clicking shut\" not a safety, but a trap. The choices are structurally sound because \"crossing\" accepts the new reality (synthesis/escape) while \"touching the iron\" anchors to the old physical pain (thesis/resistance), creating a genuine dialectic fork rather than a cosmetic variation. It avoids the previous weakness of arbitrary exposition by grounding the shift in sensory disorientation (pine/salt vs. rust/iron) rather than telling us what is happening.",
+        "precedent": "The moment in *The Shining* where Danny sees the hedge maze is not just a garden, but a labyrinth of his own isolation; or the silent, impossible geometry of the hotel shifting in *The Haunting of Hill House*. This scene earns the comparison by treating the supernatural not as a spectacle, but as a violation of the protagonist\u2019s internal logic.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 9\nPRECEDENT: The moment in *The Shining* where Danny sees the hedge maze is not just a garden, but a labyrinth of his own isolation; or the silent, impossible geometry of the hotel shifting in *The Haunting of Hill House*. This scene earns the comparison by treating the supernatural not as a spectacle, but as a violation of the protagonist\u2019s internal logic.\nREASON: The scene succeeds by replacing the visceral body horror of Scene 3 with existential spatial horror, maintaining the abstract, dream-logic tone without slipping into exposition. The \"threshold sliding three feet to the left\" is a perfect Chekhovian gun that has finally fired: it is a subtle, impossible detail that retroactively invalidates the protagonist's understanding of their reality, making the \"door clicking shut\" not a safety, but a trap. The choices are structurally sound because \"crossing\" accepts the new reality (synthesis/escape) while \"touching the iron\" anchors to the old physical pain (thesis/resistance), creating a genuine dialectic fork rather than a cosmetic variation. It avoids the previous weakness of arbitrary exposition by grounding the shift in sensory disorientation (pine/salt vs. rust/iron) rather than telling us what is happening."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-08-10T21:24:36.183422",

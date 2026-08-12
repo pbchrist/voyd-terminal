@@ -23,13 +23,13 @@
     7,
     12,
     14,
-    18,
-    16,
-    18,
-    18,
-    22,
-    21,
-    19
+    12,
+    17,
+    19,
+    19,
+    23,
+    28,
+    31
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0u",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0u",
-      "type": "starve",
-      "label": "what does the reaching cost",
-      "delta": -2
+      "type": "feed",
+      "label": "which version could i reach",
+      "delta": 5
     },
     {
       "node": "9.2u",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stayed."
+      "value": "in that life, i stayed."
     },
     {
       "node": "ep_1u",
@@ -115,15 +115,15 @@
     },
     {
       "node": "ep_2u",
-      "type": "starve",
-      "label": "keep dreaming of what could have been",
-      "delta": -1
+      "type": "feed",
+      "label": "let the paths collapse and name the one you choose",
+      "delta": 5
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 22,
+  "final_portal_value": 34,
   "archetype": "self_unlived",
-  "player_answer": "In that life, I stayed.",
-  "act2_response": "you kept the door shut.\nthe air grew thick with things unsaid.\nyou called it peace.\nit was a slow suffocation.\nthe void remembers the shape of your silence."
+  "player_answer": "in that life, i stayed.",
+  "act2_response": "you kept the door shut. the air grew thin and the walls grew close. you thought safety was staying put. it was not. it was drowning in slow motion. the water is warm now."
 }

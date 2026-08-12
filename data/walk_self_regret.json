@@ -28,8 +28,8 @@
     25,
     25,
     29,
-    28,
-    26
+    34,
+    37
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life, I made the choice to let you go before I broke, so I wouldn't have to spend the rest of my existence watching myself pretend that staying was a victory."
+      "value": "I don't have to keep trying to earn forgiveness I know I don't deserve."
     },
     {
       "node": "ep_1r",
@@ -115,15 +115,15 @@
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
-      "type": "starve",
-      "label": "turn your back to the cold dark",
-      "delta": -2
+      "type": "feed",
+      "label": "open the membrane to let them in",
+      "delta": 3
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 35,
   "archetype": "self_regret",
-  "player_answer": "in that life, I made the choice to let you go before I broke, so I wouldn't have to spend the rest of my existence watching myself pretend that staying was a victory.",
-  "act2_response": "you call it mercy. the voyd calls it theft.\n\nyou stole the ending from yourself to save your hands from the blood.\n\nnow your hands are clean and empty in the dark.\n\ntwenty four doors remain open because you refused to burn the house down.\n\nwalk through the first one."
+  "player_answer": "I don't have to keep trying to earn forgiveness I know I don't deserve.",
+  "act2_response": "the weight you dropped is not gone. it is here. the mewniverse remembers the shape of your surrender. three and five fragments of you remain suspended in the dark. they are heavy because you told them to be."
 }
