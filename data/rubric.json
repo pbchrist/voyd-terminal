@@ -861,6 +861,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 26 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-08-13T03:00:24.715654",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 4,
+          "tension_advancement": 3,
+          "branch_choke_logic": 2
+        },
+        "total": 9,
+        "reason": "This scene commits the cardinal sin of dramatic incoherence by abandoning the visceral, intimate body-horror established in Scene 3 (\"ribs are my architecture\") for a disjointed, third-person domestic surrealism that lacks causal weight. The \"house forgetting its layout\" is a clich\u00e9 of the uncanny that does not deepen the dialectic of possession/identity but rather resets the stakes to zero; it offers no recognition, no bargain, and no wound, merely a confusing transition. The choices (\"taste coffee\" vs. \"remain\") are cosmetic and trivial, failing to present a meaningful ethical or existential dilemma that would make the next question harder to live with, resulting in a narrative flatline that insults the preceding intensity.",
+        "precedent": "The \"magic\" realism of Kafka\u2019s *The Metamorphosis* (the house changing layout), but it fails to earn the comparison because Kafka\u2019s surrealism is grounded in Gregor\u2019s acute, agonizing internal logic, whereas this scene relies on arbitrary environmental glitches that feel like procedural generation errors rather than psychological manifestations.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 4\nTENSION_ADVANCEMENT: 3\nBRANCH_CHOKE_LOGIC: 2\nPRECEDENT: The \"magic\" realism of Kafka\u2019s *The Metamorphosis* (the house changing layout), but it fails to earn the comparison because Kafka\u2019s surrealism is grounded in Gregor\u2019s acute, agonizing internal logic, whereas this scene relies on arbitrary environmental glitches that feel like procedural generation errors rather than psychological manifestations.\nREASON: This scene commits the cardinal sin of dramatic incoherence by abandoning the visceral, intimate body-horror established in Scene 3 (\"ribs are my architecture\") for a disjointed, third-person domestic surrealism that lacks causal weight. The \"house forgetting its layout\" is a clich\u00e9 of the uncanny that does not deepen the dialectic of possession/identity but rather resets the stakes to zero; it offers no recognition, no bargain, and no wound, merely a confusing transition. The choices (\"taste coffee\" vs. \"remain\") are cosmetic and trivial, failing to present a meaningful ethical or existential dilemma that would make the next question harder to live with, resulting in a narrative flatline that insults the preceding intensity."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-08-10T21:24:36.183422",

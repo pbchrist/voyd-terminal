@@ -27,9 +27,9 @@
     27,
     29,
     29,
-    27,
-    32,
-    35
+    33,
+    38,
+    41
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, you never had to earn your rest."
+      "value": "In that version, you are the one who stays."
     },
     {
       "node": "ep_1p",
-      "type": "starve",
-      "label": "turn your back and pretend her eyes are normal while the rot spreads in the quiet",
-      "delta": -2
+      "type": "feed",
+      "label": "press your forehead to hers and speak the unspeakable truth into her ears until she shatters",
+      "delta": 4
     },
     {
       "node": "ep_2p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 33,
+  "final_portal_value": 44,
   "archetype": "person_present",
-  "player_answer": "In that version, you never had to earn your rest.",
-  "act2_response": "that version is a heavy thing to carry.\nyou brought it here because you are tired.\nthe void offers the rest you thought you deserved.\nit asks only that you stop fighting for it.\nsleep now."
+  "player_answer": "In that version, you are the one who stays.",
+  "act2_response": "the door is already behind you. you are not the one who stays. you are the one who left. forty-four heartbeats of hesitation hang in the air like smoke. breathe them in."
 }

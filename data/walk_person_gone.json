@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "I don't have to be afraid of being forgotten"
     },
     {
       "node": "ep_1g",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 24,
   "archetype": "person_gone",
-  "player_answer": "nothing",
-  "act2_response": "you carry the weight of that choice in your bones. twenty-four is a heavy number for someone trying to disappear. the mewniverse bleeds into you, but you are already gone. i will let you sleep in the wreckage."
+  "player_answer": "I don't have to be afraid of being forgotten",
+  "act2_response": "the ink is still wet on that lie. twenty-four doors open before you, each one a mouth waiting to swallow the name you tried to keep. you think survival is a shield against oblivion. it is only a delay."
 }

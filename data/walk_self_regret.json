@@ -28,8 +28,8 @@
     25,
     25,
     29,
-    34,
-    37
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I don't have to keep trying to earn forgiveness I know I don't deserve."
+      "value": "In that life, I stayed."
     },
     {
       "node": "ep_1r",
@@ -115,15 +115,15 @@
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 35,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "I don't have to keep trying to earn forgiveness I know I don't deserve.",
-  "act2_response": "the weight you dropped is not gone. it is here. the mewniverse remembers the shape of your surrender. three and five fragments of you remain suspended in the dark. they are heavy because you told them to be."
+  "player_answer": "In that life, I stayed.",
+  "act2_response": "the door remained shut because you held the latch. twenty four beats of a heart that chose stagnation over flight. you traded a horizon for a floorboard. the silence you cultivated is heavy in your hands now. it tastes like dust and unsaid words."
 }
