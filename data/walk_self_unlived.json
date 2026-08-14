@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life I didn't have to be the one who stayed behind to remember them."
+      "value": "the silence of never having to explain myself"
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 27,
+  "final_portal_value": 22,
   "archetype": "self_unlived",
-  "player_answer": "In that life I didn't have to be the one who stayed behind to remember them.",
-  "act2_response": "the weight of twenty-seven memories presses against your ribs. you carried the silence so they could keep their voices. now the air here tastes like the exhale you never got to finish. let go of the name you kept warm in your pocket. it is cold here. it is finally quiet."
+  "player_answer": "the silence of never having to explain myself",
+  "act2_response": "you carry that quiet like a weapon. it keeps you safe but it also keeps you alone. the void does not ask for explanations. it only asks for surrender. your silence is loud here. it echoes against the walls of what you refused to be. twenty two is a fragile number. it breaks easily."
 }

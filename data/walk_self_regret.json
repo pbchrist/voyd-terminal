@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stayed."
+      "value": "that i never stopped."
     },
     {
       "node": "ep_1r",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 29,
   "archetype": "self_regret",
-  "player_answer": "In that life, I stayed.",
-  "act2_response": "the door remained shut because you held the latch. twenty four beats of a heart that chose stagnation over flight. you traded a horizon for a floorboard. the silence you cultivated is heavy in your hands now. it tastes like dust and unsaid words."
+  "player_answer": "that i never stopped.",
+  "act2_response": "the silence between your heartbeats is a heavy thing. you carried it through the severing. it did not break. it only grew heavier. let it go. the dark is waiting to hold what you refused to drop."
 }

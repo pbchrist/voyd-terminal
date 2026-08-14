@@ -879,6 +879,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-08-14T03:00:59.348399",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 9,
+          "tension_advancement": 10,
+          "branch_choke_logic": 8
+        },
+        "total": 27,
+        "reason": "The scene functions as a devastating \"Chekhov\u2019s Gun\" that refuses to fire, shifting the horror from physical violation (Scene 3) to existential erasure. By having the glass *not* break, the text rejects the reader's expectation of bodily harm, replacing it with a far more terrifying question: if the protagonist can pass through solid matter without consequence, what is the nature of his reality? The choice is not between survival and death, but between accepting the dissolution of the self (\"step through\") or clinging to the illusion of constraint (\"let the tape hold\"). This deepens the dialectic from \"who is hurting whom\" to \"what is real,\" making the next question significantly harder to live with.",
+        "precedent": "The moment in *Waiting for Godot* where Vladimir considers suicide but is deterred by the absurdity of the act itself; this scene earns the comparison by subverting the expected violence of the previous scene with a surreal, ontological refusal.",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 9\nTENSION_ADVANCEMENT: 10\nBRANCH_CHOKE_LOGIC: 8\nPRECEDENT: The moment in *Waiting for Godot* where Vladimir considers suicide but is deterred by the absurdity of the act itself; this scene earns the comparison by subverting the expected violence of the previous scene with a surreal, ontological refusal.\nREASON: The scene functions as a devastating \"Chekhov\u2019s Gun\" that refuses to fire, shifting the horror from physical violation (Scene 3) to existential erasure. By having the glass *not* break, the text rejects the reader's expectation of bodily harm, replacing it with a far more terrifying question: if the protagonist can pass through solid matter without consequence, what is the nature of his reality? The choice is not between survival and death, but between accepting the dissolution of the self (\"step through\") or clinging to the illusion of constraint (\"let the tape hold\"). This deepens the dialectic from \"who is hurting whom\" to \"what is real,\" making the next question significantly harder to live with."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
   "last_recalibrated": "2026-08-10T21:24:36.183422",
