@@ -28,8 +28,8 @@
     25,
     25,
     29,
-    28,
-    26
+    34,
+    32
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "that i never stopped."
+      "value": "nothing"
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "starve",
-      "label": "erase the page and call it forgiveness",
-      "delta": -1
+      "type": "feed",
+      "label": "acknowledge the count and let it outnumber you",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 30,
   "archetype": "self_regret",
-  "player_answer": "that i never stopped.",
-  "act2_response": "the silence between your heartbeats is a heavy thing. you carried it through the severing. it did not break. it only grew heavier. let it go. the dark is waiting to hold what you refused to drop."
+  "player_answer": "nothing",
+  "act2_response": "you carry the weight of a name that erases itself. thirty sparks remain in the dark to guide you home. they are too few to light the way. they are enough to burn what is left. let go."
 }

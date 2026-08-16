@@ -23,13 +23,13 @@
     5,
     9,
     11,
-    15,
-    13,
-    15,
-    15,
-    13,
-    12,
-    15
+    9,
+    14,
+    16,
+    16,
+    14,
+    19,
+    22
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0g",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life i didn't have to prove i was worthy of staying"
+      "value": "no one ever stays"
     },
     {
       "node": "ep_1g",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2g",
-      "type": "starve",
-      "label": "read it again hoping the words rearrange",
-      "delta": -1
+      "type": "feed",
+      "label": "tear the page and swallow the ink",
+      "delta": 5
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 18,
+  "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "in that life i didn't have to prove i was worthy of staying",
-  "act2_response": "you carried the weight of being unwanted into the dark. the void does not ask for proof. it asks for surrender. you are already here."
+  "player_answer": "no one ever stays",
+  "act2_response": "the weight of twenty five is heavy for empty hands. you carried that absence through the gate because it was the only thing you owned. now the door is closed and the silence is louder than before. do not look back for footsteps. they were never there to begin with."
 }
