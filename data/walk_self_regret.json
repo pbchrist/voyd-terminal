@@ -27,9 +27,9 @@
     23,
     25,
     25,
-    29,
-    34,
-    32
+    23,
+    28,
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "nothing"
+      "value": "In that life, I stayed."
     },
     {
       "node": "ep_1r",
-      "type": "feed",
-      "label": "accept the erasure and wear the ghost",
-      "delta": 4
+      "type": "starve",
+      "label": "demand recognition and hear the silence answer",
+      "delta": -2
     },
     {
       "node": "ep_2r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 30,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "nothing",
-  "act2_response": "you carry the weight of a name that erases itself. thirty sparks remain in the dark to guide you home. they are too few to light the way. they are enough to burn what is left. let go."
+  "player_answer": "In that life, I stayed.",
+  "act2_response": "staying is a heavy thing to carry into the dark. it anchors you when the ground falls away. twenty four sparks burn against the cold. they are not enough to light the way home."
 }

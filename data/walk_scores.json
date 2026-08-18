@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-14T15:00:58.666923",
+  "last_run": "2026-08-17T15:00:57.918249",
   "walks": [
     {
       "archetype": "person_present",
@@ -22,18 +22,18 @@
       "portal_curve": [
         8,
         5,
-        9,
-        13,
-        17,
+        3,
+        7,
+        11,
+        16,
+        18,
         22,
-        24,
-        28,
-        33,
-        35,
-        35,
-        39,
-        44,
-        47
+        20,
+        22,
+        22,
+        26,
+        31,
+        34
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -43,8 +43,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "gen_1",
-        "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the established atmosphere of psychological abstraction. It sacrifices the subtle tension of the \"wanting\" theme for a jarring, unearned shock that lacks narrative grounding."
+        "weakest": "gen_2",
+        "reason": "The shift into visceral body horror (\"ribs are my architecture\") feels tonally jarring and gratuitous compared to the preceding psychological intimacy, breaking the thematic consistency of \"wanting\" with shock value."
       }
     },
     {
@@ -68,12 +68,12 @@
       "portal_curve": [
         8,
         5,
-        3,
-        7,
-        5,
         9,
+        13,
         11,
-        9,
+        10,
+        12,
+        16,
         14,
         16,
         16,
@@ -90,7 +90,7 @@
       "experience": {
         "score": 8,
         "weakest": "gen_2",
-        "reason": "The transition from the abstract, existential horror of the Voyd to the visceral, biological imagery of ribs and blood feels tonally jarring and reduces the sophisticated metaphysical stakes to a generic body-horror trope."
+        "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, breaking the established thematic consistency. It sacrifices the psychological subtlety of the \"Voyd\" for shock value that lacks narrative grounding."
       }
     },
     {
@@ -123,9 +123,9 @@
         23,
         25,
         25,
-        29,
-        34,
-        32
+        23,
+        28,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -135,8 +135,8 @@
       "flags": [],
       "experience": {
         "score": 8,
-        "weakest": "10.0",
-        "reason": "The expository monologue explaining the Voyd's feeding mechanism halts the emotional momentum established by the visceral imagery of the previous nodes, shifting from immersive horror to abstract lore-dumping."
+        "weakest": "gen_2",
+        "reason": "The sudden shift to visceral body horror and the Voyd\u2019s predatory possession breaks the established psychological intimacy, feeling like a tonal mismatch rather than a logical escalation of the theme of \"wanting.\""
       }
     },
     {
@@ -160,18 +160,18 @@
       "portal_curve": [
         8,
         13,
-        11,
-        9,
-        7,
-        12,
-        14,
         18,
         16,
+        14,
+        13,
+        15,
+        13,
         18,
-        18,
-        22,
-        21,
-        24
+        20,
+        20,
+        24,
+        23,
+        26
       ],
       "scores": {
         "dialectic_arc": 10,
@@ -180,9 +180,9 @@
       },
       "flags": [],
       "experience": {
-        "score": 8,
-        "weakest": "9.2u",
-        "reason": "The sudden introduction of the character \"Orachys\" disrupts the intimate, direct address established by the Voyd, breaking immersion and failing to clarify whether this is a lore dump or a metaphor. It dilutes the immediate tension of the player's negotiation with the entity."
+        "score": 7,
+        "weakest": "gen_1",
+        "reason": "The sudden, jarring shift to visceral, biological imagery (\"four small lights press against my ribs\") breaks the established psychological and metaphysical tone, confusing the reader rather than deepening the thematic exploration of regret."
       }
     }
   ],
@@ -192,26 +192,26 @@
     {
       "archetype": "person_present",
       "score": 8,
-      "weakest": "gen_1",
-      "reason": "The sudden shift to visceral, biological horror (\"four small lights press against my ribs\") feels tonally disjointed from the preceding metaphysical dialogue, breaking the established atmosphere of psychological abstraction. It sacrifices the subtle tension of the \"wanting\" theme for a jarring, unearned shock that lacks narrative grounding."
+      "weakest": "gen_2",
+      "reason": "The shift into visceral body horror (\"ribs are my architecture\") feels tonally jarring and gratuitous compared to the preceding psychological intimacy, breaking the thematic consistency of \"wanting\" with shock value."
     },
     {
       "archetype": "person_gone",
       "score": 8,
       "weakest": "gen_2",
-      "reason": "The transition from the abstract, existential horror of the Voyd to the visceral, biological imagery of ribs and blood feels tonally jarring and reduces the sophisticated metaphysical stakes to a generic body-horror trope."
+      "reason": "The shift to visceral, body-horror imagery (\"ribs are my architecture\") feels tonally disjointed from the preceding metaphysical melancholy, breaking the established thematic consistency. It sacrifices the psychological subtlety of the \"Voyd\" for shock value that lacks narrative grounding."
     },
     {
       "archetype": "self_regret",
       "score": 8,
-      "weakest": "10.0",
-      "reason": "The expository monologue explaining the Voyd's feeding mechanism halts the emotional momentum established by the visceral imagery of the previous nodes, shifting from immersive horror to abstract lore-dumping."
+      "weakest": "gen_2",
+      "reason": "The sudden shift to visceral body horror and the Voyd\u2019s predatory possession breaks the established psychological intimacy, feeling like a tonal mismatch rather than a logical escalation of the theme of \"wanting.\""
     },
     {
       "archetype": "self_unlived",
-      "score": 8,
-      "weakest": "9.2u",
-      "reason": "The sudden introduction of the character \"Orachys\" disrupts the intimate, direct address established by the Voyd, breaking immersion and failing to clarify whether this is a lore dump or a metaphor. It dilutes the immediate tension of the player's negotiation with the entity."
+      "score": 7,
+      "weakest": "gen_1",
+      "reason": "The sudden, jarring shift to visceral, biological imagery (\"four small lights press against my ribs\") breaks the established psychological and metaphysical tone, confusing the reader rather than deepening the thematic exploration of regret."
     }
   ]
 }

@@ -18,12 +18,12 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    5,
     9,
+    13,
     11,
-    9,
+    10,
+    12,
+    16,
     14,
     16,
     16,
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "feed",
-      "label": "they left and i let them",
-      "delta": 4
+      "type": "starve",
+      "label": "i didn't say what i needed to say",
+      "delta": -1
     },
     {
       "node": "6.2",
@@ -86,15 +86,15 @@
     },
     {
       "node": "7.0g",
-      "type": "starve",
-      "label": "i don't need to see it",
-      "delta": -2
+      "type": "feed",
+      "label": "show me",
+      "delta": 4
     },
     {
       "node": "8.0g",
-      "type": "feed",
-      "label": "what does the reaching cost",
-      "delta": 5
+      "type": "starve",
+      "label": "which version could i reach",
+      "delta": -2
     },
     {
       "node": "9.1g",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "no one ever stays"
+      "value": "In that version, I never had to choose between being whole and being loved."
     },
     {
       "node": "ep_1g",
@@ -134,6 +134,6 @@
   ],
   "final_portal_value": 25,
   "archetype": "person_gone",
-  "player_answer": "no one ever stays",
-  "act2_response": "the weight of twenty five is heavy for empty hands. you carried that absence through the gate because it was the only thing you owned. now the door is closed and the silence is louder than before. do not look back for footsteps. they were never there to begin with."
+  "player_answer": "In that version, I never had to choose between being whole and being loved.",
+  "act2_response": "wholeness is a cage. love is the key that locks it. you held the key and walked away from the door. now you carry the weight of both. the severing was not an accident. it was a mercy."
 }
