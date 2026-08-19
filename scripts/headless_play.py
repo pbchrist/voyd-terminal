@@ -40,7 +40,81 @@ def qwen_chat(messages, max_tokens=300, temperature=0.9):
         return data["choices"][0]["message"]["content"]
 
 
-def build_act2_prompt(archetype, player_answer, portal_value):
+CONTRACT_FIELDS = (
+    "identity", "terms", "initiative", "resolution", "unpaid_cost",
+    "choice_history", "personal_referent", "exposed_risk",
+    "reciprocal_demand", "explicit_test",
+)
+
+
+def create_contract_state(seed=None):
+    """Create the semantic contract state shared with frontend/contract_state.js."""
+    state = {
+        "identity": None,
+        "terms": [],
+        "initiative": "player",
+        "resolution": "unformed",
+        "unpaid_cost": None,
+        "choice_history": [],
+        "personal_referent": None,
+        "exposed_risk": None,
+        "reciprocal_demand": None,
+        "explicit_test": None,
+    }
+    for field in CONTRACT_FIELDS:
+        if seed and field in seed:
+            value = seed[field]
+            state[field] = list(value) if isinstance(value, list) else value
+    return state
+
+
+def apply_contract_choice(current, choice):
+    """Apply a data-authored contract start/update and append its action history."""
+    state = create_contract_state(choice.get("contract_start") or current)
+    for field, value in (choice.get("contract_update") or {}).items():
+        if field in CONTRACT_FIELDS and field != "choice_history":
+            state[field] = list(value) if isinstance(value, list) else value
+    action = choice.get("contract_action")
+    if action:
+        state["choice_history"].append(action)
+    return state
+
+
+def contract_prompt_context(contract):
+    if not contract or not contract.get("identity"):
+        return ""
+    terms = " | ".join(contract["terms"]) if contract["terms"] else "none"
+    history = " -> ".join(contract["choice_history"]) if contract["choice_history"] else "none"
+    return (
+        f"\n- Active contract: {contract['identity']}"
+        f"\n- Contract terms: {terms}"
+        f"\n- Initiative: {contract['initiative']}"
+        f"\n- Resolution: {contract['resolution']}"
+        f"\n- Unpaid cost: {contract['unpaid_cost'] or 'none'}"
+        f"\n- Choice history: {history}"
+        f"\n- Personal referent: {contract['personal_referent'] or 'undisclosed'}"
+        f"\n- Voyd risk exposed: {contract['exposed_risk'] or 'none'}"
+        f"\n- Reciprocal demand: {contract['reciprocal_demand'] or 'none'}"
+        f"\n- Test already performed: {contract['explicit_test'] or 'none'}"
+    )
+
+
+def contract_opening(contract):
+    """Deterministic first Act 2 counterstroke used when live generation is absent."""
+    if not contract or not contract.get("identity"):
+        return ""
+    name = contract["identity"].replace("_", " ")
+    subject = contract["personal_referent"] or "chosen subject"
+    opening = (
+        f"the {name} contract enters before your question. "
+        f"it ended {contract['resolution']}, with {contract['initiative']} holding initiative over {subject}. "
+    )
+    if contract["unpaid_cost"]:
+        return opening + f"the unpaid cost is still exact: {contract['unpaid_cost']}. answer from inside that consequence."
+    return opening + "nothing unpaid survives, so i will not invent a new debt. answer from the consequence you chose."
+
+
+def build_act2_prompt(archetype, player_answer, portal_value, contract=None):
     base = load_voice_prompt()
 
     act1_ctx = ""
@@ -48,9 +122,9 @@ def build_act2_prompt(archetype, player_answer, portal_value):
         act1_ctx = f"""\n\nThe player has completed Act 1. Their profile:
 - Archetype: {archetype}
 - They named: "{player_answer}"
-- Portal value entering Act 2: {portal_value}
+- Portal value entering Act 2: {portal_value}{contract_prompt_context(contract)}
 
-Use this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry."""
+The contract is operative, not profile flavor. Your first return must enforce its resolution, honor what you owe, or collect its exact unpaid cost. Do not replace it with neutral profiling. The named referent remains the subject unless the player changes it by action."""
 
     return base + act1_ctx + "\n\nRespond to the player's first message."
 
@@ -68,6 +142,7 @@ def play(input_source=None, chooser=None, act1_data=None):
     portal_curve = []
     node_texts = []
     choices_made = []
+    contract = create_contract_state()
     current = "1.0"
 
     while True:
@@ -139,6 +214,7 @@ def play(input_source=None, chooser=None, act1_data=None):
 
         choice = choices[pick - 1]
         portal_value = max(0, min(100, portal_value + choice.get("delta", 0)))
+        contract = apply_contract_choice(contract, choice)
         choices_made.append({
             "node": current,
             "type": choice.get("type"),
@@ -152,8 +228,8 @@ def play(input_source=None, chooser=None, act1_data=None):
 
     # ACT2 terminus: call Qwen
     act2_response = None
+    system_prompt = build_act2_prompt(archetype, player_answer, portal_value, contract)
     try:
-        system_prompt = build_act2_prompt(archetype, player_answer, portal_value)
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": player_answer or "what are you"},
@@ -171,6 +247,9 @@ def play(input_source=None, chooser=None, act1_data=None):
         "final_portal_value": portal_value,
         "archetype": archetype,
         "player_answer": player_answer,
+        "contract": contract,
+        "act2_prompt": system_prompt,
+        "act2_opening": contract_opening(contract),
         "act2_response": act2_response,
     }
     return record

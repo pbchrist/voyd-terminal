@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-19T20:23:05.369132+00:00",
+  "laws": [
+    {
+      "id": "law_8e52dd229d27",
+      "statement": "Every dramatic scale must operate as claim or desire, counterforce, and a changed state: line, exchange, beat, scene, sequence, act, whole story.",
+      "kind": "require",
+      "scopes": [
+        "act",
+        "beat",
+        "exchange",
+        "line",
+        "scene",
+        "sequence",
+        "story"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_01"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.367546+00:00",
+      "updated_at": "2026-08-19T20:23:05.367546+00:00"
+    },
+    {
+      "id": "law_5361b415500d",
+      "statement": "A scene earns existence by changing what the next scene must obey; atmosphere, lore, or intensity alone is not a turn.",
+      "kind": "require",
+      "scopes": [
+        "scene",
+        "sequence"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_02"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.367752+00:00",
+      "updated_at": "2026-08-19T20:23:05.367752+00:00"
+    },
+    {
+      "id": "law_80984901e75f",
+      "statement": "Scenes in sequence must answer, complicate, negate, reinterpret, exploit, or force payment for prior scenes rather than merely follow them.",
+      "kind": "require",
+      "scopes": [
+        "act",
+        "sequence"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_03"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.367983+00:00",
+      "updated_at": "2026-08-19T20:23:05.367983+00:00"
+    },
+    {
+      "id": "law_4b28d7570c43",
+      "statement": "Dialogue is action under pressure: each line serves, the return changes the court position, and tactics evolve.",
+      "kind": "require",
+      "scopes": [
+        "exchange",
+        "line",
+        "scene"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_04"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.368189+00:00",
+      "updated_at": "2026-08-19T20:23:05.368189+00:00"
+    },
+    {
+      "id": "law_4ca0ffd21c42",
+      "statement": "Causality and consequence outrank imagery, lore density, surprise, and numerical tension scores.",
+      "kind": "prefer",
+      "scopes": [
+        "beat",
+        "scene",
+        "sequence",
+        "story"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_05"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.368397+00:00",
+      "updated_at": "2026-08-19T20:23:05.368397+00:00"
+    },
+    {
+      "id": "law_f1d61deb3858",
+      "statement": "Source book canon is immutable inside the Terminal; only Terminal story canon may evolve.",
+      "kind": "require",
+      "scopes": [
+        "canon",
+        "story"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_06"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.368617+00:00",
+      "updated_at": "2026-08-19T20:23:05.368617+00:00"
+    },
+    {
+      "id": "law_4540ed0088aa",
+      "statement": "Do not use a numeric aggregate to overrule a demonstrated structural or causal failure.",
+      "kind": "avoid",
+      "scopes": [
+        "evaluation",
+        "mutation"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_07"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.368861+00:00",
+      "updated_at": "2026-08-19T20:23:05.368861+00:00"
+    },
+    {
+      "id": "law_a65e6c262ef5",
+      "statement": "When multiple structurally valid futures imply genuinely different stories and inherited acumen does not decide among them, Patrick chooses the species.",
+      "kind": "require",
+      "scopes": [
+        "mutation",
+        "selection",
+        "story"
+      ],
+      "status": "active",
+      "origin": "explicit",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "seed_20260819_08"
+      ],
+      "rationales": [
+        "Explicitly established by Patrick during the Voyd story-engine design session."
+      ],
+      "created_at": "2026-08-19T20:23:05.369092+00:00",
+      "updated_at": "2026-08-19T20:23:05.369092+00:00"
+    }
+  ],
+  "decisions": []
+}

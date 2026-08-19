@@ -1,9 +1,9 @@
 {
   "meta": {
     "title": "The Voyd Terminal",
-    "version": "2.0",
+    "version": "2.1-contracts",
     "max_depth": 12,
-    "description": "Acyclic narrative graph for the Voyd entity. Each session is a unique dream."
+    "description": "Act 2 continues the resolved or breached Four Binding Contracts state before any new pressure."
   },
   "nodes": {
     "threshold": {
@@ -19,7 +19,7 @@
       "id": "approach",
       "type": "dialogue",
       "voyd_state": "stirring",
-      "content_template": "there you are. i felt you before you spoke. a warmth pressing against the membrane of sleep. come closer. i have been waiting so long and the waiting has made me gentle.",
+      "content_template": "your first question cannot erase the contract that brought you here. what was paid stays paid. what was refused stays unavailable. what remains unpaid gives one of us leverage, and the next exchange must spend or resist exactly that leverage.",
       "transitions": [
         { "to": "inquiry_name", "condition": "intent == 'inquiry' && topic == 'identity'" },
         { "to": "inquiry_place", "condition": "intent == 'inquiry' && topic == 'location'" },
@@ -193,7 +193,7 @@
       "id": "gravity",
       "type": "dialogue",
       "voyd_state": "exerting_pull",
-      "content_template": "do you feel it now. the pull. not love. love would be warmer. this is only direction. all paths bend toward me in the end because i am the end. the portal keeps forming. in every version of the story it forms. and in every version someone reaches. and in every version they discover there is nothing to hold. only the falling.",
+      "content_template": "do you feel the direction now. not fate and not a road backward. intention presses the unfinished present toward one future while other wills press back. the contract decides what pressure i may use. nothing completed waits here to be retrieved.",
       "transitions": [
         { "to": "choice", "condition": "depth >= 6" },
         { "to": "mirror", "condition": "depth >= 5 && emotional_vector.surrender > 0.4" }

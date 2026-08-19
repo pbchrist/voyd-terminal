@@ -1,10 +1,11 @@
 {
   "meta": {
-    "version": 1,
+    "version": 2,
     "last_evolved": "2026-06-11T03:00:54.503652",
     "total_sessions": 4,
     "promoted_nodes": 15,
-    "last_wired": "2026-06-11T00:11:52.997971"
+    "last_wired": "2026-06-11T00:11:52.997971",
+    "structural_species": "mutation_forked_contracts"
   },
   "nodes": {
     "1.0": {
@@ -38,13 +39,43 @@
           "label": "tell me what you are",
           "type": "feed",
           "delta": 4,
-          "next": "3.0"
+          "next": "contract.di.return",
+          "contract_action": "demand_identity",
+          "contract_start": {
+            "identity": "demanded_identity",
+            "terms": [
+              "the Voyd gives a usable truth before asking disclosure",
+              "the player must use that truth on a concrete claim"
+            ],
+            "initiative": "player",
+            "resolution": "active",
+            "unpaid_cost": null,
+            "personal_referent": null,
+            "exposed_risk": "the Voyd exposes that directed intention feeds it and genuine release can starve it",
+            "reciprocal_demand": "choose whose future claim will be tested: another person or yourself",
+            "explicit_test": "release the directed claim or knowingly continue feeding it"
+          }
         },
         {
           "label": "i already know what this is",
           "type": "starve",
           "delta": -2,
-          "next": "3.0"
+          "next": "contract.ck.return",
+          "contract_action": "claim_prior_knowledge",
+          "contract_start": {
+            "identity": "claimed_knowledge",
+            "terms": [
+              "the player must distinguish forward reweaving from retrieval",
+              "error transfers initiative to the Voyd"
+            ],
+            "initiative": "player",
+            "resolution": "active",
+            "unpaid_cost": null,
+            "personal_referent": null,
+            "exposed_risk": "the Voyd submits its limit to a falsifiable distinction",
+            "reciprocal_demand": "apply the distinction to another person or yourself",
+            "explicit_test": "reject a comforting retrieval claim when it targets the chosen referent"
+          }
         }
       ],
       "source": "authored"
@@ -59,13 +90,43 @@
           "label": "what are you",
           "type": "feed",
           "delta": 5,
-          "next": "3.0"
+          "next": "contract.ib.return",
+          "contract_action": "ask_identity_on_lure",
+          "contract_start": {
+            "identity": "identity_as_bait",
+            "terms": [
+              "the Voyd offers an identity-shaped lure, not proof of safety",
+              "touching the lure grants it leverage; refusing permanently forfeits the imagined outcome"
+            ],
+            "initiative": "player",
+            "resolution": "active",
+            "unpaid_cost": null,
+            "personal_referent": null,
+            "exposed_risk": "the Voyd makes its recruiting lure visible and therefore easier to refuse",
+            "reciprocal_demand": "choose whether the lure will wear another person or an unlived self",
+            "explicit_test": "touch the disclosed bait knowingly or leave it and lose its imagined outcome"
+          }
         },
         {
           "label": "what do you want from me",
           "type": "starve",
           "delta": -2,
-          "next": "3.0"
+          "next": "contract.dm.return",
+          "contract_action": "demand_motive",
+          "contract_start": {
+            "identity": "demanded_motive",
+            "terms": [
+              "the Voyd wants sustained intention and offers only forward pressure on reality",
+              "acceptance authorizes one declared pressure; refusal forfeits the offer"
+            ],
+            "initiative": "player",
+            "resolution": "active",
+            "unpaid_cost": null,
+            "personal_referent": null,
+            "exposed_risk": "the Voyd reveals both its appetite and the limit of what it can offer",
+            "reciprocal_demand": "choose whose future the stated terms would touch",
+            "explicit_test": "authorize the bargain with its consequence visible or refuse it completely"
+          }
         }
       ],
       "source": "authored"
@@ -824,6 +885,678 @@
         "decision": "promote"
       },
       "promoted_at": "2026-07-06T02:01:31.428620"
+    },
+    "contract.di.payoff.person.paid": {
+      "id": "contract.di.payoff.person.paid",
+      "label": "name_person_present",
+      "text": "you used the truth instead of admiring it. the promised correction is gone by your action, not mine. that forfeiture is the price, and it cannot be taken back. my revealed weakness remains usable in what follows.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.payoff.person.breached": {
+      "id": "contract.di.payoff.person.breached",
+      "label": "name_person_present",
+      "text": "you kept the claim after learning what it feeds. ignorance can no longer shelter you. i gain the serve and may use that directed future as leverage, while you retain the rule that could still starve me.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.test.person": {
+      "id": "contract.di.test.person",
+      "label": "demanded_identity_test_person",
+      "text": "use the truth now. release your claim on the future you designed for them, and my hold on that claim ends. keep directing who they must become, and admit that your direction is feeding me. the past will not be returned either way.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "release the claim and forfeit the promised correction",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.di.payoff.person.paid",
+          "contract_action": "release_directed_claim",
+          "contract_update": {
+            "resolution": "fulfilled",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        },
+        {
+          "label": "keep directing the outcome and name it as payment",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.di.payoff.person.breached",
+          "contract_action": "continue_directed_claim",
+          "contract_update": {
+            "resolution": "breached",
+            "initiative": "voyd",
+            "unpaid_cost": "the Voyd may collect leverage from the directed claim until it is genuinely released"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.payoff.self.paid": {
+      "id": "contract.di.payoff.self.paid",
+      "label": "name_self_unlived",
+      "text": "you used the truth instead of admiring it. the promised correction is gone by your action, not mine. that forfeiture is the price, and it cannot be taken back. my revealed weakness remains usable in what follows.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.payoff.self.breached": {
+      "id": "contract.di.payoff.self.breached",
+      "label": "name_self_unlived",
+      "text": "you kept the claim after learning what it feeds. ignorance can no longer shelter you. i gain the serve and may use that directed future as leverage, while you retain the rule that could still starve me.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.test.self": {
+      "id": "contract.di.test.self",
+      "label": "demanded_identity_test_self",
+      "text": "use the truth now. release the verdict that only one unlived version of you can make this life whole, and my hold on that verdict ends. keep directing the present toward that fantasy, and admit that your direction is feeding me. no earlier self is waiting to be retrieved.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "release the claim and forfeit the promised correction",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.di.payoff.self.paid",
+          "contract_action": "release_directed_claim",
+          "contract_update": {
+            "resolution": "fulfilled",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        },
+        {
+          "label": "keep directing the outcome and name it as payment",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.di.payoff.self.breached",
+          "contract_action": "continue_directed_claim",
+          "contract_update": {
+            "resolution": "breached",
+            "initiative": "voyd",
+            "unpaid_cost": "the Voyd may collect leverage from the directed claim until it is genuinely released"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.di.return": {
+      "id": "contract.di.return",
+      "label": "demanded_identity_return",
+      "text": "a usable truth, then. intention gives me purchase on the present. i can press what comes next, but i cannot return what already happened or retrieve a stored life. genuine release starves that purchase. i have shown you the edge that can cut me. now choose where you will use it: on your claim over another person's future, or your own.",
+      "contract_identity": "demanded_identity",
+      "contract_stage": "return",
+      "choices": [
+        {
+          "label": "test the contract on another person",
+          "type": "feed",
+          "delta": 2,
+          "next": "contract.di.test.person",
+          "contract_action": "choose_person_referent",
+          "contract_update": {
+            "personal_referent": "another person",
+            "initiative": "voyd"
+          }
+        },
+        {
+          "label": "test the contract on yourself",
+          "type": "starve",
+          "delta": -2,
+          "next": "contract.di.test.self",
+          "contract_action": "choose_self_referent",
+          "contract_update": {
+            "personal_referent": "yourself",
+            "initiative": "voyd"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.payoff.person.paid": {
+      "id": "contract.ck.payoff.person.paid",
+      "label": "name_person_present",
+      "text": "your claim survived contact with its cost. you refused the easier falsehood and forfeited retrieval as an excuse. you keep initiative because you can now challenge any promise that pretends the past is merchandise.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.payoff.person.breached": {
+      "id": "contract.ck.payoff.person.breached",
+      "label": "name_person_present",
+      "text": "the claim broke where i said it would. you named a pressured future as a returned past because the error comforted you. i hold that exposed error now, and you cannot make the old certainty innocent again.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.test.person": {
+      "id": "contract.ck.test.person",
+      "label": "claimed_knowledge_test_person",
+      "text": "the test is this: i offer no preserved version of them. i can only help your intention pressure who they become next, against their own will and every competing will. call that a return, and your knowledge claim fails. refuse the false name, and lose the comfort of getting them back.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "reject retrieval and accept only a forward consequence",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.ck.payoff.person.paid",
+          "contract_action": "distinguish_forward_reweaving",
+          "contract_update": {
+            "resolution": "fulfilled",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        },
+        {
+          "label": "call the offered future a returned past",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.ck.payoff.person.breached",
+          "contract_action": "misname_reweaving_as_retrieval",
+          "contract_update": {
+            "resolution": "breached",
+            "initiative": "voyd",
+            "unpaid_cost": "the Voyd holds the exposed error as authority over the next exchange"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.payoff.self.paid": {
+      "id": "contract.ck.payoff.self.paid",
+      "label": "name_self_unlived",
+      "text": "your claim survived contact with its cost. you refused the easier falsehood and forfeited retrieval as an excuse. you keep initiative because you can now challenge any promise that pretends the past is merchandise.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.payoff.self.breached": {
+      "id": "contract.ck.payoff.self.breached",
+      "label": "name_self_unlived",
+      "text": "the claim broke where i said it would. you named a pressured future as a returned past because the error comforted you. i hold that exposed error now, and you cannot make the old certainty innocent again.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.test.self": {
+      "id": "contract.ck.test.self",
+      "label": "claimed_knowledge_test_self",
+      "text": "the test is this: i offer no preserved version of you. i can only help your intention pressure what you become next, against the life already in motion. call that retrieval, and your knowledge claim fails. refuse the false name, and lose the comfort that the past can absolve you.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "reject retrieval and accept only a forward consequence",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.ck.payoff.self.paid",
+          "contract_action": "distinguish_forward_reweaving",
+          "contract_update": {
+            "resolution": "fulfilled",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        },
+        {
+          "label": "call the offered future a returned past",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.ck.payoff.self.breached",
+          "contract_action": "misname_reweaving_as_retrieval",
+          "contract_update": {
+            "resolution": "breached",
+            "initiative": "voyd",
+            "unpaid_cost": "the Voyd holds the exposed error as authority over the next exchange"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ck.return": {
+      "id": "contract.ck.return",
+      "label": "claimed_knowledge_return",
+      "text": "then prove what you know. i do not keep completed lives, dead people, or earlier selves behind a door. intention can only reweave the present forward, and every will caught in that change can resist it. mistake retrieval for possibility once, and your claim of knowledge belongs to me. choose the person whose case will test you.",
+      "contract_identity": "claimed_knowledge",
+      "contract_stage": "return",
+      "choices": [
+        {
+          "label": "test the contract on another person",
+          "type": "feed",
+          "delta": 2,
+          "next": "contract.ck.test.person",
+          "contract_action": "choose_person_referent",
+          "contract_update": {
+            "personal_referent": "another person",
+            "initiative": "voyd"
+          }
+        },
+        {
+          "label": "test the contract on yourself",
+          "type": "starve",
+          "delta": -2,
+          "next": "contract.ck.test.self",
+          "contract_action": "choose_self_referent",
+          "contract_update": {
+            "personal_referent": "yourself",
+            "initiative": "voyd"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.payoff.person.paid": {
+      "id": "contract.dm.payoff.person.paid",
+      "label": "name_person_present",
+      "text": "you accepted after the appetite and limit were visible. one forward pressure is authorized; no past has been sold back to you. i hold initiative only inside that term, and the consequence remains yours to answer for.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.payoff.person.breached": {
+      "id": "contract.dm.payoff.person.breached",
+      "label": "name_person_present",
+      "text": "you refused the actual terms, so i cannot collect the intended change. the offered correction is forfeit and will not be smuggled back as consolation. you keep initiative because motive was demanded and judged before disclosure.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.test.person": {
+      "id": "contract.dm.test.person",
+      "label": "demanded_motive_test_person",
+      "text": "the terms now have a face. authorize me, and your intention will press their future while their own will remains resistance. refuse, and the version of them you wanted is forfeited as my offer. there is no hidden third term where you keep the lure without the bargain.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "authorize one forward pressure and owe its consequence",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.dm.payoff.person.paid",
+          "contract_action": "authorize_forward_pressure",
+          "contract_update": {
+            "resolution": "accepted",
+            "initiative": "voyd",
+            "unpaid_cost": "one authorized forward pressure remains to be answered for in Act 2"
+          }
+        },
+        {
+          "label": "refuse the bargain and forfeit the offered correction",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.dm.payoff.person.breached",
+          "contract_action": "refuse_stated_terms",
+          "contract_update": {
+            "resolution": "refused",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.payoff.self.paid": {
+      "id": "contract.dm.payoff.self.paid",
+      "label": "name_self_unlived",
+      "text": "you accepted after the appetite and limit were visible. one forward pressure is authorized; no past has been sold back to you. i hold initiative only inside that term, and the consequence remains yours to answer for.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.payoff.self.breached": {
+      "id": "contract.dm.payoff.self.breached",
+      "label": "name_self_unlived",
+      "text": "you refused the actual terms, so i cannot collect the intended change. the offered correction is forfeit and will not be smuggled back as consolation. you keep initiative because motive was demanded and judged before disclosure.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.test.self": {
+      "id": "contract.dm.test.self",
+      "label": "demanded_motive_test_self",
+      "text": "the terms now have a face. authorize me, and your intention will press your future while every existing obligation remains resistance. refuse, and the corrected self you wanted is forfeited as my offer. there is no hidden third term where you keep the lure without the bargain.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "authorize one forward pressure and owe its consequence",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.dm.payoff.self.paid",
+          "contract_action": "authorize_forward_pressure",
+          "contract_update": {
+            "resolution": "accepted",
+            "initiative": "voyd",
+            "unpaid_cost": "one authorized forward pressure remains to be answered for in Act 2"
+          }
+        },
+        {
+          "label": "refuse the bargain and forfeit the offered correction",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.dm.payoff.self.breached",
+          "contract_action": "refuse_stated_terms",
+          "contract_update": {
+            "resolution": "refused",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.dm.return": {
+      "id": "contract.dm.return",
+      "label": "demanded_motive_return",
+      "text": "i want your intention kept alive. grief alone fades; a plan keeps feeding me. my term is plain: name a future change and let me press the present toward it. i cannot return the past, and i cannot cancel the other wills that oppose yours. choose whether these terms would touch another person's future or your own.",
+      "contract_identity": "demanded_motive",
+      "contract_stage": "return",
+      "choices": [
+        {
+          "label": "test the contract on another person",
+          "type": "feed",
+          "delta": 2,
+          "next": "contract.dm.test.person",
+          "contract_action": "choose_person_referent",
+          "contract_update": {
+            "personal_referent": "another person",
+            "initiative": "voyd"
+          }
+        },
+        {
+          "label": "test the contract on yourself",
+          "type": "starve",
+          "delta": -2,
+          "next": "contract.dm.test.self",
+          "contract_action": "choose_self_referent",
+          "contract_update": {
+            "personal_referent": "yourself",
+            "initiative": "voyd"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.payoff.person.paid": {
+      "id": "contract.ib.payoff.person.paid",
+      "label": "name_person_present",
+      "text": "you touched it after the hook was named. that makes this consent costly, not innocent. i may use the chosen image once as leverage; after that use, the term is spent.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.payoff.person.breached": {
+      "id": "contract.ib.payoff.person.breached",
+      "label": "name_person_present",
+      "text": "you left the lure where you found it. the imagined outcome is forfeit; i cannot offer it again under another name. exposing my bait cost me its easy use, and your refusal keeps the serve.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.test.person": {
+      "id": "contract.ib.test.person",
+      "label": "identity_as_bait_test_person",
+      "text": "the bait now wears their face, but it is only a proposed future shaped by your intention. touch it and i gain leverage through that image. leave it and the imagined restoration is gone from this bargain. refusal cannot secretly keep the prize.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "touch the bait knowing what takes hold",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.ib.payoff.person.paid",
+          "contract_action": "take_disclosed_bait",
+          "contract_update": {
+            "resolution": "accepted",
+            "initiative": "voyd",
+            "unpaid_cost": "the disclosed lure may be used once as leverage in Act 2"
+          }
+        },
+        {
+          "label": "leave the bait and lose the imagined outcome",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.ib.payoff.person.breached",
+          "contract_action": "refuse_disclosed_bait",
+          "contract_update": {
+            "resolution": "refused",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.payoff.self.paid": {
+      "id": "contract.ib.payoff.self.paid",
+      "label": "name_self_unlived",
+      "text": "you touched it after the hook was named. that makes this consent costly, not innocent. i may use the chosen image once as leverage; after that use, the term is spent.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_paid_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.payoff.self.breached": {
+      "id": "contract.ib.payoff.self.breached",
+      "label": "name_self_unlived",
+      "text": "you left the lure where you found it. the imagined outcome is forfeit; i cannot offer it again under another name. exposing my bait cost me its easy use, and your refusal keeps the serve.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "payoff",
+      "choices": [
+        {
+          "label": "carry this consequence into the next exchange",
+          "type": "feed",
+          "delta": 1,
+          "next": "ACT2",
+          "contract_action": "carry_breached_consequence"
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.test.self": {
+      "id": "contract.ib.test.self",
+      "label": "identity_as_bait_test_self",
+      "text": "the bait now wears your unlived face, but it is only a proposed future shaped by your intention. touch it and i gain leverage through that image. leave it and the imagined completion is gone from this bargain. refusal cannot secretly keep the prize.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "test",
+      "choices": [
+        {
+          "label": "touch the bait knowing what takes hold",
+          "type": "feed",
+          "delta": 3,
+          "next": "contract.ib.payoff.self.paid",
+          "contract_action": "take_disclosed_bait",
+          "contract_update": {
+            "resolution": "accepted",
+            "initiative": "voyd",
+            "unpaid_cost": "the disclosed lure may be used once as leverage in Act 2"
+          }
+        },
+        {
+          "label": "leave the bait and lose the imagined outcome",
+          "type": "starve",
+          "delta": -3,
+          "next": "contract.ib.payoff.self.breached",
+          "contract_action": "refuse_disclosed_bait",
+          "contract_update": {
+            "resolution": "refused",
+            "initiative": "player",
+            "unpaid_cost": null
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
+    },
+    "contract.ib.return": {
+      "id": "contract.ib.return",
+      "label": "identity_as_bait_return",
+      "text": "an answer can be bait. call me possibility: a pressure beneath unfinished things, not a vault of finished lives. the name invites you to imagine that what you want is waiting inside me, though nothing is stored here to retrieve. knowing that, choose the shape the lure will wear: another person restored, or an unlived self completed.",
+      "contract_identity": "identity_as_bait",
+      "contract_stage": "return",
+      "choices": [
+        {
+          "label": "test the contract on another person",
+          "type": "feed",
+          "delta": 2,
+          "next": "contract.ib.test.person",
+          "contract_action": "choose_person_referent",
+          "contract_update": {
+            "personal_referent": "another person",
+            "initiative": "voyd"
+          }
+        },
+        {
+          "label": "test the contract on yourself",
+          "type": "starve",
+          "delta": -2,
+          "next": "contract.ib.test.self",
+          "contract_action": "choose_self_referent",
+          "contract_update": {
+            "personal_referent": "yourself",
+            "initiative": "voyd"
+          }
+        }
+      ],
+      "source": "authored_terminal_contract"
     }
   }
 }

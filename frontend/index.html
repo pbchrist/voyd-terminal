@@ -205,6 +205,7 @@
 <input id="answer" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-hidden="true">
 <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-style:italic;color:#93896f;">the voyd requires a living browser.</div></noscript>
 
+<script src="contract_state.js"></script>
 <script>
 'use strict';
 
@@ -234,6 +235,7 @@ class VoydEngine {
       portalValue: options.portalValue || 8,
       archetype: options.archetype || null,
       playerAnswer: options.playerAnswer || null,
+      contract: options.contract ? VoydContracts.createContractState(options.contract) : VoydContracts.createContractState(),
     };
   }
 
@@ -348,7 +350,8 @@ class VoydEngine {
 
     let act1Context = '';
     if (this.state.archetype) {
-      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}\n\nUse this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.`;
+      const contractContext = VoydContracts.contractPromptContext(this.state.contract);
+      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}${contractContext}\n\nThe contract is operative, not profile flavor. Your first return must enforce its resolution, honor what you owe, or collect its exact unpaid cost. Do not replace it with neutral profiling. Keep the personal referent fixed unless the player changes it by action.`;
     }
 
     let loreSection = '';
@@ -409,9 +412,13 @@ class VoydEngine {
     }
     const systemPrompt = this.buildSystemPrompt(node, loreChunks);
 
+    let contentTemplate = node.content_template || '';
+    if (this.state.depth === 1 && this.state.contract.identity) {
+      contentTemplate = VoydContracts.contractOpening(this.state.contract) + '\n\n' + contentTemplate;
+    }
     return {
       systemPrompt,
-      contentTemplate: node.content_template || '',
+      contentTemplate,
       voydState: node.voyd_state,
       nodeType: node.type,
       nodeId: nextNodeId,
@@ -437,6 +444,7 @@ class VoydEngine {
       portalValue: this.state.portalValue,
       archetype: this.state.archetype,
       playerAnswer: this.state.playerAnswer,
+      contract: VoydContracts.createContractState(this.state.contract),
     };
   }
 }
@@ -478,6 +486,7 @@ let engine       = null;
 let portalValue  = 8;
 let archetype    = null;
 let playerAnswer = '';
+let contract     = VoydContracts.createContractState();
 let speaking     = false;
 let hurry        = false;
 let isWaiting    = false;
@@ -885,8 +894,9 @@ function offerChoices(ex, node) {
 
 function choose(choice, cEl, wrap, ex) {
   idlePhase(null);
-  // the only number that matters
+  // Portal motion is presentation; semantic contract state is the dramatic cause.
   portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
+  contract = VoydContracts.applyContractChoice(contract, choice);
   portal.v = portalValue;
   portal.pulse = choice.type === 'starve' ? -0.8 : 1;
   audioPulse(choice.type);
@@ -1005,8 +1015,8 @@ function goNext(nxt) {
 // ═════════════════════════════════════════════════════════════════
 function enterAct2() {
   if (!engine) {
-    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, backendMode: !!API_BASE });
-    console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
+    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, contract, backendMode: !!API_BASE });
+    console.log('Voyd engine booted. Archetype:', archetype, 'Contract:', contract.identity);
   }
   phase = 'act2';
   openSpeakline(act2Submit, 'act2');
@@ -1046,11 +1056,22 @@ async function act2Submit(text) {
           portal_value: result.state.portalValue,
           archetype: result.state.archetype,
           player_answer: result.state.playerAnswer,
+          contract: result.state.contract,
+          contract_opening: VoydContracts.contractOpening(result.state.contract),
+          system_prompt: result.systemPrompt,
         })
       });
       if (res.ok) {
         const data = await res.json();
         voydText = data.voyd_response || result.contentTemplate;
+        // Preserve the selected Act 1 species even when an older proxy does
+        // not yet understand contract fields in the request.
+        if (result.state.depth === 1 && result.state.contract.identity) {
+          const opening = VoydContracts.contractOpening(result.state.contract);
+          if (opening && !voydText.startsWith(opening)) {
+            voydText = opening + '\n\n' + voydText;
+          }
+        }
       } else { throw new Error('proxy failed'); }
     } catch (e) { voydText = result.contentTemplate; }
   } else {

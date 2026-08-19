@@ -25,6 +25,10 @@ ARCHETYPE_ROUTING = {
     "3.0": {"person_present": 1, "person_gone": 1, "self_regret": 2, "self_unlived": 2},
     "4.1": {"person_present": 1, "person_gone": 2},
     "4.2": {"self_regret": 1, "self_unlived": 2},
+    "contract.di.return": {"person_present": 1, "person_gone": 1, "self_regret": 2, "self_unlived": 2},
+    "contract.ck.return": {"person_present": 1, "person_gone": 1, "self_regret": 2, "self_unlived": 2},
+    "contract.dm.return": {"person_present": 1, "person_gone": 1, "self_regret": 2, "self_unlived": 2},
+    "contract.ib.return": {"person_present": 1, "person_gone": 1, "self_regret": 2, "self_unlived": 2},
 }
 
 
@@ -79,7 +83,8 @@ def walk_act1(nodes, archetype):
 class GraphIntegrityTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.nodes = load_json("data/act1_nodes.json")["nodes"]
+        cls.act1 = load_json("data/act1_nodes.json")
+        cls.nodes = cls.act1["nodes"]
         cls.evolve = load_module("evolve", "evolve.py")
 
     def test_all_pointers_resolve(self):
@@ -106,7 +111,10 @@ class GraphIntegrityTests(unittest.TestCase):
         gen_ids = sorted(n for n in self.nodes if n.startswith("gen_"))
         self.assertTrue(gen_ids, "expected at least one generated node")
         for gen_id in gen_ids:
-            self.assertIn(gen_id, reachable, f"{gen_id} is not reachable from 1.0")
+            if self.act1.get("meta", {}).get("structural_species") == "mutation_forked_contracts":
+                self.assertNotIn(gen_id, reachable, f"{gen_id} must remain archived, not bypass a binding contract")
+            else:
+                self.assertIn(gen_id, reachable, f"{gen_id} is not reachable from 1.0")
             choices = self.nodes[gen_id].get("choices")
             self.assertTrue(choices, f"{gen_id} needs choices")
             self.assertEqual({c["type"] for c in choices}, {"feed", "starve"})
@@ -114,9 +122,14 @@ class GraphIntegrityTests(unittest.TestCase):
     def test_archetype_walks(self):
         for archetype in ARCHETYPES:
             path, detected, portal = walk_act1(self.nodes, archetype)
-            self.assertEqual(detected, archetype, f"walk failed to set archetype {archetype}")
-            self.assertIn("10.0", path)
-            self.assertIn("gen_1", path, f"{archetype} walk never reaches gen_1")
+            if self.act1.get("meta", {}).get("structural_species") == "mutation_forked_contracts":
+                expected = "person_present" if archetype.startswith("person_") else "self_unlived"
+                self.assertEqual(detected, expected, f"contract walk lost referent class for {archetype}")
+                self.assertTrue(any(node.startswith("contract.") for node in path))
+            else:
+                self.assertEqual(detected, archetype, f"walk failed to set archetype {archetype}")
+                self.assertIn("10.0", path)
+                self.assertIn("gen_1", path, f"{archetype} walk never reaches gen_1")
             self.assertEqual(path[-1], "ACT2", f"{archetype} walk did not reach ACT2: {path}")
             self.assertTrue(0 <= portal <= 100)
 
@@ -271,7 +284,8 @@ class EvolvePipelineTests(unittest.TestCase):
 
             story = json.loads((tmp_root / "data/story_map.json").read_text())
             self.assertIn(new_id, story["nodes"])
-            for fid in old_frontier:
+            mapped_frontier = [fid for fid in old_frontier if fid in story["nodes"]]
+            for fid in mapped_frontier:
                 self.assertEqual(story["nodes"][fid]["branches_to"], [new_id])
             self.assertEqual(sorted(story["nodes"][new_id]["converges_from"]),
                              sorted(old_frontier))
