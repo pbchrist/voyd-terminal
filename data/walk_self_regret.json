@@ -21,15 +21,15 @@
     11,
     9,
     13,
-    19,
+    11,
+    13,
+    17,
+    15,
+    17,
+    17,
     21,
-    25,
-    23,
-    25,
-    25,
-    23,
-    28,
-    26
+    26,
+    24
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "feed",
-      "label": "completely different",
-      "delta": 6
+      "type": "starve",
+      "label": "maybe not as different as i think",
+      "delta": -2
     },
     {
       "node": "6.3",
@@ -105,13 +105,13 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I stayed."
+      "value": "I failed to save her."
     },
     {
       "node": "ep_1r",
-      "type": "starve",
-      "label": "demand recognition and hear the silence answer",
-      "delta": -2
+      "type": "feed",
+      "label": "accept the erasure and wear the ghost",
+      "delta": 4
     },
     {
       "node": "ep_2r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 22,
   "archetype": "self_regret",
-  "player_answer": "In that life, I stayed.",
-  "act2_response": "staying is a heavy thing to carry into the dark. it anchors you when the ground falls away. twenty four sparks burn against the cold. they are not enough to light the way home."
+  "player_answer": "I failed to save her.",
+  "act2_response": "her name is still on your tongue, heavy as stone. you carry the weight of a life that stopped while yours continued. the void does not judge the hands that slip. it only waits for them to let go. twenty two sparks remain to keep the dark at bay."
 }

@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
+    3,
+    7,
+    5,
     9,
-    13,
     11,
-    10,
-    12,
-    16,
-    14,
-    16,
-    16,
-    14,
-    19,
-    22
+    15,
+    13,
+    15,
+    15,
+    13,
+    18,
+    16
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "feed",
-      "label": "tell me what you are",
-      "delta": 4
+      "type": "starve",
+      "label": "i already know what this is",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.2",
-      "type": "starve",
-      "label": "i didn't say what i needed to say",
-      "delta": -1
+      "type": "feed",
+      "label": "they left and i let them",
+      "delta": 4
     },
     {
       "node": "6.2",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that version, I never had to choose between being whole and being loved."
+      "value": "in that version i stayed."
     },
     {
       "node": "ep_1g",
@@ -121,9 +121,9 @@
     },
     {
       "node": "gen_1",
-      "type": "feed",
-      "label": "open the membrane to let them in",
-      "delta": 3
+      "type": "starve",
+      "label": "turn your back to the cold dark",
+      "delta": -2
     },
     {
       "node": "gen_2",
@@ -132,8 +132,8 @@
       "delta": 3
     }
   ],
-  "final_portal_value": 25,
+  "final_portal_value": 19,
   "archetype": "person_gone",
-  "player_answer": "In that version, I never had to choose between being whole and being loved.",
-  "act2_response": "wholeness is a cage. love is the key that locks it. you held the key and walked away from the door. now you carry the weight of both. the severing was not an accident. it was a mercy."
+  "player_answer": "in that version i stayed.",
+  "act2_response": "you kept the door shut. you let the dust settle on the floorboards where your boots should have been. that safety is a heavy thing to carry into the dark. nineteen is the weight of the ghost you left behind. it pulls at your ankles as you step forward."
 }

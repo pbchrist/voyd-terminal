@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     5,
-    3,
-    7,
-    11,
-    16,
-    18,
+    9,
+    13,
+    17,
     22,
-    20,
-    22,
-    22,
-    26,
-    31,
-    34
+    24,
+    28,
+    33,
+    35,
+    35,
+    39,
+    44,
+    47
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.1",
-      "type": "starve",
-      "label": "i already know what this is",
-      "delta": -2
+      "type": "feed",
+      "label": "tell me what you are",
+      "delta": 4
     },
     {
       "node": "3.0",
@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "long enough that i've stopped counting",
+      "label": "recently",
       "delta": 5
     },
     {
@@ -92,9 +92,9 @@
     },
     {
       "node": "8.0p",
-      "type": "starve",
-      "label": "which version could i reach",
-      "delta": -2
+      "type": "feed",
+      "label": "what does the reaching cost",
+      "delta": 5
     },
     {
       "node": "9.1p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that version, i never had to choose between being loved and being seen"
+      "value": "In that version, I didn\u2019t have to choose between staying and leaving."
     },
     {
       "node": "ep_1p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 37,
+  "final_portal_value": 45,
   "archetype": "person_present",
-  "player_answer": "in that version, i never had to choose between being loved and being seen",
-  "act2_response": "you carry the ghost of a life where your skin did not crack to let the light in. thirty seven pieces of that dream hang in the dark, cold and sharp. love is a blindfold. sight is a wound. you thought you could have both without bleeding."
+  "player_answer": "In that version, I didn\u2019t have to choose between staying and leaving.",
+  "act2_response": "you kept the door open. you let the air circulate between the two worlds. gravity forgot to pull. now your feet do not know which floor is solid. the silence you chose is heavier than the noise you left behind."
 }

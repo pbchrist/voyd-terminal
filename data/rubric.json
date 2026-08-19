@@ -2,17 +2,17 @@
   "version": 1,
   "axes": {
     "dialectic_function": {
-      "weight": 0.41,
+      "weight": 0.42,
       "description": "Does this node do the right structural job at the right moment in the story? Thesis, antithesis deepening, turn, synthesis, catharsis \u2014 each has a job. Does this node do it?",
       "threshold": 7
     },
     "tension_advancement": {
-      "weight": 0.33,
+      "weight": 0.31,
       "description": "Does thematic tension increase across this node? Is the dramatic question getting harder to answer? Is the dialectic pressure building?",
       "threshold": 6
     },
     "branch_choke_logic": {
-      "weight": 0.26,
+      "weight": 0.27,
       "description": "If branch: does it create genuinely different dialectic experiences or just cosmetic variation? If choke: do all open branches actually reach it? If beat: does it earn its place in the chain?",
       "threshold": 6
     }
@@ -897,13 +897,31 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 27 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-08-19T03:01:02.561166",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 8,
+          "tension_advancement": 9,
+          "branch_choke_logic": 7
+        },
+        "total": 24,
+        "reason": "This scene succeeds by enacting the \"Chekhov\u2019s Gun\" principle through physicalization: the \"clay of my ribs\" and \"blood on the floor\" from previous scenes are no longer metaphors but the literal materials of the protagonist\u2019s exile. The shift to third-person (\"she placed me\") is no longer a fracture but a necessary dissociation, marking the moment the \"I\" becomes an object of the \"She,\" achieving a tragic objectification akin to Oedipus blinding himself. The binary choice is structurally sound because \"return to the floor\" is a regression into the womb/tomb (death/stasis), while \"step through\" is the terrifying acceptance of agency in a world where one\u2019s body is made of another\u2019s architecture; however, the logic is slightly weakened because the \"latch clicking shut\" implies the gate is already passed, making \"return to the floor\" feel like a retreat from a reality that has already been sealed, rather than a genuine dialectic fork.",
+        "precedent": "The final line of Beckett\u2019s *Endgame* (\"Nothing to be done\") / The closing of the door in Ibsen\u2019s *A Doll\u2019s House*",
+        "decision": "promote",
+        "raw": "DIALECTIC_FUNCTION: 8\nTENSION_ADVANCEMENT: 9\nBRANCH_CHOKE_LOGIC: 7\nPRECEDENT: The final line of Beckett\u2019s *Endgame* (\"Nothing to be done\") / The closing of the door in Ibsen\u2019s *A Doll\u2019s House*\nREASON: This scene succeeds by enacting the \"Chekhov\u2019s Gun\" principle through physicalization: the \"clay of my ribs\" and \"blood on the floor\" from previous scenes are no longer metaphors but the literal materials of the protagonist\u2019s exile. The shift to third-person (\"she placed me\") is no longer a fracture but a necessary dissociation, marking the moment the \"I\" becomes an object of the \"She,\" achieving a tragic objectification akin to Oedipus blinding himself. The binary choice is structurally sound because \"return to the floor\" is a regression into the womb/tomb (death/stasis), while \"step through\" is the terrifying acceptance of agency in a world where one\u2019s body is made of another\u2019s architecture; however, the logic is slightly weakened because the \"latch clicking shut\" implies the gate is already passed, making \"return to the floor\" feel like a retreat from a reality that has already been sealed, rather than a genuine dialectic fork."
+      },
+      "decision": "kill",
+      "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
     }
   ],
-  "last_recalibrated": "2026-08-10T21:24:36.183422",
+  "last_recalibrated": "2026-08-19T03:01:02.561198",
   "pending_weight_suggestion": {
-    "dialectic_function": 0.41,
-    "tension_advancement": 0.33,
-    "branch_choke_logic": 0.26,
-    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 7.1, 'tension_advancement': 7.4, 'branch_choke_logic': 6.5}. drifts from threshold: {'dialectic_function': 0.009999999999999964, 'tension_advancement': 0.14000000000000004, 'branch_choke_logic': 0.05}."
+    "dialectic_function": 0.42,
+    "tension_advancement": 0.31,
+    "branch_choke_logic": 0.27,
+    "reason": "recalibrated from last 10 decisions. means: {'dialectic_function': 6.3, 'tension_advancement': 6.2, 'branch_choke_logic': 5.5}. drifts from threshold: {'dialectic_function': -0.07000000000000002, 'tension_advancement': 0.020000000000000018, 'branch_choke_logic': -0.05}."
   }
 }
