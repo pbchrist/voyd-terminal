@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    13,
-    11,
-    13,
-    17,
-    15,
-    17,
-    17,
-    21,
-    26,
-    24
+    18,
+    16,
+    20,
+    18,
+    20,
+    24,
+    22,
+    24,
+    24,
+    28,
+    27,
+    25
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I failed to save her."
+      "value": "In that life, I never stayed."
     },
     {
       "node": "ep_1r",
@@ -115,9 +115,9 @@
     },
     {
       "node": "ep_2r",
-      "type": "feed",
-      "label": "acknowledge the count and let it outnumber you",
-      "delta": 5
+      "type": "starve",
+      "label": "erase the page and call it forgiveness",
+      "delta": -1
     },
     {
       "node": "gen_1",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 22,
+  "final_portal_value": 23,
   "archetype": "self_regret",
-  "player_answer": "I failed to save her.",
-  "act2_response": "her name is still on your tongue, heavy as stone. you carry the weight of a life that stopped while yours continued. the void does not judge the hands that slip. it only waits for them to let go. twenty two sparks remain to keep the dark at bay."
+  "player_answer": "In that life, I never stayed.",
+  "act2_response": "the door closes because you let it. you counted the seconds and found them wanting. twenty three fragments remain in your palm. cold and heavy as regret. they pull you down."
 }

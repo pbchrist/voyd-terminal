@@ -915,6 +915,24 @@
       },
       "decision": "kill",
       "reason": "dramaturg total 24 but phantom walker uniqueness 6.67 below 7.0"
+    },
+    {
+      "at": "2026-08-20T03:00:19.822020",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 3,
+          "tension_advancement": 4,
+          "branch_choke_logic": 5
+        },
+        "total": 12,
+        "reason": "The scene collapses the intimate, visceral horror of the previous beats (the ribs, the blood, the architecture of self) into a generic fantasy escape trope. Shifting from \"my architecture\" to \"cobblestones\" and \"city gates\" breaks the established logic of the entity's containment; if the entity is the architecture, it cannot be locked out by a brass key. This is a structural betrayal of the premise, offering a spatial solution to a metaphysical problem, which renders the choices cosmetic and the tension inert.",
+        "precedent": "The opening of Kafka's *The Trial* \u2014 a bureaucratic, spatial dislocation that feels significant but ultimately amounts to nothing but confusion. This scene earns the comparison only in its failure to ground the metaphysical stakes in tangible consequence.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 3\nTENSION_ADVANCEMENT: 4\nBRANCH_CHOKE_LOGIC: 5\nPRECEDENT: The opening of Kafka's *The Trial* \u2014 a bureaucratic, spatial dislocation that feels significant but ultimately amounts to nothing but confusion. This scene earns the comparison only in its failure to ground the metaphysical stakes in tangible consequence.\nREASON: The scene collapses the intimate, visceral horror of the previous beats (the ribs, the blood, the architecture of self) into a generic fantasy escape trope. Shifting from \"my architecture\" to \"cobblestones\" and \"city gates\" breaks the established logic of the entity's containment; if the entity is the architecture, it cannot be locked out by a brass key. This is a structural betrayal of the premise, offering a spatial solution to a metaphysical problem, which renders the choices cosmetic and the tension inert."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-08-19T03:01:02.561198",
