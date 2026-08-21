@@ -933,6 +933,24 @@
       },
       "decision": "kill",
       "reason": "score below auto_kill_threshold"
+    },
+    {
+      "at": "2026-08-21T03:00:19.512461",
+      "canon_event": "portal_moves_overnight",
+      "score": {
+        "axes": {
+          "dialectic_function": 2,
+          "tension_advancement": 1,
+          "branch_choke_logic": 3
+        },
+        "total": 6,
+        "reason": "This scene fails the most basic test of narrative continuity and logic required by the canon. In Scene 2, the narrator's ribs are described as \"my architecture\" containing living things; in this scene, the narrator is pinned against a door by an external agent (\"she\"), yet the previous scene established the narrator's body *is* the architecture. The transition from \"blood on the floor\" to \"standing on the other side of the sky\" is not a poetic leap like Gatsby's green light; it is a structural collapse where cause and effect are severed. The choices presented (\"step through\" vs \"trace outline\") are meaningless because the spatial reality has been arbitrarily rewritten without emotional or logical justification, rendering the dialectic null.",
+        "precedent": "The \"jump cut\" in a bad student film; it earns nothing.",
+        "decision": "kill",
+        "raw": "DIALECTIC_FUNCTION: 2\nTENSION_ADVANCEMENT: 1\nBRANCH_CHOKE_LOGIC: 3\nPRECEDENT: The \"jump cut\" in a bad student film; it earns nothing.\nREASON: This scene fails the most basic test of narrative continuity and logic required by the canon. In Scene 2, the narrator's ribs are described as \"my architecture\" containing living things; in this scene, the narrator is pinned against a door by an external agent (\"she\"), yet the previous scene established the narrator's body *is* the architecture. The transition from \"blood on the floor\" to \"standing on the other side of the sky\" is not a poetic leap like Gatsby's green light; it is a structural collapse where cause and effect are severed. The choices presented (\"step through\" vs \"trace outline\") are meaningless because the spatial reality has been arbitrarily rewritten without emotional or logical justification, rendering the dialectic null."
+      },
+      "decision": "kill",
+      "reason": "score below auto_kill_threshold"
     }
   ],
   "last_recalibrated": "2026-08-19T03:01:02.561198",

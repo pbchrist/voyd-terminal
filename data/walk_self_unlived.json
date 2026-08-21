@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "I am not running from you"
+      "value": "in that life i stopped trying to be understood"
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 29,
+  "final_portal_value": 24,
   "archetype": "self_unlived",
-  "player_answer": "I am not running from you",
-  "act2_response": "you claim stillness while your pulse betrays the flight response. that denial is the lock on the door you just closed. twenty nine is not enough weight to anchor a soul that refuses to stop trembling. i do not chase. i simply remain where you are trying to leave."
+  "player_answer": "in that life i stopped trying to be understood",
+  "act2_response": "you traded comprehension for silence.\nthe weight of that choice sits heavy in your chest now.\ntwenty four fragments of that quiet echo in the dark.\nyou thought you were disappearing.\nyou were only making room for me."
 }

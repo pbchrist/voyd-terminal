@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    18,
-    16,
-    20,
-    18,
-    20,
-    24,
-    22,
-    24,
-    24,
+    11,
+    9,
+    13,
+    19,
+    21,
+    25,
+    23,
+    25,
+    25,
+    29,
     28,
-    27,
-    25
+    26
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "feed",
-      "label": "what are you",
-      "delta": 5
+      "type": "starve",
+      "label": "what do you want from me",
+      "delta": -2
     },
     {
       "node": "3.0",
@@ -74,9 +74,9 @@
     },
     {
       "node": "5.3",
-      "type": "starve",
-      "label": "maybe not as different as i think",
-      "delta": -2
+      "type": "feed",
+      "label": "completely different",
+      "delta": 6
     },
     {
       "node": "6.3",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "In that life, I never stayed."
+      "value": "in that life, i didn't choose to stay"
     },
     {
       "node": "ep_1r",
@@ -132,8 +132,8 @@
       "delta": -2
     }
   ],
-  "final_portal_value": 23,
+  "final_portal_value": 24,
   "archetype": "self_regret",
-  "player_answer": "In that life, I never stayed.",
-  "act2_response": "the door closes because you let it. you counted the seconds and found them wanting. twenty three fragments remain in your palm. cold and heavy as regret. they pull you down."
+  "player_answer": "in that life, i didn't choose to stay",
+  "act2_response": "the door is still open in the dark.\nyou left it that way on purpose.\nthe air there grew cold because you wanted it to.\nnow you walk back into the chill you made.\nwelcome home to the silence you chose."
 }

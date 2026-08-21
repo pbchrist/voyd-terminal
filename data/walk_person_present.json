@@ -23,13 +23,13 @@
     17,
     22,
     24,
-    28,
+    22,
+    20,
+    22,
+    22,
     26,
-    28,
-    28,
-    32,
-    37,
-    40
+    31,
+    34
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -75,7 +75,7 @@
     {
       "node": "5.1",
       "type": "feed",
-      "label": "recently",
+      "label": "long enough that i've stopped counting",
       "delta": 5
     },
     {
@@ -86,9 +86,9 @@
     },
     {
       "node": "7.0p",
-      "type": "feed",
-      "label": "show me",
-      "delta": 4
+      "type": "starve",
+      "label": "i don't need to see it",
+      "delta": -2
     },
     {
       "node": "8.0p",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that version i don't have to explain why i am still here"
+      "value": "In that version, I don't have to fix it."
     },
     {
       "node": "ep_1p",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "feed",
-      "label": "drink deep of her terror",
-      "delta": 3
+      "type": "starve",
+      "label": "pull back and leave her empty",
+      "delta": -2
     }
   ],
-  "final_portal_value": 43,
+  "final_portal_value": 32,
   "archetype": "person_present",
-  "player_answer": "in that version i don't have to explain why i am still here",
-  "act2_response": "the door you walk through weighs forty-three pounds. it is the weight of a secret kept too long. you think silence is protection. silence is just the pause before the verdict. here you do not speak. here you simply rot."
+  "player_answer": "In that version, I don't have to fix it.",
+  "act2_response": "you left the broken pieces on the floor.\nlet them gather dust.\nlet the silence do the work your hands refused to do.\nthe weight of thirty-two memories is light when you stop trying to lift it.\nsleep now."
 }
