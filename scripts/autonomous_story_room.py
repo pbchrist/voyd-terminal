@@ -185,11 +185,11 @@ def commit_and_push(message: str, allowed_only: set[str] | None = None) -> bool:
 
 
 def one_cycle() -> int:
+    ensure_clean_and_synced()
     if PENDING_PATH.exists():
         log("paused: story_room/pending_speciation.json requires Patrick's decision")
         return 0
 
-    ensure_clean_and_synced()
     before = git("rev-parse", "HEAD").stdout.strip()
     log(f"starting autonomous Story Room cycle from {before[:12]}")
     proc = run([sys.executable, str(ROOT / "scripts" / "run_story_room.py")], check=False, capture=False)
@@ -197,12 +197,14 @@ def one_cycle() -> int:
         discard_incomplete_run()
         raise AutonomyError(f"Story Room process exited {proc.returncode}; nothing committed")
 
+    preserve_on_error = False
     try:
         result = load_status()
         status = result["status"]
         log(f"Story Room verdict: {status}: {result['summary']}")
 
         if status == "pending_speciation":
+            preserve_on_error = True
             if not result["human_input_required"] or not PENDING_PATH.exists():
                 raise AutonomyError("pending_speciation verdict is missing its required decision packet")
             commit_and_push(
@@ -228,8 +230,11 @@ def one_cycle() -> int:
         commit_and_push(f"story-room: autonomous evolution {stamp()}")
         return 0
     except Exception:
-        # A malformed or unsafe run must never leave half-approved story edits behind.
-        discard_incomplete_run()
+        if preserve_on_error:
+            log("preserving speciation worktree for human inspection")
+        else:
+            # A malformed or unsafe autonomous mutation must never remain half-approved.
+            discard_incomplete_run()
         raise
 
 
