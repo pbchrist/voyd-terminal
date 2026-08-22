@@ -11,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = "voyd-story-room"
+STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
+
 
 def build_prompt(packet_path: Path) -> str:
     return f"""Run exactly one Voyd Story Room evolution cycle on THIS exact repository: {ROOT}.
@@ -34,6 +36,20 @@ Requirements:
 - Never use numeric story-quality averages or tension_delta as proof of drama.
 - Never use the legacy forced-archetype Phantom Walker script as a substitute for delegated walkers.
 - Do not merge to main or read/write another worktree. Never fall back to `/home/patrick/voyd-terminal`.
+
+Before you exit, ALWAYS write `{STATUS_PATH}` as valid JSON with exactly these fields:
+{{
+  "status": "passed|pending_speciation|blocked|failed",
+  "human_input_required": true_or_false,
+  "final_replay": "passed|not_applicable|blocked|failed",
+  "summary": "one concise factual sentence"
+}}
+Rules for that status file:
+- `passed` is allowed ONLY after an implemented mutation completes the final six-Phantom replay and all six PASS.
+- `pending_speciation` means multiple structurally valid futures survived and Patrick must choose; do not implement any of them.
+- `blocked` means provider limits, unavailable tools/models, interrupted delegation, or another external blocker prevented a trustworthy verdict.
+- `failed` means the cycle itself failed mechanically or violated a required invariant.
+- Never claim `passed` because tests alone passed. The final six-Phantom replay is mandatory.
 
 Persist reports and artifacts under story_room/. End with a concise factual summary of what happened and whether Patrick input is required.
 """
@@ -64,6 +80,8 @@ def run(max_turns: int) -> int:
     env.setdefault("HERMES_HOME", str(Path.home() / ".hermes"))
     env["VOYD_FORCE_SYNC_DELEGATION"] = "1"
     require_sync_hook(env)
+    STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    STATUS_PATH.unlink(missing_ok=True)
     cmd = [
         "hermes", "chat", "-Q", "--in", str(ROOT),
         "--skills", SKILL, "--max-turns", str(max_turns),
@@ -72,6 +90,7 @@ def run(max_turns: int) -> int:
     packet_path = build_packet()
     proc = subprocess.run(cmd, input=build_prompt(packet_path), text=True, env=env)
     return proc.returncode
+
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
