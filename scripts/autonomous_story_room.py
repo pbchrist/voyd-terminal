@@ -1,0 +1,251 @@
+#!/usr/bin/env python3
+"""Run one safe autonomous Story Room cycle, validate it, commit it, and push it."""
+from __future__ import annotations
+
+import fcntl
+import json
+import os
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+BRANCH = os.environ.get("VOYD_AUTONOMOUS_BRANCH", "feat/story-engine-v2")
+REMOTE = os.environ.get("VOYD_AUTONOMOUS_REMOTE", "origin")
+STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
+PENDING_PATH = ROOT / "story_room" / "pending_speciation.json"
+LOCK_PATH = ROOT / "logs" / ".autonomous_story_room.lock"
+LOG_PATH = ROOT / "logs" / "autonomous_story_room.log"
+PROTECTED_CANON = {
+    "data/voyd_canon_mythography.md",
+    "data/canon_events.json",
+}
+
+
+class AutonomyError(RuntimeError):
+    pass
+
+
+def stamp() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def log(message: str) -> None:
+    line = f"[{stamp()}] {message}"
+    print(line, flush=True)
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with LOG_PATH.open("a", encoding="utf-8") as handle:
+        handle.write(line + "\n")
+
+
+def run(cmd: list[str], *, check: bool = True, capture: bool = False) -> subprocess.CompletedProcess[str]:
+    proc = subprocess.run(
+        cmd,
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE if capture else None,
+        stderr=subprocess.PIPE if capture else None,
+    )
+    if check and proc.returncode != 0:
+        detail = ""
+        if capture:
+            detail = f"\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}"
+        raise AutonomyError(f"command failed ({proc.returncode}): {' '.join(cmd)}{detail}")
+    return proc
+
+
+def git(*args: str, check: bool = True, capture: bool = True) -> subprocess.CompletedProcess[str]:
+    return run(["git", *args], check=check, capture=capture)
+
+
+def acquire_lock():
+    LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    handle = LOCK_PATH.open("w")
+    try:
+        fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        handle.close()
+        return None
+    return handle
+
+
+def current_branch() -> str:
+    return git("branch", "--show-current").stdout.strip()
+
+
+def status_paths() -> set[str]:
+    changed = set(filter(None, git("diff", "--name-only", "HEAD").stdout.splitlines()))
+    untracked = set(filter(None, git("ls-files", "--others", "--exclude-standard").stdout.splitlines()))
+    return changed | untracked
+
+
+def ensure_clean_and_synced() -> None:
+    branch = current_branch()
+    if branch != BRANCH:
+        raise AutonomyError(f"refusing to run on branch {branch!r}; expected {BRANCH!r}")
+    dirty = git("status", "--porcelain", "--untracked-files=all").stdout.strip()
+    if dirty:
+        raise AutonomyError(f"refusing to start from a dirty worktree:\n{dirty}")
+
+    git("fetch", REMOTE, BRANCH)
+    remote_ref = f"{REMOTE}/{BRANCH}"
+    local_sha = git("rev-parse", "HEAD").stdout.strip()
+    remote_sha = git("rev-parse", remote_ref).stdout.strip()
+    if local_sha == remote_sha:
+        return
+
+    local_is_ancestor = git("merge-base", "--is-ancestor", local_sha, remote_sha, check=False).returncode == 0
+    remote_is_ancestor = git("merge-base", "--is-ancestor", remote_sha, local_sha, check=False).returncode == 0
+    if local_is_ancestor:
+        log(f"fast-forwarding local branch to {remote_sha[:12]}")
+        git("merge", "--ff-only", remote_ref, capture=False)
+        return
+    if remote_is_ancestor:
+        log("local branch is ahead of GitHub; pushing pending local commits before next cycle")
+        git("push", REMOTE, f"HEAD:{BRANCH}", capture=False)
+        return
+    raise AutonomyError("local and remote branches diverged; human review required")
+
+
+def discard_incomplete_run() -> None:
+    log("discarding incomplete autonomous story changes; ignored run reports are preserved")
+    git("reset", "--hard", "HEAD", capture=False)
+    git("clean", "-fd", capture=False)
+
+
+def load_status() -> dict:
+    if not STATUS_PATH.exists():
+        raise AutonomyError("Story Room exited without writing last_run_status.json")
+    try:
+        data = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise AutonomyError(f"invalid Story Room status JSON: {exc}") from exc
+    required = {"status", "human_input_required", "final_replay", "summary"}
+    if set(data) != required:
+        raise AutonomyError(f"unexpected Story Room status schema: {sorted(data)}")
+    return data
+
+
+def verify_canon_untouched() -> None:
+    changed = status_paths()
+    touched = sorted(PROTECTED_CANON & changed)
+    if touched:
+        raise AutonomyError(f"immutable source canon was modified: {touched}")
+
+
+def validate_json() -> None:
+    candidates = list((ROOT / "data").glob("*.json"))
+    candidates += list((ROOT / "frontend").glob("*.json"))
+    candidates += list((ROOT / "frontend" / "data").glob("*.json"))
+    candidates.append(ROOT / "story_room" / "genome.json")
+    for path in candidates:
+        if path.exists():
+            json.loads(path.read_text(encoding="utf-8"))
+
+
+def validate_passed_run() -> None:
+    verify_canon_untouched()
+    run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"], capture=False)
+    validate_json()
+    git("diff", "--check")
+
+
+def commit_and_push(message: str, allowed_only: set[str] | None = None) -> bool:
+    changed = status_paths()
+    if allowed_only is not None:
+        unexpected = sorted(changed - allowed_only)
+        if unexpected:
+            raise AutonomyError(
+                "human-speciation cycle changed files beyond the decision packet; refusing to commit: "
+                + ", ".join(unexpected)
+            )
+    if not changed:
+        log("cycle produced no durable changes; no commit needed")
+        return False
+
+    touched = sorted(PROTECTED_CANON & changed)
+    if touched:
+        raise AutonomyError(f"refusing to stage immutable canon: {touched}")
+
+    git("add", "-A", capture=False)
+    staged = set(filter(None, git("diff", "--cached", "--name-only").stdout.splitlines()))
+    if PROTECTED_CANON & staged:
+        raise AutonomyError("immutable canon reached the Git index; refusing commit")
+    if allowed_only is not None and staged - allowed_only:
+        raise AutonomyError(f"unexpected staged files: {sorted(staged - allowed_only)}")
+    if not staged:
+        log("nothing staged; no commit needed")
+        return False
+
+    git("commit", "-m", message, capture=False)
+    git("push", REMOTE, f"HEAD:{BRANCH}", capture=False)
+    log(f"pushed autonomous commit: {git('rev-parse', '--short', 'HEAD').stdout.strip()}")
+    return True
+
+
+def one_cycle() -> int:
+    if PENDING_PATH.exists():
+        log("paused: story_room/pending_speciation.json requires Patrick's decision")
+        return 0
+
+    ensure_clean_and_synced()
+    before = git("rev-parse", "HEAD").stdout.strip()
+    log(f"starting autonomous Story Room cycle from {before[:12]}")
+    proc = run([sys.executable, str(ROOT / "scripts" / "run_story_room.py")], check=False, capture=False)
+    if proc.returncode != 0:
+        discard_incomplete_run()
+        raise AutonomyError(f"Story Room process exited {proc.returncode}; nothing committed")
+
+    try:
+        result = load_status()
+        status = result["status"]
+        log(f"Story Room verdict: {status}: {result['summary']}")
+
+        if status == "pending_speciation":
+            if not result["human_input_required"] or not PENDING_PATH.exists():
+                raise AutonomyError("pending_speciation verdict is missing its required decision packet")
+            commit_and_push(
+                f"story-room: request Patrick speciation decision {stamp()}",
+                allowed_only={"story_room/pending_speciation.json"},
+            )
+            log("autonomy paused at a genuine artistic fork")
+            return 0
+
+        if status in {"blocked", "failed"}:
+            discard_incomplete_run()
+            log("no commit: final expert gate did not pass")
+            return 0
+
+        if status != "passed":
+            raise AutonomyError(f"unknown Story Room verdict: {status!r}")
+        if result["human_input_required"]:
+            raise AutonomyError("passed verdict cannot simultaneously require human input")
+        if result["final_replay"] != "passed":
+            raise AutonomyError("passed verdict without a passed final six-Phantom replay")
+
+        validate_passed_run()
+        commit_and_push(f"story-room: autonomous evolution {stamp()}")
+        return 0
+    except Exception:
+        # A malformed or unsafe run must never leave half-approved story edits behind.
+        discard_incomplete_run()
+        raise
+
+
+def main() -> int:
+    lock = acquire_lock()
+    if lock is None:
+        log("another autonomous Story Room cycle is already running; exiting")
+        return 0
+    try:
+        return one_cycle()
+    except Exception as exc:
+        log(f"ERROR: {exc}")
+        return 1
+    finally:
+        lock.close()
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
