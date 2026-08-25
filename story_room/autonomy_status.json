@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-08-25T19:51:37Z",
+  "status": "blocked",
+  "human_input_required": false,
+  "final_replay": "blocked",
+  "summary": "Both the primary HermBeast model route and the local Qwen fallback failed to produce a trustworthy Story Room verdict."
+}
