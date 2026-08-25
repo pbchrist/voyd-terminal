@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import urllib.request
@@ -19,6 +20,19 @@ HERMBEAST_HOME = Path("/home/patrick/.hermes")
 FORBIDDEN_HERMIONE_HOME = Path("/home/patrick/hermes-instance2")
 LOCAL_FALLBACK_BASE_URL = "http://127.0.0.1:8082/v1"
 LOCAL_FALLBACK_PROVIDER = "lmstudio"
+HERMBEAST_PATH = ":".join([
+    "/home/patrick/.hermes/hermes-agent/venv/bin",
+    "/home/patrick/.hermes/hermes-agent/node_modules/.bin",
+    "/home/patrick/.hermes/node/bin",
+    "/home/patrick/.hermes/node",
+    "/home/patrick/.local/bin",
+    "/usr/local/sbin",
+    "/usr/local/bin",
+    "/usr/sbin",
+    "/usr/bin",
+    "/sbin",
+    "/bin",
+])
 
 
 def load_resume() -> dict | None:
@@ -169,9 +183,25 @@ def discover_local_model() -> str | None:
     return str(model_id).strip() if model_id else None
 
 
+def resolve_hermes_executable(env: dict[str, str]) -> str:
+    explicit_candidates = [
+        HERMBEAST_HOME / "hermes-agent" / "venv" / "bin" / "hermes",
+        HERMBEAST_HOME / "bin" / "hermes",
+        Path("/home/patrick/.local/bin/hermes"),
+    ]
+    for candidate in explicit_candidates:
+        if candidate.exists() and os.access(candidate, os.X_OK):
+            return str(candidate)
+    found = shutil.which("hermes", path=env.get("PATH"))
+    if found:
+        return found
+    raise RuntimeError("HermBeast executable 'hermes' was not found in the explicit HermBeast paths or PATH")
+
+
 def run_hermes(prompt: str, env: dict[str, str], max_turns: int, *, provider: str | None = None, model: str | None = None) -> int:
+    hermes_exe = resolve_hermes_executable(env)
     cmd = [
-        "hermes", "chat", "-Q", "--in", str(ROOT),
+        hermes_exe, "chat", "-Q", "--in", str(ROOT),
         "--skills", SKILL, "--max-turns", str(max_turns),
         "--query-file", "-",
     ]
@@ -187,6 +217,8 @@ def run(max_turns: int) -> int:
     env = os.environ.copy()
     env["HERMES_HOME"] = str(HERMBEAST_HOME)
     env["VOYD_FORCE_SYNC_DELEGATION"] = "1"
+    env["VIRTUAL_ENV"] = str(HERMBEAST_HOME / "hermes-agent" / "venv")
+    env["PATH"] = HERMBEAST_PATH
     require_sync_hook(env)
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.unlink(missing_ok=True)
@@ -196,8 +228,6 @@ def run(max_turns: int) -> int:
     primary_rc = run_hermes(prompt, env, max_turns)
     primary_status = read_status()
 
-    # A normal completed verdict is authoritative. Only a provider/external block,
-    # missing status, or process failure should trigger the independent local route.
     if primary_rc == 0 and primary_status and primary_status["status"] != "blocked":
         return 0
 
