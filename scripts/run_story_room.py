@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run one HermBeast-native Voyd Story Room evolution cycle."""
+"""Run one HermBeast-native Voyd Story Room evolution cycle with local failover."""
 from __future__ import annotations
 
 import argparse
@@ -7,6 +7,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -16,6 +17,8 @@ STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
 RESUME_PATH = ROOT / "story_room" / "resume_speciation.json"
 HERMBEAST_HOME = Path("/home/patrick/.hermes")
 FORBIDDEN_HERMIONE_HOME = Path("/home/patrick/hermes-instance2")
+LOCAL_FALLBACK_BASE_URL = "http://127.0.0.1:8082/v1"
+LOCAL_FALLBACK_PROVIDER = "lmstudio"
 
 
 def load_resume() -> dict | None:
@@ -118,6 +121,68 @@ def require_sync_hook(env: dict[str, str]) -> None:
         )
 
 
+def read_status() -> dict | None:
+    if not STATUS_PATH.exists():
+        return None
+    try:
+        data = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    required = {"status", "human_input_required", "final_replay", "summary"}
+    if set(data) != required:
+        return None
+    return data
+
+
+def write_blocked_status(summary: str) -> None:
+    STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    STATUS_PATH.write_text(
+        json.dumps(
+            {
+                "status": "blocked",
+                "human_input_required": False,
+                "final_replay": "blocked",
+                "summary": summary,
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+
+def clean_partial_attempt() -> None:
+    subprocess.run(["git", "reset", "--hard", "HEAD"], cwd=ROOT, check=True)
+    subprocess.run(["git", "clean", "-fd"], cwd=ROOT, check=True)
+
+
+def discover_local_model() -> str | None:
+    try:
+        with urllib.request.urlopen(f"{LOCAL_FALLBACK_BASE_URL}/models", timeout=3) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+    except Exception:
+        return None
+    models = payload.get("data") if isinstance(payload, dict) else None
+    if not isinstance(models, list) or not models:
+        return None
+    model_id = models[0].get("id") if isinstance(models[0], dict) else None
+    return str(model_id).strip() if model_id else None
+
+
+def run_hermes(prompt: str, env: dict[str, str], max_turns: int, *, provider: str | None = None, model: str | None = None) -> int:
+    cmd = [
+        "hermes", "chat", "-Q", "--in", str(ROOT),
+        "--skills", SKILL, "--max-turns", str(max_turns),
+        "--query-file", "-",
+    ]
+    if provider:
+        cmd.extend(["--provider", provider])
+    if model:
+        cmd.extend(["--model", model])
+    proc = subprocess.run(cmd, input=prompt, text=True, env=env)
+    return proc.returncode
+
+
 def run(max_turns: int) -> int:
     env = os.environ.copy()
     env["HERMES_HOME"] = str(HERMBEAST_HOME)
@@ -125,14 +190,45 @@ def run(max_turns: int) -> int:
     require_sync_hook(env)
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.unlink(missing_ok=True)
-    cmd = [
-        "hermes", "chat", "-Q", "--in", str(ROOT),
-        "--skills", SKILL, "--max-turns", str(max_turns),
-        "--query-file", "-",
-    ]
+
     packet_path = build_packet()
-    proc = subprocess.run(cmd, input=build_prompt(packet_path), text=True, env=env)
-    return proc.returncode
+    prompt = build_prompt(packet_path)
+    primary_rc = run_hermes(prompt, env, max_turns)
+    primary_status = read_status()
+
+    # A normal completed verdict is authoritative. Only a provider/external block,
+    # missing status, or process failure should trigger the independent local route.
+    if primary_rc == 0 and primary_status and primary_status["status"] != "blocked":
+        return 0
+
+    print("[story-room] primary model route unavailable; resetting partial work and trying local Qwen fallback", flush=True)
+    clean_partial_attempt()
+    STATUS_PATH.unlink(missing_ok=True)
+
+    local_model = discover_local_model()
+    if not local_model:
+        write_blocked_status("Primary HermBeast model route failed and the local Qwen fallback endpoint on port 8082 was unavailable.")
+        return 0
+
+    fallback_env = env.copy()
+    fallback_env["LM_BASE_URL"] = LOCAL_FALLBACK_BASE_URL
+    fallback_env["LM_API_KEY"] = "local"
+    packet_path = build_packet()
+    fallback_prompt = build_prompt(packet_path) + "\n\nLOCAL FALLBACK MODE: The primary model route failed. Continue the same Story Room procedure using this approved local Qwen route. Do not lower any structural, canon, or six-Phantom acceptance gate.\n"
+    fallback_rc = run_hermes(
+        fallback_prompt,
+        fallback_env,
+        max_turns,
+        provider=LOCAL_FALLBACK_PROVIDER,
+        model=local_model,
+    )
+    fallback_status = read_status()
+    if fallback_rc == 0 and fallback_status:
+        return 0
+
+    clean_partial_attempt()
+    write_blocked_status("Both the primary HermBeast model route and the local Qwen fallback failed to produce a trustworthy Story Room verdict.")
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
