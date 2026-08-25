@@ -1,0 +1,74 @@
+{
+  "cycle_id": "20260824T170638-0700",
+  "status": "pending_speciation",
+  "human_input_required": true,
+  "decision": {
+    "mode": "human",
+    "reason": "multiple structurally viable futures remain and inherited acumen does not decide between them",
+    "fork": [
+      {
+        "id": "mutation_revelation_threshold_then_live_bargain",
+        "title": "Revelation Threshold, Then Live Bargain",
+        "structural_change": "Remove contract formation and resolution from Act 1. Each route ends with a truth the player forced the Voyd to reveal and a threshold election between withdrawing with that truth or entering Act 2 to seek a concrete change. Withdrawal creates an unbound_closed handoff with no contract semantics. Continuing creates a petition_pending handoff carrying the disclosed truth, its constraint on future terms, and initiative. Act 2 then runs a deterministic pre-contract state machine: capture and validate a petition, expose its counterforce, offer terms, and present explicit acceptance or refusal actions. Contract identity and leverage cannot exist before that sequence completes.",
+        "story_consequence": "Act 1 becomes a complete contest for truth and access rather than a compressed bargain ledger. Act 2 gains an opening scene whose dramatic work is the creation and opposition of a concrete objective. Players who withdraw have a genuinely different continuation governed by knowledge and initiative, while players who continue enter a bargain they actively construct instead of being told that an unspecified contract brought them there.",
+        "cost": [
+          "Replaces the current Act 1 contract return, test, and payoff machinery with revelation and threshold branches.",
+          "Requires a new non-contract handoff schema and deterministic Act 2 lifecycle processing in both browser and headless runtimes.",
+          "Requires the story packet builder to traverse beyond the Act 1 boundary so the bargain lifecycle can be reviewed model-free.",
+          "Changes existing tests that assume every route reaches Act 2 with an identified, resolved contract.",
+          "Lengthens the experience by separating revelation, petition, counterforce, offer, and resolution into causally distinct exchanges."
+        ],
+        "inherits": [
+          "law_8e52dd229d27",
+          "law_5361b415500d",
+          "law_80984901e75f",
+          "law_4b28d7570c43",
+          "law_4ca0ffd21c42",
+          "law_f1d61deb3858",
+          "law_4540ed0088aa",
+          "law_a65e6c262ef5"
+        ]
+      },
+      {
+        "id": "mutation_objective_counterforce_matrix",
+        "title": "Objective-Counterforce Matrix",
+        "structural_change": "Replace free petition capture with a bounded dramatic matrix authored in Act 1. The player elects a concrete objective category, then an affected scope, and then confronts the counterforce inseparable from that combination. Objective categories are phrased as actions the player may want, not biographical claims: pressure a present relationship toward renewed commitment, alter the present consequences flowing from a pivotal act, or bind the player's future to an avoided commitment. Subject scope and anchor choices refine the objective without claiming that any selected event is historically true. The selected objective_id and counterforce_id become mandatory state keys, and each contract route offers a structurally different relationship to that same object.",
+        "story_consequence": "The story remains entirely choice-driven while gaining a concrete desire, opponent, and cost on every route. The matrix creates a different dramatic species from free-text petitioning: replay value comes from combinations of authored objectives and resistance, and the four route truths alter terms applied to shared dramatic material rather than labeling empty contracts.",
+        "cost": [
+          "Requires a larger authored node matrix across objective, subject, counterforce, route, and outcome combinations.",
+          "Provides less personal specificity than a player-authored petition.",
+          "Requires careful phrasing so selecting an objective never asserts a fact about the player's life.",
+          "Requires strict build validation to prevent objective or counterforce identifiers from disappearing at reconvergence.",
+          "Requires packet coverage broad enough to prove that matrix combinations remain mechanically distinct."
+        ],
+        "inherits": [
+          "law_8e52dd229d27",
+          "law_5361b415500d",
+          "law_80984901e75f",
+          "law_4b28d7570c43",
+          "law_4ca0ffd21c42",
+          "law_f1d61deb3858",
+          "law_4540ed0088aa",
+          "law_a65e6c262ef5"
+        ]
+      }
+    ]
+  },
+  "options": [
+    "A \u2014 end Act 1 with an earned revelation and withdraw-or-seek-change threshold, then form any bargain live in Act 2 -> Act 1 becomes a complete contest for truth and access while Act 2 elicits and opposes the player's concrete objective -> replaces existing Act 1 contract machinery, adds distinct non-bargain handoffs, and lengthens the experience",
+    "B \u2014 replace free petition capture with an Act 1 matrix of elected objectives, scopes, hypothetical anchors, and mandatory counterforces -> every route remains choice-driven and enters bargaining with a concrete authored desire and resistance -> reduces personal specificity and requires a substantially larger validated node matrix"
+  ],
+  "eliminated": [
+    {
+      "id": "mutation_bound_petition_before_terms",
+      "basis": "Interactive Drama Adversary demonstrated that petition_declined has no defined terminating consequence, renewed action, or structurally separate continuation, so the choice can be erased at the Act 2 frontier or become a dead end."
+    }
+  ],
+  "artifacts": {
+    "packet": "story_room/packets/20260824T170112.json",
+    "mutations": "story_room/mutations/20260824T170638-0700/structural_editor_final.json",
+    "canon_steward": "story_room/mutations/20260824T170638-0700/canon_steward_final.json",
+    "mutation_replay": "story_room/reports/20260824T170638-0700/mutation_replay",
+    "acumen_keeper": "story_room/mutations/20260824T170638-0700/acumen_keeper.json"
+  }
+}
