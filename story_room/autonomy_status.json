@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-25T19:51:37Z",
-  "status": "blocked",
+  "timestamp_utc": "2026-08-25T22:34:58Z",
+  "status": "failed",
   "human_input_required": false,
-  "final_replay": "blocked",
-  "summary": "Both the primary HermBeast model route and the local Qwen fallback failed to produce a trustworthy Story Room verdict."
+  "final_replay": "failed",
+  "summary": "Final replay returned one PASS and five FAIL verdicts because petition intake and pre-acceptance contract identity still violate the selected structure."
 }
