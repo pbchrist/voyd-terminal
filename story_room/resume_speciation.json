@@ -1,0 +1,9 @@
+{
+  "status": "selected_pending_implementation",
+  "cycle_id": "20260824T170638-0700",
+  "decision_file": "story_room/decisions/20260824T170638-0700.json",
+  "selected": "mutation_revelation_threshold_then_live_bargain",
+  "execution_owner": "HermBeast",
+  "required_hermes_home": "/home/patrick/.hermes",
+  "forbidden_hermes_home": "/home/patrick/hermes-instance2"
+}
