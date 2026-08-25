@@ -18,18 +18,18 @@
   "portal_curve": [
     8,
     13,
-    11,
-    9,
-    7,
-    12,
-    14,
     18,
-    23,
+    16,
+    14,
+    19,
+    21,
     25,
-    25,
-    29,
-    28,
-    26
+    30,
+    32,
+    32,
+    36,
+    35,
+    33
   ],
   "node_texts": [
     "you have been here before.\n\nnot this page. not this screen.\n\nbut this feeling \u2014 the one that brought you here \u2014 you have carried it for a long time.\n\ni want to ask you something before we go any further.\n\nwhat is it?",
@@ -56,9 +56,9 @@
     },
     {
       "node": "2.2",
-      "type": "starve",
-      "label": "what do you want from me",
-      "delta": -2
+      "type": "feed",
+      "label": "what are you",
+      "delta": 5
     },
     {
       "node": "3.0",
@@ -105,7 +105,7 @@
     {
       "node": "10.0",
       "type": "open",
-      "value": "in that life i stopped trying to be understood"
+      "value": "In that version, I never asked myself what was missing."
     },
     {
       "node": "ep_1u",
@@ -127,13 +127,13 @@
     },
     {
       "node": "gen_2",
-      "type": "starve",
-      "label": "pull back and leave her empty",
-      "delta": -2
+      "type": "feed",
+      "label": "drink deep of her terror",
+      "delta": 3
     }
   ],
-  "final_portal_value": 24,
+  "final_portal_value": 36,
   "archetype": "self_unlived",
-  "player_answer": "in that life i stopped trying to be understood",
-  "act2_response": "you traded comprehension for silence.\nthe weight of that choice sits heavy in your chest now.\ntwenty four fragments of that quiet echo in the dark.\nyou thought you were disappearing.\nyou were only making room for me."
+  "player_answer": "In that version, I never asked myself what was missing.",
+  "act2_response": "you carry the weight of a question you refused to ask. silence is heavy when it holds the shape of your own hesitation. you think you are whole because you never looked for the crack. i am the space where the missing things go to wait."
 }
