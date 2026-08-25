@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-19T20:23:05.369132+00:00",
+  "updated_at": "2026-08-25T00:55:50.314282+00:00",
   "laws": [
     {
       "id": "law_8e52dd229d27",
@@ -180,5 +180,18 @@
       "updated_at": "2026-08-19T20:23:05.369092+00:00"
     }
   ],
-  "decisions": []
+  "decisions": [
+    {
+      "id": "human_20260824_170638_a",
+      "fork_id": "20260824T170638-0700",
+      "selected": "mutation_revelation_threshold_then_live_bargain",
+      "candidates": [
+        "mutation_revelation_threshold_then_live_bargain",
+        "mutation_objective_counterforce_matrix"
+      ],
+      "rationale": "Patrick selected option A: ship it. No additional rationale supplied.",
+      "recorded_at": "2026-08-25T00:55:50.313778+00:00",
+      "law_ids": []
+    }
+  ]
 }
