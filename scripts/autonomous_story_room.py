@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BRANCH = os.environ.get("VOYD_AUTONOMOUS_BRANCH", "feat/story-engine-v2")
 REMOTE = os.environ.get("VOYD_AUTONOMOUS_REMOTE", "origin")
 STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
+PUBLIC_STATUS_PATH = ROOT / "story_room" / "autonomy_status.json"
 PENDING_PATH = ROOT / "story_room" / "pending_speciation.json"
 LOCK_PATH = ROOT / "logs" / ".autonomous_story_room.lock"
 LOG_PATH = ROOT / "logs" / "autonomous_story_room.log"
@@ -37,6 +38,23 @@ def log(message: str) -> None:
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     with LOG_PATH.open("a", encoding="utf-8") as handle:
         handle.write(line + "\n")
+
+
+def write_public_status(status: str, summary: str, *, human_input_required: bool = False, final_replay: str = "not_applicable") -> None:
+    PUBLIC_STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    PUBLIC_STATUS_PATH.write_text(
+        json.dumps(
+            {
+                "timestamp_utc": stamp(),
+                "status": status,
+                "human_input_required": human_input_required,
+                "final_replay": final_replay,
+                "summary": summary,
+            },
+            indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
 
 
 def run(cmd: list[str], *, check: bool = True, capture: bool = False) -> subprocess.CompletedProcess[str]:
@@ -156,10 +174,7 @@ def commit_and_push(message: str, allowed_only: set[str] | None = None) -> bool:
     if allowed_only is not None:
         unexpected = sorted(changed - allowed_only)
         if unexpected:
-            raise AutonomyError(
-                "human-speciation cycle changed files beyond the decision packet; refusing to commit: "
-                + ", ".join(unexpected)
-            )
+            raise AutonomyError("unexpected files for constrained commit: " + ", ".join(unexpected))
     if not changed:
         log("cycle produced no durable changes; no commit needed")
         return False
@@ -184,9 +199,15 @@ def commit_and_push(message: str, allowed_only: set[str] | None = None) -> bool:
     return True
 
 
+def commit_status_only(message: str) -> None:
+    commit_and_push(message, allowed_only={"story_room/autonomy_status.json"})
+
+
 def one_cycle() -> int:
     ensure_clean_and_synced()
     if PENDING_PATH.exists():
+        write_public_status("pending_speciation", "Story Room is waiting for Patrick's artistic decision.", human_input_required=True)
+        commit_status_only(f"story-room: status pending speciation {stamp()}")
         log("paused: story_room/pending_speciation.json requires Patrick's decision")
         return 0
 
@@ -195,7 +216,9 @@ def one_cycle() -> int:
     proc = run([sys.executable, str(ROOT / "scripts" / "run_story_room.py")], check=False, capture=False)
     if proc.returncode != 0:
         discard_incomplete_run()
-        raise AutonomyError(f"Story Room process exited {proc.returncode}; nothing committed")
+        write_public_status("failed", f"Story Room process exited {proc.returncode}; no story mutation was accepted.", final_replay="failed")
+        commit_status_only(f"story-room: record failed cycle {stamp()}")
+        return 0
 
     preserve_on_error = False
     try:
@@ -207,16 +230,21 @@ def one_cycle() -> int:
             preserve_on_error = True
             if not result["human_input_required"] or not PENDING_PATH.exists():
                 raise AutonomyError("pending_speciation verdict is missing its required decision packet")
+            write_public_status(status, result["summary"], human_input_required=True, final_replay=result["final_replay"])
             commit_and_push(
                 f"story-room: request Patrick speciation decision {stamp()}",
-                allowed_only={"story_room/pending_speciation.json"},
+                allowed_only={"story_room/pending_speciation.json", "story_room/autonomy_status.json"},
             )
             log("autonomy paused at a genuine artistic fork")
             return 0
 
         if status in {"blocked", "failed"}:
+            summary = result["summary"]
+            replay = result["final_replay"]
             discard_incomplete_run()
-            log("no commit: final expert gate did not pass")
+            write_public_status(status, summary, human_input_required=result["human_input_required"], final_replay=replay)
+            commit_status_only(f"story-room: record {status} cycle {stamp()}")
+            log(f"no story commit: {status} gate did not pass; status was pushed")
             return 0
 
         if status != "passed":
@@ -226,16 +254,18 @@ def one_cycle() -> int:
         if result["final_replay"] != "passed":
             raise AutonomyError("passed verdict without a passed final six-Phantom replay")
 
+        write_public_status("passed", result["summary"], final_replay="passed")
         validate_passed_run()
         commit_and_push(f"story-room: autonomous evolution {stamp()}")
         return 0
-    except Exception:
+    except Exception as exc:
         if preserve_on_error:
             log("preserving speciation worktree for human inspection")
-        else:
-            # A malformed or unsafe autonomous mutation must never remain half-approved.
-            discard_incomplete_run()
-        raise
+            raise
+        discard_incomplete_run()
+        write_public_status("failed", f"Autonomy supervisor error: {exc}", final_replay="failed")
+        commit_status_only(f"story-room: record supervisor failure {stamp()}")
+        return 0
 
 
 def main() -> int:
