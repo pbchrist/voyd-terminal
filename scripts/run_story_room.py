@@ -8,7 +8,6 @@ import os
 import shutil
 import subprocess
 import sys
-import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -18,8 +17,6 @@ STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
 RESUME_PATH = ROOT / "story_room" / "resume_speciation.json"
 HERMBEAST_HOME = Path("/home/patrick/.hermes")
 FORBIDDEN_HERMIONE_HOME = Path("/home/patrick/hermes-instance2")
-LOCAL_FALLBACK_BASE_URL = "http://127.0.0.1:8082/v1"
-LOCAL_FALLBACK_PROVIDER = "lmstudio"
 HERMBEAST_PATH = ":".join([
     "/home/patrick/.hermes/hermes-agent/venv/bin",
     "/home/patrick/.hermes/hermes-agent/node_modules/.bin",
@@ -170,19 +167,6 @@ def clean_partial_attempt() -> None:
     subprocess.run(["git", "clean", "-fd"], cwd=ROOT, check=True)
 
 
-def discover_local_model() -> str | None:
-    try:
-        with urllib.request.urlopen(f"{LOCAL_FALLBACK_BASE_URL}/models", timeout=3) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-    except Exception:
-        return None
-    models = payload.get("data") if isinstance(payload, dict) else None
-    if not isinstance(models, list) or not models:
-        return None
-    model_id = models[0].get("id") if isinstance(models[0], dict) else None
-    return str(model_id).strip() if model_id else None
-
-
 def resolve_hermes_executable(env: dict[str, str]) -> str:
     explicit_candidates = [
         HERMBEAST_HOME / "hermes-agent" / "venv" / "bin" / "hermes",
@@ -214,6 +198,14 @@ def run_hermes(prompt: str, env: dict[str, str], max_turns: int, *, provider: st
 
 
 def run(max_turns: int) -> int:
+    """Run exactly one HermBeast-native Story Room cycle.
+
+    HermBeast is the ONLY model route for the Voyd Story Room. There is no
+    silent local-Qwen fallback: if the HermBeast route cannot produce a
+    trustworthy verdict, the cycle is written as BLOCKED (never silently
+    substituted by a different model/identity). The supervisor then posts the
+    block visibly so Patrick is never left guessing why nothing happened.
+    """
     env = os.environ.copy()
     env["HERMES_HOME"] = str(HERMBEAST_HOME)
     env["VOYD_FORCE_SYNC_DELEGATION"] = "1"
@@ -231,33 +223,24 @@ def run(max_turns: int) -> int:
     if primary_rc == 0 and primary_status and primary_status["status"] != "blocked":
         return 0
 
-    print("[story-room] primary model route unavailable; resetting partial work and trying local Qwen fallback", flush=True)
-    clean_partial_attempt()
-    STATUS_PATH.unlink(missing_ok=True)
-
-    local_model = discover_local_model()
-    if not local_model:
-        write_blocked_status("Primary HermBeast model route failed and the local Qwen fallback endpoint on port 8082 was unavailable.")
-        return 0
-
-    fallback_env = env.copy()
-    fallback_env["LM_BASE_URL"] = LOCAL_FALLBACK_BASE_URL
-    fallback_env["LM_API_KEY"] = "local"
-    packet_path = build_packet()
-    fallback_prompt = build_prompt(packet_path) + "\n\nLOCAL FALLBACK MODE: The primary model route failed. Continue the same Story Room procedure using this approved local Qwen route. Do not lower any structural, canon, or six-Phantom acceptance gate.\n"
-    fallback_rc = run_hermes(
-        fallback_prompt,
-        fallback_env,
-        max_turns,
-        provider=LOCAL_FALLBACK_PROVIDER,
-        model=local_model,
+    # The HermBeast model route did not return a usable verdict. Do NOT silently
+    # substitute the local Qwen model: that would be a hidden identity/model
+    # swap that Patrick cannot see. Write an explicit BLOCKED status and let the
+    # supervisor announce it with a visible HermBeast post.
+    reason = (
+        "The HermBeast primary model route did not return a trustworthy Story "
+        "Room verdict. No silent local-Qwen fallback was used; the cycle is "
+        "blocked until the HermBeast model route is healthy."
     )
-    fallback_status = read_status()
-    if fallback_rc == 0 and fallback_status:
-        return 0
-
+    if primary_status is None:
+        reason = (
+            f"The HermBeast primary model route exited {primary_rc} without writing "
+            "a status file. No silent local-Qwen fallback was used; the cycle is "
+            "blocked until the HermBeast model route is healthy."
+        )
+    print(f"[story-room] {reason}", flush=True)
     clean_partial_attempt()
-    write_blocked_status("Both the primary HermBeast model route and the local Qwen fallback failed to produce a trustworthy Story Room verdict.")
+    write_blocked_status(reason)
     return 0
 
 

@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BRANCH = os.environ.get("VOYD_AUTONOMOUS_BRANCH", "feat/story-engine-v2")
 REMOTE = os.environ.get("VOYD_AUTONOMOUS_REMOTE", "origin")
+HERMES_HOME = os.environ.get("HERMES_HOME", "/home/patrick/.hermes")
 STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
 PUBLIC_STATUS_PATH = ROOT / "story_room" / "autonomy_status.json"
 PENDING_PATH = ROOT / "story_room" / "pending_speciation.json"
@@ -38,6 +39,28 @@ def log(message: str) -> None:
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     with LOG_PATH.open("a", encoding="utf-8") as handle:
         handle.write(line + "\n")
+
+
+def visible_post(boundary: str, detail: str = "") -> None:
+    """Send a VISIBLE HermBeast Telegram post at a Story Room boundary.
+
+    This is the explicit, user-visible announcement channel. A failure to post
+    is treated as an autonomy failure: the supervisor must never let a cycle
+    start or end without a visible HermBeast post, and must never fall back to
+    a hidden Qwen / log / status-JSON channel.
+    """
+    post_script = ROOT / "scripts" / "story_room_post.py"
+    proc = subprocess.run(
+        [sys.executable, str(post_script), "--boundary", boundary, "--detail", detail],
+        cwd=ROOT,
+        text=True,
+        env=os.environ.copy(),
+        capture_output=True,
+    )
+    if proc.returncode != 0:
+        err = (proc.stderr or proc.stdout or "no output").strip()
+        raise AutonomyError(f"visible HermBeast post ({boundary}) FAILED — cycle must not proceed silently: {err}")
+    log(f"visible HermBeast post delivered: {boundary}")
 
 
 def write_public_status(status: str, summary: str, *, human_input_required: bool = False, final_replay: str = "not_applicable") -> None:
@@ -213,10 +236,12 @@ def one_cycle() -> int:
 
     before = git("rev-parse", "HEAD").stdout.strip()
     log(f"starting autonomous Story Room cycle from {before[:12]}")
+    visible_post("start", f"Starting autonomous Story Room cycle from {before[:12]}. Running under HermBeast only (HERMES_HOME={HERMES_HOME}).")
     proc = run([sys.executable, str(ROOT / "scripts" / "run_story_room.py")], check=False, capture=False)
     if proc.returncode != 0:
         discard_incomplete_run()
         write_public_status("failed", f"Story Room process exited {proc.returncode}; no story mutation was accepted.", final_replay="failed")
+        visible_post("failed", f"Story Room process exited {proc.returncode}; no story mutation was accepted.")
         commit_status_only(f"story-room: record failed cycle {stamp()}")
         return 0
 
@@ -231,6 +256,7 @@ def one_cycle() -> int:
             if not result["human_input_required"] or not PENDING_PATH.exists():
                 raise AutonomyError("pending_speciation verdict is missing its required decision packet")
             write_public_status(status, result["summary"], human_input_required=True, final_replay=result["final_replay"])
+            visible_post("decision", f"Story Room stopped for Patrick's speciation decision. {result['summary']}")
             commit_and_push(
                 f"story-room: request Patrick speciation decision {stamp()}",
                 allowed_only={"story_room/pending_speciation.json", "story_room/autonomy_status.json"},
@@ -243,6 +269,7 @@ def one_cycle() -> int:
             replay = result["final_replay"]
             discard_incomplete_run()
             write_public_status(status, summary, human_input_required=result["human_input_required"], final_replay=replay)
+            visible_post(status, f"Story Room {status}. {summary}")
             commit_status_only(f"story-room: record {status} cycle {stamp()}")
             log(f"no story commit: {status} gate did not pass; status was pushed")
             return 0
@@ -256,6 +283,7 @@ def one_cycle() -> int:
 
         write_public_status("passed", result["summary"], final_replay="passed")
         validate_passed_run()
+        visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}")
         commit_and_push(f"story-room: autonomous evolution {stamp()}")
         return 0
     except Exception as exc:
@@ -264,6 +292,7 @@ def one_cycle() -> int:
             raise
         discard_incomplete_run()
         write_public_status("failed", f"Autonomy supervisor error: {exc}", final_replay="failed")
+        visible_post("failed", f"Story Room supervisor error: {exc}")
         commit_status_only(f"story-room: record supervisor failure {stamp()}")
         return 0
 
