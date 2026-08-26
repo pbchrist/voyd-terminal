@@ -126,19 +126,25 @@ def post(boundary: str, detail: str = "") -> dict:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     branch = os.environ.get("VOYD_AUTONOMOUS_BRANCH", "feat/story-engine-v2")
 
-    lines = [f"{emoji} **Voyd Story Room — {label}**", f"⏱ {now}", f"🐾 HermBeast only"]
+    # Plain text (no parse_mode) is used deliberately: it is deterministic and
+    # immune to Markdown escaping bugs, so arbitrary detail (paths, hashes,
+    # model names) can never break delivery. Emojis and line structure keep the
+    # post clearly readable and unmistakably visible in the chat.
+    lines = [
+        f"{emoji} Voyd Story Room — {label}",
+        f"Time: {now}",
+        "Identity: HermBeast only",
+    ]
     if detail:
         lines.append("")
         lines.append(detail.strip())
     lines.append("")
-    lines.append(f"branch: `{branch}`")
+    lines.append(f"branch: {branch}")
     text = "\n".join(lines)
 
     payload = {
         "chat_id": home,
         "text": text,
-        "parse_mode": "Markdown",
-        "disable_web_page_preview": True,
     }
     last_err = None
     for attempt in range(1, 4):
