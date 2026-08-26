@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-26T02:32:30Z",
+  "timestamp_utc": "2026-08-26T10:25:56Z",
   "status": "blocked",
   "human_input_required": false,
   "final_replay": "blocked",
-  "summary": "The HermBeast primary model route exited 1 without writing a status file. No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
+  "summary": "The HermBeast primary model route exited 0 without writing a status file. No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
 }
