@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-25T22:34:58Z",
-  "status": "failed",
+  "timestamp_utc": "2026-08-26T02:32:30Z",
+  "status": "blocked",
   "human_input_required": false,
-  "final_replay": "failed",
-  "summary": "Final replay returned one PASS and five FAIL verdicts because petition intake and pre-acceptance contract identity still violate the selected structure."
+  "final_replay": "blocked",
+  "summary": "The HermBeast primary model route exited 1 without writing a status file. No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
 }
