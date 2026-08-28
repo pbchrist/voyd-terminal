@@ -282,6 +282,7 @@ def one_cycle() -> int:
             raise AutonomyError("passed verdict without a passed final six-Phantom replay")
 
         write_public_status("passed", result["summary"], final_replay="passed")
+        run([sys.executable, str(ROOT / "scripts" / "render_story_md.py")], check=True, capture=False)
         validate_passed_run()
         visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}")
         commit_and_push(f"story-room: autonomous evolution {stamp()}")
