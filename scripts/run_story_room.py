@@ -60,10 +60,12 @@ HUMAN SPECIATION RESUME MODE:
     else:
         process = """
 NORMAL EVOLUTION MODE:
-- Diagnose the earliest structural wound from evidence.
+- Run cold reader/player walks before exposing those agents to the rubric.
+- Run specialist rubric judges over the completed walk evidence.
+- Run a separate Governing Judge to diagnose the earliest load-bearing or highest-leverage wound from evidence.
 - Have a separate Structural Editor create 2-4 genuinely different structural mutations using `background=false`.
 - Have a separate Canon/Continuity Steward prosecute every mutation using `background=false`.
-- Replay surviving mutations through the six logical walker identities.
+- Replay surviving mutations through independent delegated replay walkers, including changed paths, neighboring paths, one unaffected control path, downstream reconvergences, and affected endings.
 - Have a separate Acumen Keeper compare survivors against the Story Genome using `background=false`.
 - If inherited acumen uniquely decides the fork, select and implement it, then replay-test the implementation.
 - If more than one genuinely different structurally valid future survives, DO NOT choose for Patrick. Write story_room/pending_speciation.json with compact A/B/C options in the form structural change -> story consequence -> price, then stop before implementation.
@@ -78,12 +80,22 @@ IDENTITY / ISOLATION REQUIREMENTS:
 
 Use the voyd-story-room skill as governing procedure. This supersedes the legacy numeric evolve.py promotion rubric.
 
+STORY ROOM 2.0 JUDGMENT SYSTEM:
+- The authoritative rubric is `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`.
+- Agent role contracts are under `story_room/agents/`; structured output contracts are under `story_room/schemas/`.
+- The rubric is a diagnostic framework, never an optimization target and never an aggregate score.
+
 Requirements:
 - FIRST run `pwd` and verify it is exactly `{ROOT}`. If not, stop.
 - For child context use the exact files `story_room/STORY_PHYSICS.md`, `story_room/genome.json`, `story_room/ROOM_PROTOCOL.md`, `story_room/walkers/<role>.md`, and the authoritative play packet `{packet_path}`; do not guess root-level aliases.
 - Every Phantom Walker must judge `{packet_path}` first. Do not use browser/computer-use/execute_code to rediscover the playable story unless the packet is demonstrably inconsistent with the repository.
 - Read the actual playable story, active story_room/genome.json, source-canon boundary, prior reports, and all six walker dossiers FROM `{ROOT}` only.
-- Spawn the six Phantom Walkers as real Hermes delegated agents in ONE parallel batch with `background=false`; never background this batch.
+- COLD WALK FIRST: spawn multiple real Hermes delegated leaf agents using `story_room/agents/cold_reader.md`. Cold readers MUST NOT read the rubric or diagnosis files before completing their walk. Validate each against `story_room/schemas/cold_walk.schema.json`.
+- AFTER cold walks complete, spawn separate specialist delegated leaf judges using `story_room/agents/specialist_judges.md` plus `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`. Specialists judge only their assigned domains and cite concrete evidence.
+- Spawn a separate Governing Judge using `story_room/agents/governing_judge.md` to synthesize the cold walks and specialist reports. No aggregate score.
+- The Governing Judge identifies the single load-bearing/high-leverage diagnosis. That diagnosis, not a low score, drives mutation.
+- Mutation design, implementation, and independent replay follow `story_room/agents/mutation_and_replay.md`. The implementation agent may never be its own final judge.
+- Use real Hermes `delegate_task` subagents for every specialist role. Keep roles isolated and persist their outputs under `story_room/reports/<cycle>/`.
 {process}
 - Never edit source/book canon.
 - Never use numeric story-quality averages or tension_delta as proof of drama.
