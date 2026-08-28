@@ -7,9 +7,46 @@ import json
 import shutil
 from pathlib import Path
 
+SPECIES = "mutation_revelation_threshold_then_live_bargain"
+LIFECYCLES = {
+    "unbound_closed", "petition_pending", "petition_declined",
+    "petition_reframe_required", "petition_validated", "counterforce_revealed",
+    "terms_offered", "accepted_with_obligation", "refused", "fulfilled", "breached",
+}
+
+
+def validate_sources(graph, act1):
+    """Reject incomplete generated data before it reaches the browser."""
+    if act1.get("meta", {}).get("structural_species") != SPECIES:
+        raise ValueError(f"expected selected structural species {SPECIES}")
+    nodes = act1.get("nodes", {})
+    starts = nodes.get("2.1", {}).get("choices", []) + nodes.get("2.2", {}).get("choices", [])
+    if len(starts) != 4:
+        raise ValueError("live-bargain Act 1 must expose four revelation routes")
+    revelation_ids = set()
+    for choice in starts:
+        seed = choice.get("handoff_start", {})
+        required = ("revelation_id", "revelation_text", "terms_constraint")
+        if seed.get("lifecycle") != "revelation_only" or not all(seed.get(k) for k in required):
+            raise ValueError("each Act 1 route must earn a constrained revelation")
+        if seed.get("contract_identity") is not None or seed.get("unpaid_cost") is not None:
+            raise ValueError("contract identity and leverage cannot exist before terms")
+        revelation_ids.add(seed["revelation_id"])
+    if len(revelation_ids) != 4:
+        raise ValueError("the four revelation routes must remain distinct")
+
+    entries = graph.get("meta", {}).get("handoff_entries", {})
+    missing = LIFECYCLES - set(entries)
+    unresolved = {life: node for life, node in entries.items() if node not in graph.get("nodes", {})}
+    if missing or unresolved:
+        raise ValueError(f"unsafe handoff entries; missing={sorted(missing)}, unresolved={unresolved}")
+
 # Load story graph
 with open("data/story_graph.json") as f:
     graph = json.load(f)
+with open("data/act1_nodes.json") as f:
+    act1 = json.load(f)
+validate_sources(graph, act1)
 
 # Load lore index chunks by topic
 from engine.lore_index import get_index

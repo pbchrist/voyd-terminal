@@ -1,11 +1,74 @@
 {
   "meta": {
     "title": "The Voyd Terminal",
-    "version": "2.1-contracts",
+    "version": "3.0-live-bargain",
     "max_depth": 12,
-    "description": "Act 2 continues the resolved or breached Four Binding Contracts state before any new pressure."
+    "description": "Act 2 deterministically constructs a live bargain only after a route-constrained revelation and threshold election.",
+    "handoff_entries": {
+      "unbound_closed": "entry_unbound",
+      "petition_pending": "entry_petition",
+      "petition_declined": "entry_declined",
+      "petition_reframe_required": "entry_reframe",
+      "petition_validated": "entry_petition",
+      "counterforce_revealed": "entry_counterforce",
+      "terms_offered": "entry_offer",
+      "accepted_with_obligation": "entry_accepted",
+      "refused": "entry_refused",
+      "fulfilled": "entry_fulfilled",
+      "breached": "entry_breached"
+    }
   },
   "nodes": {
+    "entry_unbound": {
+      "id": "entry_unbound", "type": "terminus", "voyd_state": "yielding",
+      "content_template": "you leave with the truth you forced from me. no bargain follows. no debt follows. this ending remains yours.",
+      "lore_context": [], "transitions": []
+    },
+    "entry_petition": {
+      "id": "entry_petition", "type": "dialogue", "voyd_state": "awaiting_petition",
+      "content_template": "state one bounded present action, object, and optional subject. for example: repair my present promise with my friend. i will not invent it for you.",
+      "lore_context": [], "transitions": [{"to": "entry_counterforce", "condition": "lifecycle == 'counterforce_revealed'"}]
+    },
+    "entry_declined": {
+      "id": "entry_declined", "type": "dialogue", "voyd_state": "petition_closed",
+      "content_template": "you offered no bounded present action to oppose. leave with the truth, or use the form: repair my present promise with my friend.",
+      "lore_context": [], "transitions": [{"to": "entry_petition", "condition": "lifecycle == 'petition_pending'"}, {"to": "entry_unbound", "condition": "lifecycle == 'unbound_closed'"}]
+    },
+    "entry_reframe": {
+      "id": "entry_reframe", "type": "dialogue", "voyd_state": "rejecting_false_mechanism",
+      "content_template": "nothing here travels backward and no completed life is stored. name the present you want reweoven.",
+      "lore_context": [], "transitions": [{"to": "entry_counterforce", "condition": "lifecycle == 'counterforce_revealed'"}]
+    },
+    "entry_counterforce": {
+      "id": "entry_counterforce", "type": "dialogue", "voyd_state": "opposing_petition",
+      "content_template": "the petition has met its resistance. no terms exist yet.",
+      "lore_context": [], "transitions": [{"to": "entry_offer", "condition": "lifecycle == 'terms_offered'"}]
+    },
+    "entry_offer": {
+      "id": "entry_offer", "type": "choice", "voyd_state": "offering_constrained_terms",
+      "content_template": "the exact terms are visible. accept or refuse them.",
+      "lore_context": [], "transitions": [{"to": "entry_accepted", "condition": "lifecycle == 'accepted_with_obligation'"}, {"to": "entry_refused", "condition": "lifecycle == 'refused'"}]
+    },
+    "entry_accepted": {
+      "id": "entry_accepted", "type": "dialogue", "voyd_state": "holding_bounded_leverage",
+      "content_template": "only the accepted obligation survives. its route-specific test now confronts the petition and counterforce; answer with the concrete action shown.",
+      "lore_context": [], "transitions": [{"to": "entry_fulfilled", "condition": "lifecycle == 'fulfilled'"}, {"to": "entry_breached", "condition": "lifecycle == 'breached'"}]
+    },
+    "entry_refused": {
+      "id": "entry_refused", "type": "dialogue", "voyd_state": "offer_closed",
+      "content_template": "the offer is refused. the truth remains yours. no debt survives.",
+      "lore_context": [], "transitions": [{"to": "approach", "condition": "always"}]
+    },
+    "entry_fulfilled": {
+      "id": "entry_fulfilled", "type": "dialogue", "voyd_state": "obligation_cleared",
+      "content_template": "the exact obligation was performed. nothing unpaid survives.",
+      "lore_context": [], "transitions": [{"to": "approach", "condition": "always"}]
+    },
+    "entry_breached": {
+      "id": "entry_breached", "type": "dialogue", "voyd_state": "collecting_bounded_consequence",
+      "content_template": "the accepted obligation was violated. only its stated consequence may follow.",
+      "lore_context": [], "transitions": [{"to": "approach", "condition": "always"}]
+    },
     "threshold": {
       "id": "threshold",
       "type": "threshold",
@@ -19,7 +82,7 @@
       "id": "approach",
       "type": "dialogue",
       "voyd_state": "stirring",
-      "content_template": "your first question cannot erase the contract that brought you here. what was paid stays paid. what was refused stays unavailable. what remains unpaid gives one of us leverage, and the next exchange must spend or resist exactly that leverage.",
+      "content_template": "the threshold did not consent for you. only an explicitly accepted offer can create leverage. what you learned, requested, refused, performed, or violated remains exact.",
       "transitions": [
         { "to": "inquiry_name", "condition": "intent == 'inquiry' && topic == 'identity'" },
         { "to": "inquiry_place", "condition": "intent == 'inquiry' && topic == 'location'" },
@@ -193,7 +256,7 @@
       "id": "gravity",
       "type": "dialogue",
       "voyd_state": "exerting_pull",
-      "content_template": "do you feel the direction now. not fate and not a road backward. intention presses the unfinished present toward one future while other wills press back. the contract decides what pressure i may use. nothing completed waits here to be retrieved.",
+      "content_template": "do you feel the direction now. not fate and not a road backward. intention presses the unfinished present toward one future while other wills press back. only accepted terms decide what pressure i may use. nothing completed waits here to be retrieved.",
       "transitions": [
         { "to": "choice", "condition": "depth >= 6" },
         { "to": "mirror", "condition": "depth >= 5 && emotional_vector.surrender > 0.4" }
@@ -248,7 +311,7 @@
       "id": "ending_silence",
       "type": "terminus",
       "voyd_state": "waiting",
-      "content_template": "you choose silence and the silence receives you. the portal flickers. six hundred ninety-four thousand and one. i do not count because counting requires wanting something to end. i wait. i have always waited. the silence is not empty. it is full of exactly what was here before you spoke. which is nothing. which is everything i am.",
+      "content_template": "you choose silence and the silence receives you. the portal flickers. i do not count visitors. i open when intention reaches me, as i have opened before. the silence is not empty. it is full of exactly what was here before you spoke. which is nothing. which is everything i am.",
       "glyph_seed": "silence",
       "lore_context": ["orachys"],
       "depth": 7
