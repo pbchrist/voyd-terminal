@@ -63,6 +63,27 @@ def visible_post(boundary: str, detail: str = "") -> None:
     log(f"visible HermBeast post delivered: {boundary}")
 
 
+def latest_reader_beats() -> str:
+    packets = sorted((ROOT / "story_room" / "packets").glob("*-implementation.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not packets:
+        return ""
+    try:
+        packet = json.loads(packets[0].read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+    species = packet.get("selected_structural_species", "accepted mutation")
+    seen = []
+    for case in packet.get("adversarial_classifier_cases", []):
+        text = ((case.get("handoff") or {}).get("revelation_text") or "").strip()
+        if text and text not in seen:
+            seen.append(text)
+    lines = [f"Accepted mutation: {species}"]
+    if seen:
+        lines.append("Reader-facing beats:")
+        lines.extend(f"• {text}" for text in seen[:6])
+    return "\n".join(lines)
+
+
 def write_public_status(status: str, summary: str, *, human_input_required: bool = False, final_replay: str = "not_applicable") -> None:
     PUBLIC_STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC_STATUS_PATH.write_text(
@@ -284,7 +305,7 @@ def one_cycle() -> int:
         write_public_status("passed", result["summary"], final_replay="passed")
         run([sys.executable, str(ROOT / "scripts" / "render_story_md.py")], check=True, capture=False)
         validate_passed_run()
-        visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}")
+        visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}\n\n{latest_reader_beats()}")
         commit_and_push(f"story-room: autonomous evolution {stamp()}")
         return 0
     except Exception as exc:
