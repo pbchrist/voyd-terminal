@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "canonical_entry": "story/scenes/000-the-fourth-bell.md",
+  "canonical_title": "The Fourth Bell",
+  "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
+  "active_frontiers": [
+    {
+      "path": "story/scenes/011-the-room-behind-the-room.md",
+      "title": "The Room Behind the Room",
+      "ancestry": ["The Fourth Bell", "The Antiquarian"],
+      "unresolved_pressure": "Impossible versions of the reader-character arrive through a room of doors and accuse P'taxx of keeping the wrong book."
+    },
+    {
+      "path": "story/scenes/021-voreath-enters-the-shop.md",
+      "title": "Voreath Enters the Shop",
+      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple"],
+      "unresolved_pressure": "Four impossible points appear around Faelspire, including one above the Royal Palace, and the fragment claims the bell is measuring how long the city takes to look up."
+    },
+    {
+      "path": "story/scenes/031-the-thing-below-the-courtyard.md",
+      "title": "The Thing Below the Courtyard",
+      "ancestry": ["The Fourth Bell", "The Stray", "Open the cistern"],
+      "unresolved_pressure": "A younger version or imitation of the stray climbs from an impossible sky inside a cistern and claims the stray abandoned part of himself."
+    },
+    {
+      "path": "story/scenes/032-twelve-years-ago.md",
+      "title": "Twelve Years Ago",
+      "ancestry": ["The Fourth Bell", "The Stray", "Demand the truth"],
+      "unresolved_pressure": "The reader-character's name is written beneath the stray's skin and an unseen presence arrives above Faelspire."
+    }
+  ],
+  "reader_contract": {
+    "fiction_first": true,
+    "no_internal_node_ids_in_reader_surface": true,
+    "no_system_conditions_in_reader_choices": true,
+    "branch_ancestry_must_remain_readable": true,
+    "active_frontiers_must_be_visible": true,
+    "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  }
+}
