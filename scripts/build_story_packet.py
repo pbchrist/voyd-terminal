@@ -20,7 +20,6 @@ ROUTES = {
     "identity_as_bait": (2, 1),
 }
 
-
 PATHS = {
     "demanded_identity": ["1.0", "2.1", "revelation.di", "threshold.di", "ACT2"],
     "claimed_knowledge": ["1.0", "2.1", "revelation.ck", "threshold.ck", "ACT2"],
@@ -40,8 +39,7 @@ def finish_variant(route: str, variant: str) -> dict:
         return headless_play.capture_petition(state, "nothing")
     if variant == "reframe_required":
         return headless_play.capture_petition(state, "take me back and retrieve the person i lost")
-    state = headless_play.capture_petition(
-        state, "repair my present promise with my friend")
+    state = headless_play.capture_petition(state, "repair my present promise with my friend")
     state = headless_play.reveal_counterforce(state)
     state = headless_play.offer_terms(state)
     if variant == "refused":
@@ -52,6 +50,27 @@ def finish_variant(route: str, variant: str) -> dict:
     if variant == "breached":
         return headless_play.resolve_obligation(state, state["breach_action"])
     return state
+
+
+def living_story_packet() -> dict:
+    story_root = ROOT / "story"
+    frontier_path = ROOT / "story_room" / "frontier.json"
+    frontier = json.loads(frontier_path.read_text(encoding="utf-8")) if frontier_path.exists() else {}
+    scenes = []
+    scenes_dir = story_root / "scenes"
+    if scenes_dir.exists():
+        for path in sorted(scenes_dir.glob("*.md")):
+            scenes.append({
+                "path": str(path.relative_to(ROOT)),
+                "title": path.stem,
+                "text": path.read_text(encoding="utf-8"),
+            })
+    return {
+        "reader_surface": "story/",
+        "entry": frontier.get("canonical_entry", "story/scenes/000-the-fourth-bell.md"),
+        "frontier": frontier,
+        "scenes": scenes,
+    }
 
 
 def build_packet() -> dict:
@@ -82,8 +101,7 @@ def build_packet() -> dict:
     }
     adversarial_classifier_cases = []
     for route in ROUTES:
-        pending = headless_play.apply_handoff_action(
-            headless_play.revelation_state(route), "seek_change")
+        pending = headless_play.apply_handoff_action(headless_play.revelation_state(route), "seek_change")
         for text, expected in classifier_inputs.items():
             adversarial_classifier_cases.append({
                 "route": route,
@@ -93,11 +111,12 @@ def build_packet() -> dict:
             })
 
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "repository": str(ROOT),
         "selected_structural_species": act1.get("meta", {}).get("structural_species"),
-        "purpose": "Authoritative model-free story packet for all Phantom Walkers in one room cycle.",
+        "purpose": "Authoritative Story Room packet. reader_story is the primary fiction; legacy_walks preserves the earlier interactive substrate for continuity testing.",
+        "reader_story": living_story_packet(),
         "adversarial_classifier_cases": adversarial_classifier_cases,
         "walks": walks,
     }
