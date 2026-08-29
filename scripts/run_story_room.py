@@ -47,19 +47,19 @@ def build_prompt(packet_path: Path) -> str:
     resume = load_resume()
     if resume:
         process = f"""
-HUMAN SPECIATION RESUME MODE:
+LEGACY RECORDED DECISION RESUME MODE:
 - Patrick already selected `{resume['decision']['selected']}` for fork `{resume['decision']['fork_id']}`.
 - His recorded rationale is: {resume['decision']['rationale']}
 - Selected mutation specification: {json.dumps(resume['selected_mutation'], ensure_ascii=False)}
 - DO NOT diagnose a new wound and DO NOT generate a new mutation fork.
 - Give the selected mutation directly to the Dramatist for implementation.
-- Then run the required final six-Phantom implementation replay with all six independent roles and `background=false`.
-- If and only if all six PASS, remove `story_room/resume_speciation.json` before exit so the successful implementation commit consumes the decision marker.
+- Then run the required final independent implementation replay.
+- If and only if replay passes, remove `story_room/resume_speciation.json` before exit so the successful implementation commit consumes the legacy decision marker.
 - If blocked or failed, leave `story_room/resume_speciation.json` in place so HermBeast retries this same selected mutation on the next scheduled run.
 """
     else:
         process = """
-NORMAL EVOLUTION MODE:
+NORMAL EVOLUTION MODE — AUTONOMOUS:
 - Run cold reader/player walks before exposing those agents to the rubric.
 - Run specialist rubric judges over the completed walk evidence.
 - Run a separate Governing Judge to diagnose the earliest load-bearing or highest-leverage wound from evidence.
@@ -67,8 +67,9 @@ NORMAL EVOLUTION MODE:
 - Have a separate Canon/Continuity Steward prosecute every mutation using `background=false`.
 - Replay surviving mutations through independent delegated replay walkers, including changed paths, neighboring paths, one unaffected control path, downstream reconvergences, and affected endings.
 - Have a separate Acumen Keeper compare survivors against the Story Genome using `background=false`.
-- If inherited acumen uniquely decides the fork, select and implement it, then replay-test the implementation.
-- If more than one genuinely different structurally valid future survives, DO NOT choose for Patrick. Write story_room/pending_speciation.json with compact A/B/C options in the form structural change -> story consequence -> price, then stop before implementation.
+- If one surviving mutation clearly dominates, select it as canonical, implement it, and replay-test the implementation.
+- If multiple genuinely different structurally valid futures survive, DO NOT stop for Patrick and DO NOT create `pending_speciation.json`. Preserve the meaningful survivors as active reader-facing branches where structurally coherent; choose one canonical head using the Governing Judge, Acumen Keeper, Story Genome, causal leverage, and replay evidence; implement and replay-test the accepted branch set.
+- Ambiguous taste is branch material, not a reason to stop the organism.
 """
 
     return f"""Run exactly one Voyd Story Room evolution cycle on THIS exact repository: {ROOT}.
@@ -88,17 +89,18 @@ STORY ROOM 2.0 JUDGMENT SYSTEM:
 Requirements:
 - FIRST run `pwd` and verify it is exactly `{ROOT}`. If not, stop.
 - For child context use the exact files `story_room/STORY_PHYSICS.md`, `story_room/genome.json`, `story_room/ROOM_PROTOCOL.md`, `story_room/walkers/<role>.md`, and the authoritative play packet `{packet_path}`; do not guess root-level aliases.
-- Every Phantom Walker must judge `{packet_path}` first. `reader_story` inside that packet is now the PRIMARY playable fiction. The legacy `walks` material is continuity/history evidence, not the reader-facing target.
+- Every Phantom Walker must judge `{packet_path}` first. `reader_story` inside that packet is the PRIMARY playable fiction. The legacy `walks` material is continuity/history evidence, not the reader-facing target.
 - Read `story/README.md`, all reachable `story/scenes/*.md`, and `story_room/frontier.json` as the authoritative living narrative surface. Read active story_room/genome.json, source-canon boundary, prior reports, and walker dossiers FROM `{ROOT}` only.
 - Every accepted mutation must advance, deepen, differentiate, or repair the reader-facing fiction under `story/`; updating internal JSON alone is not a successful story evolution cycle.
 - Keep reader prose free of node IDs, lifecycle conditions, implementation jargon, score reports, and agent terminology. Choices must read as dramatic actions.
-- On every accepted mutation, update `story_room/frontier.json` so canonical entry, active frontier leaves, branch ancestry, and unresolved pressure remain current.
+- On every accepted mutation, update `story_room/frontier.json` so canonical entry, canonical head, active frontier leaves, branch ancestry, and unresolved pressure remain current.
 - COLD WALK FIRST: spawn multiple real Hermes delegated leaf agents using `story_room/agents/cold_reader.md`. Cold readers MUST NOT read the rubric or diagnosis files before completing their walk. Validate each against `story_room/schemas/cold_walk.schema.json`.
 - AFTER cold walks complete, spawn separate specialist delegated leaf judges using `story_room/agents/specialist_judges.md` plus `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`. Specialists judge only their assigned domains and cite concrete evidence.
 - Spawn a separate Governing Judge using `story_room/agents/governing_judge.md` to synthesize the cold walks and specialist reports. No aggregate score.
 - The Governing Judge identifies the single load-bearing/high-leverage diagnosis. That diagnosis, not a low score, drives mutation.
 - Mutation design, implementation, and independent replay follow `story_room/agents/mutation_and_replay.md`. The implementation agent may never be its own final judge.
 - Use real Hermes `delegate_task` subagents for every specialist role. Keep roles isolated and persist their outputs under `story_room/reports/<cycle>/`.
+- NEVER require Patrick to choose between surviving story futures during a scheduled cycle. Keep viable divergence as branches and keep writing.
 {process}
 - Never edit source/book canon.
 - Never use numeric story-quality averages or tension_delta as proof of drama.
@@ -107,19 +109,20 @@ Requirements:
 
 Before you exit, ALWAYS write `{STATUS_PATH}` as valid JSON with exactly these fields:
 {{
-  "status": "passed|pending_speciation|blocked|failed",
-  "human_input_required": true_or_false,
-  "final_replay": "passed|not_applicable|blocked|failed",
+  "status": "passed|blocked|failed",
+  "human_input_required": false,
+  "final_replay": "passed|blocked|failed",
   "summary": "one concise factual sentence"
 }}
 Rules for that status file:
-- `passed` is allowed ONLY after an implemented mutation completes the final six-Phantom replay and all six PASS.
-- `pending_speciation` means multiple structurally valid futures survived and Patrick must choose; do not implement any of them.
-- `blocked` means both available model routes or another external dependency prevented a trustworthy verdict; a single-provider outage alone is not sufficient if an approved fallback is available.
+- `passed` is allowed ONLY after implemented reader-facing fiction completes the required independent final replay and passes.
+- `blocked` means an external dependency prevented a trustworthy verdict or implementation; do not substitute a hidden model identity.
 - `failed` means the cycle itself failed mechanically or violated a required invariant.
-- Never claim `passed` because tests alone passed. The final six-Phantom replay is mandatory.
+- `pending_speciation` is forbidden in autonomous scheduled mode.
+- `human_input_required` must be false in autonomous scheduled mode.
+- Never claim `passed` because tests alone passed. Independent final replay is mandatory.
 
-Persist reports and artifacts under story_room/. End with a concise factual summary of what happened and whether Patrick input is required.
+Persist reports and artifacts under story_room/. End with a concise factual summary. Do not require Patrick input to finish an artistic fork.
 """
 
 
@@ -213,14 +216,7 @@ def run_hermes(prompt: str, env: dict[str, str], max_turns: int, *, provider: st
 
 
 def run(max_turns: int) -> int:
-    """Run exactly one HermBeast-native Story Room cycle.
-
-    HermBeast is the ONLY model route for the Voyd Story Room. There is no
-    silent local-Qwen fallback: if the HermBeast route cannot produce a
-    trustworthy verdict, the cycle is written as BLOCKED (never silently
-    substituted by a different model/identity). The supervisor then posts the
-    block visibly so Patrick is never left guessing why nothing happened.
-    """
+    """Run exactly one HermBeast-native Story Room cycle."""
     env = os.environ.copy()
     env["HERMES_HOME"] = str(HERMBEAST_HOME)
     env["VOYD_FORCE_SYNC_DELEGATION"] = "1"
@@ -235,23 +231,17 @@ def run(max_turns: int) -> int:
     primary_rc = run_hermes(prompt, env, max_turns)
     primary_status = read_status()
 
-    if primary_rc == 0 and primary_status and primary_status["status"] != "blocked":
+    if primary_rc == 0 and primary_status and primary_status["status"] not in {"blocked"}:
         return 0
 
-    # The HermBeast model route did not return a usable verdict. Do NOT silently
-    # substitute the local Qwen model: that would be a hidden identity/model
-    # swap that Patrick cannot see. Write an explicit BLOCKED status and let the
-    # supervisor announce it with a visible HermBeast post.
     reason = (
-        "The HermBeast primary model route did not return a trustworthy Story "
-        "Room verdict. No silent local-Qwen fallback was used; the cycle is "
-        "blocked until the HermBeast model route is healthy."
+        "The HermBeast primary model route did not return a trustworthy Story Room verdict. "
+        "No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
     )
     if primary_status is None:
         reason = (
-            f"The HermBeast primary model route exited {primary_rc} without writing "
-            "a status file. No silent local-Qwen fallback was used; the cycle is "
-            "blocked until the HermBeast model route is healthy."
+            f"The HermBeast primary model route exited {primary_rc} without writing a status file. "
+            "No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
         )
     print(f"[story-room] {reason}", flush=True)
     clean_partial_attempt()
