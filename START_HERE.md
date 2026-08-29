@@ -1,96 +1,67 @@
 # THE VOYD TERMINAL
 
-> **A living branching narrative. The story keeps moving even when nobody is watching.**
+> **A living fantasy narrative whose branches remember what happened.**
 
-## ◉ CURRENT FRONTIER
+## ◉ READ THE LIVING STORY
 
-**The Live Bargain** is the present leading edge of the story.
+**Faelspire has three bells. Tonight, a fourth one rings beneath the city.**
 
-The Voyd has been forced to reveal a limitation: it does not store completed lives or earlier selves. It can exert pressure only through sustained intention upon an unfinished present. A reader who reaches the frontier may walk away with that truth, or demand a concrete change and discover what the Voyd requires in return.
+You find an impossible black fragment in Gistli Square. It speaks directly into your thoughts. P'taxx recognizes it. Aard Templu Voreath arrives with a reliquary that recognizes it too. A scarred stray hears the bell before anyone else.
 
-**[Enter the current frontier →](STORY.md#act-ii--the-live-bargain)**
+Then something beneath Faelspire knocks back.
 
----
-
-## ENTER ANYWHERE
-
-You do not need to understand the machinery behind this project. Pick the kind of entrance you want.
-
-### Begin at the beginning
-**[The Threshold →](STORY.md#10)**  
-Enter carrying either an absence or an intention. The Voyd refuses to decide what either means for you.
-
-### Enter through loss
-**[Press With What Is Missing →](STORY.md#21)**  
-Force the Voyd to answer what grief can and cannot retrieve.
-
-### Enter through desire
-**[Press With What You Want →](STORY.md#22)**  
-Test what sustained intention feeds and what it cannot command.
-
-### Enter through the bargain
-**[The Live Bargain →](STORY.md#act-ii--the-live-bargain)**  
-Skip directly to the newest dramatic territory: ask the Voyd to alter the present and face the counterforce.
-
-### Enter through the deeper archive
-**[Ask What It Is →](STORY.md#inquiry-name)**  
-Move sideways into the older, stranger body of Voyd memory: Sory'n, Orachys, the Severing, Leoran, the Wellsprings, and the Null State.
+# **[START THE STORY →](story/scenes/000-the-fourth-bell.md)**
 
 ---
 
-## THE SHAPE OF THE STORY
+## ◉ CURRENT FRONTIERS
 
-```mermaid
-flowchart TD
-    A[The Threshold] --> B[Press With What Is Missing]
-    A --> C[Press With What You Want]
-    B --> D[Earn a truth about the Voyd]
-    C --> D
-    D --> E{Leave or demand change?}
-    E -->|Leave| F[Walk Away Free]
-    E -->|Demand change| G[The Live Bargain]
-    G --> H[The World Pushes Back]
-    H --> I[The Terms]
-    I -->|Accept| J[Debt / obligation]
-    I -->|Refuse| K[Leave with the truth]
-    J --> L[Deeper Voyd]
-    K --> L
-    F --> L
-    L --> M[Memory / challenge / confession / silence]
-    M --> N[The Portal Forms]
-    N --> O[Multiple endings]
-```
+The opening fracture currently has three live routes.
 
-This map is for orientation, not implementation. Every box should lead to prose, choice, consequence, or remembered state.
+### [The Antiquarian →](story/scenes/010-the-antiquarian.md)
+Take the fragment to P'taxx. His shop becomes larger on the inside, every book opens at once, and a procession of impossible selves approaches through a corridor that should not exist.
+
+### [The Temple →](story/scenes/020-the-temple-door.md)
+Give the fragment to Voreath. An iron reliquary refuses it, an acolyte's shadow moves without him, and the temple reveals that it has seen something like this before.
+
+### [The Stray →](story/scenes/030-the-cat-who-heard-it-first.md)
+Follow the cat who recognized the bell. His scar answers the fragment, an empty cistern speaks in your voice, and the past he escaped begins climbing back out.
+
+**[Open the living story index →](story/README.md)**
 
 ---
 
-## THE LEDGER
+## THE NARRATIVE LEDGER
 
-The story has a **canonical head**: the newest mutation that survived independent Story Room replay and was committed to the living branch.
+The reader-facing story has a visible **canonical head** and visible **active frontiers**. Earlier routes remain readable as ancestry instead of being overwritten when the story evolves.
 
-- **Canonical branch:** `feat/story-engine-v2`
-- **Current reader surface:** [`STORY.md`](STORY.md)
-- **Evolution record:** [`story_room/reports/`](story_room/reports/)
-- **Underlying narrative state:** `data/`
+A reader should always be able to answer four questions immediately:
 
-A branch does not vanish because the story moves past it. Earlier paths remain part of the narrative ancestry. The public reader surface should preserve what happened, where paths diverged, and which frontier is presently alive.
+1. Where does the story begin?
+2. What is the newest accepted territory?
+3. Which branches are still alive?
+4. How did this branch get here?
 
----
-
-## WHAT “CANON” MEANS HERE
-
-**Canonical frontier** — the newest accepted story state.  
-**Active branch** — a divergent path still capable of producing future narrative.  
-**Historical branch** — a valid path whose consequences remain readable even if Story Room no longer advances it.  
-**Proposed branch** — a possible future still undergoing adversarial testing and not yet part of the living story.
-
-The reader should always be able to tell which is which without reading JSON, commit logs, agent reports, or system documentation.
+Story Room, Phantom Walkers, mutation packets, JSON state, tests, and agent reports remain underneath the fiction. They prove provenance; they are not the reading experience.
 
 ---
 
-## READ THE STORY
+## EXPERIMENTAL / EARLIER VOYD MATERIAL
 
-**[Start at the beginning →](STORY.md#10)**  
-**[Jump to the current frontier →](STORY.md#act-ii--the-live-bargain)**  
-**[Open the full branching narrative →](STORY.md)**
+The earlier abstract interactive Voyd sequence remains available as narrative ancestry and experimental material:
+
+**[Explore the earlier branching Voyd sequence →](STORY.md)**
+
+It is no longer the primary front door.
+
+---
+
+## FOR BUILDERS
+
+- **Living fiction:** [`story/`](story/)
+- **Story evolution reports:** [`story_room/reports/`](story_room/reports/)
+- **Story Room judgment system:** [`story_room/`](story_room/)
+- **Underlying machine state:** [`data/`](data/)
+- **Canonical development branch:** `feat/story-engine-v2`
+
+HermBeast remains the creative command center. The public surface remains fiction-first.
