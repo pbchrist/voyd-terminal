@@ -3,19 +3,23 @@
 
 HermBeast Telegram is a reader/editor surface, not an operations console.
 Only accepted reader-facing fiction is delivered. Lifecycle/status boundaries
-are intentionally suppressed. Story text is sent as plain text and split into
-Telegram-safe chunks. Patrick can reply naturally with revision directions.
+are suppressed. On a passed cycle, this bridge reads the actual changed
+story/scenes/*.md files from the worktree and sends their full reader-facing
+text as plain Telegram messages. Patrick can reply naturally with revisions.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import os
+import re
+import subprocess
 import sys
 import time
 import urllib.request
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
 HERMBEAST_HOME = Path("/home/patrick/.hermes")
 FORBIDDEN_HERMIONE_HOME = Path("/home/patrick/hermes-instance2")
 MAX_MESSAGE = 3900
@@ -89,13 +93,66 @@ def _chunks(text: str) -> list[str]:
     return chunks
 
 
+def _reader_text(markdown: str) -> str:
+    """Keep fiction and choices; remove machine-facing ledger metadata."""
+    out: list[str] = []
+    for line in markdown.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("**Branch point:") or stripped.startswith("**State created:"):
+            continue
+        if stripped.startswith("**Canonical") or stripped.startswith("**Frontier"):
+            continue
+        if stripped == "---":
+            continue
+        # Turn markdown links into readable plain-text choices.
+        line = re.sub(r"\[([^\]]+)\]\([^\)]+\)", r"\1", line)
+        line = line.replace("**", "").replace("*", "")
+        if line.startswith("# "):
+            line = line[2:]
+        elif line.startswith("## "):
+            line = line[3:]
+        elif line.startswith("### "):
+            line = line[4:]
+        out.append(line.rstrip())
+    # Collapse excessive blank space but keep paragraph breaks.
+    text = "\n".join(out).strip()
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text
+
+
+def _changed_story() -> str:
+    proc = subprocess.run(
+        ["git", "status", "--porcelain", "--", "story/scenes"],
+        cwd=ROOT, text=True, capture_output=True, check=False,
+    )
+    paths: list[str] = []
+    for raw in proc.stdout.splitlines():
+        rel = raw[3:].strip() if len(raw) > 3 else ""
+        if rel.startswith("story/scenes/") and rel.endswith(".md"):
+            paths.append(rel)
+    # Preserve deterministic narrative order when several scenes changed.
+    paths = sorted(dict.fromkeys(paths))
+    stories: list[str] = []
+    for rel in paths:
+        path = ROOT / rel
+        if path.exists():
+            text = _reader_text(path.read_text(encoding="utf-8"))
+            if text:
+                stories.append(text)
+    return "\n\n──────────\n\n".join(stories)
+
+
 def post(boundary: str, detail: str = "") -> dict:
-    # Patrick asked for Telegram to contain the fiction and nothing else.
-    # Suppress all operational lifecycle messages.
+    # Telegram is story-only. Operations remain in logs/status files.
     if boundary != "passed":
         return {"ok": True, "suppressed": True, "boundary": boundary}
 
-    story = detail.strip()
+    story = _changed_story()
+    if not story:
+        # Backward-compatible fallback for a cycle whose scene changes were
+        # committed earlier than this bridge call.
+        marker = "NEW STORY BEAT"
+        story = detail.split(marker, 1)[-1].strip() if marker in detail else detail.strip()
     if not story:
         raise PostError("passed cycle contained no reader-facing story text")
 
