@@ -80,8 +80,3 @@ Whatever this is, Voreath exists to contain dangers ordinary cats were never mea
 
 ### [Hide the fragment and follow the stray →](030-the-cat-who-heard-it-first.md)
 He recognized the sound. More troubling: he recognized you.
-
----
-
-**Branch point:** `The Fourth Bell`  
-**State created:** you heard the bell; the fragment addressed you; P'taxx, Voreath, and the stray each reacted differently.
