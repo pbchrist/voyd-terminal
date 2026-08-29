@@ -64,24 +64,44 @@ def visible_post(boundary: str, detail: str = "") -> None:
 
 
 def latest_reader_beats() -> str:
-    packets = sorted((ROOT / "story_room" / "packets").glob("*-implementation.json"), key=lambda p: p.stat().st_mtime, reverse=True)
-    if not packets:
-        return ""
-    try:
-        packet = json.loads(packets[0].read_text(encoding="utf-8"))
-    except Exception:
-        return ""
-    species = packet.get("selected_structural_species", "accepted mutation")
-    seen = []
-    for case in packet.get("adversarial_classifier_cases", []):
-        text = ((case.get("handoff") or {}).get("revelation_text") or "").strip()
-        if text and text not in seen:
-            seen.append(text)
-    lines = [f"Accepted mutation: {species}"]
-    if seen:
-        lines.append("Reader-facing beats:")
-        lines.extend(f"• {text}" for text in seen[:6])
-    return "\n".join(lines)
+    """Return actual reader-facing fiction changed by this accepted cycle."""
+    proc = subprocess.run(
+        ["git", "status", "--porcelain", "--", "story/scenes", "story_room/frontier.json"],
+        cwd=ROOT, text=True, capture_output=True, check=False,
+    )
+    scene_paths = []
+    for raw in proc.stdout.splitlines():
+        rel = raw[3:].strip() if len(raw) > 3 else ""
+        if rel.startswith("story/scenes/") and rel.endswith(".md"):
+            scene_paths.append(rel)
+
+    if not scene_paths:
+        try:
+            frontier = json.loads((ROOT / "story_room" / "frontier.json").read_text(encoding="utf-8"))
+            scene_paths = [x.get("path", "") for x in frontier.get("active_frontiers", []) if x.get("path")]
+        except Exception:
+            scene_paths = []
+
+    lines = ["NEW STORY BEAT"]
+    for rel in scene_paths[:3]:
+        path = ROOT / rel
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8").strip()
+        title = next((ln[2:].strip() for ln in text.splitlines() if ln.startswith("# ")), path.stem)
+        body=[]
+        for block in text.split("\n\n")[1:]:
+            b=block.strip()
+            if not b or b.startswith("#") or b.startswith("---") or b.startswith("**Branch") or b.startswith("**State"):
+                continue
+            if b.startswith("## Choose") or b.startswith("### ["):
+                break
+            body.append(b)
+            if len(" ".join(body)) >= 650:
+                break
+        excerpt=" ".join(body)[:800].strip()
+        lines.append(f"\n{title}\n{excerpt}")
+    return "\n".join(lines).strip()
 
 
 def write_public_status(status: str, summary: str, *, human_input_required: bool = False, final_replay: str = "not_applicable") -> None:
