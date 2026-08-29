@@ -88,8 +88,11 @@ STORY ROOM 2.0 JUDGMENT SYSTEM:
 Requirements:
 - FIRST run `pwd` and verify it is exactly `{ROOT}`. If not, stop.
 - For child context use the exact files `story_room/STORY_PHYSICS.md`, `story_room/genome.json`, `story_room/ROOM_PROTOCOL.md`, `story_room/walkers/<role>.md`, and the authoritative play packet `{packet_path}`; do not guess root-level aliases.
-- Every Phantom Walker must judge `{packet_path}` first. Do not use browser/computer-use/execute_code to rediscover the playable story unless the packet is demonstrably inconsistent with the repository.
-- Read the actual playable story, active story_room/genome.json, source-canon boundary, prior reports, and all six walker dossiers FROM `{ROOT}` only.
+- Every Phantom Walker must judge `{packet_path}` first. `reader_story` inside that packet is now the PRIMARY playable fiction. The legacy `walks` material is continuity/history evidence, not the reader-facing target.
+- Read `story/README.md`, all reachable `story/scenes/*.md`, and `story_room/frontier.json` as the authoritative living narrative surface. Read active story_room/genome.json, source-canon boundary, prior reports, and walker dossiers FROM `{ROOT}` only.
+- Every accepted mutation must advance, deepen, differentiate, or repair the reader-facing fiction under `story/`; updating internal JSON alone is not a successful story evolution cycle.
+- Keep reader prose free of node IDs, lifecycle conditions, implementation jargon, score reports, and agent terminology. Choices must read as dramatic actions.
+- On every accepted mutation, update `story_room/frontier.json` so canonical entry, active frontier leaves, branch ancestry, and unresolved pressure remain current.
 - COLD WALK FIRST: spawn multiple real Hermes delegated leaf agents using `story_room/agents/cold_reader.md`. Cold readers MUST NOT read the rubric or diagnosis files before completing their walk. Validate each against `story_room/schemas/cold_walk.schema.json`.
 - AFTER cold walks complete, spawn separate specialist delegated leaf judges using `story_room/agents/specialist_judges.md` plus `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`. Specialists judge only their assigned domains and cite concrete evidence.
 - Spawn a separate Governing Judge using `story_room/agents/governing_judge.md` to synthesize the cold walks and specialist reports. No aggregate score.

@@ -25,9 +25,11 @@ Read these before doing story work:
 - `references/ACUMEN_PROTOCOL.md`
 - project `story_room/genome.json`
 - project `story_room/walkers/*.md`
-- the actual playable narrative data/code
+- `story/README.md` and reachable `story/scenes/*.md` as the primary reader-facing fiction
+- `story_room/frontier.json` as the canonical-head / active-frontier ledger
+- the underlying narrative data/code for continuity and state verification
 
-Do not trust summaries when the story itself is available.
+Do not trust summaries when the story itself is available. The `story/` fiction is the thing being written; internal graphs and packets support it rather than replacing it.
 
 ## Repository authority
 
@@ -113,7 +115,11 @@ Use `story_room/genome.py` and `story_room/speciation.py` rather than inventing 
 
 ## Dramatist
 
-Only after selection does a Dramatist implement the chosen structural species in playable nodes/prose. Structure comes first. The Dramatist may not quietly alter the selected causal design to rescue a line it likes.
+Only after selection does a Dramatist implement the chosen structural species in the reader-facing `story/` prose and any underlying playable state required to support it. Every accepted cycle must leave a readable narrative advance, repair, or branch differentiation; internal state-only mutations are insufficient. Update `story_room/frontier.json` whenever the canonical frontier or active leaves change.
+
+The reader surface must never expose node IDs, lifecycle predicates, rubric scores, agent names, or implementation terminology.
+
+Only after selection does the Dramatist implement the chosen structural species in playable nodes/prose as needed for system continuity. Structure comes first. The Dramatist may not quietly alter the selected causal design to rescue a line it likes.
 
 If code/state changes are necessary to make choices real, change the engine too. Narrative architecture outranks compatibility with the old generated-node pipeline.
 ## Replay gate

@@ -111,7 +111,7 @@ def build_packet() -> dict:
             })
 
     return {
-        "schema_version": 3,
+        "schema_version": 2,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "repository": str(ROOT),
         "selected_structural_species": act1.get("meta", {}).get("structural_species"),
