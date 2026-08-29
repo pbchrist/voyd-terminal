@@ -1,15 +1,21 @@
 # The Voyd Terminal
 
-This repository contains a living branching story.
+**A living branching narrative with a visible canonical frontier.**
 
-## Read the story
+## Read, don't debug
 
-**[Open the current story →](STORY.md)**
+**[START HERE →](START_HERE.md)**
 
-The Story Room evolves the narrative autonomously, stress-tests changes with independent Phantom Walkers, and only keeps mutations that pass its gates.
+From there you can begin at the opening, jump directly to the newest accepted frontier, or enter through a major branch. You should not need to understand JSON, agents, tests, or Git to read the story.
 
-For readers, `STORY.md` is the canonical readable surface. Engineering files, reports, packets, tests, and evolution machinery live underneath it.
+**[Full branching narrative →](STORY.md)**
 
-## Creative command center
+## What is alive right now?
 
-HermBeast is the human-facing command center. Story Room cycles should surface their actual narrative discoveries, accepted mutations, failures, and genuine artistic forks there.
+The Story Room evolves the narrative autonomously. Proposed changes are walked, judged, mutated, independently replayed, and only then accepted. The newest accepted state is the **canonical frontier**; older paths remain readable as narrative ancestry instead of disappearing.
+
+## Under the floorboards
+
+The machine-readable graph, reports, mutation packets, tests, Story Genome, and Phantom Walker machinery remain in the repository for provenance and auditability. They are not the reader experience.
+
+HermBeast is the creative command center. It surfaces meaningful discoveries, accepted mutations, failures, and genuine unresolved artistic forks.
