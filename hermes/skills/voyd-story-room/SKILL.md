@@ -1,7 +1,7 @@
 ---
 name: voyd-story-room
 description: Run the Voyd Terminal as a Hermes multi-agent story evolution room. Expert Phantom Walkers prosecute structure, mutations compete, and Patrick-derived Story Genome laws accumulate through an Acumen Keeper.
-version: 3.0.0
+version: 3.1.0
 platforms: [linux]
 metadata:
   hermes:
@@ -12,9 +12,19 @@ metadata:
 
 # Voyd Story Room
 
-Use this skill whenever Patrick asks to evolve, fix, audit, improve, playtest, generate, or restructure the Voyd Terminal story.
+Use this skill whenever Patrick asks to evolve, fix, audit, improve, playtest, generate, restructure, or comment on the Voyd Terminal story.
 
 This is a real Hermes multi-agent workflow. Do not replace the Phantom Walkers with one LLM pretending to be six reviewers.
+
+## Telegram editorial contract
+
+HermBeast Telegram is the reader/editor surface, not an operations console.
+
+- Scheduled cycles must not send start, passed, blocked, branch, commit, timestamp, model, agent, or lifecycle chatter to Patrick.
+- After an accepted cycle, send the actual changed reader-facing scene text in plain text.
+- If Patrick replies to a delivered story scene in ordinary language, treat the reply as an editorial directive against that scene unless he explicitly says he only wants to discuss it.
+- Editorial replies may be broad ("make this stranger") or surgical ("change the last paragraph"). Resolve the referenced scene from the latest delivered fiction, apply the requested change through Story Room, independently replay it, and preserve the reader-facing result.
+- Do not make Patrick translate feedback into node IDs, file names, commands, rubric categories, or implementation language.
 
 ## Load first
 
@@ -36,6 +46,7 @@ Do not trust summaries when the story itself is available. The `story/` fiction 
 The current working directory supplied by Hermes (`--in`) is the ONLY repository authority for the run. Resolve it with `pwd` before reading or writing anything. Never infer a different checkout from a hostname, remembered path, production convention, or prior session.
 
 If the current working directory does not contain `story_room/` and the Voyd project files required by this skill, stop with a repository-path error. Never fall back to `/home/patrick/voyd-terminal` or any other checkout automatically.
+
 ## Story Director — Story Room 2.0
 
 The parent HermBeast agent is the **Story Director**. It owns orchestration and synthesis, but specialist judgment must be delegated to isolated subagents.
@@ -60,7 +71,7 @@ Delegate a separate Governing Judge using `story_room/agents/governing_judge.md`
 
 Follow `story_room/agents/mutation_and_replay.md`. Mutation design and implementation are separate roles. The implementation agent never grades its own work. After implementation, independent replay walkers test changed paths, neighboring paths, an unaffected control path, downstream reconvergences, and affected endings.
 
-The Story Director may accept autonomously when one repair is structurally justified, canon-safe, and independently demonstrated to remove the targeted failure without introducing a worse one. Ask Patrick only at a genuine unresolved artistic fork.
+The Story Director is autonomous by default. It does not stop to ask Patrick which viable branch to choose. If one repair clearly dominates, promote it. If multiple genuinely different structurally valid futures survive, preserve them as active reader-facing branches, choose one canonical head using the Governing Judge + Acumen Keeper + Story Genome, and continue. Patrick's later Telegram feedback can redirect, promote, demote, rewrite, merge, or kill branches without having been required as a blocking gate.
 
 ## Structural Editor: mutate, do not merely rewrite
 
@@ -92,36 +103,31 @@ It returns PASS or BLOCK per mutation. BLOCK only for a concrete contradiction, 
 ## Mutation replay
 
 Independent delegated replay walkers then walk every surviving mutation. A demonstrated structural failure eliminates that mutation. Never average scores and never let consensus hide a causal break.
+
 ## Acumen Keeper and Story Genome
 
-The **Acumen Keeper** is a separate delegated role and must also use `background=false`. It never writes prose. It compares surviving mutations with `story_room/genome.json`, preserves Patrick's prior structural judgments, and decides whether inherited acumen already resolves the fork.
+The **Acumen Keeper** is a separate delegated role and must also use `background=false`. It never writes prose. It compares surviving mutations with `story_room/genome.json`, preserves Patrick's prior structural judgments, and decides how surviving futures relate to the canonical head.
 
 Selection rules:
 
 1. If no mutation survives, rebuild from the diagnosed root cause.
 2. If exactly one mutation survives, select it.
 3. Active hard Genome laws may eliminate mutations that repeat already-decided structural mistakes.
-4. If multiple structurally valid futures remain and the Genome does not compel one, stop at a **human speciation gate**.
+4. If multiple structurally valid futures survive, do not block for human selection. Preserve genuinely distinct survivors as active branches, select one canonical head using the strongest evidence-backed governing judgment, and record why.
+5. No cycle may emit `pending_speciation` merely because taste could support more than one future. Ambiguity is branch material, not a reason to stop the organism.
 
-For a human speciation gate, show Patrick only the irreducible artistic fork, usually 2-4 compact options in this form:
-
-`A — structural change -> story consequence -> price`
-
-Do not dump pages of prose on him. Ask for a selection and, when useful, one sentence of why.
-
-After Patrick chooses, the Acumen Keeper records the complete fork and extracts reusable structural law. Explicit laws activate immediately. Inferred laws remain candidates until a second independent Patrick decision confirms them. Rejections are inherited too.
-
-Use `story_room/genome.py` and `story_room/speciation.py` rather than inventing ad-hoc memory formats.
+Use `story_room/genome.py` and `story_room/speciation.py` where useful for inherited structural law, but do not turn them into a mandatory human approval gate.
 
 ## Dramatist
 
-Only after selection does a Dramatist implement the chosen structural species in the reader-facing `story/` prose and any underlying playable state required to support it. Every accepted cycle must leave a readable narrative advance, repair, or branch differentiation; internal state-only mutations are insufficient. Update `story_room/frontier.json` whenever the canonical frontier or active leaves change.
+After autonomous selection/branch preservation, a Dramatist implements the chosen structural species in the reader-facing `story/` prose and any underlying playable state required to support it. Every accepted cycle must leave a readable narrative advance, repair, or branch differentiation; internal state-only mutations are insufficient. Update `story_room/frontier.json` whenever the canonical frontier or active leaves change.
 
 The reader surface must never expose node IDs, lifecycle predicates, rubric scores, agent names, or implementation terminology.
 
-Only after selection does the Dramatist implement the chosen structural species in playable nodes/prose as needed for system continuity. Structure comes first. The Dramatist may not quietly alter the selected causal design to rescue a line it likes.
+Structure comes first. The Dramatist may not quietly alter the selected causal design to rescue a line it likes.
 
 If code/state changes are necessary to make choices real, change the engine too. Narrative architecture outranks compatibility with the old generated-node pipeline.
+
 ## Replay gate
 
 After implementation, run fresh independent replay walkers with the baseline evidence plus the revised story.
@@ -146,4 +152,5 @@ If the wound remains, re-enter mutation. Do not self-congratulate or raise a sco
 - do not treat imagery, lore, darkness, or surprise as a story turn
 - do not let one writer agent generate and approve its own scene
 - do not let one ambiguous Patrick choice become permanent doctrine
-- do not ask Patrick to choose when inherited acumen already clearly decides the issue
+- do not stop a scheduled cycle merely because multiple viable artistic futures survive
+- do not send operational lifecycle chatter to Patrick's Telegram
