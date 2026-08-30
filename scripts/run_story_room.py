@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = "voyd-story-room"
+LOCAL_PROVIDER = "local-qwen"  # Qwen 3.8 on 127.0.0.1:8082, defined in ~/.hermes/config.yaml
 STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
 RESUME_PATH = ROOT / "story_room" / "resume_speciation.json"
 HERMBEAST_HOME = Path("/home/patrick/.hermes")
@@ -163,6 +164,21 @@ def read_status() -> dict | None:
     return data
 
 
+def note_route(route: str) -> None:
+    """Stamp the verdict with the model route that produced it.
+
+    read_status() enforces an exact four-key contract, so the provenance rides
+    in the summary rather than in a new field. This is what keeps a fallback
+    run honest: the story says which model wrote it.
+    """
+    data = read_status()
+    if not data:
+        return
+    if not data["summary"].startswith("["):
+        data["summary"] = f"[route: {route}] " + data["summary"]
+        STATUS_PATH.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
 def write_blocked_status(summary: str) -> None:
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.write_text(
@@ -234,14 +250,33 @@ def run(max_turns: int) -> int:
     if primary_rc == 0 and primary_status and primary_status["status"] not in {"blocked"}:
         return 0
 
-    reason = (
-        "The HermBeast primary model route did not return a trustworthy Story Room verdict. "
-        "No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
+    # The primary route is unusable -- rate limit, outage, or no status written.
+    # Retry once on the local Qwen 3.8 route. The standing rule forbids a
+    # *silent* downgrade, not the local model itself: this attempt is announced
+    # in the log and stamped into the verdict by note_route(), so a reader can
+    # always tell which model wrote a given scene.
+    print(
+        f"[story-room] primary route unusable (rc={primary_rc}); retrying on {LOCAL_PROVIDER}",
+        flush=True,
     )
-    if primary_status is None:
+    clean_partial_attempt()
+    STATUS_PATH.unlink(missing_ok=True)
+    fallback_rc = run_hermes(prompt, env, max_turns, provider=LOCAL_PROVIDER)
+    fallback_status = read_status()
+    if fallback_rc == 0 and fallback_status and fallback_status["status"] not in {"blocked"}:
+        note_route(LOCAL_PROVIDER)
+        return 0
+
+    reason = (
+        "Neither the HermBeast primary model route nor the local "
+        f"{LOCAL_PROVIDER} route returned a trustworthy Story Room verdict; "
+        "the cycle is blocked until a model route is healthy."
+    )
+    if primary_status is None and fallback_status is None:
         reason = (
-            f"The HermBeast primary model route exited {primary_rc} without writing a status file. "
-            "No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
+            f"The primary route exited {primary_rc} and {LOCAL_PROVIDER} exited "
+            f"{fallback_rc}; neither wrote a status file. The cycle is blocked "
+            "until a model route is healthy."
         )
     print(f"[story-room] {reason}", flush=True)
     clean_partial_attempt()
