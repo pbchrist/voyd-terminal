@@ -84,7 +84,7 @@ The acolyte finally looks at you.
 
 ## Choose
 
-### [Go with the acolytes to Aard Templu Voreath →](021-voreath-enters-the-shop.md)
+### [Go with the acolytes to Aard Templu Voreath →](021b-the-walk-to-the-shop.md)
 If the reliquary recognized the fragment, the temple may already possess something related to it.
 
 ### [Ignore the temple and pursue the stray →](030-the-cat-who-heard-it-first.md)

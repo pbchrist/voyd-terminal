@@ -1,16 +1,4 @@
-# Voreath Enters the Shop
-
-The temple cats arrive at Antiquarian Books & Sundries with the iron reliquary already open.
-
-P'taxx blocks the doorway.
-
-“No.”
-
-The young acolyte beside you gives him a look that would embarrass a palace guard.
-
-“You have not heard what we are asking.”
-
-“You brought Voreath to my shop carrying a box designed to recognize things you do not understand. I have heard enough.”
+# The Lattice
 
 The fourth bell rings beneath Faelspire.
 
@@ -26,7 +14,7 @@ The acolytes pivot toward the glass. One draws a blade. P'taxx laughs once.
 
 “If steel helps, I will personally convert.”
 
-The wrapped fragment on the table opens its orange seam.
+The fragment on the table opens its orange seam.
 
 The reliquary answers.
 
@@ -68,11 +56,11 @@ One is somewhere under Aard Templu Voreath.
 
 The third is moving quickly through the old drainage quarter.
 
-“The stray,” you say.
+“The soot-gray one,” you say. “The stray from the alley.”
 
-The young acolyte looks at you. “What stray?”
+The young acolyte goes still.
 
-P'taxx does not.
+P'taxx does not look up.
 
 He is staring at the point beneath the temple.
 

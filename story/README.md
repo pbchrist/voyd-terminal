@@ -18,7 +18,9 @@ Three paths are alive from the first fracture:
 - **The Temple** — surrender it to Aard Templu Voreath before it can do harm.
 - **The Stray** — conceal it and follow the only cat who seems to recognize the sound.
 
-Each path preserves what you chose, what you learned, whom you trusted, and what it cost. Branches may cross again, but they do not forget how you arrived.
+Each path preserves what you chose, what you learned, whom you trusted, and what it cost.
+
+The Antiquarian and Temple paths cross again at **The Lattice** — but each arrives the way it traveled, and the crossing remembers both arrivals. Branches may cross again, but they do not forget how you arrived.
 
 ---
 

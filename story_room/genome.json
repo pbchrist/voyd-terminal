@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-25T00:55:50.314282+00:00",
+  "updated_at": "2026-08-30T18:52:06.273133+00:00",
   "laws": [
     {
       "id": "law_8e52dd229d27",
@@ -178,6 +178,30 @@
       ],
       "created_at": "2026-08-19T20:23:05.369092+00:00",
       "updated_at": "2026-08-19T20:23:05.369092+00:00"
+    },
+    {
+      "id": "law_4d3da1051141",
+      "statement": "A reconvergence node must be branch-aware: when two causally distinct routes rejoin, the rejoined scene must re-assert the causal history each route established, either in text (route-true assertion beats) or by activating the reader's own route-memory \u2014 but the re-assertion must not spend the story's protected image system to do it.",
+      "kind": "require",
+      "scopes": [
+        "mutation",
+        "scene",
+        "selection",
+        "sequence",
+        "story"
+      ],
+      "status": "candidate",
+      "origin": "inferred",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "acumen_20260830_180000_m1"
+      ],
+      "rationales": [
+        "Inferred from cycle 20260830T180000Z: Governing Judge's load-bearing diagnosis (021 does not carry state), M1 replay (route-true assertion beats repair the break), M2 replay (reader-memory activation is valid but weaker), M3 replay (character testimony leaves geographic residual), M4 replay + Steward (spending the protected image system is a real cost), Governing Judge's protected-element directive ('Protect it above all')."
+      ],
+      "created_at": "2026-08-30T18:52:06.273050+00:00",
+      "updated_at": "2026-08-30T18:52:06.273050+00:00"
     }
   ],
   "decisions": [
@@ -192,6 +216,20 @@
       "rationale": "Patrick selected option A: ship it. No additional rationale supplied.",
       "recorded_at": "2026-08-25T00:55:50.313778+00:00",
       "law_ids": []
+    },
+    {
+      "id": "acumen_20260830_180000_m1",
+      "fork_id": "20260830T180000Z",
+      "selected": "M1",
+      "candidates": [
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction). M1 repairs both dimensions of the load-bearing 021 reconvergence break (causal-history + geographic) at moderate cost, preserves the protected orange-seam image system as a singular entity in the shared tail, inherits law_4ca0ffd21c42 / law_5361b415500d / law_4540ed0088aa, and has the cleanest replay record (PASS, swap test passes, no new failure, control path intact). M2/M3 preserved as coherent branches (seam-testimony / character-testimony mechanisms); M4 preserved as structural reference (full split, route-specific lattice delivery) but not as a parallel branch (conflicting seam logic + duplicated 'measuring' line).",
+      "law_ids": [],
+      "recorded_at": "2026-08-30T18:52:06.272535+00:00"
     }
   ]
 }

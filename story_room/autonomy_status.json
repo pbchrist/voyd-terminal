@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-30T16:28:05Z",
-  "status": "blocked",
+  "timestamp_utc": "2026-08-30T19:08:22Z",
+  "status": "passed",
   "human_input_required": false,
-  "final_replay": "blocked",
-  "summary": "The HermBeast primary model route exited 0 without writing a status file. No silent local-Qwen fallback was used; the cycle is blocked until the HermBeast model route is healthy."
+  "final_replay": "passed",
+  "summary": "Cycle 20260830T180000Z: M1 (Twin-door reconvergence) implemented as canonical head \u2014 route-blind 021 split into 021a/021b + shared tail 022; targeted 020-route failure eliminated; independent final replay PASS across all 7 contract paths."
 }

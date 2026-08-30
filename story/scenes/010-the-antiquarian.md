@@ -100,7 +100,7 @@ For the first time since you have known him, he asks rather than tells.
 
 ## Choose
 
-### [Open the door to Voreath →](021-voreath-enters-the-shop.md)
+### [Open the door to Voreath →](021a-voreath-enters-the-shop.md)
 Let the temple see what has happened. Whatever P'taxx is hiding, you may need more than one old bookseller.
 
 ### [Follow P'taxx into the impossible corridor →](011-the-room-behind-the-room.md)

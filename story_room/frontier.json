@@ -11,9 +11,9 @@
       "unresolved_pressure": "Impossible versions of the reader-character arrive through a room of doors and accuse P'taxx of keeping the wrong book."
     },
     {
-      "path": "story/scenes/021-voreath-enters-the-shop.md",
-      "title": "Voreath Enters the Shop",
-      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple"],
+      "path": "story/scenes/022-the-lattice.md",
+      "title": "The Lattice",
+      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple (021a: Voreath Enters the Shop, 021b: The Walk to the Shop)"],
       "unresolved_pressure": "Four impossible points appear around Faelspire, including one above the Royal Palace, and the fragment claims the bell is measuring how long the city takes to look up."
     },
     {
@@ -29,6 +29,44 @@
       "unresolved_pressure": "The reader-character's name is written beneath the stray's skin and an unseen presence arrives above Faelspire."
     }
   ],
+  "canonical_head": {
+    "cycle": "20260830T180000Z",
+    "mutation": "M1",
+    "title": "Twin-door reconvergence (scene split with shared tail)",
+    "structure": "010 -> 021a -> 022; 020 -> 021b -> 022",
+    "note": "The former 021-voreath-enters-the-shop.md was split: its opening became 021a (Antiquarian route), a new 021b was written (Temple route), and the shared tail (lattice map, seam-answer, fourth point, 'measuring' line) became 022. The old 021 file was deleted."
+  },
+  "branch_ledger": {
+    "cycle": "20260830T180000Z",
+    "canonical_head": "M1",
+    "preserved_branches": [
+      {
+        "id": "M2",
+        "title": "The seam re-anchors",
+        "mechanism": "Seam image system carries route state (one-line testimony + fragment-voice memory line)",
+        "coherence": "PASS (Walker + Steward); no causal break; 'measuring' beat verbatim; control path intact",
+        "residual": "Seam's ontology gains 'remembers its route' property (Judge to adjudicate as strengthening or diluting)",
+        "recombine": true
+      },
+      {
+        "id": "M3",
+        "title": "The acolyte's testimony",
+        "mechanism": "Character testimony carries route state (acolyte names square/chest-press/shadow; player confirms via seam-answer)",
+        "coherence": "PASS (Walker + Steward); causal-history break substantially addressed; no new failure",
+        "residual": "Geographic opening (P'taxx in doorway) still false on 020 route — one-line-scale, future mutation",
+        "recombine": true
+      },
+      {
+        "id": "M4",
+        "title": "The split arrival (full scene split, no shared tail)",
+        "mechanism": "Full scene split; route-specific lattice delivery (windows vs. reliquary's seam); two frontier entries",
+        "coherence": "PASS (Walker + Steward); swap test passes strongly (openings, middles, endings differ)",
+        "residual": "Seam written twice; 'measuring' line in two files; 2x prose; two frontier entries",
+        "recombine": true,
+        "cost_note": "Do not preserve as a parallel reader-facing branch alongside M1's shared tail (conflicting seam logic + duplicated 'measuring' line). Preserve as a structural reference for future re-speciation."
+      }
+    ]
+  },
   "reader_contract": {
     "fiction_first": true,
     "no_internal_node_ids_in_reader_surface": true,
