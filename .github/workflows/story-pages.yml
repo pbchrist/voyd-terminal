@@ -1,0 +1,61 @@
+name: Publish the story
+
+# The story is the product: every Story Room commit that changes a scene
+# republishes the reader. Scenes are copied at deploy time, so the reader
+# never has to be regenerated when the fiction changes.
+on:
+  push:
+    branches: [feat/story-engine-v2]
+    paths:
+      - 'story/**'
+      - 'story_room/frontier.json'
+      - 'site/**'
+      - '.github/workflows/story-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the reader
+        run: |
+          set -euo pipefail
+          mkdir -p _site/scenes
+          cp site/index.html _site/index.html
+          cp story/scenes/*.md _site/scenes/
+          cp story_room/frontier.json _site/frontier.json
+          touch _site/.nojekyll
+          echo "scenes published: $(ls -1 _site/scenes | wc -l)"
+
+      - name: Check every choice resolves to a real scene
+        run: |
+          set -euo pipefail
+          fail=0
+          for f in _site/scenes/*.md; do
+            grep -oE '\]\([0-9a-z-]+\.md\)' "$f" 2>/dev/null | tr -d ']()' | while read -r t; do
+              [ -f "_site/scenes/$t" ] || { echo "BROKEN: $(basename "$f") -> $t"; exit 1; }
+            done || fail=1
+          done
+          [ "$fail" -eq 0 ] || exit 1
+          echo "all choices resolve"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'
+      - id: deployment
+        uses: actions/deploy-pages@v4

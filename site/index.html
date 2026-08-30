@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>The Fourth Bell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Unicase:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+:root{
+  --void:#100D09; --stone:#1C1710; --stone2:#261F16;
+  --bone:#EFE5D0; --muted:#96876E; --line:#342B1F;
+  --amber:#E3A94F; --bruise:#A4586A; --ember:#FF6A2C;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--bone);
+  font-family:"EB Garamond",Garamond,Georgia,"Times New Roman",serif;
+  font-size:21px;line-height:1.68;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"liga" 1,"onum" 1}
+.suns{position:fixed;top:0;left:0;right:0;height:3px;z-index:50;
+  background:linear-gradient(90deg,var(--amber) 0%,var(--amber) 26%,#F2E7CE 33%,#F2E7CE 46%,var(--bruise) 54%,var(--bruise) 100%);
+  opacity:.5;transition:opacity 1s ease,filter 1s ease}
+.suns.toll{opacity:1;filter:brightness(1.75) saturate(1.25)}
+.rubric{font-family:"Cormorant Unicase","Cormorant Garamond",Georgia,serif;
+  font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ledger{position:sticky;top:0;z-index:40;background:rgba(16,13,9,.94);
+  backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.ledger-in{max-width:60ch;margin:0 auto;padding:15px 26px;display:flex;
+  align-items:baseline;gap:20px;flex-wrap:nowrap;overflow:hidden}
+.mark{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;
+  font-weight:500;letter-spacing:.05em;white-space:nowrap;flex:0 0 auto}
+.mark span{color:var(--amber)}
+.trail{margin-left:auto;flex:0 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;
+  font-size:12px;letter-spacing:.15em}
+.trail::-webkit-scrollbar{display:none}
+.trail b{color:var(--amber);font-weight:400}
+.trail i{font-style:normal;opacity:.35;padding:0 8px}
+.wrap{max-width:60ch;margin:0 auto;padding:70px 26px 130px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;
+  font-size:clamp(3rem,8vw,4.6rem);line-height:1;letter-spacing:-.01em;
+  margin:0 0 26px;text-wrap:balance}
+.eyebrow{margin:0 0 18px}
+.prose p{margin:0 0 1.15em}
+.prose p.lead{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.62em;
+  font-weight:400;line-height:1.3;color:var(--bone);margin:0 0 .85em;text-wrap:pretty}
+.prose em{color:var(--ember);font-style:italic}
+.prose strong{color:var(--amber);font-weight:500;letter-spacing:.07em}
+.orn{display:flex;align-items:center;justify-content:center;gap:11px;margin:54px 0 40px}
+.orn i{width:6px;height:6px;border-radius:50%;display:block}
+.orn i:nth-child(1){background:var(--amber)}
+.orn i:nth-child(2){background:#F2E7CE}
+.orn i:nth-child(3){background:var(--bruise)}
+.choices{display:flex;flex-direction:column;gap:15px}
+.choice{display:block;width:100%;text-align:left;cursor:pointer;background:var(--stone);
+  border:1px solid var(--line);border-left:2px solid var(--amber);border-radius:2px;
+  padding:22px 24px;color:inherit;font:inherit;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.choice:hover{background:var(--stone2);border-left-color:var(--ember);transform:translateX(4px)}
+.choice:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.choice .label{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.6rem;
+  font-weight:500;line-height:1.18;display:block;margin-bottom:8px;text-wrap:balance}
+.choice .why{font-size:.83rem;line-height:1.55;color:var(--muted);display:block}
+.edge{border:1px solid var(--bruise);border-radius:2px;padding:28px 26px;
+  background:linear-gradient(180deg,rgba(164,88,106,.14),rgba(164,88,106,.03))}
+.edge .tag{color:var(--ember);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ember);
+  box-shadow:0 0 0 0 rgba(255,106,44,.6);animation:pulse 2.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,106,44,0)}100%{box-shadow:0 0 0 0 rgba(255,106,44,0)}}
+.edge p{margin:0 0 .9em;font-size:1.02rem}
+.edge p:last-child{margin-bottom:0}
+.edge .pressure{color:var(--muted);font-size:.92rem;font-style:italic;
+  border-left:1px solid var(--bruise);padding-left:15px;margin-top:18px}
+.acts{display:flex;gap:13px;flex-wrap:wrap;margin-top:38px}
+.btn{font-family:"Cormorant Unicase","Cormorant Garamond",Georgia,serif;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;cursor:pointer;background:none;
+  border:1px solid var(--line);color:var(--muted);padding:12px 19px;border-radius:2px;
+  transition:border-color .2s ease,color .2s ease}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.lede{font-size:1.24rem;line-height:1.6;margin:0 0 16px;text-wrap:pretty}
+.sub{color:var(--muted);font-size:1rem;font-style:italic;margin:0 0 40px}
+.enter{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.8rem;font-weight:500;
+  background:none;border:0;border-bottom:1px solid var(--amber);color:var(--amber);
+  cursor:pointer;padding:0 0 6px;transition:opacity .2s ease}
+.enter:hover{opacity:.7}
+.enter:focus-visible{outline:2px solid var(--amber);outline-offset:6px}
+.map{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:1px}
+.map li{background:var(--stone);padding:16px 19px;border-left:2px solid var(--bruise)}
+.map .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.3rem;
+  font-weight:500;display:block}
+.map .a{font-size:11px;letter-spacing:.15em;margin-top:6px;display:block}
+footer{max-width:60ch;margin:0 auto;padding:26px 26px 80px;color:var(--muted);
+  font-size:.88rem;font-style:italic;line-height:1.75;border-top:1px solid var(--line)}
+.fade{animation:rise .68s cubic-bezier(.22,.61,.36,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.001ms!important;animation-iteration-count:1!important;
+  transition-duration:.001ms!important}.choice:hover{transform:none}}
+@media (max-width:600px){body{font-size:19px}.wrap{padding:48px 21px 96px}
+  .trail{display:none}}
+</style>
+</head>
+<body>
+
+<div class="suns"></div>
+<header class="ledger"><div class="ledger-in">
+  <div class="mark">Faelspire <span>&middot;</span> The Fourth Bell</div>
+  <div class="trail rubric"></div>
+</div></header>
+<main class="wrap fade"></main>
+<footer>
+  A living story. Its scenes are read cold by independent critics, judged, diagnosed and
+  rewritten by the Story Room, then committed &mdash; every version kept, every change traceable.
+  What stands here today is not finished. That is the point.
+</footer>
+<script>
+const EMBED={};
+document.querySelectorAll('script[data-scene]').forEach(s=>{EMBED[s.dataset.scene]=s.textContent.trim()});
+const LIVE=Object.keys(EMBED).length===0;
+const CACHE={};let FR=null;
+
+const base=p=>String(p).replace(/^.*\//,'').replace(/\.md$/,'');
+async function fetchText(u){const r=await fetch(u,{cache:'no-cache'});if(!r.ok)throw new Error(r.status);return r.text()}
+async function loadFrontier(){
+  if(FR)return FR;
+  if(!LIVE){FR=window.__FR__;return FR}
+  const j=JSON.parse(await fetchText('frontier.json'));
+  const pressure={};(j.active_frontiers||[]).forEach(f=>{
+    pressure[base(f.path)]={title:f.title,ancestry:f.ancestry,pressure:f.unresolved_pressure}});
+  FR={summary:j.summary,entry:base(j.canonical_entry),pressure};return FR;
+}
+async function raw(id){
+  if(CACHE[id])return CACHE[id];
+  const t=EMBED[id]!==undefined?EMBED[id]:await fetchText('scenes/'+id+'.md');
+  return CACHE[id]=t;
+}
+function inline(t){
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+          .replace(/(^|[^*])\*([^*]+?)\*/g,'$1<em>$2</em>');
+}
+function parse(md){
+  const lines=md.split('\n');const o={title:'',prose:[],choices:[],frontier:null};
+  let mode='prose',pending=null;
+  for(const L of lines){const t=L.trim();
+    if(t.startsWith('# ')&&!o.title){o.title=t.slice(2).trim();continue}
+    if(/^##\s+Choose/i.test(t)){mode='choice';continue}
+    if(/^##\s*\u25C9?\s*ACTIVE FRONTIER/i.test(t)){mode='frontier';o.frontier=[];continue}
+    if(t==='---')continue;
+    if(mode==='choice'){
+      const m=t.match(/^###\s*\[(.+?)\s*\u2192?\]\((.+?)\)$/);
+      if(m){pending={label:m[1].trim(),to:base(m[2]),why:''};o.choices.push(pending);continue}
+      if(t&&pending)pending.why=(pending.why?pending.why+' ':'')+t;continue}
+    if(mode==='frontier'){if(t)o.frontier.push(t);continue}
+    if(t)o.prose.push(t);}
+  return o;
+}
+const scene=async id=>parse(await raw(id));
+
+let trail=[];
+try{const s=localStorage.getItem('faelspire.trail');if(s)trail=JSON.parse(s)||[]}catch(e){}
+const save=()=>{try{localStorage.setItem('faelspire.trail',JSON.stringify(trail))}catch(e){}};
+const $=s=>document.querySelector(s);
+const titles={};
+function toll(){const s=$('.suns');s.classList.add('toll');setTimeout(()=>s.classList.remove('toll'),680)}
+function drawTrail(){
+  const el=$('.trail');
+  el.innerHTML=trail.length?trail.map((id,i)=>(i?'<i>/</i>':'')+
+    (i===trail.length-1?'<b>'+(titles[id]||'')+'</b>':(titles[id]||''))).join(''):'';
+  el.scrollLeft=el.scrollWidth;
+}
+const orn='<div class="orn"><i></i><i></i><i></i></div>';
+
+async function start(){
+  trail=[];save();
+  const fr=await loadFrontier();
+  $('.wrap').innerHTML=`<p class="eyebrow rubric">Faelspire &middot; the canonical frontier</p>
+    <h1>The Fourth Bell</h1>
+    <p class="lede">${fr.summary}</p>
+    <p class="sub">A living story. It is rewritten by its own critics between readings &mdash; the path you walk today may not be the path standing here next week.</p>
+    <button class="enter" id="go">Enter the story &rarr;</button>
+    <p class="eyebrow rubric" style="margin:60px 0 0">Paths currently alive</p>
+    <ul class="map">${Object.values(fr.pressure).map(p=>
+      `<li><span class="t">${p.title}</span><span class="a rubric">${p.ancestry.join(' &rarr; ')}</span></li>`).join('')}</ul>`;
+  $('#go').onclick=()=>go(fr.entry);
+  drawTrail();
+}
+
+async function go(id){
+  const fr=await loadFrontier();
+  let s;
+  try{s=await scene(id)}catch(e){
+    $('.wrap').innerHTML=`<p class="eyebrow rubric">The living edge</p><h1>Unwritten</h1>
+      <div class="prose"><p>This path has been chosen, but the Story Room has not written it yet.</p></div>
+      <div class="acts"><button class="btn" id="restart">Start over</button></div>`;
+    $('#restart').onclick=start;return;
+  }
+  titles[id]=s.title;
+  if(trail[trail.length-1]!==id)trail.push(id);
+  save();toll();
+  const f=fr.pressure[id];
+  let h=`<p class="eyebrow rubric">${trail.length>1?'Scene '+trail.length:'The beginning'}</p><h1>${s.title}</h1><div class="prose">`;
+  h+=s.prose.map((p,i)=>`<p${i===0?' class="lead"':''}>${inline(p)}</p>`).join('');
+  h+='</div>';
+  if(s.choices.length){
+    h+=orn+'<div class="choices">'+s.choices.map(c=>
+      `<button class="choice" data-to="${c.to}"><span class="label">${inline(c.label)}</span><span class="why">${inline(c.why)}</span></button>`).join('')+'</div>';
+  }else{
+    h+=orn+'<div class="edge"><div class="tag rubric"><span class="dot"></span>The living edge</div>';
+    h+=(s.frontier||[]).map(p=>`<p>${inline(p)}</p>`).join('');
+    if(f)h+=`<p class="pressure">Unresolved &mdash; ${f.pressure}</p>`;
+    h+='</div>';
+  }
+  h+='<div class="acts">';
+  if(trail.length>1)h+='<button class="btn" id="back">&larr; Back one scene</button>';
+  h+='<button class="btn" id="restart">Start over</button></div>';
+  const w=$('.wrap');w.innerHTML=h;
+  w.classList.remove('fade');void w.offsetWidth;w.classList.add('fade');
+  document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>go(b.dataset.to));
+  const bk=$('#back');if(bk)bk.onclick=()=>{trail.pop();const p=trail.pop();save();p?go(p):start()};
+  $('#restart').onclick=start;
+  drawTrail();window.scrollTo({top:0,behavior:'instant'});
+}
+
+(async()=>{
+  try{
+    await loadFrontier();
+    for(const id of trail){try{titles[id]=(await scene(id)).title}catch(e){}}
+    if(trail.length){const last=trail.pop();await go(last)}else await start();
+  }catch(e){
+    $('.wrap').innerHTML='<h1>Faelspire</h1><div class="prose"><p>The story could not be loaded.</p></div>';
+  }
+})();
+</script>
+</body>
+</html>
