@@ -1,9 +1,10 @@
 [Unit]
-Description=Run the Voyd autonomous Story Room twice daily
+Description=Run the Voyd autonomous Story Room nightly at 3 AM Pacific
 
 [Timer]
-OnCalendar=*-*-* 03,15:17:00 America/Los_Angeles
+OnCalendar=*-*-* 03:00:00 America/Los_Angeles
 Persistent=true
+AccuracySec=1s
 Unit=voyd-story-room.service
 
 [Install]
