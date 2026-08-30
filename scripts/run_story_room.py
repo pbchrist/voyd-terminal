@@ -244,7 +244,7 @@ def run(max_turns: int) -> int:
 
     packet_path = build_packet()
     prompt = build_prompt(packet_path)
-    primary_rc = run_hermes(prompt, env, max_turns)
+    primary_rc = run_hermes(prompt, env, max_turns, provider=LOCAL_PROVIDER)
     primary_status = read_status()
 
     if primary_rc == 0 and primary_status and primary_status["status"] not in {"blocked"}:
