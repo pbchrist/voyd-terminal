@@ -43,15 +43,21 @@ jobs:
 
       - name: Check every choice resolves to a real scene
         run: |
-          set -euo pipefail
-          fail=0
-          for f in _site/scenes/*.md; do
-            grep -oE '\]\([0-9a-z-]+\.md\)' "$f" 2>/dev/null | tr -d ']()' | while read -r t; do
-              [ -f "_site/scenes/$t" ] || { echo "BROKEN: $(basename "$f") -> $t"; exit 1; }
-            done || fail=1
-          done
-          [ "$fail" -eq 0 ] || exit 1
-          echo "all choices resolve"
+          python3 - <<'PY'
+          import pathlib, re, sys
+          d = pathlib.Path("_site/scenes")
+          have = {p.name for p in d.glob("*.md")}
+          bad = []
+          for f in sorted(d.glob("*.md")):
+              for target in re.findall(r"\]\(([^)]+\.md)\)", f.read_text(encoding="utf-8")):
+                  if target not in have:
+                      bad.append(f"{f.name} -> {target}")
+          if bad:
+              print("BROKEN CHOICES:")
+              for b in bad: print("  " + b)
+              sys.exit(1)
+          print(f"{len(have)} scenes, all choices resolve")
+          PY
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
