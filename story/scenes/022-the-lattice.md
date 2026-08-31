@@ -100,8 +100,30 @@ The shop ceiling groans.
 
 *It is measuring how long you take to look up.*
 
+You look up.
+
+Not because the fragment told you to. Because the measuring is almost finished, and the shadow above is almost done falling, and you want to see it before it is done.
+
+Your paws leave the floor.
+
+The lattice below you inverts. The city is a ceiling now, and the fourth point is a floor, and the shadow is a hand reaching down through both. The orange seam in your paw burns, and the fragment speaks — not into your head this time, but out of the space between you and the thing above.
+
+*It measures looking away.*
+
+*It has no word for looking back.*
+
+The shadow above stops.
+
+Not fades. Stops. The hand freezes halfway through its reach, and the thing it belongs to — vast, patient, shaped like the city's own accumulated silence — turns its attention downward. Toward you. Toward the one cat who looked up before the measurement was finished.
+
+The shop ceiling groans again.
+
+This time it does not groan.
+
+It cracks.
+
 ---
 
 ## ◉ ACTIVE FRONTIER
 
-This path is alive. The next move must answer the fourth point above Faelspire, the temple's hidden fragment, and the stray moving through the drainage quarter.
+This path is alive. The fourth point above Faelspire is the same system as the dark knot in the lattice, the cistern's impossible sky, and the ledger door in the room behind the shop. The countdown started the moment the fourth point appeared, and you have already looked up — the first unmeasured act the system has no word for. The next move must answer what the system does when a cat looks back: the dark knot is where filed looking-aways accumulate, the copies are the unfiled ones, and the ledger is now reading back.

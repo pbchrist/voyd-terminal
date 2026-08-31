@@ -86,8 +86,44 @@ Not like a bell.
 
 Like laughter heard through a wall.
 
+The oldest you lifts a paw and points at the fragment.
+
+Not at you.
+
+At the door above.
+
+The high door's stone title shifts. The carved letters rearrange themselves, and the door begins to open — slowly, the way a ledger opens. A seam of pale light widens along its frame, and the fragment in P'taxx's paw slides out of the linen as though pulled by the seam.
+
+The fragment drifts into the door's light.
+
+The light closes.
+
+The fragment is gone.
+
+The door's title changes. New letters form beneath the old, and P'taxx reads them without being asked.
+
+"Filed," he says. "The door keeps what it reads."
+
+You look at your paw. The linen is empty. The fragment that rang like laughter is behind the door now, in a room of doors that files what cats looked away from.
+
+P'taxx's tail unrigids.
+
+"The wrong book," he says, and his voice is different. Not ashamed. Tired. "I kept the wrong book so the door would file the right thing. The fragment was never the book. The fragment was the debt."
+
+The copies in the semicircle do not move. But the oldest one has stopped looking at P'taxx. It is looking at the door. At the filed fragment. At the title that now reads, beneath the old words, a single new line.
+
+You cannot read the script.
+
+P'taxx can.
+
+He does not whisper the translation.
+
+He does not need to.
+
+You already know what it says.
+
 ---
 
 ## ◉ ACTIVE FRONTIER
 
-This path is alive. Story Room has not yet decided what waits behind the high door, why P'taxx kept the wrong book, or which of your impossible selves has come to change the present.
+This path is alive. The fragment is filed behind the high door — the ledger of looking-aways — and the countdown above Faelspire has started. The next move must decide: read the ledger back, burn the file, or pay the debt with your own looking-away. The copies came through the doors to see whether you would look up. The wrong book was the book you would have read instead.

@@ -84,6 +84,8 @@ Or what he left behind.
 
 Or what the Voyd learned to wear after he ran.
 
+The Voyd. The name is not new. It is the door in the room behind the shop, seen from inside — the same ledger of looking-aways, the same filed fragment, the same countdown. The thing above Faelspire is not a new presence. It is the ledger reading back. And the kit in the cistern is what the ledger filed first.
+
 The fourth bell rings.
 
 This time it comes from the open cistern.
@@ -104,4 +106,4 @@ The kit reaches one paw toward the rim.
 
 ## ◉ ACTIVE FRONTIER
 
-This path is alive. The next move must decide whether the thing in the cistern is an abandoned self, an imitation, or a weapon using memory as leverage.
+This path is alive. The cistern's impossible sky is the same system as the fourth point above Faelspire, the dark knot in the lattice, and the ledger door in the room behind the shop. The countdown is live — the kit is what the ledger filed first, and the thing above is the ledger reading back. The next move must decide whether the thing in the cistern is an abandoned self, an imitation, or a weapon using memory as leverage — and what the system does when a cat looks up from inside the cistern at the sky it is falling through.

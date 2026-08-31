@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-30T19:08:22Z",
+  "timestamp_utc": "2026-08-31T11:33:52Z",
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "Cycle 20260830T180000Z: M1 (Twin-door reconvergence) implemented as canonical head \u2014 route-blind 021 split into 021a/021b + shared tail 022; targeted 020-route failure eliminated; independent final replay PASS across all 7 contract paths."
+  "summary": "S1+S2 stacked mutation (The Ledger Door + The Look-Up) implemented across 011/021b/022/031/032 + frontier.json; all four independent replay walks (temple, antiquarian, stray, control) pass; the four frontiers now converge on a single declared center (the ledger of looking-aways) and the protagonist's act of looking up is the first unmeasured event."
 }

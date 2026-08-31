@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-30T18:52:06.273133+00:00",
+  "updated_at": "2026-08-31T11:19:25.712525+00:00",
   "laws": [
     {
       "id": "law_8e52dd229d27",
@@ -192,16 +192,19 @@
       ],
       "status": "candidate",
       "origin": "inferred",
-      "confirmations": 1,
+      "confirmations": 2,
       "contradictions": 0,
       "decision_ids": [
-        "acumen_20260830_180000_m1"
+        "acumen_20260830_180000_m1",
+        "acumen_20260831_030002_s1s2"
       ],
       "rationales": [
-        "Inferred from cycle 20260830T180000Z: Governing Judge's load-bearing diagnosis (021 does not carry state), M1 replay (route-true assertion beats repair the break), M2 replay (reader-memory activation is valid but weaker), M3 replay (character testimony leaves geographic residual), M4 replay + Steward (spending the protected image system is a real cost), Governing Judge's protected-element directive ('Protect it above all')."
+        "Inferred from cycle 20260830T180000Z: Governing Judge's load-bearing diagnosis (021 does not carry state), M1 replay (route-true assertion beats repair the break), M2 replay (reader-memory activation is valid but weaker), M3 replay (character testimony leaves geographic residual), M4 replay + Steward (spending the protected image system is a real cost), Governing Judge's protected-element directive ('Protect it above all').",
+        "Second confirmation (autonomous, not Patrick): cycle 20260831T030002Z selection reinforces the branch-awareness law at the object/act scale \u2014 the stacked S1+S2 canonical head routes the 022 shared tail's route-specific state (011 filed; 021a/021b did not) through the ledger *showing* the file, not through the orange-seam system (Steward watch-item 2). Law remains a candidate: the second confirmation is from an autonomous cycle, and the Protocol requires a second independent Patrick decision to activate an inferred law.",
+        "Status pinned to candidate by the Acumen Keeper: observe_law() auto-activates at confirmations >= 2, but the Protocol activates inferred laws only on a second independent Patrick decision. The 20260831T030002Z confirmation is autonomous; the law stays a candidate until a second Patrick decision at a reconvergence fork."
       ],
       "created_at": "2026-08-30T18:52:06.273050+00:00",
-      "updated_at": "2026-08-30T18:52:06.273050+00:00"
+      "updated_at": "2026-08-31T11:19:25.711966+00:00"
     }
   ],
   "decisions": [
@@ -230,6 +233,19 @@
       "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction). M1 repairs both dimensions of the load-bearing 021 reconvergence break (causal-history + geographic) at moderate cost, preserves the protected orange-seam image system as a singular entity in the shared tail, inherits law_4ca0ffd21c42 / law_5361b415500d / law_4540ed0088aa, and has the cleanest replay record (PASS, swap test passes, no new failure, control path intact). M2/M3 preserved as coherent branches (seam-testimony / character-testimony mechanisms); M4 preserved as structural reference (full split, route-specific lattice delivery) but not as a parallel branch (conflicting seam logic + duplicated 'measuring' line).",
       "law_ids": [],
       "recorded_at": "2026-08-30T18:52:06.272535+00:00"
+    },
+    {
+      "id": "acumen_20260831_030002_s1s2",
+      "fork_id": "20260831T030002Z",
+      "selected": "S1+S2 (stacked: The Ledger Door + The Look-Up)",
+      "candidates": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction; no pending_speciation.json created). Inherited acumen decides: law_4ca0ffd21c42 (causality outranks imagery) is satisfied by the stack at both levels \u2014 S1's ledger is the causal object, S2's look-up is the protagonist's act that reads it \u2014 so the Judge's causal-ownership requirement ('make the protagonist's act the cause of the decisive turn, per the 031/032 precedent') is met while S1's named object removes S2's single-point-of-failure discipline risk (the corpus's demonstrated 021b beat-scale law_8e52dd229d27 violation pattern). The stack keeps all four frontier notes visible (reader-contract safe), preserves both protected beats (022 fourth-point reveal, 032 bell flip) verbatim and in position, extends the M1 canonical head without splitting or duplicating it, and closes Judge ranks 1-4 (convergence, 021b irreversibility, close-one-option-per-route, 'the Voyd' grounding) simultaneously. S1 alone leaves causal-ownership half-met (the protagonist's act is the ledger's content, not the cause of the collision); S2 alone makes the corpus's weakest scene (021b) the load-bearing scene for the convergence; S3 (four-route reconvergence node 040) is eliminated as canonical head on cost (new scene + four retroactive state-endings + 4x swap-test burden), untested 4-route generalization of candidate law_4d3da1051141 (validated only at 2-route scale via M1), and an open reader-contract gate (four frontier notes -> one ACTIVE FRONTIER, adjudicated by law_a65e6c262ef5 / Patrick's call) that an autonomous cycle has no authority to close. S3 is preserved as a structural reference for future re-speciation (the editor's declared fallback if the stack's distributed convergence fails), mirroring the M4 precedent from cycle 20260830T180000Z. No active hard Genome law is violated by any candidate; no prior Patrick decision (human_20260824_170638_a, acumen_20260830_180000_m1) is re-litigated or contradicted.",
+      "law_ids": [],
+      "recorded_at": "2026-08-31T11:19:25.711061+00:00"
     }
   ]
 }
