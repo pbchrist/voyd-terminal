@@ -108,7 +108,7 @@ You look at your paw. The linen is empty. The fragment that rang like laughter i
 
 P'taxx's tail unrigids.
 
-"The wrong book," he says, and his voice is different. Not ashamed. Tired. "I kept the wrong book so the door would file the right thing. The fragment was never the book. The fragment was the debt."
+"The wrong book," he says, and his voice is different. Not ashamed. Tired. "I kept the wrong book so the door would file the right thing. The fragment was never the book. It is the proof. And the proof is yours."
 
 The copies in the semicircle do not move. But the oldest one has stopped looking at P'taxx. It is looking at the door. At the filed fragment. At the title that now reads, beneath the old words, a single new line.
 
@@ -122,8 +122,9 @@ He does not need to.
 
 You already know what it says.
 
+**YOU LOOKED AWAY.**
+
 ---
 
-## ◉ ACTIVE FRONTIER
-
-This path is alive. The fragment is filed behind the high door — the ledger of looking-aways — and the countdown above Faelspire has started. The next move must decide: read the ledger back, burn the file, or pay the debt with your own looking-away. The copies came through the doors to see whether you would look up. The wrong book was the book you would have read instead.
+### [Answer the second question →](040a-the-second-question.md)
+The fragment is behind the door, but its next question is meant for you.

@@ -110,6 +110,5 @@ This time the sound comes from the sky.
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-This path is alive. The name beneath the stray's skin appeared when you picked up the fragment — the first act the ledger filed. The countdown is live, and the bell came from the sky this time, not from below. The next move must answer why your name is written beneath another cat's skin and what the ledger does when the cat whose name is filed looks up at the thing reading back.
+### [Make the fragment ask again →](040d-the-second-question.md)
+The stray survived his fragment. His dead sliver can show you how.

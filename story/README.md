@@ -20,7 +20,7 @@ Three paths are alive from the first fracture:
 
 Each path preserves what you chose, what you learned, whom you trusted, and what it cost.
 
-The Antiquarian and Temple paths cross again at **The Lattice** — but each arrives the way it traveled, and the crossing remembers both arrivals. Branches may cross again, but they do not forget how you arrived.
+The Antiquarian and Temple paths cross again at **The Lattice** — but each arrives the way it traveled, and the crossing remembers both arrivals. Every live route now reaches **The Second Question**, where the fragment demonstrates what it does: it interrupts a thought, provokes a look-away, preserves that movement, and repeats the test. Each branch carries a different proof and consequence.
 
 ---
 

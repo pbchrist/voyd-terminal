@@ -5,36 +5,36 @@
   "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
   "active_frontiers": [
     {
-      "path": "story/scenes/011-the-room-behind-the-room.md",
-      "title": "The Room Behind the Room",
-      "ancestry": ["The Fourth Bell", "The Antiquarian"],
-      "unresolved_pressure": "The fragment is filed behind the high door — the ledger of looking-aways — and the countdown above Faelspire has started. The copies came through the doors to see whether you would look up. The wrong book was the book you would have read instead."
+      "path": "story/scenes/040a-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room"],
+      "unresolved_pressure": "The fragment provoked the protagonist's first look-away and preserved it as proof. The protagonist refused the repeated test, leaving the replay unfinished, but the high door identified them by name and removed the exit."
     },
     {
-      "path": "story/scenes/022-the-lattice.md",
-      "title": "The Lattice",
-      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple (021a: Voreath Enters the Shop, 021b: The Walk to the Shop)"],
-      "unresolved_pressure": "The fourth point above Faelspire is the same system as the dark knot in the lattice, the cistern's impossible sky, and the ledger door in the room behind the shop. The countdown started the moment the fourth point appeared, and the protagonist has already looked up — the first unmeasured act the system has no word for. The next move must answer what the system does when a cat looks back."
+      "path": "story/scenes/040b-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple", "The Lattice"],
+      "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire."
     },
     {
-      "path": "story/scenes/031-the-thing-below-the-courtyard.md",
-      "title": "The Thing Below the Courtyard",
-      "ancestry": ["The Fourth Bell", "The Stray", "Open the cistern"],
-      "unresolved_pressure": "The cistern's impossible sky is the same system as the fourth point above Faelspire, the dark knot in the lattice, and the ledger door in the room behind the shop. The countdown is live — the kit is what the ledger filed first, and the thing above is the ledger reading back. The next move must decide whether the thing in the cistern is an abandoned self, an imitation, or a weapon using memory as leverage."
+      "path": "story/scenes/040c-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Stray", "Open the cistern", "The Thing Below the Courtyard"],
+      "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close."
     },
     {
-      "path": "story/scenes/032-twelve-years-ago.md",
-      "title": "Twelve Years Ago",
-      "ancestry": ["The Fourth Bell", "The Stray", "Demand the truth"],
-      "unresolved_pressure": "The name beneath the stray's skin appeared when you picked up the fragment — the first act the ledger filed. The countdown is live, and the bell came from the sky this time, not from below. The next move must answer why your name is written beneath another cat's skin and what the ledger does when the cat whose name is filed looks up at the thing reading back."
+      "path": "story/scenes/040d-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Stray", "Demand the truth", "Twelve Years Ago"],
+      "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent."
     }
   ],
   "canonical_head": {
-    "cycle": "20260831T030002Z",
-    "mutation": "S1+S2 (stacked: The Ledger Door + The Look-Up)",
-    "title": "Frontier convergence by object and act: the ledger door is the converging object, the look-up is the protagonist's act that reads it",
-    "structure": "011 (fragment filed at ledger door); 020->021b->022 (look-up beat after protected block, timer named on temple route); 031 (Voyd anchored to ledger); 032 (name = first filed act)",
-    "note": "Stacked S1+S2 extends M1's canonical head without splitting or duplicating the 022 shared tail. 022's fourth-point reveal and 032's bell flip survive verbatim and in position. The four frontiers now converge on a single declared center: the thing above Faelspire is the ledger of looking-aways, and the protagonist's act of looking up is the first unmeasured event. S3 (One Scene, Four Faces) preserved as structural reference for future re-speciation."
+    "cycle": "patrick-directed-fragment-proof",
+    "mutation": "The Second Question (four route-specific proof beats)",
+    "title": "The fragment's rule becomes observable: interruption, involuntary look-away, preserved movement, repeated test",
+    "structure": "011->040a (proof behind the door); 022->040b (proof through fragment and reliquary); 031->040c (proof replayed by the kit); 032->040d (living fragment versus the stray's incomplete dead sliver)",
+    "note": "Patrick required the fragment to be explained on-page and concretely in the next beat. Four route-specific scenes preserve branch history while demonstrating one causal rule. The protagonist resists the repeated test, leaving the second record unfinished but becoming identified by name. The protected 022 fourth-point reveal and 032 bell flip remain unchanged."
   },
   "branch_ledger": {
     "cycle": "20260830T180000Z",

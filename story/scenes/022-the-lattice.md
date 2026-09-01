@@ -124,6 +124,5 @@ It cracks.
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-This path is alive. The fourth point above Faelspire is the same system as the dark knot in the lattice, the cistern's impossible sky, and the ledger door in the room behind the shop. The countdown started the moment the fourth point appeared, and you have already looked up — the first unmeasured act the system has no word for. The next move must answer what the system does when a cat looks back: the dark knot is where filed looking-aways accumulate, the copies are the unfiled ones, and the ledger is now reading back.
+### [Hold your gaze →](040b-the-second-question.md)
+The shadow stopped when you looked back. Now the fragment tries to make you turn away.

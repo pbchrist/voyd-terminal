@@ -104,6 +104,5 @@ The kit reaches one paw toward the rim.
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-This path is alive. The cistern's impossible sky is the same system as the fourth point above Faelspire, the dark knot in the lattice, and the ledger door in the room behind the shop. The countdown is live — the kit is what the ledger filed first, and the thing above is the ledger reading back. The next move must decide whether the thing in the cistern is an abandoned self, an imitation, or a weapon using memory as leverage — and what the system does when a cat looks up from inside the cistern at the sky it is falling through.
+### [Watch what the kit repeats →](040c-the-second-question.md)
+The fragment has used your thoughts. The kit is about to use one of your movements.
