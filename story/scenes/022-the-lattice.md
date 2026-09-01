@@ -112,6 +112,8 @@ The lattice below you inverts. The city is a ceiling now, and the fourth point i
 
 *It has no word for looking back.*
 
+A record it cannot see cannot complete. A witnessed flinch is the fuel.
+
 The shadow above stops.
 
 Not fades. Stops. The hand freezes halfway through its reach, and the thing it belongs to — vast, patient, shaped like the city's own accumulated silence — turns its attention downward. Toward you. Toward the one cat who looked up before the measurement was finished.

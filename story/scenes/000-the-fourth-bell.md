@@ -48,6 +48,10 @@ A voice speaks directly into the place where your next thought should have been.
 
 You jerk backward.
 
+The orange seam closes on the exact frame of your backward jerk.
+
+You watch the fragment keep it. The line of light that had opened across its surface snaps shut, and for one heartbeat the frame of your recoil is held in the black — your shoulders, your lifted paw, your eyes leaving the thing — and then the seam is closed again, and the frame is gone, and you know it is filed.
+
 No one nearby reacts. The crowd keeps breaking around you, all claws and tails and panic.
 
 *That means it heard you too.*
@@ -67,6 +71,8 @@ Then he runs.
 The fourth bell rings again.
 
 This time, something beneath Faelspire knocks back.
+
+You do not want to be measured. You do not want to be the subject of a reading you did not choose to be in. The fragment has already kept one frame of you, and the frame is filed, and the city is about to choose what it will do with you next.
 
 ---
 

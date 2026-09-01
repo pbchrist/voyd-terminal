@@ -5,10 +5,10 @@
   "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
   "active_frontiers": [
     {
-      "path": "story/scenes/040a-the-second-question.md",
-      "title": "The Second Question",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room"],
-      "unresolved_pressure": "The fragment provoked the protagonist's first look-away and preserved it as proof. The protagonist refused the repeated test, leaving the replay unfinished, but the high door identified them by name and removed the exit."
+      "path": "story/scenes/040a-the-unwitnessed-flinch.md",
+      "title": "The Unwitnessed Flinch",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Second Question"],
+      "unresolved_pressure": "The fragment provoked the protagonist's first look-away and preserved it as proof. The protagonist refused the second, looked back at the filed record, and the system manufactured a witness: a copy stepped out of the semicircle and stands between the protagonist and the opened seam. The test has changed from 'will you flinch' to 'will you let it see you not flinch', and the witness is watching."
     },
     {
       "path": "story/scenes/040b-the-second-question.md",
@@ -30,49 +30,39 @@
     }
   ],
   "canonical_head": {
-    "cycle": "patrick-directed-fragment-proof",
-    "mutation": "The Second Question (four route-specific proof beats)",
-    "title": "The fragment's rule becomes observable: interruption, involuntary look-away, preserved movement, repeated test",
-    "structure": "011->040a (proof behind the door); 022->040b (proof through fragment and reliquary); 031->040c (proof replayed by the kit); 032->040d (living fragment versus the stray's incomplete dead sliver)",
-    "note": "Patrick required the fragment to be explained on-page and concretely in the next beat. Four route-specific scenes preserve branch history while demonstrating one causal rule. The protagonist resists the repeated test, leaving the second record unfinished but becoming identified by name. The protected 022 fourth-point reveal and 032 bell flip remain unchanged."
+    "cycle": "20260901T030002Z",
+    "mutation": "M1 — The Unwitnessed Flinch",
+    "title": "The system cannot read an act no one sees: the protagonist weaponizes the one act the fragment cannot record, and the system's next move is to make a witness",
+    "structure": "000 marks the first flinch as a shown recorded beat and plants the WANT (never again be the subject of a reading they did not choose); 022 adds the corollary (a record it cannot see cannot complete; a witnessed flinch is the fuel); 040a advances on the lever's logic — the protagonist performs a look-back at the filed record, and the system's response is to manufacture a WITNESS (a copy steps out of the semicircle). The test changes from 'will you flinch' to 'will you let it see you not flinch.'",
+    "note": "M1 is the canonical head for this cycle. The 040a route is where the agentless-center wound is most acute, and M1 is the first place the protagonist wins a new state (the witness lever) rather than merely advancing the machine. M2 (040c), M3 (040d), and M4 (040b) are preserved as active reader-facing branches with their non-blocking obligations carried forward."
   },
   "branch_ledger": {
-    "cycle": "20260830T180000Z",
+    "cycle": "20260901T030002Z",
     "canonical_head": "M1",
     "preserved_branches": [
       {
         "id": "M2",
-        "title": "The seam re-anchors",
-        "mechanism": "Seam image system carries route state (one-line testimony + fragment-voice memory line)",
-        "coherence": "PASS (Walker + Steward); no causal break; 'measuring' beat verbatim; control path intact",
-        "residual": "Seam's ontology gains 'remembers its route' property (Judge to adjudicate as strengthening or diluting)",
+        "title": "The Second You",
+        "mechanism": "The flinch's recording detaches as a living second-self in 000; the 040c kit replay is revealed to be that recorded self; the fragment tries to finish it (make it the one who looks away so the protagonist is exonerated); the protagonist's act is to refuse to let the second-you be completed as a weapon",
+        "coherence": "PASS (Steward + Replay); branch-true to 040c kit evidence; no hard-law conflict",
+        "residual": "The detached second-you planted in 000 must be legible on all four 040 routes (faint echo in each replay) so it does not read as route-C-only; the second-you must stay a passive recording the fragment works on, never a rival-self with its own motive",
         "recombine": true
       },
       {
         "id": "M3",
-        "title": "The acolyte's testimony",
-        "mechanism": "Character testimony carries route state (acolyte names square/chest-press/shadow; player confirms via seam-answer)",
-        "coherence": "PASS (Walker + Steward); causal-history break substantially addressed; no new failure",
-        "residual": "Geographic opening (P'taxx in doorway) still false on 020 route — one-line-scale, future mutation",
+        "title": "The Filed Look-Back",
+        "mechanism": "The dead sliver (032) is proof that a refused act can be filed; the protagonist forces the system to file the look-back (the act it has no word for) by presenting the sliver as the precedent; the system resists by trying to reclassify the refusal as the next record",
+        "coherence": "PASS (Steward + Replay); grounded in 032:49-55 and 040d:75; no hard-law conflict",
+        "residual": "The 032 repair (state the dead-sliver rule one beat earlier, before ignition) is a prerequisite — if 032 is not fixed in the same cycle, the lever rests on a retroactive rule; the protagonist's act must be a costly choice under pressure, not a free clever move",
         "recombine": true
       },
       {
         "id": "M4",
-        "title": "The split arrival (full scene split, no shared tail)",
-        "mechanism": "Full scene split; route-specific lattice delivery (windows vs. reliquary's seam); two frontier entries",
-        "coherence": "PASS (Walker + Steward); swap test passes strongly (openings, middles, endings differ)",
-        "residual": "Seam written twice; 'measuring' line in two files; 2x prose; two frontier entries",
-        "recombine": true,
-        "cost_note": "Do not preserve as a parallel reader-facing branch alongside M1's shared tail (conflicting seam logic + duplicated 'measuring' line). Preserve as a structural reference for future re-speciation."
-      },
-      {
-        "id": "S3",
-        "title": "One Scene, Four Faces (four-route reconvergence node 040)",
-        "mechanism": "Single converging scene (040-the-reading) all four routes enter; route-true opening faces; shared body where all four frontiers collide; read-back reveals the protagonist's first act as the first ledger entry",
-        "coherence": "PASS (Steward); not implemented as canonical head (cost + untested 4-route generalization of law_4d3da1051141 + open reader-contract gate)",
-        "residual": "New scene + four retroactive state-endings + 4x swap-test burden; four frontier notes collapsing to one ACTIVE FRONTIER requires Patrick's adjudication (law_a65e6c262ef5)",
-        "recombine": false,
-        "cost_note": "Preserved as a structural reference for future re-speciation. If a future cycle's Governing Judge finds that the stack's distributed convergence fails (countdown discipline broken on a route), S3 is the declared fallback."
+        "title": "The Ledger's Blind Spot",
+        "mechanism": "Looking back exits the field of measure; the protagonist chooses to look back, which is the one act the system cannot widen into the city; the system's counter is to manufacture city-wide flinches",
+        "coherence": "PASS (Steward + Replay); grounded in 022:113 and 040b:65-67; no hard-law conflict",
+        "residual": "The 000 WANT beat (be unmeasurable) must be placed before the 'Choose your path' block so it organizes behavior on all four routes; the look-back must be dramatized as a concrete act with a cost, not a philosophical claim",
+        "recombine": true
       }
     ]
   },

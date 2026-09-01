@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-08-31T11:33:52Z",
+  "timestamp_utc": "2026-09-01T11:56:31Z",
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "S1+S2 stacked mutation (The Ledger Door + The Look-Up) implemented across 011/021b/022/031/032 + frontier.json; all four independent replay walks (temple, antiquarian, stray, control) pass; the four frontiers now converge on a single declared center (the ledger of looking-aways) and the protagonist's act of looking up is the first unmeasured event."
+  "summary": "Cycle 20260901T030002Z: M1 (The Unwitnessed Flinch) implemented and independently replay-tested PASS \u2014 the 040a agentless-center wound is repaired, the frontier advances to 040a-the-unwitnessed-flinch.md, and M2/M3/M4 are preserved as active branches."
 }

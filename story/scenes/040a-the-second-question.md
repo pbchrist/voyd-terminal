@@ -70,4 +70,5 @@ The file still found its subject.
 
 ## ◉ ACTIVE FRONTIER
 
+### [Look back at the filed you →](040a-the-unwitnessed-flinch.md)
 The fragment provoked your first look-away and preserved it as proof. You refused the second, leaving the replay unfinished—but the ledger has identified you by name, and the room has removed the exit. The next move must decide whether to destroy the proof, falsify it, or force the door to file an act it cannot complete.
