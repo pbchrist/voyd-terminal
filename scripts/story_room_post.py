@@ -120,7 +120,59 @@ def _reader_text(markdown: str) -> str:
     return text
 
 
+def _blocks(markdown: str) -> list[str]:
+    return [b.strip() for b in markdown.split("\n\n") if b.strip()]
+
+
+def _is_structural(block: str) -> bool:
+    return block.startswith(("#", "---", "**Branch", "**State", "**Canonical", "**Frontier"))
+
+
+def _prose_blocks(markdown: str) -> list[str]:
+    """Reader-facing fiction only: no headings, choice links, or frontier notes."""
+    out: list[str] = []
+    after_frontier_head = False
+    for block in _blocks(markdown):
+        if block.startswith(("## \u25c9 ACTIVE FRONTIER", "## ACTIVE FRONTIER")):
+            after_frontier_head = True
+            continue
+        if after_frontier_head:
+            # The paragraph under the heading is the machine-facing note.
+            after_frontier_head = False
+            continue
+        if block.startswith(("### [", "## Choose")) or _is_structural(block):
+            continue
+        out.append(block)
+    return out
+
+
+def _choice_blocks(markdown: str) -> list[str]:
+    return [b for b in _blocks(markdown) if b.startswith("### [")]
+
+
+def _scene_title(markdown: str, fallback: str) -> str:
+    for line in markdown.splitlines():
+        if line.startswith("# "):
+            return line[2:].strip()
+    return fallback
+
+
+def _text_at_head(rel: str) -> str:
+    """The committed version of a scene, or "" when the cycle just created it."""
+    proc = subprocess.run(
+        ["git", "show", f"HEAD:{rel}"],
+        cwd=ROOT, text=True, capture_output=True, check=False,
+    )
+    return proc.stdout if proc.returncode == 0 else ""
+
+
 def _changed_story() -> str:
+    """Only the prose this cycle actually wrote.
+
+    A scene whose sole edit was its frontier note or a choice link is reported
+    as one line instead of being re-sent in full. Reading the same 360 words
+    again is how a real change gets buried.
+    """
     proc = subprocess.run(
         ["git", "status", "--porcelain", "--", "story/scenes"],
         cwd=ROOT, text=True, capture_output=True, check=False,
@@ -132,14 +184,48 @@ def _changed_story() -> str:
             paths.append(rel)
     # Preserve deterministic narrative order when several scenes changed.
     paths = sorted(dict.fromkeys(paths))
-    stories: list[str] = []
+
+    sections: list[str] = []
+    notes: list[str] = []
     for rel in paths:
         path = ROOT / rel
-        if path.exists():
-            text = _reader_text(path.read_text(encoding="utf-8"))
-            if text:
-                stories.append(text)
-    return "\n\n──────────\n\n".join(stories)
+        if not path.exists():
+            continue
+        new_md = path.read_text(encoding="utf-8")
+        old_md = _text_at_head(rel)
+        # Several routes can share a scene title; the id keeps them distinct
+        # and gives Patrick something exact to reply about.
+        title = f"{_scene_title(new_md, path.stem)} ({path.stem.split(chr(45))[0]})"
+
+        old_prose = _prose_blocks(old_md)
+        added = [b for b in _prose_blocks(new_md) if b not in old_prose]
+
+        if added:
+            label = f"{title} \u2014 NEW SCENE" if not old_md.strip() else f"{title} \u2014 new passage"
+            body = _reader_text("\n\n".join(added))
+            choices = _choice_blocks(new_md)
+            if choices:
+                body = f"{body}\n\n{_reader_text(chr(10).join(choices))}"
+            sections.append(f"{label}\n\n{body}")
+            continue
+
+        old_choices = _choice_blocks(old_md)
+        new_choices = _choice_blocks(new_md)
+        if new_choices != old_choices:
+            fresh = [_reader_text(c).splitlines()[0] for c in new_choices if c not in old_choices]
+            if fresh:
+                notes.append(f"{title} \u2014 now leads to: " + "; ".join(fresh))
+            else:
+                notes.append(f"{title} \u2014 choices changed, prose unchanged")
+        else:
+            notes.append(f"{title} \u2014 frontier note only, prose unchanged")
+
+    parts: list[str] = []
+    if sections:
+        parts.append("\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n".join(sections))
+    if notes:
+        parts.append("Also touched, no new prose:\n" + "\n".join(f"\u00b7 {n}" for n in notes))
+    return "\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\n".join(parts)
 
 
 def post(boundary: str, detail: str = "") -> dict:
