@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-31T11:19:25.712525+00:00",
+  "updated_at": "2026-09-02T04:31:00.000000+00:00",
   "laws": [
     {
       "id": "law_8e52dd229d27",
@@ -181,7 +181,7 @@
     },
     {
       "id": "law_4d3da1051141",
-      "statement": "A reconvergence node must be branch-aware: when two causally distinct routes rejoin, the rejoined scene must re-assert the causal history each route established, either in text (route-true assertion beats) or by activating the reader's own route-memory \u2014 but the re-assertion must not spend the story's protected image system to do it.",
+      "statement": "A reconvergence node must be branch-aware: when two causally distinct routes rejoin, the rejoined scene must re-assert the causal history each route established, either in text (route-true assertion beats) or by activating the reader's own route-memory — but the re-assertion must not spend the story's protected image system to do it.",
       "kind": "require",
       "scopes": [
         "mutation",
@@ -200,11 +200,35 @@
       ],
       "rationales": [
         "Inferred from cycle 20260830T180000Z: Governing Judge's load-bearing diagnosis (021 does not carry state), M1 replay (route-true assertion beats repair the break), M2 replay (reader-memory activation is valid but weaker), M3 replay (character testimony leaves geographic residual), M4 replay + Steward (spending the protected image system is a real cost), Governing Judge's protected-element directive ('Protect it above all').",
-        "Second confirmation (autonomous, not Patrick): cycle 20260831T030002Z selection reinforces the branch-awareness law at the object/act scale \u2014 the stacked S1+S2 canonical head routes the 022 shared tail's route-specific state (011 filed; 021a/021b did not) through the ledger *showing* the file, not through the orange-seam system (Steward watch-item 2). Law remains a candidate: the second confirmation is from an autonomous cycle, and the Protocol requires a second independent Patrick decision to activate an inferred law.",
+        "Second confirmation (autonomous, not Patrick): cycle 20260831T030002Z selection reinforces the branch-awareness law at the object/act scale — the stacked S1+S2 canonical head routes the 022 shared tail's route-specific state (011 filed; 021a/021b did not) through the ledger *showing* the file, not through the orange-seam system (Steward watch-item 2). Law remains a candidate: the second confirmation is from an autonomous cycle, and the Protocol requires a second independent Patrick decision to activate an inferred law.",
         "Status pinned to candidate by the Acumen Keeper: observe_law() auto-activates at confirmations >= 2, but the Protocol activates inferred laws only on a second independent Patrick decision. The 20260831T030002Z confirmation is autonomous; the law stays a candidate until a second Patrick decision at a reconvergence fork."
       ],
       "created_at": "2026-08-30T18:52:06.273050+00:00",
       "updated_at": "2026-08-31T11:19:25.711966+00:00"
+    },
+    {
+      "id": "law_bb750d1bdb10",
+      "statement": "When a head-level apex (the story's highest-tension moment) is the frontier to extend, the canonical head's decisive turn must be caused by the protagonist's chosen act, and the system's response must be a new method the antagonist has not yet used — not a reversion to prior state (a retreat), and not a revelation the system delivers (which re-narrates the decisive move and re-introduces the 'system narrates the next move' pathology). A counter-move that reverts the test to a prior form or reuses an already-established mechanism is lower-leverage than one that opens a new forward state.",
+      "kind": "prefer",
+      "scopes": [
+        "mutation",
+        "selection",
+        "sequence",
+        "story"
+      ],
+      "status": "candidate",
+      "origin": "inferred",
+      "confirmations": 1,
+      "contradictions": 0,
+      "decision_ids": [
+        "acumen_20260902_030001_n1"
+      ],
+      "rationales": [
+        "Inferred from cycle 20260902T030001Z: three survivors of the 040a-flinch seam repair (N1 uses the witness / N2 unmakes it / N3 reveals the witness is the self). The Acumen Keeper had to choose among them on leverage. N2 (retreat: reverts to 'will you flinch' + reuses 040b's widening) and N3 (system-delivered revelation) both score lower on the SUSTAINABLE causal-leverage axis than N1 (protagonist's act -> genuinely new system method, no protected-image spend), even though N3 has the highest RAW leverage. The distinguishing variable is WHO causes the decisive turn and whether the system's response is NEW vs. reverting. Distinct from candidate law_4d3da1051141 (reconvergence nodes); this candidate governs apex-head extension and the direction/ownership of the decisive turn.",
+        "Status pinned to candidate by the Acumen Keeper: per Protocol, an inferred law activates only after implementation + final replay passes AND a second independent Patrick decision supports the same law. This is a first (autonomous) observation; observe_law() auto-activation at confirmations>=2 is NOT applied because the confirmation is autonomous. Not activated this cycle."
+      ],
+      "created_at": "2026-09-02T04:31:00.000000+00:00",
+      "updated_at": "2026-09-02T04:31:00.000000+00:00"
     }
   ],
   "decisions": [
@@ -243,9 +267,29 @@
         "S2",
         "S3"
       ],
-      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction; no pending_speciation.json created). Inherited acumen decides: law_4ca0ffd21c42 (causality outranks imagery) is satisfied by the stack at both levels \u2014 S1's ledger is the causal object, S2's look-up is the protagonist's act that reads it \u2014 so the Judge's causal-ownership requirement ('make the protagonist's act the cause of the decisive turn, per the 031/032 precedent') is met while S1's named object removes S2's single-point-of-failure discipline risk (the corpus's demonstrated 021b beat-scale law_8e52dd229d27 violation pattern). The stack keeps all four frontier notes visible (reader-contract safe), preserves both protected beats (022 fourth-point reveal, 032 bell flip) verbatim and in position, extends the M1 canonical head without splitting or duplicating it, and closes Judge ranks 1-4 (convergence, 021b irreversibility, close-one-option-per-route, 'the Voyd' grounding) simultaneously. S1 alone leaves causal-ownership half-met (the protagonist's act is the ledger's content, not the cause of the collision); S2 alone makes the corpus's weakest scene (021b) the load-bearing scene for the convergence; S3 (four-route reconvergence node 040) is eliminated as canonical head on cost (new scene + four retroactive state-endings + 4x swap-test burden), untested 4-route generalization of candidate law_4d3da1051141 (validated only at 2-route scale via M1), and an open reader-contract gate (four frontier notes -> one ACTIVE FRONTIER, adjudicated by law_a65e6c262ef5 / Patrick's call) that an autonomous cycle has no authority to close. S3 is preserved as a structural reference for future re-speciation (the editor's declared fallback if the stack's distributed convergence fails), mirroring the M4 precedent from cycle 20260830T180000Z. No active hard Genome law is violated by any candidate; no prior Patrick decision (human_20260824_170638_a, acumen_20260830_180000_m1) is re-litigated or contradicted.",
+      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction; no pending_speciation.json created). Inherited acumen decides: law_4ca0ffd21c42 (causality outranks imagery) is satisfied by the stack at both levels — S1's ledger is the causal object, S2's look-up is the protagonist's act that reads it — so the Judge's causal-ownership requirement ('make the protagonist's act the cause of the decisive turn, per the 031/032 precedent') is met while S1's named object removes S2's single-point-of-failure discipline risk (the corpus's demonstrated 021b beat-scale law_8e52dd229d27 violation pattern). The stack keeps all four frontier notes visible (reader-contract safe), preserves both protected beats (022 fourth-point reveal, 032 bell flip) verbatim and in position, extends the M1 canonical head without splitting or duplicating it, and closes Judge ranks 1-4 (convergence, 021b irreversibility, close-one-option-per-route, 'the Voyd' grounding) simultaneously. S1 alone leaves causal-ownership half-met (the protagonist's act is the ledger's content, not the cause of the collision); S2 alone makes the corpus's weakest scene (021b) the load-bearing scene for the convergence; S3 (four-route reconvergence node 040) is eliminated as canonical head on cost (new scene + four retroactive state-endings + 4x swap-test burden), untested 4-route generalization of candidate law_4d3da1051141 (validated only at 2-route scale via M1), and an open reader-contract gate (four frontier notes -> one ACTIVE FRONTIER, adjudicated by law_a65e6c262ef5 / Patrick's call) that an autonomous cycle has no authority to close. S3 is preserved as a structural reference for future re-speciation (the editor's declared fallback if the stack's distributed convergence fails), mirroring the M4 precedent from cycle 20260830T180000Z. No active hard Genome law is violated by any candidate; no prior Patrick decision (human_20260824_170638_a, acumen_20260830_180000_m1) is re-litigated or contradicted.",
       "law_ids": [],
       "recorded_at": "2026-08-31T11:19:25.711061+00:00"
+    },
+    {
+      "id": "acumen_20260902_030001_n1",
+      "fork_id": "20260902T030001Z",
+      "selected": "N1 (The Witness You Made)",
+      "candidates": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle, no human speciation gate per operating instruction). All three mutations survived canon prosecution (Steward PASS x3) and independent replay (SURVIVES x3 across the five paths). No active hard Genome law eliminates any mutation; no prior Patrick rejection is repeated (human_20260824_170638_a is a different fork; the two prior autonomous decisions teach method, not a pre-decision); candidate law_4d3da1051141 is not engaged (all three are single-route extensions of 040a, not reconvergences). Inherited acumen does not pre-choose a species, so the Keeper selected autonomously. N1 is the canonical head because: (a) it resolves the rank-1 governing diagnosis (the seam: the system narrating the protagonist's next move) most completely WITHOUT re-introducing it — the protagonist's chosen act is the cause of the decisive turn and the system's response (reclassification) is a genuine consequence, not a pre-programmed gear; (b) it carries the highest sustainable causal leverage for the theme (you are being measured, the witness is the lever) — the protagonist keeps the witness a lever in their hands AND the system gains a genuinely new method (reclassification), which is the M1 thesis carried forward and the Judge's repair seed ('turn the fragment's own method against it'); (c) it best satisfies law_4ca0ffd21c42 (causality outranks imagery) — the reclassification is causal (witness-as-subject -> the ledger cannot complete -> it reclassifies), not imagery-driven; (d) it has the cleanest route-true replay record (reclassification is a filing operation routed through the ledger, not the orange-seam image system, so a future reconvergence re-asserts it without spending the protected image system). Contrast: N2 is a RETREAT (reverts the test to 'will you flinch', re-closes the door, over-carves the OPEN line the M1 head spent opening) and its widening-to-city counter reuses the already-established 040b/M4 mechanism (no new forward state; collides with 040b at a future reconvergence) — DEFERRED as a structural reference (M4 precedent, 20260830T180000Z), not a parallel branch, recombine-able later as the unmake-witness half of the fork. N3 (revelation: witness is the protagonist's own filed flinch / mirror) has the highest RAW leverage but is the most fragile — the decisive turn is the system's, not the protagonist's (risks re-narrating the decisive move), and the reveal is an information drop the replay flags as needing the protagonist's 'force' dramatized first; PRESERVED as an active reader-facing branch (structurally coherent, simultaneously reachable, route-true) with the implementation guard: dramatize the 'force' (demanding the door file the look-back it has no word for) before the reveal, per law_4b28d7570c43.",
+      "law_ids": [
+        "law_8e52dd229d27",
+        "law_5361b415500d",
+        "law_80984901e75f",
+        "law_4b28d7570c43",
+        "law_4ca0ffd21c42",
+        "law_f1d61deb3858"
+      ],
+      "recorded_at": "2026-09-02T04:31:00.000000+00:00"
     }
   ]
 }

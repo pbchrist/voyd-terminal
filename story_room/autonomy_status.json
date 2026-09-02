@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-01T11:56:31Z",
+  "timestamp_utc": "2026-09-02T11:44:58Z",
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "Cycle 20260901T030002Z: M1 (The Unwitnessed Flinch) implemented and independently replay-tested PASS \u2014 the 040a agentless-center wound is repaired, the frontier advances to 040a-the-unwitnessed-flinch.md, and M2/M3/M4 are preserved as active branches."
+  "summary": "Cycle 20260902T030001Z implemented N1 (The Witness You Made) as canonical head: new scene 040a-the-witness-you-made.md extends the canonical head with a real reader-facing choice link, the system's counter-move is a genuinely new method (reclassification), N3 preserved as an active branch, N2 deferred as a structural reference, and independent final replay passed all 8 tests."
 }

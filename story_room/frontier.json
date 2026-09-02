@@ -5,10 +5,10 @@
   "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
   "active_frontiers": [
     {
-      "path": "story/scenes/040a-the-unwitnessed-flinch.md",
-      "title": "The Unwitnessed Flinch",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Second Question"],
-      "unresolved_pressure": "The fragment provoked the protagonist's first look-away and preserved it as proof. The protagonist refused the second, looked back at the filed record, and the system manufactured a witness: a copy stepped out of the semicircle and stands between the protagonist and the opened seam. The test has changed from 'will you flinch' to 'will you let it see you not flinch', and the witness is watching."
+      "path": "story/scenes/040a-the-witness-you-made.md",
+      "title": "The Witness You Made",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Second Question", "The Unwitnessed Flinch", "The Witness You Made"],
+      "unresolved_pressure": "The protagonist chose to stand the copy as the ledger's witness against itself and paid visibility: they turned their face to the opened seam, the exact act their planted WANT forbids. The system's counter-move is a new method it has never used — reclassification: the flinch is filed under the copy's name, the copy is no longer a witness but a subject the ledger can work on, and the record about the protagonist is the one that was never finished, so the seam has turned back to them. The door has carved a line beneath OPEN with no word, the name is still filed, the exit is still closed, and the protagonist now has a witness that is also a subject (and subjects can be made to look away) and a new system method to anticipate."
     },
     {
       "path": "story/scenes/040b-the-second-question.md",
@@ -30,15 +30,39 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20260901T030002Z",
-    "mutation": "M1 — The Unwitnessed Flinch",
-    "title": "The system cannot read an act no one sees: the protagonist weaponizes the one act the fragment cannot record, and the system's next move is to make a witness",
-    "structure": "000 marks the first flinch as a shown recorded beat and plants the WANT (never again be the subject of a reading they did not choose); 022 adds the corollary (a record it cannot see cannot complete; a witnessed flinch is the fuel); 040a advances on the lever's logic — the protagonist performs a look-back at the filed record, and the system's response is to manufacture a WITNESS (a copy steps out of the semicircle). The test changes from 'will you flinch' to 'will you let it see you not flinch.'",
-    "note": "M1 is the canonical head for this cycle. The 040a route is where the agentless-center wound is most acute, and M1 is the first place the protagonist wins a new state (the witness lever) rather than merely advancing the machine. M2 (040c), M3 (040d), and M4 (040b) are preserved as active reader-facing branches with their non-blocking obligations carried forward."
+    "cycle": "20260902T030001Z",
+    "mutation": "N1 — The Witness You Made",
+    "title": "The protagonist chooses to be seen: they stand the copy as the ledger's witness against itself, paying visibility, and the system's counter-move is a genuinely new method — reclassifying the witness as the subject",
+    "structure": "040a-the-unwitnessed-flinch ends with the copy stepped out, the voice's question 'will you let it see you not flinch,' and the OPEN carving, now handed forward as a real reader-facing choice link (the ◉ ACTIVE FRONTIER meta-block — the rank-1 seam wound — is removed). 040a-the-witness-you-make: the protagonist understands the witness is a lever that only works if they are seen seeing it work; they turn their face from the copies and P'taxx and aim it at the opened seam, holding the copy in that aim — the exact act their WANT (000:75) forbids. The seam reads them; the image on the floor gains a second frame (you, looking at the copy, letting it be seen); the door carves a line beneath OPEN (not a new word); the ledger files the flinch under the copy's name; the copy's eyes change — it is no longer a witness, it is a subject; the record about the flinch is now complete against the copy, and the seam turns back to the protagonist because the record about them is the one that was never finished. The scene ends on a forward choice link: make the witness work — show the ledger its subject flinch (subjects can be made to look away).",
+    "note": "N1 is the canonical head for this cycle (Acumen Keeper autonomous selection, no speciation gate). It is the only survivor in which the protagonist's chosen act is the cause of a genuinely new system method (reclassification) rather than a reversion to prior state or a system-delivered revelation; it keeps the witness a lever the protagonist holds, spends no protected orange-seam image system (the reclassification is a ledger filing operation, route-true to 040a's copy/flinch/seam evidence), and resolves the rank-1 seam wound (system narrating the protagonist's next move) most completely. N3 is preserved as an active reader-facing branch; N2 is deferred as a structural reference per the M4 precedent."
   },
   "branch_ledger": {
-    "cycle": "20260901T030002Z",
-    "canonical_head": "M1",
+    "cycle": "20260902T030001Z",
+    "canonical_head": "N1",
+    "active_branches": [
+      {
+        "id": "N3",
+        "title": "The Witness Was Never the Copy",
+        "axis": "revelation timing / opponent's intelligence",
+        "mechanism": "The protagonist forces the filing of the look-back (turns their face to the seam, becomes visible, demands the door file the one act it has no word for); the system's response is a revelation, not a counter-move: the witness was never the copy — it is the protagonist's own filed Gistli Square flinch, the frame the seam kept; the copy's eyes become a mirror; the test was never about the look-back, it is whether the protagonist will let the witness — which is them — see them not flinch",
+        "coherence": "PASS (Steward + Replay); grounded in 000:51-53 (the frame is filed/kept) and 011:37 ('every one of them has your face'); route-true extension of 040a; no hard-law conflict",
+        "status": "PRESERVED as an active reader-facing branch — not implemented this cycle; a distinct, reachable, route-true 040a future",
+        "implementation_guard": "The protagonist's 'force' (demanding the door file the look-back it has no word for) must be dramatized before the reveal, so the reveal reads as the system's answer to a specific demand (law_4b28d7570c43), not a pre-programmed gear / non-sequitur. The copy's eye-change is the action; the voice's line is the return.",
+        "recombine": true
+      }
+    ],
+    "deferred_references": [
+      {
+        "id": "N2",
+        "title": "The Unmade Witness",
+        "axis": "causal ownership / who is forced to act",
+        "mechanism": "The protagonist chooses to unmake the witness — pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door — reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city ('will you let it see you flinch')",
+        "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
+        "status": "DEFERRED REFERENCE — not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence (both routes converging on 'the test widened to the city'); preserving it as a live branch would create a branch-awareness burden the canonical head does not need",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable — it is the other half of the N1/N2 fork and can be recombined as a future choice (the protagonist unmaking the copy-as-subject to reclaim unmeasurability) once N1's reclassification state is established. It does not silently re-enter; it is preserved as a named deferred mechanism.",
+        "recombine": true
+      }
+    ],
     "preserved_branches": [
       {
         "id": "M2",

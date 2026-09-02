@@ -54,6 +54,7 @@ The test has changed. It is no longer *will you flinch*. It is *will you let it 
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The copy that stepped out of the semicircle is the fragment's witness, and it is also a subject now — it stands between you and the opened seam, and the ledger cannot complete a record it cannot see. The test has changed from *will you flinch* to *will you let it see you not flinch*, and the witness is watching. The next move must decide whether to use the witness, unmake it, or force the door to file the one act it cannot complete: a look-back it has no word for.
+### [Stand the copy as the witness. Let the seam see you not flinch. →](040a-the-witness-you-made.md)
+The copy stands between you and the opened seam, and the ledger cannot complete a record it cannot see — but it only works if you are the one who sees it working, and you do not want to be the subject of a reading you did not choose to be in.
