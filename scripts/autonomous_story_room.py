@@ -63,15 +63,20 @@ def visible_post(boundary: str, detail: str = "") -> None:
     log(f"visible HermBeast post delivered: {boundary}")
 
 
-def latest_reader_beats() -> str:
-    """Return actual reader-facing fiction changed by this accepted cycle."""
+def latest_reader_beats(since: str) -> str:
+    """Return actual reader-facing fiction changed by this accepted cycle.
+
+    Diffs the committed range (since..HEAD), not the working tree, so the
+    Telegram beat can never describe content that failed to commit or push —
+    the graph on the reader is built from the same committed scenes/frontier.
+    """
     proc = subprocess.run(
-        ["git", "status", "--porcelain", "--", "story/scenes", "story_room/frontier.json"],
+        ["git", "diff", "--name-only", since, "HEAD", "--", "story/scenes", "story_room/frontier.json"],
         cwd=ROOT, text=True, capture_output=True, check=False,
     )
     scene_paths = []
-    for raw in proc.stdout.splitlines():
-        rel = raw[3:].strip() if len(raw) > 3 else ""
+    for rel in proc.stdout.splitlines():
+        rel = rel.strip()
         if rel.startswith("story/scenes/") and rel.endswith(".md"):
             scene_paths.append(rel)
 
@@ -325,8 +330,11 @@ def one_cycle() -> int:
         write_public_status("passed", result["summary"], final_replay="passed")
         run([sys.executable, str(ROOT / "scripts" / "render_story_md.py")], check=True, capture=False)
         validate_passed_run()
-        visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}\n\n{latest_reader_beats()}")
-        commit_and_push(f"story-room: autonomous evolution {stamp()}")
+        pushed = commit_and_push(f"story-room: autonomous evolution {stamp()}")
+        if pushed:
+            visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}\n\n{latest_reader_beats(before)}")
+        else:
+            visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay, but produced no committed change. {result['summary']}")
         return 0
     except Exception as exc:
         if preserve_on_error:
