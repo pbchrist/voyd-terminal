@@ -50,7 +50,6 @@ The light on the floor does not move. The line under **OPEN** does not fade. The
 
 ---
 
-## Choose your path
+## ◉ ACTIVE FRONTIER
 
-### [Make the witness work. Show the ledger its subject flinch. →](040a-the-subject-it-made.md)
 The flinch is filed under the copy's name, and the copy is a subject now — and subjects can be made to look away. The seam has turned back to you, your record is the one that was never finished, and the door has carved a line under **OPEN** you have not been given a word for.
