@@ -50,6 +50,12 @@ The light on the floor does not move. The line under **OPEN** does not fade. The
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The flinch is filed under the copy's name, and the copy is a subject now — and subjects can be made to look away. The seam has turned back to you, your record is the one that was never finished, and the door has carved a line under **OPEN** you have not been given a word for.
+Let the seam see you not flinch. Complete the witness. Pay the price you were told you did not want to pay.
+
+### [Be the subject](040a-make-the-witness-work.md)
+
+Keep the record unfinished. Keep the price unpayed. Lose the lever.
+
+### [Refuse the reading](040a-let-the-record-stand.md)

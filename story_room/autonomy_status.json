@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-02T11:44:58Z",
+  "timestamp_utc": "2026-09-03T11:39:30Z",
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "Cycle 20260902T030001Z implemented N1 (The Witness You Made) as canonical head: new scene 040a-the-witness-you-made.md extends the canonical head with a real reader-facing choice link, the system's counter-move is a genuinely new method (reclassification), N3 preserved as an active branch, N2 deferred as a structural reference, and independent final replay passed all 8 tests."
+  "summary": "Cycle 20260903T030001Z complete: the rank-1 seam wound (all four route heads ending in a frontier paragraph with no choice link) was repaired on the canonical head (040a-the-witness-you-made) by replacing the \u25c9 ACTIVE FRONTIER block with a two-option 'Choose your path' block whose options are the WANT's two halves (be the subject / refuse the reading), and two new reader-facing scenes (040a-make-the-witness-work.md, 040a-let-the-record-stand.md) were created as the new frontier leaves; M2 (reader-as-subject register break) was eliminated by replay, M3 (four-doors reconvergence) was preserved as an active branch for next cycle; independent final replay passed with the targeted failure gone and no new load-bearing failure introduced."
 }
