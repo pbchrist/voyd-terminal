@@ -196,9 +196,16 @@ function parse(md){
       pending=null;continue;
     }
     if(t==='---')continue;
-    if(mode==='choice'){
+    if(mode!=='frontier'){
+      // A "### [label](x.md)" or "[label](x.md)" line is unambiguously a
+      // choice link even without a preceding "##" heading -- some cycles
+      // write the link straight after the prose. Recognize it on sight
+      // instead of silently swallowing it as prose (which wrongly makes
+      // the scene look like a dead end on the map).
       const m=t.match(/^(?:###\s*)?\[(.+?)\s*→?\]\((.+?)\)$/);
-      if(m){pending={label:m[1].trim(),to:base(m[2]),why:''};o.choices.push(pending);continue}
+      if(m){mode='choice';pending={label:m[1].trim(),to:base(m[2]),why:''};o.choices.push(pending);continue}
+    }
+    if(mode==='choice'){
       if(t&&pending)pending.why=(pending.why?pending.why+' ':'')+t;
       continue;
     }
