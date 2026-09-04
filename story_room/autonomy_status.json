@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-03T11:39:30Z",
-  "status": "passed",
+  "timestamp_utc": "2026-09-04T11:38:33Z",
+  "status": "failed",
   "human_input_required": false,
-  "final_replay": "passed",
-  "summary": "Cycle 20260903T030001Z complete: the rank-1 seam wound (all four route heads ending in a frontier paragraph with no choice link) was repaired on the canonical head (040a-the-witness-you-made) by replacing the \u25c9 ACTIVE FRONTIER block with a two-option 'Choose your path' block whose options are the WANT's two halves (be the subject / refuse the reading), and two new reader-facing scenes (040a-make-the-witness-work.md, 040a-let-the-record-stand.md) were created as the new frontier leaves; M2 (reader-as-subject register break) was eliminated by replay, M3 (four-doors reconvergence) was preserved as an active branch for next cycle; independent final replay passed with the targeted failure gone and no new load-bearing failure introduced."
+  "final_replay": "failed",
+  "summary": "Autonomy supervisor error: command failed (1): /usr/bin/python3 -m unittest discover -s tests -v"
 }
