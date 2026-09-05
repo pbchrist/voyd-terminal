@@ -1,0 +1,15 @@
+[Unit]
+Description=Voyd autonomous Story Room evolution cycle
+Documentation=https://github.com/pbchrist/voyd-terminal
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/patrick/voyd-story-engine
+Environment=HERMES_HOME=/home/patrick/.hermes
+Environment=VIRTUAL_ENV=/home/patrick/.hermes/hermes-agent/venv
+Environment=PATH=/home/patrick/.hermes/hermes-agent/venv/bin:/home/patrick/.hermes/hermes-agent/node_modules/.bin:/home/patrick/.hermes/node/bin:/home/patrick/.hermes/node:/home/patrick/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=VOYD_AUTONOMOUS_BRANCH=feat/story-engine-v2
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/bash /home/patrick/voyd-story-engine/scripts/start_story_room_service.sh
+TimeoutStartSec=4h
+Nice=5

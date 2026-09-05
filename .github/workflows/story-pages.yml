@@ -1,0 +1,67 @@
+name: Publish the story
+
+# The story is the product: every Story Room commit that changes a scene
+# republishes the reader. Scenes are copied at deploy time, so the reader
+# never has to be regenerated when the fiction changes.
+on:
+  push:
+    branches: [feat/story-engine-v2]
+    paths:
+      - 'story/**'
+      - 'story_room/frontier.json'
+      - 'site/**'
+      - '.github/workflows/story-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the reader
+        run: |
+          set -euo pipefail
+          mkdir -p _site/scenes
+          cp site/index.html _site/index.html
+          cp story/scenes/*.md _site/scenes/
+          cp story_room/frontier.json _site/frontier.json
+          touch _site/.nojekyll
+          echo "scenes published: $(ls -1 _site/scenes | wc -l)"
+
+      - name: Check every choice resolves to a real scene
+        run: |
+          python3 - <<'PY'
+          import pathlib, re, sys
+          d = pathlib.Path("_site/scenes")
+          have = {p.name for p in d.glob("*.md")}
+          bad = []
+          for f in sorted(d.glob("*.md")):
+              for target in re.findall(r"\]\(([^)]+\.md)\)", f.read_text(encoding="utf-8")):
+                  if target not in have:
+                      bad.append(f"{f.name} -> {target}")
+          if bad:
+              print("BROKEN CHOICES:")
+              for b in bad: print("  " + b)
+              sys.exit(1)
+          print(f"{len(have)} scenes, all choices resolve")
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'
+      - id: deployment
+        uses: actions/deploy-pages@v4

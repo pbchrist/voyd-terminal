@@ -1,0 +1,48 @@
+name: Story Room CI
+
+on:
+  push:
+    branches: [feat/story-engine-v2]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Compile autonomous runners
+        run: |
+          python -m py_compile \
+            scripts/run_story_room.py \
+            scripts/autonomous_story_room.py \
+            scripts/install_autonomous_story_room.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Validate shipped JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          paths = list(Path('data').glob('*.json'))
+          paths += list(Path('frontend').glob('*.json'))
+          paths += list(Path('frontend/data').glob('*.json'))
+          paths.append(Path('story_room/genome.json'))
+          for path in paths:
+              if path.exists():
+                  json.loads(path.read_text(encoding='utf-8'))
+          print(f'validated {len(paths)} JSON candidates')
+          PY

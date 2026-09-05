@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "canonical_entry": "story/scenes/000-the-fourth-bell.md",
+  "canonical_title": "The Fourth Bell",
+  "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
+  "active_frontiers": [
+    {
+      "path": "story/scenes/040a-the-witness-you-made.md",
+      "title": "The Witness You Made",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Crossing Question", "The Witness You Made"],
+      "unresolved_pressure": "The head now ends on a two-option 'Choose your path' block. The two options are the WANT's two halves: Option 1 'Be the subject' (040a-make-the-witness-work.md) pays the WANT in its exact currency — the reclassified copy is deployed as the lever, the flinch is filed under the copy's name, the protagonist becomes the subject of the reading they did not choose to be in; Option 2 'Refuse the reading' (040a-let-the-record-stand.md) keeps the WANT unbroken — the copy stays a witness, the lever is spent, the protagonist's record is finished at the cost of the only tool that could make the ledger see its own error. The canonical head now arrives here via the Crossing Question (040e), which establishes the copy-at-the-seam state through the Lattice's reveal, so the apex's opening precondition is satisfiable on the changed path. Both successor scenes are the new leaves and each ends in a ◉ ACTIVE FRONTIER block carrying the pressure forward."
+    },
+    {
+      "path": "story/scenes/040a-make-the-witness-work.md",
+      "title": "Make the Witness Work",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Crossing Question", "The Witness You Made", "Make the Witness Work"],
+      "unresolved_pressure": "The protagonist deployed the reclassified copy as the lever: they stood behind it, let the seam file the look-away under the copy's name, and in doing so paid the WANT in its exact currency — they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record — the one that was never finished — is now being finished under their own name. The exit is still closed. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
+    },
+    {
+      "path": "story/scenes/040a-let-the-record-stand.md",
+      "title": "Let the Record Stand",
+      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Crossing Question", "The Witness You Made", "Let the Record Stand"],
+      "unresolved_pressure": "The protagonist refused the second payment: they did not cross to the copy, did not deploy the lever, and let the record about them stand unfinished. The WANT holds — the protagonist is not measured, is not the subject of the reading they did not choose to be in. But the lever is spent: the copy stays a witness (not a subject), and the only tool that could have made the ledger see its own error is gone. The seam has nothing to file, the line under OPEN stays empty, the exit is still closed, and the name is still filed. The next scene must address what it means to be unmeasured at the cost of the only tool that could have corrected the record — and whether the ledger, denied its flinch, will find another way to finish the one record it has not finished."
+    },
+    {
+      "path": "story/scenes/040b-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Antiquarian or The Temple", "The Lattice"],
+      "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire."
+    },
+    {
+      "path": "story/scenes/040c-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Stray", "Open the cistern", "The Thing Below the Courtyard"],
+      "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close."
+    },
+    {
+      "path": "story/scenes/040d-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": ["The Fourth Bell", "The Stray", "Demand the truth", "Twelve Years Ago"],
+      "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent."
+    }
+  ],
+  "canonical_head": {
+    "cycle": "20260905T030002Z",
+    "mutation": "M3 — The Second Question Is the Crossing",
+    "title": "The Antiquarian head now transits the Lattice: 011 → 022 → 040e (new) → 040a-the-witness-you-made",
+    "structure": "011-the-room-behind-the-room's terminal link is re-routed from 040a-the-second-question to 022-the-lattice. 022-the-lattice's exit block gains a second door: 'Hold your gaze — the filing is yours' → 040e-the-crossing-question.md, alongside the existing 'Hold your gaze — the reliquary is open' → 040b-the-second-question.md. The new scene 040e-the-crossing-question.md is the Antiquarian's second question at the crossing: the Lattice's fourth point is the high door's ring, the filed fragment is carried back into the protagonist's sight by the Lattice, the system provokes a second look-away with the city watching, the protagonist holds, and the consequence is reclassification of the filing (filing → subject) — the copy is revealed as the subject, the line beneath FILED is being finished, and the Lattice shows the copy standing between the protagonist and the opened seam, establishing the apex's opening precondition. 040e ends with a choice link into 040a-the-witness-you-made (the apex), which now arrives via the Crossing Question rather than via 040a-the-unwitnessed-flinch. The apex's own body is unchanged: the copy stands between you and the opened seam, the reclassification (filing → subject) is the system's counter-move, and the two-option 'Choose your path' block at the apex's end is unchanged (040a-make-the-witness-work.md / 040a-let-the-record-stand.md).",
+    "note": "M3 (The Second Question Is the Crossing) is the canonical head for this cycle (Acumen Keeper autonomous selection: only one mutation survived structural prosecution and replay; M1 and M2 were BLOCKED by the Steward). It repairs the governing severed crossing: the Antiquarian head now transits the Lattice, the Lattice's one-way junction becomes a two-route crossing (Temple → 040b, Antiquarian → 040e), and README:23's promise ('the crossing remembers both arrivals') is structurally true: both routes share 022, and the exit labels are route-true ('the reliquary is open' vs 'the filing is yours'). The 040e scene establishes the copy-at-the-seam state through the Lattice's reveal, so the apex's opening precondition is satisfiable on the changed path (the Steward's downstream obligation is discharged by 040e's content, not by editing the apex). 040a-the-second-question.md is now orphaned (no choice link targets it); it is preserved as a structural reference for a downstream cycle that may re-purpose it as the Temple's second question or delete it. The 022 opening-state mismatch (Temple-arrival text) is a pre-existing condition, not worsened by M3; a downstream cycle should add a route-true assertion beat at 022's opening per law_4d3da1051141. The Stray route (000 → 030 → 031/032 → 040c/040d) is unaffected and coherent (control path verified by replay walker)."
+  },
+  "branch_ledger": {
+    "cycle": "20260902T030001Z",
+    "canonical_head": "N1",
+    "active_branches": [
+      {
+        "id": "N3",
+        "title": "The Witness Was Never the Copy",
+        "axis": "revelation timing / opponent's intelligence",
+        "mechanism": "The protagonist forces the filing of the look-back (turns their face to the seam, becomes visible, demands the door file the one act it has no word for); the system's response is a revelation, not a counter-move: the witness was never the copy — it is the protagonist's own filed Gistli Square flinch, the frame the seam kept; the copy's eyes become a mirror; the test was never about the look-back, it is whether the protagonist will let the witness — which is them — see them not flinch",
+        "coherence": "PASS (Steward + Replay); grounded in 000:51-53 (the frame is filed/kept) and 011:37 ('every one of them has your face'); route-true extension of 040a; no hard-law conflict",
+        "status": "PRESERVED as an active reader-facing branch — not implemented this cycle; a distinct, reachable, route-true 040a future",
+        "implementation_guard": "The protagonist's 'force' (demanding the door file the look-back it has no word for) must be dramatized before the reveal, so the reveal reads as the system's answer to a specific demand (law_4b28d7570c43), not a pre-programmed gear / non-sequitur. The copy's eye-change is the action; the voice's line is the return.",
+        "recombine": true
+      }
+    ],
+    "deferred_references": [
+      {
+        "id": "N2",
+        "title": "The Unmade Witness",
+        "axis": "causal ownership / who is forced to act",
+        "mechanism": "The protagonist chooses to unmake the witness — pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door — reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city ('will you let it see you flinch')",
+        "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
+        "status": "DEFERRED REFERENCE — not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence (both routes converging on 'the test widened to the city'); preserving it as a live branch would create a branch-awareness burden the canonical head does not need",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable — it is the other half of the N1/N2 fork and can be recombined as a future choice (the protagonist unmaking the copy-as-subject to reclaim unmeasurability) once N1's reclassification state is established. It does not silently re-enter; it is preserved as a named deferred mechanism.",
+        "recombine": true
+      }
+    ],
+    "preserved_branches": [
+      {
+        "id": "M2",
+        "title": "The Second You",
+        "mechanism": "The flinch's recording detaches as a living second-self in 000; the 040c kit replay is revealed to be that recorded self; the fragment tries to finish it (make it the one who looks away so the protagonist is exonerated); the protagonist's act is to refuse to let the second-you be completed as a weapon",
+        "coherence": "PASS (Steward + Replay); branch-true to 040c kit evidence; no hard-law conflict",
+        "residual": "The detached second-you planted in 000 must be legible on all four 040 routes (faint echo in each replay) so it does not read as route-C-only; the second-you must stay a passive recording the fragment works on, never a rival-self with its own motive",
+        "recombine": true
+      },
+      {
+        "id": "M3",
+        "title": "The Filed Look-Back",
+        "mechanism": "The dead sliver (032) is proof that a refused act can be filed; the protagonist forces the system to file the look-back (the act it has no word for) by presenting the sliver as the precedent; the system resists by trying to reclassify the refusal as the next record",
+        "coherence": "PASS (Steward + Replay); grounded in 032:49-55 and 040d:75; no hard-law conflict",
+        "residual": "The 032 repair (state the dead-sliver rule one beat earlier, before ignition) is a prerequisite — if 032 is not fixed in the same cycle, the lever rests on a retroactive rule; the protagonist's act must be a costly choice under pressure, not a free clever move",
+        "recombine": true
+      },
+      {
+        "id": "M4",
+        "title": "The Ledger's Blind Spot",
+        "mechanism": "Looking back exits the field of measure; the protagonist chooses to look back, which is the one act the system cannot widen into the city; the system's counter is to manufacture city-wide flinches",
+        "coherence": "PASS (Steward + Replay); grounded in 022:113 and 040b:65-67; no hard-law conflict",
+        "residual": "The 000 WANT beat (be unmeasurable) must be placed before the 'Choose your path' block so it organizes behavior on all four routes; the look-back must be dramatized as a concrete act with a cost, not a philosophical claim",
+        "recombine": true
+      }
+    ],
+    "orphaned_scenes": [
+      {
+        "path": "story/scenes/040a-the-second-question.md",
+        "reason": "011's terminal link was re-routed to 022-the-lattice (M3, cycle 20260905T030002Z); no choice link now targets 040a-the-second-question.md. Preserved as a structural reference for a downstream cycle that may re-purpose it (e.g., as the Temple's second question, replacing 040b) or delete it.",
+        "cycle": "20260905T030002Z"
+      }
+    ]
+  },
+  "reader_contract": {
+    "fiction_first": true,
+    "no_internal_node_ids_in_reader_surface": true,
+    "no_system_conditions_in_reader_choices": true,
+    "branch_ancestry_must_remain_readable": true,
+    "active_frontiers_must_be_visible": true,
+    "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  }
+}

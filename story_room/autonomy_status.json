@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-09-05T11:40:48Z",
+  "status": "passed",
+  "human_input_required": false,
+  "final_replay": "passed",
+  "summary": "M3 (The Second Question Is the Crossing) was implemented and passed independent final replay: the Antiquarian head now transits the Lattice (011 \u2192 022 \u2192 040e \u2192 040a-the-witness-you-made), the crossing is structurally true, the new 040e scene is reachable and coherent, and the Stray control path is unaffected."
+}
