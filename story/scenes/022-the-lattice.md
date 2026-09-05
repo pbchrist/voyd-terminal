@@ -126,5 +126,8 @@ It cracks.
 
 ---
 
-### [Hold your gaze →](040b-the-second-question.md)
-The shadow stopped when you looked back. Now the fragment tries to make you turn away.
+### [Hold your gaze — the reliquary is open →](040b-the-second-question.md)
+The shadow stopped when you looked back. Now the fragment tries to make you turn away. The iron reliquary bears the seam you carried in, and the test is the one the Temple's route has always been asked.
+
+### [Hold your gaze — the filing is yours →](040e-the-crossing-question.md)
+The shadow stopped when you looked back. Now the fragment tries to make you turn away. But the proof you filed is your own act, and the high door's ring is the Lattice's fourth point, and the test is the one the Antiquarian's route was always going to be asked.

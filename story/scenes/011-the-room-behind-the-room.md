@@ -126,5 +126,5 @@ You already know what it says.
 
 ---
 
-### [Answer the second question →](040a-the-second-question.md)
-The fragment is behind the door, but its next question is meant for you.
+### [The fragment's second question is a city question →](022-the-lattice.md)
+The fragment is behind the door, but its next question is bigger than the room. The fourth bell has already rung beneath Faelspire, and the Lattice is waiting for you to arrive the way you traveled.
