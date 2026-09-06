@@ -40,6 +40,7 @@ You are not measured. You are not the subject of the reading you did not choose 
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The protagonist refused the second payment: they did not cross to the copy, did not deploy the lever, and let the record about them stand unfinished. The WANT holds — the protagonist is not measured, is not the subject of the reading they did not choose to be in. But the lever is spent: the copy is a subject the ledger works on, and the only tool that could have made the ledger see its own error is gone. The seam has nothing to file, the line under **OPEN** stays empty, the exit is still closed, and the name is still filed. The next scene must address what it means to be unmeasured at the cost of the only tool that could have corrected the record — and whether the ledger, denied its flinch, will find another way to finish the one record it has not finished.
+### [Let the ledger find another way →](040a-let-the-record-stand-01-the-ledgers-recall.md)
+The seam has nothing to file, the lever is spent, and the record about you stands unfinished. But the ledger is not finished. It has been keeping the filed frame since the square, and you have just given it a reason to reach back through its own record. The next move must decide whether to let the ledger do something it has never done before — and what the cost of that first recall will be.
