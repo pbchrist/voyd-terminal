@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-06T11:17:06Z",
-  "status": "passed",
+  "timestamp_utc": "2026-09-07T12:09:42Z",
+  "status": "failed",
   "human_input_required": false,
-  "final_replay": "passed",
-  "summary": "M1 (The Ledger's Recall) implemented: the let-leaf frontier is extended with a new scene (040a-let-the-record-stand-01-the-ledgers-recall.md) that dramatizes the ledger's active recall of the filed frame as a costly new method caused by the protagonist's act of holding their gaze; the reclassification at 040e is now a consequence of the protagonist's act rather than a pre-programmed gear; independent final replay across changed, control, and neighboring paths all PASS."
+  "final_replay": "failed",
+  "summary": "M1 (The Ledger Closes the Book) was selected, implemented (route-aware 022 entry, ledger-grounded 040e, 040b frontier advanced by the new reachable scene 040b-the-widening-test.md, genome law_4d3da1051141 re-confirmed at confirmations=3), and failed the mandatory independent final replay: the 022 entry repair landed for both routes, but the Temple-route reconvergence into 040e is not coherent because 040e's 'the frame you filed' / FILED door is a precondition the Temple route (fragment carried bare, not filed) never produced, and 040e is only linked via the Antiquarian 'the filing is yours' route \u2014 so the branch-aware state wound at the apex remains for the Temple route."
 }
