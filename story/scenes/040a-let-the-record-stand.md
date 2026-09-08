@@ -1,12 +1,12 @@
 # Let the Record Stand
 
+The act is held.
+
+You did not cross. You did not put your shoulder against the copy's shoulder. You did not let your eyes fall into the method's angle. You stood where you were, with P'taxx's paw on your shoulder and the copies holding their positions, and you let the seam look at you and you let it not find what it is looking for. And now the record stands the way it stood: unfinished.
+
 The seam is turned on you, and the copy stands between you and it, eyes on the seam, a witness now.
 
 You look at the copy. You look at the seam. You look at the line under **OPEN** that the door has carved without giving you a word for.
-
-You do not cross to the copy.
-
-You do not put your shoulder against its shoulder. You do not let your eyes fall into the method's angle. You stand where you are, with P'taxx's paw on your shoulder and the copies holding their positions, and you let the seam look at you and you let it not find what it is looking for.
 
 The method needs a flinch.
 
@@ -26,13 +26,11 @@ The record about you is not complete.
 
 You did not flinch. The method did not get its second frame. The image on the floor — the one that could not finish — stays unfinished, and the seam has no word for a cat that looks at it and does not move.
 
-The WANT holds.
+You do not want to be measured. You do not want to be the subject of a reading you did not choose to be in. And you refused the reading, and the cost is the lever. The copy stays a witness — a cat standing between you and the seam, not a subject the ledger can work on — and a witness you cannot deploy is a lever you no longer have. The only move that could have made the ledger see its own error is gone, because you did not make it.
 
-You do not want to be measured. You do not want to be the subject of a reading you did not choose to be in. And you have just refused the reading, and the cost is the lever. The copy stays a witness — a cat standing between you and the seam, not a subject the ledger can work on — and a witness you cannot deploy is a lever you no longer have. The only move that could have made the ledger see its own error is gone, because you did not make it.
+P'taxx finds your paw. “It's finished,” he says. “The record. It's finished.”
 
-P'taxx finds your paw. "It's finished," he says. "The record. It's finished."
-
-"No," you say. "It's unfinished. That's the point."
+“No,” you say. “It's unfinished. That's the point.”
 
 The room holds you: the cat who was never finished, the cat who is a witness, and the seam that has nothing to file. The exit is still closed. The name is still filed. The copy stands where you left it, eyes on the seam, and the ledger waits for a flinch that is not coming.
 

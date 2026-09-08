@@ -28,7 +28,7 @@ The voice enters your next thought.
 
 Your body tries.
 
-Your neck tightens. The city is a ceiling now, and the fourth point is a floor, and the light from the high door is laid across the stone beneath you, and your eyes pull toward P'taxx, toward the acolytes, toward the young acolyte whose face you can see even now, toward anything except the image on the floor of the room you left behind.
+Your neck tightens. The city is a ceiling now, and the fourth point is a floor, and the light from the high door is laid across the stone beneath you, and your eyes pull toward P'taxx, toward the copies, toward the oldest one whose face has collapsed into angles you have never imagined wearing, toward anything except the image on the floor of the room you left behind.
 
 The shadow above is waiting.
 
@@ -44,13 +44,13 @@ A crack runs through **FILED**.
 
 P'taxx, in the room below, takes one step back.
 
-"You held it," he says. "With the city watching. That is not the same test."
+“You held it,” he says. “With the city watching. That is not the same test.”
 
-"It is the same test," you say.
+“It is the same test,” you say.
 
 The oldest you speaks from the room you left behind, and the Lattice carries the voice up through the lattice, and the shadow above hears it too.
 
-"It is the same test, asked at a higher price."
+“It is the same test, asked at a higher price.”
 
 The high door answers.
 

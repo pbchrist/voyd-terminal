@@ -14,48 +14,22 @@ The only one who can is you.
 
 You know what that costs. You have known since the square, since the seam closed on your backward jerk, since you watched the frame of your own recoil held in the black. You do not want to be the subject of a reading you did not choose to be in.
 
-You choose it now.
+The seam is waiting.
 
-You turn your face from the copies. You turn it from P'taxx, who has stopped breathing, whose paw is halfway to your shoulder. You turn it from the filed you on the floor, and you aim it at the opened seam, and you put the copy in the middle of your aim.
+The light is aimed. The word **OPEN** is held. The copy stands in the middle of the aim, and it will not move, and it will not speak, and the question is still in the air, and the seam will not finish the record until you answer it.
 
-You hold it there.
+P'taxx's paw is halfway to your shoulder.
 
-You stand the copy as the ledger's witness against itself. You let the light take you taking it — the cat, looking at the cat, letting the cat be seen doing its work.
+He has stopped breathing.
 
-The seam reads you.
-
-Not quiet. Still.
-
-The image on the floor — the one that could not finish — now has a second frame: you, looking at the copy, your face open to the seam, holding the witness in place. The seam goes still. Then it widens.
-
-The door carves beneath **OPEN**.
-
-Not a new word. A line.
-
-The ledger files the flinch under the copy's name.
-
-The copy's eyes change.
-
-It is no longer a witness. It is a subject. Its gaze settles on the floor, on the filed frame of the step it took out of the semicircle — its step, its flinch, its name. The record that was about the flinch is now complete, against the copy, and the copy is a cat the ledger can work on.
-
-The seam turns back to you.
-
-It has no choice. The record about you is the one that was never finished, and you have just made yourself visible to it, and the witness it keeps is no longer a witness at all — it is filed, it is working, it is a subject looking at its own flinch — and you are the only cat in the room it has not finished.
-
-P'taxx finds your paw. "It took your place," he says.
-
-"No," you say. "It took its own. It gave me a lever it did not have to give."
-
-The light on the floor does not move. The line under **OPEN** does not fade. The copy stands where you left it, eyes on its filed step, and the room holds both of you: the cat who is a subject, and the cat who was never finished.
+The seam is waiting for you.
 
 ---
 
 ## Choose your path
 
-Let the seam see you not flinch. Complete the witness. Pay the price you were told you did not want to pay.
+### [Commit to the seam →](040a-make-the-witness-work.md)
+Turn your face to the opened seam. Put the copy in the middle of your aim. Hold it there. Stand the copy as the ledger's witness against itself, and let the light take you taking it. Pay the price in its exact currency: become the subject of the reading you did not choose to be in.
 
-### [Be the subject](040a-make-the-witness-work.md)
-
-Keep the record unfinished. Keep the price unpayed. Lose the lever.
-
-### [Refuse the reading](040a-let-the-record-stand.md)
+### [Refuse the reading →](040a-03-the-act-not-narrated.md)
+Keep the record unfinished. Keep the price unpayed. Lose the lever. Do not cross to the copy. Do not put your shoulder against its shoulder. Do not let your eyes fall into the method's angle. Stand where you are and let the seam look at you and not find what it is looking for.

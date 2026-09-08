@@ -10,21 +10,7 @@ Black.
 
 Outside disappears.
 
-The acolytes pivot toward the glass. One draws a blade. P'taxx laughs once.
-
-“If steel helps, I will personally convert.”
-
 The fragment on the table opens its orange seam.
-
-The reliquary answers.
-
-A matching seam appears across its iron lid.
-
-The young acolyte whispers, “That is impossible.”
-
-P'taxx bares his teeth.
-
-“At last, common ground.”
 
 Both seams widen.
 
@@ -58,26 +44,6 @@ The third is moving quickly through the old drainage quarter.
 
 “The soot-gray one,” you say. “The stray from the alley.”
 
-The young acolyte goes still.
-
-P'taxx does not look up.
-
-He is staring at the point beneath the temple.
-
-“You have another fragment.”
-
-The acolyte's silence answers him.
-
-P'taxx closes his eyes.
-
-“How long?”
-
-“Longer than I have been alive.”
-
-“And you never told the city.”
-
-“We thought it was dormant.”
-
 The map changes.
 
 The three orange points stop moving.
@@ -92,7 +58,7 @@ High over the Royal Palace.
 
 Something enormous casts a shadow across the city, though the three suns are still shining.
 
-The fragment speaks into all four of you at once.
+The fragment speaks into the room.
 
 *The bell is not calling from below.*
 
@@ -124,10 +90,14 @@ This time it does not groan.
 
 It cracks.
 
+The lattice holds the moment.
+
+The fourth point hangs over the Royal Palace, the shadow hangs over the city, and the crack runs down the ceiling where the shop was, and the room waits to learn what it carried in.
+
 ---
 
-### [Hold your gaze — the reliquary is open →](040b-the-second-question.md)
-The shadow stopped when you looked back. Now the fragment tries to make you turn away. The iron reliquary bears the seam you carried in, and the test is the one the Temple's route has always been asked.
+### [Hold your gaze — the room behind you holds the door that filed the proof →](022a-the-lattice-filing.md)
+The lattice stops on you. The proof you kept is your own act, and the high door's ring is the Lattice's fourth point, and the test is the one your route was always going to be asked.
 
-### [Hold your gaze — the filing is yours →](040e-the-crossing-question.md)
-The shadow stopped when you looked back. Now the fragment tries to make you turn away. But the proof you filed is your own act, and the high door's ring is the Lattice's fourth point, and the test is the one the Antiquarian's route was always going to be asked.
+### [Hold your gaze — the iron box beside you is open →](022b-the-lattice-temple.md)
+The lattice stops on you. The iron reliquary bears the seam you carried in, and the test is the one the Temple's route has always been asked.

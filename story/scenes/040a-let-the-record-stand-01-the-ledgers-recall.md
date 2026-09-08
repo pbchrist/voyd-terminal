@@ -1,6 +1,6 @@
 # The Ledger's Recall
 
-You do not move. You do not look away. The seam looks at you, and you let it look, and you let it not find what it is looking for.
+The act is held. You did not move. The seam looks at you, and you let it look, and you let it not find what it is looking for.
 
 And the ledger, which has been keeping the filed frame since the square — your shoulders, your lifted paw, your eyes leaving the black thing on the stones — finds that it has nothing to file.
 
@@ -32,11 +32,11 @@ You caused this.
 
 You held your gaze. You refused the flinch. And the ledger, denied its method, did something new to finish the record it has not finished. The reclassification is the consequence of your holding, not a gear that was always turning. The ledger is not omnipotent. It spent a ring to recall the filed frame, and the cost of the recall is the only thing the ledger can pay.
 
-P'taxx's paw closes on your shoulder. "It recalled," he says. "The file. It pulled it back."
+P'taxx's paw closes on your shoulder. “It recalled,” he says. “The file. It pulled it back.”
 
-"No," you say. "It paid for it. That's the difference."
+“No,” you say. “It paid for it. That's the difference.”
 
-The record about you is unfinished. The WANT holds. You are not measured. You are not the subject of the reading you did not choose to be in. And the copy is a subject, and the lever is spent, and the ledger has done something it has not done before, and it has paid for it.
+The record about you is unfinished. You are not measured. You are not the subject of the reading you did not choose to be in. And the copy is a subject, and the lever is spent, and the ledger has done something it has not done before, and it has paid for it.
 
 The exit is still closed. The name is still filed. The copy stands where you left it, eyes on its recalled frame, and the ledger waits for a flinch that is not coming.
 
@@ -44,4 +44,4 @@ The exit is still closed. The name is still filed. The copy stands where you lef
 
 ## ◉ ACTIVE FRONTIER
 
-The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly — the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed → subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. The record about the protagonist is unfinished, the WANT holds, the lever is spent, and the next scene must address what it means to be unmeasured at the cost of the ledger's recall — and whether the ledger, having spent its ring, will find another way to finish the one record it has not finished.
+The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly — the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed → subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. The record about the protagonist is unfinished, the lever is spent, and the next scene must address what it means to be unmeasured at the cost of the ledger's recall — and whether the ledger, having spent its ring, will find another way to finish the one record it has not finished.
