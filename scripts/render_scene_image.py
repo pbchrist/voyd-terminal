@@ -183,15 +183,42 @@ def render(scene: Path, moment: str = "", force: bool = False) -> bool:
     return False
 
 
+def prune_orphans() -> int:
+    """Drop plates whose scene no longer exists.
+
+    A hone cycle may legitimately delete a scene (merging a near-duplicate,
+    say). Its plate must go with it -- but quietly, as cleanup. On 2026-09-08
+    a leftover plate failed a test and cost a whole cycle's work; nothing
+    about an image may ever fail a story night again.
+    """
+    if not IMAGES.exists():
+        return 0
+    scenes = {p.stem for p in SCENES.glob("*.md")}
+    dropped = 0
+    for p in sorted(IMAGES.iterdir()):
+        if p.suffix in {".webp", ".json"} and p.stem not in scenes:
+            p.unlink()
+            print(f"prune {p.name}: scene no longer exists")
+            dropped += 1
+    return dropped
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("scene", nargs="?")
     ap.add_argument("--moment", default="")
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--prune", action="store_true",
+                    help="drop plates whose scene is gone, then exit")
     ap.add_argument("--force", action="store_true")
     a = ap.parse_args()
 
+    if a.prune and not (a.all or a.scene):
+        print(f"pruned {prune_orphans()}")
+        return 0
+
     if a.all:
+        prune_orphans()
         targets = sorted(SCENES.glob("*.md"))
     elif a.scene:
         p = Path(a.scene)
