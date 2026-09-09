@@ -46,13 +46,23 @@ CKPT = "flux1-dev-fp8.safetensors"
 # rendered as monks in a cloister.
 #
 # The moment decides the picture. Style only says how it is drawn.
-# Tone IS style and is safe to enforce; setting and camera are not. Without a
-# tonal anchor the plates drift to light, airy pencil sketches on white and
-# stop looking like one book.
+# Style may describe INK, never light, setting, costume or camera.
+#
+# Two failures are baked into this constant's history. First it carried the
+# setting ("iron doors, archive racks") and the camera ("seen from behind"),
+# and every scene rendered as the same room. Removing that fixed it. Then a
+# "tonal" anchor -- heavy blacks, DEEP SHADOW, dark inked plate -- put the
+# room back: lighting words imply dim interiors, dim interiors imply stone,
+# stone implies archways, and the procession-of-lights scene became a robed
+# cat in a hall again.
+#
+# So: density of ink is safe to enforce. Darkness of the depicted world is
+# not, because it is a fact about the scene, and the scene is the moment's
+# to decide.
 STYLE = (
     "Engraved etching illustration, dense crosshatching, fine ink linework, "
-    "monochrome, no colour. Heavy blacks, high contrast, deep shadow, dark "
-    "inked plate. The characters are anthropomorphic cats."
+    "strong black ink, monochrome, no colour. "
+    "The characters are anthropomorphic cats."
 )
 
 CHOICE = re.compile(r"^###\s*\[.*?\]\(.*?\.md\)", re.M)
