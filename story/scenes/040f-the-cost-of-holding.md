@@ -38,6 +38,7 @@ Not quiet. Still.
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The protagonist refused the reading, and the ledger, denied its flinch, recalled the filed frame and paid the ring. The recall's cost extended beyond the frame: it reached back through the relationship that protected the protagonist from being fully filed, and P'taxx — who stood with the protagonist through every refused flinch — is now a subject in the ledger's light. The refusal holds (the record is unfinished), but the cost is the relationship that made the refusal possible. The protagonist's want — to remain unmeasured, to remain the cat who refuses — is damaged by the loss of the one cat who believed the refusal was real. The exit is still closed. The name is still filed. The next scene must address what it means to be unmeasured at the cost of the relationship that made unmeasurability possible — and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse.
+### [Enter the room that keeps →](040g-the-room-that-keeps.md)
+The high door is open, and the seam is still aiming, and the ledger is waiting for a flinch that is not coming. The room behind the room is the room where the filing happens — the sheet on the stone desk, the broken bell, the rules carved into the floor. The next move is not an attitude. The next move is a step. And the step is into the room that keeps what it reads.
