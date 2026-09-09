@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-09T05:21:13Z",
-  "status": "failed",
+  "timestamp_utc": "2026-09-09T11:16:03Z",
+  "status": "passed",
   "human_input_required": false,
-  "final_replay": "failed",
-  "summary": "Autonomy supervisor error: command failed (1): /usr/bin/python3 -m unittest discover -s tests -v"
+  "final_replay": "passed",
+  "summary": "ADVANCE cycle: new scene 040g-the-room-that-keeps.md grounds the ledger's method in concrete physical operation (broken bell, sheet on stone desk, lever as sheet's edge, rules carved into the floor), extending the Antiquarian frontier from 040f. Independent final replay PASSED."
 }
