@@ -35,14 +35,24 @@ CKPT = "flux1-dev-fp8.safetensors"
 # is records, doors and filed frames -- an engraved plate suits both, and keeps
 # anthropomorphic figures legible instead of uncanny (flux has no character
 # LoRA here, so identity must ride on silhouette and situation, never a face).
+# MEDIUM ONLY. Nothing here may describe a setting, a costume, or a camera.
+#
+# The first version of this constant carried ~800 characters of setting and
+# blocking -- "worn medieval dress", "seen at a distance or from behind",
+# "iron doors, archive racks, ledgers" -- in front of every moment. The result
+# was 23 variations of one prompt: robed figures in arched stone, in every
+# scene, regardless of what actually happened in it. A scene whose turn was
+# "every rooftop cat begins screaming, the sliver ignites orange in his paw"
+# rendered as monks in a cloister.
+#
+# The moment decides the picture. Style only says how it is drawn.
+# Tone IS style and is safe to enforce; setting and camera are not. Without a
+# tonal anchor the plates drift to light, airy pencil sketches on white and
+# stop looking like one book.
 STYLE = (
-    "monochrome etching, engraved antique printed plate, dense crosshatching, "
-    "stark black and white, no colour, fine ink linework, "
-    "anthropomorphic cats as people -- upright feline figures in worn "
-    "medieval dress, seen at a distance or from behind, faces turned away or "
-    "in shadow, never a portrait; "
-    "the stone city of Faelspire: iron doors, archive racks, filed frames, "
-    "ledgers, lamplight and deep shadow. "
+    "Engraved etching illustration, dense crosshatching, fine ink linework, "
+    "monochrome, no colour. Heavy blacks, high contrast, deep shadow, dark "
+    "inked plate. The characters are anthropomorphic cats."
 )
 
 CHOICE = re.compile(r"^###\s*\[.*?\]\(.*?\.md\)", re.M)
@@ -134,7 +144,9 @@ def render(scene: Path, moment: str = "", force: bool = False) -> bool:
     # A stable seed per scene: re-rendering a scene keeps its composition
     # unless the moment itself changed.
     seed = int(uuid.uuid5(uuid.NAMESPACE_URL, stem).int % 2**31)
-    prompt = STYLE + moment
+    # Moment FIRST. A style prefix dominates what the model draws; the scene's
+    # turn has to be the subject, not a suffix appended to a house style.
+    prompt = f"{moment} -- {STYLE}"
 
     try:
         pid = _post("/prompt", {"prompt": workflow(prompt, seed),
