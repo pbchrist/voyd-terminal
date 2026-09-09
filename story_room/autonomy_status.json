@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-08T11:39:46Z",
-  "status": "passed",
+  "timestamp_utc": "2026-09-09T05:21:13Z",
+  "status": "failed",
   "human_input_required": false,
-  "final_replay": "passed",
-  "summary": "Implemented the accepted branch set {M1 route-true Lattice reconvergence split into 022a/022b + M3 performed apex fork with new refuse landing 040a-03}; the independent final replay across 5 paths (changed Antiquarian, changed Temple, neighboring make-leaf, unaffected Stray control, let-leaf reconvergence+ending) PASSED all 9 criteria \u2014 the rank-1 seam-leak is gone, the control path is byte-unchanged, no worse failure was introduced, and 3 new reachable scenes advanced the reader-facing fiction."
+  "final_replay": "failed",
+  "summary": "Autonomy supervisor error: command failed (1): /usr/bin/python3 -m unittest discover -s tests -v"
 }
