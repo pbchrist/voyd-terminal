@@ -74,7 +74,9 @@ The line beneath **FILED** fills with a word you have not been given a word for.
 
 The shadow above the Royal Palace stops reaching.
 
-It does not fade. It holds, with its hand turned away from the city and aimed at the knot, and the knot is the room, and the room is the high door, and the high door is the one that filed you, and the line beneath **FILED** is the one the Lattice is finishing, and the copy is the one standing between you and the opened seam, and the seam is the one the Lattice is showing you, and the Lattice is the one the city is watching, and the city is the one the shadow is aimed at, and the shadow is the one that stopped, and the stop is the door, and the door is the one that rang, and the ring is the one that broke, and the break is the one that was not finished.
+It does not fade. It holds, with its hand turned away from the city and aimed at the knot beneath Gistli Square, and the knot is the room you left behind, and the room is still open, and the high door is still ringing, and the filed frame is still laid across the stone, and the copy is still standing between you and the seam.
+
+The line beneath **FILED** fills with a word you have not been given a word for.
 
 The test failed.
 
@@ -83,26 +85,6 @@ The file found its subject.
 The subject is the copy.
 
 The copy is between you and the opened seam.
-
-The seam is opened.
-
-The line is being finished.
-
-The city is watching.
-
-The high door is still open.
-
-The copy is still standing.
-
-The seam is still aiming.
-
-The line is still being carved.
-
-The subject is still the copy.
-
-The record about you is the one that was never finished.
-
-The Lattice is the one that is finishing it.
 
 ---
 

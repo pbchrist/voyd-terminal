@@ -42,6 +42,7 @@ The exit is still closed. The name is still filed. The copy stands where you lef
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly — the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed → subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. The record about the protagonist is unfinished, the lever is spent, and the next scene must address what it means to be unmeasured at the cost of the ledger's recall — and whether the ledger, having spent its ring, will find another way to finish the one record it has not finished.
+### [Face what the recall cost →](040f-the-cost-of-holding.md)
+The ledger recalled the filed frame and broke its ring. The reclassification is done, the copy is a subject, and the record about you stands unfinished. But the recall reached further than the frame. The next move must face what the cost of holding your gaze actually was — and whether the refusal holds when the cat who stood with you through it is no longer standing with you.

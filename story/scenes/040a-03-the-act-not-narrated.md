@@ -40,5 +40,5 @@ The act is not narrated. It is held. And holding it is a different act than the 
 
 ## Choose your path
 
-### [Let the ledger find another way →](040a-let-the-record-stand.md)
+### [Let the ledger find another way →](040a-let-the-record-stand-01-the-ledgers-recall.md)
 The seam has nothing to file, the lever is spent, and the record about you stands unfinished. But the ledger is not finished. It has been keeping the filed frame since the square, and you have just given it a reason to reach back through its own record. The next move must decide whether to let the ledger do something it has never done before — and what the cost of that first recall will be.
