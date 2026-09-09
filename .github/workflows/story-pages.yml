@@ -37,6 +37,12 @@ jobs:
           mkdir -p _site/scenes
           cp site/index.html _site/index.html
           cp story/scenes/*.md _site/scenes/
+          # Plates are optional by design: a scene the renderer has not reached
+          # still publishes, and the reader drops the missing image. Never let
+          # absent art fail the story's deploy.
+          mkdir -p _site/images
+          cp story/images/*.webp _site/images/ 2>/dev/null || true
+          echo "plates published: $(ls -1 _site/images 2>/dev/null | wc -l)"
           cp story_room/frontier.json _site/frontier.json
           touch _site/.nojekyll
           echo "scenes published: $(ls -1 _site/scenes | wc -l)"
