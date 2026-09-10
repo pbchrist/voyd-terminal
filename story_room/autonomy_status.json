@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-09T11:16:03Z",
+  "timestamp_utc": "2026-09-10T12:20:29Z",
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "ADVANCE cycle: new scene 040g-the-room-that-keeps.md grounds the ledger's method in concrete physical operation (broken bell, sheet on stone desk, lever as sheet's edge, rules carved into the floor), extending the Antiquarian frontier from 040f. Independent final replay PASSED."
+  "summary": "M3-SPENT-RESOURCE (anonymity spent irreversibly: filed/named/replayed) implemented across 12 scenes; reconvergence collision, 031 L87 route-bleed fix, 'still' chain removal, and route-specific frontier actions all verified; final independent replay PASS with no structural break."
 }
