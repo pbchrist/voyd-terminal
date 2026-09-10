@@ -40,11 +40,39 @@ P'taxx's paw finds your shoulder.
 
 The Lattice is waiting.
 
-The high door is still open. The filed frame is still laid across the stone. The line beneath **FILED** is still being carved. And the copy that was never yours is standing between you and the opened seam, the one copy that did not flinch when the door rang, the one that stepped out of the semicircle and held its ground, and the Lattice is showing you that the copy's standing was not a file, and the copy's eyes were not a mirror.
+The high door is open. The filed frame is laid across the stone. The line beneath **FILED** is being carved. And the copy that was never yours is standing between you and the opened seam, the one copy that did not flinch when the door rang, the one that stepped out of the semicircle and held its ground, and the Lattice is showing you that the copy's standing was not a file, and the copy's eyes were not a mirror.
 
 The copy is a subject.
 
-The seam is opened. The line is being finished. The city is watching. The high door is still open. The copy is still standing. The seam is still aiming. The line is still being carved. The subject is still the copy. The record about you is the one that was never finished. The Lattice is the one that is finishing it.
+The seam is opened. The line is being finished. The city is watching. The high door is open. The copy is standing. The seam is aiming. The line is being carved. The subject is the copy. The record about you is the one that was never finished. The Lattice is the one that is finishing it.
+
+The name is filed.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The name is filed in P'taxx's shop.
+
+The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
 
 ---
 

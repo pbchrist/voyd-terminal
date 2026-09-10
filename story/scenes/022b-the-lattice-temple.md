@@ -48,7 +48,7 @@ The acolyte's silence answers him.
 
 The Lattice is waiting.
 
-The reliquary is still open. The name is still burning. The seam is still matching. And the city is watching, and the lattice is the city, and the lattice is the one that is finishing the record about you, and the record about you is the one that was never finished, and the one that was never finished is the one the Lattice is finishing now, and the name is the one the Lattice is reading, and the reading is the one the city is watching.
+You have spent your anonymity. The name is on the iron. It cannot be unnamed. The containment the acolytes came to make is the containment you cannot refuse, because you are already the named subject, and the named subject cannot be un-named.
 
 The test failed.
 
@@ -65,6 +65,8 @@ The seam is matching.
 The city is watching.
 
 The Lattice is the one that is finishing it.
+
+And the spend is irreversible.
 
 ---
 

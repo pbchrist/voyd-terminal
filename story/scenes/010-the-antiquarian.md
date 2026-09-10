@@ -50,6 +50,12 @@ He sweeps a stack of manuscripts onto the floor.
 
 You place the wrapped fragment between you.
 
+The table is not neutral.
+
+You know it before you know why. The room is deeper than the shop, and the corridor behind the rear wall is not a passage. It is a mouth. And the mouth is open for a reason.
+
+The reason is you.
+
 The fourth bell rings.
 
 Every book in the shop opens.
@@ -95,6 +101,10 @@ P'taxx looks at you.
 For the first time since you have known him, he asks rather than tells.
 
 “Which danger do you prefer?”
+
+You know what the first danger is, and you know what it costs. The corridor does not file objects. It files the cats who walk it. If you follow P'taxx into it, the thing behind the wall reads what you are and keeps the reading — and a kept reading cannot be walked back. You have spent your whole life being a cat the city can measure. Whatever happens down that corridor, the unmeasured part of you is what you walk in with.
+
+Whatever you choose, you are about to spend it.
 
 ---
 

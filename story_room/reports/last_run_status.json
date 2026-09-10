@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "human_input_required": false,
+  "final_replay": "passed",
+  "summary": "M3-SPENT-RESOURCE (anonymity spent irreversibly: filed/named/replayed) implemented across 12 scenes; reconvergence collision, 031 L87 route-bleed fix, 'still' chain removal, and route-specific frontier actions all verified; final independent replay PASS with no structural break."
+}

@@ -122,6 +122,24 @@ Then the cistern answers in his voice.
 
 Something begins climbing the inside wall.
 
+You know what the cistern wants before the stray says it.
+
+The cistern is not a hole. It is a name. The stone lid does not close around what is below. It closes around what the lid says. And the lid has been waiting for a name. And the name it is waiting for is the one the city does not know. The one that has let you be a face the square forgets. The one that has let you be unmeasured.
+
+The stray has seen you look.
+
+“You know what it is,” he says.
+
+“I know what it wants.”
+
+“It wants to replay you.”
+
+The fragment in your paw pulses once.
+
+*He is right.*
+
+If you open the cistern, the lid will lift. And the name under the name will be under the stray's skin. And the skin does not give it back.
+
 ---
 
 ## Choose

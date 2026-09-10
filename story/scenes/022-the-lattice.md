@@ -94,6 +94,56 @@ The lattice holds the moment.
 
 The fourth point hangs over the Royal Palace, the shadow hangs over the city, and the crack runs down the ceiling where the shop was, and the room waits to learn what it carried in.
 
+The lattice does not show you the three points.
+
+It shows you the three spends.
+
+The name is filed in P'taxx's shop.
+
+The name is on the Temple's iron.
+
+The name is under the stray's skin.
+
+You have spent your anonymity three times, and the spend is irreversible.
+
+The filed name is in the high door's stone. The name is not on the fragment. The name is on the door. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The named name is on the iron lid. The name is not in the iron. The name is the iron. And the iron is the lid. And the lid is open. And the lid is on the table. And the table is in the shop. And the shop is not the temple. And the name is on the iron. And the iron does not give it back.
+
+The replayed name is under the stray's skin. The name is not on the fragment. The name is under the skin. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The three spends are not three different names.
+
+They are the same name.
+
+The one the city does not know.
+
+The one that has let you be a face the square forgets.
+
+The one that has let you be unmeasured.
+
+And you have spent it three times.
+
+And the spend is irreversible.
+
+And the cat who walked in is not the cat who walks out.
+
+The cat who walks out is filed.
+
+The cat who walks out is named.
+
+The cat who walks out is replayed.
+
+And the cat who walks out is the one the lattice holds.
+
+The lattice is the creditor.
+
+And the lattice cannot be paid in three currencies at once.
+
+And the spend is irreversible.
+
+And the cat who walks out is the one the lattice is finishing.
+
 ---
 
 ### [Hold your gaze — the room behind you holds the door that filed the proof →](022a-the-lattice-filing.md)

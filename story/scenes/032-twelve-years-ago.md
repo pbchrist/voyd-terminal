@@ -70,6 +70,22 @@ The courtyard seems to tilt.
 
 “That wasn't there twelve years ago,” he says. “It appeared when you picked up the fragment.”
 
+The name is under the stray's skin.
+
+Not written. Not burned. There. The way a name is there when you have been named and the naming has not finished. The stray's skin does not hold the name. The stray's skin is the name. And the skin is under the fur. And the fur is under the scar. And the scar is under the ear. And the ear is torn. And the torn edge is too clean. And the black line runs from the scar down the side of the neck and disappears under the fur. And the name is under the fur. And the fur is under the skin. And the skin is the name. And the name is the one the city does not know.
+
+The name is not on the fragment. The name is under the skin. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
+
+The stray looks at you.
+
+“You can still walk out,” he says. “You can still be the cat who walked in. But the cat who walked in is not the cat who walks out. The cat who walks out is replayed. And the cat who walks out is not the cat the city forgets. The cat who walks out is the one the name holds.”
+
+His paw is on the dead sliver.
+
+His face is the face of a cat who has just watched the thing he has been running from happen.
+
+“It is done,” he says. “And what is done stays done.”
+
 Three knocks sound from the cistern.
 
 Your voice rises from below.

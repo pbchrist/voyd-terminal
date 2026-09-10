@@ -66,6 +66,8 @@ The first acolyte forces the reliquary into your chest.
 
 “No.” His eyes remain fixed on his own shadow. “The box recognized it.”
 
+The iron lid is open against your chest. You can feel the name waiting in it. Not a word. A shape. The shape of the one thing you have never let the city hold.
+
 The shadow points toward the temple road.
 
 Then toward the alley where the soot-gray stray vanished.
@@ -79,6 +81,24 @@ Or two invitations.
 The acolyte finally looks at you.
 
 “Whatever you choose, do it before my shadow chooses for us.”
+
+You know what the temple wants before the acolyte says it.
+
+The reliquary is not a box. It is a name. The iron lid does not close around what is inside. It closes around what the lid says. And the lid has been waiting for a name. And the name it is waiting for is the one the city does not know. The one that has let you be a face the square forgets. The one that has let you be unmeasured.
+
+The acolyte has seen you look.
+
+“You know what it is,” he says.
+
+“I know what it wants.”
+
+“It wants to name you.”
+
+The fragment in your paw pulses once.
+
+*He is right.*
+
+If you go to the temple, the lid will close. And the name under the name will be on the iron. And the iron does not give it back.
 
 ---
 
