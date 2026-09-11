@@ -2,5 +2,5 @@
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "M3-SPENT-RESOURCE (anonymity spent irreversibly: filed/named/replayed) implemented across 12 scenes; reconvergence collision, 031 L87 route-bleed fix, 'still' chain removal, and route-specific frontier actions all verified; final independent replay PASS with no structural break."
+  "summary": "M_C_LOOK_UP_CAUSES implemented: the look-up in 022 is now the explicit cause of the collision, the three spends are re-framed as route-registrations (sound/touch/pressure), the cost-line lands once as the reader's own verdict, the 022a repetitions are deleted, the 031/032 verbatim block is cut, and the 040e/040g reader-surface defects are fixed. All three independent replay walkers passed."
 }

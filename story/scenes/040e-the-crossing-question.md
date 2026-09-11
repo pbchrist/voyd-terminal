@@ -70,13 +70,9 @@ It was never in the Lattice. It was in the room, the whole time, the one copy th
 
 The copy is a subject.
 
-The line beneath **FILED** fills with a word you have not been given a word for.
-
 The shadow above the Royal Palace stops reaching.
 
-It does not fade. It holds, with its hand turned away from the city and aimed at the knot beneath Gistli Square, and the knot is the room you left behind, and the room is still open, and the high door is still ringing, and the filed frame is still laid across the stone, and the copy is still standing between you and the seam.
-
-The line beneath **FILED** fills with a word you have not been given a word for.
+It does not fade. It holds, with its hand turned away from the city and aimed at the knot beneath Gistli Square, and the knot is the room you left behind, and the room is still open, and the high door is still ringing, and the filed frame is still laid across the stone, and the copy is still standing between you and the seam, and the line beneath **FILED** is still filling with a word you have not been given a word for.
 
 The test failed.
 

@@ -48,25 +48,15 @@ The acolyte's silence answers him.
 
 The Lattice is waiting.
 
+The iron registered the look-up.
+
+Not the lattice telling you the name is on the iron. The reliquary itself. The seam across its lid, which had been matching the seam in your paw since the square, closed the match when the look-up came. The two edges found each other with a click you felt through the table, through the stone, through your own paw — a touch, not a sound, the iron's own way of reading. The name that had been waiting under the seam surfaced across the lid, and the lid is open, and the name is the one the city does not know, and the iron does not give it back, because the iron keeps what it names, and the look-up is what it named.
+
+The naming is the iron's registration of your look-up.
+
+It is not a cost the lattice imposed. It is the consequence of the act you performed. You looked up before the measurement was finished, and the iron, which had been matching the seam in your paw against the seam in its lid, took the look-up as the naming. The name is on the iron now. The seam is matched. The click is in your paw. And the iron does not give it back, because the iron keeps what it names, and the look-up is what it named.
+
 You have spent your anonymity. The name is on the iron. It cannot be unnamed. The containment the acolytes came to make is the containment you cannot refuse, because you are already the named subject, and the named subject cannot be un-named.
-
-The test failed.
-
-The file found its subject.
-
-The subject is you.
-
-The reliquary is open.
-
-The name is burning.
-
-The seam is matching.
-
-The city is watching.
-
-The Lattice is the one that is finishing it.
-
-And the spend is irreversible.
 
 ---
 

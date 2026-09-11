@@ -8,7 +8,7 @@ Not wide. The way a ledger opens. The seam of pale light along its frame widens,
 
 You step through.
 
-The triangle floor is under your paws. It is not the shop floor. The shop floor is the EFFECT of what happens here, the image the room lays across the stone when it works. This is the room where the working happens.
+The triangle floor is under your paws. It is not the shop floor. The shop floor is what happens when the room works — the image the room lays across the stone when the method is in motion. This is the room where the working happens.
 
 And in the center of the room, on a stone desk, there is a sheet.
 

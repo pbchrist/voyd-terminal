@@ -86,9 +86,13 @@ Or what the Voyd learned to wear after he ran.
 
 The Voyd. The name is not new. It is the thing under the stray's skin, seen from outside — the same name under the fur, the same name under the scar, the same name the city does not know. The thing above Faelspire is not a new presence. It is the name reading back. And the kit in the cistern is what the name replayed first.
 
-The name is under the stray's skin.
+The skin registered the look-up.
 
-Not written. Not burned. There. The way a name is there when you have been named and the naming has not finished. The stray's skin does not hold the name. The stray's skin is the name. And the skin is under the fur. And the fur is under the scar. And the scar is under the ear. And the ear is torn. And the torn edge is too clean. And the black line runs from the scar down the side of the neck and disappears under the fur. And the name is under the fur. And the fur is under the skin. And the skin is the name. And the name is the one the city does not know.
+Not the lattice telling you the name is under the skin. The skin itself. The scar that has run from the stray's torn ear down his neck for twelve years split when the look-up came. Not broke. Split — the way skin splits when a thing is coming through it. Pressure from beneath. The name that had been waiting under the scar surfaced under the fur for the first time, and the fur is under the scar, and the scar is under the ear, and the torn edge is too clean, and the black line runs from the scar down the side of the neck and disappears under the fur, and the name is under the fur, and the name is the one the city does not know.
+
+The replay is the skin's registration of your look-up.
+
+It is not a cost the lattice imposed. It is the consequence of the act you performed. You looked up before the measurement was finished, and the skin, which had been carrying the name under the scar since the stray ran, took the look-up as the replay. The scar split. The name surfaced. The pressure is in the stray's neck, and the skin does not give it back, because the skin is the name, and the name is the one the city does not know.
 
 The name is not on the fragment. The name is under the skin. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
 

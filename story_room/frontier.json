@@ -7,70 +7,146 @@
     {
       "path": "story/scenes/022a-the-lattice-filing.md",
       "title": "The Filing",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing"],
-      "unresolved_pressure": "M1 canonical head. The Antiquarian route's route-true passage through the reconvergence. The shared lattice reveal (fourth point over the palace, the hand-shadow, 'It measures looking away / it has no word for looking back') is kept singular in 022 and the body FORKS here onto what the route actually carried in: P'taxx alone, no acolytes, no reliquary, the fragment filed behind the high door in 011, the copies standing in the semicircle ('every one of them has your face'), and the YOU LOOKED AWAY door title. The lattice's fourth point on THIS route is the filed proof the Antiquarian route actually carried — the high door's ring is the fourth point's voice. The scene ends by forking to 040e (the Crossing Question), which is re-grounded onto 011's carried state. The seam repair: the Antiquarian reader now arrives to route-true state, not a Temple-shaped room."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing"
+      ],
+      "unresolved_pressure": "M1 canonical head. The Antiquarian route's route-true passage through the reconvergence. The shared lattice reveal (fourth point over the palace, the hand-shadow, 'It measures looking away / it has no word for looking back') is kept singular in 022 and the body FORKS here onto what the route actually carried in: P'taxx alone, no acolytes, no reliquary, the fragment filed behind the high door in 011, the copies standing in the semicircle ('every one of them has your face'), and the YOU LOOKED AWAY door title. The lattice's fourth point on THIS route is the filed proof the Antiquarian route actually carried \u2014 the high door's ring is the fourth point's voice. The scene ends by forking to 040e (the Crossing Question), which is re-grounded onto 011's carried state. The seam repair: the Antiquarian reader now arrives to route-true state, not a Temple-shaped room."
     },
     {
       "path": "story/scenes/022b-the-lattice-temple.md",
       "title": "The Temple",
-      "ancestry": ["The Fourth Bell", "The Temple Door", "The Walk to the Shop", "The Lattice", "The Temple"],
-      "unresolved_pressure": "M1 canonical head. The Temple route's route-true passage through the reconvergence. The shared lattice reveal is kept singular in 022 and the body FORKS here onto what the Temple route actually carried in: the acolytes (the young one, the one who prays, the one with the short ceremonial blade), and the open iron reliquary bearing the protagonist's name. The lattice's fourth point on THIS route is the name-bearing reliquary — the name across the iron lid is the fourth point's voice. The 'that is impossible' beat and the P'taxx/acolyte confrontation are preserved verbatim from the Temple route's actual state (020/021a/021b). The scene ends by forking to 040b (the Second Question), unchanged."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple"
+      ],
+      "unresolved_pressure": "M1 canonical head. The Temple route's route-true passage through the reconvergence. The shared lattice reveal is kept singular in 022 and the body FORKS here onto what the Temple route actually carried in: the acolytes (the young one, the one who prays, the one with the short ceremonial blade), and the open iron reliquary bearing the protagonist's name. The lattice's fourth point on THIS route is the name-bearing reliquary \u2014 the name across the iron lid is the fourth point's voice. The 'that is impossible' beat and the P'taxx/acolyte confrontation are preserved verbatim from the Temple route's actual state (020/021a/021b). The scene ends by forking to 040b (the Second Question), unchanged."
     },
     {
       "path": "story/scenes/040a-the-witness-you-made.md",
       "title": "The Witness You Made",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing", "The Crossing Question", "The Witness You Made"],
-      "unresolved_pressure": "M3 performed fork. The apex body no longer pre-narrates the decision. The pre-declared act ('You choose it now. You turn your face from the copies...') is DELETED, and the two options are now two genuinely distinct actions under pressure, each landing on a changed state: Option 1 'Commit to the seam' (040a-make-the-witness-work.md) physically commits the protagonist to the seam — they turn their face to the opened seam, put the copy in the middle of the aim, hold it there, and stand the copy as the ledger's witness against itself, paying the WANT in its exact currency (they become the subject of the reading they did not choose to be in); Option 2 'Refuse the reading' (040a-03-the-act-not-narrated.md, NEW) physically holds the record unfinished — the protagonist does NOT cross to the copy, does NOT put their shoulder against its shoulder, does NOT let their eyes fall into the method's angle; they stand where they are and let the seam look at them and not find what it is looking for, losing the lever. The player's selection CARRIES the decision (performed agency), not merely picks an attitude toward an already-performed act. The N1 head's reclassification beat (the witness → subject filing in the make-leaf) is PRESERVED. The two leaves' opposed readings are preserved: make-leaf pays the WANT in its exact currency; refuse-leaf keeps the WANT unbroken. The refuse leaf now lands on the new 040a-03 (the performed-refuse landing), which carries the reader into 040a-let-01 (the recall) via the M-HONE-MERGE re-route."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made"
+      ],
+      "unresolved_pressure": "M3 performed fork. The apex body no longer pre-narrates the decision. The pre-declared act ('You choose it now. You turn your face from the copies...') is DELETED, and the two options are now two genuinely distinct actions under pressure, each landing on a changed state: Option 1 'Commit to the seam' (040a-make-the-witness-work.md) physically commits the protagonist to the seam \u2014 they turn their face to the opened seam, put the copy in the middle of the aim, hold it there, and stand the copy as the ledger's witness against itself, paying the WANT in its exact currency (they become the subject of the reading they did not choose to be in); Option 2 'Refuse the reading' (040a-03-the-act-not-narrated.md, NEW) physically holds the record unfinished \u2014 the protagonist does NOT cross to the copy, does NOT put their shoulder against its shoulder, does NOT let their eyes fall into the method's angle; they stand where they are and let the seam look at them and not find what it is looking for, losing the lever. The player's selection CARRIES the decision (performed agency), not merely picks an attitude toward an already-performed act. The N1 head's reclassification beat (the witness \u2192 subject filing in the make-leaf) is PRESERVED. The two leaves' opposed readings are preserved: make-leaf pays the WANT in its exact currency; refuse-leaf keeps the WANT unbroken. The refuse leaf now lands on the new 040a-03 (the performed-refuse landing), which carries the reader into 040a-let-01 (the recall) via the M-HONE-MERGE re-route."
     },
     {
       "path": "story/scenes/040a-make-the-witness-work.md",
       "title": "Make the Witness Work",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing", "The Crossing Question", "The Witness You Made", "Make the Witness Work"],
-      "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency — they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record — the one that was never finished — is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness → subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work"
+      ],
+      "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency \u2014 they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record \u2014 the one that was never finished \u2014 is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness \u2192 subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
     },
     {
       "path": "story/scenes/040a-03-the-act-not-narrated.md",
       "title": "The Act Not Narrated",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing", "The Crossing Question", "The Witness You Made", "The Act Not Narrated"],
-      "unresolved_pressure": "M3 NEW refuse-action landing. M-HONE-MERGE: the near-duplicate 040a-let-the-record-stand is deleted; this scene now carries both the performed act and the landed consequence, linking directly to 040a-let-01 (the recall). The protagonist refused the reading by physically NOT crossing to the copy, NOT putting their shoulder against its shoulder, and NOT letting their eyes fall into the method's angle. The act is the player's chosen act — not the act the voice described, not the act the room expected. The copy stays a witness (not a subject the ledger can work on), the record about the protagonist stays unfinished, and the WANT holds. The cost is the lever: a witness the protagonist cannot deploy is a lever they no longer have."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated"
+      ],
+      "unresolved_pressure": "M3 NEW refuse-action landing. M-HONE-MERGE: the near-duplicate 040a-let-the-record-stand is deleted; this scene now carries both the performed act and the landed consequence, linking directly to 040a-let-01 (the recall). The protagonist refused the reading by physically NOT crossing to the copy, NOT putting their shoulder against its shoulder, and NOT letting their eyes fall into the method's angle. The act is the player's chosen act \u2014 not the act the voice described, not the act the room expected. The copy stays a witness (not a subject the ledger can work on), the record about the protagonist stays unfinished, and the WANT holds. The cost is the lever: a witness the protagonist cannot deploy is a lever they no longer have."
     },
     {
       "path": "story/scenes/040a-let-the-record-stand-01-the-ledgers-recall.md",
       "title": "The Ledger's Recall",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing", "The Crossing Question", "The Witness You Made", "The Act Not Narrated", "The Ledger's Recall"],
-      "unresolved_pressure": "M1 re-grounded. M-HONE-MERGE: ancestry updated (Let the Record Stand removed). The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly — the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed → subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. M4-WANT: the ACTIVE FRONTIER is replaced by a choice link to 040f-the-cost-of-holding, which lands the recall's route-specific cost (the relationship with P'taxx). (M2 branch: this frontier may be further developed in a future cycle.)"
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall"
+      ],
+      "unresolved_pressure": "M1 re-grounded. M-HONE-MERGE: ancestry updated (Let the Record Stand removed). The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly \u2014 the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed \u2192 subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. M4-WANT: the ACTIVE FRONTIER is replaced by a choice link to 040f-the-cost-of-holding, which lands the recall's route-specific cost (the relationship with P'taxx). (M2 branch: this frontier may be further developed in a future cycle.)"
     },
     {
       "path": "story/scenes/040g-the-room-that-keeps.md",
       "title": "The Room That Keeps",
-      "ancestry": ["The Fourth Bell", "The Antiquarian", "The Room Behind the Room", "The Lattice", "The Filing", "The Crossing Question", "The Witness You Made", "The Act Not Narrated", "The Ledger's Recall", "The Cost of Holding", "The Room That Keeps"],
-      "unresolved_pressure": "M1 (NEW). The method is no longer a thesis. It is a room. The filed frame is a sheet on a stone desk, the ring is a broken bell, the lever is the sheet's edge, and the rules are carved into the floor. The protagonist has entered the room that keeps, and the room is working on the recalled frame — the subject that is the protagonist, in Gistli Square, head beginning to turn. P'taxx is at the desk, a subject, his face on the cold stone. The sheet on the floor is the record about the protagonist, and the record is unfinished, and the unfinished is the one the ledger can no longer mark, because the bell is broken. The next scene must address what it means to stand in the room where the method works, with the method working on the frame that is you, with the sheet that is still being written open under your paws, and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse — in the room where the refusal is a physical act, not an attitude."
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps"
+      ],
+      "unresolved_pressure": "M1 (NEW). The method is no longer a thesis. It is a room. The filed frame is a sheet on a stone desk, the ring is a broken bell, the lever is the sheet's edge, and the rules are carved into the floor. The protagonist has entered the room that keeps, and the room is working on the recalled frame \u2014 the subject that is the protagonist, in Gistli Square, head beginning to turn. P'taxx is at the desk, a subject, his face on the cold stone. The sheet on the floor is the record about the protagonist, and the record is unfinished, and the unfinished is the one the ledger can no longer mark, because the bell is broken. The next scene must address what it means to stand in the room where the method works, with the method working on the frame that is you, with the sheet that is still being written open under your paws, and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse \u2014 in the room where the refusal is a physical act, not an attitude."
     },
     {
       "path": "story/scenes/040b-the-second-question.md",
       "title": "The Second Question",
-      "ancestry": ["The Fourth Bell", "The Temple Door", "The Walk to the Shop", "The Lattice", "The Temple"],
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple"
+      ],
       "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire. (Unaffected by M1/M3; reached from 022b.)"
     },
     {
       "path": "story/scenes/040c-the-second-question.md",
       "title": "The Second Question",
-      "ancestry": ["The Fourth Bell", "The Stray", "Open the cistern", "The Thing Below the Courtyard"],
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Open the cistern",
+        "The Thing Below the Courtyard"
+      ],
       "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
     },
     {
       "path": "story/scenes/040d-the-second-question.md",
       "title": "The Second Question",
-      "ancestry": ["The Fourth Bell", "The Stray", "Demand the truth", "Twelve Years Ago"],
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago"
+      ],
       "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
     }
   ],
   "canonical_head": {
     "cycle": "20260910T120000Z",
-    "mutation": "M3-SPENT-RESOURCE — Anonymity Spent Irreversibly (filed/named/replayed): each route spends a different IRREVERSIBLE resource (anonymity), and the reconvergence COLLIDES the three spent states instead of re-asserting objects",
-    "title": "The reconvergence erasure is repaired: the branches carry causally different state (spent resources) into 022, and the reconvergence collides that state into a new turn — the protagonist is a measured cat, no longer unmeasurable. The 031 L87 route-bleed is fixed. The 'still' chains die. The 040x frontiers carry route-specific available actions constrained by the spend.",
-    "structure": "M3-SPENT-RESOURCE (canonical head): The 000 three-way fork (Antiquarian/Temple/Stray) and the 030 cistern fork are re-tasked so each route SPENDS a different IRREVERSIBLE resource — all three are spends of ANONYMOUS/UNMEASURABLE. Antiquarian: FILED (name filed in P'taxx's shop, irreversible, cannot be unfiled; relationship spent: trust in P'taxx's discretion). Temple: NAMED (name on the iron, irreversible, cannot be unnamed; capability spent: ability to be contained). Stray: REPLAYED (name legible under the stray's skin, irreversible, cannot be unreplayed; relationship spent: trust in the stray's silence). The 022 closing beat COLLIDES the three spent states: 'the name is filed in P'taxx's shop / on the Temple's iron / under the stray's skin — you have spent your anonymity three times, and the spend is irreversible.' The turn = the collision: the protagonist is a MEASURED cat, no longer unmeasurable. The 022a/022b carry their spent state forward (the 'still' chains die). The 031 L87 route-bleed (Antiquarian state leaking into the Stray route) is fixed — re-grounded to the Stray REPLAYED spend. The 040x frontiers now have route-specific available actions constrained by the spend (the protagonist cannot unspend). The 040a witness fork chain is untouched (M3 extends the Antiquarian spend downstream through 040f/040g — P'taxx lost as the recall's cost — without changing the chain's causal ownership).",
-    "note": "M3 is the canonical head for this cycle. Selected by the Acumen Keeper on causal leverage (only mutation whose repair extends natively through the protected 040f/040g cost chain), implementability (testable cost clause: 'irreversible or it is a toggle'; specific 022 closing beat using locations already in the corpus; 040f/040g extension already written), and replay evidence (only mutation independently replayed; design confirmed sound, targets the right wounds). M1 (KNOWLEDGE) and M2 (OBLIGATION) are preserved as coherent branches (distinct causal mechanisms, viable recombination seeds). law_4d3da1051051141 confirmed and extended (collision > re-assertion; revision recorded, remains candidate pending a second Patrick decision). New candidate law proposed: irreversibility as the highest-leverage branch-consequence dimension (prefer, candidate, confirmations=1, not activated — autonomous). No active hard law violated. No speciation gate triggered (inherited acumen decides). The 040a witness fork chain (040a → 040a-03 → let-01 → 040f → 040g) is untouched. The 040b/040c/040d frontiers (Temple/Stray) are repaired by M3 (route-specific available actions carried forward from 022a/022b)."
+    "mutation": "M3-SPENT-RESOURCE \u2014 Anonymity Spent Irreversibly (filed/named/replayed): each route spends a different IRREVERSIBLE resource (anonymity), and the reconvergence COLLIDES the three spent states instead of re-asserting objects",
+    "title": "The reconvergence erasure is repaired: the branches carry causally different state (spent resources) into 022, and the reconvergence collides that state into a new turn \u2014 the protagonist is a measured cat, no longer unmeasurable. The 031 L87 route-bleed is fixed. The 'still' chains die. The 040x frontiers carry route-specific available actions constrained by the spend.",
+    "structure": "M3-SPENT-RESOURCE (canonical head): The 000 three-way fork (Antiquarian/Temple/Stray) and the 030 cistern fork are re-tasked so each route SPENDS a different IRREVERSIBLE resource \u2014 all three are spends of ANONYMOUS/UNMEASURABLE. Antiquarian: FILED (name filed in P'taxx's shop, irreversible, cannot be unfiled; relationship spent: trust in P'taxx's discretion). Temple: NAMED (name on the iron, irreversible, cannot be unnamed; capability spent: ability to be contained). Stray: REPLAYED (name legible under the stray's skin, irreversible, cannot be unreplayed; relationship spent: trust in the stray's silence). The 022 closing beat COLLIDES the three spent states: 'the name is filed in P'taxx's shop / on the Temple's iron / under the stray's skin \u2014 you have spent your anonymity three times, and the spend is irreversible.' The turn = the collision: the protagonist is a MEASURED cat, no longer unmeasurable. The 022a/022b carry their spent state forward (the 'still' chains die). The 031 L87 route-bleed (Antiquarian state leaking into the Stray route) is fixed \u2014 re-grounded to the Stray REPLAYED spend. The 040x frontiers now have route-specific available actions constrained by the spend (the protagonist cannot unspend). The 040a witness fork chain is untouched (M3 extends the Antiquarian spend downstream through 040f/040g \u2014 P'taxx lost as the recall's cost \u2014 without changing the chain's causal ownership).",
+    "note": "M3 is the canonical head for this cycle. Selected by the Acumen Keeper on causal leverage (only mutation whose repair extends natively through the protected 040f/040g cost chain), implementability (testable cost clause: 'irreversible or it is a toggle'; specific 022 closing beat using locations already in the corpus; 040f/040g extension already written), and replay evidence (only mutation independently replayed; design confirmed sound, targets the right wounds). M1 (KNOWLEDGE) and M2 (OBLIGATION) are preserved as coherent branches (distinct causal mechanisms, viable recombination seeds). law_4d3da1051051141 confirmed and extended (collision > re-assertion; revision recorded, remains candidate pending a second Patrick decision). New candidate law proposed: irreversibility as the highest-leverage branch-consequence dimension (prefer, candidate, confirmations=1, not activated \u2014 autonomous). No active hard law violated. No speciation gate triggered (inherited acumen decides). The 040a witness fork chain (040a \u2192 040a-03 \u2192 let-01 \u2192 040f \u2192 040g) is untouched. The 040b/040c/040d frontiers (Temple/Stray) are repaired by M3 (route-specific available actions carried forward from 022a/022b)."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -80,8 +156,8 @@
         "id": "M2-20260908",
         "title": "The Recall Becomes a Completed Decisive Act",
         "axis": "terminal-act closure on the refuse leaf",
-        "mechanism": "The refuse leaf's terminal (040a-let-the-record-stand-01-the-ledgers-recall, which now ends in a choice link to 040f-the-cost-of-holding) may be further developed: the recall is no longer an open scaffold but a closed turn with a priced, irreversible new state. A NEW scene (040a-02-the-record-that-was-never-finished) may be created, reachable by a choice link from 040f, that carries the unresolved pressure forward as a landed consequence: the ledger has spent its only ring (an irreversible cost it can never repeat), the recalled frame is now a working subject the ledger can work on, and the protagonist is the one record it has not finished — a completed, measurable state rather than a question.",
-        "coherence": "PRESERVED as an active reader-facing branch — not implemented this cycle. The recall beat must stay verbatim in spirit ('It does not file. It does not provoke. It does not wait. It *recalls*'; 'the break is the cost'). The new scene's state must be irreversible and priced — no retreat to 'will you flinch' (candidate law_bb750d1bdb10). The two leaves' opposed readings (refuse = refusal-as-cost vs. make = surrender-as-lever) must remain opposed, not flattened. MUST land after M4-WANT is implemented and replay-tested so the completed ending inherits grounded antecedents.",
+        "mechanism": "The refuse leaf's terminal (040a-let-the-record-stand-01-the-ledgers-recall, which now ends in a choice link to 040f-the-cost-of-holding) may be further developed: the recall is no longer an open scaffold but a closed turn with a priced, irreversible new state. A NEW scene (040a-02-the-record-that-was-never-finished) may be created, reachable by a choice link from 040f, that carries the unresolved pressure forward as a landed consequence: the ledger has spent its only ring (an irreversible cost it can never repeat), the recalled frame is now a working subject the ledger can work on, and the protagonist is the one record it has not finished \u2014 a completed, measurable state rather than a question.",
+        "coherence": "PRESERVED as an active reader-facing branch \u2014 not implemented this cycle. The recall beat must stay verbatim in spirit ('It does not file. It does not provoke. It does not wait. It *recalls*'; 'the break is the cost'). The new scene's state must be irreversible and priced \u2014 no retreat to 'will you flinch' (candidate law_bb750d1bdb10). The two leaves' opposed readings (refuse = refusal-as-cost vs. make = surrender-as-lever) must remain opposed, not flattened. MUST land after M4-WANT is implemented and replay-tested so the completed ending inherits grounded antecedents.",
         "status": "PRESERVED as an active reader-facing branch (next-cycle candidate)",
         "recombine": true
       }
@@ -91,10 +167,10 @@
         "id": "N2",
         "title": "The Unmade Witness",
         "axis": "causal ownership / who is forced to act",
-        "mechanism": "The protagonist chooses to unmake the witness — pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door — reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city",
+        "mechanism": "The protagonist chooses to unmake the witness \u2014 pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door \u2014 reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city",
         "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
-        "status": "DEFERRED REFERENCE — not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence",
-        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable — it is the other half of the N1/N2 fork and can be recombined as a future choice once N1's reclassification state is established.",
+        "status": "DEFERRED REFERENCE \u2014 not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable \u2014 it is the other half of the N1/N2 fork and can be recombined as a future choice once N1's reclassification state is established.",
         "recombine": true
       }
     ],
@@ -113,5 +189,27 @@
     "branch_ancestry_must_remain_readable": true,
     "active_frontiers_must_be_visible": true,
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  },
+  "last_cycle": {
+    "cycle_id": "20260911T120000Z",
+    "status": "passed",
+    "mutation": "M_C_LOOK_UP_CAUSES",
+    "mutation_title": "The Look-Up That Spent the Name",
+    "canonical_head": "040g",
+    "summary": "The look-up in 022 is now the explicit CAUSE of the collision. The three spends are re-framed as the look-up's three route-registrations (door/filing/sound, iron/naming/touch, skin/replay/pressure). The cost-line lands once in 022 as the reader's own verdict. The seven repetitions in 022a are deleted. The verbatim block in 031/032 is cut. The 040e double-line and 040g EFFECT leak are fixed.",
+    "files_changed": [
+      "story/scenes/022-the-lattice.md",
+      "story/scenes/022a-the-lattice-filing.md",
+      "story/scenes/022b-the-lattice-temple.md",
+      "story/scenes/031-the-thing-below-the-courtyard.md",
+      "story/scenes/032-twelve-years-ago.md",
+      "story/scenes/040e-the-crossing-question.md",
+      "story/scenes/040g-the-room-that-keeps.md"
+    ],
+    "replay": {
+      "antiquarian": "passed",
+      "stray": "passed",
+      "temple_control": "passed"
+    }
   }
 }
