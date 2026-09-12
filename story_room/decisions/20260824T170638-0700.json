@@ -1,0 +1,52 @@
+{
+  "decision": {
+    "id": "human_20260824_170638_a",
+    "fork_id": "20260824T170638-0700",
+    "selected": "mutation_revelation_threshold_then_live_bargain",
+    "candidates": [
+      "mutation_revelation_threshold_then_live_bargain",
+      "mutation_objective_counterforce_matrix"
+    ],
+    "rationale": "Patrick selected option A: ship it. No additional rationale supplied."
+  },
+  "selected_mutation": {
+    "id": "mutation_revelation_threshold_then_live_bargain",
+    "title": "Revelation Threshold, Then Live Bargain",
+    "structural_change": "Remove contract formation and resolution from Act 1. Each route ends with a truth the player forced the Voyd to reveal and a threshold election between withdrawing with that truth or entering Act 2 to seek a concrete change. Withdrawal creates an unbound_closed handoff with no contract semantics. Continuing creates a petition_pending handoff carrying the disclosed truth, its constraint on future terms, and initiative. Act 2 then runs a deterministic pre-contract state machine: capture and validate a petition, expose its counterforce, offer terms, and present explicit acceptance or refusal actions. Contract identity and leverage cannot exist before that sequence completes.",
+    "story_consequence": "Act 1 becomes a complete contest for truth and access rather than a compressed bargain ledger. Act 2 gains an opening scene whose dramatic work is the creation and opposition of a concrete objective. Players who withdraw have a genuinely different continuation governed by knowledge and initiative, while players who continue enter a bargain they actively construct instead of being told that an unspecified contract brought them there.",
+    "cost": [
+      "Replaces the current Act 1 contract return, test, and payoff machinery with revelation and threshold branches.",
+      "Requires a new non-contract handoff schema and deterministic Act 2 lifecycle processing in both browser and headless runtimes.",
+      "Requires the story packet builder to traverse beyond the Act 1 boundary so the bargain lifecycle can be reviewed model-free.",
+      "Changes existing tests that assume every route reaches Act 2 with an identified, resolved contract.",
+      "Lengthens the experience by separating revelation, petition, counterforce, offer, and resolution into causally distinct exchanges."
+    ],
+    "inherits": [
+      "law_8e52dd229d27",
+      "law_5361b415500d",
+      "law_80984901e75f",
+      "law_4b28d7570c43",
+      "law_4ca0ffd21c42",
+      "law_f1d61deb3858",
+      "law_4540ed0088aa",
+      "law_a65e6c262ef5"
+    ]
+  },
+  "laws": [],
+  "source_pending_speciation": {
+    "cycle_id": "20260824T170638-0700",
+    "artifacts": {
+      "packet": "story_room/packets/20260824T170112.json",
+      "mutations": "story_room/mutations/20260824T170638-0700/structural_editor_final.json",
+      "canon_steward": "story_room/mutations/20260824T170638-0700/canon_steward_final.json",
+      "mutation_replay": "story_room/reports/20260824T170638-0700/mutation_replay",
+      "acumen_keeper": "story_room/mutations/20260824T170638-0700/acumen_keeper.json"
+    },
+    "eliminated": [
+      {
+        "id": "mutation_bound_petition_before_terms",
+        "basis": "Interactive Drama Adversary demonstrated that petition_declined has no defined terminating consequence, renewed action, or structurally separate continuation, so the choice can be erased at the Act 2 frontier or become a dead end."
+      }
+    ]
+  }
+}

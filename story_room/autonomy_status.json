@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-09-12T10:00:01Z",
+  "status": "failed",
+  "human_input_required": false,
+  "final_replay": "failed",
+  "summary": "Story Room process exited 1; no story mutation was accepted."
+}
