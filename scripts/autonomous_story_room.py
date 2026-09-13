@@ -22,6 +22,8 @@ LOG_PATH = ROOT / "logs" / "autonomous_story_room.log"
 PROTECTED_CANON = {
     "data/voyd_canon_mythography.md",
     "data/canon_events.json",
+    "lore/canon/voyd_mythography.md",
+    "lore/canon/canon_events.json",
 }
 
 
@@ -225,16 +227,19 @@ def validate_json() -> None:
     candidates = list((ROOT / "data").glob("*.json"))
     candidates += list((ROOT / "frontend").glob("*.json"))
     candidates += list((ROOT / "frontend" / "data").glob("*.json"))
+    candidates += list((ROOT / "story_room" / "state").glob("*.json"))
+    candidates += list((ROOT / "lore").rglob("*.json"))
     candidates.append(ROOT / "story_room" / "genome.json")
     for path in candidates:
         if path.exists():
             json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_passed_run() -> None:
+def validate_passed_run(base_ref: str) -> None:
     verify_canon_untouched()
     run([sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"], capture=False)
     validate_json()
+    run([sys.executable, str(ROOT / "scripts" / "validate_story_v3.py"), "--base", base_ref], capture=False)
     git("diff", "--check")
 
 
@@ -329,7 +334,7 @@ def one_cycle() -> int:
 
         write_public_status("passed", result["summary"], final_replay="passed")
         run([sys.executable, str(ROOT / "scripts" / "render_story_md.py")], check=True, capture=False)
-        validate_passed_run()
+        validate_passed_run(before)
         pushed = commit_and_push(f"story-room: autonomous evolution {stamp()}")
         if pushed:
             visible_post("passed", f"Story Room PASSED with a clean final six-Phantom replay. {result['summary']}\n\n{latest_reader_beats(before)}")

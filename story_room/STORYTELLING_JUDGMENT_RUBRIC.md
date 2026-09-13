@@ -416,7 +416,7 @@ For a conventional linear story:
 | Scene execution | Major |
 | Reader experience | Major |
 | Meaning and distinction | Major |
-| Prose and presentation | Supporting until architecture is sound; decisive at publication stage |
+| Prose and presentation | Major during drafting; hard gate at publication stage |
 
 For interactive fiction:
 
@@ -428,7 +428,9 @@ For interactive fiction:
 | Scene execution | Major |
 | Reader experience | Major |
 | Meaning and distinction | Major |
-| Prose and presentation | Supporting until architecture is sound; decisive at publication stage |
+| Prose and presentation | Major during drafting; hard gate at publication stage |
+
+**Living-publication rule:** the Voyd reader republishes accepted Story Room fiction directly. Therefore every accepted autonomous cycle is a publication-stage artifact. Structural importance may determine revision order, but it never excuses knowingly weak prose from shipping.
 
 ## Catastrophic-Failure Gates
 
@@ -445,6 +447,9 @@ Regardless of total score, flag a work as **not ready** if any of these applies:
 - Branches erase player intention without recognition.
 - The ending depends on a rule introduced only at the ending.
 - Technical failures prevent completion.
+- Reader-facing prose repeatedly reasserts already-established state instead of advancing action, pressure, perception, or consequence.
+- Recursive abstraction, repeated equivalence chains, duplicated phrasing, or exposition sludge materially damages clarity or attention.
+- A scene exceeds the product's interaction cadence without earning the length through sustained dramatic change.
 
 ## Evaluation Procedure
 
@@ -548,6 +553,8 @@ Describe the experience chronologically: engagement, expectation, uncertainty, p
 3. Character or relationship deepening
 4. Scene/beat restructuring
 5. Prose and technical polish
+
+Revision order is not publication permission. Before reader-facing fiction ships, prose/presentation must independently clear its publication gate even when a deeper structural repair was the cycle's primary target.
 
 ### Verdict
 

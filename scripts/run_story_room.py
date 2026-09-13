@@ -44,7 +44,7 @@ def load_resume() -> dict | None:
     return decision
 
 
-def build_prompt(packet_path: Path) -> str:
+def build_prompt(packet_path: Path, baseline_ref: str = "HEAD") -> str:
     resume = load_resume()
     if resume:
         process = f"""
@@ -82,6 +82,16 @@ IDENTITY / ISOLATION REQUIREMENTS:
 
 Use the voyd-story-room skill as governing procedure. This supersedes the legacy numeric evolve.py promotion rubric.
 
+STORY ROOM v3 SOURCE / STATE CONTRACT:
+- Lore authority lives under `lore/`. Read `lore/README.md` first, then `lore/canon/CORE_LAWS.md` before planning any new fiction.
+- `lore/canon/voyd_mythography.md` is immutable author-approved Voyd canon. `lore/universe/` is distilled universe reference. The complete novels registered in `lore/raw_sources.json` are evidence-only fallback for unresolved factual questions; NEVER imitate, paraphrase closely, or raid book prose for scene language.
+- Generate from the universe's causal laws: parallel timestreams, one-way time, reweaving, downstream collateral effects, competing wills, intention/release, synchronicity/recruitment, and Voyd gravity. Do not keep recursively elaborating Terminal-invented metaphors merely because they appeared in prior scenes.
+- `story_room/state/frontiers.json` is the structured causal projection of the live leaves. Read it before planning. Every accepted choice must leave a durable trace in facts, knowledge, relationships, spent resources, irreversible changes, causal chain, or open pressures. Update this file to exactly match the actual reachable leaves after every accepted mutation.
+- The protagonist's name is permanently `WITHHELD`. Structured state may establish role/want only after the fiction establishes them.
+- NEW OR REWRITTEN SCENES: 250-450 prose words preferred; 550 prose words is a hard ceiling. A beat should be something a reader can consume before interaction fatigue sets in.
+- BRANCH PERSISTENCE: autonomous cycles may NOT reduce the number of reachable live leaves. Never wire two prior live leaves directly into the same successor. Reconvergence is disabled for autonomous v3 until an explicit reviewed exception exists.
+- Before declaring PASS, run `python3 scripts/validate_story_v3.py --base {baseline_ref}` and treat any ERROR as a failed cycle. Warnings are advisory; hard errors block publication.
+
 STORY ROOM 2.0 JUDGMENT SYSTEM:
 - The authoritative rubric is `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`.
 - Agent role contracts are under `story_room/agents/`; structured output contracts are under `story_room/schemas/`.
@@ -110,7 +120,7 @@ Requirements:
 - AFTER cold walks complete, spawn separate specialist delegated leaf judges using `story_room/agents/specialist_judges.md` plus `story_room/STORYTELLING_JUDGMENT_RUBRIC.md`. Specialists judge only their assigned domains and cite concrete evidence.
 - Spawn a separate Governing Judge using `story_room/agents/governing_judge.md` to synthesize the cold walks and specialist reports. No aggregate score.
 - The Governing Judge identifies the single load-bearing/high-leverage diagnosis. That diagnosis, not a low score, drives mutation.
-- Mutation design, implementation, and independent replay follow `story_room/agents/mutation_and_replay.md`. The implementation agent may never be its own final judge.
+- Mutation design, implementation, independent Prose Editor, and final replay follow `story_room/agents/mutation_and_replay.md`. The implementation agent may never be its own editor or final judge. The Prose Editor must use `story_room/agents/prose_editor.md`, preserve causal design, and may BLOCK publication for material prose failure.
 - Use real Hermes `delegate_task` subagents for every specialist role. Keep roles isolated and persist their outputs under `story_room/reports/<cycle>/`.
 - NEVER require Patrick to choose between surviving story futures during a scheduled cycle. Keep viable divergence as branches and keep writing.
 {process}
@@ -253,9 +263,12 @@ def run(max_turns: int) -> int:
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.unlink(missing_ok=True)
 
+    baseline_ref = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True
+    ).stdout.strip()
     packet_path = build_packet()
-    prompt = build_prompt(packet_path)
-    primary_rc = run_hermes(prompt, env, max_turns, provider=LOCAL_PROVIDER)
+    prompt = build_prompt(packet_path, baseline_ref)
+    primary_rc = run_hermes(prompt, env, max_turns)
     primary_status = read_status()
 
     if primary_rc == 0 and primary_status and primary_status["status"] not in {"blocked"}:

@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCENES = ROOT / "story" / "scenes"
 FRONTIER = ROOT / "story_room" / "frontier.json"
+STATE = ROOT / "story_room" / "state" / "frontiers.json"
 LINK = re.compile(r"\]\(([^)]+\.md)\)")
 WORD = re.compile(r"\b[\w’'-]+\b")
 MAX_CHANGED_SCENE_WORDS = 550
@@ -113,21 +114,64 @@ def graph_at(ref: str) -> dict[str, list[str]]:
 
 def branch_collapse_errors(current: dict[str, list[str]], base: str) -> list[str]:
     previous = graph_at(base)
-    previous_entry = "000-the-fourth-bell.md"
-    old_live = reachable(previous, previous_entry)
+    entry = "000-the-fourth-bell.md"
+    old_live = reachable(previous, entry)
     old_leaves = sorted(n for n in old_live if not previous.get(n))
+    new_live = reachable(current, entry)
+    new_leaves = sorted(n for n in new_live if not current.get(n))
+    errors: list[str] = []
+    if len(new_leaves) < len(old_leaves):
+        errors.append(
+            f"branch loss: reachable live leaves fell from {len(old_leaves)} to {len(new_leaves)}; "
+            "autonomous convergence is forbidden in v3"
+        )
     target_to_leaves: dict[str, list[str]] = {}
     for leaf in old_leaves:
         links = current.get(leaf, [])
-        if len(links) != 1:
-            continue
-        target_to_leaves.setdefault(links[0], []).append(leaf)
-    return [
+        if len(links) == 1:
+            target_to_leaves.setdefault(links[0], []).append(leaf)
+    errors.extend(
         "branch collapse: prior live leaves " + ", ".join(sorted(leaves))
         + f" now all point directly to {target}"
         for target, leaves in sorted(target_to_leaves.items())
         if len(leaves) > 1
-    ]
+    )
+    return errors
+
+
+def state_errors(graph: dict[str, list[str]]) -> list[str]:
+    errors: list[str] = []
+    if not STATE.exists():
+        return ["structured frontier state is missing"]
+    try:
+        data = json.loads(STATE.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [f"structured frontier state is invalid JSON: {exc}"]
+    required = {
+        "branch_id", "scene", "location", "facts", "knowledge", "relationships",
+        "irreversible_changes", "spent_resources", "open_pressures", "available_actions",
+        "causal_chain",
+    }
+    entries = data.get("frontiers", [])
+    scenes = {Path(item.get("scene", "")).name for item in entries if isinstance(item, dict)}
+    entry = Path(json.loads(FRONTIER.read_text(encoding="utf-8")).get("canonical_entry", "")).name
+    live = reachable(graph, entry)
+    leaves = {n for n in live if not graph.get(n)}
+    if scenes != leaves:
+        errors.append(f"structured state drift: state={sorted(scenes)} leaves={sorted(leaves)}")
+    for item in entries:
+        if not isinstance(item, dict):
+            errors.append("structured frontier state contains a non-object entry")
+            continue
+        missing = sorted(required - set(item))
+        if missing:
+            errors.append(f"{item.get('scene', '<unknown>')}: structured state missing {missing}")
+        if not item.get("causal_chain"):
+            errors.append(f"{item.get('scene', '<unknown>')}: no durable causal trace recorded")
+    protagonist = data.get("protagonist", {})
+    if protagonist.get("name") != "WITHHELD":
+        errors.append("structured state violated the protagonist-name invariant")
+    return errors
 
 
 def preferred_length_warnings(base: str = "HEAD") -> list[str]:
@@ -149,6 +193,7 @@ def validate(base: str = "HEAD") -> tuple[list[str], list[str]]:
     graph = scene_graph()
     errors = validate_changed_lengths(base)
     errors.extend(frontier_errors(graph))
+    errors.extend(state_errors(graph))
     errors.extend(branch_collapse_errors(graph, base))
     return errors, preferred_length_warnings(base)
 

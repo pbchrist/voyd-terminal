@@ -1,7 +1,7 @@
 ---
 name: voyd-story-room
 description: Run the Voyd Terminal as a Hermes multi-agent story evolution room. Expert Phantom Walkers prosecute structure, mutations compete, and Patrick-derived Story Genome laws accumulate through an Acumen Keeper.
-version: 3.1.0
+version: 3.2.0
 platforms: [linux]
 metadata:
   hermes:
@@ -35,11 +35,22 @@ Read these before doing story work:
 - `references/ACUMEN_PROTOCOL.md`
 - project `story_room/genome.json`
 - project `story_room/walkers/*.md`
+- project `lore/README.md` and `lore/canon/CORE_LAWS.md` as the lore authority hierarchy
+- project `story_room/state/frontiers.json` as the machine-readable causal state of every live leaf
 - `story/README.md` and reachable `story/scenes/*.md` as the primary reader-facing fiction
 - `story_room/frontier.json` as the canonical-head / active-frontier ledger
 - the underlying narrative data/code for continuity and state verification
 
 Do not trust summaries when the story itself is available. The `story/` fiction is the thing being written; internal graphs and packets support it rather than replacing it.
+
+## Story Room v3 hard contracts
+
+- Generate from Voyd causal laws, not from recycled book prose or recursively elaborated Terminal metaphors. Full novels are evidence-only fallback.
+- New or rewritten reader scenes should be 250-450 prose words and may never exceed 550 prose words.
+- Autonomous cycles may not reduce the number of reachable live leaves and may not directly wire two prior live leaves into one successor.
+- Every accepted choice must leave a durable causal trace in `story_room/state/frontiers.json`: facts, knowledge, relationships, spent resources, irreversible changes, causal chain, or open pressure.
+- `story_room/frontier.json`, the actual reachable graph leaves, and `story_room/state/frontiers.json` must agree exactly.
+- Before PASS, run `python3 scripts/validate_story_v3.py --base <pre-cycle-commit>`; any ERROR blocks publication.
 
 ## Repository authority
 
@@ -121,6 +132,8 @@ Use `story_room/genome.py` and `story_room/speciation.py` where useful for inher
 ## Dramatist
 
 After autonomous selection/branch preservation, a Dramatist implements the chosen structural species in the reader-facing `story/` prose and any underlying playable state required to support it. Every accepted cycle must leave a readable narrative advance, repair, or branch differentiation; internal state-only mutations are insufficient. Update `story_room/frontier.json` whenever the canonical frontier or active leaves change.
+
+After the Dramatist, delegate a separate **Prose Editor** that did not author the scene. It may not change causal design. It removes recursive abstraction, repeated state-proof, duplicated phrasing, exposition sludge, and unnecessary length while preserving concrete action, voice, continuity, and the selected structural species. A scene with a demonstrated prose-level failure does not publish merely because its architecture passes.
 
 The reader surface must never expose node IDs, lifecycle predicates, rubric scores, agent names, or implementation terminology.
 

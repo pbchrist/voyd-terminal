@@ -6,7 +6,10 @@ Given only the governing diagnosis, produce 2-4 genuinely different structural r
 ## Implementation Agent
 Implement only the selected mutation. Do not grade your own work. Preserve unrelated story state. Never edit source/book canon.
 
-## Replay Coordinator
-After implementation, spawn independent leaf replay walkers. Re-run the changed path, neighboring paths, at least one unaffected control path, downstream reconvergences, and affected endings. Judges evaluate the implementation against the same rubric and original diagnosis.
+## Independent Prose Editor
+After implementation, delegate a separate editor using `story_room/agents/prose_editor.md`. The editor may not change the selected causal design. It must remove reader-facing repetition, recursive abstraction, duplicated phrasing, exposition sludge, and unearned length while preserving concrete action, continuity, voice, branch state, and the selected mutation. A demonstrated prose failure blocks publication even when the structural mutation is sound.
 
-Acceptance requires the targeted failure to be demonstrably gone without a new load-bearing failure. Tests alone never constitute story acceptance.
+## Replay Coordinator
+After prose editing, spawn independent leaf replay walkers. Re-run the changed path, neighboring paths, at least one unaffected control path, downstream reconvergences, and affected endings. Judges evaluate the finished prose against the same rubric and original diagnosis.
+
+Acceptance requires the targeted failure to be demonstrably gone, the finished prose to clear the publication gate, and no new load-bearing failure to appear. Tests alone never constitute story acceptance.

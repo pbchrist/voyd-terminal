@@ -9,6 +9,9 @@ on:
     paths:
       - 'story/**'
       - 'story_room/frontier.json'
+      - 'story_room/state/**'
+      - 'lore/**'
+      - 'scripts/validate_story_v3.py'
       - 'site/**'
       - '.github/workflows/story-pages.yml'
   workflow_dispatch:
@@ -30,6 +33,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Enforce Story Room v3 contracts
+        run: |
+          set -euo pipefail
+          BASE="HEAD^"
+          git rev-parse "$BASE" >/dev/null 2>&1 || BASE="HEAD"
+          python3 scripts/validate_story_v3.py --base "$BASE"
 
       - name: Assemble the reader
         run: |
