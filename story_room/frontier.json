@@ -1,47 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "canonical_entry": "story/scenes/000-the-fourth-bell.md",
   "canonical_title": "The Fourth Bell",
   "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
   "active_frontiers": [
-    {
-      "path": "story/scenes/022a-the-lattice-filing.md",
-      "title": "The Filing",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Antiquarian",
-        "The Room Behind the Room",
-        "The Lattice",
-        "The Filing"
-      ],
-      "unresolved_pressure": "M1 canonical head. The Antiquarian route's route-true passage through the reconvergence. The shared lattice reveal (fourth point over the palace, the hand-shadow, 'It measures looking away / it has no word for looking back') is kept singular in 022 and the body FORKS here onto what the route actually carried in: P'taxx alone, no acolytes, no reliquary, the fragment filed behind the high door in 011, the copies standing in the semicircle ('every one of them has your face'), and the YOU LOOKED AWAY door title. The lattice's fourth point on THIS route is the filed proof the Antiquarian route actually carried \u2014 the high door's ring is the fourth point's voice. The scene ends by forking to 040e (the Crossing Question), which is re-grounded onto 011's carried state. The seam repair: the Antiquarian reader now arrives to route-true state, not a Temple-shaped room."
-    },
-    {
-      "path": "story/scenes/022b-the-lattice-temple.md",
-      "title": "The Temple",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Temple Door",
-        "The Walk to the Shop",
-        "The Lattice",
-        "The Temple"
-      ],
-      "unresolved_pressure": "M1 canonical head. The Temple route's route-true passage through the reconvergence. The shared lattice reveal is kept singular in 022 and the body FORKS here onto what the Temple route actually carried in: the acolytes (the young one, the one who prays, the one with the short ceremonial blade), and the open iron reliquary bearing the protagonist's name. The lattice's fourth point on THIS route is the name-bearing reliquary \u2014 the name across the iron lid is the fourth point's voice. The 'that is impossible' beat and the P'taxx/acolyte confrontation are preserved verbatim from the Temple route's actual state (020/021a/021b). The scene ends by forking to 040b (the Second Question), unchanged."
-    },
-    {
-      "path": "story/scenes/040a-the-witness-you-made.md",
-      "title": "The Witness You Made",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Antiquarian",
-        "The Room Behind the Room",
-        "The Lattice",
-        "The Filing",
-        "The Crossing Question",
-        "The Witness You Made"
-      ],
-      "unresolved_pressure": "M3 performed fork. The apex body no longer pre-narrates the decision. The pre-declared act ('You choose it now. You turn your face from the copies...') is DELETED, and the two options are now two genuinely distinct actions under pressure, each landing on a changed state: Option 1 'Commit to the seam' (040a-make-the-witness-work.md) physically commits the protagonist to the seam \u2014 they turn their face to the opened seam, put the copy in the middle of the aim, hold it there, and stand the copy as the ledger's witness against itself, paying the WANT in its exact currency (they become the subject of the reading they did not choose to be in); Option 2 'Refuse the reading' (040a-03-the-act-not-narrated.md, NEW) physically holds the record unfinished \u2014 the protagonist does NOT cross to the copy, does NOT put their shoulder against its shoulder, does NOT let their eyes fall into the method's angle; they stand where they are and let the seam look at them and not find what it is looking for, losing the lever. The player's selection CARRIES the decision (performed agency), not merely picks an attitude toward an already-performed act. The N1 head's reclassification beat (the witness \u2192 subject filing in the make-leaf) is PRESERVED. The two leaves' opposed readings are preserved: make-leaf pays the WANT in its exact currency; refuse-leaf keeps the WANT unbroken. The refuse leaf now lands on the new 040a-03 (the performed-refuse landing), which carries the reader into 040a-let-01 (the recall) via the M-HONE-MERGE re-route."
-    },
     {
       "path": "story/scenes/040a-make-the-witness-work.md",
       "title": "Make the Witness Work",
@@ -56,55 +18,6 @@
         "Make the Witness Work"
       ],
       "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency \u2014 they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record \u2014 the one that was never finished \u2014 is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness \u2192 subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
-    },
-    {
-      "path": "story/scenes/040a-03-the-act-not-narrated.md",
-      "title": "The Act Not Narrated",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Antiquarian",
-        "The Room Behind the Room",
-        "The Lattice",
-        "The Filing",
-        "The Crossing Question",
-        "The Witness You Made",
-        "The Act Not Narrated"
-      ],
-      "unresolved_pressure": "M3 NEW refuse-action landing. M-HONE-MERGE: the near-duplicate 040a-let-the-record-stand is deleted; this scene now carries both the performed act and the landed consequence, linking directly to 040a-let-01 (the recall). The protagonist refused the reading by physically NOT crossing to the copy, NOT putting their shoulder against its shoulder, and NOT letting their eyes fall into the method's angle. The act is the player's chosen act \u2014 not the act the voice described, not the act the room expected. The copy stays a witness (not a subject the ledger can work on), the record about the protagonist stays unfinished, and the WANT holds. The cost is the lever: a witness the protagonist cannot deploy is a lever they no longer have."
-    },
-    {
-      "path": "story/scenes/040a-let-the-record-stand-01-the-ledgers-recall.md",
-      "title": "The Ledger's Recall",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Antiquarian",
-        "The Room Behind the Room",
-        "The Lattice",
-        "The Filing",
-        "The Crossing Question",
-        "The Witness You Made",
-        "The Act Not Narrated",
-        "The Ledger's Recall"
-      ],
-      "unresolved_pressure": "M1 re-grounded. M-HONE-MERGE: ancestry updated (Let the Record Stand removed). The protagonist refused the reading, and the ledger, denied its flinch, did something it had not done before: it recalled the filed frame. The recall is costly \u2014 the high door's ring broke in the middle of its note, the line beneath **FILED** was carved, and the ledger spent its ring to pull the filed frame back into the protagonist's sight. The reclassification (filed \u2192 subject) is the consequence of the recall, not a pre-programmed gear. The copy's eyes changed: it is no longer a witness; it is a subject. The protagonist's act of holding their gaze *caused* the recall. M4-WANT: the ACTIVE FRONTIER is replaced by a choice link to 040f-the-cost-of-holding, which lands the recall's route-specific cost (the relationship with P'taxx). (M2 branch: this frontier may be further developed in a future cycle.)"
-    },
-    {
-      "path": "story/scenes/040g-the-room-that-keeps.md",
-      "title": "The Room That Keeps",
-      "ancestry": [
-        "The Fourth Bell",
-        "The Antiquarian",
-        "The Room Behind the Room",
-        "The Lattice",
-        "The Filing",
-        "The Crossing Question",
-        "The Witness You Made",
-        "The Act Not Narrated",
-        "The Ledger's Recall",
-        "The Cost of Holding",
-        "The Room That Keeps"
-      ],
-      "unresolved_pressure": "M1 (NEW). The method is no longer a thesis. It is a room. The filed frame is a sheet on a stone desk, the ring is a broken bell, the lever is the sheet's edge, and the rules are carved into the floor. The protagonist has entered the room that keeps, and the room is working on the recalled frame \u2014 the subject that is the protagonist, in Gistli Square, head beginning to turn. P'taxx is at the desk, a subject, his face on the cold stone. The sheet on the floor is the record about the protagonist, and the record is unfinished, and the unfinished is the one the ledger can no longer mark, because the bell is broken. The next scene must address what it means to stand in the room where the method works, with the method working on the frame that is you, with the sheet that is still being written open under your paws, and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse \u2014 in the room where the refusal is a physical act, not an attitude."
     },
     {
       "path": "story/scenes/040b-the-second-question.md",
@@ -139,6 +52,24 @@
         "Twelve Years Ago"
       ],
       "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/040g-the-room-that-keeps.md",
+      "title": "The Room That Keeps",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps"
+      ],
+      "unresolved_pressure": "M1 (NEW). The method is no longer a thesis. It is a room. The filed frame is a sheet on a stone desk, the ring is a broken bell, the lever is the sheet's edge, and the rules are carved into the floor. The protagonist has entered the room that keeps, and the room is working on the recalled frame \u2014 the subject that is the protagonist, in Gistli Square, head beginning to turn. P'taxx is at the desk, a subject, his face on the cold stone. The sheet on the floor is the record about the protagonist, and the record is unfinished, and the unfinished is the one the ledger can no longer mark, because the bell is broken. The next scene must address what it means to stand in the room where the method works, with the method working on the frame that is you, with the sheet that is still being written open under your paws, and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse \u2014 in the room where the refusal is a physical act, not an attitude."
     }
   ],
   "canonical_head": {
