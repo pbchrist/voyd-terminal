@@ -156,21 +156,59 @@ def build_packet() -> Path:
     return path
 
 
-def require_sync_hook(env: dict[str, str]) -> None:
+def require_sync_hook(env: dict[str, str]) -> bool:
+    """Verify or self-repair finite-session delegation before a Story Room run.
+
+    Modern Hermes makes one-shot/stateless delegation synchronous natively. Older
+    builds receive the narrow Voyd compatibility patch. A Hermes upgrade must not
+    kill a scheduled story cycle merely because a historical patch disappeared.
+    """
     hermes_home = Path(env["HERMES_HOME"]).resolve()
     if hermes_home != HERMBEAST_HOME.resolve():
         raise RuntimeError(f"Voyd Story Room requires HermBeast at {HERMBEAST_HOME}; got {hermes_home}")
     if hermes_home == FORBIDDEN_HERMIONE_HOME.resolve():
         raise RuntimeError("Voyd Story Room may never run under Hermione")
-    delegate_tool = hermes_home / "hermes-agent" / "tools" / "delegate_tool.py"
-    marker = "VOYD_FORCE_SYNC_DELEGATION=1: forcing delegate_task background=False"
-    if not delegate_tool.exists() or marker not in delegate_tool.read_text(encoding="utf-8"):
-        installer = ROOT / "scripts" / "install_hermes_story_room.py"
-        raise RuntimeError(
-            "HermBeast Story Room sync hook is not installed. Run: "
-            f"{sys.executable} {installer} --hermes-home {hermes_home}"
-        )
 
+    installer = ROOT / "scripts" / "install_hermes_story_room.py"
+
+    def ready() -> bool:
+        check = subprocess.run(
+            [sys.executable, str(installer), "--hermes-home", str(hermes_home), "--check"],
+            cwd=ROOT, env=env, text=True, capture_output=True,
+        )
+        return check.returncode == 0
+
+    if ready():
+        return True
+
+    try:
+        repair = subprocess.run(
+            [sys.executable, str(installer), "--hermes-home", str(hermes_home)],
+            cwd=ROOT, env=env, text=True, capture_output=True, check=True,
+        )
+        if repair.stdout.strip():
+            print(f"[story-room] {repair.stdout.strip()}", flush=True)
+    except Exception as exc:
+        print(
+            f"[story-room] WARNING: delegation preflight could not self-repair ({exc}); "
+            "continuing with Hermes finite-session fallback",
+            flush=True,
+        )
+        env.pop("VOYD_FORCE_SYNC_DELEGATION", None)
+        env["VOYD_SYNC_HOOK_DEGRADED"] = "1"
+        return False
+
+    if ready():
+        return True
+
+    print(
+        "[story-room] WARNING: delegation repair completed but capability check still failed; "
+        "continuing with explicit foreground-delegation instructions",
+        flush=True,
+    )
+    env.pop("VOYD_FORCE_SYNC_DELEGATION", None)
+    env["VOYD_SYNC_HOOK_DEGRADED"] = "1"
+    return False
 
 def read_status() -> dict | None:
     if not STATUS_PATH.exists():
@@ -259,7 +297,7 @@ def run(max_turns: int) -> int:
     env["VOYD_FORCE_SYNC_DELEGATION"] = "1"
     env["VIRTUAL_ENV"] = str(HERMBEAST_HOME / "hermes-agent" / "venv")
     env["PATH"] = HERMBEAST_PATH
-    require_sync_hook(env)
+    sync_hook_ok = require_sync_hook(env)
     STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     STATUS_PATH.unlink(missing_ok=True)
 
@@ -268,6 +306,12 @@ def run(max_turns: int) -> int:
     ).stdout.strip()
     packet_path = build_packet()
     prompt = build_prompt(packet_path, baseline_ref)
+    if not sync_hook_ok:
+        prompt += (
+            "\n\nRUNTIME SAFETY OVERRIDE: the Hermes sync hook is unavailable. "
+            "Do not launch background delegation. Every delegate_task call must set "
+            "background=false and be awaited before continuing. Finish the cycle in this process.\n"
+        )
     primary_rc = run_hermes(prompt, env, max_turns)
     primary_status = read_status()
 
