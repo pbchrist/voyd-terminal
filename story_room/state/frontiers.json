@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "protagonist": {"name": "WITHHELD", "role": null, "want": null},
+  "protagonist": {"name": "WITHHELD", "role": "records runner / correction courier for Faelspire, carrying sealed corrections", "want": "get P'taxx out of the room that keeps without surrendering the unfinished record about themselves"},
   "shared_facts": [
     {"id": "heard_fourth_bell", "statement": "The protagonist heard the impossible fourth bell in Gistli Square.", "source": "story/scenes/000-the-fourth-bell.md"},
     {"id": "first_lookaway_recorded", "statement": "The black fragment provoked and preserved the protagonist's first involuntary look-away.", "source": "story/scenes/000-the-fourth-bell.md"},
@@ -58,17 +58,36 @@
       "causal_chain": [{"cause": "The protagonist holds their gaze while the replay tries to complete a second recoil.", "effect": "The second record stalls and the dead sliver reveals a way the test can fail.", "source": "story/scenes/040d-the-second-question.md"}]
     },
     {
-      "branch_id": "antiquarian_room_that_keeps",
-      "scene": "story/scenes/040g-the-room-that-keeps.md",
+      "branch_id": "antiquarian_pull_the_lever",
+      "scene": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
       "location": "the room behind the high door",
-      "facts": ["The recalled Gistli Square frame is a working subject on a stone desk.", "The ledger's bell is physically broken and cannot mark the unfinished record.", "P'taxx is present as a subject of the recall.", "The protagonist's unfinished record is open under their paws."],
-      "knowledge": {"protagonist": ["the ledger's method is physically embodied in the room", "the bell was the cost of recall", "the unfinished record can no longer be marked in the old way"], "P'taxx": ["the recall has made the relationship itself part of the subject"]},
-      "relationships": [{"with": "P'taxx", "state": "present as a subject of the recall; the prior alliance has been converted into cost"}],
-      "irreversible_changes": ["The ledger spent and broke its only bell during recall.", "P'taxx has been pulled into the recall as a subject."],
-      "spent_resources": ["anonymity", "P'taxx's protected alliance", "the ledger's bell"],
-      "open_pressures": ["Act physically inside the method without letting the unfinished record become another recursive explanation."],
-      "available_actions": [],
-      "causal_chain": [{"cause": "The protagonist refuses the reading and forces the ledger to recall its own filed frame.", "effect": "The ledger breaks its bell, opens the room that keeps, and turns both the frame and P'taxx into subjects.", "source": "story/scenes/040g-the-room-that-keeps.md"}]
+      "facts": ["The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act.", "The method no longer aims at the protagonist; the protagonist is the room's working hand, paw on the lever.", "The high door is open and will stay open while the hand works.", "The unfinished record about the protagonist is open under the working paw; the method will finish it when it works it.", "P'taxx is at the desk as the subject the recall already made."],
+      "knowledge": {"protagonist": ["the method takes a working hand instead of aiming", "the pulled lever works the recalled frame", "the protagonist is Faelspire's records runner, carrying sealed corrections", "the unfinished record is the only record a runner can still carry"], "P'taxx": ["the recall has made the relationship itself part of the subject"]},
+      "relationships": [{"with": "P'taxx", "state": "present as a subject of the recall; the prior alliance has been converted into cost; the protagonist wants him out without surrendering the unfinished record"}],
+      "irreversible_changes": ["The ledger spent and broke its only bell during recall.", "P'taxx has been pulled into the recall as a subject.", "The protagonist has become the room's working hand; the paw on the lever cannot be set down."],
+      "spent_resources": ["anonymity", "P'taxx's protected alliance", "the ledger's bell", "the protagonist's separateness from the method"],
+      "open_pressures": ["What the working hand does when the method turns it onto the open floor record.", "Whether the hand can choose which record it works.", "Getting P'taxx out without surrendering the unfinished record."],
+      "available_actions": ["Work the open floor record with the method's own lever", "Refuse to work the floor record and hold the paw"],
+      "causal_chain": [
+        {"cause": "The protagonist refuses the reading and forces the ledger to recall its own filed frame.", "effect": "The ledger breaks its bell, opens the room that keeps, and turns both the frame and P'taxx into subjects.", "source": "story/scenes/040g-the-room-that-keeps.md"},
+        {"cause": "The protagonist physically pulls the sheet's edge and works the recalled frame.", "effect": "The frame completes by chosen act; the method takes the protagonist as its working hand; the high door stays open while the hand works.", "source": "story/scenes/040g-1-the-hand-the-ledger-keeps.md"}
+      ]
+    },
+    {
+      "branch_id": "antiquarian_refuse_the_crossing",
+      "scene": "story/scenes/040g-2-the-line-on-the-floor.md",
+      "location": "the room behind the high door",
+      "facts": ["The protagonist physically refused to cross the desk.", "The floor's lines closed over the protagonist's paws, holding the unfinished record open (the keeping).", "The high door narrowed to the width of the protagonist's shoulder; it was wider before and will not be wider again.", "P'taxx is at the desk as the subject the recall already made."],
+      "knowledge": {"protagonist": ["the room answers a physical refusal with a new rule", "the keeping holds the record open without finishing it", "the narrowed door is a new constraint, not a restatement of the closed exit", "the protagonist is Faelspire's records runner, carrying sealed corrections", "the unfinished record is the only record a runner can still carry"], "P'taxx": ["the recall has made the relationship itself part of the subject"]},
+      "relationships": [{"with": "P'taxx", "state": "present as a subject of the recall; the prior alliance has been converted into cost; the protagonist wants him out without surrendering the unfinished record"}],
+      "irreversible_changes": ["The ledger spent and broke its only bell during recall.", "P'taxx has been pulled into the recall as a subject.", "The floor's new rule: the keeping closes over the paws and holds the record open.", "The high door has narrowed to the width of the protagonist's shoulder."],
+      "spent_resources": ["anonymity", "P'taxx's protected alliance", "the ledger's bell", "the room's former door width"],
+      "open_pressures": ["Whether the keeping can be crossed.", "What the shoulder-width door costs to pass through.", "What the room does when the cat whose record it is keeping tries to leave.", "Getting P'taxx out without surrendering the unfinished record."],
+      "available_actions": ["Cross the keeping to reach the desk", "Pass through the narrowed door and leave the record open"],
+      "causal_chain": [
+        {"cause": "The protagonist refuses the reading and forces the ledger to recall its own filed frame.", "effect": "The ledger breaks its bell, opens the room that keeps, and turns both the frame and P'taxx into subjects.", "source": "story/scenes/040g-the-room-that-keeps.md"},
+        {"cause": "The protagonist physically refuses to cross the desk.", "effect": "The floor carves a new rule (the keeping holds the record open) and the high door narrows to the width of the protagonist's shoulder.", "source": "story/scenes/040g-2-the-line-on-the-floor.md"}
+      ]
     }
   ],
   "policy": {"every_choice_leaves_durable_trace": true, "branches_are_distinct_until_explicitly_reviewed": true, "raw_books_are_evidence_not_style": true}

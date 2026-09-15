@@ -54,8 +54,8 @@
       "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
     },
     {
-      "path": "story/scenes/040g-the-room-that-keeps.md",
-      "title": "The Room That Keeps",
+      "path": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "title": "The Hand the Ledger Keeps",
       "ancestry": [
         "The Fourth Bell",
         "The Antiquarian",
@@ -67,17 +67,37 @@
         "The Act Not Narrated",
         "The Ledger's Recall",
         "The Cost of Holding",
-        "The Room That Keeps"
+        "The Room That Keeps",
+        "The Hand the Ledger Keeps"
       ],
-      "unresolved_pressure": "M1 (NEW). The method is no longer a thesis. It is a room. The filed frame is a sheet on a stone desk, the ring is a broken bell, the lever is the sheet's edge, and the rules are carved into the floor. The protagonist has entered the room that keeps, and the room is working on the recalled frame \u2014 the subject that is the protagonist, in Gistli Square, head beginning to turn. P'taxx is at the desk, a subject, his face on the cold stone. The sheet on the floor is the record about the protagonist, and the record is unfinished, and the unfinished is the one the ledger can no longer mark, because the bell is broken. The next scene must address what it means to stand in the room where the method works, with the method working on the frame that is you, with the sheet that is still being written open under your paws, and whether a cat who has refused the reading and lost the one ally who believed in the refusal can still refuse \u2014 in the room where the refusal is a physical act, not an attitude."
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf). The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act. The method no longer aims at the protagonist: the protagonist is now the room's working hand, paw on the lever, and the method will work the open floor record when it works it. The high door is open and will stay open while the hand works. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address what the working hand does when the method turns it onto the open floor record, and whether the hand can choose which record it works."
+    },
+    {
+      "path": "story/scenes/040g-2-the-line-on-the-floor.md",
+      "title": "The Line on the Floor",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Line on the Floor"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf). The protagonist physically refused to cross the desk. The floor answered with a new rule: the lines between the triangles closed over the protagonist's paws, holding the unfinished record open, and the high door narrowed to the width of the protagonist's shoulder. The narrowing is a genuinely new constraint — the door is open but narrow, and the lines over the paws are the keeping — not a restatement of the closed exit. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The unfinished record about the protagonist is open under the paws, held open by the floor's keeping. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address whether the keeping can be crossed, what the shoulder-width door costs to pass through, and what the room does when the cat whose record it is keeping tries to leave."
     }
   ],
   "canonical_head": {
-    "cycle": "20260910T120000Z",
-    "mutation": "M3-SPENT-RESOURCE \u2014 Anonymity Spent Irreversibly (filed/named/replayed): each route spends a different IRREVERSIBLE resource (anonymity), and the reconvergence COLLIDES the three spent states instead of re-asserting objects",
-    "title": "The reconvergence erasure is repaired: the branches carry causally different state (spent resources) into 022, and the reconvergence collides that state into a new turn \u2014 the protagonist is a measured cat, no longer unmeasurable. The 031 L87 route-bleed is fixed. The 'still' chains die. The 040x frontiers carry route-specific available actions constrained by the spend.",
-    "structure": "M3-SPENT-RESOURCE (canonical head): The 000 three-way fork (Antiquarian/Temple/Stray) and the 030 cistern fork are re-tasked so each route SPENDS a different IRREVERSIBLE resource \u2014 all three are spends of ANONYMOUS/UNMEASURABLE. Antiquarian: FILED (name filed in P'taxx's shop, irreversible, cannot be unfiled; relationship spent: trust in P'taxx's discretion). Temple: NAMED (name on the iron, irreversible, cannot be unnamed; capability spent: ability to be contained). Stray: REPLAYED (name legible under the stray's skin, irreversible, cannot be unreplayed; relationship spent: trust in the stray's silence). The 022 closing beat COLLIDES the three spent states: 'the name is filed in P'taxx's shop / on the Temple's iron / under the stray's skin \u2014 you have spent your anonymity three times, and the spend is irreversible.' The turn = the collision: the protagonist is a MEASURED cat, no longer unmeasurable. The 022a/022b carry their spent state forward (the 'still' chains die). The 031 L87 route-bleed (Antiquarian state leaking into the Stray route) is fixed \u2014 re-grounded to the Stray REPLAYED spend. The 040x frontiers now have route-specific available actions constrained by the spend (the protagonist cannot unspend). The 040a witness fork chain is untouched (M3 extends the Antiquarian spend downstream through 040f/040g \u2014 P'taxx lost as the recall's cost \u2014 without changing the chain's causal ownership).",
-    "note": "M3 is the canonical head for this cycle. Selected by the Acumen Keeper on causal leverage (only mutation whose repair extends natively through the protected 040f/040g cost chain), implementability (testable cost clause: 'irreversible or it is a toggle'; specific 022 closing beat using locations already in the corpus; 040f/040g extension already written), and replay evidence (only mutation independently replayed; design confirmed sound, targets the right wounds). M1 (KNOWLEDGE) and M2 (OBLIGATION) are preserved as coherent branches (distinct causal mechanisms, viable recombination seeds). law_4d3da1051051141 confirmed and extended (collision > re-assertion; revision recorded, remains candidate pending a second Patrick decision). New candidate law proposed: irreversibility as the highest-leverage branch-consequence dimension (prefer, candidate, confirmations=1, not activated \u2014 autonomous). No active hard law violated. No speciation gate triggered (inherited acumen decides). The 040a witness fork chain (040a \u2192 040a-03 \u2192 let-01 \u2192 040f \u2192 040g) is untouched. The 040b/040c/040d frontiers (Temple/Stray) are repaired by M3 (route-specific available actions carried forward from 022a/022b)."
+    "cycle": "20260915T024144Z",
+    "mutation": "LEVER_REVERSED — Pull the Lever Against Itself (inherited accepted spine: M_C_LOOK_UP_CAUSES): the look-up in 022 remains the explicit CAUSE of the collision (last cycle 20260911T120000Z, passed), and LEVER_REVERSED extends the canonical head at 040g by forking the single-exit corridor into two reader-facing action links with distinct irreversible consequences and no reconvergence",
+    "title": "040g is forked into two live leaves: (A) the protagonist physically pulls the sheet's edge, works the method with its own lever, completes the recalled frame by chosen act, and becomes the room's working hand at irreversible cost; (B) the protagonist physically refuses the crossing, the floor carves a new rule (the keeping closes over the paws, holding the unfinished record open) and the high door narrows to the width of the protagonist's shoulder. P'taxx remains the already-spent subject in both leaves; the protagonist's civic role (records runner / correction courier) and want (get P'taxx out without surrendering the unfinished record) are established in the fiction before structured state.",
+    "structure": "LEVER_REVERSED (canonical head extension at 040g, cycle 20260915T024144Z): 040g-the-room-that-keeps is no longer a frontier leaf — its ACTIVE FRONTIER block is replaced by exactly two reader-facing choice links to 040g-1-the-hand-the-ledger-keeps (pull) and 040g-2-the-line-on-the-floor (refuse). The stale M3-SPENT-RESOURCE canonical_head entry is superseded: scene truth implements M_C_LOOK_UP_CAUSES as the accepted spine (the look-up causes the collision; the three spends are its route-registrations), and LEVER_REVERSED is the current mutation extending the head. Pull leaf: the method takes the protagonist as its working hand (new method, no reversion to 'will you flinch' — candidate law_bb750d1bdb10 engaged); the high door is open and stays open while the hand works; the unfinished floor record is open under the working paw and the method will finish it when it works it. Refuse leaf: the floor's new rule (lines close over the paws; the keeping holds the record open) and the narrowed exit (door width of the shoulder, was wider, will not be wider again) are genuinely new constraints, not restatements of the closed exit. No reconvergence: the two leaves carry distinct spent identity (working hand vs. kept-open record), distinct relationship state (P'taxx subject in both, unchanged), and distinct available actions. 040a-the-second-question.md remains orphaned (structural reference), unchanged. M2-20260908 remains PRESERVED (next-cycle candidate); N2 remains DEFERRED REFERENCE.",
+    "note": "LEVER_REVERSED is the canonical head for cycle 20260915T024144Z. Sole survivor of Acumen selection (M-B FLOOR_AS_SUBJECT and M-C FIFTH_RULE_BROKEN blocked by the Steward); selected autonomously per Protocol step 8 — inherited hard law leaves one survivor, no human speciation gate. Satisfies law_a509c75fb6a1 (the 040g corridor repair), law_8e52dd229d27 / law_5361b415500d (each leaf is a claim → counterforce → changed state), law_4ca0ffd21c42 (concrete physical acts, priced in spent identity and relationship). Candidate law_bb750d1bdb10 (apex-head extension; the decisive turn is caused by the protagonist's act; the system's response is a NEW method) is engaged as a second (autonomous) confirmation — NOT activated on autonomous evidence alone. Candidate law_4d3da1051141 not engaged (no reconvergence). No active hard law violated; no prior Patrick rejection repeated (human_20260824_170638_a is a different fork). Protagonist name remains WITHHELD (never named in fiction); role/want entered in state only after the fiction established them in 040g-1/040g-2."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -122,25 +142,26 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20260911T120000Z",
+    "cycle_id": "20260915T024144Z",
     "status": "passed",
-    "mutation": "M_C_LOOK_UP_CAUSES",
-    "mutation_title": "The Look-Up That Spent the Name",
-    "canonical_head": "040g",
-    "summary": "The look-up in 022 is now the explicit CAUSE of the collision. The three spends are re-framed as the look-up's three route-registrations (door/filing/sound, iron/naming/touch, skin/replay/pressure). The cost-line lands once in 022 as the reader's own verdict. The seven repetitions in 022a are deleted. The verbatim block in 031/032 is cut. The 040e double-line and 040g EFFECT leak are fixed.",
+    "outcome": "advance",
+    "mutation": "LEVER_REVERSED",
+    "mutation_title": "Pull the Lever Against Itself",
+    "canonical_head": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+    "summary": "The former 040g corridor now forks into two separate live leaves: pulling the sheet makes the protagonist the ledger's working hand, while physical refusal holds the unfinished record open and irreversibly narrows the high door.",
     "files_changed": [
-      "story/scenes/022-the-lattice.md",
-      "story/scenes/022a-the-lattice-filing.md",
-      "story/scenes/022b-the-lattice-temple.md",
-      "story/scenes/031-the-thing-below-the-courtyard.md",
-      "story/scenes/032-twelve-years-ago.md",
-      "story/scenes/040e-the-crossing-question.md",
-      "story/scenes/040g-the-room-that-keeps.md"
+      "story/scenes/040g-the-room-that-keeps.md",
+      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "story/scenes/040g-2-the-line-on-the-floor.md",
+      "story_room/frontier.json",
+      "story_room/state/frontiers.json"
     ],
     "replay": {
-      "antiquarian": "passed",
-      "stray": "passed",
-      "temple_control": "passed"
+      "changed_pull": "passed",
+      "changed_refuse": "passed",
+      "neighbor_commit": "passed",
+      "temple_control": "passed",
+      "stray_controls": "passed"
     }
   }
 }
