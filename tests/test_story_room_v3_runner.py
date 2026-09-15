@@ -31,6 +31,8 @@ class StoryRoomV3RunnerTests(unittest.TestCase):
         self.assertIn("may NOT reduce the number of reachable live leaves", prompt)
         self.assertIn("independent Prose Editor", prompt)
         self.assertIn("validate_story_v3.py --base abc123", prompt)
+        self.assertIn("UNATTENDED TOOL SAFETY", prompt)
+        self.assertIn("Make up to THREE implementation/replay attempts", prompt)
 
     def test_primary_route_precedes_real_local_qwen_fallback(self):
         passed = {

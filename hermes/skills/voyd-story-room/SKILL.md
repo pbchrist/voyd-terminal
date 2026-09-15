@@ -45,6 +45,8 @@ Do not trust summaries when the story itself is available. The `story/` fiction 
 
 ## Story Room v3 hard contracts
 
+- **Unattended-safe tools only.** Scheduled Story Room runs execute under `hermes chat -Q`. Never use `execute_code`, shell heredocs, `python -c` / `python -e`, generated shell scripts, or terminal actions that require interactive approval. Use file/read/search tools and simple approved commands. This rule applies to every delegated agent.
+- **Retry quality failures in-cycle.** A failed final replay is evidence for repair, not an automatic end to the cycle. Repair or choose the next surviving mutation and replay again, up to three implementation/replay attempts, before emitting `failed`. Never publish an attempt that failed replay.
 - Generate from Voyd causal laws, not from recycled book prose or recursively elaborated Terminal metaphors. Full novels are evidence-only fallback.
 - New or rewritten reader scenes should be 250-450 prose words and may never exceed 550 prose words.
 - Autonomous cycles may not reduce the number of reachable live leaves and may not directly wire two prior live leaves into one successor.

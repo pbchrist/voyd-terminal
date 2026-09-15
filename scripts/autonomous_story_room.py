@@ -19,6 +19,8 @@ PUBLIC_STATUS_PATH = ROOT / "story_room" / "autonomy_status.json"
 PENDING_PATH = ROOT / "story_room" / "pending_speciation.json"
 LOCK_PATH = ROOT / "logs" / ".autonomous_story_room.lock"
 LOG_PATH = ROOT / "logs" / "autonomous_story_room.log"
+TECHNICAL_RETRY_EXIT = 75  # systemd restarts retryable Story Room failures
+
 PROTECTED_CANON = {
     "data/voyd_canon_mythography.md",
     "data/canon_events.json",
@@ -43,14 +45,8 @@ def log(message: str) -> None:
         handle.write(line + "\n")
 
 
-def visible_post(boundary: str, detail: str = "") -> None:
-    """Send a VISIBLE HermBeast Telegram post at a Story Room boundary.
-
-    This is the explicit, user-visible announcement channel. A failure to post
-    is treated as an autonomy failure: the supervisor must never let a cycle
-    start or end without a visible HermBeast post, and must never fall back to
-    a hidden Qwen / log / status-JSON channel.
-    """
+def visible_post(boundary: str, detail: str = "") -> bool:
+    """Best-effort reader delivery; notification transport never gates fiction."""
     post_script = ROOT / "scripts" / "story_room_post.py"
     proc = subprocess.run(
         [sys.executable, str(post_script), "--boundary", boundary, "--detail", detail],
@@ -61,8 +57,10 @@ def visible_post(boundary: str, detail: str = "") -> None:
     )
     if proc.returncode != 0:
         err = (proc.stderr or proc.stdout or "no output").strip()
-        raise AutonomyError(f"visible HermBeast post ({boundary}) FAILED — cycle must not proceed silently: {err}")
-    log(f"visible HermBeast post delivered: {boundary}")
+        log(f"WARNING: reader delivery ({boundary}) failed but story cycle continues: {err}")
+        return False
+    log(f"reader delivery handled: {boundary}")
+    return True
 
 
 def latest_reader_beats(since: str) -> str:
@@ -294,7 +292,7 @@ def one_cycle() -> int:
         write_public_status("failed", f"Story Room process exited {proc.returncode}; no story mutation was accepted.", final_replay="failed")
         visible_post("failed", f"Story Room process exited {proc.returncode}; no story mutation was accepted.")
         commit_status_only(f"story-room: record failed cycle {stamp()}")
-        return 0
+        return TECHNICAL_RETRY_EXIT
 
     preserve_on_error = False
     try:
@@ -322,8 +320,8 @@ def one_cycle() -> int:
             write_public_status(status, summary, human_input_required=result["human_input_required"], final_replay=replay)
             visible_post(status, f"Story Room {status}. {summary}")
             commit_status_only(f"story-room: record {status} cycle {stamp()}")
-            log(f"no story commit: {status} gate did not pass; status was pushed")
-            return 0
+            log(f"no story commit: {status} gate did not pass; status was pushed; scheduling retry")
+            return TECHNICAL_RETRY_EXIT
 
         if status != "passed":
             raise AutonomyError(f"unknown Story Room verdict: {status!r}")
@@ -349,7 +347,7 @@ def one_cycle() -> int:
         write_public_status("failed", f"Autonomy supervisor error: {exc}", final_replay="failed")
         visible_post("failed", f"Story Room supervisor error: {exc}")
         commit_status_only(f"story-room: record supervisor failure {stamp()}")
-        return 0
+        return TECHNICAL_RETRY_EXIT
 
 
 def main() -> int:

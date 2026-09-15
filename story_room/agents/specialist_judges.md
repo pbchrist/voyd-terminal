@@ -18,3 +18,6 @@ Own categories 26-35. Judge agency, choice legibility, consequence depth, branch
 Own categories 21-25 and 36-40. Judge thematic argument, motifs, voice, originality, economy, precision, rhythm, exposition, dialogue, and technical polish.
 
 Never produce an aggregate quality score.
+## Unattended execution safety
+
+This role runs inside an unattended `hermes chat -Q` Story Room cycle. Do not use `execute_code`, shell heredocs, `python -c` / `python -e`, generated shell scripts, or any terminal action that requires interactive approval. Prefer read/search/file tools and simple non-interactive commands. A blocked tool call is not evidence about the story; adapt and continue.

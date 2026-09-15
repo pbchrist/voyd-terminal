@@ -1,6 +1,7 @@
 [Unit]
 Description=Voyd autonomous Story Room evolution cycle
 Documentation=https://github.com/pbchrist/voyd-terminal
+StartLimitIntervalSec=0
 
 [Service]
 Type=oneshot
@@ -12,4 +13,6 @@ Environment=VOYD_AUTONOMOUS_BRANCH=feat/story-engine-v2
 Environment=PYTHONUNBUFFERED=1
 ExecStart=/usr/bin/bash /home/patrick/voyd-story-engine/scripts/start_story_room_service.sh
 TimeoutStartSec=4h
+Restart=on-failure
+RestartSec=30min
 Nice=5

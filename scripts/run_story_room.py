@@ -98,6 +98,8 @@ STORY ROOM 2.0 JUDGMENT SYSTEM:
 - The rubric is a diagnostic framework, never an optimization target and never an aggregate score.
 
 Requirements:
+- UNATTENDED TOOL SAFETY: this process runs under `hermes chat -Q` with nobody present to approve dangerous commands. NEVER use `execute_code`, shell heredocs, `python -c`, `python -e`, dynamically generated shell scripts, or any terminal action that requires interactive approval. Use file/read/search tools and simple non-interactive commands instead. Every delegated child receives this same restriction.
+- QUALITY RETRY: a failed implementation replay is feedback, not permission to quit. Repair the selected mutation or try the next surviving mutation, rerun the independent Prose Editor, and replay again. Make up to THREE implementation/replay attempts inside this cycle before emitting `failed`. Never publish a failed attempt.
 - FIRST run `pwd` and verify it is exactly `{ROOT}`. If not, stop.
 - For child context use the exact files `story_room/STORY_PHYSICS.md`, `story_room/genome.json`, `story_room/ROOM_PROTOCOL.md`, `story_room/walkers/<role>.md`, and the authoritative play packet `{packet_path}`; do not guess root-level aliases.
 - Every Phantom Walker must judge `{packet_path}` first. `reader_story` inside that packet is the PRIMARY playable fiction. The legacy `walks` material is continuity/history evidence, not the reader-facing target.
