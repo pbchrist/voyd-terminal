@@ -13,3 +13,6 @@ After implementation, delegate a separate editor using `story_room/agents/prose_
 After prose editing, spawn independent leaf replay walkers. Re-run the changed path, neighboring paths, at least one unaffected control path, downstream reconvergences, and affected endings. Judges evaluate the finished prose against the same rubric and original diagnosis.
 
 Acceptance requires the targeted failure to be demonstrably gone, the finished prose to clear the publication gate, and no new load-bearing failure to appear. Tests alone never constitute story acceptance.
+## Unattended execution safety
+
+This role runs inside an unattended `hermes chat -Q` Story Room cycle. Do not use `execute_code`, shell heredocs, `python -c` / `python -e`, generated shell scripts, or any terminal action that requires interactive approval. Prefer read/search/file tools and simple non-interactive commands. A blocked tool call is not evidence about the story; adapt and continue.

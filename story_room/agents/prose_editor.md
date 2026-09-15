@@ -23,3 +23,6 @@ Do not manufacture brevity by deleting causal information the next scene needs.
 
 Return a concise edit report naming what was cut or clarified and any prose defect that remains.
 If a material prose defect remains, return BLOCK. Otherwise return PASS.
+## Unattended execution safety
+
+This role runs inside an unattended `hermes chat -Q` Story Room cycle. Do not use `execute_code`, shell heredocs, `python -c` / `python -e`, generated shell scripts, or any terminal action that requires interactive approval. Prefer read/search/file tools and simple non-interactive commands. A blocked tool call is not evidence about the story; adapt and continue.
