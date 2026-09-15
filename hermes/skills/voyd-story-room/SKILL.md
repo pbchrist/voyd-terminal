@@ -37,6 +37,7 @@ Read these before doing story work:
 - project `story_room/walkers/*.md`
 - project `lore/README.md` and `lore/canon/CORE_LAWS.md` as the lore authority hierarchy
 - project `story_room/state/frontiers.json` as the machine-readable causal state of every live leaf
+- `story_room/state/frontiers.json` is the only v3 causal-state authority; `story_room/state/canon_state.json` is retired and must never be required, guessed, or recreated.
 - `story/README.md` and reachable `story/scenes/*.md` as the primary reader-facing fiction
 - `story_room/frontier.json` as the canonical-head / active-frontier ledger
 - the underlying narrative data/code for continuity and state verification

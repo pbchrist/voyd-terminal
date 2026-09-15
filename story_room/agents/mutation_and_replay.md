@@ -16,3 +16,4 @@ Acceptance requires the targeted failure to be demonstrably gone, the finished p
 ## Unattended execution safety
 
 This role runs inside an unattended `hermes chat -Q` Story Room cycle. Do not use `execute_code`, shell heredocs, `python -c` / `python -e`, generated shell scripts, or any terminal action that requires interactive approval. Prefer read/search/file tools and simple non-interactive commands. A blocked tool call is not evidence about the story; adapt and continue.
+- State authority is `story_room/state/frontiers.json`; `story_room/state/canon_state.json` is retired and must not be read or recreated.
