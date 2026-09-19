@@ -1,0 +1,22 @@
+{
+  "walk1-antiquarian": {
+    "first_failure": "022a: the opening re-statement ('The lattice drops you back onto the shop floor / P'taxx is the only one here / There is no procession...') reads as a reset of things I already saw in 011, and by the 'The seam is still aiming. The line is still being carved. The subject is still the copy.' run the repetition starts to feel like the story is spinning its wheels rather than advancing - the earliest moment something felt off.",
+    "choice_integrity": "",
+    "walk_until": "040g-the-room-that-keeps.md"
+  },
+  "walk2-temple": {
+    "first_failure": "020: at the final choice block, the option 'Go with the acolytes to Aard Templu Voreath' points to a scene titled 'The Walk to the Shop' (021b) that delivers neither a walk nor a temple - a five-line teleport to P'taxx's shop; the link's blurb promised 'the temple may already possess something related to it' but the destination abandons the temple entirely - the first moment the machinery of the links stopped matching the fiction.",
+    "choice_integrity": "",
+    "walk_until": "040b-the-second-question.md"
+  },
+  "walk3-stray-cistern": {
+    "first_failure": "031: the line 'The Voyd. The name is not new. It is the door in the room behind the shop, seen from inside - the same ledger of looking-aways, the same filed fragment, the same countdown' - the narration suddenly assumes I have interior knowledge (the room behind the shop, the filed fragment, the countdown) that the Stray route has never given me, which breaks the first-time-player contract; the fragment's inner-voice impulses ('Ask him what he threw in', 'Look at him') are a close second, nudging my character's decisions in a way that reads as the story pre-selecting my response.",
+    "choice_integrity": "000 three-way fork: REAL choice (hide / bookseller / temple - three different actions under pressure opening three visibly different routes). 030 cistern fork: REAL in form but WEAK in consequence - 'Open the cistern' vs 'Force the stray to explain the scar' are distinct actions in the moment, but the truth-stall path (032) funnels back to the same open-the-cistern beat a few lines later and both branches converge on 040c, so the choice feels like it is only buying a different flavor of the same next scene.",
+    "walk_until": "040c-the-second-question.md"
+  },
+  "walk4-stray-truth": {
+    "first_failure": "032: the very first exchange - the stray says 'I delivered a black box beneath the Western Wall' and the cistern instantly stops climbing ('So does it,' he says), yet the scene then spends the next several lines on a back-and-forth about 'What room?' / 'Twelve were crossed out' - the tension the countdown built was paused for exposition without the threat moving, so for a few beats I felt the pressure was being narrated rather than felt (minor; it re-earned itself at the name reveal).",
+    "choice_integrity": "",
+    "walk_until": "040d-the-second-question.md"
+  }
+}

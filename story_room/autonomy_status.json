@@ -1,0 +1,7 @@
+{
+  "timestamp_utc": "2026-09-19T20:01:52Z",
+  "status": "blocked",
+  "human_input_required": false,
+  "final_replay": "blocked",
+  "summary": "The primary route exited 1 and local-qwen exited 1; neither wrote a status file. The cycle is blocked until a model route is healthy."
+}

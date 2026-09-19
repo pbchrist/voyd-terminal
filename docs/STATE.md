@@ -4,7 +4,7 @@
 > **Update this file before you end any session.** This document exists so a new
 > session never spends tokens rediscovering what a previous session already knew.
 
-Last updated: 2026-07-06 (session: removed mistaken music-beat WebAudio work; added two actual story beats gen_3/gen_4 and verified 42 tests)
+Last updated: 2026-09-15 (Story Room v3 ADVANCE: LEVER_REVERSED fork at 040g; six live leaves; independent replay and 73 tests passed)
 
 ---
 
@@ -94,6 +94,9 @@ refresh "Current state" and "Next steps", then stop. The 20-minute grace means r
 iteration won't nag every turn.
 
 ## Session log
+
+### 2026-09-15 — Story Room v3 LEVER_REVERSED advance
+Ran one complete delegated Story Room cycle against packet `20260914T193459.json`. The governing wound was the single-exit 040g corridor. Advanced `040g-the-room-that-keeps.md` into two separate live leaves: pulling the sheet makes the protagonist the ledger's working hand; physical refusal holds the unfinished record open and irreversibly narrows the high door. Established the reader-character as Faelspire's records runner/correction courier and their positive want to free P'taxx without surrendering the unfinished record; the name remains WITHHELD. Updated both frontier ledgers from five to six live leaves, rendered both new plates, passed independent changed/control replay, `validate_story_v3.py --base 4fa99b14f41ac2e5a9131f4ced4a7b31055ccb0a`, and 73 unit tests.
 
 ### 2026-07-06 — story beats, not music beats
 Patrick clarified that “new beats” meant **story beats**, not audio/music. Removed the mistaken WebAudio generative beat engine commit from `frontend/index.html`. Added two concrete canon-rooted Act 1 continuation beats:

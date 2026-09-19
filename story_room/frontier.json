@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "canonical_entry": "story/scenes/000-the-fourth-bell.md",
+  "canonical_title": "The Fourth Bell",
+  "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
+  "active_frontiers": [
+    {
+      "path": "story/scenes/040a-make-the-witness-work.md",
+      "title": "Make the Witness Work",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work"
+      ],
+      "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency \u2014 they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record \u2014 the one that was never finished \u2014 is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness \u2192 subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
+    },
+    {
+      "path": "story/scenes/040b-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple"
+      ],
+      "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire. (Unaffected by M1/M3; reached from 022b.)"
+    },
+    {
+      "path": "story/scenes/040c-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Open the cistern",
+        "The Thing Below the Courtyard"
+      ],
+      "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/040d-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago"
+      ],
+      "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "title": "The Hand the Ledger Keeps",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Hand the Ledger Keeps"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf). The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act. The method no longer aims at the protagonist: the protagonist is now the room's working hand, paw on the lever, and the method will work the open floor record when it works it. The high door is open and will stay open while the hand works. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address what the working hand does when the method turns it onto the open floor record, and whether the hand can choose which record it works."
+    },
+    {
+      "path": "story/scenes/040g-2-the-line-on-the-floor.md",
+      "title": "The Line on the Floor",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Line on the Floor"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf). The protagonist physically refused to cross the desk. The floor answered with a new rule: the lines between the triangles closed over the protagonist's paws, holding the unfinished record open, and the high door narrowed to the width of the protagonist's shoulder. The narrowing is a genuinely new constraint — the door is open but narrow, and the lines over the paws are the keeping — not a restatement of the closed exit. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The unfinished record about the protagonist is open under the paws, held open by the floor's keeping. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address whether the keeping can be crossed, what the shoulder-width door costs to pass through, and what the room does when the cat whose record it is keeping tries to leave."
+    }
+  ],
+  "canonical_head": {
+    "cycle": "20260915T024144Z",
+    "mutation": "LEVER_REVERSED — Pull the Lever Against Itself (inherited accepted spine: M_C_LOOK_UP_CAUSES): the look-up in 022 remains the explicit CAUSE of the collision (last cycle 20260911T120000Z, passed), and LEVER_REVERSED extends the canonical head at 040g by forking the single-exit corridor into two reader-facing action links with distinct irreversible consequences and no reconvergence",
+    "title": "040g is forked into two live leaves: (A) the protagonist physically pulls the sheet's edge, works the method with its own lever, completes the recalled frame by chosen act, and becomes the room's working hand at irreversible cost; (B) the protagonist physically refuses the crossing, the floor carves a new rule (the keeping closes over the paws, holding the unfinished record open) and the high door narrows to the width of the protagonist's shoulder. P'taxx remains the already-spent subject in both leaves; the protagonist's civic role (records runner / correction courier) and want (get P'taxx out without surrendering the unfinished record) are established in the fiction before structured state.",
+    "structure": "LEVER_REVERSED (canonical head extension at 040g, cycle 20260915T024144Z): 040g-the-room-that-keeps is no longer a frontier leaf — its ACTIVE FRONTIER block is replaced by exactly two reader-facing choice links to 040g-1-the-hand-the-ledger-keeps (pull) and 040g-2-the-line-on-the-floor (refuse). The stale M3-SPENT-RESOURCE canonical_head entry is superseded: scene truth implements M_C_LOOK_UP_CAUSES as the accepted spine (the look-up causes the collision; the three spends are its route-registrations), and LEVER_REVERSED is the current mutation extending the head. Pull leaf: the method takes the protagonist as its working hand (new method, no reversion to 'will you flinch' — candidate law_bb750d1bdb10 engaged); the high door is open and stays open while the hand works; the unfinished floor record is open under the working paw and the method will finish it when it works it. Refuse leaf: the floor's new rule (lines close over the paws; the keeping holds the record open) and the narrowed exit (door width of the shoulder, was wider, will not be wider again) are genuinely new constraints, not restatements of the closed exit. No reconvergence: the two leaves carry distinct spent identity (working hand vs. kept-open record), distinct relationship state (P'taxx subject in both, unchanged), and distinct available actions. 040a-the-second-question.md remains orphaned (structural reference), unchanged. M2-20260908 remains PRESERVED (next-cycle candidate); N2 remains DEFERRED REFERENCE.",
+    "note": "LEVER_REVERSED is the canonical head for cycle 20260915T024144Z. Sole survivor of Acumen selection (M-B FLOOR_AS_SUBJECT and M-C FIFTH_RULE_BROKEN blocked by the Steward); selected autonomously per Protocol step 8 — inherited hard law leaves one survivor, no human speciation gate. Satisfies law_a509c75fb6a1 (the 040g corridor repair), law_8e52dd229d27 / law_5361b415500d (each leaf is a claim → counterforce → changed state), law_4ca0ffd21c42 (concrete physical acts, priced in spent identity and relationship). Candidate law_bb750d1bdb10 (apex-head extension; the decisive turn is caused by the protagonist's act; the system's response is a NEW method) is engaged as a second (autonomous) confirmation — NOT activated on autonomous evidence alone. Candidate law_4d3da1051141 not engaged (no reconvergence). No active hard law violated; no prior Patrick rejection repeated (human_20260824_170638_a is a different fork). Protagonist name remains WITHHELD (never named in fiction); role/want entered in state only after the fiction established them in 040g-1/040g-2."
+  },
+  "branch_ledger": {
+    "cycle": "20260909T040157Z",
+    "canonical_head": "M4-WANT",
+    "active_branches": [
+      {
+        "id": "M2-20260908",
+        "title": "The Recall Becomes a Completed Decisive Act",
+        "axis": "terminal-act closure on the refuse leaf",
+        "mechanism": "The refuse leaf's terminal (040a-let-the-record-stand-01-the-ledgers-recall, which now ends in a choice link to 040f-the-cost-of-holding) may be further developed: the recall is no longer an open scaffold but a closed turn with a priced, irreversible new state. A NEW scene (040a-02-the-record-that-was-never-finished) may be created, reachable by a choice link from 040f, that carries the unresolved pressure forward as a landed consequence: the ledger has spent its only ring (an irreversible cost it can never repeat), the recalled frame is now a working subject the ledger can work on, and the protagonist is the one record it has not finished \u2014 a completed, measurable state rather than a question.",
+        "coherence": "PRESERVED as an active reader-facing branch \u2014 not implemented this cycle. The recall beat must stay verbatim in spirit ('It does not file. It does not provoke. It does not wait. It *recalls*'; 'the break is the cost'). The new scene's state must be irreversible and priced \u2014 no retreat to 'will you flinch' (candidate law_bb750d1bdb10). The two leaves' opposed readings (refuse = refusal-as-cost vs. make = surrender-as-lever) must remain opposed, not flattened. MUST land after M4-WANT is implemented and replay-tested so the completed ending inherits grounded antecedents.",
+        "status": "PRESERVED as an active reader-facing branch (next-cycle candidate)",
+        "recombine": true
+      }
+    ],
+    "deferred_references": [
+      {
+        "id": "N2",
+        "title": "The Unmade Witness",
+        "axis": "causal ownership / who is forced to act",
+        "mechanism": "The protagonist chooses to unmake the witness \u2014 pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door \u2014 reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city",
+        "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
+        "status": "DEFERRED REFERENCE \u2014 not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable \u2014 it is the other half of the N1/N2 fork and can be recombined as a future choice once N1's reclassification state is established.",
+        "recombine": true
+      }
+    ],
+    "orphaned_scenes": [
+      {
+        "path": "story/scenes/040a-the-second-question.md",
+        "reason": "011's terminal link was re-routed to 022-the-lattice (M3, cycle 20260905T030002Z); no choice link now targets 040a-the-second-question.md. Preserved as a structural reference for a downstream cycle that may re-purpose it (e.g., as the Temple's second question, replacing 040b) or delete it. No change from the prior cycle.",
+        "cycle": "20260905T030002Z"
+      }
+    ]
+  },
+  "reader_contract": {
+    "fiction_first": true,
+    "no_internal_node_ids_in_reader_surface": true,
+    "no_system_conditions_in_reader_choices": true,
+    "branch_ancestry_must_remain_readable": true,
+    "active_frontiers_must_be_visible": true,
+    "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  },
+  "last_cycle": {
+    "cycle_id": "20260915T024144Z",
+    "status": "passed",
+    "outcome": "advance",
+    "mutation": "LEVER_REVERSED",
+    "mutation_title": "Pull the Lever Against Itself",
+    "canonical_head": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+    "summary": "The former 040g corridor now forks into two separate live leaves: pulling the sheet makes the protagonist the ledger's working hand, while physical refusal holds the unfinished record open and irreversibly narrows the high door.",
+    "files_changed": [
+      "story/scenes/040g-the-room-that-keeps.md",
+      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "story/scenes/040g-2-the-line-on-the-floor.md",
+      "story_room/frontier.json",
+      "story_room/state/frontiers.json"
+    ],
+    "replay": {
+      "changed_pull": "passed",
+      "changed_refuse": "passed",
+      "neighbor_commit": "passed",
+      "temple_control": "passed",
+      "stray_controls": "passed"
+    }
+  }
+}
