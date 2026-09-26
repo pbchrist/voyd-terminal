@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {"type": "array", "items": {"type": "string"}},
+    "wanted": {"type": "array", "items": {"type": "string"}},
+    "feared": {"type": "array", "items": {"type": "string"}},
+    "attention_intensified": {"type": "array", "items": {"type": "string"}},
+    "attention_weakened": {"type": "array", "items": {"type": "string"}},
+    "confused": {"type": "array", "items": {"type": "string"}},
+    "residue": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["path", "wanted", "feared", "attention_intensified", "attention_weakened", "confused", "residue"],
+  "additionalProperties": false
+}
