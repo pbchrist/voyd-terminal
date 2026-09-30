@@ -1,166 +1,56 @@
 # The Room Behind the Room
 
-P'taxx takes the fragment, still wrapped in linen, and walks toward the corridor that should not exist.
+P'taxx carries the linen-wrapped fragment into the corridor that should not exist. You follow because the lights behind you are coming closer.
 
-You follow because the alternative is standing still while the lights come closer.
+The shop vanishes at the old rear-wall line. A stone chamber replaces it: black-and-white triangles underfoot, narrow doors climbing walls with no visible ceiling.
 
-The first step across the old rear-wall line changes the air.
+"You have been here before," you say.
 
-The shop vanishes behind you.
+"Once."
 
-Not fades. Vanishes.
+"You said the corridor was new."
 
-You turn and find a stone arch where the shelves should be. Beyond it lies a room with no visible ceiling and a floor tiled in black and white triangles. Hundreds of narrow doors ring the walls at different heights. Some are built for cats. Some are too small for a paw. One hangs thirty feet above the floor with no stair beneath it.
+"The corridor is new."
 
-P'taxx exhales through his nose.
-
-“You have been here before,” you say.
-
-“Once.”
-
-“You said the corridor was new.”
-
-“The corridor is new.”
-
-“That is not reassuring.”
-
-“It was not intended to be.”
-
-The approaching lights emerge from the dark passage behind you.
-
-They are not lamps.
-
-They are eyes.
-
-A procession of cats walks toward the chamber. Twenty of them. Thirty. More behind those. Every one wears clothing from a different age of Faelspire: palace silks cut in styles centuries old, quarry leathers, war cloaks, temple cords, merchant collars, burial whites.
+The lights emerge behind you. They are eyes. Cats in the clothes of six Faelspire eras enter the chamber and spread into a semicircle.
 
 Every one of them has your face.
 
-You stop breathing.
+One wears a broken crown. One has blood on both forepaws. The oldest has your face collapsed into angles you have never imagined wearing.
 
-P'taxx does not look surprised enough.
+It looks at P'taxx. "You kept the wrong book."
 
-“You knew about this too.”
+His tail goes rigid.
 
-“No.”
+The oldest copy points to a door thirty feet above the floor. P'taxx translates its title.
 
-The first copy of you steps into the chamber.
+"Things That Happened Because You Looked Away."
 
-Its left eye is missing. In the empty socket burns the same orange line as the fragment.
+The fragment begins to ring like laughter through a wall. Pale light opens around the high door and pulls the fragment from its linen. The light closes. Your paw is empty.
 
-“I knew about doors,” P'taxx says. “Not passengers.”
+New letters cut themselves beneath the title.
 
-The copies spread into a semicircle.
+"Filed," P'taxx says. "The door keeps what it reads."
 
-One carries a broken crown.
+You understand before he explains. The door did not read the fragment. It read the cat carrying it.
 
-One has blood on both forepaws.
-
-One is old enough that your face has collapsed into angles you have never imagined wearing.
-
-The oldest one looks directly at P'taxx.
-
-“You kept the wrong book,” it says.
-
-P'taxx's tail goes rigid.
-
-“What book?” you ask.
-
-He does not answer.
-
-The oldest you points toward one of the doors high above the chamber.
-
-A title is carved into the stone beneath it.
-
-You cannot read the script.
-
-P'taxx can.
-
-He whispers the translation.
-
-“Things That Happened Because You Looked Away.”
-
-The fragment in his paw begins to ring.
-
-Not like a bell.
-
-Like laughter heard through a wall.
-
-The oldest you lifts a paw and points at the fragment.
-
-Not at you.
-
-At the door above.
-
-The high door's stone title shifts. The carved letters rearrange themselves, and the door begins to open — slowly, the way a ledger opens. A seam of pale light widens along its frame, and the fragment in P'taxx's paw slides out of the linen as though pulled by the seam.
-
-The fragment drifts into the door's light.
-
-The light closes.
-
-The fragment is gone.
-
-The door's title changes. New letters form beneath the old, and P'taxx reads them without being asked.
-
-"Filed," he says. "The door keeps what it reads."
-
-You look at your paw. The linen is empty. The fragment that rang like laughter is behind the door now, in a room of doors that files what cats looked away from.
-
-You also learn, in the same heartbeat, that the door did not read the fragment.
-
-It read you.
-
-The linen in your paw is not empty of the fragment. It is empty of the only thing that could have been unfiled: the cat who walked in. The name under the name — the one the city has never measured, the one that has let you be a face the square forgets as it passes — is on the stone now. The title does not say it in a word you can repeat. It says it in the only way the room knows how to say things. And the room has said it.
-
-P'taxx's tail unrigids.
-
-"The wrong book," he says, and his voice is different. Not ashamed. Tired. "I kept the wrong book so the door would file the right thing. The fragment was never the book. It is the proof. And the proof is yours."
-
-"Yours?" you say.
-
-"Yours to carry. Not yours to uncarry." His eyes go to the high door. "The door keeps what it reads. It does not unkeep. You can stand in this room for a hundred years, and the filing stays filed. I have stood in it before. I know what stays."
-
-The copies in the semicircle do not move. But the oldest one has stopped looking at P'taxx. It is looking at the door. At the filed fragment. At the title that now reads, beneath the old words, a single new line.
-
-You cannot read the script.
-
-P'taxx can.
-
-He does not whisper the translation.
-
-He does not need to.
-
-You already know what it says.
+The oldest copy turns from P'taxx to the new line.
 
 **YOU LOOKED AWAY.**
 
-And you know what else it says.
+The name beneath the name—the one Faelspire does not know—is filed there.
 
-The name is filed.
+P'taxx puts a paw on your shoulder.
 
-The name is not on the fragment. It is on the door. The fragment was the lever. The name is the cost. And the cost is not the name the city knows. It is the name the city does not know. The one that has let you be unmeasured. The one that has let you be a cat the square forgets. That name is on the stone now, and the stone does not give it back.
+"You are not the first cat I have watched this door read," he says. "I stood here when another runner carried in a fragment. The fragment was the lever. The cat was the cost. That cat walked out filed, and is filed still."
 
-P'taxx's paw finds your shoulder.
+"You knew this could happen."
 
-"It is not the first time I have watched a cat spend it," he says. "It is the first time I have watched a cat spend it in my shop. I will not pretend I did not know. I will not pretend I could have stopped it. What I will tell you is this: the door keeps what it reads, and it does not unkeep, and you and I are in a room where the keeping is the law."
+"I knew the door could." His voice drops. "I did not know it would be you, in my shop."
 
-His paw stays on your shoulder.
-
-"I will tell you what else it is," he says. "The door does not read the fragment. It reads the cat who carries the fragment. The fragment was the lever. The cat is the cost. You are the cost. And the cost is not a thing you can walk back from. It is a thing that stays. I have stood in this room before. I know what stays."
-
-"You knew this would happen."
-
-"I knew it could." His voice is very quiet. "I did not know it would be you. I did not know it would be in my shop. I did not know I would have to watch. I have watched it happen to other cats. I have not watched it happen in my own room. I will not tell you I am sorry. I will tell you it is done. And what is done stays done."
-
-"You can still walk out," he says. "You can still be the cat who walked in. But the cat who walked in is not the cat who walks out. The cat who walks out is filed. And the cat who walks out is not the cat I have known for twelve years. That cat is gone. The cat who walks out is the one the door keeps."
-
-The copies in the semicircle do not move.
-
-The high door does not close.
-
-The name is filed.
+The high door remains open. The copies wait beneath it.
 
 ---
 
 ### [The fragment's second question is a city question →](022-the-lattice.md)
-The fragment is behind the door, but its next question is bigger than the room. The fourth bell has already rung beneath Faelspire, and the Lattice is waiting for you to arrive the way you traveled.
+The fragment is behind the door, but its next question is bigger than the room. The fourth bell has rung beneath Faelspire, and the Lattice is waiting for you to arrive the way you traveled.

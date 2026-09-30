@@ -1,64 +1,48 @@
 # The Temple
 
-The lattice drops you back onto the shop floor.
+The lattice drops you onto the shop floor beside the young acolyte. Two temple cats stand behind him: one praying, one holding a ceremonial blade he already knows is useless.
 
-The temple cats are here.
-
-The young acolyte is beside you, and behind him the other two, the one who prays and the one who draws the short ceremonial blade and is ashamed of how useless it looks. They do not look as though they were in the square when the bell first rang. They look as though they have been waiting for it in the dark of the shop and it finally came.
-
-The iron reliquary is open on the table.
-
-It has been open since the square. The acolyte pressed it against your chest and said *take both*, and the box recognized the fragment before it touched it, and now the box is open and the seam across its iron lid matches the seam in your paw, and the matching is not a coincidence.
-
-The young acolyte watches the lattice with his head turned to the glass.
+The iron reliquary lies open on P'taxx's table. Its lid has matched the orange seam in your paw since the walk across Gistli Square.
 
 P'taxx blocks the doorway.
 
-“No,” he says, to the acolyte, to the room, to the lattice. “Not in my shop.”
+"No. Not in my shop."
 
-The acolyte gives him a look that would embarrass a palace guard.
+"You have not heard what we are asking," the acolyte says.
 
-“You have not heard what we are asking.”
+"At last, common ground."
 
-P'taxx bares his teeth.
+The lattice fixes its fourth point on the reliquary.
 
-“At last, common ground.”
+Letters burn across the lid.
 
-The Lattice is showing you the fourth point now.
-
-It is not a hand. Not a shadow. It is the reliquary, and the reliquary is the point, and the point is the one that stopped when you looked up. The name across the iron lid is the fourth point's voice, and the name is the one the Lattice is measuring, and the Lattice is the lattice of pale lines beneath the city, and the knot beneath Gistli Square is the place where the name first started.
-
-The name burns across the lid.
-
-Not temple script. Not the script from P'taxx's books.
+Not temple script. Not the script in P'taxx's books.
 
 Your name.
 
-The young acolyte goes still.
+The acolyte goes still. "That is impossible."
 
-“That is impossible,” he whispers.
-
-P'taxx does not look up.
-
-He is staring at the point beneath the temple.
-
-“You have another fragment.”
+P'taxx watches the point beneath the temple. "You have another fragment."
 
 The acolyte's silence answers him.
 
-The Lattice is waiting.
+The seam on the lid draws toward the seam in your paw. You hold your gaze.
 
-The iron registered the look-up.
+The edges meet.
 
-Not the lattice telling you the name is on the iron. The reliquary itself. The seam across its lid, which had been matching the seam in your paw since the square, closed the match when the look-up came. The two edges found each other with a click you felt through the table, through the stone, through your own paw — a touch, not a sound, the iron's own way of reading. The name that had been waiting under the seam surfaced across the lid, and the lid is open, and the name is the one the city does not know, and the iron does not give it back, because the iron keeps what it names, and the look-up is what it named.
+A click passes through the table, the floor, and your bones. The look-up completes what the iron began during the walk. The name surfaces across the lid—not because the lattice announces it, but because the reliquary has finished naming what it carried.
 
-The naming is the iron's registration of your look-up.
+The acolyte catches the lid before it can fall shut.
 
-It is not a cost the lattice imposed. It is the consequence of the act you performed. You looked up before the measurement was finished, and the iron, which had been matching the seam in your paw against the seam in its lid, took the look-up as the naming. The name is on the iron now. The seam is matched. The click is in your paw. And the iron does not give it back, because the iron keeps what it names, and the look-up is what it named.
+"The temple contains," he says, but his grip is shaking.
 
-You have spent your anonymity. The name is on the iron. It cannot be unnamed. The containment the acolytes came to make is the containment you cannot refuse, because you are already the named subject, and the named subject cannot be un-named.
+The iron has done more than contain. It has made the withheld name legible to every cat around the table.
+
+P'taxx looks at you now. "The box cannot unname what it has read."
+
+The fragment turns in your paw. Its seam opens again, aimed at your face. The first movement it kept was a recoil. It is ready to ask for another.
 
 ---
 
 ### [Hold your gaze — the reliquary is open →](040b-the-second-question.md)
-The shadow stopped when you looked back. Now the fragment tries to make you turn away. The iron reliquary bears the seam you carried in, and the name is yours, and the test is the one the Temple's route has always been asked.
+The iron has named you. Refuse the fragment the second movement it expects.

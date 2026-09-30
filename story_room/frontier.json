@@ -93,11 +93,11 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20260915T024144Z",
-    "mutation": "LEVER_REVERSED — Pull the Lever Against Itself (inherited accepted spine: M_C_LOOK_UP_CAUSES): the look-up in 022 remains the explicit CAUSE of the collision (last cycle 20260911T120000Z, passed), and LEVER_REVERSED extends the canonical head at 040g by forking the single-exit corridor into two reader-facing action links with distinct irreversible consequences and no reconvergence",
-    "title": "040g is forked into two live leaves: (A) the protagonist physically pulls the sheet's edge, works the method with its own lever, completes the recalled frame by chosen act, and becomes the room's working hand at irreversible cost; (B) the protagonist physically refuses the crossing, the floor carves a new rule (the keeping closes over the paws, holding the unfinished record open) and the high door narrows to the width of the protagonist's shoulder. P'taxx remains the already-spent subject in both leaves; the protagonist's civic role (records runner / correction courier) and want (get P'taxx out without surrendering the unfinished record) are established in the fiction before structured state.",
-    "structure": "LEVER_REVERSED (canonical head extension at 040g, cycle 20260915T024144Z): 040g-the-room-that-keeps is no longer a frontier leaf — its ACTIVE FRONTIER block is replaced by exactly two reader-facing choice links to 040g-1-the-hand-the-ledger-keeps (pull) and 040g-2-the-line-on-the-floor (refuse). The stale M3-SPENT-RESOURCE canonical_head entry is superseded: scene truth implements M_C_LOOK_UP_CAUSES as the accepted spine (the look-up causes the collision; the three spends are its route-registrations), and LEVER_REVERSED is the current mutation extending the head. Pull leaf: the method takes the protagonist as its working hand (new method, no reversion to 'will you flinch' — candidate law_bb750d1bdb10 engaged); the high door is open and stays open while the hand works; the unfinished floor record is open under the working paw and the method will finish it when it works it. Refuse leaf: the floor's new rule (lines close over the paws; the keeping holds the record open) and the narrowed exit (door width of the shoulder, was wider, will not be wider again) are genuinely new constraints, not restatements of the closed exit. No reconvergence: the two leaves carry distinct spent identity (working hand vs. kept-open record), distinct relationship state (P'taxx subject in both, unchanged), and distinct available actions. 040a-the-second-question.md remains orphaned (structural reference), unchanged. M2-20260908 remains PRESERVED (next-cycle candidate); N2 remains DEFERRED REFERENCE.",
-    "note": "LEVER_REVERSED is the canonical head for cycle 20260915T024144Z. Sole survivor of Acumen selection (M-B FLOOR_AS_SUBJECT and M-C FIFTH_RULE_BROKEN blocked by the Steward); selected autonomously per Protocol step 8 — inherited hard law leaves one survivor, no human speciation gate. Satisfies law_a509c75fb6a1 (the 040g corridor repair), law_8e52dd229d27 / law_5361b415500d (each leaf is a claim → counterforce → changed state), law_4ca0ffd21c42 (concrete physical acts, priced in spent identity and relationship). Candidate law_bb750d1bdb10 (apex-head extension; the decisive turn is caused by the protagonist's act; the system's response is a NEW method) is engaged as a second (autonomous) confirmation — NOT activated on autonomous evidence alone. Candidate law_4d3da1051141 not engaged (no reconvergence). No active hard law violated; no prior Patrick rejection repeated (human_20260824_170638_a is a different fork). Protagonist name remains WITHHELD (never named in fiction); role/want entered in state only after the fiction established them in 040g-1/040g-2."
+    "cycle": "20260930T203551Z",
+    "mutation": "HONE-1 + HONE-2 + HONE-3 — route-specific registration repair over the inherited M_C_LOOK_UP_CAUSES and LEVER_REVERSED spine",
+    "title": "The look-up remains the causal act, while the shop, temple, and stray routes now register its cost through distinct witnessed collisions instead of a repeated explanatory template.",
+    "structure": "HONE cycle only: links, six active leaves, canonical entry, 040g fork, branch ancestry, causal state, and unresolved pressures are unchanged. Rewritten scenes are 011, 021a, 021b, 022, 022a, 022b, 031, and 032. The canonical route earns filing through P'taxx's testimony and the high door's broken ring; the shop route carries containment, the temple route carries transit then iron naming, and the stray routes distinguish the replayed kit-self from the thirteenth name beneath the stray's skin.",
+    "note": "Selected autonomously after Steward prosecution and mutation replay. HONE-4 was blocked because it dissolved the separable paid cost required by downstream state. No Genome law was added; the protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -142,26 +142,33 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20260915T024144Z",
+    "cycle_id": "20260930T203551Z",
     "status": "passed",
-    "outcome": "advance",
-    "mutation": "LEVER_REVERSED",
-    "mutation_title": "Pull the Lever Against Itself",
+    "outcome": "hone",
+    "mutation": "HONE-1+HONE-2+HONE-3",
+    "mutation_title": "Route-Specific Registration Repair",
     "canonical_head": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-    "summary": "The former 040g corridor now forks into two separate live leaves: pulling the sheet makes the protagonist the ledger's working hand, while physical refusal holds the unfinished record open and irreversibly narrows the high door.",
+    "summary": "Eight existing scenes now earn the look-up's route-specific costs through distinct collisions instead of repeating the same registration exposition; graph and causal leaf state are unchanged.",
     "files_changed": [
-      "story/scenes/040g-the-room-that-keeps.md",
-      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-      "story/scenes/040g-2-the-line-on-the-floor.md",
-      "story_room/frontier.json",
-      "story_room/state/frontiers.json"
+      "story/scenes/011-the-room-behind-the-room.md",
+      "story/scenes/021a-voreath-enters-the-shop.md",
+      "story/scenes/021b-the-walk-to-the-shop.md",
+      "story/scenes/022-the-lattice.md",
+      "story/scenes/022a-the-lattice-filing.md",
+      "story/scenes/022b-the-lattice-temple.md",
+      "story/scenes/031-the-thing-below-the-courtyard.md",
+      "story/scenes/032-twelve-years-ago.md",
+      "story_room/frontier.json"
     ],
     "replay": {
-      "changed_pull": "passed",
-      "changed_refuse": "passed",
-      "neighbor_commit": "passed",
-      "temple_control": "passed",
-      "stray_controls": "passed"
+      "final": "passed",
+      "canonical_changed_path": "passed",
+      "shop_neighbor": "passed",
+      "temple_neighbor": "passed",
+      "stray_kit": "passed",
+      "stray_history": "passed",
+      "unaffected_control": "passed",
+      "reachable_leaf_alignment": "passed"
     }
   }
 }

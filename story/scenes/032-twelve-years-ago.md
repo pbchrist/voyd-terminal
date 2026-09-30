@@ -1,134 +1,68 @@
 # Twelve Years Ago
 
-“Three breaths,” you say. “Then I open the cistern.”
+"Three breaths," you tell the stray. "Then I open the cistern."
 
-The stray stares at you.
+"One."
 
-“One.”
+"Twelve years ago, I was a courier."
 
-“Twelve years ago,” he says, “I was a courier.”
+"Two."
 
-“Two.”
+"I carried sealed things for cats who paid not to know my name."
 
-“I carried sealed things for cats who paid not to know my name.”
+"Three."
 
-“Three.”
-
-He slams one paw onto the cistern lid.
-
-“I delivered a black box beneath the Western Wall. The box opened before I reached the room.”
-
-You stop.
+He slams a paw onto the lid. "I delivered a black box beneath the Western Wall. It opened before I reached the room."
 
 The thing inside the cistern stops climbing.
 
-The stray notices.
+The stray notices. "So does it."
 
-“So does it,” he says.
+"What room?"
 
-You look toward the stone lid.
+"A chamber older than the wall. Thirteen names around a circle in the floor. Twelve crossed out."
 
-“What room?”
+"The thirteenth?"
 
-“A chamber older than the wall. No doors. No windows. Just a circle cut into the floor and thirteen names scratched around it.”
+He looks at you. "Mine."
 
-“Whose names?”
-
-“Twelve were crossed out.”
-
-“And the thirteenth?”
-
-He looks at you.
-
-“Mine.”
-
-The black fragment in your paw warms.
+The fragment warms.
 
 *Ask what name was underneath his.*
 
-You hate that the voice knows exactly where to push.
+You hate that it knows where to push. "What was underneath yours?"
 
-“What was underneath yours?”
+He parts the fur below his ruined ear. Tiny letters run through the black line. They form a name beneath his skin.
 
-The stray's jaw tightens.
+Not his.
 
-He reaches up and parts the fur beneath his ruined ear.
+Yours.
 
-The black scar is not a scar.
+"That appeared when you picked up the fragment," he says.
 
-Tiny letters run through it.
+The line lengthens by one letter.
 
-A name written beneath the skin.
+Your look-up has completed the old list. The stray ran from the thirteenth place twelve years ago; now the record has filled it with the withheld name you carry. No one speaks it. The letters under his skin are enough.
 
-You lean closer.
+He presses the dead sliver on its blue cloth. "Mine stopped when I stopped giving it answers."
 
-It is not his name.
+Three knocks sound below.
 
-It is yours.
+Your voice rises from the cistern. "He did not escape first."
 
-The courtyard seems to tilt.
+The stray closes his eyes. "He was sent first."
 
-“That wasn't there twelve years ago,” he says. “It appeared when you picked up the fragment.”
+"Sent where?"
 
-The skin registered the look-up.
+A shadow passes over the courtyard. Nothing is visible above, yet every rooftop cat in Faelspire begins screaming.
 
-Not the lattice telling you the name is under the skin. The skin itself. The scar that has run from the stray's torn ear down his neck for twelve years split when the look-up came. Not broke. Split — the way skin splits when a thing is coming through it. Pressure from beneath. The name that had been waiting under the scar surfaced under the fur for the first time, and the fur is under the scar, and the scar is under the ear, and the torn edge is too clean, and the black line runs from the scar down the side of the neck and disappears under the fur, and the name is under the fur, and the name is the one the city does not know.
+The dead sliver ignites orange in his paw.
 
-The replay is the skin's registration of your look-up.
+"No more time."
 
-It is not a cost the lattice imposed. It is the consequence of the act you performed. You looked up before the measurement was finished, and the skin, which had been carrying the name under the scar since the stray ran, took the look-up as the replay. The scar split. The name surfaced. The pressure is in the stray's neck, and the skin does not give it back, because the skin is the name, and the name is the one the city does not know.
-
-The name is not on the fragment. The name is under the skin. The fragment was the lever. The name is the cost. And the cost is not a thing you can walk back from. It is a thing that stays.
-
-The stray looks at you.
-
-“You can still walk out,” he says. “You can still be the cat who walked in. But the cat who walked in is not the cat who walks out. The cat who walks out is replayed. And the cat who walks out is not the cat the city forgets. The cat who walks out is the one the name holds.”
-
-His paw is on the dead sliver.
-
-His face is the face of a cat who has just watched the thing he has been running from happen.
-
-“It is done,” he says. “And what is done stays done.”
-
-Three knocks sound from the cistern.
-
-Your voice rises from below.
-
-“He did not escape first.”
-
-The stray closes his eyes.
-
-“He was sent first.”
-
-You look at him.
-
-He looks older than he did a moment ago.
-
-“Sent where?”
-
-The answer comes from above.
-
-A shadow passes over the courtyard.
-
-Both of you look up.
-
-There is nothing in the sky.
-
-Nothing you can see.
-
-But every rooftop cat in Faelspire begins screaming at once.
-
-The stray grabs the dead sliver from the blue cloth.
-
-It ignites orange in his paw.
-
-“No more time,” he says.
-
-The fourth bell rings.
-
-This time the sound comes from the sky.
+The fourth bell rings from the sky.
 
 ---
 
 ### [Make the fragment ask again →](040d-the-second-question.md)
-The stray survived his fragment. His dead sliver can show you how.
+The stray killed his sliver by refusing its tests. Use that failure before the living fragment chooses another subject.
