@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = "voyd-story-room"
+SKILL = "creative/voyd-story-room"
 LOCAL_PROVIDER = "local-qwen"  # Qwen 3.8 on 127.0.0.1:8082, defined in ~/.hermes/config.yaml
 STATUS_PATH = ROOT / "story_room" / "reports" / "last_run_status.json"
 RESUME_PATH = ROOT / "story_room" / "resume_speciation.json"
