@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-09-30T20:32:04Z",
-  "status": "blocked",
+  "timestamp_utc": "2026-09-30T22:35:04Z",
+  "status": "passed",
   "human_input_required": false,
-  "final_replay": "blocked",
-  "summary": "The primary route exited 1 and local-qwen exited 1; neither wrote a status file. The cycle is blocked until a model route is healthy."
+  "final_replay": "passed",
+  "summary": "HONE-1+HONE-2+HONE-3 replaced repeated registration exposition with route-specific witnessed consequences across eight scenes, and independent final replay plus v3 validation passed."
 }
