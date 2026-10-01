@@ -1,6 +1,6 @@
 # The Filing
 
-The lattice drops you onto the shop floor.
+The lattice drops you onto the shop floor. Your paws strike the black-and-white triangles hard enough to jar your teeth. You have landed. The high door is above you, and the physical fragment remains inside its pale opening. On the table below, only the lattice's image of it burns.
 
 P'taxx is here with the copies and the high door. No temple cords. No blades. The copies stand in their semicircle, every one wearing your face, every one watching the pale seam above them.
 
@@ -17,6 +17,8 @@ The high door rings.
 You hold your gaze.
 
 The note breaks.
+
+The broken note catches in the lattice still shining across the table. Pale lines close around your ribs. Before the echo dies, the shop floor drops away beneath you a second time.
 
 A crack cuts through **FILED**.
 

@@ -2,5 +2,5 @@
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "HONE-1+HONE-2+HONE-3 replaced repeated registration exposition with route-specific witnessed consequences across eight scenes, and independent final replay plus v3 validation passed."
+  "summary": "HONE L-1+L-2 repaired the fragment-location and fall-order break across 022, 022a, and 040e; independent final replays and Story Room v3 validation passed."
 }

@@ -93,11 +93,11 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20260930T203551Z",
-    "mutation": "HONE-1 + HONE-2 + HONE-3 — route-specific registration repair over the inherited M_C_LOOK_UP_CAUSES and LEVER_REVERSED spine",
-    "title": "The look-up remains the causal act, while the shop, temple, and stray routes now register its cost through distinct witnessed collisions instead of a repeated explanatory template.",
-    "structure": "HONE cycle only: links, six active leaves, canonical entry, 040g fork, branch ancestry, causal state, and unresolved pressures are unchanged. Rewritten scenes are 011, 021a, 021b, 022, 022a, 022b, 031, and 032. The canonical route earns filing through P'taxx's testimony and the high door's broken ring; the shop route carries containment, the temple route carries transit then iron naming, and the stray routes distinguish the replayed kit-self from the thirteenth name beneath the stray's skin.",
-    "note": "Selected autonomously after Steward prosecution and mutation replay. HONE-4 was blocked because it dissolved the separable paid cost required by downstream state. No Genome law was added; the protagonist's name remains WITHHELD."
+    "cycle": "20261001T100041Z",
+    "mutation": "L-1 + L-2 — Table Is the Lattice's Screen + The Lattice Is a Second Entry",
+    "title": "The filed fragment remains in the high door while the lattice projects its image and, after the first landing, the broken ring recaptures the protagonist for a second fall.",
+    "structure": "HONE cycle only: links, six active leaves, canonical entry, canonical frontier leaves, branch ancestry, unresolved pressures, and the M_C_LOOK_UP_CAUSES / LEVER_REVERSED spine are unchanged. Rewritten scenes are 022, 022a, and 040e. The 011-to-022 fragment-location contradiction is removed, 022a establishes the first landing, and 040e begins with a second body recapture caused by the broken ring.",
+    "note": "Selected autonomously after Steward prosecution and two independent mutation replays. L-3 and L-4 remain structural references. No Genome law was added; the protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -142,22 +142,18 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20260930T203551Z",
+    "cycle_id": "20261001T100041Z",
     "status": "passed",
     "outcome": "hone",
-    "mutation": "HONE-1+HONE-2+HONE-3",
-    "mutation_title": "Route-Specific Registration Repair",
+    "mutation": "L-1+L-2",
+    "mutation_title": "Filed Fragment Projection and Second Entry",
     "canonical_head": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-    "summary": "Eight existing scenes now earn the look-up's route-specific costs through distinct collisions instead of repeating the same registration exposition; graph and causal leaf state are unchanged.",
+    "summary": "Three existing scenes now keep the physical fragment in the high door, show only its lattice projection on the table, and distinguish the first landing from the broken ring's second body recapture; graph and leaf state remain unchanged.",
     "files_changed": [
-      "story/scenes/011-the-room-behind-the-room.md",
-      "story/scenes/021a-voreath-enters-the-shop.md",
-      "story/scenes/021b-the-walk-to-the-shop.md",
       "story/scenes/022-the-lattice.md",
       "story/scenes/022a-the-lattice-filing.md",
-      "story/scenes/022b-the-lattice-temple.md",
-      "story/scenes/031-the-thing-below-the-courtyard.md",
-      "story/scenes/032-twelve-years-ago.md",
+      "story/scenes/040e-the-crossing-question.md",
+      "story_room/state/frontiers.json",
       "story_room/frontier.json"
     ],
     "replay": {

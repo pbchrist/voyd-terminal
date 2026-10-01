@@ -2,7 +2,7 @@
 
 The fourth bell rings beneath Faelspire.
 
-Every shop window turns black. The fragment on the table opens its orange seam, and a depth forms between the glass and the high door.
+Every shop window turns black. In the nearest pane, the high door appears behind you, holding the fragment it took from your empty paw. The table is bare. Across its grain, the lattice casts an image of the filed fragment. The image opens an orange seam, and a depth forms between the glass and the door.
 
 Faelspire hangs beneath your paws. Streets, towers, palace, temple. Beneath them branches a lattice of pale lines.
 
