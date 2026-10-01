@@ -325,6 +325,14 @@ def one_cycle() -> int:
 
         if status != "passed":
             raise AutonomyError(f"unknown Story Room verdict: {status!r}")
+
+        # If the previous public state was blocked/failed, announce recovery once.
+        try:
+            previous = json.loads(git("show", f"{before}:story_room/autonomy_status.json").stdout)
+            if previous.get("status") in {"blocked", "failed"}:
+                visible_post("recovered", f"Story Room recovered after {previous.get('status')}. A model route is healthy and the cycle reached a passed verdict.")
+        except Exception as exc:
+            log(f"WARNING: recovery-state check failed: {exc}")
         if result["human_input_required"]:
             raise AutonomyError("passed verdict cannot simultaneously require human input")
         if result["final_replay"] != "passed":

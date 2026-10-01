@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HERMBEAST_HOME = Path("/home/patrick/.hermes")
 FORBIDDEN_HERMIONE_HOME = Path("/home/patrick/hermes-instance2")
 MAX_MESSAGE = 3900
-BOUNDARIES = {"start", "finished", "passed", "blocked", "failed", "decision", "pending_speciation"}
+BOUNDARIES = {"start", "finished", "passed", "blocked", "failed", "decision", "pending_speciation", "recovered"}
 
 
 class PostError(RuntimeError):
@@ -229,7 +229,17 @@ def _changed_story() -> str:
 
 
 def post(boundary: str, detail: str = "") -> dict:
-    # Telegram is story-only. Operations remain in logs/status files.
+    # Operational failures/recovery must reach Patrick instead of failing silently.
+    # Start/decision chatter remains suppressed; passed cycles still deliver story.
+    if boundary in {"blocked", "failed", "recovered"}:
+        verify_hermbeast_identity()
+        token, home = _load_credentials()
+        label = "RECOVERED" if boundary == "recovered" else boundary.upper()
+        text = f"VOYD STORY ROOM — {label}\n\n{detail.strip()}"
+        result = _telegram_api(token, {"chat_id": home, "text": text})
+        if not result.get("ok"):
+            raise PostError(result.get("description") or f"Telegram alert failed for {boundary}")
+        return result
     if boundary != "passed":
         return {"ok": True, "suppressed": True, "boundary": boundary}
 
