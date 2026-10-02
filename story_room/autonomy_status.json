@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-10-01T12:28:58Z",
-  "status": "passed",
+  "timestamp_utc": "2026-10-02T10:20:25Z",
+  "status": "failed",
   "human_input_required": false,
-  "final_replay": "passed",
-  "summary": "HONE L-1+L-2 repaired the fragment-location and fall-order break across 022, 022a, and 040e; independent final replays and Story Room v3 validation passed."
+  "final_replay": "failed",
+  "summary": "The cycle stopped after three cold walks and two specialist judgments, before mutation, fiction implementation, and independent final replay."
 }
