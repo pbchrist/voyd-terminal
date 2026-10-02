@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-10-02T10:20:25Z",
-  "status": "failed",
+  "timestamp_utc": "2026-10-02T14:02:19Z",
+  "status": "passed",
   "human_input_required": false,
-  "final_replay": "failed",
-  "summary": "The cycle stopped after three cold walks and two specialist judgments, before mutation, fiction implementation, and independent final replay."
+  "final_replay": "passed",
+  "summary": "M-A advanced both antiquarian leaves with two new correction-scroll scenes, preserved six reachable frontiers, passed independent final replay, and passed Story Room v3 validation."
 }
