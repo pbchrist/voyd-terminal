@@ -24,6 +24,5 @@ You want him out of this room. The door is open, and he cannot follow you out wh
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act. The method no longer aims at the protagonist; the protagonist is now the room's working hand, paw on the lever, and the method will work the open floor record when it works it. The high door is open and will stay open while the hand works. P'taxx remains at the desk as the subject the recall already made. The protagonist's civic role — a records runner for Faelspire, carrying sealed corrections — and the want to get P'taxx out without surrendering the unfinished record are now established. The next scene must address what the working hand does when the method turns it onto the open floor record, and whether the hand can choose which record it works.
+### [Pull the lever on the scroll you have been carrying →](050g-1-the-runner-corrects-the-ledger.md)
+The method works whatever sheet lies at the edge. The Mistral's correction is still sealed in the satchel, and your paw is the only paw the method takes.

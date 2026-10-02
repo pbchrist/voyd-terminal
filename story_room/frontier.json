@@ -54,8 +54,8 @@
       "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
     },
     {
-      "path": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-      "title": "The Hand the Ledger Keeps",
+      "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "title": "The Runner Corrects the Ledger",
       "ancestry": [
         "The Fourth Bell",
         "The Antiquarian",
@@ -68,13 +68,14 @@
         "The Ledger's Recall",
         "The Cost of Holding",
         "The Room That Keeps",
-        "The Hand the Ledger Keeps"
+        "The Hand the Ledger Keeps",
+        "The Runner Corrects the Ledger"
       ],
-      "unresolved_pressure": "LEVER_REVERSED (pull leaf). The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act. The method no longer aims at the protagonist: the protagonist is now the room's working hand, paw on the lever, and the method will work the open floor record when it works it. The high door is open and will stay open while the hand works. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address what the working hand does when the method turns it onto the open floor record, and whether the hand can choose which record it works."
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf, extended). The protagonist's chosen act changed what the method works: they placed the sealed Mistral correction under the sheet's edge and pulled, and the method accepted the runner-supplied scroll as its new working target. The Mistral's record is corrected in the room — not filed, not re-closed — and the scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner broke it. The method's aim at the protagonist remains revoked; the protagonist remains the working hand, paw on the lever, and the high door remains open while the hand works. The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed: the method now has a protagonist-chosen subject it can work. The next scene must address what the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken in a runner's satchel."
     },
     {
-      "path": "story/scenes/040g-2-the-line-on-the-floor.md",
-      "title": "The Line on the Floor",
+      "path": "story/scenes/050g-2-the-correction-through-the-door.md",
+      "title": "The Correction Through the Door",
       "ancestry": [
         "The Fourth Bell",
         "The Antiquarian",
@@ -87,17 +88,18 @@
         "The Ledger's Recall",
         "The Cost of Holding",
         "The Room That Keeps",
-        "The Line on the Floor"
+        "The Line on the Floor",
+        "The Correction Through the Door"
       ],
-      "unresolved_pressure": "LEVER_REVERSED (refuse leaf). The protagonist physically refused to cross the desk. The floor answered with a new rule: the lines between the triangles closed over the protagonist's paws, holding the unfinished record open, and the high door narrowed to the width of the protagonist's shoulder. The narrowing is a genuinely new constraint — the door is open but narrow, and the lines over the paws are the keeping — not a restatement of the closed exit. P'taxx remains at the desk as the subject the recall already made — not a newly paid cost. The unfinished record about the protagonist is open under the paws, held open by the floor's keeping. The protagonist's civic role (records runner / correction courier in Faelspire) and the want (get P'taxx out without surrendering the unfinished record) are established in the fiction. The next scene must address whether the keeping can be crossed, what the shoulder-width door costs to pass through, and what the room does when the cat whose record it is keeping tries to leave."
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf, extended). The protagonist's chosen act changed what the room keeps open: they passed through the narrowed door carrying the sealed Mistral correction, and the method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet. The Mistral's record is corrected in the room, not filed, not re-closed; the correction is the room's open sheet now. The keeping still holds the protagonist's own unfinished record open in the room — the protagonist has left it behind and is on the far side of a door that is the width of a shoulder and will not be wider again. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the runner has left the record in the room and cannot carry it. The next scene must address what the room does with the corrected Mistral record — whether the corrected name holds in the keeping or the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken, and how the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward."
     }
   ],
   "canonical_head": {
-    "cycle": "20261001T100041Z",
-    "mutation": "L-1 + L-2 — Table Is the Lattice's Screen + The Lattice Is a Second Entry",
-    "title": "The filed fragment remains in the high door while the lattice projects its image and, after the first landing, the broken ring recaptures the protagonist for a second fall.",
-    "structure": "HONE cycle only: links, six active leaves, canonical entry, canonical frontier leaves, branch ancestry, unresolved pressures, and the M_C_LOOK_UP_CAUSES / LEVER_REVERSED spine are unchanged. Rewritten scenes are 022, 022a, and 040e. The 011-to-022 fragment-location contradiction is removed, 022a establishes the first landing, and 040e begins with a second body recapture caused by the broken ring.",
-    "note": "Selected autonomously after Steward prosecution and two independent mutation replays. L-3 and L-4 remain structural references. No Genome law was added; the protagonist's name remains WITHHELD."
+    "cycle": "20261002T105114Z",
+    "mutation": "M-A — The Runner's Correction",
+    "title": "The runner spends the sealed Mistral correction on the method's terms: on the pull leaf the method's working target becomes the runner-supplied scroll, and on the refuse leaf the runner carries the scroll through the shoulder-width door and leaves their own record behind in the keeping.",
+    "structure": "ADVANCE on the two antiquarian LEVER_REVERSED leaves only: the two g-leaf frontiers (040g-1, 040g-2) are extended by the new 050g-1 and 050g-2 leaves; the method's current target changes from the protagonist's open floor record to the protagonist-chosen correction. The pull/refuse opposition is deepened, not flattened (working the object in place vs. carrying the object out and abandoning the record). The other four leaves (040a, 040b, 040c, 040d) are byte-for-byte unchanged. Six active leaves preserved; no new leaf, no deletion, no reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper as the sole survivor of M-A/M-B/M-C (M-B blocked: canon contradiction + ungrounded premise; M-C blocked: canon contradiction with four committed scenes). Three implementation gates (prose, grounding, frontiers) declared by Steward and replay are closed by the implementation. No Genome law was added; the protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -142,19 +144,21 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261001T100041Z",
+    "cycle_id": "20261002T105114Z",
     "status": "passed",
-    "outcome": "hone",
-    "mutation": "L-1+L-2",
-    "mutation_title": "Filed Fragment Projection and Second Entry",
-    "canonical_head": "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-    "summary": "Three existing scenes now keep the physical fragment in the high door, show only its lattice projection on the table, and distinguish the first landing from the broken ring's second body recapture; graph and leaf state remain unchanged.",
+    "outcome": "advance",
+    "mutation": "M-A",
+    "mutation_title": "The Runner's Correction",
+    "canonical_head": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+    "summary": "The two antiquarian LEVER_REVERSED leaves are extended: the protagonist, as Faelspire's records runner, spends the sealed Mistral correction on the method's terms — on the pull leaf the method's working target becomes the runner-supplied scroll (the Mistral's record is corrected in the room, not filed), and on the refuse leaf the runner carries the scroll through the shoulder-width door and leaves their own record behind in the keeping. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner's paws were on it. P'taxx remains at the desk as the subject the recall already made; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed. The method will turn back to the protagonist's record when it finishes the Mistral's sheet.",
     "files_changed": [
-      "story/scenes/022-the-lattice.md",
-      "story/scenes/022a-the-lattice-filing.md",
-      "story/scenes/040e-the-crossing-question.md",
+      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "story/scenes/040g-2-the-line-on-the-floor.md",
+      "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "story/scenes/050g-2-the-correction-through-the-door.md",
       "story_room/state/frontiers.json",
-      "story_room/frontier.json"
+      "story_room/frontier.json",
+      "story_room/reports/20261002T105114Z/implementation.md"
     ],
     "replay": {
       "final": "passed",

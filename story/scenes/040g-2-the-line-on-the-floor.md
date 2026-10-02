@@ -22,6 +22,5 @@ The lines over your paws do not pull. They hold, the way the satchel holds a scr
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-The protagonist physically refused to cross the desk. The floor answered with a new rule: the lines between the triangles closed over the protagonist's paws, holding the unfinished record open, and the high door narrowed to the width of the protagonist's shoulder. The narrowing is a new constraint, not a restatement of the closed exit; the door is open but narrow, and the lines over the paws are the keeping. P'taxx remains at the desk as the subject the recall already made. The unfinished record about the protagonist is open under the paws, held open by the floor's keeping. The protagonist's civic role — a records runner for Faelspire, carrying sealed corrections — and the want to get P'taxx out without surrendering the unfinished record are now established. The next scene must address what it means to stand in the room with the keeping over your paws and the door narrowed to your shoulder: whether the keeping can be crossed, what the shoulder-width door costs to pass through, and what the room does when the cat whose record it is keeping tries to leave.
+### [Take the sealed correction through the door →](050g-2-the-correction-through-the-door.md)
+The keeping holds your record open. The door is the width of your shoulder, and the Mistral's seal is still unbroken in the satchel. Carry it to the door that fixes it.
