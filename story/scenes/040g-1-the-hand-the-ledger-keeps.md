@@ -16,7 +16,7 @@ The door is open. It was never closed, and it will stay open while the hand keep
 
 P'taxx's face is on the cold stone at the desk. His paws are flat, his ears are back. He does not look at you, and there is nothing to look at him with now.
 
-You have carried the city's corrections for two years. Sealed scrolls in a satchel that is never opened twice: the names the palace files, the names it should not have. When a name was wrong you carried the correction to the door that fixed it, and you never opened the seal twice, and you never told anyone which names you had held. This room keeps the same way, only it never signs the corrections out.
+The satchel is at your side, the Mistral's correction still folded and sealed in it. But your paw is on the edge, and the edge is the only thing moving now. A runner does not pull a lever they have already held for two years: the paw moves, and the method takes it.
 
 The record about you is open under your other paw. It will finish when the method works it, and the method is working, and the method is your paw. You will not hand it to the hand the method keeps. The hand is your paw.
 

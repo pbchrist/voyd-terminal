@@ -10,11 +10,11 @@ The lines between the triangles move. They come over your paws, and they close, 
 
 The high door narrows.
 
-Not closes. Narrows. The seam of pale light pulls inward, and the door is the width of your shoulder now, and it was wider before, and it will not be wider again. The room carved its rules into the floor, and the floor answered your refusal with a rule it did not have. The narrowing is the rule. The lines are the rule. Both of them were just made, and both of them are yours, in the sense that a wall is yours once it is on your side of it.
+Not closes. Narrows. The seam of pale light pulls inward, and the door is the width of your shoulder now, and it will not be wider again. The room carved its rules into the floor, and the floor answered your refusal with a rule it did not have. The narrowing is the rule. The lines are the rule. Both of them were just made, and both of them are yours, in the sense that a wall is yours once it is on your side of it.
 
 P'taxx is at the desk. His face is on the cold stone. His paws are flat, his ears back. He does not move, and he does not look at you. The recall made him what he is, and the room has put him where the room puts what it has made.
 
-You have carried the city's corrections for two years. Sealed scrolls in a satchel that is never opened twice: the names the palace files, the names it should not have. A runner does not cross a desk to take back a record. A runner stands where the record is, and the record stays open, because an unfinished record is the only record a runner can still carry, and it is the only thing the runner owes to the cats who were filed wrong.
+The satchel is at your side, the Mistral's correction folded and sealed in it, still unopened. A runner does not cross a desk to take back a record: they stand where the record is, and the record stays open, because an unfinished record is the only record a runner can still carry, and it is the only thing the runner owes to the cats who were filed wrong.
 
 You did not cross. You will not sign the record to get him out, because signing it is the only way the method has of getting him out, and the record is yours, and it is unfinished, and carrying it is the work.
 

@@ -20,7 +20,9 @@ Under your paws, in the black triangle, another sheet lies open. You do not need
 
 P'taxx is at the desk. His face is on the cold stone, his paws flat, his tail curled around them. He was already here when you stepped through. The recall made him what he is, and he is where the room puts him.
 
-The desk is three paces across the floor. The seam is pulling the sheet's edge. The record about you is open under your paws, and the working on the desk is one step from the act it wants.
+At your side, the satchel you have carried since the shop holds one scroll marked by a fold: the Mistral's correction, a dyer's daughter filed under a name that was never hers, sealed and unopened. The newest of the names the palace should not have. It is yours to carry, and you have not yet chosen what to do with it.
+
+The desk is three paces across the floor. The record about you is open under your paws, and the working on the desk is one step from the act it wants.
 
 ---
 

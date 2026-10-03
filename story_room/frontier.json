@@ -144,31 +144,40 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261002T105114Z",
+    "cycle_id": "20261003T100133Z",
     "status": "passed",
-    "outcome": "advance",
-    "mutation": "M-A",
-    "mutation_title": "The Runner's Correction",
+    "outcome": "hone",
+    "mutation": "H2",
+    "mutation_title": "The Room That Keeps — satchel-planting HONE",
     "canonical_head": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
-    "summary": "The two antiquarian LEVER_REVERSED leaves are extended: the protagonist, as Faelspire's records runner, spends the sealed Mistral correction on the method's terms — on the pull leaf the method's working target becomes the runner-supplied scroll (the Mistral's record is corrected in the room, not filed), and on the refuse leaf the runner carries the scroll through the shoulder-width door and leaves their own record behind in the keeping. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner's paws were on it. P'taxx remains at the desk as the subject the recall already made; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed. The method will turn back to the protagonist's record when it finishes the Mistral's sheet.",
+    "summary": "HONE (no new power, method, state, leaf, or reconvergence). In the shared parent 040g-the-room-that-keeps, before the fork, a ~61-word satchel beat was planted: the sealed Mistral correction — a dyer's daughter filed under a name never hers, folded and sealed and unopened — is given concrete prior presence as a held object the protagonist carries into the room, so that in 050g-1/050g-2 the spend lands as a held choice, not a tactic (closing the cold-1 seam). 040g-1 and 040g-2 were streamlined: their duplicated generic runner-role paragraphs are removed (now carried by the parent) while their distinct pull/refuse causal design and existing choice links are preserved. The two fork choice links remain byte-identical in structure; no node added or removed at the fork. All six leaves remain reachable. No active leaf or causal fact changed; state/frontiers.json is unchanged.",
     "files_changed": [
+      "story/scenes/040g-the-room-that-keeps.md",
       "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
       "story/scenes/040g-2-the-line-on-the-floor.md",
-      "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
-      "story/scenes/050g-2-the-correction-through-the-door.md",
-      "story_room/state/frontiers.json",
       "story_room/frontier.json",
-      "story_room/reports/20261002T105114Z/implementation.md"
+      "story_room/reports/20261003T100133Z/implementation.md"
+    ],
+    "word_counts": {
+      "040g-the-room-that-keeps": 536,
+      "040g-1-the-hand-the-ledger-keeps": 411,
+      "040g-2-the-line-on-the-floor": 403
+    },
+    "constraints_verified": [
+      "040g ≤ 550 hard max (536; beat landed ~61 words, no trim needed)",
+      "040g-1 / 040g-2 under 450 preferred band (411 / 403)",
+      "Two fork choice links byte-identical in structure (no node added/removed)",
+      "WITHHELD invariant held — protagonist never named",
+      "No new power, method, state, leaf, or reconvergence",
+      "Six leaves remain reachable",
+      "050g-1 / 050g-2 untouched",
+      "state/frontiers.json unchanged (no causal state change)"
     ],
     "replay": {
       "final": "passed",
-      "canonical_changed_path": "passed",
-      "shop_neighbor": "passed",
-      "temple_neighbor": "passed",
-      "stray_kit": "passed",
-      "stray_history": "passed",
-      "unaffected_control": "passed",
-      "reachable_leaf_alignment": "passed"
+      "causality_continuity": "passed",
+      "audience_interactivity_prose": "passed",
+      "note": "HONE legibility repair; the planted beat is load-bearing (deleting it re-opens the cold-1 seam). The 050g spend inherits the correction as prior state from the parent. No canonical path or leaf altered."
     }
   }
 }

@@ -310,6 +310,22 @@
         "law_f1d61deb3858"
       ],
       "recorded_at": "2026-09-02T04:31:00.000000+00:00"
+    },
+    {
+      "id": "acumen_20261003_100133_h2",
+      "fork_id": "20261003T100133Z",
+      "selected": "H2 (HONE shared parent 040g-the-room-that-keeps with the folded sealed Mistral correction in the satchel)",
+      "candidates": [
+        "H1",
+        "H2"
+      ],
+      "rationale": "Autonomous Acumen Keeper selection (scheduled cycle; both H1 and H2 survive, so this is a leverage decision, not a single-survivor auto-pick, and no pending_speciation.json was created). Both HONE mutations re-anchor already-committed canon (dyer's daughter; name never hers; sealed satchel scroll) at different depths to close the governing diagnosis's revision #1 (the cold-1 seam: the Mistral correction appeared in the satchel without prior concrete presence). Neither violates any active Genome law, neither repeats a prior Patrick rejection, and the Steward (PASS x2) and independent replay (SURVIVES x2) agree both are canon-clean and structurally neutral. H2 is selected on leverage: it plants the carried object one node earlier (at the shared parent, before the fork), so the reader holds the specific correction longer before the spend at 050g-1/050g-2 and the spend lands as a held reader choice rather than a tactic — the strongest form of the same repair. The Steward and replay both independently named H2 the higher-leverage option. H1 is preserved as the lower-risk fallback: if implementation of the H2 beat cannot land ~50 words in 040g (currently 482/487 measured, under the 550 hard max) without breaching the prose band, H1 applies the same beat in the branch ancestors (433/423 words, more headroom) instead. No genome law is added, activated, modified, or demoted: this fork is a depth choice on one established repair, and no prior decision pre-decides it.",
+      "law_ids": [
+        "law_5361b415500d",
+        "law_4ca0ffd21c42",
+        "law_f1d61deb3858"
+      ],
+      "recorded_at": "2026-10-03T10:01:33.000000+00:00"
     }
   ]
 }
