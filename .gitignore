@@ -7,3 +7,11 @@ chromadb/
 .DS_Store
 logs/
 .claude/settings.local.json
+
+# Voyd Story Room run artifacts stay local; durable acumen lives in genome.json.
+story_room/reports/*
+!story_room/reports/.gitkeep
+story_room/mutations/*
+!story_room/mutations/.gitkeep
+story_room/packets/*
+!story_room/packets/.gitkeep

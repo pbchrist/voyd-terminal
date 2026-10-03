@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "canonical_entry": "story/scenes/000-the-fourth-bell.md",
+  "canonical_title": "The Fourth Bell",
+  "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
+  "active_frontiers": [
+    {
+      "path": "story/scenes/040a-make-the-witness-work.md",
+      "title": "Make the Witness Work",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work"
+      ],
+      "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency \u2014 they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record \u2014 the one that was never finished \u2014 is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness \u2192 subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
+    },
+    {
+      "path": "story/scenes/040b-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple"
+      ],
+      "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire. (Unaffected by M1/M3; reached from 022b.)"
+    },
+    {
+      "path": "story/scenes/040c-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Open the cistern",
+        "The Thing Below the Courtyard"
+      ],
+      "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/040d-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago"
+      ],
+      "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "title": "The Runner Corrects the Ledger",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Hand the Ledger Keeps",
+        "The Runner Corrects the Ledger"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf, extended). The protagonist's chosen act changed what the method works: they placed the sealed Mistral correction under the sheet's edge and pulled, and the method accepted the runner-supplied scroll as its new working target. The Mistral's record is corrected in the room — not filed, not re-closed — and the scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner broke it. The method's aim at the protagonist remains revoked; the protagonist remains the working hand, paw on the lever, and the high door remains open while the hand works. The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed: the method now has a protagonist-chosen subject it can work. The next scene must address what the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken in a runner's satchel."
+    },
+    {
+      "path": "story/scenes/050g-2-the-correction-through-the-door.md",
+      "title": "The Correction Through the Door",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Line on the Floor",
+        "The Correction Through the Door"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf, extended). The protagonist's chosen act changed what the room keeps open: they passed through the narrowed door carrying the sealed Mistral correction, and the method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet. The Mistral's record is corrected in the room, not filed, not re-closed; the correction is the room's open sheet now. The keeping still holds the protagonist's own unfinished record open in the room — the protagonist has left it behind and is on the far side of a door that is the width of a shoulder and will not be wider again. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the runner has left the record in the room and cannot carry it. The next scene must address what the room does with the corrected Mistral record — whether the corrected name holds in the keeping or the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken, and how the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward."
+    }
+  ],
+  "canonical_head": {
+    "cycle": "20261002T105114Z",
+    "mutation": "M-A — The Runner's Correction",
+    "title": "The runner spends the sealed Mistral correction on the method's terms: on the pull leaf the method's working target becomes the runner-supplied scroll, and on the refuse leaf the runner carries the scroll through the shoulder-width door and leaves their own record behind in the keeping.",
+    "structure": "ADVANCE on the two antiquarian LEVER_REVERSED leaves only: the two g-leaf frontiers (040g-1, 040g-2) are extended by the new 050g-1 and 050g-2 leaves; the method's current target changes from the protagonist's open floor record to the protagonist-chosen correction. The pull/refuse opposition is deepened, not flattened (working the object in place vs. carrying the object out and abandoning the record). The other four leaves (040a, 040b, 040c, 040d) are byte-for-byte unchanged. Six active leaves preserved; no new leaf, no deletion, no reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper as the sole survivor of M-A/M-B/M-C (M-B blocked: canon contradiction + ungrounded premise; M-C blocked: canon contradiction with four committed scenes). Three implementation gates (prose, grounding, frontiers) declared by Steward and replay are closed by the implementation. No Genome law was added; the protagonist's name remains WITHHELD."
+  },
+  "branch_ledger": {
+    "cycle": "20260909T040157Z",
+    "canonical_head": "M4-WANT",
+    "active_branches": [
+      {
+        "id": "M2-20260908",
+        "title": "The Recall Becomes a Completed Decisive Act",
+        "axis": "terminal-act closure on the refuse leaf",
+        "mechanism": "The refuse leaf's terminal (040a-let-the-record-stand-01-the-ledgers-recall, which now ends in a choice link to 040f-the-cost-of-holding) may be further developed: the recall is no longer an open scaffold but a closed turn with a priced, irreversible new state. A NEW scene (040a-02-the-record-that-was-never-finished) may be created, reachable by a choice link from 040f, that carries the unresolved pressure forward as a landed consequence: the ledger has spent its only ring (an irreversible cost it can never repeat), the recalled frame is now a working subject the ledger can work on, and the protagonist is the one record it has not finished \u2014 a completed, measurable state rather than a question.",
+        "coherence": "PRESERVED as an active reader-facing branch \u2014 not implemented this cycle. The recall beat must stay verbatim in spirit ('It does not file. It does not provoke. It does not wait. It *recalls*'; 'the break is the cost'). The new scene's state must be irreversible and priced \u2014 no retreat to 'will you flinch' (candidate law_bb750d1bdb10). The two leaves' opposed readings (refuse = refusal-as-cost vs. make = surrender-as-lever) must remain opposed, not flattened. MUST land after M4-WANT is implemented and replay-tested so the completed ending inherits grounded antecedents.",
+        "status": "PRESERVED as an active reader-facing branch (next-cycle candidate)",
+        "recombine": true
+      }
+    ],
+    "deferred_references": [
+      {
+        "id": "N2",
+        "title": "The Unmade Witness",
+        "axis": "causal ownership / who is forced to act",
+        "mechanism": "The protagonist chooses to unmake the witness \u2014 pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door \u2014 reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city",
+        "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
+        "status": "DEFERRED REFERENCE \u2014 not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable \u2014 it is the other half of the N1/N2 fork and can be recombined as a future choice once N1's reclassification state is established.",
+        "recombine": true
+      }
+    ],
+    "orphaned_scenes": [
+      {
+        "path": "story/scenes/040a-the-second-question.md",
+        "reason": "011's terminal link was re-routed to 022-the-lattice (M3, cycle 20260905T030002Z); no choice link now targets 040a-the-second-question.md. Preserved as a structural reference for a downstream cycle that may re-purpose it (e.g., as the Temple's second question, replacing 040b) or delete it. No change from the prior cycle.",
+        "cycle": "20260905T030002Z"
+      }
+    ]
+  },
+  "reader_contract": {
+    "fiction_first": true,
+    "no_internal_node_ids_in_reader_surface": true,
+    "no_system_conditions_in_reader_choices": true,
+    "branch_ancestry_must_remain_readable": true,
+    "active_frontiers_must_be_visible": true,
+    "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  },
+  "last_cycle": {
+    "cycle_id": "20261003T100133Z",
+    "status": "passed",
+    "outcome": "hone",
+    "mutation": "H2",
+    "mutation_title": "The Room That Keeps — satchel-planting HONE",
+    "canonical_head": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+    "summary": "HONE (no new power, method, state, leaf, or reconvergence). In the shared parent 040g-the-room-that-keeps, before the fork, a ~61-word satchel beat was planted: the sealed Mistral correction — a dyer's daughter filed under a name never hers, folded and sealed and unopened — is given concrete prior presence as a held object the protagonist carries into the room, so that in 050g-1/050g-2 the spend lands as a held choice, not a tactic (closing the cold-1 seam). 040g-1 and 040g-2 were streamlined: their duplicated generic runner-role paragraphs are removed (now carried by the parent) while their distinct pull/refuse causal design and existing choice links are preserved. The two fork choice links remain byte-identical in structure; no node added or removed at the fork. All six leaves remain reachable. No active leaf or causal fact changed; state/frontiers.json is unchanged.",
+    "files_changed": [
+      "story/scenes/040g-the-room-that-keeps.md",
+      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
+      "story/scenes/040g-2-the-line-on-the-floor.md",
+      "story_room/frontier.json",
+      "story_room/reports/20261003T100133Z/implementation.md"
+    ],
+    "word_counts": {
+      "040g-the-room-that-keeps": 536,
+      "040g-1-the-hand-the-ledger-keeps": 411,
+      "040g-2-the-line-on-the-floor": 403
+    },
+    "constraints_verified": [
+      "040g ≤ 550 hard max (536; beat landed ~61 words, no trim needed)",
+      "040g-1 / 040g-2 under 450 preferred band (411 / 403)",
+      "Two fork choice links byte-identical in structure (no node added/removed)",
+      "WITHHELD invariant held — protagonist never named",
+      "No new power, method, state, leaf, or reconvergence",
+      "Six leaves remain reachable",
+      "050g-1 / 050g-2 untouched",
+      "state/frontiers.json unchanged (no causal state change)"
+    ],
+    "replay": {
+      "final": "passed",
+      "causality_continuity": "passed",
+      "audience_interactivity_prose": "passed",
+      "note": "HONE legibility repair; the planted beat is load-bearing (deleting it re-opens the cold-1 seam). The 050g spend inherits the correction as prior state from the parent. No canonical path or leaf altered."
+    }
+  }
+}

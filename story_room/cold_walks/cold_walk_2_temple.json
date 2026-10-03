@@ -1,0 +1,55 @@
+{
+  "path": [
+    "story/scenes/000-the-fourth-bell.md",
+    "story/scenes/020-the-temple-door.md",
+    "story/scenes/021b-the-walk-to-the-shop.md",
+    "story/scenes/022-the-lattice.md",
+    "story/scenes/022b-the-lattice-temple.md",
+    "story/scenes/040b-the-second-question.md"
+  ],
+  "wanted": [
+    "In 000, I wanted to take the fragment to the temple because the acolytes already had the iron reliquary open and seemed ready to contain it; giving it to them felt like the fastest way to keep the black thing from filing more frames of me.",
+    "In 020, I wanted the acolyte to keep the box closed and the fragment separate from me; I wanted the temple to take the burden of containment off my paws before the shadow under the stone moved.",
+    "In 021b, I wanted the walk to end with the name on the lid still hidden, still only a shape, so that the city would never learn what I had been carrying.",
+    "In 022, I wanted to look up at the falling shadow to see what it was before it reached the city, even though the fragment had framed the look as completing a record.",
+    "In 022b, I wanted the iron to keep naming me only in a way that stayed private — to the acolyte, to the iron, not legible to every cat around P'taxx's table.",
+    "In 040b, I wanted the replay of my first recoil to fail cleanly and the fragment to be spent, so the second question would have no answer to ask."
+  ],
+  "feared": [
+    "In 000, I feared that handing the fragment to the temple would make me the one the temple contained — that the iron box was designed to hold the cat who carried it, not the fragment.",
+    "In 020, I feared the shadow's movement without its owner: that the acolyte's own shadow turning toward me meant the temple had already taken a copy of my look-away and was about to replay it.",
+    "In 021b, I feared that the walk itself was the naming — that every pace across the square was feeding the lid the shape of my withheld name.",
+    "In 022, I feared that looking up would complete the record the way the lattice said it would, and that the hand turning toward me above the city was the hand that would close on my name next.",
+    "In 022b, I feared that the reliquary finishing its naming would make my withheld name permanent in iron — that 'contains' meant the name would now live in the lid whether I wanted it there or not.",
+    "In 040b, I feared that holding my gaze would cost the acolyte — that 'Don't give it another subject' was a warning that the method needed a subject and would find one if I refused to be it twice."
+  ],
+  "attention_intensified": [
+    "The orange seam closing on the exact frame of my backward jerk in 000 — the fragment keeping the recoil as filed proof.",
+    "The acolyte's shadow moving without him in 020 and turning its head toward me while his body stayed rigid.",
+    "The name on the iron lid in 021b — not burned, not written, but in motion, the transit being the walk itself.",
+    "The lattice revealing that the bell is measuring how long I take to look up in 022, and the vast hand reaching through the city's ceiling and floor.",
+    "Letters burning across the reliquary lid in 022b — my name, in a script that was neither temple script nor P'taxx's books.",
+    "The replay of my first recoil in 040b and the fragment's voice entering me again with 'That means it heard you too.'",
+    "The frozen hand-shaped shadow above Faelspire turning away from me and spreading its fingers over the city in 040b."
+  ],
+  "attention_weakened": [
+    "The walk in 021b became somewhat procedural after the name-on-the-lid beat — the acolyte's lines about the temple containing repeated the same idea a few times and the tension of the walk itself faded before the lattice link appeared.",
+    "P'taxx's 'No. Not in my shop.' in 022b felt familiar from the shop confrontation in 021b and drew less fresh attention than the lattice and reliquary beats did.",
+    "The two temple cats behind the acolyte in 022b — one praying, one holding a ceremonial blade — were sketched but did not pull attention the way the young acolyte's lines did."
+  ],
+  "confused": [
+    "In 020, I was not sure why the acolyte forced the open reliquary into my chest and said 'Take both' — the box had rejected the fragment moments earlier, yet he seemed certain it had recognized it; the shift from rejection to recognition happened too fast for me to track.",
+    "In 021b, the line 'The iron lid is the transit, and the transit is walking' was abstract — I understood the name was traveling with me, but I was not sure what the transit was for or where the name was being delivered.",
+    "In 022, I was confused about why the lattice showed the high door behind me 'holding the fragment it took from your empty paw' when I had given the fragment to the temple, not to P'taxx — the filed fragment seemed to belong to the room-behind-the-room route, not mine.",
+    "In 022b, I was confused about how the lattice 'fixed its fourth point on the reliquary' — the fourth point had appeared above the Royal Palace in 022, so I was not sure where it traveled between the two scenes.",
+    "In 040b, I was not sure why the reliquary snapping shut on empty air was 'too late' — the letters had already burned the name across the lid, so I was unsure what action the snap was too late to prevent."
+  ],
+  "residue": [
+    "The fragment's method is now legible to me: interrupt, provoke a look-away, preserve it, repeat. I carried that pattern into the frontier and it shapes what I expect the next scene to test.",
+    "My withheld name is now legible in iron — the reliquary has made it visible to the temple and to P'taxx. I cannot un-name it, and that feels permanent even though the scene did not say what the name is.",
+    "The fragment failed to make me look away twice, so it began asking the city. I left the scene with the sense that the test is no longer personal — Faelspire is now a subject, and every street is a witness.",
+    "The frozen hand above Faelspire turned away from me and spread its fingers over the city. I kept the image of that hand, open and waiting, as the last thing I saw before the frontier note.",
+    "The acolyte's warning — 'Don't give it another subject' — stayed with me: the method needs a subject, and if I refuse to be it, it will find one. I do not know who it will find.",
+    "P'taxx's line 'The box cannot unname what it has read' landed as the final weight of the scene: containment is not the same as release, and the temple's iron keeps what it holds."
+  ]
+}

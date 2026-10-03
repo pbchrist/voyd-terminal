@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "protagonist": {"name": "WITHHELD", "role": "records runner / correction courier for Faelspire, carrying sealed corrections", "want": "get P'taxx out of the room that keeps without surrendering the unfinished record about themselves"},
+  "shared_facts": [
+    {"id": "heard_fourth_bell", "statement": "The protagonist heard the impossible fourth bell in Gistli Square.", "source": "story/scenes/000-the-fourth-bell.md"},
+    {"id": "first_lookaway_recorded", "statement": "The black fragment provoked and preserved the protagonist's first involuntary look-away.", "source": "story/scenes/000-the-fourth-bell.md"},
+    {"id": "fragment_method_known", "statement": "The protagonist knows the method as interrupt, provoke a look-away, preserve it, repeat.", "source": "story/scenes/040b-the-second-question.md"}
+  ],
+  "frontiers": [
+    {
+      "branch_id": "antiquarian_commit_seam",
+      "scene": "story/scenes/040a-make-the-witness-work.md",
+      "location": "P'taxx's hidden room behind the shop",
+      "facts": ["The physical fragment remains filed in the high door; the table showed only the lattice's projection.", "After the protagonist landed, the broken ring let the lattice recapture their body for a second fall.", "The copy is a subject the ledger can work on.", "The protagonist deliberately supplied a look-away through the copy.", "The protagonist's withheld name remains filed and their record is being finished.", "The exit remains closed."],
+      "knowledge": {"protagonist": ["fragment_method_known", "the copy works as a lever", "the ledger is now finishing the protagonist's record"], "P'taxx": ["the protagonist deliberately gave the method a lever"]},
+      "relationships": [{"with": "P'taxx", "state": "present; alarmed by the protagonist's chosen tactic"}],
+      "irreversible_changes": ["The protagonist made themself a subject of the reading.", "The copy's flinch was filed under the copy's identity."],
+      "spent_resources": ["unmeasurability/anonymity"],
+      "open_pressures": ["Can a subject make a move the method does not expect?", "The exit is closed while the record is being finished."],
+      "available_actions": [],
+      "causal_chain": [{"cause": "The protagonist commits to the seam and supplies the look-away.", "effect": "The copy becomes a working lever and the protagonist becomes a subject.", "source": "story/scenes/040a-make-the-witness-work.md"}]
+    },    {
+      "branch_id": "temple_citywide_test",
+      "scene": "story/scenes/040b-the-second-question.md",
+      "location": "P'taxx's shop beneath the widened ceiling crack",
+      "facts": ["The protagonist resisted a second induced look-away.", "The iron reliquary bears the protagonist's withheld name.", "The fragment widened its test from the protagonist to Faelspire."],
+      "knowledge": {"protagonist": ["fragment_method_known", "the repetition can be resisted", "the city is now being tested"], "P'taxx": ["the reliquary bears the protagonist's name"], "young_acolyte": ["the fragment startled, recorded, and repeated the test"]},
+      "relationships": [{"with": "young acolyte", "state": "present; actively preventing P'taxx from becoming another subject"}],
+      "irreversible_changes": ["The protagonist's name is burned onto the reliquary.", "The fragment has begun a citywide test."],
+      "spent_resources": ["anonymity"],
+      "open_pressures": ["Stop or redirect the citywide test before more cats become subjects."],
+      "available_actions": [],
+      "causal_chain": [{"cause": "The protagonist refuses to repeat the recorded look-away.", "effect": "The fragment fails on the protagonist and widens its test to Faelspire.", "source": "story/scenes/040b-the-second-question.md"}]
+    },
+    {
+      "branch_id": "stray_cistern_kit",
+      "scene": "story/scenes/040c-the-second-question.md",
+      "location": "the courtyard cistern",
+      "facts": ["The kit replayed the protagonist's first involuntary look-away.", "The protagonist refused the second look-away.", "The cistern exposed the protagonist's withheld name.", "The cistern lid is jammed and can no longer close."],
+      "knowledge": {"protagonist": ["fragment_method_known", "the fragment records the moment fear makes a choice", "the next response can be withheld"], "stray": ["the kit copied the protagonist's first flinch"]},
+      "relationships": [{"with": "scarred stray", "state": "present; demanding an explanation of what the protagonist changed"}],
+      "irreversible_changes": ["The protagonist's name appeared in the cistern.", "The cistern lid was split and jammed open."],
+      "spent_resources": ["anonymity"],
+      "open_pressures": ["Confront the kit without letting the fragment choose the response first."],
+      "available_actions": [],
+      "causal_chain": [{"cause": "The protagonist recognizes the induced flinch and holds their gaze.", "effect": "The new record remains unfinished and the cistern can no longer close.", "source": "story/scenes/040c-the-second-question.md"}]
+    },    {
+      "branch_id": "stray_dead_sliver",
+      "scene": "story/scenes/040d-the-second-question.md",
+      "location": "the courtyard with the scarred stray",
+      "facts": ["The living fragment contains a completed record of the protagonist's first recoil.", "The stray's sliver died when he stopped completing its tests.", "The protagonist interrupted the second record.", "Faelspire has gone silent after the fragment exposed the protagonist's withheld name."],
+      "knowledge": {"protagonist": ["fragment_method_known", "a fragment can die when its subject stops completing the test", "the dead sliver is evidence of a failure mode"], "stray": ["the protagonist's name is legible", "his dead sliver stopped when he stopped answering"]},
+      "relationships": [{"with": "scarred stray", "state": "present; cooperating under immediate citywide pressure"}],
+      "irreversible_changes": ["The protagonist's name became legible through the replay.", "Faelspire's rooftop cats fell silent."],
+      "spent_resources": ["anonymity"],
+      "open_pressures": ["Use the dead sliver's failure before the system begins testing another cat."],
+      "available_actions": [],
+      "causal_chain": [{"cause": "The protagonist holds their gaze while the replay tries to complete a second recoil.", "effect": "The second record stalls and the dead sliver reveals a way the test can fail.", "source": "story/scenes/040d-the-second-question.md"}]
+    },
+    {
+      "branch_id": "antiquarian_pull_the_lever",
+      "scene": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "location": "the room behind the high door",
+      "facts": ["The physical fragment remains filed in the high door; the table showed only the lattice's projection.", "After the protagonist landed, the broken ring let the lattice recapture their body for a second fall.", "The protagonist physically pulled the sheet's edge and completed the recalled frame by chosen act.", "The method no longer aims at the protagonist; the protagonist is the room's working hand, paw on the lever.", "The high door is open and will stay open while the hand works.", "The protagonist placed the sealed Mistral correction under the sheet's edge and pulled: the method's working target is now the runner-supplied scroll, not the floor record.", "The Mistral's record is corrected in the room — not filed, not re-closed — under the name the palace should not have used.", "The scroll is spent on the method's terms, not the palace's; its seal is broken and can never be closed again.", "The palace signs its corrections out; it will notice a seal it did not sign and will know which runner's paws were on it.", "The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet.", "P'taxx is at the desk as the subject the recall already made."],
+      "knowledge": {"protagonist": ["the method takes a working hand instead of aiming", "the pulled lever works the recalled frame", "the protagonist is Faelspire's records runner, carrying sealed corrections", "the unfinished record is the only record a runner can still carry", "the method works whatever sheet lies at the edge — the edge is under the paw, and the paw does not come off", "the Mistral's correction is the newest of the names the palace should not have: a dyer's daughter, filed under a name that was never hers", "the seal is broken by the pull and will never close again", "the palace will know which runner's paws broke its seal"], "P'taxx": ["the recall has made the relationship itself part of the subject"]},
+      "relationships": [{"with": "P'taxx", "state": "present as a subject of the recall; the prior alliance has been converted into cost; the protagonist wants him out without surrendering the unfinished record; the method now has a protagonist-chosen subject it can work"}],
+      "irreversible_changes": ["The ledger spent and broke its only bell during recall.", "P'taxx has been pulled into the recall as a subject.", "The protagonist has become the room's working hand; the paw on the lever cannot be set down.", "The Mistral's sealed correction is spent on the method's terms, not the palace's; the seal is broken and can never be closed again.", "The Mistral's record is corrected in the room — the dyer's daughter is corrected under the name she actually went by, held open where the keeping holds it.", "The palace's exposure: its seal came back broken in a runner's satchel; the palace signs its corrections out and will know which runner broke it."],
+      "spent_resources": ["anonymity", "P'taxx's protected alliance", "the ledger's bell", "the protagonist's separateness from the method", "the Mistral's correction scroll (the last of the un-worked corrections in the satchel; the broken seal can never be closed)"],
+      "open_pressures": ["What the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things.", "Whether the corrected name holds once the method turns back to the protagonist's unfinished record.", "The palace will know: the palace signs its corrections out, and it will notice a seal it did not sign — which runner's paws were on it.", "Getting P'taxx out without surrendering the unfinished record; the method is now occupied with the correction, and the means available have changed."],
+      "available_actions": ["Work the Mistral's record to completion and watch what the room does with the corrected name", "Pull the method back onto the protagonist's own open record while the Mistral's sheet is worked", "Hold the paw and let the method finish the Mistral's sheet before it turns back"],
+      "causal_chain": [
+        {"cause": "The protagonist refuses the reading and forces the ledger to recall its own filed frame.", "effect": "The ledger breaks its bell, opens the room that keeps, and turns both the frame and P'taxx into subjects.", "source": "story/scenes/040g-the-room-that-keeps.md"},
+        {"cause": "The protagonist physically pulls the sheet's edge and works the recalled frame.", "effect": "The frame completes by chosen act; the method takes the protagonist as its working hand; the high door stays open while the hand works.", "source": "story/scenes/040g-1-the-hand-the-ledger-keeps.md"},
+        {"cause": "The protagonist places the sealed Mistral correction under the sheet's edge and pulls.", "effect": "The seal breaks; the method accepts the runner-supplied scroll as its new working target; the Mistral's record is corrected in the room (not filed, not re-closed); the protagonist's own record stays open under the other paw — a respite, not a resolution; the palace will know which runner broke its seal.", "source": "story/scenes/050g-1-the-runner-corrects-the-ledger.md"}
+      ]
+    },
+    {
+      "branch_id": "antiquarian_refuse_the_crossing",
+      "scene": "story/scenes/050g-2-the-correction-through-the-door.md",
+      "location": "the room behind the high door (the runner is on the far side of the door)",
+      "facts": ["The physical fragment remains filed in the high door; the table showed only the lattice's projection.", "After the protagonist landed, the broken ring let the lattice recapture their body for a second fall.", "The protagonist physically refused to cross the desk.", "The floor's lines closed over the protagonist's paws, holding the unfinished record open (the keeping).", "The high door narrowed to the width of the protagonist's shoulder; it was wider before and will not be wider again.", "The protagonist passed through the narrowed door carrying the sealed Mistral correction; the seal broke on the door's edge as they passed.", "The method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet; the Mistral's record is corrected in the room, not filed, not re-closed.", "The keeping still holds the protagonist's own unfinished record open in the room; the protagonist has left it behind and cannot carry it.", "The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it.", "P'taxx is at the desk in the room as the subject the recall already made."],
+      "knowledge": {"protagonist": ["the room answers a physical refusal with a new rule", "the keeping holds the record open without finishing it", "the narrowed door is a new constraint, not a restatement of the closed exit", "the protagonist is Faelspire's records runner, carrying sealed corrections", "the unfinished record is the only record a runner can still carry", "the method outranks the keeping — the keeping holds the record open until the method says otherwise", "a runner carries a correction that is still open to the door that fixes it", "the seal is broken by the door's edge and will never close again", "the palace will know which runner's paws broke its seal"], "P'taxx": ["the recall has made the relationship itself part of the subject"]},
+      "relationships": [{"with": "P'taxx", "state": "present as a subject of the recall, at the desk in the room; the prior alliance has been converted into cost; the protagonist wants him out but has left the record behind and cannot carry it; the runner is on the far side of a door that is the width of a shoulder and will not be wider again"}],
+      "irreversible_changes": ["The ledger spent and broke its only bell during recall.", "P'taxx has been pulled into the recall as a subject.", "The floor's new rule: the keeping closes over the paws and holds the record open.", "The high door has narrowed to the width of the protagonist's shoulder.", "The Mistral's sealed correction is spent on the method's terms, not the palace's; the seal broke on the door's edge and can never be closed again.", "The Mistral's record is corrected in the room — the dyer's daughter is corrected under the name she actually went by; the correction is the room's open sheet now.", "The protagonist's own unfinished record is left behind in the room, held open by the keeping; the runner is on the far side of the shoulder-width door.", "The palace's exposure: its seal came back broken in a runner's satchel; the palace signs its corrections out and will know which runner broke it."],
+      "spent_resources": ["anonymity", "P'taxx's protected alliance", "the ledger's bell", "the room's former door width", "the Mistral's correction scroll (spent on the method's terms; the seal is broken and can never be closed)", "the runner's ability to carry their own record (it is left behind in the keeping, on the far side of the door)"],
+      "open_pressures": ["What the room does with the corrected Mistral record — whether the corrected name holds in the keeping, or the room re-closes it the way the palace closes things.", "Whether the corrected name holds once the method says otherwise to the keeping.", "The palace will know: the palace signs its corrections out, and it will notice a seal it did not sign — which runner's paws were on it.", "How the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward.", "Getting P'taxx out without surrendering the unfinished record; the record is left behind in the room and cannot be carried, and the door will not be wider again."],
+      "available_actions": ["Reach back through the shoulder-width door to the desk where P'taxx is at the stone", "Find another way into the room — the door opens inward and will not be wider", "Let the room keep the record open and wait for the method to say otherwise"],
+      "causal_chain": [
+        {"cause": "The protagonist refuses the reading and forces the ledger to recall its own filed frame.", "effect": "The ledger breaks its bell, opens the room that keeps, and turns both the frame and P'taxx into subjects.", "source": "story/scenes/040g-the-room-that-keeps.md"},
+        {"cause": "The protagonist physically refuses to cross the desk.", "effect": "The floor carves a new rule (the keeping holds the record open) and the high door narrows to the width of the protagonist's shoulder.", "source": "story/scenes/040g-2-the-line-on-the-floor.md"},
+        {"cause": "The protagonist passes through the narrowed door carrying the sealed Mistral correction.", "effect": "The seal breaks on the door's edge; the method — which outranks the keeping — takes the scroll as the room's new open sheet; the Mistral's record is corrected in the room (not filed, not re-closed); the keeping still holds the protagonist's own record open behind them; the runner is on the far side of a door that is the width of a shoulder and will not be wider again; the palace will know which runner broke its seal.", "source": "story/scenes/050g-2-the-correction-through-the-door.md"}
+      ]
+    }
+  ],
+  "policy": {"every_choice_leaves_durable_trace": true, "branches_are_distinct_until_explicitly_reviewed": true, "raw_books_are_evidence_not_style": true}
+}
