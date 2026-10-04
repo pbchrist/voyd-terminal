@@ -10,9 +10,9 @@ The lines between the triangles move. They come over your paws, and they close, 
 
 The high door narrows.
 
-Not closes. Narrows. The seam of pale light pulls inward, and the door is the width of your shoulder now, and it will not be wider again. The room carved its rules into the floor, and the floor answered your refusal with a rule it did not have. The narrowing is the rule. The lines are the rule. Both of them were just made, and both of them are yours, in the sense that a wall is yours once it is on your side of it.
+Not closes. Narrows. The seam of pale light pulls inward, and the door is the width of your shoulder now, and it will not be wider again. The room carved its rules into the floor, and the floor answered your refusal with the extension of a rule it already had: the keeping, which already held the subject open at the desk, now closes over your paws too. The narrowing is the rule. The lines are the rule. Both of them were just made for you, and both of them are yours, in the sense that a wall is yours once it is on your side of it.
 
-P'taxx is at the desk. His face is on the cold stone. His paws are flat, his ears back. He does not move, and he does not look at you. The recall made him what he is, and the room has put him where the room puts what it has made.
+P'taxx is at the desk. His face is on the cold stone, and the lines of the keeping run around him, holding him open the way they hold the record: legible, not buried.
 
 The satchel is at your side, the Mistral's correction folded and sealed in it, still unopened. A runner does not cross a desk to take back a record: they stand where the record is, and the record stays open, because an unfinished record is the only record a runner can still carry, and it is the only thing the runner owes to the cats who were filed wrong.
 

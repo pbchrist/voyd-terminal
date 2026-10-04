@@ -71,7 +71,7 @@
         "The Hand the Ledger Keeps",
         "The Runner Corrects the Ledger"
       ],
-      "unresolved_pressure": "LEVER_REVERSED (pull leaf, extended). The protagonist's chosen act changed what the method works: they placed the sealed Mistral correction under the sheet's edge and pulled, and the method accepted the runner-supplied scroll as its new working target. The Mistral's record is corrected in the room — not filed, not re-closed — and the scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner broke it. The method's aim at the protagonist remains revoked; the protagonist remains the working hand, paw on the lever, and the high door remains open while the hand works. The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed: the method now has a protagonist-chosen subject it can work. The next scene must address what the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken in a runner's satchel."
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf, extended). The protagonist's chosen act changed what the method works: they placed the sealed Mistral correction under the sheet's edge and pulled, and the method accepted the runner-supplied scroll as its new working target. The Mistral's record is corrected in the room — not filed, not re-closed — and the scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner broke it. The method's aim at the protagonist remains revoked; the protagonist remains the working hand, paw on the lever, and the high door remains open while the hand works. The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed: the method now has a protagonist-chosen subject it can work. The keeping holds P'taxx open at the desk the way it holds the runner's record open — the subject is legible, not buried; the method works the sheet, the keeping holds the subject, and the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. The next scene must address what the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things — and whether the keeping releases the subject it holds open at the desk — and what the palace does when its seal comes back broken in a runner's satchel. (M-S4 HONE, cycle 20261004T100042Z: the keeping's hold on the subject made explicit in the shared parent 040g before the fork; the refuse leaf's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance.)"
     },
     {
       "path": "story/scenes/050g-2-the-correction-through-the-door.md",
@@ -91,7 +91,7 @@
         "The Line on the Floor",
         "The Correction Through the Door"
       ],
-      "unresolved_pressure": "LEVER_REVERSED (refuse leaf, extended). The protagonist's chosen act changed what the room keeps open: they passed through the narrowed door carrying the sealed Mistral correction, and the method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet. The Mistral's record is corrected in the room, not filed, not re-closed; the correction is the room's open sheet now. The keeping still holds the protagonist's own unfinished record open in the room — the protagonist has left it behind and is on the far side of a door that is the width of a shoulder and will not be wider again. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the runner has left the record in the room and cannot carry it. The next scene must address what the room does with the corrected Mistral record — whether the corrected name holds in the keeping or the room re-closes it the way the palace closes things — and what the palace does when its seal comes back broken, and how the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward."
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf, extended). The protagonist's chosen act changed what the room keeps open: they passed through the narrowed door carrying the sealed Mistral correction, and the method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet. The Mistral's record is corrected in the room, not filed, not re-closed; the correction is the room's open sheet now. The keeping still holds the protagonist's own unfinished record open in the room — the protagonist has left it behind and is on the far side of a door that is the width of a shoulder and will not be wider again. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the runner has left the record in the room and cannot carry it. The keeping holds P'taxx open at the desk the way it holds the runner's record open — the subject is legible, not buried; the method works the sheet, the keeping holds the subject, and the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. The next scene must address what the room does with the corrected Mistral record — whether the corrected name holds in the keeping or the room re-closes it the way the palace closes things — and whether the keeping releases the subject it holds open at the desk — and what the palace does when its seal comes back broken, and how the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward. (M-S4 HONE, cycle 20261004T100042Z: the keeping's hold on the subject made explicit in the shared parent 040g before the fork; the refuse leaf's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance.)"
     }
   ],
   "canonical_head": {
@@ -144,40 +144,45 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261003T100133Z",
+    "cycle_id": "20261004T100042Z",
     "status": "passed",
     "outcome": "hone",
-    "mutation": "H2",
-    "mutation_title": "The Room That Keeps — satchel-planting HONE",
+    "mutation": "M-S4",
+    "mutation_title": "The Keeping Holds the Subject",
     "canonical_head": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
-    "summary": "HONE (no new power, method, state, leaf, or reconvergence). In the shared parent 040g-the-room-that-keeps, before the fork, a ~61-word satchel beat was planted: the sealed Mistral correction — a dyer's daughter filed under a name never hers, folded and sealed and unopened — is given concrete prior presence as a held object the protagonist carries into the room, so that in 050g-1/050g-2 the spend lands as a held choice, not a tactic (closing the cold-1 seam). 040g-1 and 040g-2 were streamlined: their duplicated generic runner-role paragraphs are removed (now carried by the parent) while their distinct pull/refuse causal design and existing choice links are preserved. The two fork choice links remain byte-identical in structure; no node added or removed at the fork. All six leaves remain reachable. No active leaf or causal fact changed; state/frontiers.json is unchanged.",
+    "summary": "HONE (no new power, method, state, leaf, or reconvergence). In the shared parent 040g-the-room-that-keeps, before the fork, a ~34-word beat makes explicit the room's committed keeping-rule (040g-2, line 9) for both g leaves: the keeping's lines run around P'taxx at the desk as well as under the protagonist's paws — the keeping holds the subject open the way it holds the record. The method works the sheet; the keeping holds the subject; the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. This repairs the method/keeping/ledger terminological blur (the corpus's highest-leverage audience wound) by giving the keeping a distinct, legible function. One-clause acknowledgments land in 040g-1 (keeping holds the subject open while the method works the sheet), 040g-2 (the refuse's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance; P'taxx held open, legible not buried), and 050g-1/050g-2 (the keeping still holds him open at the desk). Both 050g ACTIVE FRONTIER blocks and both frontier.json unresolved-pressure notes now carry the new open pressure: 'whether the keeping releases the subject it holds open at the desk.' state/frontiers.json records the existing keeping rule now made explicit for both g leaves; leaf count unchanged. All six leaves remain reachable.",
     "files_changed": [
       "story/scenes/040g-the-room-that-keeps.md",
       "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
       "story/scenes/040g-2-the-line-on-the-floor.md",
+      "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "story/scenes/050g-2-the-correction-through-the-door.md",
       "story_room/frontier.json",
-      "story_room/reports/20261003T100133Z/implementation.md"
+      "story_room/state/frontiers.json",
+      "story_room/reports/20261004T100042Z/implementation.md"
     ],
     "word_counts": {
-      "040g-the-room-that-keeps": 536,
-      "040g-1-the-hand-the-ledger-keeps": 411,
-      "040g-2-the-line-on-the-floor": 403
+      "040g-the-room-that-keeps": 547,
+      "040g-1-the-hand-the-ledger-keeps": 423,
+      "040g-2-the-line-on-the-floor": 406,
+      "050g-1-the-runner-corrects-the-ledger": 397,
+      "050g-2-the-correction-through-the-door": 385
     },
     "constraints_verified": [
-      "040g ≤ 550 hard max (536; beat landed ~61 words, no trim needed)",
-      "040g-1 / 040g-2 under 450 preferred band (411 / 403)",
+      "040g ≤ 550 hard max (547; beat landed ~34 words)",
+      "040g-1 / 040g-2 / 050g-1 / 050g-2 under 450 preferred band (423 / 406 / 397 / 385)",
       "Two fork choice links byte-identical in structure (no node added/removed)",
       "WITHHELD invariant held — protagonist never named",
       "No new power, method, state, leaf, or reconvergence",
       "Six leaves remain reachable",
-      "050g-1 / 050g-2 untouched",
-      "state/frontiers.json unchanged (no causal state change)"
+      "The keeping rule is an existing committed canon rule (040g-2 line 9), re-asserted in the parent — not a new method",
+      "state/frontiers.json updated only to record the existing keeping rule now made explicit for both g leaves; leaf count unchanged (6)"
     ],
     "replay": {
       "final": "passed",
       "causality_continuity": "passed",
       "audience_interactivity_prose": "passed",
-      "note": "HONE legibility repair; the planted beat is load-bearing (deleting it re-opens the cold-1 seam). The 050g spend inherits the correction as prior state from the parent. No canonical path or leaf altered."
+      "note": "Independent final replay verified the targeted P'taxx counterforce wound is gone, the pull/refuse choice remains distinct, all six leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
     }
   }
 }

@@ -22,7 +22,7 @@ P'taxx is at the desk. His face is on the cold stone, his paws flat, his tail cu
 
 At your side, the satchel you have carried since the shop holds one scroll marked by a fold: the Mistral's correction, a dyer's daughter filed under a name that was never hers, sealed and unopened. The newest of the names the palace should not have. It is yours to carry, and you have not yet chosen what to do with it.
 
-The desk is three paces across the floor. The record about you is open under your paws, and the working on the desk is one step from the act it wants.
+The desk is three paces across the floor. And the keeping does not finish what it holds: the lines run around the desk as well as under your paws, and the keeping holds the subject open the way it holds the record.
 
 ---
 
