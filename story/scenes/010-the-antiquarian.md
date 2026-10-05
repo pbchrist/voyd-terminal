@@ -10,11 +10,11 @@ The old bookseller crosses the last six paces of Gistli Square against the fleei
 
 “Wrap it. Do not put skin on it twice.”
 
-His voice carries none of the theatrical irritation he uses on customers. No sigh. No insult. No demand that you pay for breathing the dust in his shop.
+His voice carries none of the theatrical irritation he uses on customers. No sigh. No insult. That frightens you more than the bell.
 
-That frightens you more than the bell.
+You snatch a square of linen from the abandoned fruit stall and fold it over the fragment. The satchel shifts on your back, the scroll tubes pressing against your spine with the weight you know by heart: two years of sealed corrections, the same six streets, the same rule.
 
-You snatch a square of linen from the abandoned fruit stall and fold it over the fragment. The orange seam ignites through the cloth.
+The orange seam ignites through the cloth.
 
 P'taxx flinches.
 
@@ -26,7 +26,9 @@ Behind you, the Voreath acolytes break through the crowd.
 
 P'taxx grips your shoulder. “Inside.”
 
-Antiquarian Books & Sundries has always looked too narrow to contain what P'taxx claims it contains. The front room is barely wide enough for two cats to pass without brushing whiskers. Shelves lean inward under the weight of cracked atlases, sealed scroll tubes, bone dice, failed charms, brass instruments whose purposes have outlived their makers, and six thousand books arranged according to a system P'taxx refuses to explain.
+Antiquarian Books & Sundries has always looked too narrow to contain what P'taxx claims it contains. Shelves lean inward under the weight of cracked atlases, sealed scroll tubes, bone dice, and six thousand books arranged according to a system P'taxx refuses to explain.
+
+The scroll tubes on the shelves are the same shape as the ones in your satchel. You have carried them for two years. You have never known what was inside.
 
 Today the shop is deeper.
 
@@ -52,7 +54,7 @@ You place the wrapped fragment between you.
 
 The table is not neutral.
 
-You know it before you know why. The room is deeper than the shop, and the corridor behind the rear wall is not a passage. It is a mouth. And the mouth is open for a reason.
+You know it before you know why. The corridor behind the rear wall is not a passage. It is a mouth. And the mouth is open for a reason.
 
 The reason is you.
 
@@ -60,13 +62,13 @@ The fourth bell rings.
 
 Every book in the shop opens.
 
-Thousands of covers snap apart at once. Pages lash in a sudden wind. P'taxx throws himself over the fragment as letters begin crawling out of the books.
+Thousands of covers snap apart at once. Pages lash in a sudden wind. P'taxx throws himself over the fragment as letters crawl out of the books.
 
 Not ink bleeding.
 
 Letters.
 
-Individual black marks peel themselves from paper and skitter across shelves, floorboards, your paws. They stream toward the table.
+Individual black marks peel themselves from paper and skitter toward the table.
 
 P'taxx whispers something you have never heard an adult say with genuine terror.
 
@@ -90,7 +92,7 @@ Then another.
 
 Then another.
 
-A procession of lights appears, one by one, moving toward you from a distance the building cannot contain.
+A procession of lights appears, one by one, moving toward you.
 
 Someone pounds on the front door.
 
@@ -102,7 +104,7 @@ For the first time since you have known him, he asks rather than tells.
 
 “Which danger do you prefer?”
 
-You know what the first danger is, and you know what it costs. The corridor does not file objects. It files the cats who walk it. If you follow P'taxx into it, the thing behind the wall reads what you are and keeps the reading — and a kept reading cannot be walked back. You have spent your whole life being a cat the city can measure. Whatever happens down that corridor, the unmeasured part of you is what you walk in with.
+You know what the first danger is. The corridor files the cats, not the objects. If you follow P'taxx in, the thing behind the wall reads what you are and keeps the reading. The unmeasured part of you is what you walk in with.
 
 Whatever you choose, you are about to spend it.
 

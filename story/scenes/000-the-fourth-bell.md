@@ -1,32 +1,32 @@
 # The Fourth Bell
 
-Faelspire has three bells.
-
-Every kit knows that before they learn the names of the three suns. The eastern bell calls the markets open. The western bell marks the closing of the gates. The high bronze bell in the Royal Palace sounds only for coronations, deaths, and war.
+Faelspire has three bells. The eastern bell calls the markets open. The western bell marks the closing of the gates. The high bronze bell in the Royal Palace sounds only for coronations, deaths, and war.
 
 So when a fourth bell rings beneath your paws, the entire square goes still.
 
 Not quiet. Still.
 
-A fishmonger freezes with his knife halfway through a silverbelly. Two apprentices stop arguing over a crate of inkfruit. A courier pigeon launches from a roof and immediately wheels back as if the air itself has become a wall.
+A fishmonger freezes with his knife halfway through a silverbelly. A courier pigeon launches from a roof and wheels back.
 
-The sound comes again.
+The sound comes again. **Dong.** Deep enough that you feel it in your teeth.
 
-**Dong.**
-
-Deep enough that you feel it in your teeth.
-
-The paving stones of Gistli Square shiver. Dust leaps from the mortar in thin gray lines. Somewhere below the city, far beneath cellars and drainage tunnels and whatever older bones Faelspire was built upon, something answers with a second vibration.
+The paving stones of Gistli Square shiver. Somewhere below, something answers with a second vibration.
 
 Then the square erupts.
 
-Cats run for alleys. Merchants abandon stalls. Someone screams that the Western Wall has fallen. Someone else shouts that the palace is under attack. A mother seizes two kits by their scruffs and drags them beneath a cart.
+Cats run for alleys. Merchants abandon stalls. A mother drags two kits beneath a cart.
 
 You do not move.
 
-Because something has rolled out from beneath the fruit stand beside you.
+The satchel is still on your back, and the satchel is the reason. You are a runner. The palace seals the corrections, the shops seal them, the temple seals them, and you carry them between the seals until someone signs. Two years of it.
 
-It is no larger than the last joint of your paw. Black, but not the black of coal or nightglass. Its surface refuses the colors around it. The three suns hang over Faelspire in bands of amber, white, and bruised red, yet none of them appear in the object.
+A runner does not move until the correction is signed. You carry the unfinished until someone signs it, and you never open a seal twice.
+
+But the fourth bell is not the city's bell, and the linen under your paws is bunching.
+
+Something has rolled out from beneath the fruit stand beside you.
+
+It is no larger than the last joint of your paw. Black, but not the black of coal or nightglass. Its surface refuses the colors around it. The three suns hang over Faelspire in bands of amber, white, and bruised red, yet none appear in the object.
 
 You lower your head.
 
@@ -36,9 +36,7 @@ Not rolls.
 
 Turns.
 
-A line appears across its surface.
-
-For one impossible heartbeat you think it is an eyelid.
+A line appears across its surface. For one impossible heartbeat you think it is an eyelid.
 
 Then the line opens into orange light.
 
@@ -50,9 +48,9 @@ You jerk backward.
 
 The orange seam closes on the exact frame of your backward jerk.
 
-You watch the fragment keep it. The line of light that had opened across its surface snaps shut, and for one heartbeat the frame of your recoil is held in the black — your shoulders, your lifted paw, your eyes leaving the thing — and then the seam is closed again, and the frame is gone, and you know it is filed.
+You watch the fragment keep it. The line of light snaps shut, and for one heartbeat the frame of your recoil is held in the black — your shoulders, your lifted paw, your eyes leaving the thing — and then the seam is closed again.
 
-No one nearby reacts. The crowd keeps breaking around you, all claws and tails and panic.
+No one nearby reacts. The crowd keeps breaking around you.
 
 *That means it heard you too.*
 
@@ -60,19 +58,17 @@ The black fragment goes dark.
 
 Across Gistli Square, three things happen at once.
 
-At the entrance to Commerce District, the old sign above **Antiquarian Books & Sundries** swings though there is no wind. P'taxx stands beneath it, staring directly at the object by your paw.
+At the entrance to Commerce District, the sign above **Antiquarian Books & Sundries** swings though there is no wind. P'taxx stands beneath it, staring directly at the object by your paw.
 
-On the temple road, three white-robed acolytes of **Aard Templu Voreath** are pushing against the fleeing crowd. One carries an iron reliquary already open.
+On the temple road, three white-robed acolytes of **Aard Templu Voreath** push against the fleeing crowd. One carries an iron reliquary already open.
 
 And at the mouth of a narrow alley, a soot-gray stray with half an ear missing looks at you, looks at the black fragment, and mouths two words you cannot hear.
 
 Then he runs.
 
-The fourth bell rings again.
+The fourth bell rings again. This time, something beneath Faelspire knocks back.
 
-This time, something beneath Faelspire knocks back.
-
-You do not want to be measured. You do not want to be the subject of a reading you did not choose to be in. The fragment has already kept one frame of you, and the frame is filed, and the city is about to choose what it will do with you next.
+You do not want to be measured. You have spent two years being a cat the city can measure: the satchel, the seals, the weight of the unfinished. The fragment has already kept one frame of you, and the frame is filed.
 
 ---
 
