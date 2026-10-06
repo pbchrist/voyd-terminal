@@ -1,6 +1,1 @@
-{
-  "status": "passed",
-  "human_input_required": false,
-  "final_replay": "passed",
-  "summary": "[route: local-qwen] HONE cycle: implemented mut-1-satchel and mut-2-want in scenes 000 and 010, grounding the protagonist's role (runner of sealed corrections) and want (not being measured, the unmeasured self) in the fiction. Both scenes pass at 550 words. Final replay walk confirms the targeted failure is gone."
-}
+{"status": "passed", "human_input_required": false, "final_replay": "passed", "summary": "ADVANCE cycle 20261006T104924Z: M1 (The Runner's Shift) implemented on the 040d line — new scene 040d-1 dramatizes the protagonist's role as a runner (delivers a sealed correction to the dyer); the method is measuring the work, not the flinch; WITHHELD invariant held; seven leaves, no deletion, no reconvergence; validate_story_v3 PASSED; independent final replay PASSED; plate render failed (PIL missing) — logged, non-gating."}

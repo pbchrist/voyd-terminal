@@ -45,17 +45,17 @@
       "available_actions": [],
       "causal_chain": [{"cause": "The protagonist recognizes the induced flinch and holds their gaze.", "effect": "The new record remains unfinished and the cistern can no longer close.", "source": "story/scenes/040c-the-second-question.md"}]
     },    {
-      "branch_id": "stray_dead_sliver",
-      "scene": "story/scenes/040d-the-second-question.md",
-      "location": "the courtyard with the scarred stray",
-      "facts": ["The living fragment contains a completed record of the protagonist's first recoil.", "The stray's sliver died when he stopped completing its tests.", "The protagonist interrupted the second record.", "Faelspire has gone silent after the fragment exposed the protagonist's withheld name."],
-      "knowledge": {"protagonist": ["fragment_method_known", "a fragment can die when its subject stops completing the test", "the dead sliver is evidence of a failure mode"], "stray": ["the protagonist's name is legible", "his dead sliver stopped when he stopped answering"]},
-      "relationships": [{"with": "scarred stray", "state": "present; cooperating under immediate citywide pressure"}],
-      "irreversible_changes": ["The protagonist's name became legible through the replay.", "Faelspire's rooftop cats fell silent."],
-      "spent_resources": ["anonymity"],
-      "open_pressures": ["Use the dead sliver's failure before the system begins testing another cat."],
+      "branch_id": "stray_dead_sliver_shift",
+      "scene": "story/scenes/040d-1-the-runners-shift.md",
+      "location": "the dyer's house, then the courtyard with the stray",
+      "facts": ["The protagonist delivered a sealed correction to the dyer: a dyer's daughter filed under a name that was never hers.", "The dyer broke the seal, read the correction, and is free of the name.", "The method is measuring the work, not the flinch.", "The city is watching the work, not filing the carrier.", "Faelspire is silent; the silence is the city watching the work."],
+      "knowledge": {"protagonist": ["the work is the delivery, and the delivery is the act, and the act is the cause", "the method measures the work, not the flinch", "the city watches the work"], "dyer": ["the name that was never the dyer's is the name the method has for the work"], "stray": ["the runner's scar is the scar of a former runner", "the work is the delivery"]},
+      "relationships": [{"with": "the dyer", "state": "free of the name; the dyer is the dyer"}, {"with": "scarred stray", "state": "present; watching the work"}],
+      "irreversible_changes": ["The dyer is free of the name that was never the dyer's.", "The method is measuring the work, not the flinch.", "The satchel is empty of the correction."],
+      "spent_resources": ["the sealed correction (the dyer's daughter's name)", "the protagonist's anonymity (the city watched the work)"],
+      "open_pressures": ["The method has a name for the work, and the name is the name of the carrier, not the name of the runner.", "Can the runner do the work without the name?"],
       "available_actions": [],
-      "causal_chain": [{"cause": "The protagonist holds their gaze while the replay tries to complete a second recoil.", "effect": "The second record stalls and the dead sliver reveals a way the test can fail.", "source": "story/scenes/040d-the-second-question.md"}]
+      "causal_chain": [{"cause": "The protagonist delivers the sealed correction to the dyer.", "effect": "The dyer is free of the name; the method measures the work, not the flinch; the city watches the work.", "source": "story/scenes/040d-1-the-runners-shift.md"}]
     },
     {
       "branch_id": "antiquarian_pull_the_lever",

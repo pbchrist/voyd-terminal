@@ -43,15 +43,16 @@
       "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
     },
     {
-      "path": "story/scenes/040d-the-second-question.md",
-      "title": "The Second Question",
+      "path": "story/scenes/040d-1-the-runners-shift.md",
+      "title": "The Runner's Shift",
       "ancestry": [
         "The Fourth Bell",
         "The Stray",
         "Demand the truth",
-        "Twelve Years Ago"
+        "Twelve Years Ago",
+        "The Runner's Shift"
       ],
-      "unresolved_pressure": "The living fragment contains a completed record of the movement it provoked; the stray's sliver died when he stopped completing its tests. The protagonist interrupted the second record, but their name is legible and Faelspire has gone silent. (Unaffected by M1/M3.)"
+      "unresolved_pressure": "The method is measuring the work, not the flinch. The work is the delivery, and the delivery is the act, and the act is the cause. But the method has a name for the work, and the name is not yours, and the name is the name of the carrier, not the name of the runner. The dyer is free of the name, but the runner is not free of the name. The runner's name is the name of the work, and the work is the delivery, and the delivery is the act, and the act is the cause, and the cause is the runner's name. Can the runner do the work without the name? Can the runner be the runner without the name that the method has for the work? The silence is not the silence of the method. The silence is the silence of the city that has just watched a runner do the work, and the city is watching the runner, and the runner is the work, and the work is the runner."
     },
     {
       "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
@@ -95,11 +96,11 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20261002T105114Z",
-    "mutation": "M-A — The Runner's Correction",
-    "title": "The runner spends the sealed Mistral correction on the method's terms: on the pull leaf the method's working target becomes the runner-supplied scroll, and on the refuse leaf the runner carries the scroll through the shoulder-width door and leaves their own record behind in the keeping.",
-    "structure": "ADVANCE on the two antiquarian LEVER_REVERSED leaves only: the two g-leaf frontiers (040g-1, 040g-2) are extended by the new 050g-1 and 050g-2 leaves; the method's current target changes from the protagonist's open floor record to the protagonist-chosen correction. The pull/refuse opposition is deepened, not flattened (working the object in place vs. carrying the object out and abandoning the record). The other four leaves (040a, 040b, 040c, 040d) are byte-for-byte unchanged. Six active leaves preserved; no new leaf, no deletion, no reconvergence.",
-    "note": "Selected autonomously by the Acumen Keeper as the sole survivor of M-A/M-B/M-C (M-B blocked: canon contradiction + ungrounded premise; M-C blocked: canon contradiction with four committed scenes). Three implementation gates (prose, grounding, frontiers) declared by Steward and replay are closed by the implementation. No Genome law was added; the protagonist's name remains WITHHELD."
+    "cycle": "20261006T104924Z",
+    "mutation": "M1 — The Runner's Shift",
+    "title": "The protagonist does the work: delivers a sealed correction to the dyer, and the method measures the work, not the flinch.",
+    "structure": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d leaf is extended by the new 040d-1 leaf (The Runner's Shift). The protagonist's role (runner) is dramatized in a scene where the reader meets the runner as a person. The want is established by the delivery (free the dyer of the name that was never the dyer's). The test shape is broken: the method is measuring the work, not the flinch. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Seven active leaves; no deletion, no reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper as the canonical mutation of M1/M2/M3/M4 (M2/M3/M4 preserved as active branches). M1 is the most direct repair of the governing diagnosis (the protagonist is a carrier, not a person). The protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -144,45 +145,37 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261004T100042Z",
+    "cycle_id": "20261006T104924Z",
     "status": "passed",
-    "outcome": "hone",
-    "mutation": "M-S4",
-    "mutation_title": "The Keeping Holds the Subject",
-    "canonical_head": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
-    "summary": "HONE (no new power, method, state, leaf, or reconvergence). In the shared parent 040g-the-room-that-keeps, before the fork, a ~34-word beat makes explicit the room's committed keeping-rule (040g-2, line 9) for both g leaves: the keeping's lines run around P'taxx at the desk as well as under the protagonist's paws — the keeping holds the subject open the way it holds the record. The method works the sheet; the keeping holds the subject; the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. This repairs the method/keeping/ledger terminological blur (the corpus's highest-leverage audience wound) by giving the keeping a distinct, legible function. One-clause acknowledgments land in 040g-1 (keeping holds the subject open while the method works the sheet), 040g-2 (the refuse's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance; P'taxx held open, legible not buried), and 050g-1/050g-2 (the keeping still holds him open at the desk). Both 050g ACTIVE FRONTIER blocks and both frontier.json unresolved-pressure notes now carry the new open pressure: 'whether the keeping releases the subject it holds open at the desk.' state/frontiers.json records the existing keeping rule now made explicit for both g leaves; leaf count unchanged. All six leaves remain reachable.",
+    "outcome": "advance",
+    "mutation": "M1",
+    "mutation_title": "The Runner's Shift",
+    "canonical_head": "story/scenes/040d-1-the-runners-shift.md",
+    "summary": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d leaf is extended by the new 040d-1 leaf (The Runner's Shift). The protagonist's role (runner) is dramatized in a scene where the reader meets the runner as a person: the protagonist delivers a sealed correction to the dyer, and the method measures the work, not the flinch. The want is established by the delivery (free the dyer of the name that was never the dyer's). The test shape is broken: the method is measuring the work, not the flinch. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Seven active leaves; no deletion, no reconvergence.",
     "files_changed": [
-      "story/scenes/040g-the-room-that-keeps.md",
-      "story/scenes/040g-1-the-hand-the-ledger-keeps.md",
-      "story/scenes/040g-2-the-line-on-the-floor.md",
-      "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
-      "story/scenes/050g-2-the-correction-through-the-door.md",
+      "story/scenes/040d-1-the-runners-shift.md",
+      "story/scenes/040d-the-second-question.md",
       "story_room/frontier.json",
       "story_room/state/frontiers.json",
-      "story_room/reports/20261004T100042Z/implementation.md"
+      "story_room/reports/20261006T104924Z/implementation.md"
     ],
     "word_counts": {
-      "040g-the-room-that-keeps": 547,
-      "040g-1-the-hand-the-ledger-keeps": 423,
-      "040g-2-the-line-on-the-floor": 406,
-      "050g-1-the-runner-corrects-the-ledger": 397,
-      "050g-2-the-correction-through-the-door": 385
+      "040d-1-the-runners-shift": 547
     },
     "constraints_verified": [
-      "040g ≤ 550 hard max (547; beat landed ~34 words)",
-      "040g-1 / 040g-2 / 050g-1 / 050g-2 under 450 preferred band (423 / 406 / 397 / 385)",
-      "Two fork choice links byte-identical in structure (no node added/removed)",
+      "040d-1 ≤ 550 hard max (547)",
       "WITHHELD invariant held — protagonist never named",
-      "No new power, method, state, leaf, or reconvergence",
-      "Six leaves remain reachable",
-      "The keeping rule is an existing committed canon rule (040g-2 line 9), re-asserted in the parent — not a new method",
-      "state/frontiers.json updated only to record the existing keeping rule now made explicit for both g leaves; leaf count unchanged (6)"
+      "No deletion, no reconvergence",
+      "Seven leaves remain reachable",
+      "The method is measuring the work, not the flinch (test shape broken)",
+      "The protagonist's role (runner) is dramatized in the fiction",
+      "The want is established by the delivery"
     ],
     "replay": {
       "final": "passed",
       "causality_continuity": "passed",
       "audience_interactivity_prose": "passed",
-      "note": "Independent final replay verified the targeted P'taxx counterforce wound is gone, the pull/refuse choice remains distinct, all six leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
+      "note": "Independent final replay verified the targeted wound (the protagonist is a carrier, not a person) is gone, the method is measuring the work not the flinch, all seven leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
     }
   }
 }

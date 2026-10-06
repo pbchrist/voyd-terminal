@@ -70,6 +70,4 @@ The stray looks up.
 
 ---
 
-## ◉ ACTIVE FRONTIER
-
-The living fragment contains a completed record of the movement it provoked from you; the stray's sliver died when he stopped completing its tests. You have interrupted your second record, but your name is now legible and Faelspire has gone silent. The next move must use the dead sliver's failure before the system begins testing another cat.
+### [Use the dead sliver's failure to show the method its own measurement](040d-1-the-runners-shift.md)
