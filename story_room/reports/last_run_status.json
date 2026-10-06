@@ -1,1 +1,6 @@
-{"status": "passed", "human_input_required": false, "final_replay": "passed", "summary": "ADVANCE cycle 20261006T104924Z: M1 (The Runner's Shift) implemented on the 040d line — new scene 040d-1 dramatizes the protagonist's role as a runner (delivers a sealed correction to the dyer); the method is measuring the work, not the flinch; WITHHELD invariant held; seven leaves, no deletion, no reconvergence; validate_story_v3 PASSED; independent final replay PASSED; plate render failed (PIL missing) — logged, non-gating."}
+{
+  "status": "passed",
+  "human_input_required": false,
+  "final_replay": "passed",
+  "summary": "[route: local-qwen] ADVANCE cycle 20261006T104924Z: M1 (The Runner's Shift) implemented on the 040d line \u2014 new scene 040d-1 dramatizes the protagonist's role as a runner (delivers a sealed correction to the dyer); the method is measuring the work, not the flinch; WITHHELD invariant held; seven leaves, no deletion, no reconvergence; validate_story_v3 PASSED; independent final replay PASSED; plate render failed (PIL missing) \u2014 logged, non-gating."
+}

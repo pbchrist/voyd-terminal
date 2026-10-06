@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-10-06T10:08:37Z",
-  "status": "failed",
+  "timestamp_utc": "2026-10-06T11:25:42Z",
+  "status": "passed",
   "human_input_required": false,
-  "final_replay": "failed",
-  "summary": "The cycle failed before judgment because delegated cold readers repeatedly invoked the explicitly forbidden execute_code tool; no fiction was published or committed."
+  "final_replay": "passed",
+  "summary": "[route: local-qwen] ADVANCE cycle 20261006T104924Z: M1 (The Runner's Shift) implemented on the 040d line \u2014 new scene 040d-1 dramatizes the protagonist's role as a runner (delivers a sealed correction to the dyer); the method is measuring the work, not the flinch; WITHHELD invariant held; seven leaves, no deletion, no reconvergence; validate_story_v3 PASSED; independent final replay PASSED; plate render failed (PIL missing) \u2014 logged, non-gating."
 }
