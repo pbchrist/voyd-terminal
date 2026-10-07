@@ -20,6 +20,7 @@ You walk out. The satchel is empty. The lightness is the weight of the work.
 
 The stray is at the cistern. The stray is watching you. The stray's scar is the scar of a former runner.
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The method is measuring the work, not the flinch. But the method has a name for the work, and the name is the name of the carrier, not the name of the runner. The dyer is free of the name. Can the runner do the work without the name?
+### [The work becomes the record →](040e-the-work-becomes-the-record.md)
+The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it. The city watched, and the watching is the test. The next carrying will be carried under the city's eyes, and the method will take that carrying too. The runner must do the work again — or refuse it.

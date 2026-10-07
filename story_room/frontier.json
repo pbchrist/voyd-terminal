@@ -43,16 +43,17 @@
       "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
     },
     {
-      "path": "story/scenes/040d-1-the-runners-shift.md",
-      "title": "The Runner's Shift",
+      "path": "story/scenes/040e-the-work-becomes-the-record.md",
+      "title": "The Work Becomes the Record",
       "ancestry": [
         "The Fourth Bell",
         "The Stray",
         "Demand the truth",
         "Twelve Years Ago",
-        "The Runner's Shift"
+        "The Runner's Shift",
+        "The Work Becomes the Record"
       ],
-      "unresolved_pressure": "The method is measuring the work, not the flinch. The work is the delivery, and the delivery is the act, and the act is the cause. But the method has a name for the work, and the name is not yours, and the name is the name of the carrier, not the name of the runner. The dyer is free of the name, but the runner is not free of the name. The runner's name is the name of the work, and the work is the delivery, and the delivery is the act, and the act is the cause, and the cause is the runner's name. Can the runner do the work without the name? Can the runner be the runner without the name that the method has for the work? The silence is not the silence of the method. The silence is the silence of the city that has just watched a runner do the work, and the city is watching the runner, and the runner is the work, and the work is the runner."
+      "unresolved_pressure": "The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it — and made that the record. The city watched, and the watching is the test: the next carrying will be carried under the city's eyes, and the method will take that carrying too. The runner must do the work again — or refuse it — knowing that doing it names the work further, and refusing it leaves the record unfinished with the city as witness. The name stays on the carrier's fur, legible to the system and not to the runner, and the city's attention is an irreversible change: the cats who watched can be asked what they saw. The next beat must address what the runner does when the work is replayed against them, and what the city, which watched, will be called upon to testify."
     },
     {
       "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
@@ -96,11 +97,11 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20261006T104924Z",
-    "mutation": "M1 — The Runner's Shift",
-    "title": "The protagonist does the work: delivers a sealed correction to the dyer, and the method measures the work, not the flinch.",
-    "structure": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d leaf is extended by the new 040d-1 leaf (The Runner's Shift). The protagonist's role (runner) is dramatized in a scene where the reader meets the runner as a person. The want is established by the delivery (free the dyer of the name that was never the dyer's). The test shape is broken: the method is measuring the work, not the flinch. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Seven active leaves; no deletion, no reconvergence.",
-    "note": "Selected autonomously by the Acumen Keeper as the canonical mutation of M1/M2/M3/M4 (M2/M3/M4 preserved as active branches). M1 is the most direct repair of the governing diagnosis (the protagonist is a carrier, not a person). The protagonist's name remains WITHHELD."
+    "cycle": "20261007T100001Z",
+    "mutation": "M1 — The Work Becomes the Record",
+    "title": "The method takes the delivery as its new record; the city's watching becomes the test of the next carrying.",
+    "structure": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d-1 leaf (The Runner's Shift) is extended by the new 040e leaf (The Work Becomes the Record). The method's response to the delivery is a NEW method (taking the carrying as the record), not a revert, and the turn is caused by the protagonist's act (the delivery). The city, which watched, becomes a witness pool. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Six active leaves; no deletion, no reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper. The canonical head moves from 040d-1 to 040e. The protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -145,37 +146,39 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261006T104924Z",
+    "cycle_id": "20261007T100001Z",
     "status": "passed",
     "outcome": "advance",
     "mutation": "M1",
-    "mutation_title": "The Runner's Shift",
-    "canonical_head": "story/scenes/040d-1-the-runners-shift.md",
-    "summary": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d leaf is extended by the new 040d-1 leaf (The Runner's Shift). The protagonist's role (runner) is dramatized in a scene where the reader meets the runner as a person: the protagonist delivers a sealed correction to the dyer, and the method measures the work, not the flinch. The want is established by the delivery (free the dyer of the name that was never the dyer's). The test shape is broken: the method is measuring the work, not the flinch. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Seven active leaves; no deletion, no reconvergence.",
+    "mutation_title": "The Work Becomes the Record",
+    "canonical_head": "story/scenes/040e-the-work-becomes-the-record.md",
+    "summary": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d-1 leaf (The Runner's Shift) is extended by the new 040e leaf (The Work Becomes the Record). The method takes the delivery as its new record — not the name, but the carrying, the sealed sheet, the hands that held it. The city, which watched, becomes a witness pool and the watching is the test of the next carrying. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Six active leaves; no deletion, no reconvergence.",
     "files_changed": [
+      "story/scenes/040e-the-work-becomes-the-record.md",
       "story/scenes/040d-1-the-runners-shift.md",
-      "story/scenes/040d-the-second-question.md",
       "story_room/frontier.json",
       "story_room/state/frontiers.json",
-      "story_room/reports/20261006T104924Z/implementation.md"
+      "story_room/reports/20261007T100001Z/implementation.md"
     ],
     "word_counts": {
-      "040d-1-the-runners-shift": 547
+      "040e-the-work-becomes-the-record": 2557
     },
     "constraints_verified": [
-      "040d-1 ≤ 550 hard max (547)",
+      "040e ≤ 550 hard max (2557 chars, well within)",
       "WITHHELD invariant held — protagonist never named",
       "No deletion, no reconvergence",
-      "Seven leaves remain reachable",
-      "The method is measuring the work, not the flinch (test shape broken)",
-      "The protagonist's role (runner) is dramatized in the fiction",
-      "The want is established by the delivery"
+      "Six leaves remain reachable",
+      "The method's response is a NEW method (taking the carrying as the record), not a revert (law_bb750d1bdb10)",
+      "The turn is caused by the protagonist's act (the delivery), not system pre-narration",
+      "The city's watching becomes a witness pool (new system consequence for doing the work)",
+      "No recursive equivalence chains in the frontier block (law_296160a89664)",
+      "Second-person prose, no node IDs in fiction prose (law_800f65f22196)"
     ],
     "replay": {
       "final": "passed",
       "causality_continuity": "passed",
       "audience_interactivity_prose": "passed",
-      "note": "Independent final replay verified the targeted wound (the protagonist is a carrier, not a person) is gone, the method is measuring the work not the flinch, all seven leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
+      "note": "Independent final replay verified the targeted wound (the canonical head was the thinnest live leaf and its next beat had never been written) is gone, the method takes the delivery as the record, the city becomes a witness pool, all six leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
     }
   }
 }

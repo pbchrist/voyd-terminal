@@ -46,16 +46,19 @@
       "causal_chain": [{"cause": "The protagonist recognizes the induced flinch and holds their gaze.", "effect": "The new record remains unfinished and the cistern can no longer close.", "source": "story/scenes/040c-the-second-question.md"}]
     },    {
       "branch_id": "stray_dead_sliver_shift",
-      "scene": "story/scenes/040d-1-the-runners-shift.md",
-      "location": "the dyer's house, then the courtyard with the stray",
-      "facts": ["The protagonist delivered a sealed correction to the dyer: a dyer's daughter filed under a name that was never hers.", "The dyer broke the seal, read the correction, and is free of the name.", "The method is measuring the work, not the flinch.", "The city is watching the work, not filing the carrier.", "Faelspire is silent; the silence is the city watching the work."],
-      "knowledge": {"protagonist": ["the work is the delivery, and the delivery is the act, and the act is the cause", "the method measures the work, not the flinch", "the city watches the work"], "dyer": ["the name that was never the dyer's is the name the method has for the work"], "stray": ["the runner's scar is the scar of a former runner", "the work is the delivery"]},
-      "relationships": [{"with": "the dyer", "state": "free of the name; the dyer is the dyer"}, {"with": "scarred stray", "state": "present; watching the work"}],
-      "irreversible_changes": ["The dyer is free of the name that was never the dyer's.", "The method is measuring the work, not the flinch.", "The satchel is empty of the correction."],
-      "spent_resources": ["the sealed correction (the dyer's daughter's name)", "the protagonist's anonymity (the city watched the work)"],
-      "open_pressures": ["The method has a name for the work, and the name is the name of the carrier, not the name of the runner.", "Can the runner do the work without the name?"],
+      "scene": "story/scenes/040e-the-work-becomes-the-record.md",
+      "location": "Gistli Square, then the city's walls and stones",
+      "facts": ["The protagonist delivered a sealed correction to the dyer: a dyer's daughter filed under a name that was never hers.", "The dyer broke the seal, read the correction, and is free of the name.", "The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it — and made that the record.", "The city watched the delivery, and the watching is the test of the next carrying.", "The name stays on the carrier's fur, legible to the system and not to the runner."],
+      "knowledge": {"protagonist": ["the work is the record", "the record is the test", "the test is the carrier", "the city watched the work", "the method took the delivery as the new record"], "dyer": ["the name that was never the dyer's is the name the method has for the work"], "stray": ["the runner's scar is the scar of a former runner", "the work is the delivery"], "city": ["the delivery happened", "the runner carried the sealed correction", "the method took the carrying"]},
+      "relationships": [{"with": "the dyer", "state": "free of the name; the dyer is the dyer"}, {"with": "scarred stray", "state": "present; watching the work"}, {"with": "the city", "state": "witness pool; the cats who watched can be asked what they saw"}],
+      "irreversible_changes": ["The dyer is free of the name that was never the dyer's.", "The method took the delivery as its new record.", "The city's attention is an irreversible change: the cats who watched can be asked what they saw.", "The name stays on the carrier's fur, legible to the system and not to the runner."],
+      "spent_resources": ["the sealed correction (the dyer's daughter's name)", "the protagonist's anonymity (the city watched the work)", "the method's separateness from the work (it now holds the work as a record)"],
+      "open_pressures": ["What the runner does when the work is replayed against them.", "What the city, which watched, will be called upon to testify.", "Whether the runner does the work again or refuses it, knowing that doing it names the work further and refusing it leaves the record unfinished with the city as witness."],
       "available_actions": [],
-      "causal_chain": [{"cause": "The protagonist delivers the sealed correction to the dyer.", "effect": "The dyer is free of the name; the method measures the work, not the flinch; the city watches the work.", "source": "story/scenes/040d-1-the-runners-shift.md"}]
+      "causal_chain": [
+        {"cause": "The protagonist delivers the sealed correction to the dyer.", "effect": "The dyer is free of the name; the method measures the work, not the flinch; the city watches the work.", "source": "story/scenes/040d-1-the-runners-shift.md"},
+        {"cause": "The method takes the delivery as its new record.", "effect": "The carrying, the sealed sheet, and the hands that held it become the record; the city's watching becomes the test of the next carrying; the name stays on the carrier's fur.", "source": "story/scenes/040e-the-work-becomes-the-record.md"}
+      ]
     },
     {
       "branch_id": "antiquarian_pull_the_lever",
