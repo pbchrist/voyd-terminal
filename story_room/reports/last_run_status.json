@@ -2,5 +2,5 @@
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "[route: local-qwen] ADVANCE cycle 20261006T104924Z: M1 (The Runner's Shift) implemented on the 040d line \u2014 new scene 040d-1 dramatizes the protagonist's role as a runner (delivers a sealed correction to the dyer); the method is measuring the work, not the flinch; WITHHELD invariant held; seven leaves, no deletion, no reconvergence; validate_story_v3 PASSED; independent final replay PASSED; plate render failed (PIL missing) \u2014 logged, non-gating."
+  "summary": "[route: local-qwen] ADVANCE: 040d-1 extended by new 040e (The Work Becomes the Record); the method takes the delivery as its new record, the city becomes a witness pool, six leaves remain reachable, validate_story_v3 PASS, commit bd58ac9."
 }
