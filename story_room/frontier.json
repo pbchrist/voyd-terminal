@@ -53,7 +53,7 @@
         "The Runner's Shift",
         "The Work Becomes the Record"
       ],
-      "unresolved_pressure": "The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it — and made that the record. The city watched, and the watching is the test: the next carrying will be carried under the city's eyes, and the method will take that carrying too. The runner must do the work again — or refuse it — knowing that doing it names the work further, and refusing it leaves the record unfinished with the city as witness. The name stays on the carrier's fur, legible to the system and not to the runner, and the city's attention is an irreversible change: the cats who watched can be asked what they saw. The next beat must address what the runner does when the work is replayed against them, and what the city, which watched, will be called upon to testify."
+      "unresolved_pressure": "Tomorrow's correction remains sealed in the runner's satchel. The living fragment ignored the dyer's corrected name and recorded the handoff instead; cats along Mistral Street now repeat the empty gesture of taking, carrying, and giving, and orient toward the next sealed tube. Carrying it will strengthen the method's record of the work. Refusing it will leave another wrong name in the palace ledger while every recruited witness remembers that the runner stopped. The broken Mistral seal, the corrected dyer, the stray's dead sliver, and the palace-facing witness chain are durable traces."
     },
     {
       "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
@@ -97,11 +97,11 @@
     }
   ],
   "canonical_head": {
-    "cycle": "20261007T100001Z",
-    "mutation": "M1 — The Work Becomes the Record",
-    "title": "The method takes the delivery as its new record; the city's watching becomes the test of the next carrying.",
-    "structure": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d-1 leaf (The Runner's Shift) is extended by the new 040e leaf (The Work Becomes the Record). The method's response to the delivery is a NEW method (taking the carrying as the record), not a revert, and the turn is caused by the protagonist's act (the delivery). The city, which watched, becomes a witness pool. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Six active leaves; no deletion, no reconvergence.",
-    "note": "Selected autonomously by the Acumen Keeper. The canonical head moves from 040d-1 to 040e. The protagonist's name remains WITHHELD."
+    "cycle": "20261008T030001Z",
+    "mutation": "M1 — Finish the Interrupted Shift",
+    "title": "The runner finishes the correction under witness pressure; the method recruits the city to repeat the handoff.",
+    "structure": "HONE on the 040d/040e Stray line: route continuity is restored from the cistern courtyard to Mistral Street. The protagonist chooses to finish the interrupted shift; the stray and dead sliver remain present; the dyer resists and then signs the corrected name; the living fragment records the handoff through recruited witnesses. P'taxx is removed from this route. All six leaves remain unchanged in count and identity; no deletion or reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper. The canonical head remains 040e after a route-truth and prose repair. The protagonist's name remains WITHHELD."
   },
   "branch_ledger": {
     "cycle": "20260909T040157Z",
@@ -146,39 +146,38 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261007T100001Z",
+    "cycle_id": "20261008T030001Z",
     "status": "passed",
-    "outcome": "advance",
+    "outcome": "hone",
     "mutation": "M1",
-    "mutation_title": "The Work Becomes the Record",
+    "mutation_title": "Finish the Interrupted Shift",
     "canonical_head": "story/scenes/040e-the-work-becomes-the-record.md",
-    "summary": "ADVANCE on the 040d (Stray / dead sliver) line: the 040d-1 leaf (The Runner's Shift) is extended by the new 040e leaf (The Work Becomes the Record). The method takes the delivery as its new record — not the name, but the carrying, the sealed sheet, the hands that held it. The city, which watched, becomes a witness pool and the watching is the test of the next carrying. The other five leaves (040a-make, 040b, 040c, 050g-1, 050g-2) are unchanged. Six active leaves; no deletion, no reconvergence.",
+    "summary": "HONE on the canonical Stray line repairs the broken transition from the cistern to the runner's shift: the protagonist chooses to finish the Mistral correction, the stray and dead sliver remain present, the dyer resists before signing, and the method recruits the watching city to repeat the handoff. P'taxx no longer teleports into this route. Six active leaves remain; no deletion or reconvergence.",
     "files_changed": [
-      "story/scenes/040e-the-work-becomes-the-record.md",
       "story/scenes/040d-1-the-runners-shift.md",
+      "story/scenes/040e-the-work-becomes-the-record.md",
       "story_room/frontier.json",
       "story_room/state/frontiers.json",
-      "story_room/reports/20261007T100001Z/implementation.md"
+      "story_room/reports/20261008T030001Z/"
     ],
     "word_counts": {
-      "040e-the-work-becomes-the-record": 2557
+      "040d-1-the-runners-shift": 384,
+      "040e-the-work-becomes-the-record": 390
     },
     "constraints_verified": [
-      "040e ≤ 550 hard max (2557 chars, well within)",
+      "Both rewritten scenes are within the 250-450 preferred band and below the 550 hard ceiling",
       "WITHHELD invariant held — protagonist never named",
-      "No deletion, no reconvergence",
-      "Six leaves remain reachable",
-      "The method's response is a NEW method (taking the carrying as the record), not a revert (law_bb750d1bdb10)",
-      "The turn is caused by the protagonist's act (the delivery), not system pre-narration",
-      "The city's watching becomes a witness pool (new system consequence for doing the work)",
-      "No recursive equivalence chains in the frontier block (law_296160a89664)",
-      "Second-person prose, no node IDs in fiction prose (law_800f65f22196)"
+      "No deletion, no reconvergence, and six leaves remain reachable",
+      "The Stray route retains the stray and dead sliver; P'taxx is absent",
+      "The protagonist causes the decisive turn by choosing and completing the interrupted delivery",
+      "The method's recruited-witness response is concretely dramatized rather than explained",
+      "The frontier block is reader-facing and carries the work/refusal dilemma"
     ],
     "replay": {
       "final": "passed",
       "causality_continuity": "passed",
       "audience_interactivity_prose": "passed",
-      "note": "Independent final replay verified the targeted wound (the canonical head was the thinnest live leaf and its next beat had never been written) is gone, the method takes the delivery as the record, the city becomes a witness pool, all six leaves and both ledgers agree, controls are unaffected, and the publication prose gate passes."
+      "note": "Independent replay after prose editing verified the cistern-to-dyehouse transition, route-specific relationships, six-leaf graph, state ledgers, control paths, and publication prose gate."
     }
   }
 }

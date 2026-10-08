@@ -1,26 +1,50 @@
 # The Runner's Shift
 
-You do not hold. You do not refuse. You walk.
+The dead sliver lies between you and the cistern, dark again.
 
-The satchel is on your back. Inside it, a sealed correction: a dyer's daughter, filed under a name that was never hers, the seal unbroken. You have carried it for three days.
+Every rooftop cat in Faelspire has stopped screaming. They are looking into the courtyard.
 
-You walk to the dyer's house. The door is open. The dyer is at the bench, paws in the indigo.
+You reach into your satchel.
 
-You place the correction on the bench. The dyer's paws stop.
+The scroll for the dyehouse on Mistral Street has ridden against your spine for three days. The palace filed the dyer under her dead mother's name. It will not accept the correction until the dyer signs for the error in the name that made it.
 
-"This is not my name," the dyer says.
+The stray watches you draw the sealed tube. “What are you doing?”
 
-"No. It is not."
+“Finishing my shift.”
 
-The dyer breaks the seal. The dyer reads. The dyer's face is the face of a cat who has just learned that the name they have carried for three years is not their own. The dyer looks at the indigo on their paws. The indigo is drying. The name that was never the dyer's is drying with it.
+“The thing in your paw just taught the city your name.”
 
-The method is not measuring the flinch. The city is watching the work. The silence is the silence of the city that has just watched a runner do the work, and the city is not filing the carrier, and the city is watching the work.
+“Then let it watch what the name is for.”
 
-You walk out. The satchel is empty. The lightness is the weight of the work.
+You wrap the dead sliver in its blue cloth and tuck it beside the correction. The living fragment turns toward the satchel. Its seam stays shut.
 
-The stray is at the cistern. The stray is watching you. The stray's scar is the scar of a former runner.
+You leave the courtyard. The stray follows.
 
-## Choose your path
+Cats line the roofs from the drainage quarter to Mistral Street. None calls down. Their heads turn as you pass, one after another, keeping pace with the satchel.
 
-### [The work becomes the record →](040e-the-work-becomes-the-record.md)
-The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it. The city watched, and the watching is the test. The next carrying will be carried under the city's eyes, and the method will take that carrying too. The runner must do the work again — or refuse it.
+At the dyehouse, indigo steam presses through the open door. The dyer stands over a vat with both forepaws stained blue. When she sees the palace seal, she wipes them on her apron. When she sees the silent street behind you, she steps back.
+
+“Not with them watching.”
+
+You set the tube on her bench. “If you do not open it, the wrong name stays yours and the unfinished correction stays mine.”
+
+The fragment opens in your paw.
+
+The dyer looks at the orange seam. You place the wrapped dead sliver beside it.
+
+“That one kept asking until a cat stopped answering,” you say. “This is not its question. It is our work.”
+
+The dyer holds your gaze. Then she breaks the palace seal.
+
+She reads the correction once. Her stained paw shakes. At the bottom, where the palace requires the inherited name, she draws one blue line through it and signs the name she uses.
+
+The fragment does not turn toward the name.
+
+It turns toward your paws as you take the signed sheet and give her the corrected copy.
+
+Outside, a hundred empty paws lift at once.
+
+---
+
+### [Follow what the witnesses kept →](040e-the-work-becomes-the-record.md)
+The city did not copy the dyer's name. It copied the handoff.

@@ -1,41 +1,55 @@
 # The Work Becomes the Record
 
-The name reaches the palace before the light does.
+The first cat lowers an empty paw toward the next.
 
-You feel it leave the satchel the way you feel a breath leave a closed paw — not gone, just no longer yours to keep. The sealed sheet is gone. The seals are broken. The corridor outside the gate is empty of everything except the cats who were not running.
+The next cat receives nothing and passes nothing on.
 
-They are the ones who watched.
+Along Mistral Street, the gesture travels from roof to sill to paving stone: take, carry, give. None of the cats looks at the dyer's signed correction. They watch your paws and repeat what your paws just did.
 
-They stand on the wall and the stones and the edge of the square, and they are not moving, and they are not looking at the palace. They are looking at you. The dyer's indigo is on one of their paws. The Antiquarian's satchel is over one of their shoulders. The cats who carried the name on their fur since the square are still wearing it, and now more of them are wearing it.
+The fragment's orange seam opens wider with every handoff.
 
-The method took the delivery.
+You catch the nearest watcher by the wrist. He is a chimney sweep, soot to both elbows. His empty paw strains toward a fish seller across the street.
 
-It did not chase you. It did not read you. It did not file a frame or break a seal or spend a ring. It took the one thing the work has always been — the carrying, the sealed sheet, the hands that held it — and it made that the record.
+“What did you see?” you ask.
 
-P'taxx's paw is on your shoulder. His face is the face of a cat who has just learned what a runner is for.
+“You gave it away.”
 
-"The work is the record," he says.
+“What?”
 
-"Yes."
+He blinks. “I don't know.”
 
-"And the record is the test."
+His paw falls. The fish seller's rises.
 
-"Yes."
+The stray comes out of the dyehouse carrying the dead sliver in its blue cloth. “Mine wanted the answer,” he says.
 
-"And the test is the carrier."
+“This one wants the work.”
 
-You do not answer that one.
+The dyer appears behind him. Indigo marks the broken palace seal where she held it. She looks from the corrected copy in her paw to the cats passing emptiness toward the Royal Palace.
 
-You stand on the stones of Gistli Square, and the city watches you, and the method has your work, and the work has your name. You will have to do the work again. You will have to carry the sealed sheet, the broken seals, the indigo on your paws, the name on your fur. And the city will watch, and the method will take the carrying, and the carrying will be the record, and the record will be the test, and the test will be the carrier, and the carrier will be you.
+“They saw you bring it,” she says.
+
+“They saw you sign.”
+
+“No.” She points with the correction. “They saw who carried it.”
+
+Another sealed tube knocks against your ribs inside the satchel. Tomorrow's delivery. Until this moment it was only unfinished work.
+
+Now every raised paw on Mistral Street turns toward the sound.
+
+You press the satchel flat against your side. The movement runs through the witnesses anyway: a hundred paws close over a hundred absent straps. The method no longer needs to startle you into looking away. It has recruited the cats who watched you finish the shift. Each of them can keep the shape of the carrying for the next.
+
+The stray bares his teeth at the fragment. “Stop working.”
+
+The dyer grips her corrected name. “And leave the next cat filed wrong?”
 
 The fourth bell rings.
 
-The city does not move.
+The witnesses pass their empty burden one step closer to the palace.
 
-The method waits.
+You still have tomorrow's correction. The city already knows how you will carry it.
 
 ---
 
 ## ◉ ACTIVE FRONTIER
 
-The method has taken the work as its new record. The city watched the delivery, and the watching is the test: the next carrying will be carried under the city's eyes, and the method will take that carrying too. The runner must do the work again — or refuse it — knowing that doing it names the work further, and refusing it leaves the record unfinished with the city as witness. The name stays on the carrier's fur, legible to the system and not to the runner, and the city's attention is an irreversible change: the cats who watched can be asked what they saw. The next beat must address what the runner does when the work is replayed against them, and what the city, which watched, will be called upon to testify.
+Tomorrow's correction remains sealed in your satchel. Carry it, and the watching city will strengthen the method's record of your work. Refuse it, and another wrong name stays in the palace ledger while every witness remembers that you stopped.

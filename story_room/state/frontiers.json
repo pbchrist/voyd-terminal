@@ -44,20 +44,22 @@
       "open_pressures": ["Confront the kit without letting the fragment choose the response first."],
       "available_actions": [],
       "causal_chain": [{"cause": "The protagonist recognizes the induced flinch and holds their gaze.", "effect": "The new record remains unfinished and the cistern can no longer close.", "source": "story/scenes/040c-the-second-question.md"}]
-    },    {
+    },
+    {
       "branch_id": "stray_dead_sliver_shift",
       "scene": "story/scenes/040e-the-work-becomes-the-record.md",
-      "location": "Gistli Square, then the city's walls and stones",
-      "facts": ["The protagonist delivered a sealed correction to the dyer: a dyer's daughter filed under a name that was never hers.", "The dyer broke the seal, read the correction, and is free of the name.", "The method took the delivery — not the name, but the carrying, the sealed sheet, the hands that held it — and made that the record.", "The city watched the delivery, and the watching is the test of the next carrying.", "The name stays on the carrier's fur, legible to the system and not to the runner."],
-      "knowledge": {"protagonist": ["the work is the record", "the record is the test", "the test is the carrier", "the city watched the work", "the method took the delivery as the new record"], "dyer": ["the name that was never the dyer's is the name the method has for the work"], "stray": ["the runner's scar is the scar of a former runner", "the work is the delivery"], "city": ["the delivery happened", "the runner carried the sealed correction", "the method took the carrying"]},
-      "relationships": [{"with": "the dyer", "state": "free of the name; the dyer is the dyer"}, {"with": "scarred stray", "state": "present; watching the work"}, {"with": "the city", "state": "witness pool; the cats who watched can be asked what they saw"}],
-      "irreversible_changes": ["The dyer is free of the name that was never the dyer's.", "The method took the delivery as its new record.", "The city's attention is an irreversible change: the cats who watched can be asked what they saw.", "The name stays on the carrier's fur, legible to the system and not to the runner."],
-      "spent_resources": ["the sealed correction (the dyer's daughter's name)", "the protagonist's anonymity (the city watched the work)", "the method's separateness from the work (it now holds the work as a record)"],
-      "open_pressures": ["What the runner does when the work is replayed against them.", "What the city, which watched, will be called upon to testify.", "Whether the runner does the work again or refuses it, knowing that doing it names the work further and refusing it leaves the record unfinished with the city as witness."],
-      "available_actions": [],
+      "location": "Mistral Street outside the dyehouse",
+      "facts": ["The protagonist chose to finish the interrupted shift after the dead sliver failed.", "The dyer broke the palace seal, crossed out the inherited wrong name, and signed the name she uses.", "The living fragment ignored the corrected name and recorded the handoff instead.", "Cats along Mistral Street involuntarily repeat the empty gesture of taking, carrying, and giving.", "Another sealed correction remains in the protagonist's satchel for tomorrow."],
+      "knowledge": {"protagonist": ["the dead sliver starved when the stray stopped answering", "ordinary runner work can redirect the living method away from a forced flinch", "the method has recruited witnesses to keep the shape of the carrying", "the next correction will be watched"], "dyer": ["the city saw who carried the correction", "the corrected name is hers to hold"], "stray": ["the living fragment now wants the runner's work rather than an answer"], "city": ["the protagonist carried and delivered the correction", "the handoff can be repeated even without the sheet"]},
+      "relationships": [{"with": "the dyer", "state": "corrected and exposed as a witness to the runner's delivery"}, {"with": "scarred stray", "state": "present; carried the dead sliver and now urges the protagonist to stop working"}, {"with": "the city", "state": "recruited witness pool repeating the runner's handoff"}],
+      "irreversible_changes": ["The dyer's palace correction is signed under the name she uses.", "The Mistral correction's palace seal is broken.", "The method has recruited the watching cats to preserve and repeat the carrying gesture.", "The runner's future work is publicly exposed to the palace-facing witness chain."],
+      "spent_resources": ["the Mistral Street dyer's sealed correction", "privacy of the runner's work", "the witnesses' freedom from the method's carrying gesture"],
+      "open_pressures": ["Whether the protagonist carries tomorrow's sealed correction while the city repeats the work.", "Whether refusing the next delivery leaves another wrong name in the palace ledger.", "What the palace does when the witness chain and broken seal reach it."],
+      "available_actions": ["Carry tomorrow's correction despite the recruited witnesses", "Refuse the next delivery and leave the wrong name uncorrected", "Use the witness chain to confront the palace with what it saw"],
       "causal_chain": [
-        {"cause": "The protagonist delivers the sealed correction to the dyer.", "effect": "The dyer is free of the name; the method measures the work, not the flinch; the city watches the work.", "source": "story/scenes/040d-1-the-runners-shift.md"},
-        {"cause": "The method takes the delivery as its new record.", "effect": "The carrying, the sealed sheet, and the hands that held it become the record; the city's watching becomes the test of the next carrying; the name stays on the carrier's fur.", "source": "story/scenes/040e-the-work-becomes-the-record.md"}
+        {"cause": "The dead sliver proves that refusing a forced answer can starve a measurement.", "effect": "The protagonist chooses to finish the interrupted shift as a different action the living fragment must answer.", "source": "story/scenes/040d-the-second-question.md"},
+        {"cause": "The protagonist insists that the dyer open and sign the correction despite the watching street.", "effect": "The wrong inherited name is crossed out, the palace seal is broken, and the living fragment turns toward the handoff rather than the name.", "source": "story/scenes/040d-1-the-runners-shift.md"},
+        {"cause": "The method records the protagonist's handoff.", "effect": "The watching cats repeat the empty carrying gesture and orient toward tomorrow's sealed correction, exposing the runner's future work.", "source": "story/scenes/040e-the-work-becomes-the-record.md"}
       ]
     },
     {
