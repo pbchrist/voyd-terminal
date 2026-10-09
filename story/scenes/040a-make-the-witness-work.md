@@ -24,7 +24,7 @@ They are not looking at you. They are looking through you, at the filed frame of
 
 The seam turns.
 
-Not away from you. Around you. The light on the floor swings, and you feel it take you the way it took the copy — not the frame, the name. Your name. The one the door carved beneath **FILED** in the second question. The record about you is the one that was never finished, and you have just made yourself the subject of the only reading you did not choose to be in, one more time, and the seam files it under your name the same way it filed the copy's flinch.
+Not away from you. Around you. The light on the floor swings, and you feel it take you the way it took the copy — not the frame, the name. Your name, the one the door carved beneath **FILED**. The record about you is the one that was never finished, and you have just made yourself its subject, one more time.
 
 You are not the only cat it has not finished.
 
@@ -38,6 +38,10 @@ The room holds all three of you: the cat who is a subject, the cat who is a subj
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The protagonist deployed the reclassified copy as the lever — they stood behind it, let the seam file the look-away under the copy's name, and in doing so paid the WANT in its exact currency: they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record — the one that was never finished — is now being finished under their own name. The exit is still closed. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect.
+### [Let the witness stand →](040a-1-the-witness-stands.md)
+The copy works for the ledger. The lever is real. Your own record — the one that was never finished — is now being finished under your name, and the finishing is the work. The subject can still make a move the method does not expect.
+
+### [Unmake the witness →](040a-2-the-witness-unmade.md)
+Pull the copy back into the semicircle. Close the seam. Over-carve the OPEN line. Re-close the door. Reclaim unmeasurability at the cost of the lever — the system's counter-move is a retreat, and the test widens.

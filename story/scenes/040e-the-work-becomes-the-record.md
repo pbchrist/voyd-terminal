@@ -50,6 +50,10 @@ You still have tomorrow's correction. The city already knows how you will carry 
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-Tomorrow's correction remains sealed in your satchel. Carry it, and the watching city will strengthen the method's record of your work. Refuse it, and another wrong name stays in the palace ledger while every witness remembers that you stopped.
+### [Carry tomorrow's correction through the palace door →](040e-1-the-carrying.md)
+The net on Mistral Street has the shape of your work. Carry the tube, and the watching city will strengthen the method's record of the work — and your own unfinished record stays open under your other paw, the one the method will turn back to when it finishes the Mistral's sheet.
+
+### [Refuse the correction and let the wrong name stay →](040e-2-the-refusal.md)
+Leave the tube sealed in your satchel. The net carries the shape of the handoff without the work, another wrong name stays in the palace ledger, and every recruited witness remembers that you stopped.

@@ -5,8 +5,8 @@
   "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
   "active_frontiers": [
     {
-      "path": "story/scenes/040a-make-the-witness-work.md",
-      "title": "Make the Witness Work",
+      "path": "story/scenes/040a-1-the-witness-stands.md",
+      "title": "The Witness Stands",
       "ancestry": [
         "The Fourth Bell",
         "The Antiquarian",
@@ -15,9 +15,26 @@
         "The Filing",
         "The Crossing Question",
         "The Witness You Made",
-        "Make the Witness Work"
+        "Make the Witness Work",
+        "The Witness Stands"
       ],
-      "unresolved_pressure": "The protagonist committed to the seam: they turned their face to the opened seam, put the copy in the middle of the aim, and let the seam file the look-away under the copy's name. In doing so they paid the WANT in its exact currency \u2014 they became the subject of the reading they did not choose to be in. The lever is real, the copy works for the ledger, and the protagonist's record \u2014 the one that was never finished \u2014 is now being finished under their own name. The exit is still closed. The N1 reclassification beat (the witness \u2192 subject filing) is preserved. The next scene must address what it means to be the one the ledger is finishing, and whether a subject can still make a move the method does not expect."
+      "unresolved_pressure": "The witness stands. The copy works for the ledger. The protagonist's own record — the one that was never finished — is finished under their own name; the finishing is the work. The lever is spent. The next move must address whether a subject can still make a move the method does not expect, and what the ledger does when the record it is working on is the one who made the witness."
+    },
+    {
+      "path": "story/scenes/040a-2-the-witness-unmade.md",
+      "title": "The Witness Unmade",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work",
+        "The Witness Unmade"
+      ],
+      "unresolved_pressure": "The witness is unmade. The copy is a cat. The lever is gone. The method's test reverts to 'Will you flinch?' and widens to the city. The protagonist's own record is the one that was never finished — it is not being finished now, but the method will turn back to it when it finishes the city. The next move must address what the city does when the test widens, and whether the unmade witness can be remade at the cost of the unmeasurability the protagonist just reclaimed."
     },
     {
       "path": "story/scenes/040b-the-second-question.md",
@@ -43,17 +60,32 @@
       "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
     },
     {
-      "path": "story/scenes/040e-the-work-becomes-the-record.md",
-      "title": "The Work Becomes the Record",
+      "path": "story/scenes/040e-1-the-carrying.md",
+      "title": "The Carrying",
       "ancestry": [
         "The Fourth Bell",
         "The Stray",
         "Demand the truth",
         "Twelve Years Ago",
         "The Runner's Shift",
-        "The Work Becomes the Record"
+        "The Work Becomes the Record",
+        "The Carrying"
       ],
-      "unresolved_pressure": "Tomorrow's correction remains sealed in the runner's satchel. The living fragment ignored the dyer's corrected name and recorded the handoff instead; cats along Mistral Street now repeat the empty gesture of taking, carrying, and giving, and orient toward the next sealed tube. Carrying it will strengthen the method's record of the work. Refusing it will leave another wrong name in the palace ledger while every recruited witness remembers that the runner stopped. The broken Mistral seal, the corrected dyer, the stray's dead sliver, and the palace-facing witness chain are durable traces."
+      "unresolved_pressure": "The method has the shape of the work; the work is delivered. Tomorrow's sealed correction is carried through the palace door, and the net of a hundred recruited witnesses carries the shape of the handoff toward the palace. The protagonist's own unfinished record is the one the method will turn back to. The next move must address what the method does when it finishes the Mistral's record, and whether the keeping releases the subject it holds open."
+    },
+    {
+      "path": "story/scenes/040e-2-the-refusal.md",
+      "title": "The Refusal",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago",
+        "The Runner's Shift",
+        "The Work Becomes the Record",
+        "The Refusal"
+      ],
+      "unresolved_pressure": "The method has the shape of the work and not the work. Another wrong name stays in the palace ledger, and every recruited witness remembers that the runner stopped. The next move must address what the palace does when its seal comes back broken in a runner's satchel, and whether the method turns back to the protagonist's own unfinished record when the sheet it was working is empty."
     },
     {
       "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",

@@ -8,17 +8,36 @@
   ],
   "frontiers": [
     {
-      "branch_id": "antiquarian_commit_seam",
-      "scene": "story/scenes/040a-make-the-witness-work.md",
+      "branch_id": "antiquarian_witness_stands",
+      "scene": "story/scenes/040a-1-the-witness-stands.md",
       "location": "P'taxx's hidden room behind the shop",
-      "facts": ["The physical fragment remains filed in the high door; the table showed only the lattice's projection.", "After the protagonist landed, the broken ring let the lattice recapture their body for a second fall.", "The copy is a subject the ledger can work on.", "The protagonist deliberately supplied a look-away through the copy.", "The protagonist's withheld name remains filed and their record is being finished.", "The exit remains closed."],
-      "knowledge": {"protagonist": ["fragment_method_known", "the copy works as a lever", "the ledger is now finishing the protagonist's record"], "P'taxx": ["the protagonist deliberately gave the method a lever"]},
-      "relationships": [{"with": "P'taxx", "state": "present; alarmed by the protagonist's chosen tactic"}],
-      "irreversible_changes": ["The protagonist made themself a subject of the reading.", "The copy's flinch was filed under the copy's identity."],
-      "spent_resources": ["unmeasurability/anonymity"],
-      "open_pressures": ["Can a subject make a move the method does not expect?", "The exit is closed while the record is being finished."],
+      "facts": ["The copy stands where the protagonist left it, working for the ledger.", "The protagonist let the seam pass through them: the record about them is finished under their own name.", "The lever is spent; the copy is a working witness.", "The exit remains closed and the name remains filed.", "The finishing is the work; the work is the record; the record is about the protagonist."],
+      "knowledge": {"protagonist": ["the copy works as a lever", "the ledger is now finishing the protagonist's record under their own name", "the finishing is the work", "a subject can still make a move the method does not expect"], "P'taxx": ["the protagonist made the witness work rather than gave the lever"]},
+      "relationships": [{"with": "P'taxx", "state": "present; alarmed; the prior alliance is intact but the protagonist has become the record the ledger is working on"}],
+      "irreversible_changes": ["The protagonist's record — the one that was never finished — is now finished under their own name.", "The copy is a permanent working witness for the ledger."],
+      "spent_resources": ["unmeasurability/anonymity", "the lever (the copy's reclassification is spent)"],
+      "open_pressures": ["Whether a subject can still make a move the method does not expect.", "What the ledger does when the record it is working on is the one who made the witness."],
       "available_actions": [],
-      "causal_chain": [{"cause": "The protagonist commits to the seam and supplies the look-away.", "effect": "The copy becomes a working lever and the protagonist becomes a subject.", "source": "story/scenes/040a-make-the-witness-work.md"}]
+      "causal_chain": [
+        {"cause": "The protagonist commits to the seam and supplies the look-away through the copy.", "effect": "The copy becomes a working lever and the protagonist becomes a subject.", "source": "story/scenes/040a-make-the-witness-work.md"},
+        {"cause": "The protagonist lets the witness stand rather than unmake it.", "effect": "The copy works for the ledger; the protagonist's own record is finished under their name; the lever is spent; the finishing is the work.", "source": "story/scenes/040a-1-the-witness-stands.md"}
+      ]
+    },
+    {
+      "branch_id": "antiquarian_witness_unmade",
+      "scene": "story/scenes/040a-2-the-witness-unmade.md",
+      "location": "P'taxx's hidden room behind the shop",
+      "facts": ["The protagonist pulled the copy back into the semicircle and closed the seam.", "The copy is a cat again; the subject is gone; the filed frame is gone.", "The lever is gone; the OPEN line is empty; the door is open.", "The method's test reverts to 'Will you flinch?' and widens to Faelspire.", "The protagonist's own record is the one that was never finished — it is not being finished now."],
+      "knowledge": {"protagonist": ["unmaking the witness reclaims unmeasurability at the cost of the lever", "the system's counter-move is a retreat and widening", "the test reverts to the flinch question and widens to the city"], "P'taxx": ["the protagonist unmade the witness rather than gave the lever"]},
+      "relationships": [{"with": "P'taxx", "state": "present; the prior alliance is intact; the protagonist has reclaimed unmeasurability but the test has widened"}],
+      "irreversible_changes": ["The copy's reclassification is undone; the copy is a cat.", "The lever is spent; the OPEN line is empty.", "The method's test has reverted and widened to Faelspire."],
+      "spent_resources": ["the lever", "the copy's working-witness state"],
+      "open_pressures": ["What the city does when the test widens.", "Whether the unmade witness can be remade at the cost of the unmeasurability the protagonist just reclaimed."],
+      "available_actions": [],
+      "causal_chain": [
+        {"cause": "The protagonist commits to the seam and supplies the look-away through the copy.", "effect": "The copy becomes a working lever and the protagonist becomes a subject.", "source": "story/scenes/040a-make-the-witness-work.md"},
+        {"cause": "The protagonist unmakes the witness — pulls the copy back, closes the seam, over-carves the OPEN line, re-closes the door.", "effect": "The copy is a cat again; the lever is gone; the method's test reverts to 'Will you flinch?' and widens to Faelspire; the protagonist reclaims unmeasurability at the cost of the lever.", "source": "story/scenes/040a-2-the-witness-unmade.md"}
+      ]
     },    {
       "branch_id": "temple_citywide_test",
       "scene": "story/scenes/040b-the-second-question.md",
@@ -46,20 +65,35 @@
       "causal_chain": [{"cause": "The protagonist recognizes the induced flinch and holds their gaze.", "effect": "The new record remains unfinished and the cistern can no longer close.", "source": "story/scenes/040c-the-second-question.md"}]
     },
     {
-      "branch_id": "stray_dead_sliver_shift",
-      "scene": "story/scenes/040e-the-work-becomes-the-record.md",
-      "location": "Mistral Street outside the dyehouse",
-      "facts": ["The protagonist chose to finish the interrupted shift after the dead sliver failed.", "The dyer broke the palace seal, crossed out the inherited wrong name, and signed the name she uses.", "The living fragment ignored the corrected name and recorded the handoff instead.", "Cats along Mistral Street involuntarily repeat the empty gesture of taking, carrying, and giving.", "Another sealed correction remains in the protagonist's satchel for tomorrow."],
-      "knowledge": {"protagonist": ["the dead sliver starved when the stray stopped answering", "ordinary runner work can redirect the living method away from a forced flinch", "the method has recruited witnesses to keep the shape of the carrying", "the next correction will be watched"], "dyer": ["the city saw who carried the correction", "the corrected name is hers to hold"], "stray": ["the living fragment now wants the runner's work rather than an answer"], "city": ["the protagonist carried and delivered the correction", "the handoff can be repeated even without the sheet"]},
-      "relationships": [{"with": "the dyer", "state": "corrected and exposed as a witness to the runner's delivery"}, {"with": "scarred stray", "state": "present; carried the dead sliver and now urges the protagonist to stop working"}, {"with": "the city", "state": "recruited witness pool repeating the runner's handoff"}],
-      "irreversible_changes": ["The dyer's palace correction is signed under the name she uses.", "The Mistral correction's palace seal is broken.", "The method has recruited the watching cats to preserve and repeat the carrying gesture.", "The runner's future work is publicly exposed to the palace-facing witness chain."],
-      "spent_resources": ["the Mistral Street dyer's sealed correction", "privacy of the runner's work", "the witnesses' freedom from the method's carrying gesture"],
-      "open_pressures": ["Whether the protagonist carries tomorrow's sealed correction while the city repeats the work.", "Whether refusing the next delivery leaves another wrong name in the palace ledger.", "What the palace does when the witness chain and broken seal reach it."],
-      "available_actions": ["Carry tomorrow's correction despite the recruited witnesses", "Refuse the next delivery and leave the wrong name uncorrected", "Use the witness chain to confront the palace with what it saw"],
+      "branch_id": "stray_carries_the_correction",
+      "scene": "story/scenes/040e-1-the-carrying.md",
+      "location": "Mistral Street, at the palace door",
+      "facts": ["The protagonist carried tomorrow's sealed correction through the palace door.", "The net on Mistral Street — a hundred recruited witnesses — carries the shape of the handoff toward the palace.", "The method has the shape of the work; the work is delivered.", "The protagonist's own unfinished record is still open under the other paw — the one the method will turn back to when it finishes the Mistral's sheet."],
+      "knowledge": {"protagonist": ["the method has recruited the shape of the carrying", "carrying the correction strengthens the method's record of the work", "the unfinished record is the one the method will turn back to", "the net is a hundred paws deep and carries the gesture"], "stray": ["the dead sliver is the only thing that does not repeat"], "city": ["the protagonist carried and delivered the correction", "the handoff can be repeated by a hundred paws"]},
+      "relationships": [{"with": "scarred stray", "state": "present; carried the dead sliver; the only non-repeating witness"}, {"with": "the dyer", "state": "corrected and exposed as a witness to the runner's delivery"}, {"with": "the city", "state": "recruited witness pool repeating the runner's handoff, now carrying the delivered correction"}],
+      "irreversible_changes": ["Tomorrow's sealed correction is delivered through the palace door.", "The method's record of the work is strengthened by a hundred recruited witnesses."],
+      "spent_resources": ["privacy of the runner's work", "the witnesses' freedom from the method's carrying gesture"],
+      "open_pressures": ["What the method does when it finishes the Mistral's record.", "Whether the keeping releases the subject it holds open, or whether the room re-closes the record the way the palace closes things.", "The protagonist's own unfinished record is the one the method will turn back to."],
+      "available_actions": [],
       "causal_chain": [
-        {"cause": "The dead sliver proves that refusing a forced answer can starve a measurement.", "effect": "The protagonist chooses to finish the interrupted shift as a different action the living fragment must answer.", "source": "story/scenes/040d-the-second-question.md"},
-        {"cause": "The protagonist insists that the dyer open and sign the correction despite the watching street.", "effect": "The wrong inherited name is crossed out, the palace seal is broken, and the living fragment turns toward the handoff rather than the name.", "source": "story/scenes/040d-1-the-runners-shift.md"},
-        {"cause": "The method records the protagonist's handoff.", "effect": "The watching cats repeat the empty carrying gesture and orient toward tomorrow's sealed correction, exposing the runner's future work.", "source": "story/scenes/040e-the-work-becomes-the-record.md"}
+        {"cause": "The method records the protagonist's handoff.", "effect": "The watching cats repeat the empty carrying gesture and orient toward tomorrow's sealed correction.", "source": "story/scenes/040e-the-work-becomes-the-record.md"},
+        {"cause": "The protagonist carries tomorrow's correction through the palace door.", "effect": "The net carries the shape of the handoff toward the palace; the method's record of the work is strengthened; the protagonist's own unfinished record stays open under the other paw.", "source": "story/scenes/040e-1-the-carrying.md"}
+      ]
+    },
+    {
+      "branch_id": "stray_refuses_the_correction",
+      "scene": "story/scenes/040e-2-the-refusal.md",
+      "location": "Mistral Street, at the palace door",
+      "facts": ["The protagonist refused tomorrow's sealed correction; the tube stays in the satchel.", "The net on Mistral Street carries the shape of the handoff without the work.", "Another wrong name stays in the palace ledger.", "Every recruited witness remembers that the runner stopped.", "The method has the shape of the work and not the work."],
+      "knowledge": {"protagonist": ["refusing the correction leaves the wrong name uncorrected", "the method has the shape of the work and not the work", "the recruited witnesses remember the runner stopped", "the unfinished record is the one the method will turn back to"], "stray": ["the dead sliver is the only thing that does not repeat"], "dyer": ["the city saw who stopped, not who carried"], "city": ["the protagonist stopped, not carried", "the handoff is a hundred paws deep and it is empty"]},
+      "relationships": [{"with": "scarred stray", "state": "present; carried the dead sliver; the only non-repeating witness"}, {"with": "the dyer", "state": "corrected and exposed; the city saw who stopped"}, {"with": "the city", "state": "recruited witness pool repeating an empty handoff; every witness remembers the runner stopped"}],
+      "irreversible_changes": ["Another wrong name stays in the palace ledger.", "The recruited witnesses remember that the runner stopped."],
+      "spent_resources": ["the correction (left uncorrected)", "the runner's standing with the palace-facing witness chain"],
+      "open_pressures": ["What the palace does when its seal comes back broken in a runner's satchel.", "Whether the method turns back to the protagonist's own unfinished record when the sheet it was working is empty.", "The wrong name stays; the next cat is filed wrong."],
+      "available_actions": [],
+      "causal_chain": [
+        {"cause": "The method records the protagonist's handoff.", "effect": "The watching cats repeat the empty carrying gesture and orient toward tomorrow's sealed correction.", "source": "story/scenes/040e-the-work-becomes-the-record.md"},
+        {"cause": "The protagonist refuses the correction and leaves the tube sealed.", "effect": "The net carries the shape of the handoff without the work; another wrong name stays in the ledger; every recruited witness remembers the runner stopped; the method has the shape of the work and not the work.", "source": "story/scenes/040e-2-the-refusal.md"}
       ]
     },
     {
