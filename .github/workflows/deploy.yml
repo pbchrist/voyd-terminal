@@ -1,8 +1,9 @@
 name: Deploy to GitHub Pages
 
+# The story owns the Pages site (see story-pages.yml). This legacy frontend
+# deploy is manual-only so a push to main can't silently replace the story.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read

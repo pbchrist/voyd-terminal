@@ -1,0 +1,55 @@
+{
+  "path": ["000", "010", "011", "022", "022a", "040e", "040a", "040a-make", "040a-2", "030", "031", "040c", "032", "040d", "040d-1", "040e-work", "040e-1", "040e-2", "040a-1", "040b", "050g-1", "050g-2"],
+  "wanted": [
+    "000: I wanted to know what the black thing was before it spoke. The fragment answers by taking a frame of me, and I wanted that kept as the price of every later answer.",
+    "010: I wanted P'taxx to have actually seen one of these before. He does. Good.",
+    "022: I wanted the lattice to make the three routes I did not take visible as cost, not as options.",
+    "040a-make: I wanted the choice to cost something I could name. It costs the copy's reclassification and my unmeasurability, and I could name both.",
+    "040a-1: I wanted the ledger to do something new to me. Instead it just... works. The scene tells me 'the finishing is the work' and I wanted a scene that made me feel the finishing instead.",
+    "040a-2: I wanted the unmaking to have a visible wound. The copy turning its head back to me was the only concrete beat; everything after it is explanation.",
+    "040b: I wanted to know what the citywide test actually asks of a random cat in the street. The scene says the question is wider but never shows one other cat being asked.",
+    "040c: I wanted the cistern's naming of me to come with a sound or a shape, not just letters on a wall. The kit replaying my flinch was the best beat in the whole Stray line.",
+    "040d-1: I wanted the dyer to refuse. She does, then signs. The two lines of dialogue carried the whole scene.",
+    "040e: I wanted to know why I would carry tomorrow's correction instead of tonight's. The net of a hundred paws gives me a reason that is also a threat. Good.",
+    "040e-1: I wanted the palace to answer the carrying. The door closing behind me was enough, but I wanted one more beat on the far side.",
+    "040e-2: I wanted the refusal to be witnessed by someone who would matter later. The dyer's 'They saw you stop' is that beat, and it lands.",
+    "050g-1: I wanted to see what the room does with a corrected name. The scene spends the scroll and holds the name open, which is the right state to leave, but the frontier note reads like a to-do list.",
+    "050g-2: I wanted the shoulder-width door to matter immediately. It does, but the scene ends before I feel the cost of leaving my own record behind."
+  ],
+  "feared": [
+    "022a: that the lattice filing was the end and the story would flatten into a room I had already been to.",
+    "040a-1: that the witness standing up was a trap that would make me the record permanently with no way out. It is that, and I wanted the scene to show the door closing in my face. It does not.",
+    "040c: that the cistern lid jamming meant the city below was coming up. The scene does not pay that fear off or drop it; it just moves on.",
+    "040e: that carrying the correction would make me the method's tool without my choosing it. The net beat shows exactly this and I feared it for three scenes."
+  ],
+  "attention_intensified": [
+    "022: the lattice's fourth point landing on the reliquary made me read the next line twice.",
+    "040a-make: 'I did not give it the angle of a look-away' was the first line in the whole walk where I felt like a player instead of a reader.",
+    "040d-1: the dyer's one blue line through the inherited name. Concrete, priced, irreversible. Best beat of the Stray line.",
+    "040e-2: 'They saw you stop.' The refusal leaf earns its existence in that single line.",
+    "050g-1: the seal breaking under the sheet's edge and never closing again. A durable trace I can carry forward."
+  ],
+  "attention_weakened": [
+    "022a: the mid-scene restatement of the lattice drop. I skimmed it because I had just been through it.",
+    "040a-1: the last four paragraphs are a chain of 'X is Y, Y is Z' abstractions. I lost the thread of what is actually happening to me as a character in the room.",
+    "040a-2: the same recursive abstraction chain appears here too, mirrored. Reading both leaves back to back felt like reading the same paragraph with one word swapped.",
+    "040e-1: the net-of-paws imagery is repeated from the parent scene 040e and I stopped seeing new information in it.",
+    "050g-2: the frontier note is dense and procedural. I had to re-read it to extract what I actually owe and what I actually know."
+  ],
+  "confused": [
+    "022: why does the lattice show me all three routes simultaneously if I already took P'taxx's? Is the temple point a thing that still happened, or a thing that could have? The scene does not say.",
+    "040a: the distinction between the copy, the subject, and the record blurred. I kept asking which one is standing up. The scene does not re-assert which is which before the fork.",
+    "040a-1 vs 040a-2: the two leaves describe nearly identical end states from slightly different angles. After reading both I could not tell you what I have, what I owe, or what is different in the room besides the copy's orientation.",
+    "040c: the cistern naming me — is the name spoken, written, shown to the kit, or all three? The scene says 'the cistern identified them' which is a summary, not a scene.",
+    "040e-1: on the far side of the palace door, what does the carrying feel like? The scene ends at the door and the frontier note carries the weight, but I wanted one beat of the net on the other side.",
+    "050g-1: the frontier note lists five open pressures. I could not tell which one the next scene would have to answer first."
+  ],
+  "residue": [
+    "the held frame of the recoil in the black — the first time the story showed me what it was keeping.",
+    "the dyer's one blue line through a name that was never hers.",
+    "the dead sliver in its blue cloth: the only thing in the street that is not repeating.",
+    "'They saw you stop.' The refusal is a state the city now holds, not just a state I chose.",
+    "the shoulder-width door: a constraint that will not widen again, which I can feel in my paws before the next scene.",
+    "the withheld name itself: never spoken, never shown, always the thing the record is about. It works as pressure because the story refuses to spend it."
+  ]
+}

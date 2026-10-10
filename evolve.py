@@ -134,10 +134,12 @@ def detect_structural_issues(state: dict[str, Any]) -> list[str]:
             if nxt and nxt != "ACT2" and nxt not in act_nodes:
                 issues.append(f"{node_id} choice '{choice.get('label')}' points to missing {nxt}")
 
-    # Every generated node must be reachable from the start and interactive.
+    # Generated beats superseded by a selected structural species remain archived
+    # for provenance/rewrite tooling, but are deliberately excluded from play.
     reachable = reachable_nodes(act_nodes, "1.0")
+    archived_generated = state["act1_nodes"].get("meta", {}).get("structural_species") == "mutation_forked_contracts"
     for gen_id in sorted(n for n in act_nodes if n.startswith("gen_")):
-        if gen_id not in reachable:
+        if gen_id not in reachable and not archived_generated:
             issues.append(f"{gen_id} is not reachable from 1.0")
         if not act_nodes[gen_id].get("choices"):
             issues.append(f"{gen_id} has no choices")
@@ -1079,7 +1081,26 @@ def gated_promote(state: dict[str, Any], node: dict[str, Any], score: dict[str, 
     return 0
 
 
+def story_room_is_authority() -> bool:
+    """Production defaults to the Hermes multi-agent room; tests/explicit legacy can opt out."""
+    if os.environ.get("VOYD_TEST"):
+        return False
+    return os.environ.get("VOYD_LEGACY_EVOLVE", "").strip().lower() not in {"1", "true", "yes"}
+
+
+def run_story_room_authority() -> int:
+    script = REPO_ROOT / "scripts" / "run_story_room.py"
+    if not script.exists():
+        log("Story Room authority selected but scripts/run_story_room.py is missing")
+        return 5
+    log("Delegating evolution authority to Hermes Voyd Story Room")
+    proc = subprocess.run([sys.executable, str(script)], cwd=REPO_ROOT)
+    return proc.returncode
+
+
 def main(argv: list[str] | None = None) -> int:
+    if story_room_is_authority():
+        return run_story_room_authority()
     lock = acquire_lock()
     if lock is None:
         log("Another evolve.py run holds the lock; exiting")

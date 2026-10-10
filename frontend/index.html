@@ -205,6 +205,7 @@
 <input id="answer" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-hidden="true">
 <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-style:italic;color:#93896f;">the voyd requires a living browser.</div></noscript>
 
+<script src="contract_state.js"></script>
 <script>
 'use strict';
 
@@ -222,8 +223,10 @@ class VoydEngine {
     this.voicePrompt = data.voice_prompt || 'You are the Voyd. Speak in short, lowercase, declarative sentences. Maximum 4-5 sentences per response.';
     this.backendMode = options.backendMode || false;
     this.sessionId = this._genId();
+    const handoff = options.handoff ? VoydContracts.createHandoffState(options.handoff) : VoydContracts.createHandoffState();
+    const entries = this.meta.handoff_entries || {};
     this.state = {
-      currentNode: 'threshold',
+      currentNode: entries[handoff.lifecycle] || entries[handoff.handoff_kind] || 'threshold',
       visited: new Set(),
       depth: 0,
       history: [],
@@ -234,6 +237,7 @@ class VoydEngine {
       portalValue: options.portalValue || 8,
       archetype: options.archetype || null,
       playerAnswer: options.playerAnswer || null,
+      handoff,
     };
   }
 
@@ -302,6 +306,7 @@ class VoydEngine {
       let m;
       if ((m = clause.match(/^intent == '(\w+)'$/))) return intent === m[1];
       if ((m = clause.match(/^topic == '(\w+)'$/))) return topic === m[1];
+      if ((m = clause.match(/^lifecycle == '(\w+)'$/))) return s.handoff.lifecycle === m[1];
       if ((m = clause.match(/^depth >= (\d+)$/))) return s.depth >= parseInt(m[1], 10);
       if ((m = clause.match(/^emotional_vector\.(\w+) > ([\d.]+)$/))) return (s.emotion[m[1]] || 0) > parseFloat(m[2]);
       return false;
@@ -347,9 +352,8 @@ class VoydEngine {
     const stateCtx = `\n\nCURRENT STATE:\nYou are in the state of: ${node.voyd_state || 'dreaming'}\nThe intruder has spoken ${this.state.depth} times.`;
 
     let act1Context = '';
-    if (this.state.archetype) {
-      act1Context = `\n\nThe player has completed Act 1. Their profile:\n- Archetype: ${this.state.archetype}\n- They named: "${this.state.playerAnswer}"\n- Portal value entering Act 2: ${this.state.portalValue}\n\nUse this. The thing they named is the fuel. Weave it into your responses without quoting it back directly. The Voyd knows what they carry.`;
-    }
+    const handoffContext = VoydContracts.handoffPromptContext(this.state.handoff);
+    act1Context = `\n\nThe player has completed Act 1.\n- Archetype: ${this.state.archetype || 'not asserted'}\n- Prior answer: "${this.state.playerAnswer || ''}"\n- Portal value entering Act 2: ${this.state.portalValue}${handoffContext}\n\nThe deterministic lifecycle state is authoritative. Never invent a petition, counterforce, contract identity, terms, debt, or leverage. Terms exist only after the petition-specific counterforce, and accepted_with_obligation exists only after explicit acceptance.`;
 
     let loreSection = '';
     if (loreChunks.length) {
@@ -409,9 +413,14 @@ class VoydEngine {
     }
     const systemPrompt = this.buildSystemPrompt(node, loreChunks);
 
+    let contentTemplate = node.content_template || '';
+    if (this.state.depth === 1) {
+      const opening = VoydContracts.handoffOpening(this.state.handoff);
+      if (opening) contentTemplate = opening + '\n\n' + contentTemplate;
+    }
     return {
       systemPrompt,
-      contentTemplate: node.content_template || '',
+      contentTemplate,
       voydState: node.voyd_state,
       nodeType: node.type,
       nodeId: nextNodeId,
@@ -437,6 +446,7 @@ class VoydEngine {
       portalValue: this.state.portalValue,
       archetype: this.state.archetype,
       playerAnswer: this.state.playerAnswer,
+      handoff: VoydContracts.createHandoffState(this.state.handoff),
     };
   }
 }
@@ -478,6 +488,7 @@ let engine       = null;
 let portalValue  = 8;
 let archetype    = null;
 let playerAnswer = '';
+let handoff      = VoydContracts.createHandoffState();
 let speaking     = false;
 let hurry        = false;
 let isWaiting    = false;
@@ -885,8 +896,9 @@ function offerChoices(ex, node) {
 
 function choose(choice, cEl, wrap, ex) {
   idlePhase(null);
-  // the only number that matters
+  // Portal motion is presentation; deterministic handoff state is the dramatic cause.
   portalValue = Math.max(0, Math.min(100, portalValue + (choice.delta || 0)));
+  handoff = VoydContracts.applyHandoffChoice(handoff, choice);
   portal.v = portalValue;
   portal.pulse = choice.type === 'starve' ? -0.8 : 1;
   audioPulse(choice.type);
@@ -980,7 +992,8 @@ async function playNode(id) {
 
   if (node.open) {
     openSpeakline(val => {
-      playerAnswer = val;
+      if (node.capture_field === 'petition_text') handoff = VoydContracts.capturePetition(handoff, val);
+      else playerAnswer = val;
       let nxt = node.next;
       if (node.next_archetype && archetype && node.next_archetype[archetype]) {
         nxt = node.next_archetype[archetype];
@@ -1005,11 +1018,85 @@ function goNext(nxt) {
 // ═════════════════════════════════════════════════════════════════
 function enterAct2() {
   if (!engine) {
-    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, backendMode: !!API_BASE });
-    console.log('Voyd engine booted. Archetype:', archetype, 'Portal:', portalValue);
+    engine = new VoydEngine(voydData, { portalValue, archetype, playerAnswer, handoff, backendMode: !!API_BASE });
+    console.log('Voyd engine booted. Lifecycle:', handoff.lifecycle);
   }
   phase = 'act2';
-  openSpeakline(act2Submit, 'act2');
+  renderLifecycleActions();
+}
+
+function syncLifecycleState(next) {
+  handoff = VoydContracts.createHandoffState(next);
+  engine.state.handoff = VoydContracts.createHandoffState(handoff);
+  const entries = engine.meta.handoff_entries || {};
+  const entry = entries[handoff.lifecycle] || entries[handoff.handoff_kind];
+  if (entry && engine.graph[entry]) engine.state.currentNode = entry;
+}
+
+function lifecycleActionChoices(actions) {
+  const ex = el('div', 'exchange');
+  const wrap = el('div', 'choices');
+  actions.forEach(({ label, action }, i) => {
+    const c = el('div', 'choice ' + (i ? 'feed' : 'starve'));
+    c.textContent = label;
+    c.addEventListener('click', () => {
+      if (isWaiting) return;
+      wrap.remove();
+      echoVisitor(ex, label);
+      action();
+    });
+    wrap.appendChild(c);
+  });
+  ex.appendChild(wrap);
+  logEl.appendChild(ex);
+  followBottom(true);
+  idlePhase('choosing');
+}
+
+async function renderLifecycleActions() {
+  isWaiting = true;
+  recedeOld();
+  const ex = el('div', 'exchange');
+  const rl = el('div', 'voyd-line');
+  ex.appendChild(rl);
+  logEl.appendChild(ex);
+  const lifecycle = handoff.lifecycle;
+  await speak(VoydContracts.handoffOpening(handoff), rl);
+  isWaiting = false;
+
+  if (lifecycle === 'unbound_closed' || lifecycle === 'refused' ||
+      lifecycle === 'fulfilled' || lifecycle === 'breached') {
+    setTimeout(() => endSession(handoff.revelation_id || lifecycle), 1400);
+  } else if (lifecycle === 'petition_pending' || lifecycle === 'petition_reframe_required') {
+    openSpeakline(processLifecycleTurn, 'petition');
+  } else if (lifecycle === 'petition_declined') {
+    lifecycleActionChoices([
+      { label: 'leave with the truth', action: () => { syncLifecycleState(VoydContracts.applyHandoffAction(handoff, 'close_unbound')); renderLifecycleActions(); } },
+      { label: 'state a concrete change', action: () => { syncLifecycleState(VoydContracts.applyHandoffAction(handoff, 'reopen_petition')); renderLifecycleActions(); } },
+    ]);
+  } else if (lifecycle === 'petition_validated') {
+    syncLifecycleState(VoydContracts.revealCounterforce(handoff));
+    renderLifecycleActions();
+  } else if (lifecycle === 'counterforce_revealed') {
+    lifecycleActionChoices([{ label: 'hear the constrained terms', action: () => { syncLifecycleState(VoydContracts.offerTerms(handoff)); renderLifecycleActions(); } }]);
+  } else if (lifecycle === 'terms_offered') {
+    lifecycleActionChoices([
+      { label: 'refuse the exact terms', action: () => { syncLifecycleState(VoydContracts.resolveOffer(handoff, 'refuse')); renderLifecycleActions(); } },
+      { label: 'accept the exact terms', action: () => { syncLifecycleState(VoydContracts.resolveOffer(handoff, 'accept')); renderLifecycleActions(); } },
+    ]);
+  } else if (lifecycle === 'accepted_with_obligation') {
+    lifecycleActionChoices([
+      { label: handoff.fulfillment_label, action: () => { syncLifecycleState(VoydContracts.resolveObligation(handoff, handoff.fulfillment_action)); renderLifecycleActions(); } },
+      { label: handoff.breach_label, action: () => { syncLifecycleState(VoydContracts.resolveObligation(handoff, handoff.breach_action)); renderLifecycleActions(); } },
+    ]);
+  } else {
+    openSpeakline(act2Submit, 'act2');
+  }
+}
+
+function processLifecycleTurn(text) {
+  syncLifecycleState(VoydContracts.capturePetition(handoff, text));
+  renderLifecycleActions();
 }
 
 async function act2Submit(text) {
@@ -1046,11 +1133,21 @@ async function act2Submit(text) {
           portal_value: result.state.portalValue,
           archetype: result.state.archetype,
           player_answer: result.state.playerAnswer,
+          handoff: result.state.handoff,
+          handoff_opening: VoydContracts.handoffOpening(result.state.handoff),
+          system_prompt: result.systemPrompt,
         })
       });
       if (res.ok) {
         const data = await res.json();
         voydText = data.voyd_response || result.contentTemplate;
+        // Preserve the authoritative lifecycle when an older proxy ignores it.
+        if (result.state.depth === 1) {
+          const opening = VoydContracts.handoffOpening(result.state.handoff);
+          if (opening && !voydText.startsWith(opening)) {
+            voydText = opening + '\n\n' + voydText;
+          }
+        }
       } else { throw new Error('proxy failed'); }
     } catch (e) { voydText = result.contentTemplate; }
   } else {

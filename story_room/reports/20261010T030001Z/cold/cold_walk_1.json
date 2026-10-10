@@ -1,0 +1,252 @@
+{
+  "path": [
+    "000-the-fourth-bell",
+    "010-the-antiquarian",
+    "011-the-room-behind-the-room",
+    "022-the-lattice",
+    "022a-the-lattice-filing",
+    "040e-the-crossing-question",
+    "040a-the-witness-you-made",
+    "030-the-cat-who-heard-it-first",
+    "031-the-thing-below-the-courtyard",
+    "040c-the-second-question",
+    "032-twelve-years-ago",
+    "040d-the-second-question",
+    "040d-1-the-runners-shift",
+    "040e-the-work-becomes-the-record",
+    "040e-1-the-carrying",
+    "040e-2-the-refusal"
+  ],
+  "wanted": [
+    {
+      "scene": "000-the-fourth-bell",
+      "wanted": "Not to be the cat the fragment keeps. I'd spent two years being measured by the city's seals; I wanted to stay unmeasured, to keep the satchel's anonymity. The fragment had already caught one frame of my recoil and I wanted that frame gone."
+    },
+    {
+      "scene": "010-the-antiquarian",
+      "wanted": "To understand what the corridor behind the shop was. P'taxx said 'not now' but the lights were coming. I wanted to know if the corridor was a trap or a shelter, and I wanted the letters on the linen to stop arranging themselves into a sentence."
+    },
+    {
+      "scene": "011-the-room-behind-the-room",
+      "wanted": "To get the fragment back out of the high door. It had been pulled from my paw and filed. I wanted to undo the filing, to keep the name beneath the name unfiled, to stay the cat the city forgets."
+    },
+    {
+      "scene": "022-the-lattice",
+      "wanted": "To see the hand before it reached the city. The shadow was almost done falling and I wanted to see it. I also wanted the lattice to tell me which of the three routes was the one I'd actually earned, not all three at once."
+    },
+    {
+      "scene": "022a-the-lattice-filing",
+      "wanted": "To keep the copy's refusal alive. The copy had stepped out of the semicircle and not flinched. I wanted that contradiction to hold, to be the thing the ledger couldn't complete."
+    },
+    {
+      "scene": "040e-the-crossing-question",
+      "wanted": "To hold my gaze on the filed frame. The Lattice was showing me my own recoil from the square, and I wanted to refuse the second look-away. I wanted the crack in FILED to hold."
+    },
+    {
+      "scene": "040a-the-witness-you-made",
+      "wanted": "To not become the subject of the reading. The seam was waiting for me to commit to it, and I wanted to keep the record unfinished, to lose the lever rather than become the one it was finishing."
+    },
+    {
+      "scene": "030-the-cat-who-heard-it-first",
+      "wanted": "To know what the cistern wanted. The stray had survived one of these before and I wanted the truth of his scar, the truth of the three minutes, before the thing in the cistern reached the rim."
+    },
+    {
+      "scene": "031-the-thing-below-the-courtyard",
+      "wanted": "To see what the kit was before it reached the top. The kit was replaying the stray's lost self and I wanted to understand whether it was a trap or a piece of him, and whether closing the cistern would hurt him more than opening it."
+    },
+    {
+      "scene": "040c-the-second-question",
+      "wanted": "To keep my eyes on the kit. The fragment was pressing me to look away again, and I wanted to refuse the second look-away. I wanted the cistern to stop naming me."
+    },
+    {
+      "scene": "032-twelve-years-ago",
+      "wanted": "To know where the stray had been sent. The cistern had spoken in my voice and in his, and I wanted the truth of the thirteenth name, the truth of who was sent first and who escaped."
+    },
+    {
+      "scene": "040d-the-second-question",
+      "wanted": "To use the dead sliver's failure. The stray had killed his sliver by refusing its tests, and I wanted to show the living fragment its own measurement, to turn the method's tool against itself."
+    },
+    {
+      "scene": "040d-1-the-runners-shift",
+      "wanted": "To finish my shift. The dyer's correction had been riding against my spine for three days, and I wanted to give her her real name back. I wanted to show the city what the name was for."
+    },
+    {
+      "scene": "040e-the-work-becomes-the-record",
+      "wanted": "To carry tomorrow's correction through the palace door. The net on Mistral Street had the shape of my work, and I wanted to complete the handoff, to not leave the next cat filed wrong."
+    }
+  ],
+  "feared": [
+    {
+      "scene": "000-the-fourth-bell",
+      "feared": "That the fragment was keeping more than one frame. That the city would start to know my name. That I'd become the cat the square remembers."
+    },
+    {
+      "scene": "010-the-antiquarian",
+      "feared": "That the corridor was a mouth and I was the thing it was going to swallow. That P'taxx had known this would happen and let it anyway."
+    },
+    {
+      "scene": "011-the-room-behind-the-room",
+      "feared": "That the door had read me and not the fragment. That the name beneath the name was already filed and I couldn't unfile it. That P'taxx had watched another cat go through this and said nothing."
+    },
+    {
+      "scene": "022-the-lattice",
+      "feared": "That the hand would reach the city before I looked. That looking up would complete the measurement. That the lattice was showing me all three routes because it was going to make me pay all three prices."
+    },
+    {
+      "scene": "022a-the-lattice-filing",
+      "feared": "That the copy's refusal would be filed too. That the ledger would complete the record about the copy and then turn to me. That the crack in FILED was just a delay, not a stop."
+    },
+    {
+      "scene": "040e-the-crossing-question",
+      "feared": "That holding my gaze would cost more than looking away. That the city watching me watch the filed frame was a higher price than the room alone. That the oldest copy was right and it was the same test."
+    },
+    {
+      "scene": "040a-the-witness-you-made",
+      "feared": "That the seam would file my name the moment I committed. That the lever would be real and I'd be the one it was finishing. That P'taxx's paw on my shoulder was the last thing I'd feel before the reading closed."
+    },
+    {
+      "scene": "030-the-cat-who-heard-it-first",
+      "feared": "That the cistern was a name and the lid was waiting for mine. That the stray was lying about the three minutes. That the thing climbing the wall was going to reach the rim before I understood what it was."
+    },
+    {
+      "scene": "031-the-thing-below-the-courtyard",
+      "feared": "That the kit was the stray's lost self and that closing the cistern would trap him in it forever. That the kit would remember being me if it got out. That the scar would split further and the younger face would come back."
+    },
+    {
+      "scene": "040c-the-second-question",
+      "feared": "That the fragment would produce a second look-away. That the cistern had named me and the lid could no longer close. That the kit's face would stay on my face, caught halfway between the movement I made and the one I refused."
+    },
+    {
+      "scene": "032-twelve-years-ago",
+      "feared": "That the thirteenth name was mine. That the stray had been sent first and I was the one who was supposed to escape. That the dead sliver igniting meant the living fragment was going to choose me next."
+    },
+    {
+      "scene": "040d-the-second-question",
+      "feared": "That the projection would speak my name in my own voice and the rooftop cats would hear it. That the silence was worse than the screaming. That the stray was right and they knew which cat to ask next."
+    },
+    {
+      "scene": "040d-1-the-runners-shift",
+      "feared": "That the city was copying the handoff, not the name. That a hundred empty paws lifting meant the method had recruited the shape of my work. That finishing my shift would make the record about me more complete."
+    },
+    {
+      "scene": "040e-the-work-becomes-the-record",
+      "feared": "That carrying the tube through the palace door would strengthen the method's record of the work. That the net would carry the shape of the handoff to the palace without me. That my own unfinished record would be the one the method turned back to."
+    }
+  ],
+  "attention_intensified": [
+    {
+      "scene": "000-the-fourth-bell",
+      "trigger": "The fragment turning toward me. Not rolling. Turning. The eyelid line opening into orange light. The voice speaking into the place where my next thought should have been."
+    },
+    {
+      "scene": "010-the-antiquarian",
+      "trigger": "The letters crawling out of the books and arranging themselves around the orange seam into WE REMEMBER THE DOOR. P'taxx's voice carrying genuine terror for the first time."
+    },
+    {
+      "scene": "011-the-room-behind-the-room",
+      "trigger": "The copies entering the chamber. Every one having my face. The oldest one with my face collapsed into angles I'd never imagined wearing. The door title: Things That Happened Because You Looked Away."
+    },
+    {
+      "scene": "022-the-lattice",
+      "trigger": "The vast hand reaching through both the ceiling and the floor. The shadow almost done falling. The lattice showing me that the bell was not calling from below but measuring how long I took to look up."
+    },
+    {
+      "scene": "022a-the-lattice-filing",
+      "trigger": "The copy stepping out of the semicircle. Placing itself between me and the opened seam. Not flinching. The crack cutting through FILED as the look-up completed the measurement."
+    },
+    {
+      "scene": "040e-the-crossing-question",
+      "trigger": "The Lattice carrying my filed frame back into my sight. The city above watching me watch it. The oldest copy saying it was the same test asked at a higher price."
+    },
+    {
+      "scene": "040a-the-witness-you-made",
+      "trigger": "The seam asking Will you let it see you not flinch? The word OPEN holding on the door like a held breath. P'taxx stopping breathing."
+    },
+    {
+      "scene": "030-the-cat-who-heard-it-first",
+      "trigger": "The cistern speaking in my voice. Do not let him open it. Then in the stray's voice: Do not let them close it. The thing beginning to climb the inside wall."
+    },
+    {
+      "scene": "031-the-thing-below-the-courtyard",
+      "trigger": "The kit's face changing. For one heartbeat wearing the stray's younger face. The scar splitting. The kit saying If you close it, he never gets to remember being whole."
+    },
+    {
+      "scene": "040c-the-second-question",
+      "trigger": "The fragment replaying my exact flinch from Gistli Square through the kit. Fruit rolling across stars. Cats fleeing between constellations. The cistern wall forming the outline of my first recoil and stopping before the head could turn."
+    },
+    {
+      "scene": "032-twelve-years-ago",
+      "trigger": "The stray parting the fur below his ruined ear. Tiny letters forming a name beneath his skin. Not his. Mine. The line lengthening by one letter."
+    },
+    {
+      "scene": "040d-the-second-question",
+      "trigger": "The projection speaking my name in my own voice. Every rooftop cat falling silent. The silence being worse than the screaming. The dead sliver dying when the stray stopped answering."
+    },
+    {
+      "scene": "040d-1-the-runners-shift",
+      "trigger": "The dyer drawing one blue line through the inherited name and signing the name she uses. The fragment turning toward my paws instead of the name. A hundred empty paws lifting at once."
+    },
+    {
+      "scene": "040e-the-work-becomes-the-record",
+      "trigger": "The chimney sweep saying You gave it away. Then blinking. I don't know. The net closing over the tube before my own paws were on the glass. The method no longer needing to startle me."
+    }
+  ],
+  "attention_weakened": [
+    {
+      "scene": "010-the-antiquarian",
+      "drifted": "The description of the shop's interior. Six thousand books arranged according to a system P'taxx refuses to explain. The bone dice and cracked atlases. I read it but it didn't land. The shop is a set piece and I wanted to know what was behind the wall."
+    },
+    {
+      "scene": "022-the-lattice",
+      "drifted": "The three orange points moving toward the dark knot. One here, one beneath the temple, one racing through the old drainage quarter. I got it, but the lattice description felt like a map I was being shown rather than a place I was in. I wanted to be dropped into one route, not shown all three."
+    },
+    {
+      "scene": "040e-the-crossing-question",
+      "drifted": "The Lattice carrying the voice up through the lattice. The mechanical description of how the lattice works. I understood the point but the prose was doing a lot of explaining the mechanism rather than letting me feel it."
+    },
+    {
+      "scene": "040e-1-the-carrying",
+      "drifted": "The net description repeating. The chimney sweep's empty paw, the fish seller's paw, a hundred paws deep. It was already established in 040e-the-work-becomes-the-record and the repetition in 040e-1 felt like the scene was confirming what I'd already learned rather than advancing it."
+    },
+    {
+      "scene": "040e-2-the-refusal",
+      "drifted": "The net description again. The chimney sweep's empty paw falling, the fish seller's rising. The same beats as 040e-1 but in reverse. I was past the point of caring whether the net carried the tube or the shape of the tube. The scene was a mirror of the other branch and the mirroring was visible."
+    }
+  ],
+  "confused": [
+    {
+      "scene": "022-the-lattice",
+      "confused": "Why the lattice showed me all three routes and then dropped me into one. The prose said The lattice does not spend all three prices for you. It holds the completed act and drops each traveler into the consequence their route earned. But I was one traveler, not three. Why was I seeing the temple point and the stray point if I'd taken the P'taxx route? I understood the fiction but the mechanics of why I was seeing what I wasn't experiencing felt unexplained."
+    },
+    {
+      "scene": "040e-the-crossing-question",
+      "confused": "The relationship between the copy and the subject. The copy stepped out of the semicircle and became a subject. But the subject was also a copy of me. Was the subject me? Was the copy me? The prose kept saying the copy is not a mirror, it is a subject, but I wasn't sure what a subject was in this world or how it differed from the record. The distinction between record, subject, and copy blurred."
+    },
+    {
+      "scene": "040a-the-witness-you-made",
+      "confused": "What the lever was. The prose said It is not a record. It is a lever. A witness that is also a subject is a record the ledger cannot complete. But I didn't understand what the lever did. It seemed to be a tool the protagonist could use against the method, but the mechanics of how standing the copy as a witness was different from just holding my gaze were unclear. I knew it cost something but not what it bought."
+    },
+    {
+      "scene": "040a-make-the-witness-work",
+      "confused": "The difference between making the witness work and letting it stand. The two choices at the end of this scene felt like they were saying the same thing in different words. Let the witness stand meant the copy works for the ledger. Unmake the witness meant pull the copy back. But if the copy was already a subject, what was the difference between letting it stand for the ledger and unmaking it? The prose said one was surrender-as-lever and the other was refusal-as-cost, but I couldn't feel the difference in the scene."
+    },
+    {
+      "scene": "040c-the-second-question",
+      "confused": "Why the cistern lid could no longer close. The kit's paw closed around the rim, the stone split, the lid dropped crookedly and jammed. But the lid was a name, and the name was mine. Why did the lid jamming mean the cistern had named me? The causal chain between the physical jamming and the metaphysical naming was unclear."
+    },
+    {
+      "scene": "040d-1-the-runners-shift",
+      "confused": "Why the dyer's signing was the moment the method recruited the witnesses. The prose said The method no longer needs to startle you into looking away. It has recruited the cats who watched you finish the shift. But the cats were watching the dyer sign, not me. Why did the method recruit them from watching the handoff rather than from watching me? The shift from watching the work to watching the carrier happened between scenes without a clear trigger."
+    }
+  ],
+  "residue": [
+    "The fragment keeping one frame of my recoil and then holding it. The image of my shoulders, my lifted paw, my eyes leaving the thing, held in the black. I keep seeing that frame. It's the thing the whole story is about and I can't unsee it.",
+    "The oldest copy with my face collapsed into angles I'd never imagined wearing. Not a mirror. A version of me that had been through this before and survived by becoming something else.",
+    "The cistern speaking in my voice and in the stray's voice at the same time. Do not let him open it. Do not let them close it. Two warnings from the same mouth. I don't know which one was right.",
+    "The dyer drawing one blue line through the inherited name. The simplest act in the whole story. One line. That's what it took to give a cat her real name back. And the fragment turned away from it and turned toward my paws instead.",
+    "The silence after the projection spoke my name in my own voice. Every rooftop cat falling silent. The silence being worse than the screaming. I keep thinking about what it would sound like to be the cat everyone is watching and no one is talking about.",
+    "The net. A hundred empty paws closing over a hundred absent straps. The shape of my work walking with me, a hundred paws deep. I keep seeing the street where everyone is doing the gesture but none of them has anything to pass.",
+    "The dead sliver. The stray's sliver that died when he stopped answering. The only thing in the street that wasn't repeating. It's the quietest thing in the story and I think it's the truest.",
+    "The name beneath the name. The one Faelspire doesn't know. The one that has let me be a face the square forgets. It's never spoken. It's never written. It's in the iron, in the scar, in the door, in the cistern. And I keep feeling it under my skin like a letter that hasn't been written yet."
+  ]
+}

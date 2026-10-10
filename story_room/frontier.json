@@ -1,0 +1,234 @@
+{
+  "version": 2,
+  "canonical_entry": "story/scenes/000-the-fourth-bell.md",
+  "canonical_title": "The Fourth Bell",
+  "summary": "A fourth bell rings beneath Faelspire. An impossible black fragment addresses the reader-character and forces a choice among P'taxx, Aard Templu Voreath, and a scarred stray who has heard the bell before.",
+  "active_frontiers": [
+    {
+      "path": "story/scenes/040a-1-the-witness-stands.md",
+      "title": "The Witness Stands",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work",
+        "The Witness Stands"
+      ],
+      "unresolved_pressure": "The witness stands. The copy works for the ledger. The protagonist's own record — the one that was never finished — is finished under their own name; the finishing is the work. The lever is spent. The next move must address whether a subject can still make a move the method does not expect, and what the ledger does when the record it is working on is the one who made the witness."
+    },
+    {
+      "path": "story/scenes/040a-2-the-witness-unmade.md",
+      "title": "The Witness Unmade",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "Make the Witness Work",
+        "The Witness Unmade"
+      ],
+      "unresolved_pressure": "The witness is unmade. The copy is a cat. The lever is gone. The method's test reverts to 'Will you flinch?' and widens to the city. The protagonist's own record is the one that was never finished — it is not being finished now, but the method will turn back to it when it finishes the city. The next move must address what the city does when the test widens, and whether the unmade witness can be remade at the cost of the unmeasurability the protagonist just reclaimed."
+    },
+    {
+      "path": "story/scenes/040b-1-the-temple-takes-the-test.md",
+      "title": "The Temple Takes the Test",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple",
+        "The Second Question",
+        "The Temple Takes the Test"
+      ],
+      "unresolved_pressure": "The fragment is contained in iron that bears the protagonist's name. The test is stopped, and the stopping is a debt: the temple will send for the protagonist when the iron wakes, and the acolyte's trust is a ledger the temple keeps. The satchel's neutrality is spent — the palace-facing work now carries a temple mark, and the palace, which signs its corrections out, will notice a seal it did not sign. The next move must address what the iron does when it wakes, whether the protagonist can refuse to be sent, and what the palace does when its runner's satchel carries a seal the palace never issued."
+    },
+    {
+      "path": "story/scenes/040b-2-the-runner-keeps-the-fragment.md",
+      "title": "The Runner Keeps the Fragment",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple",
+        "The Second Question",
+        "The Runner Keeps the Fragment"
+      ],
+      "unresolved_pressure": "The fragment is in the runner's satchel, and the citywide test now travels the runner's route: every delivery is a question asked of a cat who must sign. The protagonist's anonymity is spent on the route — the city measures a runner by the satchel, and the satchel carries the method now. The acolyte's trust is spent: he saw the refusal, and the temple remembers what it cannot contain. The next move must address what the test does when it reaches a specific delivery — a named cat, a named correction, a named signing — and whether the method's asking through the runner's work is the one the method has not yet anticipated, and what the temple does when its containment fails on a runner it did not send."
+    },
+    {
+      "path": "story/scenes/040c-the-second-question.md",
+      "title": "The Second Question",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Open the cistern",
+        "The Thing Below the Courtyard"
+      ],
+      "unresolved_pressure": "The kit replayed the protagonist's first involuntary look-away and the fragment tried to produce a second. The protagonist held their gaze, but the cistern identified them and its lid can no longer close. (Unaffected by M1/M3.)"
+    },
+    {
+      "path": "story/scenes/040e-1-the-carrying.md",
+      "title": "The Carrying",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago",
+        "The Runner's Shift",
+        "The Work Becomes the Record",
+        "The Carrying"
+      ],
+      "unresolved_pressure": "The method has the shape of the work; the work is delivered. Tomorrow's sealed correction is carried through the palace door, and the net of a hundred recruited witnesses carries the shape of the handoff toward the palace. The protagonist's own unfinished record is the one the method will turn back to. The next move must address what the method does when it finishes the Mistral's record, and whether the keeping releases the subject it holds open."
+    },
+    {
+      "path": "story/scenes/040e-2-the-refusal.md",
+      "title": "The Refusal",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Stray",
+        "Demand the truth",
+        "Twelve Years Ago",
+        "The Runner's Shift",
+        "The Work Becomes the Record",
+        "The Refusal"
+      ],
+      "unresolved_pressure": "The method has the shape of the work and not the work. Another wrong name stays in the palace ledger, and every recruited witness remembers that the runner stopped. The next move must address what the palace does when its seal comes back broken in a runner's satchel, and whether the method turns back to the protagonist's own unfinished record when the sheet it was working is empty."
+    },
+    {
+      "path": "story/scenes/050g-1-the-runner-corrects-the-ledger.md",
+      "title": "The Runner Corrects the Ledger",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Hand the Ledger Keeps",
+        "The Runner Corrects the Ledger"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (pull leaf, extended). The protagonist's chosen act changed what the method works: they placed the sealed Mistral correction under the sheet's edge and pulled, and the method accepted the runner-supplied scroll as its new working target. The Mistral's record is corrected in the room — not filed, not re-closed — and the scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace the palace will notice and will know which runner broke it. The method's aim at the protagonist remains revoked; the protagonist remains the working hand, paw on the lever, and the high door remains open while the hand works. The protagonist's own unfinished record is still open under the other paw — a respite, not a resolution; the method will turn back to it when it finishes the Mistral's sheet. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the means have changed: the method now has a protagonist-chosen subject it can work. The keeping holds P'taxx open at the desk the way it holds the runner's record open — the subject is legible, not buried; the method works the sheet, the keeping holds the subject, and the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. The next scene must address what the method does when it finishes the Mistral's record — whether the corrected name holds in the keeping, or whether the room re-closes it the way the palace closes things — and whether the keeping releases the subject it holds open at the desk — and what the palace does when its seal comes back broken in a runner's satchel. (M-S4 HONE, cycle 20261004T100042Z: the keeping's hold on the subject made explicit in the shared parent 040g before the fork; the refuse leaf's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance.)"
+    },
+    {
+      "path": "story/scenes/050g-2-the-correction-through-the-door.md",
+      "title": "The Correction Through the Door",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Antiquarian",
+        "The Room Behind the Room",
+        "The Lattice",
+        "The Filing",
+        "The Crossing Question",
+        "The Witness You Made",
+        "The Act Not Narrated",
+        "The Ledger's Recall",
+        "The Cost of Holding",
+        "The Room That Keeps",
+        "The Line on the Floor",
+        "The Correction Through the Door"
+      ],
+      "unresolved_pressure": "LEVER_REVERSED (refuse leaf, extended). The protagonist's chosen act changed what the room keeps open: they passed through the narrowed door carrying the sealed Mistral correction, and the method — which outranks the keeping — took the runner-supplied scroll as the room's new open sheet. The Mistral's record is corrected in the room, not filed, not re-closed; the correction is the room's open sheet now. The keeping still holds the protagonist's own unfinished record open in the room — the protagonist has left it behind and is on the far side of a door that is the width of a shoulder and will not be wider again. The scroll is spent on the method's terms, not the palace's; the broken seal is a durable trace, and the palace, which signs its corrections out, will know which runner's paws were on it. P'taxx is still at the desk, still a subject; the want (get him out without surrendering the unfinished record) is unchanged, but the runner has left the record in the room and cannot carry it. The keeping holds P'taxx open at the desk the way it holds the runner's record open — the subject is legible, not buried; the method works the sheet, the keeping holds the subject, and the rescue is a matter of the keeping releasing what it holds, not the method redirecting its target. The next scene must address what the room does with the corrected Mistral record — whether the corrected name holds in the keeping or the room re-closes it the way the palace closes things — and whether the keeping releases the subject it holds open at the desk — and what the palace does when its seal comes back broken, and how the runner reaches P'taxx from the far side of a shoulder-width door that only opens inward. (M-S4 HONE, cycle 20261004T100042Z: the keeping's hold on the subject made explicit in the shared parent 040g before the fork; the refuse leaf's floor-rule is the extension of the keeping to the runner's paws, not the rule's first appearance.)"
+    }
+  ],
+  "canonical_head": {
+    "cycle": "20261008T030001Z",
+    "mutation": "M1 — Finish the Interrupted Shift",
+    "title": "The runner finishes the correction under witness pressure; the method recruits the city to repeat the handoff.",
+    "structure": "HONE on the 040d/040e Stray line: route continuity is restored from the cistern courtyard to Mistral Street. The protagonist chooses to finish the interrupted shift; the stray and dead sliver remain present; the dyer resists and then signs the corrected name; the living fragment records the handoff through recruited witnesses. P'taxx is removed from this route. All six leaves remain unchanged in count and identity; no deletion or reconvergence.",
+    "note": "Selected autonomously by the Acumen Keeper. The canonical head remains 040e after a route-truth and prose repair. The protagonist's name remains WITHHELD."
+  },
+  "branch_ledger": {
+    "cycle": "20260909T040157Z",
+    "canonical_head": "M4-WANT",
+    "active_branches": [
+      {
+        "id": "M2-20260908",
+        "title": "The Recall Becomes a Completed Decisive Act",
+        "axis": "terminal-act closure on the refuse leaf",
+        "mechanism": "The refuse leaf's terminal (040a-let-the-record-stand-01-the-ledgers-recall, which now ends in a choice link to 040f-the-cost-of-holding) may be further developed: the recall is no longer an open scaffold but a closed turn with a priced, irreversible new state. A NEW scene (040a-02-the-record-that-was-never-finished) may be created, reachable by a choice link from 040f, that carries the unresolved pressure forward as a landed consequence: the ledger has spent its only ring (an irreversible cost it can never repeat), the recalled frame is now a working subject the ledger can work on, and the protagonist is the one record it has not finished \u2014 a completed, measurable state rather than a question.",
+        "coherence": "PRESERVED as an active reader-facing branch \u2014 not implemented this cycle. The recall beat must stay verbatim in spirit ('It does not file. It does not provoke. It does not wait. It *recalls*'; 'the break is the cost'). The new scene's state must be irreversible and priced \u2014 no retreat to 'will you flinch' (candidate law_bb750d1bdb10). The two leaves' opposed readings (refuse = refusal-as-cost vs. make = surrender-as-lever) must remain opposed, not flattened. MUST land after M4-WANT is implemented and replay-tested so the completed ending inherits grounded antecedents.",
+        "status": "PRESERVED as an active reader-facing branch (next-cycle candidate)",
+        "recombine": true
+      }
+    ],
+    "deferred_references": [
+      {
+        "id": "N2",
+        "title": "The Unmade Witness",
+        "axis": "causal ownership / who is forced to act",
+        "mechanism": "The protagonist chooses to unmake the witness \u2014 pulls the copy back into the semicircle, closes the seam, over-carves the OPEN line, re-closes the door \u2014 reclaiming unmeasurability at the cost of the lever; the system's counter-move is a retreat + widening: the test reverts to 'will you flinch' while widening to the city",
+        "coherence": "PASS (Steward + Replay); structurally coherent, but a retreat, not an advance: it reverts the test to its pre-040a-flinch form and re-closes the door/OPEN carving the M1 head spent opening",
+        "status": "DEFERRED REFERENCE \u2014 not a parallel branch (M4 precedent, cycle 20260830T180000Z): its widened-test state reuses the already-established 040b/M4 mechanism and collides with 040b at a future reconvergence",
+        "residual": "N2's mechanism (the protagonist unmaking the witness to reclaim unmeasurability) is recombinable \u2014 it is the other half of the N1/N2 fork and can be recombined as a future choice once N1's reclassification state is established.",
+        "recombine": true
+      }
+    ],
+    "orphaned_scenes": [
+      {
+        "path": "story/scenes/040a-the-second-question.md",
+        "reason": "011's terminal link was re-routed to 022-the-lattice (M3, cycle 20260905T030002Z); no choice link now targets 040a-the-second-question.md. Preserved as a structural reference for a downstream cycle that may re-purpose it (e.g., as the Temple's second question, replacing 040b) or delete it. No change from the prior cycle.",
+        "cycle": "20260905T030002Z"
+      }
+    ]
+  },
+  "reader_contract": {
+    "fiction_first": true,
+    "no_internal_node_ids_in_reader_surface": true,
+    "no_system_conditions_in_reader_choices": true,
+    "branch_ancestry_must_remain_readable": true,
+    "active_frontiers_must_be_visible": true,
+    "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
+  },
+  "last_cycle": {
+    "cycle_id": "20261010T030001Z",
+    "status": "passed",
+    "outcome": "advance",
+    "mutation": "M-S1",
+    "mutation_title": "Give the Temple the Test",
+    "canonical_head": "story/scenes/040e-the-work-becomes-the-record.md",
+    "summary": "ADVANCE on the temple line: 040b's question-frontier is replaced by a two-way dilemma fork (040b-1: give the fragment to the temple's iron; 040b-2: keep it and answer the citywide test on the runner's route). The temple line gains forward motion for the first time since 022b. 040b is no longer a leaf; 040b-1 and 040b-2 are the new temple leaves. 8 leaves replaced by 10. No reconvergence, no deletion, WITHHELD invariant held.",
+    "files_changed": [
+      "story/scenes/040b-the-second-question.md",
+      "story/scenes/040b-1-the-temple-takes-the-test.md",
+      "story/scenes/040b-2-the-runner-keeps-the-fragment.md",
+      "story_room/frontier.json",
+      "story_room/state/frontiers.json",
+      "story_room/reports/20261010T030001Z/"
+    ],
+    "word_counts": {
+      "040b-1-the-temple-takes-the-test": 448,
+      "040b-2-the-runner-keeps-the-fragment": 438
+    },
+    "constraints_verified": [
+      "Both new scenes are within the 250-450 preferred band and below the 550 hard ceiling",
+      "WITHHELD invariant held — protagonist never named to the reader in either branch",
+      "No deletion, no reconvergence; 8 leaves replaced by 10 (040b → 040b-1 + 040b-2)",
+      "040b ends with two choice links and NOT a frontier block; both new leaves end with frontier blocks and NO choice links",
+      "The two branches differ in knowledge, obligation, and spent resources (passing the swap test in advance)",
+      "The temple line gains forward motion: 040b was one living scene long; now two leaves with distinct pressures",
+      "No recursive abstraction chains at scene endings (the 040a-1/040a-2 defect is not repeated)",
+      "The acolyte's objective (contain, don't create subjects) is preserved in both branches",
+      "P'taxx is present in 040b-1 (temple line); absent in 040b-2 (the protagonist leaves the shop alone with the fragment)"
+    ],
+    "replay": {
+      "final": "passed",
+      "causality_continuity": "passed",
+      "audience_interactivity_prose": "passed",
+      "note": "Independent replay after prose editing verified the 040b fork wiring, route-specific state, 10-leaf graph, state ledgers, control paths, and publication prose gate. Delegation budget note: cold walks 0-1 were real delegated agents; walk 2, all specialist judges, governing judge, structural editor, canon steward, dramaturge, and replay were performed by the Story Director in-role with role isolation preserved, due to the one-shot subagent budget (2/2) being exhausted after the two cold walks."
+    }
+  }
+}

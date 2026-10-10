@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "raw_books": [
+    {
+      "id": "book1",
+      "title": "The Furbidden Voyd",
+      "path": "/home/patrick/Gate_of_Nyandor/book1_text.txt",
+      "sha256": "0bc2d1e91ef64a30bfe6d5339624968368343e36ac1ac2b4212244e93d4e6fae",
+      "bytes": 586591
+    },
+    {
+      "id": "book2",
+      "title": "The Divergent Path",
+      "path": "/home/patrick/Gate_of_Nyandor/book2_text.txt",
+      "sha256": "f2ac65e72dd98eccce224c3d111e1d226c7fc51a41f98254b4f51b0d4fd7e90a",
+      "bytes": 622970
+    }
+  ],
+  "policy": "Raw books are evidence-only fallback sources. Do not imitate or reuse their prose unless explicitly requested."
+}
