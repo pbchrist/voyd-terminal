@@ -39,17 +39,36 @@
         {"cause": "The protagonist unmakes the witness — pulls the copy back, closes the seam, over-carves the OPEN line, re-closes the door.", "effect": "The copy is a cat again; the lever is gone; the method's test reverts to 'Will you flinch?' and widens to Faelspire; the protagonist reclaims unmeasurability at the cost of the lever.", "source": "story/scenes/040a-2-the-witness-unmade.md"}
       ]
     },    {
-      "branch_id": "temple_citywide_test",
-      "scene": "story/scenes/040b-the-second-question.md",
+      "branch_id": "temple_takes_the_test",
+      "scene": "story/scenes/040b-1-the-temple-takes-the-test.md",
       "location": "P'taxx's shop beneath the widened ceiling crack",
-      "facts": ["The protagonist resisted a second induced look-away.", "The iron reliquary bears the protagonist's withheld name.", "The fragment widened its test from the protagonist to Faelspire."],
-      "knowledge": {"protagonist": ["fragment_method_known", "the repetition can be resisted", "the city is now being tested"], "P'taxx": ["the reliquary bears the protagonist's name"], "young_acolyte": ["the fragment startled, recorded, and repeated the test"]},
-      "relationships": [{"with": "young acolyte", "state": "present; actively preventing P'taxx from becoming another subject"}],
-      "irreversible_changes": ["The protagonist's name is burned onto the reliquary.", "The fragment has begun a citywide test."],
-      "spent_resources": ["anonymity"],
-      "open_pressures": ["Stop or redirect the citywide test before more cats become subjects."],
+      "facts": ["The protagonist gave the fragment to the temple's reliquary.", "The fragment is contained in iron that bears the protagonist's withheld name.", "The citywide test is stopped; the stillness in the street is the test waiting for the iron to say otherwise.", "The satchel now carries a temple seal the palace did not sign.", "The acolyte's trust is a ledger the temple keeps."],
+      "knowledge": {"protagonist": ["fragment_method_known", "the repetition can be resisted", "the city is now being tested", "the temple's method is to contain and to send for the one the iron bears when it wakes", "the satchel's neutrality is spent: the palace will notice a seal it did not sign"], "P'taxx": ["the reliquary bears the protagonist's name", "the temple contains; it does not chase", "the iron will send for the protagonist when it wakes"], "young_acolyte": ["the fragment startled, recorded, and repeated the test", "the iron holds both the fragment and the name", "the protagonist is the one the iron will send for"]},
+      "relationships": [{"with": "young acolyte", "state": "present; the temple's debt is owed to the protagonist and will be collected by the temple; the acolyte's trust is a ledger the temple keeps"}, {"with": "P'taxx", "state": "present; alarmed; the protagonist has carried the temple's method out of his shop; the satchel's neutrality is spent"}],
+      "irreversible_changes": ["The fragment is contained in the temple's iron; it cannot be re-freed without cost.", "The protagonist's name is burned onto the reliquary and the reliquary is the temple's method.", "The satchel's neutrality is spent: it now carries a temple seal the palace did not sign."],
+      "spent_resources": ["anonymity", "the fragment (now in the temple's iron)", "the satchel's neutrality"],
+      "open_pressures": ["What the iron does when it wakes — whether the protagonist can refuse to be sent.", "What the palace does when its runner's satchel carries a seal the palace never issued.", "Whether the contained fragment can be re-freed without cost, and what the temple does when it tries."],
       "available_actions": [],
-      "causal_chain": [{"cause": "The protagonist refuses to repeat the recorded look-away.", "effect": "The fragment fails on the protagonist and widens its test to Faelspire.", "source": "story/scenes/040b-the-second-question.md"}]
+      "causal_chain": [
+        {"cause": "The protagonist refuses to repeat the recorded look-away.", "effect": "The fragment fails on the protagonist and widens its test to Faelspire.", "source": "story/scenes/040b-the-second-question.md"},
+        {"cause": "The protagonist gives the fragment to the temple's reliquary.", "effect": "The fragment is contained in iron that bears the protagonist's name; the citywide test is stopped; the satchel carries a temple seal; the temple will send for the protagonist when the iron wakes.", "source": "story/scenes/040b-1-the-temple-takes-the-test.md"}
+      ]
+    },
+    {
+      "branch_id": "runner_keeps_the_fragment",
+      "scene": "story/scenes/040b-2-the-runner-keeps-the-fragment.md",
+      "location": "the street beyond P'taxx's shop",
+      "facts": ["The protagonist kept the fragment in the satchel and refused the temple's containment.", "The acolyte did not follow; the temple contains and does not chase.", "The citywide test now travels the runner's route: every delivery is a question asked of a cat who must sign.", "The method's asking now works through the satchel, the seals, and the weight of the unfinished — the route the city already measures the runner by.", "The acolyte saw the refusal and will remember it."],
+      "knowledge": {"protagonist": ["fragment_method_known", "the repetition can be resisted", "the city is now being tested", "the temple contains; it does not chase", "the test now travels the runner's route: every delivery is a question asked of a cat who must sign", "the acolyte saw the refusal and will remember it"], "P'taxx": ["the reliquary bears the protagonist's name", "the runner carries the test out of his shop", "the work is the one the palace signs out; the test is the one the city signs in"], "young_acolyte": ["the fragment startled, recorded, and repeated the test", "the runner refused the containment", "the temple will remember the refusal"]},
+      "relationships": [{"with": "young acolyte", "state": "refused; the acolyte saw the refusal and will remember it; the temple will try containment again and will remember what it cannot contain"}, {"with": "P'taxx", "state": "present; the runner carried the test out of his shop; the work and the test are now carried together"}],
+      "irreversible_changes": ["The protagonist's anonymity is spent on the route: the city measures a runner by the satchel, and the satchel carries the method now.", "The acolyte's trust is spent: he saw the refusal and will remember it.", "The citywide test is unchecked and now has a carrier."],
+      "spent_resources": ["anonymity on the runner's route", "the acolyte's trust"],
+      "open_pressures": ["What the test does when it reaches a specific delivery — a named cat, a named correction, a named signing.", "Whether the method's asking through the runner's work is the one the method has not yet anticipated.", "What the temple does when its containment fails on a runner it did not send."],
+      "available_actions": [],
+      "causal_chain": [
+        {"cause": "The protagonist refuses to repeat the recorded look-away.", "effect": "The fragment fails on the protagonist and widens its test to Faelspire.", "source": "story/scenes/040b-the-second-question.md"},
+        {"cause": "The protagonist keeps the fragment in the satchel and refuses the temple's containment.", "effect": "The citywide test now travels the runner's route; the protagonist's anonymity is spent on the route; the acolyte's trust is spent; the test is unchecked and has a carrier.", "source": "story/scenes/040b-2-the-runner-keeps-the-fragment.md"}
+      ]
     },
     {
       "branch_id": "stray_cistern_kit",

@@ -68,6 +68,10 @@ So it begins asking the city.
 
 ---
 
-## ◉ ACTIVE FRONTIER
+## Choose your path
 
-The fragment has shown its method: interrupt, provoke a look-away, preserve it, repeat the test. You broke the repetition, but the reliquary now bears your name and the system has widened its test to Faelspire. It is no longer testing only you.
+### [Give the fragment to the temple's iron →](040b-1-the-temple-takes-the-test.md)
+The reliquary bears your name and the temple's method is to contain. Hand over the fragment, and the test stops — but the iron will send for you when it wakes, and the satchel's neutrality is the debt the temple will collect.
+
+### [Keep the fragment and answer the test yourself →](040b-2-the-runner-keeps-the-fragment.md)
+The temple contains; it does not chase. Keep the fragment in your satchel, and the test keeps asking the city — now through the route the city already measures you by, and every delivery becomes a question asked of a cat who must sign.

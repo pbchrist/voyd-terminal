@@ -2,5 +2,5 @@
   "status": "passed",
   "human_input_required": false,
   "final_replay": "passed",
-  "summary": "[route: local-qwen] ADVANCE cycle: the frontier's corridor of single exits was healed by forking the two terminal leaves 040e (Carry vs Refuse) and 040a (Let the witness stand vs Unmake the witness) into four new reader-facing scenes, raising reachable live leaves from 6 to 8 with no branch loss or reconvergence; validator passed, independent final replay passed, protagonist name stayed WITHHELD, all scenes within the 550-word hard ceiling."
+  "summary": "ADVANCE on the temple line: 040b's question-frontier replaced by a two-way dilemma fork (040b-1: give the fragment to the temple's iron; 040b-2: keep it and answer the citywide test on the runner's route); 8 leaves became 9; WITHHELD invariant held; no reconvergence; no deletion; validation PASS with one advisory word-count warning on 040b-1 (524, preferred 250-450, below the 550 ceiling); final replay passed all five gates."
 }

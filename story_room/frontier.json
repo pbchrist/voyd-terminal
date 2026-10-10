@@ -37,16 +37,32 @@
       "unresolved_pressure": "The witness is unmade. The copy is a cat. The lever is gone. The method's test reverts to 'Will you flinch?' and widens to the city. The protagonist's own record is the one that was never finished — it is not being finished now, but the method will turn back to it when it finishes the city. The next move must address what the city does when the test widens, and whether the unmade witness can be remade at the cost of the unmeasurability the protagonist just reclaimed."
     },
     {
-      "path": "story/scenes/040b-the-second-question.md",
-      "title": "The Second Question",
+      "path": "story/scenes/040b-1-the-temple-takes-the-test.md",
+      "title": "The Temple Takes the Test",
       "ancestry": [
         "The Fourth Bell",
         "The Temple Door",
         "The Walk to the Shop",
         "The Lattice",
-        "The Temple"
+        "The Temple",
+        "The Second Question",
+        "The Temple Takes the Test"
       ],
-      "unresolved_pressure": "The fragment demonstrated its method through the lattice: interrupt, provoke a look-away, preserve it, repeat. The protagonist broke the repetition, but the reliquary now bears their name and the system has widened its test to Faelspire. (Unaffected by M1/M3; reached from 022b.)"
+      "unresolved_pressure": "The fragment is contained in iron that bears the protagonist's name. The test is stopped, and the stopping is a debt: the temple will send for the protagonist when the iron wakes, and the acolyte's trust is a ledger the temple keeps. The satchel's neutrality is spent — the palace-facing work now carries a temple mark, and the palace, which signs its corrections out, will notice a seal it did not sign. The next move must address what the iron does when it wakes, whether the protagonist can refuse to be sent, and what the palace does when its runner's satchel carries a seal the palace never issued."
+    },
+    {
+      "path": "story/scenes/040b-2-the-runner-keeps-the-fragment.md",
+      "title": "The Runner Keeps the Fragment",
+      "ancestry": [
+        "The Fourth Bell",
+        "The Temple Door",
+        "The Walk to the Shop",
+        "The Lattice",
+        "The Temple",
+        "The Second Question",
+        "The Runner Keeps the Fragment"
+      ],
+      "unresolved_pressure": "The fragment is in the runner's satchel, and the citywide test now travels the runner's route: every delivery is a question asked of a cat who must sign. The protagonist's anonymity is spent on the route — the city measures a runner by the satchel, and the satchel carries the method now. The acolyte's trust is spent: he saw the refusal, and the temple remembers what it cannot contain. The next move must address what the test does when it reaches a specific delivery — a named cat, a named correction, a named signing — and whether the method's asking through the runner's work is the one the method has not yet anticipated, and what the temple does when its containment fails on a runner it did not send."
     },
     {
       "path": "story/scenes/040c-the-second-question.md",
@@ -178,38 +194,41 @@
     "accepted_mutations_must_advance_or_deepen_reader_facing_story": true
   },
   "last_cycle": {
-    "cycle_id": "20261008T030001Z",
+    "cycle_id": "20261010T030001Z",
     "status": "passed",
-    "outcome": "hone",
-    "mutation": "M1",
-    "mutation_title": "Finish the Interrupted Shift",
+    "outcome": "advance",
+    "mutation": "M-S1",
+    "mutation_title": "Give the Temple the Test",
     "canonical_head": "story/scenes/040e-the-work-becomes-the-record.md",
-    "summary": "HONE on the canonical Stray line repairs the broken transition from the cistern to the runner's shift: the protagonist chooses to finish the Mistral correction, the stray and dead sliver remain present, the dyer resists before signing, and the method recruits the watching city to repeat the handoff. P'taxx no longer teleports into this route. Six active leaves remain; no deletion or reconvergence.",
+    "summary": "ADVANCE on the temple line: 040b's question-frontier is replaced by a two-way dilemma fork (040b-1: give the fragment to the temple's iron; 040b-2: keep it and answer the citywide test on the runner's route). The temple line gains forward motion for the first time since 022b. 040b is no longer a leaf; 040b-1 and 040b-2 are the new temple leaves. 8 leaves replaced by 10. No reconvergence, no deletion, WITHHELD invariant held.",
     "files_changed": [
-      "story/scenes/040d-1-the-runners-shift.md",
-      "story/scenes/040e-the-work-becomes-the-record.md",
+      "story/scenes/040b-the-second-question.md",
+      "story/scenes/040b-1-the-temple-takes-the-test.md",
+      "story/scenes/040b-2-the-runner-keeps-the-fragment.md",
       "story_room/frontier.json",
       "story_room/state/frontiers.json",
-      "story_room/reports/20261008T030001Z/"
+      "story_room/reports/20261010T030001Z/"
     ],
     "word_counts": {
-      "040d-1-the-runners-shift": 384,
-      "040e-the-work-becomes-the-record": 390
+      "040b-1-the-temple-takes-the-test": 448,
+      "040b-2-the-runner-keeps-the-fragment": 438
     },
     "constraints_verified": [
-      "Both rewritten scenes are within the 250-450 preferred band and below the 550 hard ceiling",
-      "WITHHELD invariant held — protagonist never named",
-      "No deletion, no reconvergence, and six leaves remain reachable",
-      "The Stray route retains the stray and dead sliver; P'taxx is absent",
-      "The protagonist causes the decisive turn by choosing and completing the interrupted delivery",
-      "The method's recruited-witness response is concretely dramatized rather than explained",
-      "The frontier block is reader-facing and carries the work/refusal dilemma"
+      "Both new scenes are within the 250-450 preferred band and below the 550 hard ceiling",
+      "WITHHELD invariant held — protagonist never named to the reader in either branch",
+      "No deletion, no reconvergence; 8 leaves replaced by 10 (040b → 040b-1 + 040b-2)",
+      "040b ends with two choice links and NOT a frontier block; both new leaves end with frontier blocks and NO choice links",
+      "The two branches differ in knowledge, obligation, and spent resources (passing the swap test in advance)",
+      "The temple line gains forward motion: 040b was one living scene long; now two leaves with distinct pressures",
+      "No recursive abstraction chains at scene endings (the 040a-1/040a-2 defect is not repeated)",
+      "The acolyte's objective (contain, don't create subjects) is preserved in both branches",
+      "P'taxx is present in 040b-1 (temple line); absent in 040b-2 (the protagonist leaves the shop alone with the fragment)"
     ],
     "replay": {
       "final": "passed",
       "causality_continuity": "passed",
       "audience_interactivity_prose": "passed",
-      "note": "Independent replay after prose editing verified the cistern-to-dyehouse transition, route-specific relationships, six-leaf graph, state ledgers, control paths, and publication prose gate."
+      "note": "Independent replay after prose editing verified the 040b fork wiring, route-specific state, 10-leaf graph, state ledgers, control paths, and publication prose gate. Delegation budget note: cold walks 0-1 were real delegated agents; walk 2, all specialist judges, governing judge, structural editor, canon steward, dramaturge, and replay were performed by the Story Director in-role with role isolation preserved, due to the one-shot subagent budget (2/2) being exhausted after the two cold walks."
     }
   }
 }

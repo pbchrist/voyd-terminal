@@ -1,0 +1,45 @@
+{
+  "path": ["000", "010", "011", "022", "022a", "040e", "040a", "040a-make", "040a-2", "030"],
+  "wanted": [
+    "In 000 (The Fourth Bell), after the fragment speaks into my head, I wanted to know what it had 'filed' from my backward jerk and whether that frame was a threat or a gift — the scene withholds both.",
+    "In 000, when three cats each recognize the fragment at once (P'taxx, the acolytes, the stray), I wanted to know why all three were already moving — it reads as the city having a plan for the fragment before I even pick it up.",
+    "In 010 (The Antiquarian), I wanted to know what is inside the scroll tubes in my own satchel — two years of carrying them and never knowing — and I did not get it, only a hint.",
+    "In 011 (The Room Behind the Room), I wanted to know what the copies are: cats in six eras' clothes, all wearing my face, and one with a broken crown. I wanted their names or their origin. I got 'You kept the wrong book' and nothing else.",
+    "In 022 (The Lattice), I wanted to see what the shadow above the palace is before it reaches the city — the text literally says I looked for that reason, and I wanted a face or a shape, but I only got a hand closing into a ring.",
+    "In 040a (The Witness You Made), I wanted the seam to name what it is doing to me in plain words — 'become the subject of a reading you did not choose to be in' is close but stays in the story's own vocabulary.",
+    "In 030 (The Cat Who Heard It First), I wanted the stray to say what the cistern actually is — I only got 'it wants to replay you' and a dead sliver."
+  ],
+  "feared": [
+    "In 011, that the high door reading me means my real name — the one Faelspire does not know — is now in the stone and cannot be taken back; P'taxx confirms it, which made me fear the rest of the walk is about managing that permanent state rather than reversing it.",
+    "In 022, that the hand reaching down through the city would land on me before I could un-look — the text says 'You cannot un-look,' and I braced for that to be the ending.",
+    "In 040a-make (Make the Witness Work), that giving the seam my look-away on purpose would make the copy's filing stick to me too — it almost does; the record about me becomes 'the one it is finishing' and I feared the next scene would close it.",
+    "In 040a-2 (The Witness Unmade), that the test widening to the whole city means I just traded a personal ending for a city-wide one, and that 'it is not being finished now' is only a delay, not a resolution."
+  ],
+  "attention_intensified": [
+    "In 011, when the oldest copy says 'You kept the wrong book' and the fragment is pulled into the high door — the door reading the cat instead of the object is a clean, sharp reversal that made me read the next three paragraphs twice.",
+    "In 022, the moment I look up at the shadow: 'It measures looking away. It has no word for looking back.' Two lines, and the whole mechanic of the story snaps into place.",
+    "In 040e (The Crossing Question), when the filed frame from the square is laid back across the shop floor and the voice asks 'Will you do it twice?' — I was physically leaning in because the test is literally being re-run in front of me.",
+    "In 040a-make, when I let my eyes fall 'one slow inch' and the ledger overwrites my face with the copy's flinch — the trick of making the method file the wrong subject by feeding it my own angle is the first time I felt I understood what I was doing as a player.",
+    "In 030, when the dead sliver cracks and the cistern answers in my own voice saying 'Do not let him open it' — my own voice coming from a hole in the ground is a genuinely unsettling beat."
+  ],
+  "attention_weakened": [
+    "In 022a (The Filing), the middle stretch describing the pale lines closing around my ribs and the floor dropping a second time — I skimmed it because I'd already seen the lattice-drop mechanic in 022 and was waiting for the choice.",
+    "In 040a (The Witness You Made), the repeated beat 'the seam is waiting / the light is aimed / the word OPEN is held' appears almost verbatim twice in one scene and I started skimming the second pass.",
+    "In 040a-2, the closing paragraph where the shadow spreads its fingers over Faelspire — I read it but it landed as a restatement of the frontier block I was already expecting."
+  ],
+  "confused": [
+    "In 010, P'taxx's line 'I have several things where several things should not be' — I'm not sure if he's admitting the corridor has always been there, or if it appeared because of the fragment, and the scene moves on before clarifying.",
+    "In 011, why the copies have my face if they're from six different eras — are they my past/future selves, copies made by the same method, or something else? The scene never says, and it matters for how I should trust them later.",
+    "In 022, 'Three routes will register that act in different bodies' — I understood the idea, but when 022a drops me back in the shop I'm not sure whether the temple and stray routes are still 'happening' somewhere or whether my choice in 000 collapsed them. The lattice's 'drops each traveler into the consequence their route earned' implies parallel consequences I can't see.",
+    "In 022a, the copy 'stepping out of the semicircle' — I had not been told there was a semicircle of copies in this room's version of events (011's copies were in the chamber, not the shop), so I was briefly lost on which copy this was.",
+    "In 040e, 'The high door rings' is in italics as something the Lattice thinks for me, but then P'taxx says 'You held it' as if the ring happened in the room I left — I wasn't sure if the ring is real in the shop or only in the lattice's projection of it."
+  ],
+  "residue": [
+    "The image of the high door's title: 'Things That Happened Because You Looked Away' — it stayed with me as the most concrete statement of what the whole system does.",
+    "The line 'It measures looking away. It has no word for looking back.' — it reframed every 'hold your gaze' moment after it as the one action the method can't process.",
+    "The feeling of the square in 000 going 'Not quiet. Still.' — the whole city frozen while one fragment talks to one cat; that stillness comes back as the city-wide flinch in 040a-2 and I expect it to matter in whatever scene comes next.",
+    "The unresolved question of the withheld name: every route (the door, the reliquary, the cistern) wants it, but no one — not P'taxx, not the acolyte, not the stray — ever says it, and I never learn what it is or why it matters beyond 'it has let you be unmeasured.'",
+    "The stray's cistern, still climbing, with my own voice and his own voice coming out of it asking for different things — I closed the walk there and I want to know what the cistern does next, because it's the only threat in the story that doesn't talk in the method's 'will you flinch' register.",
+    "The copy that is no longer a cat but a subject standing for the ledger — I keep picturing it in the shop with its eyes on the floor, and I'm not sure the story has a way to unmake it that I've seen."
+  ]
+}
